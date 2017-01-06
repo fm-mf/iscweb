@@ -1,76 +1,45 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
-<div class="container">
+    <h1>Registrace do Buddy Programu</h1>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="col-sm-12">
+            <p class="description">
+                Registrací získáš přístup do databáze přijíždějících zahraničních studentů.
+            </p>
+            <p class="description">
+                V případě, že ses již registroval(a), pokračuj na <a href="https://www.isc.cvut.cz/muj-buddy/">přihlašovací stránku</a>.
+            </p>
         </div>
     </div>
-</div>
+
+    {!! Form::open(['url' => '/user/register']) !!}
+        @include('auth.partials.user')
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Buddy Kodex</h2>
+            <p class="grey">
+            <p>Ke své úloze se stavíme zodpovědně a zahraničním studentům se snažíme pomáhat - to však neznamená, že jsme jejich sluhy. Naše vztahy by měly být převážně kamarádské. Zároveň si však uvědomujeme, že naše jednání ovlivňuje pověst ISC, ČVUT a potažmo celé České republiky. Proto se chováme tak, abychom ji nepoškozovali.</p>
+            <p>Nebojíme se komunikovat i v případě, že cizí jazyky nejsou naší silnou stránkou. Naopak, v poznávání zahraničních studentů vidíme obrovskou příležitost a sami se od nich chceme něco naučit. V žádném případě je však nezneužíváme k vlastnímu prospěchu, ani ke komerčním účelům.</p>
+            <p>Stává se, že si s nějakou situací nevíme rady. Jsme však jeden tým, a vždy se můžeme obrátit na ISC s žádostí o pomoc (<a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>).</p>
+        </div>
+
+    </div>
+
+    <div class="checkbox">
+        <label class="col-sm-12">
+            {{ Form::checkbox('kodex') }} Slibuji, že se budu držet Buddy kodexu.
+        </label>
+    </div>
+
+        {{ Form::bsSubmit('Registrovat') }}
+    {!! Form::close() !!}
+
+    <div class="footer row">
+        <div class="col-sm-12">
+            <p>V případě technických potíží nás kontaktuj na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
+            <p>&copy; 2016 | International Student Club CTU in Prague, z.s.</p>
+        </div>
+    </div>
 @endsection

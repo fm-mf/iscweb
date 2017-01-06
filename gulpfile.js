@@ -14,6 +14,7 @@ require('laravel-elixir-vue-2');
  */
 
 elixir((mix) => {
-    mix.sass('web/web.scss', 'public/css/web.css')
+    mix.sass('web/web.scss', 'public/css/web.css').sass('auth/user.scss', 'public/css/user.css')
+    .sass('partak/partaknet.scss', 'public/css/partaknet.css')
        .webpack('app.js');
 });

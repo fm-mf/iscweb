@@ -12,26 +12,14 @@
 */
 
 
-Route::group(['namespace' => 'Web', 'prefix' => ''], function()
-{
-    Route::get('/', function() { return view('web.home'); });
-    Route::get('/about-us', function() { return view('web.about'); });
-    Route::get('/buddy-program', function() { return view('web.buddy-program'); });
-    Route::get('/activities', function() { return view('web.activities'); });
-    Route::get('/activities/language-programs', function() { return view('web.activities.languages'); });
-    Route::get('/activities/sports', function() { return view('web.activities.sports'); });
-    Route::get('/activities/integreat', function() { return view('web.activities.integreat'); });
-    Route::get('/activities/trips', function() { return view('web.activities.trips'); });
-    Route::get('/contact', function() { return view('web.contact'); });
-    Route::get('/calendar', function() { return view('web.calendar'); });
-});
 
-/*
+
 Route::group(['namespace' => 'Partak', 'prefix' => 'partak'], function()
 {
-    Route::get('/', 'DashboardController@index')->middleware('can:partaknet');
-    Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
+    Route::get('/', 'DashboardController@index')->middleware('auth');
+    //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
 });
+
 
 Route::group(['namespace' => 'Buddy', 'prefix' => 'mujbuddy'], function()
 {
@@ -49,4 +37,17 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
     Route::get('/register', 'RegisterController@showRegistrationForm');
     Route::post('/register', 'RegisterController@register');
 });
-*/
+
+Route::group(['namespace' => 'Web', 'prefix' => ''], function()
+{
+    Route::get('/', function() { return view('web.home'); });
+    Route::get('/about-us', function() { return view('web.about'); });
+    Route::get('/buddy-program', function() { return view('web.buddy-program'); });
+    Route::get('/activities', function() { return view('web.activities'); });
+    Route::get('/activities/language-programs', function() { return view('web.activities.languages'); });
+    Route::get('/activities/sports', function() { return view('web.activities.sports'); });
+    Route::get('/activities/integreat', function() { return view('web.activities.integreat'); });
+    Route::get('/activities/trips', function() { return view('web.activities.trips'); });
+    Route::get('/contact', function() { return view('web.contact'); });
+    Route::get('/calendar', function() { return view('web.calendar'); });
+});
