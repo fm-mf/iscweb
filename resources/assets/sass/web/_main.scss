@@ -1,0 +1,309 @@
+p {
+  line-height: 26px;
+}
+
+* {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+h1 {font-size: 25px;
+  text-align:center;
+  font-family:"myriad-pro";
+  @media (min-width: 768px) {
+    margin-top: 40px;
+    margin-bottom:40px;
+  }
+}
+
+h2 {font-size: 17px; text-align:center;}
+h3 {font-size: 15px; text-align:left;}
+h4 {font-size: 14px; text-align:left;}
+
+html, body {
+  height: 100%;
+  font-family:"proxima-nova", "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+  font-size:15px;
+}
+
+.align-center { text-align:center !important;}
+.bigger {font-size:18px !important;}
+.spaced { padding-top: 30px; padding-bottom: 20px; }
+.wrapper { width:100%; overflow:hidden; }
+.img-circle { border:1px solid #F4F4F4; border-radius: 50% !important; }
+
+.s-title {
+  background:#f7f7f7;
+  border:1px solid #e2e2e2;
+  border-left:none;
+  border-right:none;
+  margin:0;
+  padding-top:60px;
+  padding-bottom:60px;
+}
+
+a.current { font-weight: 700; }
+
+.header-wrapper {
+  position:relative;
+  background: url($baseUrl + "img/background.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: table;
+  color: #FFFFFF;
+  min-width: 100%;
+  min-height:700px !important;
+  overflow:hidden;
+}
+
+/*--------------------------------- Navigation bar ------------------------------------*/
+.navbar {padding-top: 30px;}
+.navbar-nav {padding-left:10px; padding-right:10px;}
+
+
+.navbar-dark > div > div > div > ul {
+  background:#3D3D3D;
+}
+
+.navbar-dark > div > div > div > button > span {
+  background-color: #000 !important;
+}
+
+.navbar-light > div > div > div > ul {
+  background: #fff;
+}
+.navbar-light > div > div > div > ul a {
+  color:#000;
+}
+
+.navbar-right {
+  @media (min-width: 768px) {
+    padding:0;
+  }
+}
+.navbar-right ul {
+  padding-right: 10px;
+  padding-right: 10px;
+}
+
+.navbar-header span {
+  color:#fff;
+}
+
+.navbar-brand {
+  width: 70%;
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+}
+
+.brand-light {
+  padding-top:20px;
+  background:#fff;
+}
+
+.navbar-brand img {
+  max-width:250px;
+  width:100%;
+  margin-top: -20px;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #cccccc;
+  border-radius: 1px;
+}
+.nav > li > a {
+  padding: 10px;
+}
+.nav > li > a:hover {
+  background: none;
+  color:#05A0DB;
+}
+
+.navbar-custom a {
+  color: #fff;
+}
+.navbar-toggle {
+  padding: 4px 6px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.navbar-custom-dark {
+  background:#3D3D3D;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.top-nav-collapse  /*Change to this styling after scrolling down */
+{
+  margin-top:-20px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  -webkit-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background: hsla(0,0%,0%,0.90);
+  border-bottom:2px solid hsla(0,0%,0%,1.00);
+}
+
+.top-nav-collapse a {
+  color:#fff !important;
+}
+
+.top-nav-collapse ul {
+  background: none !important;
+}
+
+/* ----------------------------- FOOTER ---------------------------------------- */
+.footer {
+  @media (min-width: 768px) {
+    padding-top:40px; padding-bottom:60px;
+  }
+}
+
+.footer-wrap {
+  background: #0079C1;
+  color: #fff;
+}
+.footer h3 {
+  font-size: 20px;
+  text-align: left;
+  margin-top:0;
+  margin-bottom: 3px;
+}
+.bar {
+  display: block;
+  width: 50px;
+  height: 1px;
+  background-color: #fff;
+  margin-bottom: 3px;
+}
+.footer-wrap a {
+  color: #fff;
+}
+
+/* ----------------------------- SUBPAGE ---------------------------------------- */
+
+
+.subpage {
+  padding-top:30px;
+  padding-bottom:60px;
+}
+
+.subpage h2 {
+  text-align: left;
+  font-weight: 700;
+}
+
+/* ----------------------------- FAQ ---------------------------------------- */
+.faq {
+  background:#2D2D2D;
+  color:#C0C0C0;
+}
+.faq h2, .faq a {color:#fff;}
+#questions {
+  margin-bottom:60px;
+}
+#questions li {
+  text-align:center;
+  margin-bottom:10px;
+}
+#questions p {
+  margin-top:10px;
+  margin-bottom:20px;
+}
+#questions a {
+  font-size: 18px;
+}
+
+/* ----------------------------- LOGO DOWNLOAD ---------------------------------------- */
+
+.modal-header {
+  border: none;
+  color: #fff;
+
+}
+
+.modal-dialog, .modal-header, .modal-body {
+  background: #0079c1;
+}
+
+.modal-body p {
+  opacity: 0.8;
+}
+
+.btn-logo {
+  background: #8ec123;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.btn-logo:hover {
+  background: #a4da32;
+}
+
+.modal-body {
+  text-align: center;
+  color: #fff;
+}
+.modal-body img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+}
+
+/* ----------------------------- TO SORT ---------------------------------------- */
+
+.center {
+  @media (min-width: 768px) {
+    height:500px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.logos {
+  @media (max-width: 768px) {
+    margin-bottom:15px;
+  }
+  @media (min-width: 768px) {
+    text-align:right;
+    position:absolute;
+    bottom:20px;
+    width:100%;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .top-nav-collapse {
+    display:none !important;
+  }
+  .footer-wrap {
+    padding-top: 20px;
+  }
+
+  .ow-detail {
+    border-left:none;
+  }
+}
+
+.trips-list th {
+  text-align: right !important;
+}
+.row-ow th {
+  min-width: 150px;
+}

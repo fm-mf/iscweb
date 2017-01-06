@@ -1,0 +1,63 @@
+@import "contact";
+@import "activities";
+
+.light-bg {
+  background: #eeeeee;
+}
+
+.about-wrapper {
+  width: 100%;
+  min-height: 400px;
+  background-image:url($baseUrl + "img/us-original.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+}
+
+.buddyProgram-wrapper {
+  width: 100%;
+  min-height: 400px;
+  background-image:url($baseUrl + "img/buddy-program.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+}
+.link-buddies {
+  margin-top:60px;
+  margin-bottom:20px;
+  font-size: 20px;
+  text-align:center;
+}
+.link-buddies p {
+  padding-top:20px;
+  padding-bottom:20px;
+}
+.info-buddy {
+  margin-top:30px;
+}
+.info-buddy li {
+  text-align: center;
+}
+
+.info-buddy li p {
+  text-align: left;
+}
+
+.info-buddy li img {
+  width:60%;
+  max-width:250px;
+  margin-top:20px;
+  margin-bottom:30px;
+}
+
+.calendar-wrapper {
+  width: 100%;
+  min-height: 350px;
+  background-image:url($baseUrl + "img/calendar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  overflow:hidden;
+}
