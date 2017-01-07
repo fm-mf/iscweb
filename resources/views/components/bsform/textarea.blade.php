@@ -3,6 +3,6 @@
     @if ($errors->has($name))
         <p class="error-block alert-danger">{{ $errors->first($name) }}</p>
     @endif
-    {{ Form::select($name, $options, $value, array_merge(['class' => 'form-control'], $attributes)) }}
-    <p class="info-block">{{ $info }}</p>
+    {{ Form::textarea($name, $value, array_merge(['class' => 'form-control'], $attributes)) }}
+    <div class="col-sm-6 info">{{ $info }}</div>
 </div>

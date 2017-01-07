@@ -25,15 +25,16 @@
 <div class="register-wrapper">
     <div class="left-column"></div>
     <div class="form-wrapper container container-form">
-        <img src="{{ URL::asset('user/img/logo-reg.png') }}" als="International Student Club" class="logo">
+        <img src="{{ URL::asset('auth/img/logo-reg.png') }}" als="International Student Club" class="logo">
         @yield('content')
     </div>
 </div>
 
 
-@section('javascript')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="j{{ URL::asset('s/chosen.jquery.min.js') }}"></script>
+@section('scripts')
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('js/chosen.jquery.min.js') }}"></script>
 <script>
     $(".chosen").chosen();
 

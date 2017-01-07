@@ -1,16 +1,16 @@
-{{ Form::bsText('email', 'Email', null, []) }}
+{{ Form::bsText('email', 'Email', old('email'), []) }}
 
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('first_name', 'Jmeno', ['class' => 'control-label']) }}
-        {{ Form::text('first_name', null, ['class' => 'form-control']) }}
+        {{ Form::label('first_name', 'Jméno', ['class' => 'control-label']) }}
+        {{ Form::text('first_name', old('first_name'), ['class' => 'form-control']) }}
     </div>
     <div class="col-sm-6 right">
-        {{ Form::label('last_name', 'Prijmeni', ['class' => 'control-label']) }}
-        {{ Form::text('last_name', null, ['class' => 'form-control']) }}
+        {{ Form::label('last_name', 'Příjmení', ['class' => 'control-label']) }}
+        {{ Form::text('last_name', old('last_name'), ['class' => 'form-control']) }}
     </div>
     <div class="col-sm-6 info"></div>
 </div>
 
-{{ Form::bsText('password', 'Heslo', null, []) }}
-{{ Form::bsText('password_confirmation', 'Potvrzeni hesla', null, []) }}
+{{ Form::bsPassword('password', 'Heslo', [], 'Heslo musí obsahovat alespoň 8 znaků.') }}
+{{ Form::bsPassword('password_confirmation', 'Potvrzení hesla', []) }}

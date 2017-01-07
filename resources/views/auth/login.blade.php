@@ -24,21 +24,23 @@
     <div class="center">
         <blockquote><p>"We can't help everyone, but everyone can help someone."</p><p><small>Ronald Raegan</small></p></blockquote>
         <h1>PŘIHLÁŠENÍ DO BUDDY PROGRAMU</h1>
+
+        @if(count($errors))
         <div class="err-msgs">
-            <p><span class="glyphicon glyphicon-remove-circle"></span></p>
+            @foreach($errors->all() as $error)
+                <p><span class="glyphicon glyphicon-remove-circle"></span>{{ $error }}</p>
+            @endforeach
         </div>
-        <form role="form" action="{link User:login}" method="post" onsubmit="mhash();">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email" value="{{ $email }}">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Heslo</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-            </div>
-            <input type="hidden" name="hash" value="">
-            <button type="submit" class="btn btn-default">Přihlásit</button>
-        </form>
+        @endif
+
+        {{ Form::open(['url' => '/user']) }}
+
+            {{ Form::bsText('email', 'Email', null, ['placeholder' => 'Email']) }}
+            {{ Form::bsPassword('password', 'Heslo', ['placeholder' => 'Heslo']) }}
+            {{ Form::bsSubmit('Prihlasit') }}
+
+        {{ Form::close() }}
+
         <div class="login-links">
             <p>Ješte nemáš účet? <a href="{{ url('user/regiter') }}">Zaregistruj se</a>!<br>
                 <a href="{{ url('User:renewPassword') }}">Zapomněl jsi heslo</a>?

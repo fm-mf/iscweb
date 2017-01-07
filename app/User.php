@@ -30,6 +30,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    static function findByHash($hash)
+    {
+        return User::where('hash', $hash)->first();
+    }
+
     public function roles()
     {
         return $this->belongsToMany('\App\Role', 'users_roles', 'id_role', 'id_user');

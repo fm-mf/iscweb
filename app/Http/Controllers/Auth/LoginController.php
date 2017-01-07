@@ -47,11 +47,11 @@ class LoginController extends Controller
     protected function credentials(Request $request)
     {
         $credentials = $request->only($this->username(), 'password');
-        $credentials['password'] = $this->hashPassword($credentials);
+        $credentials['password'] = $this->encryptPassword($credentials);
         return $credentials;
     }
 
-    private function hashPassword($credentials)
+    private function encryptPassword($credentials)
     {
         return hash("sha512", $credentials['email'] . '@' . $credentials['password']);
     }

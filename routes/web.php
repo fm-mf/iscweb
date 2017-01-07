@@ -36,6 +36,12 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
 
     Route::get('/register', 'RegisterController@showRegistrationForm');
     Route::post('/register', 'RegisterController@register');
+
+    Route::get('/profile', 'ProfileController@showProfileForm');
+    Route::patch('/profile', 'ProfileController@updateProfile');
+
+    Route::get('/verify', 'ProfileController@showVerificationForm');
+    Route::post('/verify', 'ProfileController@processVerificationForm');
 });
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
