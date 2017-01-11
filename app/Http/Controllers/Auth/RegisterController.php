@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Models\Buddy;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/user/profile';
 
     /**
      * Create a new controller instance.
@@ -38,7 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('guest');
+        $this->middleware('guest');
     }
 
     /**
@@ -50,10 +51,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'fist_name' => 'required|max:255',
+            'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'kodex' => 'accepted'
         ]);
     }
 
@@ -65,13 +67,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $data['password'] = $this->hashPassword($data['password']);
-        return Buddy::registerBuddy($data)->user;
+        $data['password'] = $this->encryptPassword($data);
+        $buddy = Buddy::registerBuddy($data);
+        return $buddy->person->user;
 
     }
 
-    protected function hashPassword($password)
+    private function encryptPassword($credentials)
     {
-        return $password;
+        return bcrypt(hash("sha512", $credentials['email'] . '@' . $credentials['password']));
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        //
     }
 }

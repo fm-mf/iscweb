@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -30,6 +30,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function person()
+    {
+        return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
+    }
+
     static function findByHash($hash)
     {
         return User::where('hash', $hash)->first();
@@ -37,7 +42,7 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany('\App\Role', 'users_roles', 'id_role', 'id_user');
+        return $this->belongsToMany('\App\Models\Role', 'users_roles', 'id_role', 'id_user');
     }
 
     /**

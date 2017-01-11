@@ -1,0 +1,1 @@
+Buddy program is not open yet

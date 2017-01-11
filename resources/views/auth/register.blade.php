@@ -28,6 +28,9 @@
     </div>
 
     <div class="checkbox">
+        @if ($errors->has('kodex'))
+            <p class="error-block alert-danger">{{ $errors->first('kodex') }}</p>
+        @endif
         <label class="col-sm-12">
             {{ Form::checkbox('kodex') }} Slibuji, že se budu držet Buddy kodexu.
         </label>
