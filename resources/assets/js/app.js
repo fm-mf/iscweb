@@ -14,27 +14,26 @@ require('./bootstrap');
  */
 
 //Vue.component('example', require('./components/Example.vue'));
-Vue.component('exchangestudentstable', require('./components/ExchangeStudentsTable.vue'));
+//Vue.component('exchangestudentstable', require('./components/ExchangeStudentsTable.vue'));
 
 
 class ExchangeStudents {
     constructor (url = null) {
 
-        this.data = [
-           // { person: {first_name : 'Michal', last_name: 'Kral'} },
-        ];
+        this.data = [];
 
         this.filters = {
-            nationality: [1, 2, 3],
-            faculty: [1, 2, 3],
-            school: [],
-            sex : [],
+            countries: [],
+            faculties: [],
+            accommodation: [],
+            arrival:[],
+            sex: []
         };
 
-        this.sortBy = 'name';
-
+        this.sortBy = 'first_name';
         this.page = 1;
-        this.pagesCount;
+        this.pagesCount = 1;
+        this.lastPage = 1;
     }
 
     update() {
@@ -58,14 +57,21 @@ class ExchangeStudents {
         }).done(function(newData) {
             console.log(newData);
             _this.data = newData.data;
-            _this.pagesCount = newData.pages;
+            _this.page = newData.current_page;
+            _this.pagesCount = newData.last_page;
         }).fail(function(error) {
             alert('error');
         });
     }
 
-    changePage(page) {
+    onFilterChanged() {
+        this.page = 1;
+        this.update();
+    }
 
+    goToPage(page) {
+        this.page = page;
+        this.update();
     }
 
     all() {
@@ -85,9 +91,15 @@ const exchangeStudentsApp = new Vue({
         exchangeStudents : new ExchangeStudents()
     },
     methods: {
+        page: function (num) {
+            this.exchangeStudents.goToPage(num)
+        },
         update: function() {
-            this.exchangeStudents.update();
-        }
+            this.exchangeStudents.onFilterChanged();
+        },
+    },
+    created: function() {
+      this.exchangeStudents.update();
     }
 
 });
