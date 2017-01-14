@@ -162,6 +162,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -170,6 +171,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Sichikawa\LaravelSendgridDriver\SendgridTransportServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -231,6 +233,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'JavaScriptPut' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
 
     ],
 

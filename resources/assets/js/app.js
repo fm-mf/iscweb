@@ -13,7 +13,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-//Vue.component('example', require('./components/Example.vue'));
+Vue.component('multiselect', VueMultiselect.default)
+//Vue.component('vmultiselect', require('./components/Multiselect.vue'));
 //Vue.component('exchangestudentstable', require('./components/ExchangeStudentsTable.vue'));
 
 
@@ -26,7 +27,7 @@ class ExchangeStudents {
             countries: [],
             faculties: [],
             accommodation: [],
-            arrival:[],
+            arrivals:[],
             sex: []
         };
 
@@ -88,7 +89,15 @@ const exchangeStudentsApp = new Vue({
             { key: 'first_name', title: 'Jméno' },
             { key: 'last_name', title: 'Příjmení' }
         ],
-        exchangeStudents : new ExchangeStudents()
+        exchangeStudents : new ExchangeStudents(),
+        selected: null,
+        countries: jscountries,
+        faculties: jsfaculties,
+        arrials: jsdays,
+        accommodation: jsaccommodation
+    },
+    ready: function() {
+        alert('ready');
     },
     methods: {
         page: function (num) {
@@ -99,6 +108,7 @@ const exchangeStudentsApp = new Vue({
         },
     },
     created: function() {
+        console.log(jscountries);
       this.exchangeStudents.update();
     }
 

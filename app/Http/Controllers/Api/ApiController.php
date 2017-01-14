@@ -18,7 +18,10 @@ class ApiController extends Controller
             });
         }
 
+
+
         $students = ExchangeStudent::findAll()->bySemester('fall2016');
+
         if (is_array($request->filters)) {
             foreach ($request->filters as $filter => $values) {
                 if ($values) {

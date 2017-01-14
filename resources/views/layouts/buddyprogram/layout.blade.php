@@ -11,6 +11,7 @@
 
     @section('stylesheets')
         <link href="{{ asset('css/buddyprogram.css') }}" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     @show
 
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
@@ -23,7 +24,6 @@
 <script>(function(w,d,s,l,i){ w[l]=w[l]||[];w[l].push({ 'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MPBKF8');</script>
 
 <div class="site-wrapper">
-    @if(false)
     <div class="menu">
         <ul class="nav nav-stacked">
             <li><a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}"><img src="{{ URL::asset('buddyprogram/img/users.png') }}"><br>VOLNÍ STUDENTI</a></li>
@@ -33,9 +33,11 @@
             <li class="logout"><a href="{{ url('user/logout') }}"><img src="{{ URL::asset('buddyprogram/img/log-out.png') }}"><br>ODHLÁSIT</a></li>
         </ul>
     </div>
-    @endif
 
-    @yield('content')
+    <div class="page">
+        @yield('content')
+    </div>
+
 
 </div>
 
@@ -44,16 +46,7 @@
             src="https://code.jquery.com/jquery-3.1.1.js"
             integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
             crossorigin="anonymous"></script>
-    <script src="{{ asset('js/chosen.jquery.min.js') }}"></script>
-    <script>
-        $(".chosen").chosen();
-
-        $(document).ready(function() {
-            $( ".chosen" ).on( "change", function() {
-                window.location.replace("{include #link1}/"+$(this).attr("name")+"/"+$(this).val());
-            });
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 @show
 </body>
 </html>

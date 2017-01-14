@@ -7,26 +7,26 @@
             <tr>
                 <th>Jméno</th>
                 <th>
-                    <select name="countries" class="chosen" data-placeholder="Země" v-model="exchangeStudents.filters.countries" v-on:change="update">
-                        <option value="">Všechny</option>
-                        @foreach($countries as $country)
-                        <option value="{{ $country->id_country }}">{{ $country->full_name }}</option>
-                        @endforeach
-                    </select>
+                    <multiselect :options="countries" :show-labels="false" label="full_name" track-by="id_country" v-model="exchangeStudents.filters.countries" :multiple="true" v-on:input="update"></multiselect>
                 </th>
                 <th>
-                    School
+                    Skola
                 </th>
                 <th>
-                    <select name="faculties" class="chosen" data-placeholder="Fakulty" v-model="exchangeStudents.filters.faculties" v-on:change="update">
-                        <option value="">Všechny</option>
-                        @foreach($faculties as $faculty)
-                            <option value="{{ $faculty->id_faculty }}">{{ $faculty->abbreviation }}</option>
-                        @endforeach
-                    </select>
-                </th>
-                <th>
+                    <multiselect :options="faculties" :show-labels="false" label="abbreviation" track-by="id_faculty" v-model="exchangeStudents.filters.faculties" :multiple="true" v-on:input="update"></multiselect>
 
+                </th>
+                <th>
+                    <multiselect :options="arrivals" :show-labels="false" v-model="exchangeStudents.filters.arrivals" :multiple="true" v-on:input="update"></multiselect>
+
+                </th>
+                <th>
+                    <select name="accommodation" class="chosen" data-placeholder="Koleje" v-model="exchangeStudents.filters.accommodation" v-on:change="update">
+                        <option value="">Všechny</option>
+                        @foreach($accommodations as $accommodation)
+                            <option value="{{ $accommodation->id_accommodation }}">{{ $accommodation->full_name }}</option>
+                        @endforeach
+                    </select>
                 </th>
             </tr>
         </thead>
@@ -36,6 +36,9 @@
                 <td>@{{ student.country.full_name }}</td>
                 <td>@{{ student.school }}</td>
                 <td>@{{ student.faculty.abbreviation }}</td>
+                <td><span v-if="student.arrival">@{{ student.arrival['arrival'] }}</span></td>
+                <td>@{{ student.accommodation.full_name }}</td>
+
             </tr>
         </tbody>
     </table>
@@ -59,5 +62,9 @@
 @stop
 
 @section('scripts')
+    @parent
+    <script src="https://cdn.jsdelivr.net/vue.multiselect/2.0/vue-multiselect.min.js"></script>
     <script src="/js/app.js"></script>
 @stop
+
+@include('footer')

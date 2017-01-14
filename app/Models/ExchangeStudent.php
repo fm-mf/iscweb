@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class ExchangeStudent extends Model
@@ -41,7 +42,12 @@ class ExchangeStudent extends Model
 
     public static function findAll()
     {
-        return ExchangeStudent::with('person.user', 'country', 'faculty');
+        return ExchangeStudent::with('person.user', 'country', 'faculty', 'accommodation', 'arrival');
+    }
+
+    public static function scopeArrivalFilled($query)
+    {
+        $query->has('arrival');
     }
 
     public static function scopeBySemester($query, $semester)
@@ -71,15 +77,29 @@ class ExchangeStudent extends Model
             $values = [$values];
         }
         if ($filter == "countries") {
-            return $query->whereIn('id_country', $values);
+            return $query->whereIn('id_country', self::filterToArray($values, 'id_country'));
         } else if ($filter == "accommodation") {
             return $query->whereIn('id_accommodation', $values);
         } else if ($filter == "faculties") {
             return $query->whereIn('id_faculty', $values);
-        } else if ($filter == "arrival") {
-            //todo: implement
-            return $query;
+        } else if ($filter == "arrivals") {
+            return $query->whereHas('arrival', function($query) use ($values) {
+                $query->where(function($query) use ($values) {
+                    foreach ($values as $value) {
+                        $query->orWhereDate('arrival', '=', Carbon::createFromFormat('d M Y', $value));
+                    }
+                });
+            });
         }
         return $query;
+    }
+
+    public static function filterToArray($values, $key)
+    {
+        $filters = array();
+        foreach ($values as $k => $v) {
+            array_push($filters, $v[$key]);
+        }
+        return $filters;
     }
 }
