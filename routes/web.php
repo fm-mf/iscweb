@@ -11,8 +11,14 @@
 |
 */
 
+if (Request::segment(1) == "user") {
+    App::setLocale('cs');
+}
 
-
+// Redirect legacy links
+Route::get('/muj-buddy/register/update-exchange-profile/{hash}', function($hash) {
+    return redirect('/exchange/' . $hash);
+});
 
 Route::group(['namespace' => 'Partak', 'prefix' => 'partak'], function()
 {
@@ -21,7 +27,7 @@ Route::group(['namespace' => 'Partak', 'prefix' => 'partak'], function()
 });
 
 
-Route::group(['namespace' => 'Buddyprogram', 'prefix' => 'mujbuddy'], function()
+Route::group(['middleware' => 'checkbuddy', 'namespace' => 'Buddyprogram', 'prefix' => 'mujbuddy'], function()
 {
     Route::get('/', 'ListingController@index')->middleware('auth');
     Route::get('/list', 'ListingController@listExchangeStudents')->middleware('auth');
@@ -29,7 +35,6 @@ Route::group(['namespace' => 'Buddyprogram', 'prefix' => 'mujbuddy'], function()
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
 {
-    App::setLocale('cs');
     Route::get('/', 'LoginController@showLoginForm');
     Route::post('/', 'LoginController@login');
     Route::get('/logout', 'LoginController@logout');
@@ -46,13 +51,21 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
     Route::get('/verification-info', 'ProfileController@showVerificationInfo');
     Route::get('/verify/{hash}', 'ProfileController@showVerifyEmail');
 
-    Route::get('/complete', 'ProfileController@complete');
+    Route::get('/complete', 'ProfileController@showComplete');
+});
+
+Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
+{
+    Route::get('/{hash}', 'ProfileController@showProfileForm');
+    Route::patch('/', 'ProfileController@updateProfile');
 });
 
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 {
     Route::post('/avatar', 'AvatarController@upload');
     Route::post('/load', 'ApiController@load');
+
+    Route::post('/liststudents', 'ApiController@load');
 });
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
@@ -67,4 +80,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
         Route::get('/activities/trips', function() { return view('web.activities.trips'); });
     Route::get('/contact', function() { return view('web.contact'); });
     Route::get('/calendar', function() { return view('web.calendar'); });
+    Route::get('/buddy', function () { return "Buddy page"; });
 });
+
+

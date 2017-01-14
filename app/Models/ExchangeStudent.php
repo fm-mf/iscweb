@@ -19,9 +19,19 @@ class ExchangeStudent extends Model
         return $this->belongsToMany('\App\Models\Semester', 'semesters_has_exchange_students', 'id_user', 'id_semester');
     }
 
+    public function accommodation()
+    {
+        return $this->hasOne('\App\Models\Accommodation', 'id_accommodation', 'id_accommodation');
+    }
+
+    public function arrival()
+    {
+        return $this->belongsTo('\App\Models\Arrival', 'id_user', 'id_user');
+    }
+
     public static function findAll()
     {
-        return ExchangeStudent::with('person.user');
+        return ExchangeStudent::with('person.user', 'country');
     }
 
     public static function scopeBySemester($query, $semester)
@@ -43,5 +53,18 @@ class ExchangeStudent extends Model
     public static function scopeWithoutBuddy($query)
     {
         return $query->where('id_buddy', NULL);
+    }
+
+    public static function scopeFilter($query, $filter, $values)
+    {
+        if ($filter == "countries") {
+            return $query->whereIn('id_country', $values);
+        } else if ($filter == "accommodation") {
+            return $query->whereIn('id_accommodation', $values);
+        } else if ($filter == "faculties") {
+            return $query->whereIn('id_faculty', $values);
+        } else if ($filter == "arrival") {
+            //todo: implement
+        }
     }
 }

@@ -16,6 +16,9 @@ class ListingController extends Controller
     public function listExchangeStudents()
     {
         $students = ExchangeStudent::findAll()->bySemester('fall2016')->withoutBuddy()->get();
-        return view('buddyprogram.list')->with(['students' => $students]);
+        $countries = Country
+        return view('buddyprogram.list')->with([
+            'students' => $students
+        ]);
     }
 }

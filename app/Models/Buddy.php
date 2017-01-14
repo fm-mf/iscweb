@@ -11,6 +11,10 @@ class Buddy extends Model
     public $timestamps = false;
     protected $primaryKey = 'id_user';
 
+    protected $fillable = [
+        'id_faculty', 'about', 'phone'
+    ];
+
     public function person()
     {
         return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');

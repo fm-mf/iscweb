@@ -8,10 +8,9 @@
         </div>
     </div>
     <div class="col-sm-8">
-        <label for="avatar">Profilová fotografie</label>
-        <p class="grey" style="vertical-align: middle;">Pro změnu profilové fotky klikni na obrázek. Maximální povolená velikost souboru je 2MB</p>
+        <label for="avatar">{{ trans('forms.profile-picture') }}</label>
+        <p class="grey">{{ trans('forms.profile-picture-info') }}</p>
     </div>
-
 
     <!-- Cropping modal -->
     <div class="modal fade" id="avatar-modal" tabindex="-1" role="dialog" aria-labelledby="avatar-modal-label" aria-hidden="true">
@@ -20,7 +19,7 @@
                 <form class="avatar-form" id="avatar-form" method="post" action="{{ url('api/avatar') }}" enctype="multipart/form-data">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" id="avatar-modal-label">Změna profilové fotky</h4>
+                        <h4 class="modal-title" id="avatar-modal-label">{{ trans('forms.profile-picture-change') }}</h4>
                     </div>
                     <div class="modal-body">
                         <div class="avatar-body">
@@ -29,7 +28,7 @@
                                 <input type="hidden" name="id" value="none">
                                 <input class="avatar-src" name="avatar_src" type="hidden">
                                 <input class="avatar-data" name="avatar_data" type="hidden">
-                                <label for="avatarInput">Soubor s fotografií</label>
+                                <label for="avatarInput">{{ trans('forms.file-with-picture') }}</label>
                                 <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
                             </div>
 
@@ -42,8 +41,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-default" type="button" data-dismiss="modal">Zavřít</button>
-                        <button class="btn btn-primary avatar-save" type="submit">Uložit</button>
+                        <button class="btn btn-default" type="button" data-dismiss="modal"> {{ trans('forms.close') }}</button>
+                        <button class="btn btn-primary avatar-save" type="submit">{{ trans('forms.save') }}</button>
                     </div>
                 </form>
             </div>

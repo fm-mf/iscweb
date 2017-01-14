@@ -42,7 +42,27 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany('\App\Models\Role', 'users_roles', 'id_role', 'id_user');
+        return $this->belongsToMany('\App\Models\Role', 'users_roles', 'id_user', 'id_role');
+    }
+
+    public function isExchangeStudent()
+    {
+        return ExchangeStudent::where('id_user', $this->id_user)->exists();
+    }
+
+    public function isBuddy()
+    {
+        return Buddy::where('id_user', $this->id_user)->where('active', 'y')->exists();
+    }
+
+    public function isUnverifiedBuddy()
+    {
+        return Buddy::where('id_user', $this->id_user)->where('active', 'n')->exists();
+    }
+
+    public function isPartak()
+    {
+        return $this->hasRole('partak');
     }
 
     /**

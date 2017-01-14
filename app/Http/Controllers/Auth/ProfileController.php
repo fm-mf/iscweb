@@ -22,17 +22,22 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    private $allowedDomains = [
+    private static $allowedDomains = [
+        /*********** CVUT **************/
         'fjfi.cvut.cz' => 'fjfi.cvut.cz',
         'fsv.cvut.cz' =>  'fsv.cvut.cz',
         'live.com' => 'live.com'
+        /*********** VSCHT **************/
+        /*********** VSE ***************/
+        /*********** UK ****************/
+        /*********** CULS ****************/
     ];
 
     protected function profileValidator(array $data)
     {
         return Validator::make($data, [
             'phone' => 'max:15',
-            'year' => 'digits:4'
+            'age' => 'digits:4'
         ]);
     }
 
@@ -58,14 +63,16 @@ class ProfileController extends Controller
             $faculties[$faculty->id_faculty] = $faculty->faculty;
         }
 
-        $person = \Auth::user()->person;
-        if ($person->avatar) {
-            $avatar = 'avatars/' . $person->avatar;
+        $user = \Auth::user();
+        $buddy = Buddy::with('person')->find($user->id_user);
+
+        if ($buddy->person->avatar) {
+            $avatar = 'avatars/' . $buddy->person->avatar;
         } else {
             $avatar = 'auth/img/avatar.jpg';
         }
 
-        return view('auth.profile')->with(['faculties' => $faculties, 'avatar' => $avatar]);
+        return view('auth.profile')->with(['faculties' => $faculties, 'avatar' => $avatar, 'buddy' => $buddy]);
     }
 
     public function updateProfile(Request $request)
@@ -73,8 +80,14 @@ class ProfileController extends Controller
         $this->profileValidator($request->all())->validate();
 
         $user = \Auth::user();
+        $buddy = Buddy::with('person')->find($user->id_user);
 
-        if ($this->isEmailVerifiable($user->email)) {
+        $buddy->person->update(['sex' => $request->sex, 'age' => $request->age]);
+        $buddy->update(['about' => $request->about, 'phone' => $request->phone, 'id_faculty' => $request->faculty]);
+
+        if ($user->isBuddy()) {
+            return Redirect::to('/user/profile')->with('success', true);
+        } else if ($this->isEmailVerifiable($user->email)) {
             $this->sendVerificationEmail($user->email);
             return Redirect::to('user/complete')->with(['email' => $user->email]);
         } else {
@@ -116,9 +129,9 @@ class ProfileController extends Controller
         }
     }
 
-    public function complete()
+    public function showComplete()
     {
-        return "Registration complete);
+        return "Registration complete";
     }
 
 
@@ -127,7 +140,7 @@ class ProfileController extends Controller
         return "Registration successful";
     }
 
-    public function isEmailVerifiable($email)
+    private function isEmailVerifiable($email)
     {
         $emailDomain = explode('@', $email)[1];
 
@@ -145,7 +158,7 @@ class ProfileController extends Controller
         return false;
     }
 
-    public function sendVerificationEmail($email)
+    private function sendVerificationEmail($email)
     {
         $person = \Auth::user()->person;
         Mail::to($email)->send(new VerifyUser($person));
