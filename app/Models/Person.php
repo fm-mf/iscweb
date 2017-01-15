@@ -8,6 +8,7 @@ class Person extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'id_user';
+    public $incrementing = false;
 
     protected $fillable = [
         'firs_name', 'last_name', 'age', 'sex', 'diet', 'medical_issues', 'avatar'

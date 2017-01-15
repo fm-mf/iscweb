@@ -1,21 +1,25 @@
 <?php
 
-namespace App\DbConfig;
+namespace App\Settings;
 
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
-class DbConfig implements ConfigContract
+class Settings implements ConfigContract
 {
     protected $items = array();
+
+    const CACHE_KEY = 'settings';
+    const CACHE_TIMEOUT = 10;
+    const TABLE = 'settings';
 
     public function __construct()
     {
 
-        $this->items = Cache::remember('dbConfig', 10, function() {
+        $this->items = Cache::remember(self::CACHE_KEY, self::CACHE_TIMEOUT, function() {
             $items = array();
-            foreach(DB::table('settings')->get() as $settingsRow) {
+            foreach(DB::table(self::TABLE)->get() as $settingsRow) {
                 $items[$settingsRow->key] = $settingsRow->value;
             }
             return $items;
@@ -68,9 +72,9 @@ class DbConfig implements ConfigContract
      */
     public function set($key, $value = null)
     {
-        Cache::forget('dbConfig');
+        Cache::forget(self::CACHE_KEY);
         $this->items[$key] = $value;
-        DB::table('settings')->where('key', $key)->update(['value' => $value]);
+        DB::table(self::TABLE)->where('key', $key)->update(['value' => $value]);
     }
 
     /**
@@ -94,8 +98,8 @@ class DbConfig implements ConfigContract
      */
     public function push($key, $value)
     {
-        Cache::forget('dbConfig');
-        DB::table('settings')->insert(['key' => $key, 'value'=> $value]);
+        Cache::forget(self::CACHE_KEY);
+        DB::table(self::TABLE)->insert(['key' => $key, 'value'=> $value]);
         $this->items[$key] = $value;
     }
 

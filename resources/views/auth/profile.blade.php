@@ -24,7 +24,7 @@
     {{ Form::model($buddy, ['url' => 'user/profile', 'method' => 'patch']) }}
 
         {{ Form::bsText('phone', 'Telefon') }}
-        {{ Form::bsSelect('faculty', 'Fakulta', $faculties, $buddy->id_faculty, ['placeholder' => 'Vyber fakultu...']) }}
+        {{ Form::bsSelect('id_faculty', 'Fakulta', $faculties, $buddy->id_faculty, ['placeholder' => 'Vyber fakultu...']) }}
 
         <div class="form-group row">
             <div class="col-sm-6 left">

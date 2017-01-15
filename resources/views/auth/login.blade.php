@@ -42,7 +42,7 @@
         {{ Form::close() }}
 
         <div class="login-links">
-            <p>Ješte nemáš účet? <a href="{{ url('user/regiter') }}">Zaregistruj se</a>!<br>
+            <p>Ješte nemáš účet? <a href="{{ url('user/register') }}">Zaregistruj se</a>!<br>
                 <a href="{{ url('User:renewPassword') }}">Zapomněl jsi heslo</a>?
             </p>
         </div>

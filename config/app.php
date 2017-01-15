@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'ISC Web Services',
+    'name' => 'Laravel',
 
     /*
     |--------------------------------------------------------------------------
@@ -183,7 +183,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FormServiceProvider::class,
-        App\Providers\DbConfigProvider::class,
+        App\Providers\SettingsProvider::class,
 
     ],
 
@@ -236,6 +236,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'JavaScriptPut' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
+        'Settings' => \App\Settings\Facade::class,
 
     ],
 

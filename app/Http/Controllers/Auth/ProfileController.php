@@ -22,7 +22,7 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    private static $allowedDomains = [
+    public $allowedDomains = [
         /*********** CVUT **************/
         'fjfi.cvut.cz' => 'fjfi.cvut.cz',
         'fsv.cvut.cz' =>  'fsv.cvut.cz',
@@ -82,8 +82,15 @@ class ProfileController extends Controller
         $user = \Auth::user();
         $buddy = Buddy::with('person')->find($user->id_user);
 
-        $buddy->person->update(['sex' => $request->sex, 'age' => $request->age]);
-        $buddy->update(['about' => $request->about, 'phone' => $request->phone, 'id_faculty' => $request->faculty]);
+        $data = [];
+        foreach ($request->all() as $key => $value) {
+            if ($value) {
+                $data[$key] = $value;
+            }
+        }
+
+        $buddy->person->update($data);
+        $buddy->update($data);
 
         if ($user->isBuddy()) {
             return Redirect::to('/user/profile')->with('success', true);

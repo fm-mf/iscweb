@@ -10,6 +10,7 @@ class Buddy extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'id_user';
+    public $incrementing = false;
 
     protected $fillable = [
         'id_faculty', 'about', 'phone'
@@ -46,7 +47,8 @@ class Buddy extends Model
             $person->save();
 
             $buddy = new Buddy;
-            $buddy->id_user = $person->id_user;
+            $buddy->id_user = $user->id_user;
+            $buddy->save();
 
             return $buddy;
         });

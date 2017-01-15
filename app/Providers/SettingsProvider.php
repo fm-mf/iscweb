@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\DbConfig\DbConfig;
+use App\Settings\Settings;
 
-class DbConfigProvider extends ServiceProvider
+class SettingsProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,8 +24,8 @@ class DbConfigProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(DbConfig::class, function ($app) {
-            return new DbConfig();
+        $this->app->singleton('settings', function ($app) {
+            return new Settings();
         });
     }
 }
