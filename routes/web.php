@@ -33,7 +33,7 @@ Route::group(['middleware' => 'checkbuddy', 'namespace' => 'Buddyprogram', 'pref
     Route::get('/list', 'ListingController@listExchangeStudents')->middleware('auth');
     Route::get('/profile/{id}', 'StudentController@showProfile')->middleware('auth');
     Route::get('/become-buddy/{id}', 'StudentController@assignBuddy')->middleware('auth');
-    Route::get('/my-students/', 'ListingController@showMyStudents')->middleware('auth');
+    Route::get('/my-students/', 'ListingController@listMyStudents')->middleware('auth');
 });
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
@@ -70,6 +70,8 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 
     Route::post('/liststudents', 'ApiController@load');
 });
+
+Route::get('/stats', 'Stats\StatsController@showStatistics');
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {

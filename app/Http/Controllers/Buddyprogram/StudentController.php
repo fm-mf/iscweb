@@ -9,40 +9,40 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Settings\Facade as Settings;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
-    private $me;
-    private $dailyLimit = 2;
-
-    public function __construct()
-    {
-        $this->me = Buddy::find(\Auth::user()->id_user);
-    }
-
     public function showProfile($exchangeStudentId)
     {
+        $me = Buddy::find(Auth::id());
         $exchangeStudent = ExchangeStudent::eagerFind($exchangeStudentId);
         $avatar = $exchangeStudent->person->user->avatar;
         if (!$avatar) {
             // todo: default avatar
         }
 
+        $canChoose = $me->pickedStudentsToday() <= Settings::get('limitPerDay', 1);
+
         return view('buddyprogram.profile')->with([
             'exchangeStudent' => $exchangeStudent,
             'avatar' => $avatar,
-            'casChoose' => $this->me->pickedStudentsToday() <= $this->dailyLimit
+            'casChoose' => $canChoose
         ]);
     }
 
     public function assignBuddy($exchangeStudentId)
     {
-        if ($this->me->pickedStudentsToday() <= $this->canPickStudents) {
-            $errors['limitReached'] = 'Dosažen denní limit vybraných zahraničních studentů (' . $this->dailyLimit . ')';
+        $me = Buddy::find(Auth::id());
+        if ($me->pickedStudentsToday() <= Settings::get('limitPerDay', 1)) {
+            $errors['limitReached'] = 'Dosažen denní limit vybraných zahraničních studentů (' . Settings::get('limitPerDay', 1) . ')';
+            return back()->withErrors($errors);
         }
 
         try {
-            DB::transaction(function () use ($exchangeStudentId) {
+            DB::transaction(function () use ($exchangeStudentId, $me) {
                 $exchangeStudent = ExchangeStudent::find($exchangeStudentId);
                 if (!$exchangeStudent) {
                     throw new ModelNotFoundException();
@@ -51,7 +51,7 @@ class StudentController extends Controller
                     throw new AlreadyHasBuddyException();
                 }
 
-                $exchangeStudent->id_buddy = $this->me->id_user;
+                $exchangeStudent->id_buddy = $me->id_user;
                 $exchangeStudent->buddy_timestamp = Carbon::now();
                 $exchangeStudent->save();
             });

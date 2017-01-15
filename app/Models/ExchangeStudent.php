@@ -118,13 +118,13 @@ class ExchangeStudent extends Model
     public static function scopeArriveToday($query)
     {
         return $query->whereHas('arrival', function ($query) {
-            $query->whereDate('arrival', '=', Carbon::now());
+            $query->whereDate('arrival', '=', Carbon::today()->toDateString());
         });
     }
 
     public static function scopePickedToday($query)
     {
-        return $query->whereDate('buddy_timestamp', Carbon::now());
+        return $query->whereDate('buddy_timestamp', '=', Carbon::today()->toDateString());
     }
 
     public static function filterToArray($values, $key)

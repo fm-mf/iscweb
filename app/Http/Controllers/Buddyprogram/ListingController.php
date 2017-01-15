@@ -11,7 +11,8 @@ use App\Models\Faculty;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use JavaScript;
+use Illuminate\Support\Facades\Auth;
+use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
 class ListingController extends Controller
 {
@@ -57,9 +58,9 @@ class ListingController extends Controller
         return view('buddyprogram.list');
     }
 
-    public function showMyStudents()
+    public function listMyStudents()
     {
-        $me = Buddy::find(\Auth::user()->id_user);
+        $me = Buddy::find(Auth::user()->id_user);
 
         $myStudents = $me->exchangeStudents()->with('person.user')->bySemester(Settings::get('currentSemester'))->get();
 

@@ -27,7 +27,7 @@
     <div class="menu">
         <ul class="nav nav-stacked">
             <li><a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}"><img src="{{ URL::asset('buddyprogram/img/users.png') }}"><br>VOLNÍ STUDENTI</a></li>
-            <li><a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}"><img src="{{ URL::asset('buddyprogram/img/user.png') }}"><br>MOJÍ STUDENTI</a></li>
+            <li><a href="{{ action('Buddyprogram\ListingController@listMyStudents') }}"><img src="{{ URL::asset('buddyprogram/img/user.png') }}"><br>MOJÍ STUDENTI</a></li>
             <!--<li><a n:href="Homepage:arrivals"><img src="{$basePath}/img/arrivals.png"><br>PŘÍJEZDY</a></li>-->
             <!--<li><a href="#"><img src="{$basePath}/img/settings.png"><br>MŮJ ÚČET</a></li>-->
             <li class="logout"><a href="{{ url('user/logout') }}"><img src="{{ URL::asset('buddyprogram/img/log-out.png') }}"><br>ODHLÁSIT</a></li>

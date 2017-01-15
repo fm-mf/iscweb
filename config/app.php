@@ -235,7 +235,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'JavaScriptPut' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
+        'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
         'Settings' => \App\Settings\Facade::class,
 
     ],

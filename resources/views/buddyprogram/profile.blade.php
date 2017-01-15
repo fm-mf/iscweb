@@ -58,7 +58,7 @@
             @endif
             @if(!$exchangeStudent->hasBuddy() && $casChoose)
                 <a href="{{ url('mujbuddy/become-buddy/' . $exchangeStudent->id_user) }}" class="btn btn-primary btn">Staň se jeho / jejím Buddym.</a>
-            @elseif ($exchangeStudent->id_buddy === null)
+            @elseif ($exchangeStudent->id_buddy === Auth::id())
                 <div class="show-email col-sm-6">
                     <strong>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</strong> je tvým Buddym!
                     Teď mu můžeš napsat na <a href="mailto:{{ $exchangeStudent->person->user->email }}">{{ $exchangeStudent->person->user->email }}</a>
