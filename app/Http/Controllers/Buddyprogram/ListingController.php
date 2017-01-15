@@ -18,31 +18,12 @@ class ListingController extends Controller
 {
     public function index()
     {
-        $arrivalDates = [];
-        $firstArrivalDay = Carbon::createFromDate(2017, 2, 1);
-        for ($dayOffset = 0; $dayOffset < 15; ++$dayOffset) {
-            $day = $firstArrivalDay->copy()->addDays($dayOffset);
-            $arrivalDates[] = $day->format('d M Y');
-        }
-
-        JavaScript::put([
-            'jscountries' => Country::allWithStudents(Settings::get('currentSemester')),
-            'jsfaculties' => Faculty::all(),
-            'jsaccommodation' => Accommodation::all(),
-            'jsdays' => $arrivalDates
-        ]);
-
-        return view('buddyprogram.index')->with([
-            'countries' => Country::allWithStudents(Settings::get('currentSemester')),
-            'faculties' => Faculty::all(),
-            'accommodations' => Accommodation::all(),
-            'days' => $arrivalDates
-        ]);
+        return "Index";
     }
 
     public function listExchangeStudents()
     {
-        $firstArrivalDay = Carbon::createFromDate(2017, 2, 1);
+        $firstArrivalDay = Carbon::parse(Settings::get('firstArrivalDay'));
         for ($dayOffset = 0; $dayOffset < 15; ++$dayOffset) {
             $day = $firstArrivalDay->copy()->addDays($dayOffset);
             $arrivalDates[] = $day->format('d M Y');

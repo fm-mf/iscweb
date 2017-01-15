@@ -16,8 +16,7 @@ class ProfileController extends Controller
 {
     public function showProfileForm($hash)
     {
-        //$user = User::findByHash($hash);
-        $user = User::find(434);
+        $user = User::findByHash($hash);
         $student = ExchangeStudent::find($user->id_user);
 
         $accommodations = [];
@@ -56,9 +55,8 @@ class ProfileController extends Controller
     public function updateProfile(Request $request)
     {
         $this->profileValidator($request->all())->validate();
-        //$user = User::findByHash($request->hash);
-        $user = User::find(434);
-
+        $user = User::findByHash($request->hash);
+        
         if ($user === null) {
             return redirect('/');
         }

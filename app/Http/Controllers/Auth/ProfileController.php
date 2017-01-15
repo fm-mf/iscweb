@@ -7,13 +7,12 @@ use App\Mail\VerifyUser;
 use App\Models\Buddy;
 use App\Models\Faculty;
 use App\Models\User;
-use App\Models\Person;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -63,7 +62,7 @@ class ProfileController extends Controller
             $faculties[$faculty->id_faculty] = $faculty->faculty;
         }
 
-        $user = \Auth::user();
+        $user = Auth::user();
         $buddy = Buddy::with('person')->find($user->id_user);
 
         if ($buddy->person->avatar) {
@@ -79,8 +78,8 @@ class ProfileController extends Controller
     {
         $this->profileValidator($request->all())->validate();
 
-        $user = \Auth::user();
-        $buddy = Buddy::with('person')->find($user->id_user);
+        $user = Auth::user();
+        $buddy = Buddy::with('person')->find(Auth::id());
 
         $data = [];
         foreach ($request->all() as $key => $value) {
@@ -167,7 +166,7 @@ class ProfileController extends Controller
 
     private function sendVerificationEmail($email)
     {
-        $person = \Auth::user()->person;
+        $person = Auth::user()->person;
         Mail::to($email)->send(new VerifyUser($person));
     }
 }

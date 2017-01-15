@@ -6,6 +6,7 @@ use App\Models\ExchangeStudent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
+use App\Settings\Facade as Settings;
 
 class ApiController extends Controller
 {
@@ -18,7 +19,7 @@ class ApiController extends Controller
             });
         }
 
-        $students = ExchangeStudent::findAll()->bySemester('fall2016')->withoutBuddy();
+        $students = ExchangeStudent::findAll()->bySemester(Settings::get('currentSemester'))->withoutBuddy();
 
         if (is_array($request->filters)) {
             foreach ($request->filters as $filter => $values) {
