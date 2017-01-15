@@ -20,6 +20,11 @@ class Buddy extends Model
         return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
     }
 
+    public function exchangeStudents()
+    {
+        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_buddy');
+    }
+
     public function setVerified()
     {
         $this->active = 'y';
@@ -45,5 +50,10 @@ class Buddy extends Model
 
             return $buddy;
         });
+    }
+
+    public function pickedStudentsToday()
+    {
+        return $this->exchangeStudents()->pickedToday()->count();
     }
 }

@@ -1,32 +1,32 @@
 @extends('layouts.buddyprogram.layout')
 
 @section('content')
-<div id="app" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<div id="app" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
     <table>
         <thead>
             <tr>
                 <th>Jméno</th>
                 <th>
-                    <multiselect :options="countries" :show-labels="false" label="full_name" track-by="id_country" v-model="exchangeStudents.filters.countries" :multiple="true" v-on:input="update"></multiselect>
+                    <multiselect :options="countries" :show-labels="false" label="full_name" track-by="id_country" placeholder="Země"
+                                 v-model="exchangeStudents.filters.countries" :multiple="true" v-on:input="update"></multiselect>
                 </th>
                 <th>
-                    Skola
+                    Škola
                 </th>
                 <th>
-                    <multiselect :options="faculties" :show-labels="false" label="abbreviation" track-by="id_faculty" v-model="exchangeStudents.filters.faculties" :multiple="true" v-on:input="update"></multiselect>
+                    <multiselect :options="faculties" :show-labels="false" label="abbreviation" track-by="id_faculty" placeholder="Fakulta"
+                                 v-model="exchangeStudents.filters.faculties" :multiple="true" v-on:input="update"></multiselect>
 
                 </th>
                 <th>
-                    <multiselect :options="arrivals" :show-labels="false" v-model="exchangeStudents.filters.arrivals" :multiple="true" v-on:input="update"></multiselect>
+                    <multiselect :options="arrivals" :show-labels="false" v-model="exchangeStudents.filters.arrivals" placeholder="Příjezd"
+                                 :multiple="true" v-on:input="update"></multiselect>
 
                 </th>
                 <th>
-                    <select name="accommodation" class="chosen" data-placeholder="Koleje" v-model="exchangeStudents.filters.accommodation" v-on:change="update">
-                        <option value="">Všechny</option>
-                        @foreach($accommodations as $accommodation)
-                            <option value="{{ $accommodation->id_accommodation }}">{{ $accommodation->full_name }}</option>
-                        @endforeach
-                    </select>
+                    <multiselect :options="accommodation" :show-labels="false" label="full_name" placeholder="Bydlení"
+                                 track-by="id_accommodation" v-model="exchangeStudents.filters.accommodation" :multiple="true" v-on:input="update"></multiselect>
+
                 </th>
             </tr>
         </thead>
@@ -50,7 +50,7 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li v-for="n in exchangeStudents.pagesCount"><a href="#" v-on:click="page(n)">@{{ n }}</a></li>
+            <li v-for="n in exchangeStudents.pagesCount" v-bind:class="{active: exchangeStudents.page == n}"><a href="#" v-on:click="page(n)">@{{ n }}</a></li>
             <li>
                 <a href="#" v-show="exchangeStudents.page < exchangeStudents.pagesCount" aria-label="Next" v-on:click="page(exchangeStudents.page + 1)">
                     <span aria-hidden="true">&raquo;</span>

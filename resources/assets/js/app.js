@@ -27,7 +27,7 @@ class ExchangeStudents {
             countries: [],
             faculties: [],
             accommodation: [],
-            arrivals:[],
+            arrivals: [],
             sex: []
         };
 
@@ -93,7 +93,7 @@ const exchangeStudentsApp = new Vue({
         selected: null,
         countries: jscountries,
         faculties: jsfaculties,
-        arrials: jsdays,
+        arrivals: jsdays,
         accommodation: jsaccommodation
     },
     ready: function() {

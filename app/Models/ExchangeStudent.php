@@ -9,6 +9,7 @@ class ExchangeStudent extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'id_user';
+    protected $dates = ['buddy_timestamp'];
 
     public function person()
     {
@@ -40,9 +41,29 @@ class ExchangeStudent extends Model
         return $this->belongsTo('\App\Models\Arrival', 'id_user', 'id_user');
     }
 
+    public function buddy()
+    {
+        return $this->hasOne('\App\Models\Buddy', 'id_user', 'id_buddy');
+    }
+
+    public function isSelfPaying()
+    {
+        return $this->person->user->hasRole('samoplatce');
+    }
+
+    public function hasBuddy()
+    {
+        return $this->id_buddy != null;
+    }
+
     public static function findAll()
     {
         return ExchangeStudent::with('person.user', 'country', 'faculty', 'accommodation', 'arrival');
+    }
+
+    public static function eagerFind($id_user)
+    {
+        return ExchangeStudent::with('person.user', 'country', 'faculty', 'accommodation', 'arrival')->find($id_user);
     }
 
     public static function scopeArrivalFilled($query)
@@ -79,9 +100,9 @@ class ExchangeStudent extends Model
         if ($filter == "countries") {
             return $query->whereIn('id_country', self::filterToArray($values, 'id_country'));
         } else if ($filter == "accommodation") {
-            return $query->whereIn('id_accommodation', $values);
+            return $query->whereIn('id_accommodation', self::filterToArray($values, 'id_accommodation'));
         } else if ($filter == "faculties") {
-            return $query->whereIn('id_faculty', $values);
+            return $query->whereIn('id_faculty', self::filterToArray($values, 'id_faculty'));
         } else if ($filter == "arrivals") {
             return $query->whereHas('arrival', function($query) use ($values) {
                 $query->where(function($query) use ($values) {
@@ -92,6 +113,18 @@ class ExchangeStudent extends Model
             });
         }
         return $query;
+    }
+
+    public static function scopeArriveToday($query)
+    {
+        return $query->whereHas('arrival', function ($query) {
+            $query->whereDate('arrival', '=', Carbon::now());
+        });
+    }
+
+    public static function scopePickedToday($query)
+    {
+        return $query->whereDate('buddy_timestamp', Carbon::now());
     }
 
     public static function filterToArray($values, $key)
