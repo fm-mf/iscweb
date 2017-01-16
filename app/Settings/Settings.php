@@ -16,11 +16,20 @@ class Settings implements ConfigContract
 
     public function __construct()
     {
+        Cache::forget(self::CACHE_KEY); //TODO disable forgetting
 
         $this->items = Cache::remember(self::CACHE_KEY, self::CACHE_TIMEOUT, function() {
             $items = array();
             foreach(DB::table(self::TABLE)->get() as $settingsRow) {
-                $items[$settingsRow->key] = $settingsRow->value;
+                if ($settingsRow->value == 'true') {
+                    $items[$settingsRow->key] = true;
+                } else if ($settingsRow->value == 'false') {
+                    $items[$settingsRow->key] = false;
+                } else if ($settingsRow->value == 'null' || $settingsRow->value == 'NULL') {
+                    $items[$settingsRow->key] = null;
+                } else {
+                    $items[$settingsRow->key] = $settingsRow->value;
+                }
             }
             return $items;
         });

@@ -12,6 +12,10 @@ class ApiController extends Controller
 {
     public function load(Request $request)
     {
+        if (Settings::get('isDatabaseOpen') != 'true') {
+            return [];
+        }
+
         $page = $request->page;
         if ($page > 1) {
             Paginator::currentPageResolver(function () use ($page) {

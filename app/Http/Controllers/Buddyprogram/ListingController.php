@@ -12,17 +12,21 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
 class ListingController extends Controller
 {
-    public function index()
+    public function showClosed()
     {
-        return "Index";
+        return view('buddyprogram.closed');
     }
 
     public function listExchangeStudents()
     {
+        if (!Settings::get('isDatabaseOpen')) {
+           return redirect('/mujbuddy/closed');
+        }
         $firstArrivalDay = Carbon::parse(Settings::get('firstArrivalDay'));
         for ($dayOffset = 0; $dayOffset < 15; ++$dayOffset) {
             $day = $firstArrivalDay->copy()->addDays($dayOffset);

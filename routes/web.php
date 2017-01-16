@@ -29,11 +29,12 @@ Route::group(['namespace' => 'Partak', 'prefix' => 'partak'], function()
 
 Route::group(['middleware' => 'checkbuddy', 'namespace' => 'Buddyprogram', 'prefix' => 'mujbuddy'], function()
 {
-    Route::get('/', 'ListingController@index')->middleware('auth');
+    Route::get('/', 'ListingController@listExchangeStudents')->middleware('auth');
     Route::get('/list', 'ListingController@listExchangeStudents')->middleware('auth');
     Route::get('/profile/{id}', 'StudentController@showProfile')->middleware('auth');
     Route::get('/become-buddy/{id}', 'StudentController@assignBuddy')->middleware('auth');
     Route::get('/my-students/', 'ListingController@listMyStudents')->middleware('auth');
+    Route::get('/closed/', 'ListingController@showClosed')->middleware('auth');
 });
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
