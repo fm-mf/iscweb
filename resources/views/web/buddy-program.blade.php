@@ -20,18 +20,18 @@
         </div>
         <ul class="row list-unstyled info-buddy">
             <li class="col-sm-4">
-                <img src="{{ URL::asset('web/img/laptop.jpg') }}">
+                <img src="{{ URL::asset('img/web/laptop.jpg') }}">
                 <p>Your buddy will contact you by email a couple of weeks before the semester starts.</p>
                 <!-- <p>Please, fill out your arrival information after you get access to our buddy system (will be sent to you by email).</p> -->
             </li>
             <li class="col-sm-4">
-                <img src="{{ URL::asset('web/img/airport-hug.jpg') }}">
+                <img src="{{ URL::asset('img/web/airport-hug.jpg') }}">
                 <p>
                     Your buddy will pick you up at the airport (or station) and will help you with the accommodation in your dormitory.
                 </p>
             </li>
             <li class="col-sm-4">
-                <img src="{{ URL::asset('web/img/bridge.jpg') }}">
+                <img src="{{ URL::asset('img/web/bridge.jpg') }}">
                 <p>
                     Not only will your buddy show you around, but he or she might also take you to his or her favorite pub and teach you how to drink Czech beer :)
                 </p>

@@ -31,7 +31,7 @@
         <div class="row">
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse col-sm-9">
                 <ul class="nav navbar-nav login-nav">
-                    <li><a href="{{ url('user/logout') }}"><img src="{{ URL::asset('partak/img/log-out.png') }}" />Logout</a></li>
+                    <li><a href="{{ url('user/logout') }}"><img src="{{ URL::asset('img/partak/log-out.png') }}" />Logout</a></li>
                 </ul>
             </div>
         </div>

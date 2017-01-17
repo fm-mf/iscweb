@@ -7768,7 +7768,7 @@ a.current {
 
 .header-wrapper {
   position: relative;
-  background: url("../web/img/background.jpg");
+  background: url("../img/web/background.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -8163,7 +8163,7 @@ a.current {
 }
 
 .about {
-  background: url("../web/img/us.jpg") no-repeat;
+  background: url("../img/web/us.jpg") no-repeat;
   min-height: 330px;
   padding: 0;
   margin: 0;
@@ -8302,20 +8302,20 @@ a.current {
 }
 
 .ow-1 {
-  background-image: url("../web/img/ow/betlehem.jpg");
+  background-image: url("../img/web/ow/betlehem.jpg");
 }
 
 .ow-2 {
-  background-image: url("../web/img/ow/campus.jpg");
+  background-image: url("../img/web/ow/campus.jpg");
   background-position: 0 -40px;
 }
 
 .ow-3 {
-  background-image: url("../web/img/ow/pdg.jpg");
+  background-image: url("../img/web/ow/pdg.jpg");
 }
 
 .ow-4 {
-  background-image: url("../web//img/ow/trips.jpg");
+  background-image: url("../img/web//ow/trips.jpg");
 }
 
 .h-trips {
@@ -8509,7 +8509,7 @@ blockquote:before {
 }
 
 .activities-wrapper {
-  background: url("../web/img/background.jpg");
+  background: url("../img/web/background.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -8589,7 +8589,7 @@ blockquote:before {
   height: 42px;
   margin-left: auto;
   margin-right: auto;
-  background: url("../web/img/arrow.png");
+  background: url("../img/web/arrow.png");
   background-size: cover;
   opacity: 0.2;
   position: absolute;
@@ -8704,7 +8704,7 @@ blockquote:before {
 .about-wrapper {
   width: 100%;
   min-height: 400px;
-  background-image: url("../web/img/us-original.jpg") !important;
+  background-image: url("../img/web/us-original.jpg") !important;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -8714,7 +8714,7 @@ blockquote:before {
 .buddyProgram-wrapper {
   width: 100%;
   min-height: 400px;
-  background-image: url("../web/img/buddy-program.jpg");
+  background-image: url("../img/web/buddy-program.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -8755,7 +8755,7 @@ blockquote:before {
 .calendar-wrapper {
   width: 100%;
   min-height: 350px;
-  background-image: url("../web/img/calendar.jpg");
+  background-image: url("../img/web/calendar.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;

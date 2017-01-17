@@ -68,7 +68,7 @@ class ProfileController extends Controller
         if ($buddy->person->avatar) {
             $avatar = 'avatars/' . $buddy->person->avatar;
         } else {
-            $avatar = 'auth/img/avatar.jpg';
+            $avatar = '/img/auth/avatar.jpg';
         }
 
         return view('auth.profile')->with(['faculties' => $faculties, 'avatar' => $avatar, 'buddy' => $buddy]);

@@ -96,7 +96,7 @@
 }
 
 .about {
-  background: url($baseUrl + "img/us.jpg") no-repeat;
+  background: url($baseUrl + "us.jpg") no-repeat;
   min-height: 330px;
   padding:0;
   margin:0;
@@ -227,19 +227,19 @@
 }
 
 .ow-1 {
-  background-image:url($baseUrl + "img/ow/betlehem.jpg");
+  background-image:url($baseUrl + "ow/betlehem.jpg");
 }
 .ow-2 {
-  background-image:url($baseUrl + "img/ow/campus.jpg");
+  background-image:url($baseUrl + "ow/campus.jpg");
   background-position:0 -40px;
 }
 
 .ow-3 {
-  background-image:url($baseUrl + "img/ow/pdg.jpg");
+  background-image:url($baseUrl + "ow/pdg.jpg");
 }
 
 .ow-4 {
-  background-image:url($baseUrl + "/img/ow/trips.jpg");
+  background-image:url($baseUrl + "/ow/trips.jpg");
 }
 
 .h-trips {

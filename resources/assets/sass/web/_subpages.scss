@@ -8,7 +8,7 @@
 .about-wrapper {
   width: 100%;
   min-height: 400px;
-  background-image:url($baseUrl + "img/us-original.jpg") !important;
+  background-image:url($baseUrl + "us-original.jpg") !important;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -18,7 +18,7 @@
 .buddyProgram-wrapper {
   width: 100%;
   min-height: 400px;
-  background-image:url($baseUrl + "img/buddy-program.jpg");
+  background-image:url($baseUrl + "buddy-program.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -55,7 +55,7 @@
 .calendar-wrapper {
   width: 100%;
   min-height: 350px;
-  background-image:url($baseUrl + "img/calendar.jpg");
+  background-image:url($baseUrl + "calendar.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;

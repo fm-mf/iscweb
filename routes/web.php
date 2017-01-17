@@ -56,6 +56,9 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
     Route::get('/verify/{hash}', 'ProfileController@showVerifyEmail');
 
     Route::get('/complete', 'ProfileController@showComplete');
+    Route::get('/thankyou', function() {
+        return view('auth/thankyou');
+    });
 });
 
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
@@ -74,6 +77,8 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');
 
+
+
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
     Route::get('/', function() { return view('web.home'); });
@@ -89,4 +94,12 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/buddy', function () { return "Buddy page"; });
 });
 
+// Survival Guide
+Route::group(['namespace' => 'SurvivalGuide', 'prefix' => 'guide'], function() {
+    Route::get('/', function () {
+        return view('guide.home');
+    });
+
+    Route::get('/{page}', 'PageController@showPage');
+});
 

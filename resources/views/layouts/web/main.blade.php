@@ -8,7 +8,7 @@
         <div class="row">
             <div class="circ-info col-sm-4">
                 <a href="http://isc.cvut.cz/guide">
-                    <img src="{{ URL::asset('web/img/circle-1.png') }}" alt="Before Arrival">
+                    <img src="{{ URL::asset('img/web/circle-1.png') }}" alt="Before Arrival">
 
                     <h2>BEFORE ARRIVAL</h2>
                     <p>We provide relevant information to incoming exchange students</p>
@@ -17,17 +17,17 @@
             </div>
             <div class="circ-info circ-info-fright col-sm-4">
                 <a href="{{ url('buddy-program') }}">
-                    <img src="{{ URL::asset('web/img/circle-2.png') }}" alt="Buddy Program">
+                    <img src="{{ URL::asset('img/web/circle-2.png') }}" alt="Buddy Program">
                     <h2>BUDDY PROGRAM</h2>
                     <p>We pair Czech and exchange students</p>
                     <button type="button" class="btn btn-default btn-lg btn-circles">Learn more</button>
                     <a href="https://www.isc.cvut.cz/buddy" class="for-czechs">
-                        <img src="{{ URL::asset('web/img/czech-flag.png') }}" alt="For Czech Students">Information for Czech students</a>
+                        <img src="{{ URL::asset('img/web/czech-flag.png') }}" alt="For Czech Students">Information for Czech students</a>
                 </a>
             </div>
             <div class="circ-info col-sm-4">
                     <a href="{{ url('/activities') }}">
-                        <img src="{{ URL::asset('web/img/circle-3.png') }}" alt="Activities & Events">
+                        <img src="{{ URL::asset('img/web/circle-3.png') }}" alt="Activities & Events">
                         <h2>ACTIVITIES AND EVENTS</h2>
                         <p>We organize language programs, country presentations, trips, sports and many other activities</p>
                         <button type="button" class="btn btn-default btn-lg btn-circles">See our activities</button>
@@ -42,8 +42,8 @@
 
     <div class="logos">
         <div class="container">
-            <a href="http://www.esn.org"><img src="{{ URL::asset('web/img/logo-esn.png') }}"></a>
-            <a href="http://www.cvut.cz"><img src="{{ URL::asset('web/img/logo-ctu.png') }}"></a>
+            <a href="http://www.esn.org"><img src="{{ URL::asset('img/web/logo-esn.png') }}"></a>
+            <a href="http://www.cvut.cz"><img src="{{ URL::asset('img/web/logo-ctu.png') }}"></a>
         </div>
     </div>
 </div>

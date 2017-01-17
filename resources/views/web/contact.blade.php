@@ -108,7 +108,7 @@
             <div class="container">
                 <ul class="row list-unstyled contacts">
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/president.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/president.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Tereza Vlasáková</h4><br>
                             <strong>President</strong><br>
@@ -118,7 +118,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/vice.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/vice.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Erik Derner</h4><br>
                             <strong>Vicepresident</strong><br>
@@ -128,7 +128,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/hr.jpg') }}" width="100px" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/hr.jpg') }}" width="100px" class="img-circle">
                         <div class="contact-details">
                             <h4>Martin Mastný</h4><br>
                             <strong>Human Resources</strong><br>
@@ -138,7 +138,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/treasurer.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/treasurer.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Daniel Pleschner</h4><br>
                             <strong>Treasurer</strong><br>
@@ -148,7 +148,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/pr.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/pr.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Eva Machová</h4><br>
                             <strong>Public Relations</strong><br>
@@ -158,7 +158,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/interel.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/interel.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Jan Cejhon</h4><br>
                             <strong>International Relations</strong><br>
@@ -168,7 +168,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/knowledge.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/knowledge.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Vít Skolil</h4><br>
                             <strong>Quality and Knowledge Manager</strong><br>
@@ -178,7 +178,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/integreat.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/integreat.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Ondřej Väter</h4><br>
                             <strong>inteGREAT Coordinator</strong><br>
@@ -188,7 +188,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/point.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/point.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Denis Lom</h4><br>
                             <strong>Point Coordinator</strong><br>
@@ -198,7 +198,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/activities.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/activities.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Lucie Marcalíková</h4><br>
                             <strong>Activities Coordinator</strong><br>
@@ -208,7 +208,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/languages.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/languages.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Eva Málková</h4><br>
                             <strong>Languages Coordinator</strong><br>
@@ -218,7 +218,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/buddy.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/buddy.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Tereza Kadlecová</h4><br>
                             <strong>Buddy Coordinator</strong><br>
@@ -228,7 +228,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/it.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/it.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Martin Průcha</h4><br>
                             <strong>IT Coordinator</strong><br>
@@ -238,7 +238,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/alumni.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/alumni.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Soňa Cicoňová</h4><br>
                             <strong>Alumni Coordinator</strong><br>
@@ -248,7 +248,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/sports.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/sports.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Jiří Vejrosta</h4><br>
                             <strong>Sports Coordinator</strong><br>
@@ -258,7 +258,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/care.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/care.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Dominik Bureš</h4><br>
                             <strong>ISC Care Coordinator</strong><br>
@@ -268,7 +268,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('web/img/contacts/2016fall/visa.jpg') }}" class="img-circle">
+                        <img src="{{ URL::asset('img/web/contacts/2016fall/visa.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Šimon Hrabec</h4><br>
                             <strong>Visa Coordinator</strong><br>

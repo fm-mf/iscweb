@@ -11,7 +11,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <img src="{{ URL::asset('web/img/logo-circle.png') }}" alt="ISC Logos">
+                        <img src="{{ URL::asset('img/web/logo-circle.png') }}" alt="ISC Logos">
                         <h2>DOWNLOAD OUR LOGOS</h2>
                         <p>Zip file packed with our logo in PDF and PNG format.</p>
                         <a href="http://isc.cvut.cz/files/isc-logos.zip"> <button type="button" class="btn btn-primary btn-logo">DOWNLOAD LOGOS</button></a>
@@ -163,7 +163,7 @@
                 <h1>SEE WHAT PAST EXCHANGE STUDENTS SAID ABOUT US</h1>
                 <div class="col-sm-6">
                     <div class="row">
-                        <div class="col-sm-4 testimonials-img"><img src="{{ URL::asset('web/img/sergio.jpg') }}" alt="Sergio Martín"></div>
+                        <div class="col-sm-4 testimonials-img"><img src="{{ URL::asset('img/web/sergio.jpg') }}" alt="Sergio Martín"></div>
                         <div class="col-sm-8">
                             <p>I have a lot of good memories of the Czech Technical University (CTU), but the first thing I have to emphasize is the International Student Club (ISC). Due to the nice and friendly atmosphere I could feel since the beginning.</p>
                             <p>I decided to help them with the organization of some activities like the orientation week, language meetings, sport events or trips. I’ve also been teaching my Spanish language to other students!</p>
@@ -174,7 +174,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="row">
-                        <div class="col-sm-4 testimonials-img"><img src="{{ URL::asset('web/img/mikel.jpg') }}" alt="Mikel Ogueata"></div>
+                        <div class="col-sm-4 testimonials-img"><img src="{{ URL::asset('img/web/mikel.jpg') }}" alt="Mikel Ogueata"></div>
                         <div class="col-sm-8">
                             <p>Joining ISC CTU in Prague allowed me many things. At the beginning of the semester, it helped me with getting to know new people from all over the world. I started learning German (with a very nice teacher) in the Masarykova dormitory, I discovered lots of new places in Prague by attending the Café Lingea meetings, where my language skills were tested, and I learned to play voleyball.</p>
                             <p>I still keep many friends who I have visited/hosted after my Erasmus. That's one of the things I am most proud of &ndash; to be able to keep these friendships through time.</p>

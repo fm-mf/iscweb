@@ -39,10 +39,16 @@ class ProfileController extends Controller
             $currentDate = $date->format('d M Y');
         }
 
+        if ($student->person->avatar) {
+            $avatar = 'avatars/' . $student->person->avatar;
+        } else {
+            $avatar = '/img/auth/avatar.jpg';
+        }
+
         return view('exchange.profile')->with([
             'student' => $student,
             'hash' => $hash,
-            'avatar' => '/avatars/' . $student->person->avatar,
+            'avatar' => $avatar,
             'accommodations' => $accommodations,
             'transportations' => $transportations,
             'currentTransportation' => $currentTransportation,

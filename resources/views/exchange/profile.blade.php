@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.user.user')
 
 @section('content')
     <h1>Nastavení profilu</h1>
