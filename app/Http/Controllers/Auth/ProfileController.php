@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\BuddyRegistered;
+use App\Events\BuddyWithoutEmailRegistered;
 use App\Mail\LetHRKnow;
 use App\Mail\VerifyUser;
 use App\Models\Buddy;
@@ -18,7 +20,7 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'verifyBuddy']);
     }
 
     public $allowedDomains = [
@@ -57,21 +59,14 @@ class ProfileController extends Controller
 
     public function showProfileForm(Request $request)
     {
-        $faculties = array();
+        $faculties = [];
         foreach (Faculty::all() as $faculty) {
             $faculties[$faculty->id_faculty] = $faculty->faculty;
         }
 
-        $user = Auth::user();
-        $buddy = Buddy::with('person')->find($user->id_user);
+        $buddy = Buddy::with('person')->find(Auth::id());
 
-        if ($buddy->person->avatar) {
-            $avatar = 'avatars/' . $buddy->person->avatar;
-        } else {
-            $avatar = '/img/auth/avatar.jpg';
-        }
-
-        return view('auth.profile')->with(['faculties' => $faculties, 'avatar' => $avatar, 'buddy' => $buddy]);
+        return view('auth.profile')->with(['faculties' => $faculties, 'avatar' => $buddy->person->avatar(), 'buddy' => $buddy]);
     }
 
     public function updateProfile(Request $request)
@@ -116,34 +111,34 @@ class ProfileController extends Controller
         return redirect('/user/verification-info')->with(['email' => $email]);
     }
 
-    public function showVerificationInfo(Request $request)
+    public function processNoEmail(Request $request)
     {
-        return "Verification email sent to your address " . $request->session()->get('email');
+        $buddy = Buddy::findBuddy(Auth::id());
+        event(new BuddyWithoutEmailRegistered($buddy, $request->motivation));
+        return redirect('/user/thankyou')->with('verified', false);
     }
 
-    public function showVerifyEmail($hash)
+    public function showVerificationInfo(Request $request)
+    {
+        return view('auth.vefificationsent')->with(['email' => $request->session()->get('email')]);
+    }
+
+    public function verifyBuddy($hash)
     {
         $user = User::findByHash($hash);
         if ($user) {
-            $buddy = Buddy::find($user->id_user);
+            $buddy = Buddy::findBuddy($user->id_user);
             $buddy->setVerified();
-            $hrEmail = 'michal.kral@live.com';
-            Mail::to($hrEmail)->send(new LetHRKnow($buddy->person));
-            return redirect('/user/verification-successful');
+            event(new BuddyRegistered($buddy));
+            return redirect('/user/thankyou')->with('verified', true);
         } else {
-            return "Wrong user!";
+            return view('auth.invalidhash');
         }
     }
 
-    public function showComplete()
+    public function showThanks(Request $request)
     {
-        return "Registration complete";
-    }
-
-
-    public function showVerificationSuccess()
-    {
-        return "Registration successful";
+        return view('auth.thanks')->with('verified', $request->session()->get('verified'));
     }
 
     private function isEmailVerifiable($email)

@@ -266,19 +266,19 @@
 
         <ul class="gallery-row list-unstyled row">
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/presentations/presentations-1.jpg" data-lightbox="sports"><img src="/img/activities/presentations/presentations-1-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/presentations/presentations-1.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/presentations/presentations-1-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/presentations/presentations-2.jpg" data-lightbox="sports"><img src="/img/activities/presentations/presentations-2-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/presentations/presentations-2.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/presentations/presentations-2-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/presentations/presentations-3.jpg" data-lightbox="sports"><img src="/img/activities/presentations/presentations-3-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/presentations/presentations-3.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/presentations/presentations-3-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/presentations/presentations-4.jpg" data-lightbox="sports"><img src="/img/activities/presentations/presentations-4-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/presentations/presentations-4.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/presentations/presentations-4-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/presentations/presentations-5.jpg" data-lightbox="sports"><img src="/img/activities/presentations/presentations-5-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/presentations/presentations-5.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/presentations/presentations-5-t.jpg') }}"></a>
             </li>
         </ul>
         <h2>You can find more photos on facebook page <a href="https://www.facebook.com/inteGREATParty/photos_stream">inteGREAT</a></h2>

@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class InformAboutPick extends Mailable
+class HRNewRegistration extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,9 +31,9 @@ class InformAboutPick extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.informaboutpick')
+        return $this->view('emails.letHRknow')
                     ->with('buddy', $this->buddy)
-                    ->from($this->buddy->person->user->email)
-                    ->subject('You have a buddy!');
+                    ->from('it.support@isc.cvut.cz')
+                    ->subject('Opět dobré zprávy!');
     }
 }

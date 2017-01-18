@@ -19,4 +19,20 @@ class Person extends Model
         return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
     }
 
+    public function avatar()
+    {
+        $avatar = $this->avatar;
+        if (!$avatar) {
+            if (file_exists(public_path() . '/avatars/old/' . $this->id_user . '.jpg')) {
+                $avatar = 'avatars/old/' . $this->id_user . '.jpg';
+            } else {
+                $avatar = 'img/auth/avatar.jpg';
+            }
+        } else {
+            $avatar = 'avatars/' . $avatar;
+        }
+
+        return $avatar;
+    }
+
 }

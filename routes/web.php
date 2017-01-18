@@ -51,14 +51,12 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
 
     Route::get('/verify', 'ProfileController@showVerificationForm');
     Route::post('/verify', 'ProfileController@processVerificationForm');
-
     Route::get('/verification-info', 'ProfileController@showVerificationInfo');
-    Route::get('/verify/{hash}', 'ProfileController@showVerifyEmail');
 
-    Route::get('/complete', 'ProfileController@showComplete');
-    Route::get('/thankyou', function() {
-        return view('auth/thankyou');
-    });
+    Route::get('/verify/{hash}', 'ProfileController@verifyBuddy');
+    Route::post('/noemail', 'ProfileController@processNoEmail');
+
+    Route::get('/thankyou', 'ProfileController@showThanks');
 });
 
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()

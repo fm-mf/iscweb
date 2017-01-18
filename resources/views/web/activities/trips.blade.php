@@ -16,10 +16,10 @@
             <div class="col-sm-5 align-center">
                 <ul class="gallery list-unstyled">
                     <li>
-                        <a href="/img/activities/trips/trips1.jpg" data-lightbox="trips"><img src="/img/activities/trips/trips1-t.jpg"></a>
+                        <a href="{{ url('/img/web/activities/trips/trips1.jpg') }}" data-lightbox="trips"><img src="{{ asset('/img/web/activities/trips/trips1-t.jpg') }}"></a>
                     </li>
                     <li>
-                        <a href="/img/activities/trips/trips2.jpg" data-lightbox="trips"><img src="/img/activities/trips/trips2-t.jpg"></a>
+                        <a href="{{ url('/img/web/activities/trips/trips2.jpg') }}" data-lightbox="trips"><img src="{{ asset('/img/web/activities/trips/trips2-t.jpg') }}"></a>
                     </li>
                 </ul>
             </div>
@@ -191,4 +191,5 @@
         -->
 
         </div>
+    </div>
 @endsection

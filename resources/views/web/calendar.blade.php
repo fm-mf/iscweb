@@ -5,7 +5,7 @@
 
 @section('content')
     <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>
-    <h2><IMG src="../img/fb_blue"><a href="https://www.facebook.com/isc.ctu.prague/events"> Subscribe</a></h2>
+    <h2><IMG src="{{ asset('img/web/fb_blue.png') }}"><a href="https://www.facebook.com/isc.ctu.prague/events"> Subscribe</a></h2>
     <span class="vspace"></span>
 
     <div class="container events">

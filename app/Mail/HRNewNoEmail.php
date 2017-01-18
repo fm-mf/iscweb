@@ -2,24 +2,25 @@
 
 namespace App\Mail;
 
-use App\Buddy;
+use App\Models\Buddy;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class LetHRKnow extends Mailable
+class HRNoEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $buddy;
+    public $buddy;
+    public $motivation;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Buddy $buddy)
+    public function __construct(Buddy $buddy, $motivation)
     {
         $this->buddy = $buddy;
     }
@@ -31,8 +32,8 @@ class LetHRKnow extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.letHRknow')
-                    ->with('buddy', $this->buddy)
+        return $this->view('emails.noEmail')
+                    ->with(['buddy' => $this->buddy, 'motivation' => $this->motivation])
                     ->from('it.support@isc.cvut.cz')
                     ->subject('Opět dobré zprávy!');
     }

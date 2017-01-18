@@ -73,6 +73,8 @@
         </label>
     </div>
 
+    <h3 class="col-sm-12"><span>ARRIVAL INFORMATION</span></h3>
+
     {{ Form::bsSubmit('Update your profile') }}
 
     {{ Form::close() }}

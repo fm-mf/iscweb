@@ -28,7 +28,7 @@
 
                 <!--
                           <center>
-                          <img src="../img/activities/sports/sports_schedule1.png" width="800" height="645" />
+                          <img src="../img/web/activities/sports/sports_schedule1.png" width="800" height="645" />
                           </center>
                 -->
 
@@ -235,28 +235,28 @@ of losing fat while improving your fitness level. We will do 25 minutes of non-s
         </div>
         <ul class="gallery-row list-unstyled row">
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/sports/sports-1.jpg" data-lightbox="sports"><img src="/img/activities/sports/sports-1-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/sports/sports-2.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-2-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/sports/sports-3.jpg" data-lightbox="sports"><img src="/img/activities/sports/sports-3-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/sports/sports-3.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-3-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/sports/sports-8.jpg" data-lightbox="sports"><img src="/img/activities/sports/sports-8-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/sports/sports-8.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-8-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/sports/sports-12.jpg" data-lightbox="sports"><img src="/img/activities/sports/sports-12-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/sports/sports-12.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-12-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/sports/sports-4.jpg" data-lightbox="sports"><img src="/img/activities/sports/sports-4-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/sports/sports-4.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-4-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/sports/sports-9.jpg" data-lightbox="sports"><img src="/img/activities/sports/sports-9-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/sports/sports-9.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-9-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/sports/sports-10.jpg" data-lightbox="sports"><img src="/img/activities/sports/sports-10-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/sports/sports-10.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-10-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
-                <a href="/img/activities/sports/sports-11.jpg" data-lightbox="sports"><img src="/img/activities/sports/sports-11-t.jpg"></a>
+                <a href="{{ url('/img/web/activities/sports/sports-11.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-11-t.jpg') }}"></a>
             </li>
         </ul>
     </div>

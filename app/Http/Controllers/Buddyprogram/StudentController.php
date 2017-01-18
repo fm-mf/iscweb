@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Buddyprogram;
 
+use App\Events\ExchangeStudentPicked;
 use App\Exceptions\AlreadyHasBuddyException;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
@@ -19,30 +20,34 @@ class StudentController extends Controller
     {
         $me = Buddy::find(Auth::id());
         $exchangeStudent = ExchangeStudent::eagerFind($exchangeStudentId);
-        $avatar = $exchangeStudent->person->user->avatar;
-        if (!$avatar) {
-            // todo: default avatar
+
+        if (!Settings::get('isDatabaseOpen') && $exchangeStudent->id_buddy != Auth::id()) {
+            return redirect('/mujbuddy/closed');
         }
 
-        $canChoose = $me->pickedStudentsToday() <= Settings::get('limitPerDay', 1);
+        $canChoose = $me->pickedStudentsToday() < Settings::get('limitPerDay', 1);
 
         return view('buddyprogram.profile')->with([
             'exchangeStudent' => $exchangeStudent,
-            'avatar' => $avatar,
+            'avatar' => $exchangeStudent->person->avatar(),
             'casChoose' => $canChoose
         ]);
     }
 
     public function assignBuddy($exchangeStudentId)
     {
+        if (!Settings::get('isDatabaseOpen')) {
+            return redirect('/mujbuddy/closed');
+        }
+
         $me = Buddy::find(Auth::id());
-        if ($me->pickedStudentsToday() <= Settings::get('limitPerDay', 1)) {
+        if ($me->pickedStudentsToday() >= Settings::get('limitPerDay', 1)) {
             $errors['limitReached'] = 'Dosažen denní limit vybraných zahraničních studentů (' . Settings::get('limitPerDay', 1) . ')';
             return back()->withErrors($errors);
         }
 
         try {
-            DB::transaction(function () use ($exchangeStudentId, $me) {
+            $exchangeStudent = DB::transaction(function () use ($exchangeStudentId, $me) {
                 $exchangeStudent = ExchangeStudent::find($exchangeStudentId);
                 if (!$exchangeStudent) {
                     throw new ModelNotFoundException();
@@ -54,6 +59,7 @@ class StudentController extends Controller
                 $exchangeStudent->id_buddy = $me->id_user;
                 $exchangeStudent->buddy_timestamp = Carbon::now();
                 $exchangeStudent->save();
+                return $exchangeStudent;
             });
         } catch (ModelNotFoundException $e) {
             $errors['notFound'] = 'Student již není v naší databázi';
@@ -64,6 +70,7 @@ class StudentController extends Controller
         if ($errors) {
             return back()->withErrors($errors);
         } else {
+            event(new ExchangeStudentPicked($me, $exchangeStudent));
             return back()->with('success', true);
         }
     }

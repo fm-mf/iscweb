@@ -5,7 +5,11 @@
     <p>Děkujeme za registraci do Buddy Programu!</p>
     <p>Protože dbáme na bezpečí našich zahraničních studentů, bude teď potřeba ověřit Tvou identitu. <br>
         K ověření je možné použít univerzitní email na ktrerý ti zašleme odkaz pro aktivaci účtu.</p>
-    <p>V případě, že nejsi studentem některé z uvedených vysokých škol, nás prosím kontaktuj prostřednictvím formuláře níže, a my se Ti ozveme s dalším postupem.</p>
+    <p>V případě, že nejsi studentem některé z uvedených vysokých škol, nás prosím kontaktuj prostřednictvím formuláře níže,
+        a my se Ti co nejdříve ozveme s dalším postupem.</p>
+
+
+    <h3 class="col-sm-12"><span>MÁM ŠKOLNÍ EMAIL</span></h3>
 
     {{ Form::open(['url' => '/user/verify']) }}
 
@@ -33,7 +37,14 @@
         <div class="col-sm-6 info"></div>
     </div>
 
-        {{ Form::bsSubmit('Zaslat ověřovací udaje') }}
+        {{ Form::bsSubmit('Zaslat ověřovací odkaz') }}
+    {{ Form::close() }}
+
+
+    <h3 class="col-sm-12"><span>NEMÁM ŠKOLNÍ EMAIL</span></h3>
+
+    {{ Form::open(['url' => '/user/noemail']) }}
+        {{ Form::bsText('motivation', ' ') }}
     {{ Form::close() }}
 @stop
 
@@ -46,6 +57,6 @@
     @parent
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script type="text/javascript">
-        $('select').select2();
+        $('#select').select2();
     </script>
 @stop

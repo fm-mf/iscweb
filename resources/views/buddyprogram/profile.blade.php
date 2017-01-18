@@ -9,7 +9,7 @@
             <div class="col-sm-4 col-lg-2">
                 @if ($avatar)
                 <div class="avatar-view" title="Change the avatar">
-                    <img src="{{ asset('avatars/' . $avatar) }}" alt="Avatar" id="avatar">
+                    <img src="{{ asset($avatar) }}" alt="Avatar" id="avatar">
                 </div>
                 @endif
             </div>
