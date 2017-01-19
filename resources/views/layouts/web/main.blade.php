@@ -36,7 +36,7 @@
         </div>
         <span class="show-menu"></span>
         <div class="row">
-            <h1 class="introduction clearfix">THIS IS HOW WE INTEGRATE EXCHANGE url INTO LIFE IN THE CZECH REPUBLIC <br> <small>& create surroundings where different cultures meet and foreign and Czech students get to know each other</small></h1>
+            <h1 class="introduction clearfix">THIS IS HOW WE INTEGRATE EXCHANGE STUDENTS INTO LIFE IN THE CZECH REPUBLIC <br> <small>& create surroundings where different cultures meet and foreign and Czech students get to know each other</small></h1>
         </div>
     </div>
 
