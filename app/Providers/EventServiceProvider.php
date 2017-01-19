@@ -17,7 +17,8 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\NotifyHRNewRegistration',
         ],
         'App\Events\BuddyWithoutEmailRegistered' => [
-            'App\Listeners\NotifyHRNoEmail'
+            'App\Listeners\NotifyHRNoEmail',
+            'App\Listeners\AsanaTaskNoEmail',
         ],
         'App\Events\ExchangeStudentPicked' =>[
             'App\Listeners\NotifyExchangeStudent'

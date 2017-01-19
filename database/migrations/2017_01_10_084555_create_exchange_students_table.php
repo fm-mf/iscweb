@@ -14,8 +14,8 @@ class CreateExchangeStudentsTable extends Migration
     public function up()
     {
         Schema::create('exchange_students', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->increments('id_user');
+
         });
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Partak;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Torann\LaravelAsana\Facade\Asana;
 
 class DashboardController extends Controller
 {

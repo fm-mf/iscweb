@@ -172,6 +172,10 @@ return [
         Sichikawa\LaravelSendgridDriver\SendgridTransportServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        Torann\LaravelAsana\ServiceProvider::class,
+
+        Way\Generators\GeneratorsServiceProvider::class,
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
 
 
         /*
@@ -237,6 +241,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
         'Settings' => \App\Settings\Facade::class,
+        'Asana' => \Torann\LaravelAsana\Facade\Asana::class,
 
     ],
 
