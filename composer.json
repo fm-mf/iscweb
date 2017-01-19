@@ -10,6 +10,7 @@
         "laracasts/utilities": "~2.0",
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.2.0",
+        "orangehill/iseed": "^2.3",
         "s-ichikawa/laravel-sendgrid-driver": "^1.1",
         "torann/laravel-asana": "^0.4.0"
     },
