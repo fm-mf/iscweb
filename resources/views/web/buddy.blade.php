@@ -372,7 +372,7 @@
                 </ul>
             </div>
             <div class="col-sm-6">
-                <p>&copy; 2016 | International Student Club CTU in Prague, z.s.</p>
+                <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z.s.</p>
             </div>
 
         </div><!-- /row -->
