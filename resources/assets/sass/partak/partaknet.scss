@@ -80,7 +80,7 @@ h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
 .about-wrapper {
   width: 100%;
   min-height: 170px;
-  background-image:url("@{imgPath}us.jpg");
+  background-image:url($imgPath + "us.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;

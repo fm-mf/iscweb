@@ -7779,7 +7779,7 @@ h3 {
 .about-wrapper {
   width: 100%;
   min-height: 170px;
-  background-image: url("@{imgPath}us.jpg");
+  background-image: url("../img/partak/us.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;

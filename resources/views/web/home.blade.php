@@ -149,7 +149,7 @@
                     <p>Our culture certainly stands on some values we all share. These values are crucially important to our organization and they
                         reflect the way we dream, work, cooperate and communicate. Learn more about our culture in our Spirit Book</p>
                     <p class="align-center">
-                        <a href="{{ URL::asset('web/files/iscCtuSpiritBook.pdf') }}">
+                        <a href="{{ URL::asset('files/iscCtuSpiritBook.pdf') }}">
                             <button type="button" class="btn btn-default btn-lg">Download as PDF</button>
                         </a>
                     </p>
