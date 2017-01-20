@@ -22,7 +22,7 @@
                 <h2>See when we're in the ISC Point:<!--<br><i>Subject to be extended later</i>--></h2>
                 <span class="show-menu"></span>
 
-                There are no regular opening hours during the exam period. The ISC Point will be open from February 8th.
+                There are no regular opening hours during the exam period. The ISC Point will be open from {{ $wcFrom }}.
 
                <!-- <table>
                     <tr>
