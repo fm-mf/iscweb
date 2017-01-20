@@ -8,44 +8,64 @@
     <p>V případě, že nejsi studentem některé z uvedených vysokých škol, nás prosím kontaktuj prostřednictvím formuláře níže,
         a my se Ti co nejdříve ozveme s dalším postupem.</p>
 
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#skolni-email">Mám školní email</a></li>
+        <li><a data-toggle="tab" href="#bez-emailu">Nemám školní email</a></li>
+    </ul>
 
-    <h3 class="col-sm-12"><span>MÁM ŠKOLNÍ EMAIL</span></h3>
+    <div class="tab-content" style="padding-top: 20px;">
+        <div id="skolni-email" class="tab-pane fade in active">
+            <!-- <h3 class="col-sm-12"><span>MÁM ŠKOLNÍ EMAIL</span></h3> -->
 
-    {{ Form::open(['url' => '/user/verify']) }}
+            {{ Form::open(['url' => '/user/verify']) }}
 
-    <div class="row">
-        <div class="col-sm-12">
-            {{ Form::label('email', 'Email', ['class' => 'control-label']) }}
-            @if ($errors->has('email'))
-                <p class="error-block alert-danger">{{ $errors->first('email') }}</p>
-            @endif
+            <div class="row">
+                <div class="col-sm-12">
+                    {{ Form::label('email', 'Email', ['class' => 'control-label']) }}
+                    @if ($errors->has('email'))
+                        <p class="error-block alert-danger">{{ $errors->first('email') }}</p>
+                    @endif
 
-            @if ($errors->has('domain'))
-                <p class="error-block alert-danger">{{ $errors->first('domain') }}</p>
-            @endif
+                    @if ($errors->has('domain'))
+                        <p class="error-block alert-danger">{{ $errors->first('domain') }}</p>
+                    @endif
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6 left">
+                    {{ Form::text('email', old('email'), ['class' => 'form-control']) }}
+                </div>
+                <div class="col-sm-1">@</div>
+                <div class="col-sm-5 right">
+                    {{ Form::select('domain', $allowedDomains, old('domain'), ['class' => 'form-control', 'id' => 'select']) }}
+                </div>
+                <div class="col-sm-6 info"></div>
+            </div>
+
+            {{ Form::bsSubmit('Zaslat ověřovací odkaz') }}
+            {{ Form::close() }}
+        </div>
+        <div id="bez-emailu" class="tab-pane fade">
+            <!-- <h3 class="col-sm-12"><span>NEMÁM ŠKOLNÍ EMAIL</span></h3> -->
+            <p>Buddíkem se samozřejmě můžeš stát i pokud již studentem nejsi. V tom případě Tě poprosíme,
+                abys nám níže zanechal/a krátký vzkaz.<br>
+                Vzápětí se Ti ozveme s dalším postupem.</p>
+
+            {{ Form::open(['url' => '/user/noemail']) }}
+            {{ Form::bsTextarea('motivation', ' Proč se chceš stát buddíkem?') }}
+            {{ Form::bsSubmit('Odeslat') }}
+            {{ Form::close() }}
+
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-sm-6 left">
-            {{ Form::text('email', old('email'), ['class' => 'form-control']) }}
-        </div>
-        <div class="col-sm-1">@</div>
-        <div class="col-sm-5 right">
-            {{ Form::select('domain', $allowedDomains, old('domain'), ['class' => 'form-control', 'id' => 'select']) }}
-        </div>
-        <div class="col-sm-6 info"></div>
-    </div>
-
-        {{ Form::bsSubmit('Zaslat ověřovací odkaz') }}
-    {{ Form::close() }}
 
 
-    <h3 class="col-sm-12"><span>NEMÁM ŠKOLNÍ EMAIL</span></h3>
 
-    {{ Form::open(['url' => '/user/noemail']) }}
-        {{ Form::bsText('motivation', ' ') }}
-    {{ Form::close() }}
+
+
+
 @stop
 
 @section('stylesheets')
@@ -58,5 +78,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script type="text/javascript">
         $('#select').select2();
+
+    $('#myTabs a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+    })
     </script>
 @stop

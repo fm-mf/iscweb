@@ -5,13 +5,14 @@
 </head>
 <body>
 <p>Ahoj milá Pájo,<br>
-    i dnes jsem poslem <b>dobrých zpráv</b>! Do Buddíkovských řad se přidal další student. A ačkoliv je samozřejmě na místě ho podrobit naší zkoušce, je mou povinností Tě upozornit, že v něm cítím <b>ISC Spirit</b>.</p>
+Zaregistroval se nám buddík, který bohužel nemá univerzitní email. Proto prosím ověř, jestli se nejedná o dábla a případně mu přiřad roli buddíka. <br>
 
-<p>Možná se pletu, ale věřím, že bychom mu měli dát šanci poznat plnou sílu ISC Spiritu. Proto Tě prosím, abys studenta neprodleně <b>kontaktoval</b> a nabídl mu pomocnou ruku při hledání jeho uplatnění v ISC.</p>
+    Jméno: <b>{{ $buddy->person->first_name }} {{ $buddy->person->last_name }}</b><br>
+    Email: <b>{{ $buddy->person->user->email }}</b></p>
 
-<p>Abych Ti práci ulehčil, zjistil jsem kontaktní údaje:<br>
-    Jméno: <b>{{ $person->first_name }} {{ $person->last_name }}</b><br>
-    Email: <b>{{ $person->user->email }}</b></p>
+<p>Jeho motivace:<br>
+    {{  $motivation }}
+</p>
 
 <p>Believe in ISC Spirit. Pass it on.<br>
     Duch ISC.

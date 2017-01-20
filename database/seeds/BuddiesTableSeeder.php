@@ -34,6 +34,8 @@ class BuddiesTableSeeder extends Seeder
             'last_name' => 'Partak'
         ]);
 
+
+
         $partak3->setVerified();
         $partak3->user()->addRole('partak');
     }

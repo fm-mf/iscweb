@@ -23,6 +23,7 @@ class HRNoEmail extends Mailable
     public function __construct(Buddy $buddy, $motivation)
     {
         $this->buddy = $buddy;
+        $this->motivation = $motivation;
     }
 
     /**

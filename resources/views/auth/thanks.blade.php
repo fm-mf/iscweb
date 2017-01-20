@@ -7,7 +7,12 @@
             <img src="{{ URL::asset('img/auth/logo-reg.png') }}" als="International Student Club" class="logo">
             <h1>Děkujeme za registraci do Buddy Programu!</h1>
             @if (!$verified)
-                <p></p>
+                <p>Děkujeme za odpověď. Brzy se Ti ozveme. Zatím se můžeš kouknout na chystané akce, kde tě rádi uvidíme!<br>
+                    Vše najdeš na <a href="{{ url('/calendar') }}"> {{ url('/calendar') }} </a></p>
+            @else
+                <p>Ověření bylo úspěšné.<br>
+                    Nyní už si můžeš vybrat svého buddyho. Přejeme ti spoustu zábavy!<br>
+                    Do databáze se dostaneš přes odkaz <a href="{{ url('/muj-buddy') }}">{{ url('/muj-buddy') }}</a></p>
             @endif
             <p>
                 Jestli máš chvíli, tak oceníme, když vyplníš tento krátký anonymní formulář.<br>
