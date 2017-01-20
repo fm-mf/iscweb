@@ -10,6 +10,7 @@ use App\Models\Buddy;
 use App\Models\Faculty;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
@@ -25,12 +26,35 @@ class ProfileController extends Controller
 
     public $allowedDomains = [
         /*********** CVUT **************/
+        'fsv.cvut.cz' => 'fsv.cvut.cz',
+        'fs.cvut.cz' => 'fs.cvut.cz',
+        'fel.cvut.cz' => 'fel.cvut.cz',
         'fjfi.cvut.cz' => 'fjfi.cvut.cz',
-        'fsv.cvut.cz' =>  'fsv.cvut.cz',
-        'live.com' => 'live.com'
+        'fa.cvut.cz' => 'fa.cvut.cz',
+        'fd.cvut.cz' => 'fd.cvut.cz',
+        'fbmi.cvut.cz' => 'fbmi.cvut.cz',
+        'fit.cvut.cz' => 'fit.cvut.cz',
+        'muvs.cvut.cz' => 'muvs.cvut.cz',
         /*********** VSCHT **************/
+
         /*********** VSE ***************/
+        'vse.cz' => 'vse.cz',
+
         /*********** UK ****************/
+        'fhs.cuni.cz' => 'fhs.cuni.cz',
+        'ktf.cuni.cz' => 'ktf.cuni.c',
+        'ftvs.cuni.cz' => 'ftvs.cuni.cz',
+        'fsv.cuni.cz' => 'fsv.cuni.cz',
+        'pedf.cuni.cz' => 'pedf.cuni.cz',
+        'mff.cuni.cz' => 'mff.cuni.cz',
+        'natur.cuni.cz' => 'natur.cuni.cz',
+        'ff.cuni.cz' => 'ff.cuni.cz',
+        'lf3.cuni.cz' => 'lf3.cuni.cz',
+        'lfmotol.cuni.cz' => 'lfmotol.cuni.cz',
+        'lf1.cuni.cz' => 'lf1.cuni.cz',
+        'prf.cuni.cz' => 'prf.cuni.cz',
+        'htf.cuni.cz' => 'htf.cuni.cz',
+        'etf.cuni.cz' => 'etf.cuni.cz'
         /*********** CULS ****************/
     ];
 

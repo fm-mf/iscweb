@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
@@ -9,6 +10,8 @@ class Person extends Model
     public $timestamps = false;
     protected $primaryKey = 'id_user';
     public $incrementing = false;
+
+    //protected $dates = ['age'];
 
     protected $fillable = [
         'firs_name', 'last_name', 'age', 'sex', 'diet', 'medical_issues', 'avatar'
@@ -33,6 +36,22 @@ class Person extends Model
         }
 
         return $avatar;
+    }
+
+    public function setAgeAttribute($age)
+    {
+        if ($age) {
+            $this->attributes['age'] = Carbon::create($age);
+        }
+    }
+
+    public function getAgeAttribute($value)
+    {
+        if ($value) {
+            return Carbon::createFromFormat('Y-m-d', $value)->year;
+        } else {
+            return null;
+        }
     }
 
 }
