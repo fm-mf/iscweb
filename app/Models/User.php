@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -84,5 +85,26 @@ class User extends Authenticatable
             return false;
         }
         return !! $role->intersect($this->roles)->count();
+    }
+
+    /**
+     * Make sure that when we are inserting a new user to the database, the unique random identifier is generated
+     */
+    public function save(array $options = [])
+    {
+        if (!$this->exists && (!isset($this->hash) || $this->hash == null)) {
+            $this->hash = $this->generateHash();
+        }
+        parent::save($options);
+    }
+
+    protected function generateHash()
+    {
+        $hash =  Str::random(32);
+        if (User::findByHash($hash)) {
+            return $this->generateHash();
+        } else {
+            return $hash;
+        }
     }
 }
