@@ -20,14 +20,14 @@
         </div>
         <div class="row menu">
             <ul class="nav nav-stacked">
-                <li class="blue"><a href="./sg.php">First days in Prague</a>
+                <li class="blue"><a href="{{ url ('guide/basic-information') }}">First days in Prague</a>
                     <ul class="nav nav-stacked">
                         <li><a href="{{ url('guide/legal-information') }}">Legal information</a></li>
                         <li><a href="{{ url('guide/orientation-week') }}">Orientation Week</a></li>
                         <li><a href="{{ url('guide/international-office') }}">International Office</a></li>
                     </ul>
                 </li>
-                <li class="purple"><a href="./sg.php?page=about-CTU">Studying at CTU</a>
+                <li class="purple"><a href="{{url('guide/about-CTU')}}">Studying at CTU</a>
                     <ul class="nav nav-stacked">
                         <li><a href="{{ url('guide/useful-information') }}">Useful Information</a></li>
                         <li><a href="{{ url('guide/contact-list') }}">Contact list</a></li>
@@ -41,7 +41,7 @@
                         <li><a href="{{ url('guide/getting-around') }}">Getting around the city</a></li>
                         <li><a href="{{ url('guide/private-accommodation') }}">Private accommodation</a></li>
                         <li><a href="{{ url('guide/health-care') }}">Health Care</a></li>
-                        <li><a href="{{ url('basic-vocabulary') }}">Basic vocabulary</a></li>
+                        <li><a href="{{ url('guide/basic-vocabulary') }}">Basic vocabulary</a></li>
                     </ul>
                 </li>
             </ul>

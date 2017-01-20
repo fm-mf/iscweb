@@ -22,9 +22,9 @@
                 <h2>See when we're in the ISC Point:<!--<br><i>Subject to be extended later</i>--></h2>
                 <span class="show-menu"></span>
 
-                <!--There are no regular opening hours during the exam period. The ISC Point will be open from October 1st.
-                -->
-                <table>
+                There are no regular opening hours during the exam period. The ISC Point will be open from February 8th.
+
+               <!-- <table>
                     <tr>
                         <th>Monday</th>
                         <td>14:00 - 22:00</td>
@@ -53,7 +53,7 @@
                         <th>Sunday</th>
                         <td>closed</td>
                     </tr>
-                </table>
+                </table> -->
 
             </div>
         </div>

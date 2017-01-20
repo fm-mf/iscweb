@@ -76,6 +76,9 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 Route::get('/stats', 'Stats\StatsController@showStatistics');
 
 
+Route::get('buddy-prirucka', function () { return redirect(asset('files/buddyPriruckaSpring2017.pdf')); });
+//redirect from old web
+Route::get('/buddy/files/buddyPriruckaSpring2017.pdf', function () { return redirect(asset('files/buddyPriruckaSpring2017.pdf')); });
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
@@ -89,14 +92,12 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
         Route::get('/activities/trips', function() { return view('web.activities.trips'); });
     Route::get('/contact', function() { return view('web.contact'); });
     Route::get('/calendar', function() { return view('web.calendar'); });
-    Route::get('/buddy', function () { return view('web.buddy'); });
+    Route::get('/buddy', function () { return "Buddy page"; });
 });
 
 // Survival Guide
-Route::group(['namespace' => 'SurvivalGuide', 'prefix' => 'guide'], function() {
-    Route::get('/', function () {
-        return view('guide.home');
-    });
+Route::group(['namespace' => 'Guide', 'prefix' => 'guide'], function() {
+   Route::get('/', 'PageController@showPage');
 
     Route::get('/{page}', 'PageController@showPage');
 });
