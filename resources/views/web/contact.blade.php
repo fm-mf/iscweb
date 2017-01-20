@@ -108,47 +108,47 @@
             <div class="container">
                 <ul class="row list-unstyled contacts">
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/president.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/president_Tete.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Tereza Vlasáková</h4><br>
+                            <h4>Tereza "Tété" Kadlecová</h4><br>
                             <strong>President</strong><br>
                             Email: <a href="mailto:president@isc.cvut.cz">president@isc.cvut.cz</a><br>
-                            Phone: (+420) 604 208 172<br>
+                            Phone: (+420) 607 708 082<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/vice.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Vicepresident_Marcela.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Erik Derner</h4><br>
+                            <h4>Marcela "Marcí" Růžičková</h4><br>
                             <strong>Vicepresident</strong><br>
                             Email: <a href="mailto:vicepresident@isc.cvut.cz">vicepresident@isc.cvut.cz</a><br>
-                            Phone: (+420) 720 224 489<br>
+                            Phone: (+420) 724 051 662<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/hr.jpg') }}" width="100px" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Hr_Paja.jpg') }}" width="100px" class="img-circle">
                         <div class="contact-details">
-                            <h4>Martin Mastný</h4><br>
+                            <h4>Pavlína Pokošová</h4><br>
                             <strong>Human Resources</strong><br>
                             Email: <a href="mailto:hr@isc.cvut.cz">hr@isc.cvut.cz</a><br>
-                            Phone: (+420) 720 236 883<br>
+                            Phone: (+420) 720 372 718<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/treasurer.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Treasurer_Honza.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Daniel Pleschner</h4><br>
+                            <h4>Jan Vůjtěch</h4><br>
                             <strong>Treasurer</strong><br>
                             Email: <a href="mailto:treasurer@isc.cvut.cz">treasurer@isc.cvut.cz</a><br>
-                            Phone: (+420) 725 020 470<br>
+                            Phone: (+420) 728 559 713<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/pr.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/PR_Evca.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Eva Machová</h4><br>
                             <strong>Public Relations</strong><br>
@@ -158,77 +158,77 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/interel.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Interel_Michael.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Jan Cejhon</h4><br>
+                            <h4>Michael Hartman</h4><br>
                             <strong>International Relations</strong><br>
                             Email: <a href="mailto:interel@isc.cvut.cz">interel@isc.cvut.cz</a><br>
-                            Phone: (+420) 606 418 602<br>
+                            Phone: (+420) 721 155 881<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/knowledge.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/QaK_Dominik.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Vít Skolil</h4><br>
+                            <h4>Dominik Bureš</h4><br>
                             <strong>Quality and Knowledge Manager</strong><br>
                             Email: <a href="mailto:knowledge@isc.cvut.cz">knowledge@isc.cvut.cz</a><br>
-                            Phone: (+420) 608 036 167<br>
+                            Phone: (+420) 721 421 299<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/integreat.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/inteGREAT_Eliska.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Ondřej Väter</h4><br>
+                            <h4>Eliška Beránková</h4><br>
                             <strong>inteGREAT Coordinator</strong><br>
                             Email: <a href="mailto:integreat@isc.cvut.cz">integreat@isc.cvut.cz</a><br>
-                            Phone: (+420) 777 874 575<br>
+                            Phone: (+420) 602 157 159<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/point.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Point_Ivo.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Denis Lom</h4><br>
+                            <h4>Ivo Vodička</h4><br>
                             <strong>Point Coordinator</strong><br>
                             Email: <a href="mailto:point@isc.cvut.cz">point@isc.cvut.cz</a><br>
-                            Phone: (+420) 731 872 630<br>
+                            Phone: (+420) 725 280 920<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/activities.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Activities_Misa.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Lucie Marcalíková</h4><br>
+                            <h4>Míša Petříková</h4><br>
                             <strong>Activities Coordinator</strong><br>
                             Email: <a href="mailto:activities@isc.cvut.cz">activities@isc.cvut.cz</a><br>
-                            Phone: (+420) 732 131 321<br>
+                            Phone: (+420) 777 888 704<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/languages.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Languages_Verca.jpg') }}"class="img-circle">
                         <div class="contact-details">
-                            <h4>Eva Málková</h4><br>
+                            <h4>Verča Paštyková</h4><br>
                             <strong>Languages Coordinator</strong><br>
                             Email: <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a><br>
-                            Phone: (+420) 736 212 824<br>
+                            Phone: (+420) 775 478 059<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/buddy.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Buddy_Terka.jpg') }}"class="img-circle">
                         <div class="contact-details">
-                            <h4>Tereza Kadlecová</h4><br>
+                            <h4>Tereza Faltysová</h4><br>
                             <strong>Buddy Coordinator</strong><br>
                             Email: <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a><br>
-                            Phone: (+420) 607 708 082<br>
+                            Phone: (+420) 777 085 390<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/it.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/IT_Speedy.jpg') }}"class="img-circle">
                         <div class="contact-details">
                             <h4>Martin Průcha</h4><br>
                             <strong>IT Coordinator</strong><br>
@@ -238,42 +238,82 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/alumni.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Alumni_Sekretarka.jpg') }}"class="img-circle">
                         <div class="contact-details">
-                            <h4>Soňa Cicoňová</h4><br>
+                            <h4>Vojtěch Novák</h4><br>
                             <strong>Alumni Coordinator</strong><br>
                             Email: <a href="mailto:alumni@isc.cvut.cz">alumni@isc.cvut.cz</a><br>
-                            Phone: (+420) 731 128 197<br>
+                            Phone: (+420) 737 671 518<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/sports.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Sports_Petr.jpg') }}"class="img-circle">
                         <div class="contact-details">
-                            <h4>Jiří Vejrosta</h4><br>
+                            <h4>Petr Šlajs</h4><br>
                             <strong>Sports Coordinator</strong><br>
                             Email: <a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a><br>
-                            Phone: (+420) 724 662 462<br>
+                            Phone: (+420) 724 537 680<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/care.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Care_Misa.jpg') }}"class="img-circle">
                         <div class="contact-details">
-                            <h4>Dominik Bureš</h4><br>
+                            <h4>Michaela Šímová</h4><br>
                             <strong>ISC Care Coordinator</strong><br>
                             Email: <a href="mailto:care@isc.cvut.cz">care@isc.cvut.cz</a><br>
-                            Phone: (+420) 721 421 299<br>
+                            Phone: (+420) 722 588 477<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ URL::asset('img/web/contacts/2016fall/visa.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Visa_Pepa.jpg') }}"class="img-circle">
                         <div class="contact-details">
-                            <h4>Šimon Hrabec</h4><br>
+                            <h4>Josef Klesa</h4><br>
                             <strong>Visa Coordinator</strong><br>
                             Email: <a href="mailto:visa@isc.cvut.cz">visa@isc.cvut.cz</a><br>
-                            Phone: (+420) 732 334 216<br>
+                            Phone: (+420) 728 481 627<br>
+                        </div>
+                        <span class="clearfix"></span>
+                    </li>
+                    <li class="col-md-4 col-sm-6">
+                        <img src="{{ asset('img/web/contacts/2017spring/Photo_Vojta.jpg') }}"class="img-circle">
+                        <div class="contact-details">
+                            <h4>Vojtěch Zacharda</h4><br>
+                            <strong>Photo Coordinator</strong><br>
+                            Email: <a href="mailto:photo@isc.cvut.cz">photo@isc.cvut.cz</a><br>
+                            Phone: (+420) 000 000 000<br>
+                        </div>
+                        <span class="clearfix"></span>
+                    </li>
+                    <li class="col-md-4 col-sm-6">
+                        <img src="{{ asset('img/web/contacts/2017spring/Video_Misa.jpg') }}"class="img-circle">
+                        <div class="contact-details">
+                            <h4>Michal Štádler</h4><br>
+                            <strong>Video Coordinator</strong><br>
+                            Email: <a href="mailto:video@isc.cvut.cz">video@isc.cvut.cz</a><br>
+                            Phone: (+420) 607 100 631<br>
+                        </div>
+                        <span class="clearfix"></span>
+                    </li>
+                    <li class="col-md-4 col-sm-6">
+                        <img src="{{ asset('img/web/contacts/2017spring/Promo_Nicol.jpg') }}"class="img-circle">
+                        <div class="contact-details">
+                            <h4>Nicol Minichová</h4><br>
+                            <strong>Promo Coordinator</strong><br>
+                            Email: <a href="mailto:promo@isc.cvut.cz">promo@isc.cvut.cz</a><br>
+                            Phone: (+420) 000 000 000<br>
+                        </div>
+                        <span class="clearfix"></span>
+                    </li>
+                    <li class="col-md-4 col-sm-6">
+                        <img src="{{ asset('img/web/contacts/2017spring/Press_Pavel.jpg') }}"class="img-circle">
+                        <div class="contact-details">
+                            <h4>Pavel Hošek</h4><br>
+                            <strong>Press Coordinator</strong><br>
+                            Email: <a href="mailto:press@isc.cvut.cz">press@isc.cvut.cz</a><br>
+                            Phone: (+420) 728 356 682<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
