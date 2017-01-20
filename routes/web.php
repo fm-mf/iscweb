@@ -90,7 +90,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
         Route::get('/activities/sports', function() { return view('web.activities.sports'); });
         Route::get('/activities/integreat', function() { return view('web.activities.integreat'); });
         Route::get('/activities/trips', function() { return view('web.activities.trips'); });
-    Route::get('/contact', function() { return view('web.contact'); });
+    Route::get('/contact', 'WebController@showContacts');
     Route::get('/calendar', function() { return view('web.calendar'); });
     Route::get('/buddy', function () { return "Buddy page"; });
 });
