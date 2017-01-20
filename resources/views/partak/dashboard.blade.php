@@ -127,7 +127,7 @@
                         <p>Elektronická verze ISC Spirit Book</p>
                     </li>
                     <li>
-                        <a href="https://147.32.97.62:5001/index.cgi">Fotogalerie (NAS)</a>
+                        <a href="{{ url('/nas') }}">Fotogalerie (NAS)</a>
                         <p>Naleznete zde spoustu nových i starých fotek z akcí ISC</p>
                         <p><strong>Login: partak</strong></p><p><strong>Heslo: Quentinamakazdyrad</strong></p>
                     </li>

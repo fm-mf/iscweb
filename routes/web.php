@@ -20,21 +20,21 @@ Route::get('/muj-buddy/register/update-exchange-profile/{hash}', function($hash)
     return redirect('/exchange/' . $hash);
 });
 
-Route::group(['middleware' => 'checkpartak', 'namespace' => 'Partak', 'prefix' => 'partak'], function()
+Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 'prefix' => 'partak'], function()
 {
     Route::get('/', 'DashboardController@index');
     //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
 });
 
 
-Route::group(['middleware' => 'checkbuddy', 'namespace' => 'Buddyprogram', 'prefix' => 'muj-buddy'], function()
+Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogram', 'prefix' => 'muj-buddy'], function()
 {
-    Route::get('/', 'ListingController@listExchangeStudents')->middleware('auth');
-    Route::get('/list', 'ListingController@listExchangeStudents')->middleware('auth');
-    Route::get('/profile/{id}', 'StudentController@showProfile')->middleware('auth');
-    Route::get('/become-buddy/{id}', 'StudentController@assignBuddy')->middleware('auth');
-    Route::get('/my-students/', 'ListingController@listMyStudents')->middleware('auth');
-    Route::get('/closed/', 'ListingController@showClosed')->middleware('auth');
+    Route::get('/', 'ListingController@listExchangeStudents');
+    Route::get('/list', 'ListingController@listExchangeStudents');
+    Route::get('/profile/{id}', 'StudentController@showProfile');
+    Route::get('/become-buddy/{id}', 'StudentController@assignBuddy');
+    Route::get('/my-students/', 'ListingController@listMyStudents');
+    Route::get('/closed/', 'ListingController@showClosed');
 });
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
@@ -93,6 +93,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/contact', 'WebController@showContacts');
     Route::get('/calendar', function() { return view('web.calendar'); });
     Route::get('/buddy', function () { return view('web.buddy'); });
+    Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); });
 });
 
 // Survival Guide
