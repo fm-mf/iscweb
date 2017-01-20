@@ -368,11 +368,11 @@
                 <h3>Parťák Net</h3>
                 <span class="bar"></span>
                 <ul class="list-unstyled">
-                    <li><a href="https://www.isc.cvut.cz/partak" target="_blank">ParťákNet</a></li>
+                    <li><a href="{{ 'partak' }}" target="_blank">ParťákNet</a></li>
                 </ul>
             </div>
             <div class="col-sm-6">
-                <p>&copy; 2016 | International Student Club CTU in Prague, z.s.</p>
+                <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z.s.</p>
             </div>
 
         </div><!-- /row -->

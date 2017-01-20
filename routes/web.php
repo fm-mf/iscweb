@@ -92,7 +92,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
         Route::get('/activities/trips', function() { return view('web.activities.trips'); });
     Route::get('/contact', 'WebController@showContacts');
     Route::get('/calendar', function() { return view('web.calendar'); });
-    Route::get('/buddy', function () { return "Buddy page"; });
+    Route::get('/buddy', function () { return view('web.buddy'); });
 });
 
 // Survival Guide

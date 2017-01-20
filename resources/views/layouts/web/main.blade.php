@@ -21,7 +21,7 @@
                     <h2>BUDDY PROGRAM</h2>
                     <p>We pair Czech and exchange students</p>
                     <button type="button" class="btn btn-default btn-lg btn-circles">Learn more</button>
-                    <a href="https://www.isc.cvut.cz/buddy" class="for-czechs">
+                    <a href="{{ 'buddy' }}" class="for-czechs">
                         <img src="{{ URL::asset('img/web/czech-flag.png') }}" alt="For Czech Students">Information for Czech students</a>
                 </a>
             </div>
