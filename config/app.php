@@ -190,6 +190,11 @@ return [
         App\Providers\FormServiceProvider::class,
         App\Providers\SettingsProvider::class,
 
+        /*
+         * PhpStorm autocomplet
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
     ],
 
     /*

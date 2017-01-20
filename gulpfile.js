@@ -17,6 +17,8 @@ elixir((mix) => {
     mix.sass('web/web.scss', 'public/css/web.css').sass('auth/user.scss', 'public/css/user.css')
     .sass('partak/partaknet.scss', 'public/css/partaknet.css').sass('auth/login.scss', 'public/css/login.css')
     .sass('picker/picker.scss', 'public/css/picker.css').sass('buddyprogram/buddyprogram.scss', 'public/css/buddyprogram.css')
+        .sass('guide/guide.scss', 'public/css/guide.css').sass('guide/guide_subpage.scss', 'public/css/guide_subpage.css')
+    .sass('web/buddy.scss', 'public/css/buddy.css')
         .sass('guide/guide.scss', 'public/css/guide.css').sass('web/buddy.scss', 'public/css/buddy.css').sass('errors.scss', 'public/css/errors.css')
        .webpack('app.js');
 });

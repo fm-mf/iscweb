@@ -7,7 +7,7 @@
     <div class="container circles center">
         <div class="row">
             <div class="circ-info col-sm-4">
-                <a href="http://isc.cvut.cz/guide">
+                <a href="{{ url('/guide') }}">
                     <img src="{{ URL::asset('img/web/circle-1.png') }}" alt="Before Arrival">
 
                     <h2>BEFORE ARRIVAL</h2>

@@ -30,14 +30,14 @@
             <div class="logo col-sm-3"><img src="{{ asset('img/guide/logo.png') }}"></div>
             <!--<div class="hp-search col-sm-3 col-sm-offset-6"><input type="text" name="search" class="text-input" placeholder="Search the guide..."></div> -->
 
-            <div class="hp-search col-sm-3 col-sm-offset-6">
+            <!-- div class="hp-search col-sm-3 col-sm-offset-6">
                 <form id="searchbox_002225157009474439302:mrfa_ntbk3u" class="f-search" action="results.php">
                     <input value="002225157009474439302:mrfa_ntbk3u" name="cx" type="hidden"/>
                     <input value="FORID:11" name="cof" type="hidden"/>
                     <input id="q" name="q" size="70" type="text" placeholder="Search the guide..." />
                     <button type="submit" name="sa" class="submit"><span class="glyphicon glyphicon-search"></span></button>
                     <!--<input value="Search" name="sa" type="submit"/>-->
-                </form>
+                <!-- /form -->
             </div>
 
         </div>
@@ -58,10 +58,10 @@
 <div class="container">
     <div class="row forewords">
         <div class="col-sm-12">
-            <img src="{{ asset('') }}" class="img-circle" alt="">
+            <img src="{{ asset( $presidentPicture ) }}" class="img-circle" alt="">
             <p id="text4">
-                Dear international students,<br />welcome to the Czech Republic and to the Czech Technical University&#x21;<br /><br />Whether you are an Erasmus student, an Exchange student, an Erasmus Mundus student or a self-paying &#x28;private&#x29; student, we hope you will have a great time&#x21;<br /><br />Maybe you are not aware of it yet, but you are the luckiest people in the world. Your study stay is just starting, and you can explore a brand new world&#x21; Try to get the best from your stay here&#x21; Let me introduce the International Student Club. ISC is a bunch of volunteers who do not hesitate to help other students. We do this in our leisure time – we want to meet international people, make friends, we want to learn foreign languages, we want to grow personally and much more. We strive to be the best in our field.<br /><br />There are over 500 incoming international students this semester! Please, keep in mind that the buddy program is a voluntary service. If you need help or advice, ask your Czech Buddy or come to the ISC centre, and we will try to help&#x21; I can assure you that ISC is doing everything to improve the care for international students. We organize events, parties, trips and much more. So start looking forward to your new adventure!<br /><br />Together we conquer the world&#x21;</p>
-            <p><br>
+                Dear international students,<br />welcome to the Czech Republic and to the Czech Technical University&#x21;<br /><br />Whether you are an Erasmus student, an Exchange student, an Erasmus Mundus student or a self-paying &#x28;private&#x29; student, we hope you will have a great time&#x21;<br /><br />Maybe you are not aware of it yet, but you are the luckiest people in the world. Your study stay is just starting, and you can explore a brand new world&#x21; Try to get the best from your stay here&#x21; Let me introduce the International Student Club. ISC is a bunch of volunteers who do not hesitate to help other students. We do this in our leisure time – we want to meet international people, make friends, we want to learn foreign languages, we want to grow personally and much more. We strive to be the best in our field.<br /><br />There are over {{ $studentsCount }} incoming international students this semester! Please, keep in mind that the buddy program is a voluntary service. If you need help or advice, ask your Czech Buddy or come to the ISC centre, and we will try to help&#x21; I can assure you that ISC is doing everything to improve the care for international students. We organize events, parties, trips and much more. So start looking forward to your new adventure!<br /><br />Together we conquer the world&#x21;</p>
+            <p>{{ $president }}<br>
                 President of the International Student Club CTU in Prague
             </p>
         </div>
@@ -78,7 +78,7 @@
 </div>
 <div class="footer-wrapper">
     <div class="container">
-        <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, o.s.</p>
+        <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z.s.</p>
     </div>
 </div>
 
