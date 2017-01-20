@@ -20,7 +20,7 @@ class BuddiesTableSeeder extends Seeder
 
         $buddy2 = \App\Models\Buddy::registerBuddy([
             'email' => 'verified@isc.cz',
-            'password' => '$2y$10$Y3cFZPR4kOB9o9HqNokzNuXHt3rwyF6k88kXi/XOSUv0IlS6CtJUu',
+            'password' => '$2y$10$x29l2/M40VS3MDD9Hwnk7OlG9Qe0TSTsTy8Oh3lzGIlWq1V5yiE/2',
             'first_name' => 'Michal',
             'last_name' => 'Aktivni'
         ]);

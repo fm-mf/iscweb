@@ -25,7 +25,7 @@
                         <div class="avatar-body">
                             <!-- Upload image and data -->
                             <div class="row avatar-upload form-group">
-                                @if ($userHash)
+                                @if (isset($userHash))
                                 <input type="hidden" name="hash" value="{{ $userHash }}">
                                 @endif
                                 <input class="avatar-src" name="avatar_src" type="hidden">

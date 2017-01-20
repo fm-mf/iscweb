@@ -42,6 +42,7 @@ $factory->define(App\Models\ExchangeStudent::class, function (Faker\Generator $f
         'id_country' => $faker->numberBetween(1, 50),
         'id_accommodation' => $faker->numberBetween(1, 10),
         'id_faculty' => $faker->numberBetween(1, 7),
+        'about' => $faker->sentence,
     ];
 });
 

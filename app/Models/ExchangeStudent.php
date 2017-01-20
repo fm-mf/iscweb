@@ -128,6 +128,11 @@ class ExchangeStudent extends Model
         return $query->whereDate('buddy_timestamp', '=', Carbon::today()->toDateString());
     }
 
+    public static function scopeWantBuddy($query)
+    {
+        return $query->where('want_buddy', 'y');
+    }
+
     public static function filterToArray($values, $key)
     {
         $filters = array();
