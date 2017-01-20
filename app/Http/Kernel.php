@@ -54,5 +54,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 
         'checkbuddy' => \App\Http\Middleware\CheckBuddy::class,
+        'checkpartak' => \App\Http\Middleware\CheckPartak::class,
     ];
 }

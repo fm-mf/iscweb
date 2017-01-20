@@ -75,9 +75,9 @@ class User extends Authenticatable
     public function hasRole($role)
     {
         if (is_string($role)) {
-            return $this->roles->contains('title', $role);
-        } else if (id_array($role)) {
-            foreach ($this->roles as $myRole) {
+            return $this->roles()->get()->contains('title', $role);
+        } else if (is_array($role)) {
+            foreach ($this->roles()->get() as $myRole) {
                 if (in_array($myRole->title, $role)) {
                     return true;
                 }
@@ -85,6 +85,33 @@ class User extends Authenticatable
             return false;
         }
         return !! $role->intersect($this->roles)->count();
+    }
+
+    public function addRole($role)
+    {
+        if (is_integer($role)) {
+            $this->roles()->attach($role);
+        } else {
+            $role = Role::where('title', $role)->first();
+            if ($role) {
+                $this->roles()->attach($role);
+            }
+        }
+
+    }
+
+    public function addRoles($roles)
+    {
+        if (is_array($roles)) {
+            $this->roles()->syncWithoutDetaching($roles);
+        }
+    }
+
+    public function syncRoles($roles)
+    {
+        if (is_array($roles)) {
+            $this->roles()->sync($roles);
+        }
     }
 
     /**

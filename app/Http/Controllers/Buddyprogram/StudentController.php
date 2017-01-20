@@ -22,7 +22,7 @@ class StudentController extends Controller
         $exchangeStudent = ExchangeStudent::eagerFind($exchangeStudentId);
 
         if (!Settings::get('isDatabaseOpen') && $exchangeStudent->id_buddy != Auth::id()) {
-            return redirect('/mujbuddy/closed');
+            return redirect('/muj-buddy/closed');
         }
 
         $canChoose = $me->pickedStudentsToday() < Settings::get('limitPerDay', 1);
@@ -37,7 +37,7 @@ class StudentController extends Controller
     public function assignBuddy($exchangeStudentId)
     {
         if (!Settings::get('isDatabaseOpen')) {
-            return redirect('/mujbuddy/closed');
+            return redirect('/muj-buddy/closed');
         }
 
         $me = Buddy::find(Auth::id());

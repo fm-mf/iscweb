@@ -57,7 +57,7 @@
                 @endforeach
             @endif
             @if(!$exchangeStudent->hasBuddy() && $casChoose)
-                <a href="{{ url('mujbuddy/become-buddy/' . $exchangeStudent->id_user) }}" class="btn btn-primary btn">Staň se jeho / jejím Buddym.</a>
+                <a href="{{ url('muj-buddy/become-buddy/' . $exchangeStudent->id_user) }}" class="btn btn-primary btn">Staň se jeho / jejím Buddym.</a>
             @elseif ($exchangeStudent->id_buddy === Auth::id())
                 <div class="show-email col-sm-6">
                     <strong>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</strong> je tvým Buddym!

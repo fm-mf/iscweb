@@ -34,6 +34,11 @@ class Buddy extends Model
         $this->save();
     }
 
+    public function user()
+    {
+        return $this->person->user;
+    }
+
     public static function findBuddy($id_user)
     {
         return Buddy::with('person.user')->find($id_user);

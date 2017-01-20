@@ -33,7 +33,7 @@
             </thead>
             <tbody>
             <tr v-for="student in exchangeStudents.all()">
-                <td><a href="{{url('/mujbuddy/profile/')}}" v-bind:href="'{{url('/mujbuddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} @{{ student.person.last_name }}</a></td>
+                <td><a href="{{url('/muj-buddy/profile/')}}" v-bind:href="'{{url('/muj-buddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} @{{ student.person.last_name }}</a></td>
                 <td>@{{ student.country.full_name }}</td>
                 <td>@{{ student.school }}</td>
                 <td>@{{ student.faculty.abbreviation }}</td>

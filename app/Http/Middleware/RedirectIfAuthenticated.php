@@ -22,7 +22,7 @@ class RedirectIfAuthenticated
             if ($user->isPartak()) {
                 return redirect('/partak');
             } else if ($user->isBuddy()) {
-                return redirect('/mujbuddy');
+                return redirect('/muj-buddy');
             } else {
                 return redirect('/user/verify');
             }

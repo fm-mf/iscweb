@@ -20,14 +20,14 @@ Route::get('/muj-buddy/register/update-exchange-profile/{hash}', function($hash)
     return redirect('/exchange/' . $hash);
 });
 
-Route::group(['namespace' => 'Partak', 'prefix' => 'partak'], function()
+Route::group(['middleware' => 'checkpartak', 'namespace' => 'Partak', 'prefix' => 'partak'], function()
 {
-    Route::get('/', 'DashboardController@index')->middleware('auth');
+    Route::get('/', 'DashboardController@index');
     //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
 });
 
 
-Route::group(['middleware' => 'checkbuddy', 'namespace' => 'Buddyprogram', 'prefix' => 'mujbuddy'], function()
+Route::group(['middleware' => 'checkbuddy', 'namespace' => 'Buddyprogram', 'prefix' => 'muj-buddy'], function()
 {
     Route::get('/', 'ListingController@listExchangeStudents')->middleware('auth');
     Route::get('/list', 'ListingController@listExchangeStudents')->middleware('auth');
