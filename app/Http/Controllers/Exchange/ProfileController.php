@@ -39,11 +39,9 @@ class ProfileController extends Controller
             $currentDate = $date->format('d M Y');
         }
 
-        if ($student->person->avatar) {
-            $avatar = 'avatars/' . $student->person->avatar;
-        } else {
-            $avatar = '/img/auth/avatar.jpg';
-        }
+        $avatar = $student->person->avatar();
+
+        //dd($avatar);
 
         return view('exchange.profile')->with([
             'student' => $student,
@@ -54,7 +52,8 @@ class ProfileController extends Controller
             'currentTransportation' => $currentTransportation,
             'currentDate' => $currentDate,
             'currentTime' => $currentTime,
-            'optedOut' => $student->want_buddy == 'n'
+            'optedOut' => $student->want_buddy == 'n',
+            'userHash' => $student->person->user->hash,
         ]);
     }
 

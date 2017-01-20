@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BuddiesTableSeeder::class);
         $this->call(ExchangeStudentsTableSeeder::class);
+        $this->call(TransportationSeeder::class);
 
     }
 }
