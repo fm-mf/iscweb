@@ -246,6 +246,7 @@
             });
 
             console.log("has" + data.has('avatar_src'));
+            console.log("hash" + data.has('hash'));
 
             $.ajax({
                 type: 'post',

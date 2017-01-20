@@ -25,7 +25,9 @@
                         <div class="avatar-body">
                             <!-- Upload image and data -->
                             <div class="row avatar-upload form-group">
-                                <input type="hidden" name="id" value="none">
+                                @if ($userHash)
+                                <input type="hidden" name="hash" value="{{ $userHash }}">
+                                @endif
                                 <input class="avatar-src" name="avatar_src" type="hidden">
                                 <input class="avatar-data" name="avatar_data" type="hidden">
                                 <label for="avatarInput">{{ trans('forms.file-with-picture') }}</label>
