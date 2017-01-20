@@ -14,7 +14,7 @@ class CreateSemestersHasExchangeStudentsTable extends Migration {
 	{
 		Schema::create('semesters_has_exchange_students', function(Blueprint $table)
 		{
-			$table->boolean('id_semester')->index('fk_semesters');
+			$table->integer('id_semester')->index('fk_semesters');
 			$table->integer('id_user')->unsigned()->index('fk_students');
 			$table->primary(['id_semester','id_user']);
 		});

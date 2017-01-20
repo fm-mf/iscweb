@@ -89,8 +89,9 @@ class ProfileController extends Controller
         if ($user->isBuddy()) {
             return Redirect::to('/user/profile')->with('success', true);
         } else if ($this->isEmailVerifiable($user->email)) {
+
             $this->sendVerificationEmail($user->email);
-            return Redirect::to('user/complete')->with(['email' => $user->email]);
+            return Redirect::to('user/verification-info')->with(['email' => $user->email]);
         } else {
             return Redirect::to('user/verify');
         }

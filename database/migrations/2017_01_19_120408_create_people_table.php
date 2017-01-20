@@ -21,6 +21,7 @@ class CreatePeopleTable extends Migration {
 			$table->enum('sex', array('M','F'))->nullable();
 			$table->enum('diet', array('Vegetarian','Vegan','Fish only'))->nullable();
 			$table->string('medical_issues')->nullable();
+			$table->string('avatar', 100)->nullable();
 		});
 	}
 

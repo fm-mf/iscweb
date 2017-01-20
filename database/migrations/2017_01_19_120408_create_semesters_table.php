@@ -14,7 +14,7 @@ class CreateSemestersTable extends Migration {
 	{
 		Schema::create('semesters', function(Blueprint $table)
 		{
-			$table->boolean('id_semester')->unique('id_semester_UNIQUE');
+			$table->integer('id_semester')->unique('id_semester_UNIQUE');
 			$table->string('semester', 45)->unique('semester_UNIQUE');
 		});
 	}

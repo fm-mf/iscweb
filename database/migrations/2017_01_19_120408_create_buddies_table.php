@@ -18,7 +18,7 @@ class CreateBuddiesTable extends Migration {
 			$table->boolean('id_faculty')->nullable()->index('id_faculty');
 			$table->text('about', 65535)->nullable();
 			$table->string('phone', 20)->nullable();
-			$table->enum('active', array('y','n'))->default('y');
+			$table->enum('active', array('y','n'))->default('n');
 			$table->enum('subscribed', array('y','n'))->default('y');
 			$table->enum('alive', array('y','n'))->default('n');
 		});

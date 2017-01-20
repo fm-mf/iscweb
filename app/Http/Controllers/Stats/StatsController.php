@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 
 class StatsController extends Controller
 {
+
     public function showStatistics()
     {
         $currentSemester = Settings::get('currentSemester');

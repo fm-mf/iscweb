@@ -67,7 +67,7 @@ class StudentController extends Controller
             $errors['alreadyHasABuddy'] = 'Student již má buddyho';
         }
 
-        if ($errors) {
+        if (isset($errors)) {
             return back()->withErrors($errors);
         } else {
             event(new ExchangeStudentPicked($me, $exchangeStudent));

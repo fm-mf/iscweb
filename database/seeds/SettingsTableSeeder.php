@@ -20,7 +20,7 @@ class SettingsTableSeeder extends Seeder
             0 => 
             array (
                 'key' => 'currentSemester',
-                'value' => 'fall2016',
+                'value' => 'spring2017',
             ),
             1 => 
             array (
@@ -30,7 +30,7 @@ class SettingsTableSeeder extends Seeder
             2 => 
             array (
                 'key' => 'limitPerDay',
-                'value' => '1',
+                'value' => '3',
             ),
         ));
         

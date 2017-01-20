@@ -10,6 +10,7 @@ class ExchangeStudent extends Model
     public $timestamps = false;
     protected $primaryKey = 'id_user';
     protected $dates = ['buddy_timestamp'];
+    public $incrementing = false;
 
     public function person()
     {

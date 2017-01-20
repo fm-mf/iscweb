@@ -26,19 +26,18 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\Person::class, function (Faker\Generator $faker) {
     return [
         'id_user' => function() {
-            return factory(App\Models\User::class)->create()->user_id;
+            return factory(App\Models\User::class)->create()->id_user;
         },
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'sex' => 'M',
-        'age' => 1989
     ];
 });
 
 $factory->define(App\Models\ExchangeStudent::class, function (Faker\Generator $faker) {
     return [
         'id_user' => function() {
-            return factory(App\Models\Person::class)->create()->user_id;
+            return factory(App\Models\Person::class)->create()->id_user;
         },
         'id_country' => $faker->numberBetween(1, 50),
         'id_accommodation' => $faker->numberBetween(1, 10),
@@ -49,7 +48,7 @@ $factory->define(App\Models\ExchangeStudent::class, function (Faker\Generator $f
 $factory->define(\App\Models\Buddy::class, function (Faker\Generator $faker) {
    return [
        'id_user' => function() {
-            return factory(App\Models\Person::class)->create()->user_id;
+            return factory(App\Models\Person::class)->create()->id_user;
         },
    ];
 });
