@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,5 +35,20 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    protected function resetPassword($user, $password)
+    {
+        $user->forceFill([
+            'password' => encryptPassword($user->email, $password),
+            'remember_token' => Str::random(60),
+        ])->save();
+
+        $this->guard()->login($user);
+    }
+
+    private function encryptPassword($email, $password)
+    {
+        return bcrypt(hash("sha512", $email . '@' . $password));
     }
 }

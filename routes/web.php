@@ -20,6 +20,9 @@ Route::get('/muj-buddy/register/update-exchange-profile/{hash}', function($hash)
     return redirect('/exchange/' . $hash);
 });
 
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+
+
 Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 'prefix' => 'partak'], function()
 {
     Route::get('/', 'DashboardController@index');
@@ -39,6 +42,8 @@ Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogr
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
 {
+
+
     Route::get('/', 'LoginController@showLoginForm');
     Route::post('/', 'LoginController@login');
     Route::get('/logout', 'LoginController@logout');
@@ -57,6 +62,11 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
     Route::post('/noemail', 'ProfileController@processNoEmail');
 
     Route::get('/thankyou', 'ProfileController@showThanks');
+
+    Route::get('password', 'ForgotPasswordController@showLinkRequestForm');
+    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
+    Route::post('password/reset', 'ResetPasswordController@reset');
+    Route::post('password/reset/{token}', 'ResetPasswordController@showResetForm');
 });
 
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()

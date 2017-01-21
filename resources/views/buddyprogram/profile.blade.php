@@ -63,6 +63,10 @@
                     <strong>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</strong> je tvým Buddym!
                     Teď mu můžeš napsat na <a href="mailto:{{ $exchangeStudent->person->user->email }}">{{ $exchangeStudent->person->user->email }}</a>
                 </div>
+            @else
+                    <div class="show-email col-sm-6">
+                        <p>Vyčerpán denní limit (1) pro výběr zahraničních studentů</p>
+                    </div>
             @endif
             <p class="show-info col-sm-12">V případě, že chceš zahraničního studenta odebrat ze svých buddíků, napiš na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
 
