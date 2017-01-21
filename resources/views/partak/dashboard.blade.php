@@ -95,7 +95,7 @@
                 <p>Asana je nástroj pro teamovou (a meziteamovou) komunikaci - v zásadě se jedná o sdílený todo list. Jestli do této aplikace zatím nemáš přístup, popros koordinátora některého teamku, aby tě do naší skupiny pozval.</p>
                 <p>Tady je krátký obrázkový návod, jak aplikaci používat. Detailnější příručka je na <a href="http://asana.com/guide">http://asana.com/guide</a></p>
 
-                <img src="{{ URL::asset('partak/files/asana-guide.jpg') }}" id="asana-img">
+                <img src="{{ URL::asset('img/partak/asana-guide.jpg') }}" id="asana-img">
 
 
 
@@ -127,7 +127,7 @@
                         <p>Elektronická verze ISC Spirit Book</p>
                     </li>
                     <li>
-                        <a href="https://147.32.97.62:5001/index.cgi">Fotogalerie (NAS)</a>
+                        <a href="{{ url('/nas') }}">Fotogalerie (NAS)</a>
                         <p>Naleznete zde spoustu nových i starých fotek z akcí ISC</p>
                         <p><strong>Login: partak</strong></p><p><strong>Heslo: Quentinamakazdyrad</strong></p>
                     </li>

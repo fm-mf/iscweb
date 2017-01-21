@@ -56,8 +56,8 @@
                 <h3>Czech Members</h3>
                 <span class="bar"></span>
                 <ul class="list-unstyled">
-                    <li><a href="{{ url('partak') }}" target="_blank">ParťákNet</a></li>
-                    <li><a href="{{ url('muj-buddy') }}" target="_blank">Buddy Program</a></li>
+                    <li><a href="{{ url('partak') }}">ParťákNet</a></li>
+                    <li><a href="{{ url('muj-buddy') }}">Buddy Program</a></li>
                 </ul>
             </div>
             <div class="col-sm-6">

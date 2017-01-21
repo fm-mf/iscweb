@@ -54,7 +54,7 @@
                             <a href="#contact" class="link">KONTAKT</a>
                         </li>
                         <li>
-                            <a href="http://www.isc.cvut.cz/muj-buddy" class="button">Buddy Program <small>(přihlášení)</small></a>
+                            <a href="{{ 'muj-buddy' }}" class="button">Buddy Program <small>(přihlášení)</small></a>
                         </li>
                         <li>
 
@@ -125,7 +125,7 @@
                 <p>Chceš zažít super zážitky, procvičit si cizí jazyky a ještě k tomu poznat nové kamarády? Staň se Buddym! Na ČVUT brzo přijede spousta nových zahraničních studentů ze světa, co se chtějí pobavit a zažít nová dobrodružství.
 
                 <p> Informační schůzka Buddy Session, kde se dozvíš víc o Buddy programu a vlastně vše potřebné bude ve vzdělávacím centru NTK od 18:30 (u vstupu NTK3 naproti noční studovně, od recepce po schodech do 2. patra).</p>
-                <p>Více na události <a href="https://www.facebook.com/events/625887214279758/">&nbsp;<img src="img/fb.png" width="17px">&nbsp;</a>
+                <p>Více na události <a href="https://www.facebook.com/events/625887214279758/">&nbsp;<img src="{{ asset('img/web/fb.png') }}" width="17px">&nbsp;</a>
             </div>
         </div>
     </div>

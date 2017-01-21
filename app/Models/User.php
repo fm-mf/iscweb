@@ -134,4 +134,9 @@ class User extends Authenticatable
             return $hash;
         }
     }
+
+    public function getEmailAttribute ($value)
+    {
+        return strtolower($value);
+    }
 }

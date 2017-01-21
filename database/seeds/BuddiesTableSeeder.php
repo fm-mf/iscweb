@@ -38,5 +38,15 @@ class BuddiesTableSeeder extends Seeder
 
         $partak3->setVerified();
         $partak3->user()->addRole('partak');
+
+        $partak4 = \App\Models\Buddy::registerBuddy([
+        'email' => 'pruchma1@fel.cvut.cz',
+        'password' => '$2y$10$A.H3jHniFGRS.BmNtq/e1u1JFXkY2mA934p0ym983afpBdQQKmA46',
+        'first_name' => 'Martin',
+        'last_name' => 'Prucha'
+        ]);
+
+        $partak4->setVerified();
+        $partak4->user()->addRole('partak');
     }
 }
