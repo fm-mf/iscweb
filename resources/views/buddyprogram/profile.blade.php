@@ -19,8 +19,8 @@
                     <div class="col-sm-6">
                         @if($exchangeStudent->country) <strong>Země</strong>: {{ $exchangeStudent->country->full_name }}<br> @endif
                         @if($exchangeStudent->school != "NULL") <strong>Škola</strong>: {{ $exchangeStudent->school }}<br> @endif
-                        @if($exchangeStudent->sex) <strong>Pohlaví</strong>: {{ $exchangeStudent->sex === "F" ? "žena" : "muž" }}<br> @endif
-                        @if($exchangeStudent->age)<strong>Věk</strong>: {{ date("Y") - $exchangeStudent->age -1}}-{{date("Y") - $exchangeStudent->age }} let <br>@endif
+                        @if($exchangeStudent->person->sex) <strong>Pohlaví</strong>: {{ $exchangeStudent->person->sex === "F" ? "žena" : "muž" }}<br> @endif
+                        @if($exchangeStudent->person->age)<strong>Věk</strong>: {{ date("Y") - $exchangeStudent->person->age -1}}-{{date("Y") - $exchangeStudent->person->age }} let <br>@endif
                         @if($exchangeStudent->faculty)<strong>Fakulta ČVUT</strong>: {{ $exchangeStudent->faculty->faculty }}<br> @endif
                         <strong>Samoplátce</strong>: {{ $exchangeStudent->isSelfPaying() ? 'ano' : 'ne' }}<br>
                     </div>
