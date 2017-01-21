@@ -22,7 +22,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="{{ url('/') }}" class="{{Request::is('/')? 'current': '' }}">HOME</a>
+                        <a href="{{ url('/') }}" class="{{Request::is('/')? 'current' : '' }}">HOME</a>
                     </li>
                     <li>
                         <a href="{{ url('/about-us') }}" class="{{ Request::is('about-us')? 'current' : '' }}">ABOUT US</a>
@@ -31,7 +31,7 @@
                         <a href="{{ url('/buddy-program/') }}" class="{{ Request::is('buddy-program')? 'current' : '' }}">BUDDY PROGRAM</a>
                     </li>
                     <li>
-                        <a href="{{ url('/activities/') }}" class="{{ Request::is('activities')? 'current' : '' }}">ACTIVITIES</a>
+                        <a href="{{ url('/activities/') }}" class="{{ (Request::is('activities/*') || Request::is('activities'))? 'current' : '' }}">ACTIVITIES</a>
                     </li>
                     <li>
                         <a href="{{ url('/calendar/') }}" class="{{ Request::is('calendar')? 'current' : '' }}">CALENDAR</a>
