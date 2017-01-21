@@ -20,6 +20,13 @@ Route::get('/muj-buddy/register/update-exchange-profile/{hash}', function($hash)
     return redirect('/exchange/' . $hash);
 });
 
+Route::get('/muj-buddy/register/buddy', function() {
+    return redirect('/user/register');
+});
+
+
+
+
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 
 

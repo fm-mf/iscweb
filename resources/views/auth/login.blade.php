@@ -43,7 +43,7 @@
 
         <div class="login-links">
             <p>Ješte nemáš účet? <a href="{{ url('user/register') }}">Zaregistruj se</a>!<br>
-                <a href="{{ url('User:renewPassword') }}">Zapomněl jsi heslo</a>?
+                <a href="{{ url('user/password') }}">Zapomněl jsi heslo</a>?
             </p>
         </div>
     </div>

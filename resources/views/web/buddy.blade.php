@@ -75,7 +75,7 @@
         <h1>Chceš potkat nové kamarády <br> z celého světa, zlepšit cizí jazyk a podílet se na vytváření mezinárodní komunity na ČVUT?</h1>
         <p class="p-btn">
             <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-registration">Staň se Buddym!</button> -->
-            <a href="http://www.isc.cvut.cz/muj-buddy/register/buddy"><button type="button" class="btn btn-primary btn-lg">Staň se Buddym!</button></a>
+            <a href="{{ url('user/register') }}"><button type="button" class="btn btn-primary btn-lg">Staň se Buddym!</button></a>
             <span class="show-menu"></span>
         </p>
     </div>
