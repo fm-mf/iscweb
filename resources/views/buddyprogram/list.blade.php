@@ -20,8 +20,9 @@
 
                 </th>
                 <th>
-                    <multiselect :options="arrivals" :show-labels="false" v-model="exchangeStudents.filters.arrivals" placeholder="Příjezd"
-                                 :multiple="true" v-on:input="update"></multiselect>
+                    <!--<multiselect :options="arrivals" :show-labels="false" v-model="exchangeStudents.filters.arrivals" placeholder="Příjezd"
+                                 :multiple="true" v-on:input="update"></multiselect>-->
+                    Příjezd
 
                 </th>
                 <th>
