@@ -28,6 +28,6 @@ class NotifyHRNewRegistration
      */
     public function handle(BuddyRegistered $event)
     {
-        Mail::to('vicepresident@isc.cvut.cz')->send(new HRNewRegistration($event->buddy));
+        Mail::to('hr@isc.cvut.cz')->send(new HRNewRegistration($event->buddy));
     }
 }
