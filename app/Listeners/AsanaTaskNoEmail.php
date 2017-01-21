@@ -26,10 +26,20 @@ class AsanaTaskNoEmail
      */
     public function handle(BuddyWithoutEmailRegistered $event)
     {
+        $note = 'Motivace: ' . $event->motivation . "\r\n" . "\r\n";
+        $note .= 'Jméno: ' . $event->buddy->person->first_name . ' ' . $event->buddy->person->last_name ."\r\n";
+        $note .= 'Email: ' . $event->buddy->person->user->email . "\r\n";
+        if (isset($event->buddy->phone)) {
+            $note .= 'Telefon: ' . $event->buddy->phone . "\r\n";
+        }
+        if (isset($event->buddy->about)) {
+            $note .= 'About: ' .$event->buddy->about;
+        }
+
         asana()->createTask([
             'name' => $event->buddy->person->first_name . ' ' . $event->buddy->person->last_name . ' [Buddy bez univerzitniho emailu]',
             'assignee' => 'it.support@isc.cvut.cz',
-            'notes' => 'Motivace: ' . $event->motivation,
+            'notes' => $note,
         ]);
     }
 }
