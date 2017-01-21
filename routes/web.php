@@ -73,7 +73,7 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
     Route::get('password', 'ForgotPasswordController@showLinkRequestForm');
     Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
     Route::post('password/reset', 'ResetPasswordController@reset');
-    Route::post('password/reset/{token}', 'ResetPasswordController@showResetForm');
+    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm');
 });
 
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
