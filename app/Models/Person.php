@@ -26,8 +26,14 @@ class Person extends Model
     {
         $avatar = $this->avatar;
         if (!$avatar) {
-            if (file_exists(public_path() . '/avatars/old/' . $this->id_user . '.jpg')) {
-                $avatar = 'avatars/old/' . $this->id_user . '.jpg';
+            $path = public_path() . '/avatars/old/' . $this->id_user;
+            $file = 'avatars/old/' . $this->id_user;
+            if (file_exists($path . '.jpg')) {
+                $avatar = $file . '.jpg';
+            } else if (file_exists($path . '.jpeg')) {
+                $avatar = $file . '.jpeg';
+            } else if (file_exists($path . '.png')) {
+                $avatar = $file . '.png';
             } else {
                 $avatar = 'img/auth/avatar.jpg';
             }
