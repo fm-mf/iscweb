@@ -76,6 +76,9 @@ class ProfileController extends Controller
             if (!in_array($data['domain'], $this->allowedDomains)) {
                 $validator->errors()->add('domain', 'Nepovolená doména');
             }
+            if (strpos($data['email'], '@') !== false) {
+                $validator->errors()->add('email', 'Zadej prosím správný formát');
+            }
         });
 
         return $validator;
