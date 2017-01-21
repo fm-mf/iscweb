@@ -22,22 +22,22 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="{{ url('/') }}" class="current">HOME</a>
+                        <a href="{{ url('/') }}" class="{{Request::is('/')? 'current': '' }}">HOME</a>
                     </li>
                     <li>
-                        <a href="{{ url('/about-us') }}">ABOUT US</a>
+                        <a href="{{ url('/about-us') }}" class="{{ Request::is('about-us')? 'current' : '' }}">ABOUT US</a>
                     </li>
                     <li>
-                        <a href="{{ url('/buddy-program/') }}">BUDDY PROGRAM</a>
+                        <a href="{{ url('/buddy-program/') }}" class="{{ Request::is('buddy-program')? 'current' : '' }}">BUDDY PROGRAM</a>
                     </li>
                     <li>
-                        <a href="{{ url('/activities/') }}">ACTIVITIES</a>
+                        <a href="{{ url('/activities/') }}" class="{{ Request::is('activities')? 'current' : '' }}">ACTIVITIES</a>
                     </li>
                     <li>
-                        <a href="{{ url('/calendar/') }}">CALENDAR</a>
+                        <a href="{{ url('/calendar/') }}" class="{{ Request::is('calendar')? 'current' : '' }}">CALENDAR</a>
                     </li>
                     <li>
-                        <a href="{{ url('/contact/') }}">CONTACTS</a>
+                        <a href="{{ url('/contact/') }}" class="{{ Request::is('contact')? 'current' : '' }}">CONTACTS</a>
                     </li>
                     <!--
                     <li>
