@@ -19,7 +19,7 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
     protected $primaryKey = 'id_user';
 
     /**
