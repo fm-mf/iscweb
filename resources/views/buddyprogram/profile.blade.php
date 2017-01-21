@@ -27,7 +27,7 @@
                     <div class="col-sm-6">
                         <strong>Datum příjezdu</strong>:
                         @if($exchangeStudent->arrival)
-                            {{ \Carbon\Carbon::setToStringFormat('j. n. Y H:i', $exchangeStudent->arrival->arrival) }} <br>
+                            {{ $exchangeStudent->arrival->arrival->format('j. n. Y H:i') }} <br>
                         @else
                             Zatím nevyplněno <br>
                         @endif
