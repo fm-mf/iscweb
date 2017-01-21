@@ -41,14 +41,14 @@ class Person extends Model
     public function setAgeAttribute($age)
     {
         if ($age) {
-            $this->attributes['age'] = Carbon::create($age);
+            $this->attributes['age'] = Carbon::create($age)->year;
         }
     }
 
     public function getAgeAttribute($value)
     {
         if ($value) {
-            return Carbon::createFromFormat('Y-m-d', $value)->year;
+            return Carbon::createFromFormat('Y', $value)->year;
         } else {
             return null;
         }
