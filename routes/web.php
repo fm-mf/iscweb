@@ -33,6 +33,7 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 'prefix' => 'partak'], function()
 {
     Route::get('/', 'DashboardController@index');
+    Route::get('/roles', 'RolesController@showSearchUsers');
     //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
 });
 
@@ -49,8 +50,6 @@ Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogr
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
 {
-
-
     Route::get('/', 'LoginController@showLoginForm');
     Route::post('/', 'LoginController@login');
     Route::get('/logout', 'LoginController@logout');

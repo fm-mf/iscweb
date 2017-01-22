@@ -26,38 +26,8 @@
 </head>
 
 <body>
-<div class="about-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse col-sm-9">
-                <ul class="nav navbar-nav login-nav">
-                    <li><a href="{{ url('user/logout') }}"><img src="{{ URL::asset('img/partak/log-out.png') }}" />Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <h1 class="title"><strong>PARŤÁKNET DASHBOARD</strong></h1>
 
-    <span class="show-menu"></span>
-</div>
-
-<div class="menu-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="collapse navbar-collapse navbar-main-collapse col-sm-9">
-                <ul class="nav navbar-nav admin-nav">
-                    <li><a href="Default:" class="disabled">Dashboard</a></li>
-                    <li><a href="https://isc.cvut.cz/iscproisc">ISC pro ISC</a></li>
-                    <li><a href="Feedback:" class="disabled">Feedbacky</a></li>
-                    <li><a href="trips:default" class="disabled">Trips</a></li>
-                    <li><a href="Buddy:default" class="disabled">Buddy Program</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div><!-- /menu-wrapper -->
-
-@yield('content')
+@yield('page')
 
 <div class="footer-wrapper">
     <div class="container">
