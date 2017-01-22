@@ -11,7 +11,7 @@ class Settings implements ConfigContract
     protected $items = array();
 
     const CACHE_KEY = 'settings';
-    const CACHE_TIMEOUT = 10;
+    const CACHE_TIMEOUT = 10; //in minutes
     const TABLE = 'settings';
 
     public function __construct()
