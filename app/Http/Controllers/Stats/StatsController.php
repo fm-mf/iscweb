@@ -17,7 +17,7 @@ class StatsController extends Controller
         $currentSemester = Settings::get('currentSemester');
         return view('stats.stats')->with([
             'students' => ExchangeStudent::byUniqueSemester($currentSemester)->count(),
-            'studentsWithFilledProfile' => ExchangeStudent::byUniqueSemester($currentSemester)->whereNotNull('about')->count(),
+            'studentsWithFilledProfile' => ExchangeStudent::byUniqueSemester($currentSemester)->whereNotNull('about')->wantBuddy()->count(),
             'studentsWithBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->has('buddy')->count(),
             'studentsWithFilledProfileWithoutBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->wantBuddy()->doesntHave('buddy')->whereNotNull('about')->count(),
             'countriesStats' => Country::withCount(['exchangeStudent' => function($query) use ($currentSemester) {
