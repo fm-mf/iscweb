@@ -7776,7 +7776,7 @@ h3 {
   border-radius: 2px;
 }
 
-.about-wrapper {
+.dashboard-header-wrapper {
   width: 100%;
   min-height: 170px;
   background-image: url("../img/partak/us.jpg");
@@ -7787,7 +7787,7 @@ h3 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.about h2, .title {
+.about h2, .title, .title-sp {
   font-size: 30px;
   text-align: center;
   margin-top: 60px;
@@ -7795,7 +7795,7 @@ h3 {
   color: #fff !important;
 }
 
-.about h2 strong, .title strong {
+.about h2 strong, .title strong, .title-sp strong {
   display: block;
   width: 500px;
   margin-left: auto;
@@ -7844,6 +7844,29 @@ h3 {
 a.disabled {
   pointer-events: none;
   cursor: default;
+}
+
+.subpage-header-wrapper {
+  width: 100%;
+  min-height: 70px;
+  background-image: url("../img/partak/us.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.title-sp {
+  margin-top: 20px !important;
+}
+
+.title-sp strong {
+  width: 360px !important;
+}
+
+.content {
+  padding-top: 40px;
 }
 
 /*# sourceMappingURL=partaknet.css.map */

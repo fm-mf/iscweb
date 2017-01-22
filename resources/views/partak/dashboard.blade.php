@@ -1,4 +1,4 @@
-@extends('layouts.partaknet')
+@extends('partak.layout.hp')
 
 @section('content')
 
