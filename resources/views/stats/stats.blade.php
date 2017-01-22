@@ -1,7 +1,9 @@
+@extends('layouts.web.layout')
+@section('page')
 <div class="statistics">
     <h1>Statistika Buddy Programu</h1>
-    <h2>Zimní semestr 2016</h2>
-    <p>V září 2016 přijede studovat na ČVUT <strong>{{ $students }}</strong> zahraničních studentů.</p>
+    <h2>Letní semestr 2017</h2>
+    <p>V únoru 2017 přijede studovat na ČVUT <strong>{{ $students }}</strong> zahraničních studentů.</p>
     <p><strong>{{  $studentsWithFilledProfile }}</strong> z nich již vyplnilo registrační formulář do Buddy programu a projevilo tak zájem o buddíka.</p>
     <p><strong>{{ $studentsWithBuddy }}</strong> zahraničních studentů už má svého Buddíka.</p>
     <p>Ovšem, i přesto že projevili zájem, <strong>{{ $studentsWithFilledProfileWithoutBuddy }}</strong> zahraničních studentů na Buddíka stále čeká!</p>
@@ -25,3 +27,4 @@
         </div>
     </div>
 </div>
+@end('page')

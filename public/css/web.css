@@ -8762,6 +8762,10 @@ blockquote:before {
   overflow: hidden;
 }
 
+.statistics {
+  text-align: center;
+}
+
 .container-xs-height {
   display: table;
   padding-left: 0px;
