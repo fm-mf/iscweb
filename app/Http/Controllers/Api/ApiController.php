@@ -12,7 +12,7 @@ class ApiController extends Controller
 {
     public function load(Request $request)
     {
-        if (Settings::get('isDatabaseOpen') != 'true') {
+        if (!Settings::get('isDatabaseOpen')) {
             return [];
         }
 

@@ -230,7 +230,7 @@
                     <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/IT_Speedy.jpg') }}"class="img-circle">
                         <div class="contact-details">
-                            <h4>Martin Průcha</h4><br>
+                            <h4>Martin "Speedy" Průcha</h4><br>
                             <strong>IT Coordinator</strong><br>
                             Email: <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a><br>
                             Phone: (+420) 736 683 644<br>
@@ -283,7 +283,7 @@
                             <h4>Vojtěch Zacharda</h4><br>
                             <strong>Photo Coordinator</strong><br>
                             Email: <a href="mailto:photo@isc.cvut.cz">photo@isc.cvut.cz</a><br>
-                            Phone: (+420) 000 000 000<br>
+                            Phone: (+420) 776 690 976<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
@@ -297,7 +297,7 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
-                    <li class="col-md-4 col-sm-6">
+                    <!-- <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Promo_Nicol.jpg') }}"class="img-circle">
                         <div class="contact-details">
                             <h4>Nicol Minichová</h4><br>
@@ -306,7 +306,7 @@
                             Phone: (+420) 000 000 000<br>
                         </div>
                         <span class="clearfix"></span>
-                    </li>
+                    </li> -->
                     <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Press_Pavel.jpg') }}"class="img-circle">
                         <div class="contact-details">
