@@ -108,7 +108,12 @@ class ExchangeStudent extends Model
             return $query->whereHas('arrival', function($query) use ($values) {
                 $query->where(function($query) use ($values) {
                     foreach ($values as $value) {
-                        $query->orWhereDate('arrival', '=', Carbon::createFromFormat('d M Y', $value));
+                        $dayBeginning = Carbon::createFromFormat('d M Y', $value)->setTime(0, 0, 0);
+                        $dayEnd = $dayBeginning->copy()->setTime(23, 59, 59);
+                        $query->orWhere(function($query) use ($dayBeginning, $dayEnd) {
+                            $query->where('arrival', '>=', $dayBeginning->toDateTimeString())
+                                ->where('arrival', '<=', $dayEnd->toDateTimeString());
+                            });
                     }
                 });
             });

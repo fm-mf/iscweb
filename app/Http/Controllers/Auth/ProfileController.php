@@ -35,7 +35,9 @@ class ProfileController extends Controller
         'fbmi.cvut.cz' => 'fbmi.cvut.cz',
         'fit.cvut.cz' => 'fit.cvut.cz',
         'muvs.cvut.cz' => 'muvs.cvut.cz',
+
         /*********** VSCHT **************/
+        'vscht.cz' => 'vscht.cz',
 
         /*********** VSE ***************/
         'vse.cz' => 'vse.cz',
@@ -54,8 +56,15 @@ class ProfileController extends Controller
         'lf1.cuni.cz' => 'lf1.cuni.cz',
         'prf.cuni.cz' => 'prf.cuni.cz',
         'htf.cuni.cz' => 'htf.cuni.cz',
-        'etf.cuni.cz' => 'etf.cuni.cz'
+        'etf.cuni.cz' => 'etf.cuni.cz',
         /*********** CULS ****************/
+        'af.czu.cz' => 'af.czu.cz',
+        'pef.czu.cz' => 'pef.czu.cz',
+        'tf.czu.cz' => 'tf.czu.cz',
+        'fzp.czu.cz' => 'fzp.czu.cz',
+        'fld.czu.cz' => 'fld.czu.cz',
+        'ftz.czu.cz' => 'ftz.czu.cz',
+        'ivp.czu.cz' => 'ivp.czu.cz'
     ];
 
     protected function profileValidator(array $data)
