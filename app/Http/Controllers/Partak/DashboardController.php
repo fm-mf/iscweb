@@ -8,8 +8,13 @@ use Torann\LaravelAsana\Facade\Asana;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('partak.dashboard');
+        return view('partak.dashboard')->with(['user' => $request->user()]);
+    }
+
+    public function trips(Request $request)
+    {
+        return view('partak.trips')->with(['user' => $request->user()]);
     }
 }

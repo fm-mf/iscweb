@@ -33,6 +33,7 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 'prefix' => 'partak'], function()
 {
     Route::get('/', 'DashboardController@index');
+    Route::get('/trips', 'DashboardController@trips');
     //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
 });
 
