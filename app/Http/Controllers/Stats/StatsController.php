@@ -19,7 +19,7 @@ class StatsController extends Controller
             'students' => ExchangeStudent::byUniqueSemester($currentSemester)->count(),
             'studentsWithFilledProfile' => ExchangeStudent::byUniqueSemester($currentSemester)->whereNotNull('about')->count(),
             'studentsWithBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->has('buddy')->count(),
-            'studentsWithFilledProfileWithoutBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->wantBuddy()->doesntHave('buddy')->count(),
+            'studentsWithFilledProfileWithoutBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->wantBuddy()->doesntHave('buddy')->whereNotNull('about')->count(),
             'countriesStats' => Country::withCount(['exchangeStudent' => function($query) use ($currentSemester) {
                 $query->byUniqueSemester($currentSemester);
             }])->orderBy('exchange_student_count', 'desc')->get()
