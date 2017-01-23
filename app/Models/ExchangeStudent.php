@@ -96,6 +96,7 @@ class ExchangeStudent extends Model
     public static function scopeFilter($query, $filter, $values)
     {
         if (!is_array($values)) {
+            // we want to treat all cases as arrays (even when a string or a number is passed)
             $values = [$values];
         }
         if ($filter == "countries") {

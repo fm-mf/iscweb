@@ -26,6 +26,7 @@ class ProfileController extends Controller
 
     public $allowedDomains = [
         /*********** CVUT **************/
+        'cvut.cz' => 'cvut.cz',
         'fsv.cvut.cz' => 'fsv.cvut.cz',
         'fs.cvut.cz' => 'fs.cvut.cz',
         'fel.cvut.cz' => 'fel.cvut.cz',
