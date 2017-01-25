@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\RegistrationReminderMail;
 use App\Models\ExchangeStudent;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 
 class SendRegistrationReminder extends Command
 {
@@ -44,6 +46,7 @@ class SendRegistrationReminder extends Command
         $emailsSent = 0;
         foreach ($exchangeStudents as $student) {
             $this->info("Sending email to " . $student->person->user->email);
+            Mail::to($student->person->user->email)->send(new RegistrationReminderMail($student));
             ++$emailsSent;
         }
         $this->info($emailsSent . " emails sent");
