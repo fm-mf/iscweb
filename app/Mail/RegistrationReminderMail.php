@@ -28,5 +28,6 @@ class RegistrationReminder extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.reminder')->from('buddy@isc.cvut.cz')->with('exchangeStudent', $this->exchangeStudent);    }
+        return $this->view('emails.reminder')->from('buddy@isc.cvut.cz')->send(new RegistrationReminder());
+    }
 }
