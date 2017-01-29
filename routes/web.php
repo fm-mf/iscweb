@@ -86,6 +86,10 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
     Route::post('/avatar', 'AvatarController@upload');
     Route::post('/load', 'ApiController@load');
 
+    Route::post('/autocomplete/exchange-students', 'AutocompleteController@exchangeStudents');
+
+    Route::get('/test', 'AutocompleteController@test');
+
     Route::post('/liststudents', 'ApiController@load');
 });
 

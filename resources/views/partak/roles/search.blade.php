@@ -18,23 +18,19 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="input-group form-group-lg">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Všechna pole</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
-                                </div><!-- /btn-group -->
-                                <input type="text" class="form-control " aria-label="...">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default btn-lg dropdown-toggle btn-primary"
-                                            aria-haspopup="true" aria-expanded="false">Search</button>
-                                </div>
-                            </div><!-- /input-group -->
+
+                            <div class="row" id="search">
+                                <autocomplete url="{{ url('api/autocomplete/exchange-students') }}"
+                                              :fields="[{title: 'Name', columns: ['person.first_name']}, {title: 'Email', columns: ['person.user.email']}]"
+                                              :topline="['person.first_name', 'person.last_name']"
+                                              :subline="['person.user.email']"
+                                >
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default btn-lg dropdown-toggle btn-primary"
+                                                aria-haspopup="true" aria-expanded="false">Search</button>
+                                    </div>
+                                </autocomplete>
+                            </div>
                         </div><!-- /.col-lg-6 -->
                     </div><!-- /.row -->
                 </div>
@@ -44,8 +40,9 @@
 
         </div>
     </div>
-
-
-
-
 @stop
+
+@section('scripts')
+    @parent
+    <script src="{{asset('js/search.js')}}"></script>
+    @stop
