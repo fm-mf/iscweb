@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
 
+    <meta id="token" name="csrf-token" content="{{csrf_token()}}">
     <meta property="og:title" content="">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
@@ -20,9 +21,6 @@
 
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
     <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -40,6 +38,8 @@
 </div>
 
 @section('scripts')
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 @show
 

@@ -20,5 +20,5 @@ elixir((mix) => {
         .sass('guide/guide.scss', 'public/css/guide.css').sass('guide/guide_subpage.scss', 'public/css/guide_subpage.css')
     .sass('web/buddy.scss', 'public/css/buddy.css')
         .sass('guide/guide.scss', 'public/css/guide.css').sass('web/buddy.scss', 'public/css/buddy.css').sass('errors.scss', 'public/css/errors.css')
-       .webpack('app.js');
+       .webpack('app.js').webpack('search.js');
 });

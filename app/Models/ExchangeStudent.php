@@ -59,7 +59,7 @@ class ExchangeStudent extends Model
 
     public static function findAll()
     {
-        return ExchangeStudent::with('person.user', 'country', 'faculty', 'accommodation', 'arrival');
+        return ExchangeStudent::with('person', 'person.user', 'country', 'faculty', 'accommodation', 'arrival');
     }
 
     public static function eagerFind($id_user)

@@ -7694,7 +7694,7 @@ html, body {
   font-family: "Open Sans", "Myriad Pro", Helvetica, Arial, sans-serif;
 }
 
-* {
+.sharp-corners {
   border-radius: 0 !important;
 }
 
