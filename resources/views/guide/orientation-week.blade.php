@@ -43,7 +43,7 @@
             </ul>
         </div>
         <div class="col-lg-12">
-            Tandem Beer (more info soon)
+            Tandem Evening (more info soon)
             <ul>
                 <li>Enjoy the first beer of the semester and get involved in our unique language learning program! Here you can meet a tandem partner to practice your language skills and have a drink.</li>
             </ul>
