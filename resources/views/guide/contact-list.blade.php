@@ -151,7 +151,7 @@
         <div class="col-lg-12">
             <address>
                 Contact your faculty coordinators, please:<br>
-                <a href="http://www.studyatctu.com/general-contacts">http://www.studyatctu.com/general-contacts</a><br>
+                <a href="http://www.studyatctu.com/study-advisor-service/facultuy-coordinators/">http://www.studyatctu.com/study-advisor-service/facultuy-coordinators/</a><br>
                 For other information, contact the study advisor:</br>
                 Jakub Marek and Adéla Bímová, Rectorate, office: B3-250<br>
                 Department of External Affairs</br>
