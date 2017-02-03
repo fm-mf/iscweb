@@ -24,8 +24,37 @@
 </head>
 
 <body>
+<!------------------------------ Logo and navigation ----------------------------------->
+<nav class="navbar navbar-custom navbar-main top-navigation" role="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header col-sm-3">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand partaknet-logo" href="https://isc.cvut.cz">
+                    <!--<img src="https://isc.cvut.cz/img/web/logo.png" id="logo" alt="International Student Club"> -->
+                    PartákNET
+                </a>
+            </div><!-- /.navbar-header -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse col-sm-9">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li><a href="{{ url('user/logout') }}"><img src="{{ URL::asset('img/partak/log-out.png') }}" />Logout</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</nav>
 
 @yield('page')
+
+
 
 <div class="footer-wrapper">
     <div class="container">

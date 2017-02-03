@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use App\Settings\Facade as Settings;
 use Illuminate\Http\Request;
@@ -13,12 +14,14 @@ class Item
     public $topline;
     public $subline;
     public $link;
+    public $image;
 
-    public function __construct($topline, $subline, $link)
+    public function __construct($topline, $subline, $link, $image = null)
     {
         $this->topline = $topline;
         $this->subline = $subline;
         $this->link = $link;
+        $this->image = $image;
     }
 }
 
@@ -27,12 +30,12 @@ class AutocompleteController extends Controller
     public function exchangeStudents(Request $request)
     {
         $search = ExchangeStudent::findAll()->bySemester(Settings::get('currentSemester'));
-
-        $search = $this->query($search, $request->field, $request->input);
+        $search = $this->query($search, $request->field, $request->input)->limit($request->limit);
 
         $items = [];
         foreach ($search->get() as $student) {
-            $items[] = new Item($this->getline($student, $request->topline), $this->getline($student, $request->subline), '/partak/exchange-students/' . $student->id_user);
+            $items[] = new Item($this->getline($student, $request->topline), $this->getline($student, $request->subline),
+                '/partak/exchange-students/' . $student->id_user, $student->person->avatar());
         }
 
         return response()->json([
@@ -40,27 +43,52 @@ class AutocompleteController extends Controller
         ]);
     }
 
-    public function test()
+    public function buddies(Request $request)
     {
-        $reflector = new ReflectionClass('\App\Models\ExchangeStudent');
+        $search = Buddy::findAll();
+        $search = $this->query($search, $request->field, $request->input)->limit($request->limit);
 
-        dd($reflector);
+        $items = [];
+        foreach ($search->get() as $buddy) {
+            $items[] = new Item($this->getline($buddy, $request->topline), $this->getline($buddy, $request->subline),
+                '/partak/exchange-students/' . $buddy->id_user, $buddy->person->avatar());
+        }
+
+        return response()->json([
+            'items' => $items
+        ]);
     }
 
     private function query($query, $field, $input)
     {
-        foreach ($field['columns'] as $column) {
-            $comaPos = strrpos($column,'.');
-            if ($comaPos) {
-                $table = substr("$column", 0, $comaPos);
-                $col = substr("$column", $comaPos + 1);
-                $query->whereHas($table, function($query) use($col, $input) {
-                    $query->where($col, 'LIKE', '%' . $input . '%');
-                });
-            } else {
-                $query->where($column, 'LIKE', '%' . $input . '%');
+        $query->where(function($query) use ($field, $input) {
+            $firstQ = true;
+            foreach ($field['columns'] as $column) {
+                $commaPos = strrpos($column, '.');
+                if ($commaPos) {
+                    $table = substr($column, 0, $commaPos);
+                    $col = substr($column, $commaPos + 1);
+                    if ($firstQ) {
+                        $firstQ = false;
+                        $query->whereHas($table, function ($query) use ($col, $input) {
+                            $query->where($col, 'LIKE', '%' . $input . '%');
+                        });
+                    } else {
+                        $query->orWhereHas($table, function ($query) use ($col, $input) {
+                            $query->where($col, 'LIKE', '%' . $input . '%');
+                        });
+                    }
+                } else {
+                    if ($firstQ) {
+                        $firstQ = false;
+                        $query->where($column, 'LIKE', '%' . $input . '%');
+                    } else {
+                        $query->orWhere($column, 'LIKE', '%' . $input . '%');
+                    }
+
+                }
             }
-        }
+        });
         return $query;
     }
 

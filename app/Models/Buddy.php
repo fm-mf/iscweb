@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -44,6 +45,11 @@ class Buddy extends Model
         return Buddy::with('person.user')->find($id_user);
     }
 
+    public static function findAll()
+    {
+        return Buddy::with('person.user');
+    }
+
     public static function registerBuddy($data)
     {
         return DB::transaction(function () use ($data) {
@@ -69,5 +75,13 @@ class Buddy extends Model
     public function pickedStudentsToday()
     {
         return $this->exchangeStudents()->pickedToday()->count();
+    }
+
+    public static function scopeNotVerified($query)
+    {
+        return $query->where('active', 'n')->whereHas('person.user', function($query) {
+            //$query->where('created_at', '>', Carbon::create(2017, 1, 21)->timestamp);
+            $query->where('created_at', '>', Carbon::create(2017, 1, 1)->timestamp);
+        });
     }
 }
