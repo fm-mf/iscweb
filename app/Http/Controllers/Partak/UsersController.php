@@ -15,4 +15,15 @@ class UsersController extends Controller
             'notVerifiedBuddies' => Buddy::with('person.user')->notVerified()
         ]);
     }
+
+    public function showBuddyDetail($id)
+    {
+        $buddy = Buddy::findBuddy($id);
+        $myStudents = $buddy->exchangeStudents()->with('person.user')->get();
+
+        return view('partak.users.buddy')->with([
+            'buddy' => $buddy,
+            'myStudents' => $myStudents
+        ]);
+    }
 }
