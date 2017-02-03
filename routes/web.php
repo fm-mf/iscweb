@@ -34,6 +34,7 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
 {
     Route::get('/', 'DashboardController@index');
     Route::get('/roles', 'RolesController@showSearchUsers');
+    Route::get('/users', 'UsersController@showBuddiesDashboard');
     //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
 });
 
@@ -87,9 +88,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
     Route::post('/load', 'ApiController@load');
 
     Route::post('/autocomplete/exchange-students', 'AutocompleteController@exchangeStudents');
-
-    Route::get('/test', 'AutocompleteController@test');
-
+    Route::post('/autocomplete/buddies', 'AutocompleteController@buddies');
     Route::post('/liststudents', 'ApiController@load');
 });
 

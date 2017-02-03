@@ -27,7 +27,7 @@ class Person extends Model
         $avatar = $this->avatar;
         if (!$avatar) {
             $path = public_path() . '/avatars/old/' . $this->id_user;
-            $file = 'avatars/old/' . $this->id_user;
+            $file = url('avatars/old/') . $this->id_user;
             if (file_exists($path . '.jpg')) {
                 $avatar = $file . '.jpg';
             } else if (file_exists($path . '.jpeg')) {
@@ -35,7 +35,7 @@ class Person extends Model
             } else if (file_exists($path . '.png')) {
                 $avatar = $file . '.png';
             } else {
-                $avatar = 'img/auth/avatar.jpg';
+                $avatar = url('/img/auth/avatar.jpg');
             }
         } else {
             $avatar = 'avatars/' . $avatar;

@@ -21,10 +21,14 @@
 
                             <div class="row" id="search">
                                 <autocomplete url="{{ url('api/autocomplete/exchange-students') }}"
-                                              :fields="[{title: 'Name', columns: ['person.first_name']}, {title: 'Email', columns: ['person.user.email']}]"
+                                              :fields="[
+                                                    {title: 'Všechna pole', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
+                                                    {title: 'Name', columns: ['person.first_name', 'person.last_name']},
+                                                    {title: 'Email', columns: ['person.user.email']},
+                                                    ]"
                                               :topline="['person.first_name', 'person.last_name']"
                                               :subline="['person.user.email']"
-                                >
+                                              :image="{url: '/avatars/', file: 'person.user.avatar'}">
                                     <div class="input-group-btn">
                                         <button type="button" class="btn btn-default btn-lg dropdown-toggle btn-primary"
                                                 aria-haspopup="true" aria-expanded="false">Search</button>

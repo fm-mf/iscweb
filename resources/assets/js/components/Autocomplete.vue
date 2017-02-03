@@ -2,40 +2,58 @@
     <div>
         <div class="input-group form-group-lg">
             <div class="input-group-btn">
-                <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ model.selectedField.title }} <span class="caret"></span></button>
+                <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" @click="reset" aria-haspopup="true" aria-expanded="false">{{ model.selectedField.title }} <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li v-for="field in fields"><a href="#" @click="setfield(field)">{{ field.title }}</a></li>
+                    <li v-for="field in fields">
+                        <a href="#" @click="setfield(field)">{{ field.title }}</a>
+                    </li>
                 </ul>
             </div><!-- /btn-group -->
             <div class="dropdown">
-                <input type="text" class="form-control  sharp-corners" v-model="model.input"
+                <input type="text" :placeholder="placeholder" class="form-control  autocomplete-input" v-model="model.input"
                        @keydown.down="down"
                        @keydown.up="up"
                        @input="update"
+                       @keydown.enter="hit"
+                       @keydown.esc="reset"
+                       @click="update"
 
                        aria-label="...">
                 <ul class="typehead listgroup" v-show="model.hasItems">
-                    <li v-for="(item, index) in model.items" class="list-group-item" v-bind:class="{active: activeClass(index)}" @mousedown="hit" @mousemove="setActive(index)">
-                        <a href="#"> {{item.topline}} <br> <small>{{ item.subline }}</small></a>
+                    <li v-for="(item, index) in model.items" class="list-group-item" v-bind:class="{activeitem: activeClass(index)}" @mousedown="hit" @mousemove="setActive(index)">
+                        <span class="img-wrapper" v-if="item.image"><img :src="item.image" class="img-circle"></span>
+                        <a :href="item.link"> {{item.topline}} <br> <small>{{ item.subline }}</small></a>
                    </li>
                 </ul>
             </div>
             <slot></slot>
         </div><!-- /input-group -->
 
+        <!--
         <div style="padding-top: 150px;">
             Url: {{ model.url }} <br>
             Selected field: {{ model.selectedField }} <br>
             Input: {{ model.input }} <br>
-            Current index: {{ model.current }}
+            Current index: {{ model.current }} <br>
+            Data: {{ model.items }}
         </div>
+        -->
     </div>
 </template>
 
 <style>
+    .dropdown-toggle {
+        -webkit-border-top-left-radius-radius: 0 !important;
+        -moz-border-radius-topleft-radius: 0 !important;
+        border-top-left-radius: 22px !important;
+
+        -webkit-border-bottom-left-radius-radius: 0 !important;
+        -moz-border-radius-bottomleft-radius: 0 !important;
+        border-bottom-left-radius: 22px !important;
+    }
     .typehead {
         position: absolute;
-        width: 100%;
+        width: 90%;
         top: 48px;
         left: 0;
         background: #fff;
@@ -46,10 +64,36 @@
 
     .typehead li {
         padding: 10px 16px;
+        cursor: pointer;
     }
 
-    .active {
-        color: red;
+    .typehead li a {
+        color: #000000;
+    }
+    .typehead li a small {
+        color: slategrey;
+    }
+
+    .typehead a:hover {
+        text-decoration: none;
+    }
+
+    .img-wrapper {
+        display: block;
+        float: left;
+        padding-right: 10px;
+    }
+    .typehead img {
+        width: 40px;
+    }
+
+    .activeitem {
+        background: #1AAFD0;
+        color: #fff;
+    }
+
+    .activeitem a, .activeitem a small {
+        color: #fff!important;
     }
 </style>
 
@@ -71,6 +115,8 @@
 
             this.topline = $topline;
             this.subline = $subline;
+
+            this.limit = 5;
         }
 
         update()
@@ -97,7 +143,8 @@
                     field: _this.selectedField,
                     input: _this.input,
                     topline: _this.topline,
-                    subline: _this.subline
+                    subline: _this.subline,
+                    limit: _this.limit,
                 },
             }).done(function(newData) {
                 console.log(newData);
@@ -106,9 +153,11 @@
                 alert('error');
             });
         }
+
         setfield($fieldname)
         {
             this.selectedField = $fieldname;
+            this.update();
         }
 
         up()
@@ -147,9 +196,14 @@
             this.current = -1;
         }
 
+        currentLink()
+        {
+            return this.items[this.current].link;
+        }
+
     }
     export default {
-        props: ['url', 'fields', 'topline', 'subline'],
+        props: ['url', 'fields', 'topline', 'subline', 'image', 'placeholder'],
         data: function () {
             return {
                 model: new AutocompleteModel(this.url, this.fields, this.topline, this.subline)
@@ -176,11 +230,17 @@
             },
             hit()
             {
-
+                if (this.model.current >= 0) {
+                    window.location.href = this.model.currentLink();
+                }
             },
             update()
             {
                 this.model.update();
+            },
+            reset()
+            {
+                this.model.reset();
             }
         }
     }
