@@ -34,6 +34,7 @@ class UsersController extends Controller
     {
         $exStudent = ExchangeStudent::find($id_exStudent);
         $exStudent->removeBuddy();
-        return back()->with();
+        $removeSuccess = 'Buddy for exchange student with name '. $exStudent->person->first_name .' '. $exStudent->person->last_name .' was removed.';
+        return back()->with(['removeSuccess' => $removeSuccess]);
     }
 }
