@@ -10,7 +10,7 @@ use App\Settings\Facade as Settings;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Validator;
 
-class UsersController extends Controller
+class BuddiesController extends Controller
 {
     protected function profileValidator(array $data)
     {
@@ -80,17 +80,4 @@ class UsersController extends Controller
 
         return back()->with(['successUpdate' => true,]);
     }
-
-
-    public function showExchangeStudentDashboard()
-    {
-        return view('partak.users.exchangeSudents.dashboard');
-    }
-
-    public function showExchangeStudentDetail($id)
-    {
-        $exStudent = ExchangeStudent::with(['person.user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
-        return view('partak.users.exchangeSudents.detail')->with(['exStudent' => $exStudent,]);
-    }
-
 }
