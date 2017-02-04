@@ -25,9 +25,13 @@
     <div class="row">
         <div class="row-inner">
             <div class="col-md-7">
-                {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch']) }}
+                {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch', 'id' => 'form']) }}
                     {{ Form::bsText('email', 'Email', $buddy->person->user->email) }}
                     {{ Form::bsText('phone', 'Phone') }}
+
+                        <multiselectinput formName="roles" title="Roles" :options="options.roles" :value="options.sroles" :show-labels="false" label="title" track-by="id_role" placeholder="Roles"
+                                     :multiple="true"></multiselectinput>
+
                     {{ Form::bsSelect('id_faculty', 'Faculty', $faculties, $buddy->id_faculty, ['placeholder' => 'Choose faculty...']) }}
 
 
@@ -50,7 +54,10 @@
 
                     <!-- TODO validation of inputs -->
                     {{ Form::bsTextarea('about', 'About') }}
+
                     {{ Form::bsSubmit('Update profile') }}
+
+
 
                 {{ Form::close() }}
             </div>
@@ -60,8 +67,7 @@
 
 @section('scripts')
     @parent
-    <script>
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/vue.multiselect/2.0/vue-multiselect.min.js"></script>
+    <script src="{{ asset('js/multiselect.js') }}"></script>
 
 @stop

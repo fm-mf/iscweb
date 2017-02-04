@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Partak;
 
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Validator;
+use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
 class UsersController extends Controller
 {
@@ -52,8 +54,13 @@ class UsersController extends Controller
 
     public function showEditFormBuddy($id)
     {
+        $buddy = Buddy::with('person.user')->find($id);
+
+        JavaScript::put([
+            'jsoptions' => ['roles' => Role::all(), 'sroles' => $buddy->user()->roles]
+            ]);
         return view('partak.users.buddies.buddiesedit')->with([
-            'buddy' => Buddy::with('person.user')->find($id),
+            'buddy' => $buddy,
             'faculties' => Faculty::getOptions()
         ]);
     }
@@ -62,8 +69,6 @@ class UsersController extends Controller
 
     public function submitEditFormBuddy(Request $request, $id)
     {
-
-
         $this->profileValidator($request->all())->validate();
 
         $buddy = Buddy::with('person.user')->find($id);
@@ -77,6 +82,10 @@ class UsersController extends Controller
         $buddy->person->user->update($data);
         $buddy->person->update($data);
         $buddy->update($data);
+
+        $roles = explode(',', $request->roles);
+        $user = $buddy->user();
+        $user->roles()->sync($roles);
 
         return back()->with(['successUpdate' => true,]);
     }
