@@ -40,6 +40,12 @@ class Buddy extends Model
         return $this->person->user;
     }
 
+    public function isVerified()
+    {
+        return $this->verified == 'y';
+    }
+
+
     public static function findBuddy($id_user)
     {
         return Buddy::with('person.user')->find($id_user);

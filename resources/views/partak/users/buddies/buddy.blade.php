@@ -17,6 +17,10 @@
             <h3>{{ $buddy->person->first_name .' '. $buddy->person->last_name}}</h3> <!-- TODO  edit profile-->
             <span class="glyphicon glyphicon-envelope up buddy-detail-icon"></span> {{ $buddy->person->user->email }} <br>
             <span class="glyphicon glyphicon-phone-alt buddy-detail-icon"></span> @if(isset($buddy->phone)) {{ $buddy->phone }} @else No Phone @endif
+            @if($buddy->verified == 'y') <span class="glyphicon glyphicon-ok buddy-detail-icon"></span> Verifide
+            @elseif ($buddy->verified == 'n') <span class="glyphicon glyphicon-time buddy-detail-icon"></span> Not verified yet
+            @else <span class="glyphicon glyphicon-remove buddy-detail-icon"></span> Denied
+            @endif
         </div>
     </div>
 
