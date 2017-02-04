@@ -283,4 +283,14 @@ a.disabled {
   max-width: 900px;
 }
 
+.buddy-detail {
+  h3 {
+    margin-bottom: 2px;
+  }
+}
+
+.edit-button {
+  margin-bottom: 8px;
+}
+
 @import "users";

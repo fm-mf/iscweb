@@ -51,8 +51,17 @@
                     <!-- TODO validation of inputs -->
                     {{ Form::bsTextarea('about', 'About') }}
                     {{ Form::bsSubmit('Update profile') }}
+
                 {{ Form::close() }}
             </div>
         </div>
     </div>
+@stop
+
+@section('scripts')
+    @parent
+    <script>
+    </script>
+
+
 @stop
