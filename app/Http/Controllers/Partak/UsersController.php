@@ -8,36 +8,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
 use App\Models\Faculty;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
     protected function profileValidator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'phone' => 'max:15',
-            'age' => 'digits:4'
+            'age' => 'digits:4',
+            'email' => 'required|max:255|email',
         ]);
-    }
-
-    protected function emailValidator(array $data)
-    {
-        $validator =  Validator::make($data, [
-            'email' => 'required|max:255'
-        ]);
-
-        $validator->after(function ($validator) use ($data) {
-            if (!in_array($data['domain'], $this->allowedDomains)) {
-                $validator->errors()->add('domain', 'Nepovolená doména');
-            }
-            if (strpos($data['email'], '@') !== false) {
-                $validator->errors()->add('email', 'Zadej prosím správný formát');
-            }
-        });
-
         return $validator;
     }
-
-
 
     public function showBuddiesDashboard()
     {
@@ -76,9 +59,28 @@ class UsersController extends Controller
         ]);
     }
 
-    public function submitEditFormBuddy($id)
+
+
+    public function submitEditFormBuddy(Request $request, $id)
     {
-        //TODO validation
+
+
+        $this->profileValidator($request->all())->validate();
+
+        $buddy = Buddy::with('person.user')->find($id);
+
+        $data = [];
+        foreach ($request->all() as $key => $value) {
+            if ($value) {
+                $data[$key] = $value;
+            }
+        }
+        $buddy->person->user->update($data);
+        $buddy->person->update($data);
+        $buddy->update($data);
+
+        return back()->with(['successUpdate' => true,]);
     }
+    
 
 }

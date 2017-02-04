@@ -75,7 +75,7 @@
 @section('scripts')
     @parent
     <script src="https://cdn.jsdelivr.net/vue.multiselect/2.0/vue-multiselect.min.js"></script>
-    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('js/echangestudentslist.js') }}"></script>
 @stop
 
 @include('footer')
