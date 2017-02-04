@@ -14,7 +14,7 @@
                               :topline="['person.first_name', 'person.last_name']"
                               :subline="['person.user.email']"
                               placeholder="Hledat buddíka..."
-                              target="/partak/users/buddy/{person.id_user}"
+                              target="/partak/users/buddies/{id_user}"
                               :image="{url: '/avatars/', file: 'person.user.avatar'}">
                 </autocomplete>
             </div>

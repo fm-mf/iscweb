@@ -1,5 +1,14 @@
 @extends('partak.users.layout')
 @section('inner-content')
+    @if (session('removeSuccess'))
+        <div class="row">
+            <div class="row-inner">
+                <div class="success">
+                    <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> {{ session('removeSuccess') }}
+                </div>
+            </div>
+        </div>
+    @endif
 
     <div class="row">
         <div class="row-inner">
