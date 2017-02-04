@@ -4,5 +4,5 @@
         <p class="error-block alert-danger">{{ $errors->first($name) }}</p>
     @endif
     {{ Form::text($name, $value, array_merge(['class' => 'form-control'], $attributes)) }}
-    <div class="col-sm-6 info">{{ $info }}</div>
+    <div class="info">{{ $info }}</div>
 </div>
