@@ -7,9 +7,38 @@ use App\Models\ExchangeStudent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
+use App\Models\Faculty;
 
 class UsersController extends Controller
 {
+    protected function profileValidator(array $data)
+    {
+        return Validator::make($data, [
+            'phone' => 'max:15',
+            'age' => 'digits:4'
+        ]);
+    }
+
+    protected function emailValidator(array $data)
+    {
+        $validator =  Validator::make($data, [
+            'email' => 'required|max:255'
+        ]);
+
+        $validator->after(function ($validator) use ($data) {
+            if (!in_array($data['domain'], $this->allowedDomains)) {
+                $validator->errors()->add('domain', 'Nepovolená doména');
+            }
+            if (strpos($data['email'], '@') !== false) {
+                $validator->errors()->add('email', 'Zadej prosím správný formát');
+            }
+        });
+
+        return $validator;
+    }
+
+
+
     public function showBuddiesDashboard()
     {
 
@@ -38,4 +67,18 @@ class UsersController extends Controller
         $removeSuccess = 'Buddy for exchange student with name '. $exStudent->person->first_name .' '. $exStudent->person->last_name .' was removed.';
         return back()->with(['removeSuccess' => $removeSuccess]);
     }
+
+    public function showEditFormBuddy($id)
+    {
+        return view('partak.users.buddies.buddiesedit')->with([
+            'buddy' => Buddy::with('person.user')->find($id),
+            'faculties' => Faculty::getOptions()
+        ]);
+    }
+
+    public function submitEditFormBuddy($id)
+    {
+        //TODO validation
+    }
+
 }

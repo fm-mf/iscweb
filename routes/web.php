@@ -38,6 +38,8 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
 
     Route::get('/users/buddies/{id}', 'UsersController@showBuddyDetail');
     Route::get('/users/buddies/{id_buddy}/remove/{id_exStudent}', 'UsersController@removeExStudentFromBuddy');
+    Route::get('/users/buddies/edit/{id}', 'UsersController@showEditFormBuddy');
+    Route::patch('/users/buddies/edit/{id}', 'UsersController@submitEditFormBuddy');
     //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
 });
 
