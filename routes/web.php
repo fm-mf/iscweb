@@ -41,6 +41,9 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     Route::get('/users/buddies/edit/{id}', 'UsersController@showEditFormBuddy');
     Route::patch('/users/buddies/edit/{id}', 'UsersController@submitEditFormBuddy');
     //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
+
+    Route::get('/users/exchange-students', 'UsersController@showExchangeStudentDashboard');
+    Route::get('/users/exchange-students/{id_user}', 'UsersController@showExchangeStudentDetail');
 });
 
 

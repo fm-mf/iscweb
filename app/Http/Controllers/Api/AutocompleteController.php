@@ -29,7 +29,7 @@ class AutocompleteController extends Controller
 {
     public function exchangeStudents(Request $request)
     {
-        dd ($request->target);
+        //dd ($request->target);
         $search = ExchangeStudent::findAll()->bySemester(Settings::get('currentSemester'));
         $search = $this->query($search, $request->field, $request->input)->limit($request->limit);
 

@@ -3,17 +3,17 @@
     <div class="row search-buddy">
         <div class="row-inner">
             <div class="col-sm-8 col-sm-offset-0" id="search">
-            <h3>Vyhledávání</h3>
+            <h3>Search</h3>
 
                 <autocomplete url="{{ url('api/autocomplete/buddies') }}"
                               :fields="[
-                                    {title: 'Vše', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
+                                    {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
                                     {title: 'Name', columns: ['person.first_name', 'person.last_name']},
                                     {title: 'Email', columns: ['person.user.email']},
                                      ]"
                               :topline="['person.first_name', 'person.last_name']"
                               :subline="['person.user.email']"
-                              placeholder="Hledat buddíka..."
+                              placeholder="Search Buddy..."
                               target="/partak/users/buddies/{id_user}"
                               :image="{url: '/avatars/', file: 'person.user.avatar'}">
                 </autocomplete>
