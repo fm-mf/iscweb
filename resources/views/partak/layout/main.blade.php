@@ -40,7 +40,7 @@
                     <!--PartákNET-->
                 </a>
             </div><!-- /.navbar-header -->
-            <div class="navbar-brand" href="#">PartákNET</div>
+            <div class="navbar-brand" href="#">ParťákNET</div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse col-sm-9">
                 <ul class="nav navbar-nav">
