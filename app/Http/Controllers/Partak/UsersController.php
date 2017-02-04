@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Partak;
 use App\Models\Buddy;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Settings\Facade as Settings;
 
 class UsersController extends Controller
 {
     public function showBuddiesDashboard()
     {
 
-
-        return view('partak.users.buddiesdashboard')->with([
+        return view('partak.users.buddies.buddiesdashboard')->with([
             'notVerifiedBuddies' => Buddy::with('person.user')->notVerified()
         ]);
     }
@@ -20,11 +20,13 @@ class UsersController extends Controller
     public function showBuddyDetail($id)
     {
         $buddy = Buddy::findBuddy($id);
-        $myStudents = $buddy->exchangeStudents()->with('person.user')->get();
+        $semester = Settings::get('currentSemester');
+        $myStudents = $buddy->exchangeStudents()->bySemester($semester)->with('person.user')->get();
 
-        return view('partak.users.buddy')->with([
+        return view('partak.users.buddies.buddy')->with([
             'buddy' => $buddy,
-            'myStudents' => $myStudents
+            'myStudents' => $myStudents,
+            'currentSemester' => $semester
         ]);
     }
 }
