@@ -8039,6 +8039,10 @@ a.disabled {
   background: #EDF2F6;
 }
 
+.row-inner {
+  max-width: 900px;
+}
+
 .buddy-detail-img {
   margin-right: 30px;
 }
