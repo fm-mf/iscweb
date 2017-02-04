@@ -1,4 +1,4 @@
-@extends('layouts.web.activities')
+@extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
 

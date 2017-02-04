@@ -1,4 +1,4 @@
-@extends('layouts.web.activities')
+@extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
         <blockquote><p>One language sets you in a corridor for life. Two languages open every door along the way.</p><p><small>Frank Smith</small></p></blockquote>
