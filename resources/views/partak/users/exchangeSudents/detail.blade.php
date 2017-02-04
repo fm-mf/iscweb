@@ -9,11 +9,13 @@
             </div>
         </div>
     @endif
-    <h2>Exchange student</h2>
-        <div class="row">
-        <div class="row-inner buddy-detail">
+        <div>
+        <div class="row row-inner buddy-detail">
+            <div class="col-sm-12">
+                <h2>Exchange student</h2>
+            </div>
             <div class="col-sm-6">
-                <h3>Detail</h3>
+                <h3 class="hline"><span>Details</span></h3>
                 <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($exStudent->person->avatar()) }}">
                 <h3>{{ $exStudent->person->first_name .' '. $exStudent->person->last_name}}</h3>
                 <a href="{{ url('partak/users/exchange-students/edit/' . $exStudent->id_user) }}" class="btn btn-xs btn-success edit-button"><span class="glyphicon glyphicon-pencil up"></span> Edit</a> <br>
@@ -24,7 +26,7 @@
                 @endif
             </div>
             <div class="col-sm-6">
-                <h3 >Buddy detail</h3>
+                <h3 class="hline"><span>{{$exStudent->person->first_name }}'s buddy details</span></h3>
                 @if(isset($exStudent->buddy))
                     <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($exStudent->buddy->person->avatar()) }}">
                     <h3>{{ $exStudent->buddy->person->first_name .' '. $exStudent->buddy->person->last_name}}</h3>
@@ -36,14 +38,14 @@
                     @else <span class="glyphicon glyphicon-remove buddy-detail-icon"></span> Denied
                     @endif
                 @else
-                    <h3>Don't have Buddy!!</h3>
+                    <p>{{$exStudent->person->first_name }} doesn't have a buddy! :(</p>
                 @endif
             </div>
 
         </div>
     </div>
-    <div class="row">
-        <div class="row-inner">
+    <div class="">
+        <div class="row row-inner">
             <div class="col-sm-8">
                 <label for="unique_url">Unique URL</label>
                 <div class="input-group">
