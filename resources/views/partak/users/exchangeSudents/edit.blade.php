@@ -14,21 +14,22 @@
 
     <div class="row">
         <div class="row-inner">
-            <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($buddy->person->avatar()) }}">
-            <h3>{{ $buddy->person->first_name .' '. $buddy->person->last_name}}</h3>
-            @if($buddy->verified == 'y') <span class="glyphicon glyphicon-ok buddy-detail-icon"></span> Verified
-            @elseif ($buddy->verified == 'n') <span class="glyphicon glyphicon-time buddy-detail-icon"></span> Not verified yet
-            @else <span class="glyphicon glyphicon-remove buddy-detail-icon"></span> Denied
-            @endif
+            <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($exStudent->person->avatar()) }}">
+            <h3>{{ $exStudent->person->first_name .' '. $exStudent->person->last_name}}</h3>
+
         </div>
     </div>
     <div class="row">
         <div class="row-inner">
             <div class="col-md-7">
-                {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch']) }}
-                    {{ Form::bsText('email', 'Email', $buddy->person->user->email) }}
+                {{ Form::model($exStudent, ['url' => 'partak/users/exchange-students/edit/'. $exStudent->id_user, 'method' => 'patch']) }}
+                    {{ Form::bsText('email', 'Email', $exStudent->person->user->email) }}
                     {{ Form::bsText('phone', 'Phone') }}
-                    {{ Form::bsSelect('id_faculty', 'Faculty', $faculties, $buddy->id_faculty, ['placeholder' => 'Choose faculty...']) }}
+                    {{ Form::label('esn_registered', 'ESN registered', ['class' => 'control-label']) }}
+                    {{ Form::checkbox('esn_registered', 'y', $exStudent->esn_registered == 'y') }}
+                    {{ Form::bsText('esn_card_number', 'ESN card number') }}
+                    {{ Form::bsSelect('id_faculty', 'Faculty', $faculties, $exStudent->id_faculty, ['placeholder' => 'Choose faculty...']) }}
+                    {{ Form::bsSelect('id_accommodation', 'Accommodation', $accommodations, $exStudent->id_accommodation, ['placeholder' => 'Choose accommodation...']) }}
 
 
                     <div class="form-group row" style="overflow: hidden;">
@@ -37,18 +38,18 @@
                             @if ($errors->has('sex'))
                                 <p class="error-block alert-danger">{{ $errors->first('sex') }}</p>
                             @endif
-                            {{ Form::select('sex', ['M' => 'Male', 'F' => 'Female'], $buddy->person->sex, ['placeholder' => 'Choose sex...', 'class' => 'form-control']) }}
+                            {{ Form::select('sex', ['M' => 'Male', 'F' => 'Female'], $exStudent->person->sex, ['placeholder' => 'Choose sex...', 'class' => 'form-control']) }}
                         </div>
                         <div class="col-sm-6 right">
                             {{ Form::label('age', 'Year of berth', ['class' => 'control-label']) }}
                             @if ($errors->has('age'))
                                 <p class="error-block alert-danger">{{ $errors->first('age') }}</p>
                             @endif
-                            {{ Form::number('age', $buddy->person->age, ['class' => 'form-control']) }}
+                            {{ Form::number('age', $exStudent->person->age, ['class' => 'form-control']) }}
                         </div>
                     </div>
 
-                    <!-- TODO validation of inputs -->
+                    {{ Form::bsText('medical_issues', 'Medical issues', $exStudent->person->medical_issues) }}
                     {{ Form::bsTextarea('about', 'About') }}
                     {{ Form::bsSubmit('Update profile') }}
 
