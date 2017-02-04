@@ -36,22 +36,21 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand partaknet-logo" href="https://isc.cvut.cz">
-                    <!--<img src="https://isc.cvut.cz/img/web/logo.png" id="logo" alt="International Student Club"> -->
-                    PartákNET
+                    <img src="{{ asset('img/web/logo2.png') }}" style="margin-top: 5px !important;" width="150" id="logo" alt="International Student Club">
+                    <!--PartákNET-->
                 </a>
             </div><!-- /.navbar-header -->
-
+            <div class="navbar-brand" href="#">PartákNET</div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse col-sm-9">
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li><a href="{{ url('user/logout') }}"><img src="{{ URL::asset('img/partak/log-out.png') }}" />Logout</a></li>
+                    <li><a href="{{ url('user/logout') }}"><img src="{{ URL::asset( Auth::user()->person->avatar() ) }}" class="img-circle top-navigation-user" />Logout</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.row -->
     </div><!-- /.container -->
 </nav>
-
 @yield('page')
 
 

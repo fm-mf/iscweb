@@ -11,6 +11,7 @@ class UsersController extends Controller
     public function showBuddiesDashboard()
     {
 
+
         return view('partak.users.buddiesdashboard')->with([
             'notVerifiedBuddies' => Buddy::with('person.user')->notVerified()
         ]);

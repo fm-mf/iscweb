@@ -29,14 +29,29 @@ class AutocompleteController extends Controller
 {
     public function exchangeStudents(Request $request)
     {
+        dd ($request->target);
         $search = ExchangeStudent::findAll()->bySemester(Settings::get('currentSemester'));
         $search = $this->query($search, $request->field, $request->input)->limit($request->limit);
 
+
+        $link = $request->target;
+        if ($link) {
+            preg_match('/{.*}/', $link, $matches);
+            $targetColumn = substr($matches[0], 1, -1);
+        }
+
         $items = [];
         foreach ($search->get() as $student) {
+            if ($link) {
+                $targetField = $this->getColumnValue($student, $targetColumn);
+                $thisLink = preg_replace('/{.*}/', $targetField, $link);
+            }
             $items[] = new Item($this->getline($student, $request->topline), $this->getline($student, $request->subline),
-                '/partak/exchange-students/' . $student->id_user, $student->person->avatar());
+                $thisLink, $student->person->avatar());
         }
+
+
+
 
         return response()->json([
             'items' => $items
@@ -48,10 +63,20 @@ class AutocompleteController extends Controller
         $search = Buddy::findAll();
         $search = $this->query($search, $request->field, $request->input)->limit($request->limit);
 
+        $link = $request->target;
+        if ($link) {
+            preg_match('/{.*}/', $link, $matches);
+            $targetColumn = substr($matches[0], 1, -1);
+        }
+
         $items = [];
         foreach ($search->get() as $buddy) {
+            if ($link) {
+                $targetField = $this->getColumnValue($buddy, $targetColumn);
+                $thisLink = preg_replace('/{.*}/', $targetField, $link);
+            }
             $items[] = new Item($this->getline($buddy, $request->topline), $this->getline($buddy, $request->subline),
-                '/partak/exchange-students/' . $buddy->id_user, $buddy->person->avatar());
+                $thisLink, $buddy->person->avatar());
         }
 
         return response()->json([
@@ -99,16 +124,19 @@ class AutocompleteController extends Controller
         }
         $result = "";
         foreach($fields as $field) {
-            $path = explode('.', $field);
-            $cPath = $object;
-            foreach ($path as $t) {
-                $cPath = $cPath->$t;
-            }
-            $result .= $cPath . ' ';
+            $result .= $this->getColumnValue($object, $field) . ' ';
         }
         return substr($result, 0, -1);
-        $subline = $student->person->user->email;
-        $link = url('/partak/exchange-students/' . $student->id_user);
 
+    }
+
+    private function getColumnValue($object, $field)
+    {
+        $path = explode('.', $field);
+        $cPath = $object;
+        foreach ($path as $t) {
+            $cPath = $cPath->$t;
+        }
+        return $cPath;
     }
 }

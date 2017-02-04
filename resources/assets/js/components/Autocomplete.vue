@@ -43,13 +43,8 @@
 
 <style>
     .dropdown-toggle {
-        -webkit-border-top-left-radius-radius: 0 !important;
-        -moz-border-radius-topleft-radius: 0 !important;
-        border-top-left-radius: 22px !important;
-
-        -webkit-border-bottom-left-radius-radius: 0 !important;
-        -moz-border-radius-bottomleft-radius: 0 !important;
-        border-bottom-left-radius: 22px !important;
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
     }
     .typehead {
         position: absolute;
@@ -100,7 +95,7 @@
 <script>
     class AutocompleteModel
     {
-        constructor($url, $fields, $topline, $subline)
+        constructor($url, $fields, $topline, $subline, $target)
         {
             this.url = $url;
             this.fields = $fields;
@@ -117,6 +112,8 @@
             this.subline = $subline;
 
             this.limit = 5;
+
+            this.target = $target;
         }
 
         update()
@@ -145,6 +142,7 @@
                     topline: _this.topline,
                     subline: _this.subline,
                     limit: _this.limit,
+                    target: _this.target,
                 },
             }).done(function(newData) {
                 console.log(newData);
@@ -203,10 +201,10 @@
 
     }
     export default {
-        props: ['url', 'fields', 'topline', 'subline', 'image', 'placeholder'],
+        props: ['url', 'fields', 'topline', 'subline', 'image', 'placeholder', 'target'],
         data: function () {
             return {
-                model: new AutocompleteModel(this.url, this.fields, this.topline, this.subline)
+                model: new AutocompleteModel(this.url, this.fields, this.topline, this.subline, this.target)
             }
         },
         methods: {
