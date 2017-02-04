@@ -53,7 +53,7 @@
 </nav>
 @yield('page')
 
-
+@include('footer')
 
 <div class="footer-wrapper">
     <div class="container">

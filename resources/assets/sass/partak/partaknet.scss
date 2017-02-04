@@ -87,13 +87,14 @@ h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
 
 .dashboard-header-wrapper {
   width: 100%;
-  min-height: 120px;
+  min-height: 550px;
   overflow: hidden;
   border-bottom: 1px solid rgba(255,255,255, 0.3);
+  background-image:url($imgPath + "burgers.jpg");
   /*background-image:url($imgPath + "us.jpg");*/
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
+  background-position: -60px center;
 }
 
 .title, .title-sp {
@@ -159,7 +160,7 @@ a.disabled {
   min-height: 70px;
   //background-color: #0079C1;
 
-  background-image:url($imgPath + "bg-headerd.jpg");
+  background-image:url($imgPath + "burgersno.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 top;
