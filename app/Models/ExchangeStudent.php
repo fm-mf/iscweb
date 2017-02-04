@@ -12,6 +12,10 @@ class ExchangeStudent extends Model
     protected $dates = ['buddy_timestamp'];
     public $incrementing = false;
 
+    protected $fillable = [
+        'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation'
+    ];
+
     public function person()
     {
         return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
