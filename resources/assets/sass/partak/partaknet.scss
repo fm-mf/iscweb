@@ -101,7 +101,6 @@ h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
   text-align:center;
   margin-top:40px;
   margin-bottom:40px;
-  color: #000;
   font-weight: bold;
 }
 .title strong, .title-sp strong {
@@ -158,12 +157,16 @@ a.disabled {
 .subpage-header-wrapper {
   width: 100%;
   min-height: 70px;
-  background-image:url($imgPath + "us-original-nee.jpg");
+  //background-color: #0079C1;
+
+  background-image:url($imgPath + "bg-headerd.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0 -70px;
+  background-position: 0 top;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255, 0.3);
+  border-bottom: 5px solid #0079C1;
+
+  color: #fff;
 }
 
 .title-sp {
@@ -174,7 +177,8 @@ a.disabled {
 }
 
 .content {
-  padding-top: 40px;
+  margin: 0;
+  padding: 0;
   min-height: 500px;
 }
 
@@ -211,10 +215,10 @@ a.disabled {
 }
 
 .inner-content {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 70px;
-  max-width: 900px;
+}
+
+.row-inner {
+  padding: 40px;
 }
 
 .sub-active {
@@ -232,16 +236,8 @@ a.disabled {
 
 .autocomplete-input {
 
-  -webkit-border-radius: 22px !important;
-  -moz-border-radius: 22px !important;
-  border-radius: 22px !important;
-
-  -webkit-border-top-left-radius-radius: 0 !important;
-  -moz-border-radius-topleft-radius: 0 !important;
+  border-radius: 0 !important;
   border-top-left-radius: 0 !important;
-
-  -webkit-border-bottom-left-radius-radius: 0 !important;
-  -moz-border-radius-bottomleft-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
 }
 
@@ -250,10 +246,36 @@ a.disabled {
 }
 
 .top-navigation {
-  background: #0079C1;
+  color: #fff;
+  background: #333333;
+  margin: 0;
+  a {
+    color: #fff;
+  }
 }
 
 .partaknet-logo {
   color: #000;
   font-weight: bold;
+}
+
+.top-navigation-user {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.navbar-brand
+{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin:0 auto;
+  font-weight: bold;
+}
+.navbar-toggle {
+}
+
+.row-grey {
+  background: #EDF2F6;
 }
