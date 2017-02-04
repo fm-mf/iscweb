@@ -24,11 +24,23 @@
         <div class="row-inner">
             <div class="col-sm-12">
                 <h3>Not verified Buddies</h3>
-                <ul class="list-group">
-                    @foreach($notVerifiedBuddies as $buddy)
-                        <li class="list-group-item">{{ $buddy->person->first_name }}</li>
-                    @endforeach
-                </ul>
+                @if($notVerifiedBuddies->count() > 0)
+                <div class="panel panel-default">
+                    <table class="table">
+                        @foreach($notVerifiedBuddies->get() as $buddy)
+                            <tr>
+                                <td>{{ $buddy->person->first_name }} {{ $buddy->person->last_name }}</td>
+                                <td>{{ $buddy->user()->email }}</td>
+                                <td align="right">
+                                    <a href="{{ url('partak/users/buddies/verify/' . $buddy->id_user) }}" role="button" class="btn btn-success btn-xs">Approve</a>
+                                    <a href="{{ url('partak/users/buddies/cancel/' . $buddy->id_user) }}" role="button" class="btn btn-danger btn-xs">Deny</a>
+                                    <a href="{{ url('partak/users/buddies/' . $buddy->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+                @endif
             </div><!-- /col -->
         </div>
     </div>
