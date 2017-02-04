@@ -1,4 +1,4 @@
-@extends('layouts.web.activities')
+@extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
         <blockquote><p>Wherever you go becomes a part of you somehow.</p><p><small>Anita Desai</small></p></blockquote>

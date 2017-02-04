@@ -1,8 +1,8 @@
-@extends('layouts.web.layout')
+@extends('web.layouts.layout')
 
 @section('page')
     <div class="activities-wrapper">
-        @include('layouts.web.navigation')
+        @include('web.layouts.navigation')
     </div>
 
 <div class="container menu">

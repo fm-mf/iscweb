@@ -1,4 +1,4 @@
-@extends('layouts.web.subpage')
+@extends('web.layouts.subpage')
 @section('wrapper-class', 'calendar-wrapper')
 @section('navClass', 'navbar-dark')
 @section('title', 'Calendar')
