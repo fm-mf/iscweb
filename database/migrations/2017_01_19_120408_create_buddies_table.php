@@ -21,6 +21,7 @@ class CreateBuddiesTable extends Migration {
 			$table->enum('active', array('y','n'))->default('n');
 			$table->enum('subscribed', array('y','n'))->default('y');
 			$table->enum('alive', array('y','n'))->default('n');
+			$table->enum('verified', array('y','n', 'd'))->default('n'); // yes/no/denied
 		});
 	}
 

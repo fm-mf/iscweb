@@ -24,20 +24,25 @@
         <div class="row row-grey">
             <div class="row-inner">
                 <h3>{{ $buddy->person->first_name }}'s exchange students for {{ $currentSemester }}</h3>
-                <table class="table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Remove</th>
-                    </tr>
-                    @foreach($myStudents as $exStudent)
+                <div class="panel panel-default">
+                    <table class="table">
                         <tr>
-                            <td>{{ $exStudent->person->first_name. ' ' . $exStudent->person->last_name }}</td>
-                            <td>{{ $exStudent->person->user->email }}</td>
-                            <td><a href="{{ url('partak/users/buddy/'. $buddy->id_user .'/remove/' .$exStudent->id_user) }}" role="button" class="btn btn-danger btn-xs">Remove</a></td>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th></th>
                         </tr>
-                    @endforeach
-                </table>
+                        @foreach($myStudents as $exStudent)
+                            <tr>
+                                <td>{{ $exStudent->person->first_name. ' ' . $exStudent->person->last_name }}</td>
+                                <td>{{ $exStudent->person->user->email }}</td>
+                                <td align="right">
+                                    <a href="{{ url('partak/users/buddy/'. $buddy->id_user .'/remove/' .$exStudent->id_user) }}" role="button" class="btn btn-danger btn-xs">Remove</a>
+                                    <a href="{{ url('partak/users/exchange-students/' . $exStudent->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
             </div>
         </div>
     @endif
