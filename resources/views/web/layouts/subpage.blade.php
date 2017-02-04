@@ -1,7 +1,7 @@
-@extends('layouts.web.layout')
+@extends('web.layouts.layout')
 @section('page')
 <div class="@yield('wrapper-class')">
-    @include('layouts.web.navigation')
+    @include('web.layouts.navigation')
     <h1 class="title"><strong>@yield('title')</strong></h1>
     <span class="show-menu"></span>
 </div>

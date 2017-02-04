@@ -4772,7 +4772,7 @@ tbody.collapse.in {
 
 @media (min-width: 400px) {
   .navbar {
-    border-radius: 0;
+    border-radius: 4px;
   }
 }
 
@@ -5097,8 +5097,8 @@ tbody.collapse.in {
 
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   margin-bottom: 0;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -7871,6 +7871,7 @@ h3 {
   text-align: center;
   margin-top: 40px;
   margin-bottom: 40px;
+  color: #000;
   font-weight: bold;
 }
 
@@ -7931,13 +7932,12 @@ a.disabled {
 .subpage-header-wrapper {
   width: 100%;
   min-height: 70px;
-  background-image: url("../img/partak/bg-headerd.jpg");
+  background-image: url("../img/partak/us-original-nee.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0 top;
+  background-position: 0 -70px;
   overflow: hidden;
-  border-bottom: 5px solid #0079C1;
-  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .title-sp {
@@ -7949,8 +7949,7 @@ a.disabled {
 }
 
 .content {
-  margin: 0;
-  padding: 0;
+  padding-top: 40px;
   min-height: 500px;
 }
 
@@ -7979,8 +7978,11 @@ a.disabled {
   background: #eeeeee;
 }
 
-.row-inner {
-  padding: 40px;
+.inner-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 70px;
+  max-width: 900px;
 }
 
 .sub-active {
@@ -7997,8 +7999,12 @@ a.disabled {
 }
 
 .autocomplete-input {
-  border-radius: 0 !important;
+  border-radius: 22px !important;
+  -webkit-border-top-left-radius-radius: 0 !important;
+  -moz-border-radius-topleft-radius: 0 !important;
   border-top-left-radius: 0 !important;
+  -webkit-border-bottom-left-radius-radius: 0 !important;
+  -moz-border-radius-bottomleft-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
 }
 
@@ -8007,13 +8013,7 @@ a.disabled {
 }
 
 .top-navigation {
-  color: #fff;
-  background: #333333;
-  margin: 0;
-}
-
-.top-navigation a {
-  color: #fff;
+  background: #0079C1;
 }
 
 .partaknet-logo {
@@ -8021,22 +8021,12 @@ a.disabled {
   font-weight: bold;
 }
 
-.top-navigation-user {
-  width: 30px;
+.buddy-detail-img {
+  margin-right: 30px;
+}
+
+.buddy-detail-icon {
   margin-right: 10px;
-}
-
-.navbar-brand {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  text-align: center;
-  margin: 0 auto;
-  font-weight: bold;
-}
-
-.row-grey {
-  background: #EDF2F6;
 }
 
 /*# sourceMappingURL=partaknet.css.map */

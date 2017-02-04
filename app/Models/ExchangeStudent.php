@@ -57,6 +57,13 @@ class ExchangeStudent extends Model
         return $this->id_buddy != null;
     }
 
+    public function removeBuddy()
+    {
+        $this->id_buddy = NULL;
+        $this->buddy_timestamp = NULL;
+        $this->save();
+    }
+
     public static function findAll()
     {
         return ExchangeStudent::with('person', 'person.user', 'country', 'faculty', 'accommodation', 'arrival');

@@ -1,4 +1,4 @@
-@extends('layouts.web.subpage')
+@extends('web.layouts.subpage')
 @section('wrapper-class', 'about-wrapper')
 @section('navClass', 'navbar-light')
 @section('title', 'Buddy Program')

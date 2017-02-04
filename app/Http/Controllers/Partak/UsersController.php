@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Partak;
 
 use App\Models\Buddy;
+use App\Models\ExchangeStudent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
@@ -28,5 +29,12 @@ class UsersController extends Controller
             'myStudents' => $myStudents,
             'currentSemester' => $semester
         ]);
+    }
+
+    public function removeExStudentFromBuddy($id_buddy, $id_exStudent)
+    {
+        $exStudent = ExchangeStudent::find($id_exStudent);
+        $exStudent->removeBuddy();
+        return back()->with();
     }
 }

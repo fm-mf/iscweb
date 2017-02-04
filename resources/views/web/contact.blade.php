@@ -1,9 +1,9 @@
-@extends('layouts.web.layout')
+@extends('web.layouts.layout')
 @section('navClass', 'navbar-dark')
 @section('page')
     <div id="map-canvas"></div>
     <div class="contact-wrapper">
-        @include('layouts.web.navigation')
+        @include('web.layouts.navigation')
 
     <div class="container">
         <div class="row link-map visible-xs align-center">
