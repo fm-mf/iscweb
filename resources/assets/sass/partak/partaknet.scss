@@ -78,7 +78,7 @@ body {font-family: proxima-nova, myriad-pro, Helvetica, Arial, sans-serif;}
 
 .align-center {text-align: center;}
 
-h2 {font-weight: 700; font-size:25px; margin-bottom: 10px; margin-top: 30px;}
+h2 {font-weight: 700; font-size:25px; margin-bottom: 20px}
 h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
 
 .list-colored li {background: #ebebeb; border-left: 5px solid #d4d4d4; margin-bottom: 1px; padding: 15px;
@@ -95,13 +95,13 @@ h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
   background-repeat: no-repeat;
   background-size: cover;
   background-position: -60px center;
+  color: #fff;
 }
 
 .title, .title-sp {
   font-size: 30px;
   text-align:center;
-  margin-top:40px;
-  margin-bottom:40px;
+  padding-top:300px;
   font-weight: bold;
 }
 .title strong, .title-sp strong {

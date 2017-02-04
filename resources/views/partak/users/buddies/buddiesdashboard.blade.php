@@ -25,15 +25,19 @@
             <div class="col-sm-12">
                 <h3>Not verified Buddies</h3>
                 @if($notVerifiedBuddies->count() > 0)
-                <div class="panel panel-default">
+                <div class="panel panel-default" id="protected">
                     <table class="table">
                         @foreach($notVerifiedBuddies->get() as $buddy)
                             <tr>
                                 <td>{{ $buddy->person->first_name }} {{ $buddy->person->last_name }}</td>
                                 <td>{{ $buddy->user()->email }}</td>
                                 <td align="right">
-                                    <a href="{{ url('partak/users/buddies/verify/' . $buddy->id_user) }}" role="button" class="btn btn-success btn-xs">Approve</a>
-                                    <a href="{{ url('partak/users/buddies/cancel/' . $buddy->id_user) }}" role="button" class="btn btn-danger btn-xs">Deny</a>
+                                    <protectedbutton url="{{ url('partak/users/buddies/approve/' . $buddy->id_user) }}"
+                                                     protection-text="Approve buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
+                                                     button-style="btn-success">Approve</protectedbutton>
+                                    <protectedbutton url="{{ url('partak/users/buddies/deny/' . $buddy->id_user) }}"
+                                                     protection-text="Deny buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
+                                                     button-style="btn-danger">Deny</protectedbutton>
                                     <a href="{{ url('partak/users/buddies/' . $buddy->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                 </td>
                             </tr>
@@ -50,4 +54,5 @@
 @section('scripts')
     @parent
     <script src="{{asset('js/search.js')}}"></script>
+    <script src="{{ asset('js/buttons.js') }}"></script>
     @stop

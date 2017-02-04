@@ -6,3 +6,36 @@
 {
   margin-right: 10px;
 }
+
+
+/* Titles */
+.hline {
+  position: relative;
+  font-size: 14px;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  color: #7c7c7c;
+
+  margin-bottom: 20px !important;
+}
+.hline:before, .hline:after {
+  position: absolute;
+  top: 51%;
+  overflow: hidden;
+  width: 50%;
+  height: 1px;
+  content: '\a0';
+  background-color: #7c7c7c;
+}
+
+.hline:before {
+  margin-left: -50%;
+  text-align: right;
+
+}
+
+.hline span {
+  padding:0 10px;
+  background:#fff;
+}

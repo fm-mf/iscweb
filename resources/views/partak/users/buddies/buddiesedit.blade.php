@@ -13,7 +13,7 @@
 
 
     <div class="row">
-        <div class="row-inner">
+        <div class="row-inner buddy-detail">
             <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($buddy->person->avatar()) }}">
             <h3>{{ $buddy->person->first_name .' '. $buddy->person->last_name}}</h3>
             @if($buddy->verified == 'y') <span class="glyphicon glyphicon-ok buddy-detail-icon"></span> Verified
