@@ -5,7 +5,7 @@
         <div class="row match-my-cols">
             <div class="col-sm-3 submenu">
                 <ul class="list-unstyled">
-                    <li @if(Request::is('/partak/users')) class="sub-active" @endif>
+                    <li @if(Request::is('/partak/users/*')) class="sub-active" @endif>
                         <a href="{{ url('partak/users/buddies') }}">Buddies</a>
                     </li>
                     <li>
@@ -17,10 +17,10 @@
                 </ul>
             </div>
             <div class="col-sm-9">
-                <div class="inner-content">
+                <div class="inner-content" id="protected">
                     @yield('inner-content')
                 </div>
             </div>
         </div>
     </div>
-    @stop
+@stop
