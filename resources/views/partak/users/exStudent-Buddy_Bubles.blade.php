@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <div class="row row-inner buddy-detail">
         <div class="col-sm-12">
             <h2>Exchange student</h2>
@@ -36,8 +36,3 @@
 
     </div>
 </div>
-
-@section('scripts')
-    @parent
-    <script src="{{ asset('js/buttons.js') }}"></script>
-@stop

@@ -12,8 +12,8 @@
     @endif
 
 
-    <div class="row">
-        <div class="row-inner buddy-detail">
+    <div class="container">
+        <div class="row row-inner buddy-detail">
             <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($buddy->person->avatar()) }}">
             <h3>{{ $buddy->person->first_name .' '. $buddy->person->last_name}}</h3>
             @if($buddy->verified == 'y') <span class="glyphicon glyphicon-ok buddy-detail-icon"></span> Verified
@@ -22,8 +22,8 @@
             @endif
         </div>
     </div>
-    <div class="row">
-        <div class="row-inner">
+    <div class="container">
+        <div class="row row-inner">
             <div class="col-md-7">
                 {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch', 'id' => 'form']) }}
                     {{ Form::bsText('email', 'Email', $buddy->person->user->email) }}
@@ -63,11 +63,4 @@
             </div>
         </div>
     </div>
-@stop
-
-@section('scripts')
-    @parent
-    <script src="https://cdn.jsdelivr.net/vue.multiselect/2.0/vue-multiselect.min.js"></script>
-    <script src="{{ asset('js/multiselect.js') }}"></script>
-
 @stop

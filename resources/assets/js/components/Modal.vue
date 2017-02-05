@@ -29,7 +29,7 @@
 </template>
 
 <style>
-    img {
+    .modal-body img {
         width: 90px;
         float: left;
         margin-right: 20px;

@@ -91,9 +91,19 @@ class Buddy extends Model
 
     public static function scopeNotVerified($query)
     {
-        return $query->where('active', 'n')->whereHas('person.user', function($query) {
-            //$query->where('created_at', '>', Carbon::create(2017, 1, 21)->timestamp);
-            $query->where('created_at', '>', Carbon::create(2017, 1, 1)->timestamp);
+        return $query->where(function($query) {
+            $query->whereHas('person.user', function($query) {
+                $query->where('created_at', '>=', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString())->where('verified',  '!=', 'y');
+            })->orWhereHas('person.user', function($query) {
+                $query->where(function($query) {
+                    $query->whereNull('created_at')->orWhere('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString());
+                })->where('active', 'n');
+            });
         });
+    }
+
+    public static function scopeNotDenied($query)
+    {
+        return $query->where('verified', '!=', 'd');
     }
 }

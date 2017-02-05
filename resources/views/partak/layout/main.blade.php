@@ -24,6 +24,7 @@
 </head>
 
 <body>
+<div id="wrap">
 <!------------------------------ Logo and navigation ----------------------------------->
 <nav class="navbar navbar-custom navbar-main top-navigation" role="navigation">
     <div class="container">
@@ -54,8 +55,10 @@
 @yield('page')
 
 @include('footer')
+    <div id="push"></div>
+</div>
 
-<div class="footer-wrapper">
+<div class="footer-wrapper" id="footer">
     <div class="container">
         <div class="row footer">
             <div class="col-sm-12 align-center">

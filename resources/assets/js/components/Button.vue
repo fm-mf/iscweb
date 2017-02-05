@@ -1,6 +1,6 @@
 <template>
     <span>
-        <a :href="url" role="button" class="btn btn-xs" :class="buttonStyle" @click="onClick">
+        <a :href="url" role="button" class="btn" :class="buttonStyle" @click="onClick">
             <slot></slot>
         </a>
         <modal v-if="showModal" @submit="onSubmit" @cancel="showModal = false" :show="showModal">

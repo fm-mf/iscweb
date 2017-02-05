@@ -4,7 +4,12 @@
 
     @include('partak.layout.menu')
 
+<div id="partakApp">
     @yield('content')
+</div>
 
 @stop
-
+@section('scripts')
+    @parent
+    <script src="{{ asset('js/partak.js') }}"></script>
+@stop

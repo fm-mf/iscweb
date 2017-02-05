@@ -7767,6 +7767,44 @@ html, body {
   font-family: open-sans, myriad-pro, Helvetica, Arial, sans-serif;
 }
 
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 60px;
+}
+
+.footer-wrapper {
+  background: #0079C1;
+}
+
+.footer {
+  padding-top: 20px;
+  color: #fff;
+}
+
+.footer a {
+  color: #fff;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 .errors {
   color: #ca0f0f !important;
 }
@@ -7905,20 +7943,6 @@ h3 {
   margin-top: 20px;
 }
 
-.footer-wrapper {
-  background: #0079C1;
-}
-
-.footer {
-  color: #fff;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.footer a {
-  color: #fff;
-}
-
 .offset {
   margin-left: 50px;
 }
@@ -7979,8 +8003,8 @@ a.disabled {
   background: #eeeeee;
 }
 
-.row-inner {
-  padding: 40px;
+.inner-content {
+  min-height: 500px;
 }
 
 .sub-active {
@@ -7991,7 +8015,7 @@ a.disabled {
   overflow: hidden;
 }
 
-.row.match-my-cols [class*="col-"] {
+.matched-cols {
   margin-bottom: -99999px;
   padding-bottom: 99999px;
 }
@@ -8041,6 +8065,7 @@ a.disabled {
 
 .row-inner {
   max-width: 900px;
+  padding: 40px;
 }
 
 .buddy-detail h3 {
@@ -8049,6 +8074,24 @@ a.disabled {
 
 .edit-button {
   margin-bottom: 8px;
+}
+
+.success {
+  background: #98ba0b;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  text-shadow: 0px 1px 2px #8d8b8b;
+}
+
+.alert-danger {
+  padding: 5px;
+  padding-left: 12px;
+}
+
+.no-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .buddy-detail-img {

@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <div class="row">
+    <div class="container">
         <div class="row-inner buddy-detail">
             <h2 >Buddy detail</h2>
             <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($buddy->person->avatar()) }}">
@@ -26,27 +26,29 @@
     </div>
 
     @if(isset($myStudents))
-        <div class="row row-grey">
-            <div class="row-inner">
-                <h3>{{ $buddy->person->first_name }}'s exchange students for {{ $currentSemester }}</h3>
-                <div class="panel panel-default">
-                    <table class="table">
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th></th>
-                        </tr>
-                        @foreach($myStudents as $exStudent)
+        <div class="row-grey">
+            <div class="container">
+                <div class="row row-inner">
+                    <h3>{{ $buddy->person->first_name }}'s exchange students for {{ $currentSemester }}</h3>
+                    <div class="panel panel-default">
+                        <table class="table">
                             <tr>
-                                <td>{{ $exStudent->person->first_name. ' ' . $exStudent->person->last_name }}</td>
-                                <td>{{ $exStudent->person->user->email }}</td>
-                                <td align="right">
-                                    <a href="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$exStudent->id_user) }}" role="button" class="btn btn-danger btn-xs">Remove</a>
-                                    <a href="{{ url('partak/users/exchange-students/' . $exStudent->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
-                                </td>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th></th>
                             </tr>
-                        @endforeach
-                    </table>
+                            @foreach($myStudents as $exStudent)
+                                <tr>
+                                    <td>{{ $exStudent->person->first_name. ' ' . $exStudent->person->last_name }}</td>
+                                    <td>{{ $exStudent->person->user->email }}</td>
+                                    <td align="right">
+                                        <a href="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$exStudent->id_user) }}" role="button" class="btn btn-danger btn-xs">Remove</a>
+                                        <a href="{{ url('partak/users/exchange-students/' . $exStudent->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

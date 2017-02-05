@@ -27,7 +27,7 @@ class OfficeRegistrationControler extends Controller
     public function showExchangeStudent($id)
     {
         $exStudent = ExchangeStudent::eagerFind($id);
-        return view('partak.users.officeRegistration.edit')->with([
+        return view('partak.users.officeRegistration.register')->with([
             'exStudent' => ExchangeStudent::with('person.user')->find($id),
             'faculties' => Faculty::getOptions(),
             'accommodations' => Accommodation::getOptions(),
