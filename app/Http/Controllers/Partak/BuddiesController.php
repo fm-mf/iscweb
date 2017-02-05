@@ -89,4 +89,27 @@ class BuddiesController extends Controller
 
         return back()->with(['successUpdate' => true,]);
     }
+
+    public function approveBuddy($user_id)
+    {
+        $buddy = Buddy::find($user_id);
+        if ($buddy) {
+            $buddy->setVerified();
+            return back()->with(['success' => 'Buddy has been approved']);
+        } else {
+            return back()->withErrors(['approve' => 'Buddy was not found in our database.']);
+        }
+    }
+
+    public function denyBuddy($user_id)
+    {
+        $buddy = Buddy::find($user_id);
+        if ($buddy) {
+            $buddy->setDenied();
+            return back()->with(['success' => 'Buddy has been denied']);
+        } else {
+            return back()->withErrors(['approve' => 'Buddy was not found in our database.']);
+        }
+    }
+
 }

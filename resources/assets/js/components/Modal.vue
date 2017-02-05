@@ -57,7 +57,7 @@
         margin: 0px auto;
         padding: 0;
         background-color: #fff;
-        border-radius: 2px;
+        border-radius: 5px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
         border: 1px solid #fff;
         transition: all .3s ease;
@@ -65,6 +65,8 @@
     }
 
     .modal-header {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         border: 0 !important;
         background: #0079C1;
         color: #fff;

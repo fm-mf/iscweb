@@ -35,6 +35,12 @@ class Buddy extends Model
         $this->save();
     }
 
+    public function setDenied()
+    {
+        $this->verified = 'd';
+        $this->save();
+    }
+
     public function user()
     {
         return $this->person->user;
