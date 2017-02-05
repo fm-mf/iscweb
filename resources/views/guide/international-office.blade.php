@@ -94,7 +94,8 @@
             <strong>Email</strong>:
             <a href="mailto:bilova@vc.cvut.cz">bilova@vc.cvut.cz</a>
             <br>
-            <strong>Office hours</strong>: 7:30-11:00, 13:00-16:00<br>
+            <strong>Office hours</strong>: Mon-Thu: 7:30-11:00, 13:00-15:30<br>
+            <ul><ul><ul>Fri: 7:30-11:00, 13:00-15:00<br></ul></ul></ul>
         </li>
         <li class="col-xs-12 col-sm-6">
             <h4>Ms. Kateřina Bosková</h4>

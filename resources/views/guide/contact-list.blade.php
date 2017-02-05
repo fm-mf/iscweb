@@ -12,9 +12,12 @@
         <h3>Recognition of diplomas</h3>
         <div class="col-lg-12">
             <address>
-                Eva Huříková<br>
-                Rectorate office B2-212<br>
-                e: <a href="mailto:eva.hurikova@rek.cvut.cz">eva.hurikova@rek.cvut.cz</a>
+                Zikova 4<br>
+                166 36, Prague 6<br>
+                Eva Veselá, office: B2-212<br>
+                Department for Education and Students Affairs<br>
+                t: 224 353 359<br>
+                e: <a href="mailto:eva.vesela@cvut.cz">eva.vesela@cvut.cz</a>
             </address>
         </div>
     </div>
@@ -68,10 +71,10 @@
             <address>
                 Břehová 7, <br>
                 115 19, Prague 1 <br>
-                Ms Markéta Faltysová, Dean’s office<br>
+                Klára Soukupová, Dean’s office<br>
                 Dean’s office <br>
-                t: 224 358 283 <br>
-                e: <a href="mailto:marketa.faltysova@fjfi.cvut.cz">marketa.faltysova@fjfi.cvut.cz</a>
+                t: 224 358 284 <br>
+                e: <a href="mailto:klara.soukupova@fjfi.cvut.cz">klara.soukupova@fjfi.cvut.cz</a>
             </address>
         </div>
     </div>
@@ -124,10 +127,10 @@
             <address>
                 Thákurova 9<br>
                 160 00, Prague 6<br>
-                Ing Regina Pešková, office: A-1226<br>
+                Hana Křížová, office: 312d<br>
                 Office of External Affairs<br>
-                t: 224 359 876 <br>
-                e: <a href="regina.peskova@fit.cvut.cz">regina.peskova@fit.cvut.cz</a>
+                t: 224 359 826 <br>
+                e: <a href="hana.krizova@fit.cvut.cz">hana.krizova@fit.cvut.cz</a>
             </address>
         </div>
     </div>
@@ -151,7 +154,7 @@
         <div class="col-lg-12">
             <address>
                 Contact your faculty coordinators, please:<br>
-                <a href="http://www.studyatctu.com/general-contacts">http://www.studyatctu.com/general-contacts</a><br>
+                <a href="http://www.studyatctu.com/study-advisor-service/facultuy-coordinators/">http://www.studyatctu.com/study-advisor-service/facultuy-coordinators/</a><br>
                 For other information, contact the study advisor:</br>
                 Jakub Marek and Adéla Bímová, Rectorate, office: B3-250<br>
                 Department of External Affairs</br>
