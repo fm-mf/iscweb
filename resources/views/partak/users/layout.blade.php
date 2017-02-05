@@ -11,6 +11,9 @@
                     <li>
                         <a href="{{ url('partak/users/exchange-students') }}">Exchange Students</a>
                     </li>
+                    <li>
+                        <a href="{{ url('partak/users/office-registration') }}">Office registration</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-9">
