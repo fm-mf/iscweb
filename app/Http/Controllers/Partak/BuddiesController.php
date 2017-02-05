@@ -26,8 +26,7 @@ class BuddiesController extends Controller
 
     public function showBuddiesDashboard()
     {
-
-        return view('partak.users.buddies.buddiesdashboard')->with([
+        return view('partak.users.buddies.dashboard')->with([
             'notVerifiedBuddies' => Buddy::with('person.user')->notVerified()
         ]);
     }
@@ -38,7 +37,7 @@ class BuddiesController extends Controller
         $semester = Settings::get('currentSemester');
         $myStudents = $buddy->exchangeStudents()->bySemester($semester)->with('person.user')->get();
 
-        return view('partak.users.buddies.buddy')->with([
+        return view('partak.users.buddies.detail')->with([
             'buddy' => $buddy,
             'myStudents' => $myStudents,
             'currentSemester' => $semester
@@ -60,7 +59,7 @@ class BuddiesController extends Controller
         JavaScript::put([
             'jsoptions' => ['roles' => Role::all(), 'sroles' => $buddy->user()->roles]
             ]);
-        return view('partak.users.buddies.buddiesedit')->with([
+        return view('partak.users.buddies.edit')->with([
             'buddy' => $buddy,
             'faculties' => Faculty::getOptions()
         ]);
