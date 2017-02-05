@@ -2,6 +2,8 @@
 /public/storage
 /public/avatars
 /storage/*.key
+/public/js
+/public/css
 /vendor
 /.idea
 Homestead.json
