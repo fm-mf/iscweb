@@ -38,4 +38,26 @@ class ApiController extends Controller
             $students->paginate(50)
         );
     }
+
+    public function loadPreregister(Request $request)
+    {
+        $students = ExchangeStudent::with('person.user')->byUniqueSemester(Settings::get('currentSemester'))->whereNull('esn_card_number')->whereNull('phone')->where('id_user', '>=', $request->id)->limit($request->limit)->get();
+        return response()->json(
+            $students
+        );
+    }
+
+    public function preregister(Request $request)
+    {
+        $student = ExchangeStudent::find($request->id);
+        if (!$student) {
+            return false;
+        }
+
+        $student = ExchangeStudent::find($request->id);
+        $student->esn_card_number = $request->esn;
+        $student->phone = $request->phone;
+        $student->save();
+        return $request->id;
+    }
 }

@@ -16,6 +16,7 @@ require('./bootstrap');
 Vue.component('autocomplete', require('./components/Autocomplete.vue'))
 Vue.component('multiselectinput', require('./components/MultiSelectInput.vue'))
 Vue.component('protectedbutton', require('./components/Button.vue'))
+Vue.component('preregister', require('./components/Preregister.vue'))
 
 const partak = new Vue({
     el: '#partakApp',

@@ -1,0 +1,83 @@
+<template>
+    <div>
+        <exchange-student v-for="item in model.items" v-bind:student="item" :url="url" @saved="onSaved(item.id_user)"></exchange-student>
+    </div>
+</template>
+
+<script>
+    import ExchangeStudent from './ExchangeStudent.vue'
+
+    class StudentsModel {
+        constructor($url, $currentId)
+        {
+            this.items = [];
+            this.url = $url;
+            this.lastId = $currentId - 1;
+            this.update();
+        }
+
+        update($limit = 5)
+        {
+            var _this = this;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            console.log (_this.url);
+            $.ajax({
+                url: (_this.url),
+                method: 'post',
+                dataType: 'json',
+                data: {
+                    id: _this.lastId + 1,
+                    limit: $limit
+                },
+            }).done(function(newData) {
+                console.log('data:');
+                console.log(newData);
+
+                if ($limit == 1) {
+                    _this.items.push(newData[0]);
+                } else {
+                    _this.items = newData;
+                }
+
+                _this.lastId = _this.items[_this.items.length - 1].id_user;
+            }).fail(function(error) {
+                alert('error');
+            });
+        }
+
+        all()
+        {
+            return this.items;
+        }
+    }
+
+    export default {
+
+        props: ['url', 'currentId'],
+
+        components: {
+            ExchangeStudent
+        },
+
+        data () {
+            return {
+                model: new StudentsModel(this.url, this.currentId)
+            }
+        },
+
+        computed: {
+        },
+
+        methods: {
+            onSaved(id) {
+                console.log('saving ' + id);
+                this.model.update(1);
+            }
+        }
+    };
+</script>
