@@ -36,6 +36,10 @@ class OfficeRegistrationControler extends Controller
 
     public function esnRegistration($id)
     {
+        $exStudent = ExchangeStudent::find($id);
+        //dd($exStudent);
+        $exStudent->esn_registered = 'y';
+        $exStudent->save();
         return back();
     }
 
