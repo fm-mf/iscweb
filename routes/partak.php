@@ -10,8 +10,8 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
 {
     Route::get('/', 'DashboardController@index');
     Route::get('/roles', 'RolesController@showSearchUsers');
-    Route::get('/users/buddies', 'BuddiesController@showBuddiesDashboard');
 
+    Route::get('/users/buddies', 'BuddiesController@showBuddiesDashboard');
     Route::get('/users/buddies/{id}', 'BuddiesController@showBuddyDetail');
     Route::get('/users/buddies/{id_buddy}/remove/{id_exStudent}', 'BuddiesController@removeExStudentFromBuddy');
     Route::get('/users/buddies/edit/{id}', 'BuddiesController@showEditFormBuddy');
@@ -22,5 +22,9 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     Route::get('/users/exchange-students/{id_user}', 'ExchangeStudentsController@showDetailExchangeStudent');
     Route::get('/users/exchange-students/edit/{id_user}', 'ExchangeStudentsController@showEditFormExchangeStudent');
     Route::patch('/users/exchange-students/edit/{id}', 'ExchangeStudentsController@submitEditFormExStudent');
+
+    Route::get('/users/office-registration', 'OfficeRegistrationControler@showOfficeRegistrationDashboard');
+    Route::get('/users/office-registration/{id}', 'OfficeRegistrationControler@showExchangeStudent');
+    Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
 });
 

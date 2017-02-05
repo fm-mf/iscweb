@@ -21,6 +21,12 @@ if (Request::segment(1) == "user") {
 
 
 
+Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
+{
+    Route::get('/{hash}', 'ProfileController@showProfileForm');
+    Route::patch('/', 'ProfileController@updateProfile');
+});
+
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 {
     Route::post('/avatar', 'AvatarController@upload');
@@ -31,18 +37,12 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
     Route::post('/liststudents', 'ApiController@load');
 });
 
-
-
 Route::get('/stats', 'Stats\StatsController@showStatistics');
 
 
 Route::get('buddy-prirucka', function () { return redirect(asset('files/buddyPriruckaSpring2017.pdf')); });
 //redirect from old web
 Route::get('/buddy/files/buddyPriruckaSpring2017.pdf', function () { return redirect(asset('files/buddyPriruckaSpring2017.pdf')); });
-
-
-
-
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
