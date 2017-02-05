@@ -60,7 +60,7 @@ class User extends Authenticatable
                 $query->where('verified', 'y')
                     ->orWhere(function ($query) {
                         $query->where('active', 'y')->whereHas('person.user', function($query) {
-                            $query->where('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString());
+                            $query->whereNull('created_at')->orWhere('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString());
                         });
                     });
 
@@ -74,7 +74,9 @@ class User extends Authenticatable
                 $query->whereHas('person.user', function($query) {
                     $query->where('created_at', '>=', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString())->where('verified',  '!=', 'y');
                 })->orWhereHas('person.user', function($query) {
-                    $query->where('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString())->where('active', 'n');
+                    $query->where(function($query) {
+                        $query->whereNull('created_at')->orWhere('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString());
+                    })->where('active', 'n');
                 });
             })->exists();
     }
