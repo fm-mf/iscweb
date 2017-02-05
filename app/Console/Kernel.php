@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\SendRegistrationMailToExchangeStudents;
 use App\Console\Commands\SendRegistrationReminder;
+use App\Console\Commands\VerificationFix;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,6 +18,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         SendRegistrationMailToExchangeStudents::class,
         SendRegistrationReminder::class,
+        VerificationFix::class,
     ];
 
     /**

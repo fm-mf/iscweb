@@ -30,7 +30,7 @@ class Buddy extends Model
 
     public function setVerified()
     {
-        $this->active = 'y';
+        $this->verified = 'y';
         $this->save();
     }
 

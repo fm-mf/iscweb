@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Notifications\PasswordReset;
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Str;
@@ -54,12 +55,28 @@ class User extends Authenticatable
 
     public function isBuddy()
     {
-        return Buddy::where('id_user', $this->id_user)->where('active', 'y')->exists();
+        return Buddy::with('person.user')->where('id_user', $this->id_user)
+            ->where(function($query) {
+                $query->where('verified', 'y')
+                    ->orWhere(function ($query) {
+                        $query->where('active', 'y')->whereHas('person.user', function($query) {
+                            $query->where('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString());
+                        });
+                    });
+
+            })->exists();
     }
 
     public function isUnverifiedBuddy()
     {
-        return Buddy::where('id_user', $this->id_user)->where('active', 'n')->exists();
+        return Buddy::with('person.user')->where('id_user', $this->id_user)
+            ->where(function($query) {
+                $query->whereHas('person.user', function($query) {
+                    $query->where('created_at', '>=', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString())->where('verified',  '!=', 'y');
+                })->orWhereHas('person.user', function($query) {
+                    $query->where('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString())->where('active', 'n');
+                });
+            })->exists();
     }
 
     public function isPartak()
