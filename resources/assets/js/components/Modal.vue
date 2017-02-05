@@ -1,19 +1,21 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <transition name="modal">
-        <div class="modal-mask">
+        <div class="modal-mask" @click="$emit('cancel')">
             <div class="modal-wrapper">
-                <div class="modal-container">
+                <div class="modal-container" @click.stop>
 
                     <div class="modal-header">
                         <slot name="header">
-                            default header
+                            Confirmation dialog
                         </slot>
                     </div>
 
                     <div class="modal-body">
+                        <img src="/img/partak/speedy.jpg" class="img-circle">
                         <slot name="body">
-                            default body
+                            Do you wish to proceed?
                         </slot>
+                        <div class="clearfix"></div>
                     </div>
 
                     <div class="modal-footer">
@@ -27,6 +29,12 @@
 </template>
 
 <style>
+    img {
+        width: 90px;
+        float: left;
+        margin-right: 20px;
+        margin-left: 10px;
+    }
     .modal-mask {
         position: fixed;
         z-index: 9998;
@@ -45,23 +53,36 @@
     }
 
     .modal-container {
-        width: 300px;
+        width: 400px;
         margin: 0px auto;
-        padding: 20px 30px;
+        padding: 0;
         background-color: #fff;
         border-radius: 2px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+        border: 1px solid #fff;
         transition: all .3s ease;
-        font-family: Helvetica, Arial, sans-serif;
+
+    }
+
+    .modal-header {
+        border: 0 !important;
+        background: #0079C1;
+        color: #fff;
+        text-align: center;
     }
 
     .modal-header h3 {
         margin-top: 0;
-        color: #42b983;
+
+
     }
 
     .modal-body {
         margin: 20px 0;
+    }
+
+    .modal-footer {
+        background: #EDF2F6;
     }
 
     .modal-default-button {
@@ -96,9 +117,7 @@
 <script>
     export default {
 
-        props: {
-
-        },
+        props: ['show'],
 
         data () {
             return {
@@ -114,6 +133,14 @@
             onClick(event) {
 
             }
+        },
+
+        created: function () {
+            document.addEventListener("keydown", (e) => {
+                if (this.show && e.keyCode == 27) { //esc key
+                    this.$emit('cancel');
+                }
+            });
         }
     };
 </script>
