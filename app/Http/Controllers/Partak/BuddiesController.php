@@ -111,5 +111,4 @@ class BuddiesController extends Controller
             return back()->withErrors(['approve' => 'Buddy was not found in our database.']);
         }
     }
-
 }
