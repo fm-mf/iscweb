@@ -1,9 +1,9 @@
 @extends('partak.users.layout')
 @section('inner-content')
-    <div class="search-buddy">
+    <div class="container search-buddy">
             <div class="row row-inner">
                 <div class="col-sm-8 col-sm-offset-0" id="search">
-                <h3>Search</h3>
+                <h3>Search Buddy</h3>
 
                     <autocomplete url="{{ url('api/autocomplete/buddies') }}"
                                   :fields="[
@@ -46,10 +46,10 @@
                                     <td align="right">
                                         <protectedbutton url="{{ url('partak/users/buddies/approve/' . $buddy->id_user) }}"
                                                          protection-text="Approve buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
-                                                         button-style="btn-success">Approve</protectedbutton>
+                                                         button-style="btn-success btn-xs">Approve</protectedbutton>
                                         <protectedbutton url="{{ url('partak/users/buddies/deny/' . $buddy->id_user) }}"
                                                          protection-text="Deny buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
-                                                         button-style="btn-danger">Deny</protectedbutton>
+                                                         button-style="btn-danger btn-xs">Deny</protectedbutton>
                                         <a href="{{ url('partak/users/buddies/' . $buddy->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                     </td>
                                 </tr>

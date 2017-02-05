@@ -35,6 +35,9 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
     Route::post('/autocomplete/exchange-students', 'AutocompleteController@exchangeStudents');
     Route::post('/autocomplete/buddies', 'AutocompleteController@buddies');
     Route::post('/liststudents', 'ApiController@load');
+
+    Route::post('/load-preregister', 'ApiController@loadPreregister');
+    Route::post('/load-preregister/save', 'ApiController@preregister');
 });
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');

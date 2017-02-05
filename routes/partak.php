@@ -26,8 +26,11 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     Route::get('/users/exchange-students/edit/{id_user}', 'ExchangeStudentsController@showEditFormExchangeStudent');
     Route::patch('/users/exchange-students/edit/{id}', 'ExchangeStudentsController@submitEditFormExStudent');
 
-    Route::get('/users/office-registration', 'OfficeRegistrationControler@showOfficeRegistrationDashboard');
-    Route::get('/users/office-registration/{id}', 'OfficeRegistrationControler@showExchangeStudent');
-    Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
+    Route::get('/users/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard');
+    Route::get('/users/office-registration/{id}', 'OfficeRegistrationController@showExchangeStudent');
+    Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationController@esnRegistration');
+
+    Route::get('/users/preregistrations', 'OfficeRegistrationController@showPreregistrations');
+    Route::get('/users/preregistrations/{id}', 'OfficeRegistrationController@showPreregistrations');
 });
 

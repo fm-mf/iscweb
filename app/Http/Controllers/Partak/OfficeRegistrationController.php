@@ -17,7 +17,7 @@ use App\Settings\Facade as Settings;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Validator;
 
-class OfficeRegistrationControler extends Controller
+class OfficeRegistrationController extends Controller
 {
     public function showOfficeRegistrationDashboard()
     {
@@ -41,6 +41,11 @@ class OfficeRegistrationControler extends Controller
         $exStudent->esn_registered = 'y';
         $exStudent->save();
         return back();
+    }
+
+    public function showPreregistrations($id = 1)
+    {
+        return view('partak.users.preregistration')->with('currentId', $id);
     }
 
 }
