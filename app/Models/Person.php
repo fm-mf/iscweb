@@ -60,4 +60,9 @@ class Person extends Model
         }
     }
 
+    public function getSex()
+    {
+        return ($this->sex == "M")? 'Male' : 'Female';
+    }
+
 }

@@ -24,7 +24,7 @@ class CreateEventsTable extends Migration {
 			$table->text('description', 65535);
 			$table->integer('price')->unsigned()->nullable();
 			$table->integer('capacity')->unsigned()->nullable();
-			$table->timestamp('modified_timestamp')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
 			$table->integer('modified_id_user')->unsigned();
 		});
 	}

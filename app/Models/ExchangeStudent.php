@@ -51,6 +51,11 @@ class ExchangeStudent extends Model
         return $this->hasOne('\App\Models\Buddy', 'id_user', 'id_buddy');
     }
 
+    public function events()
+    {
+        return $this->belongsToMany('\App\Models\Event', 'events_participants', 'id_user', 'id_event')->withPivot('stand_in');
+    }
+
     public function isSelfPaying()
     {
         return $this->person->user->hasRole('samoplatce');

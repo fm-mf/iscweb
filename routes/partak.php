@@ -29,5 +29,10 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     Route::get('/users/office-registration', 'OfficeRegistrationControler@showOfficeRegistrationDashboard');
     Route::get('/users/office-registration/{id}', 'OfficeRegistrationControler@showExchangeStudent');
     Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
+
+    Route::get('/trips', 'EventController@showDashboard');
+    Route::get('/trips/detail/{id}', 'EventController@showDetail');
+    Route::get('/trips/detail/{id_event}/add/{id_part}', 'EventController@addToEvent');
+    Route::get('/trips/{id_event}/remove/{id_part}', 'EventController@removeFromEvent');
 });
 

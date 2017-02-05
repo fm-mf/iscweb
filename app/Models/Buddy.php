@@ -29,6 +29,11 @@ class Buddy extends Model
         return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_buddy');
     }
 
+    public function organizedEvents()
+    {
+        return $this->belongsToMany('\App\Models\Event', 'events_organizers', 'id_user', 'id_event');
+    }
+
     public function setVerified()
     {
         $this->verified = 'y';

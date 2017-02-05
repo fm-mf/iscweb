@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row search-buddy">
         <div class="row-inner">
-            <div class="col-sm-8 col-sm-offset-0" id="search">
-                <h3>Search</h3>
+            <div class="col-sm-8 col-sm-offset-0">
+                <h3>{{ (isset($label))? $label : 'Search' }}</h3>
 
                 <autocomplete url="{{ url('api/autocomplete/exchange-students') }}"
                               :fields="[
@@ -14,7 +14,7 @@
                               :topline="['person.first_name', 'person.last_name']"
                               :subline="['person.user.email']"
                               placeholder="Search Exchange student..."
-                              target="/partak/users/office-registration/{id_user}"
+                              target="{{ (isset($target))? $target : '/partak/users/office-registration/{id_user}' }}"
                               :image="{url: '/avatars/', file: 'person.user.avatar'}">
                 </autocomplete>
             </div>
