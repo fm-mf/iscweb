@@ -39,7 +39,7 @@
                             </tr>
                             @foreach($myStudents as $exStudent)
                                 <tr>
-                                    <td>{{ $exStudent->person->first_name. ' ' . $exStudent->person->last_name }}</td>
+                                    <td>{{ $exStudent->person->first_name. ' ' .$exStudent->person->last_name }}</td>
                                     <td>{{ $exStudent->person->user->email }}</td>
                                     <td align="right">
                                         <a href="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$exStudent->id_user) }}" role="button" class="btn btn-danger btn-xs">Remove</a>

@@ -5,7 +5,6 @@
         <div class="row match-my-cols">
             <div class="col-sm-3 submenu matched-cols">
                 <ul class="list-unstyled">
-                    <li>Trips registrations</li>
                     <li @if(Request::is('/partak/trips') || Request::is('/partak/trips/*')) class="sub-active" @endif>
                         <a href="{{ url('partak/trips') }}">Buddies</a>
                     </li>

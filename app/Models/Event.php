@@ -34,7 +34,6 @@ class Event extends Model
 
     public function howIsFill()
     {
-        //dd($this->participants()->count());
         return $this->participants()->wherePivot('stand_in', 'n')->count();
     }
 

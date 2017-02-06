@@ -17,6 +17,7 @@ use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Validator;
+use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
 class EventController extends Controller
 {
@@ -53,11 +54,26 @@ class EventController extends Controller
         if(Event::find($id_event)->isFull())
         {
             $stand_in = Event::find($id_event)->standInParticipants()->first();
-            dd($stand_in->events()->where('id_event', $id_event)->pivot->stand_in);
-            $stand_in->pivot->stand_in = 'n';
+            if(isset($stand_in))
+            {
+                $stand_in->events()->updateExistingPivot($id_event, ['stand_in' => 'n']);
+            }
         }
         $part->events()->detach($id_event);
         return back()->with(['removeSuccess' => true]);
+    }
+
+    public function showEditForm($id_event)
+    {
+        $event = Event::find($id_event);
+        dd($event->organizers()->with('person.user')->get());
+        JavaScript::put([
+            'jsoptions' => ['organizers' => Buddy::all(), 'sroles' => $event->organizers()->with('person.user')->get()]
+        ]);
+
+        return view('partak.trips.edit')->with([
+            'event' => $event,
+        ]);
     }
 
 }
