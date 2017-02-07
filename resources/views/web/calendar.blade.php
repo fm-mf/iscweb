@@ -4,151 +4,218 @@
 @section('title', 'Calendar')
 
 @section('content')
-    <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>
-    <h2><IMG src="{{ asset('img/web/fb_blue.png') }}"><a href="https://www.facebook.com/isc.ctu.prague/events"> Subscribe</a></h2>
+    <!-- <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>
+    <h2><IMG src="{{ asset('img/web/fb_blue.png') }}"><a href="https://www.facebook.com/isc.ctu.prague/events"> Subscribe</a></h2> -->
+    <h1>ORIENTATION WEEK | Feb 13th &ndash; Feb 2th<br>
+    <small>for incoming spring 2017 exchange students</small>
+    </h1>
     <span class="vspace"></span>
 
     <div class="container events">
         <div class="container container-ow container-sm-height">
-            <!--
-                    <div class="row row-ow row-sm-height">
-                        <div class="col-sm-6 ow-day ow-1 col-sm-height">
-                            <span class="day">Monday<br><strong>15th</strong></span>
-                            <h2>First orientation day</h2>
-                        </div>
-                        <div class="col-sm-6 ow-detail col-sm-height col-top">
-                            <table>
-                                <tr>
-                                    <th>10:30 &ndash; 14:30</th>
-                                    <td><strong>First information meeting</strong> (Important to attend)<br>
-                                        <small>(Official Welcome, Studying at CTU, CTU Information Systems, All about the ISC, Sports at CTU, What you need to know about the Czech Republic)</small><br>
-                                        <small>at <strong>Faculty of Electrical Engineering, room 256 and 358</strong> (<a href="https://goo.gl/maps/zckZC">see the map</a>)</small><br>
-                                        <small>We will have two <strong>meeting points</strong>:
-                                            <ul class="">
-                                                <li>Masarykova Dormitory (in the lobby) 10:00</li>
-                                                <li>Strahov (at the bus stop 143, direction Dejvická) 9:45</li>
-                                            </ul>
-                                        </small>
-                                        <small><a href="https://isc.cvut.cz/ow">Meeting points - more information</a></small>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>19:00 &ndash; 01:00</th>
-                                    <td><strong>Tandem Party</strong><br>
-                                        <small>(Bars at Masarykova Dormitory: U Honzíka & Shisha bar)</small><br>
-                                        <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <span class="vspace"></span>
-                    <div class="row row-ow row-sm-height">
-                         <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url(../img/events/tandem_meeting.jpg);">
-                            <span class="day">Monday<br><strong>15th</strong><br>7pm</span>
-                            <h2>Tandem party</h2>
-                        </div>
-                        <div class="col-sm-6 ow-detail col-sm-height col-top">
-                            <p>
-                            Get involved in our unique language learning program and enjoy the first party of the semester! Here you can meet your tandem partner to practice your language skills and have a beer in Masarykova Pub.
-                            </p>
-                            <p>
-                            Where:</b> <a href="https://goo.gl/maps/gkgNv1NDZQq">U Honzíka & Shisha bar (Masarykova Dormitory, Thákurova 550/1, Prague 6)</a><br>
-                            <a href="https://isc.cvut.cz/ow">Meeting points and times</a><br>
-                            </p>
-                            <p>
-                            ► <a href="https://www.facebook.com/events/1515947015375137/"><strong>Facebook event!</strong></a>
-                            </p>
-                        </div>
-                    </div>
-                    <span class="vspace"></span>
-                    <div class="row row-ow row-sm-height">
-                        <div class="col-sm-6 ow-day ow-2 col-sm-height">
-                            <span class="day">Tuesday<br><strong>16th</strong></span>
-                            <h2>Second orientation day</h2>
-                        </div>
-                        <div class="col-sm-6 ow-detail col-sm-height col-top">
-                            <table>
-                                <tr>
-                                    <th>morning</th>
-                                    <td><strong>Registration at faculties</strong><br>
-                                        <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>13:00 &ndash; 15:00</th>
-                                    <td><strong>Second information meeting and registration for trips</strong><br>
-                                        <small>Faculty of Electrical Engineering, room 256 and 358</small><br>
-                                        <small>(<strong>Important:</strong> Bring ESNcard and money in cash for the trips registration)</small></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <span class="vspace"></span>
-                    <div class="row row-ow row-sm-height">
-                        <div class="col-sm-6 ow-day ow-3 col-sm-height">
-                            <span class="day">Wednesday<br><strong>17th</strong><br>12:30pm</span>
-                            <h2>Prague Discovery Game</h2>
-                        </div>
-                        <div class="col-sm-6 ow-detail col-sm-height col-top">
-                            <table>
-                                <tr>
-                                    <th>morning</th>
-                                    <td><strong>Registration at faculties</strong><br>
-                                        <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>13:00 &ndash; 20:00</th>
-                                    <td><strong>Prague Discovery Game</strong><br>
-                                        <small>(Explore the city of Prague in an entertaining way!)</small><br>
-                                        Do you want to meet new friends from all over the world and have fun? Join us in the Prague Discovery Game and explore the city in an entertaining way!<br>
-                                        <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <span class="vspace"></span>
-                    <div class="row row-ow row-sm-height">
-                         <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url(../img/events/integreat/integreation_web.jpg);">
-                            <span class="day">Wednesday<br><strong>17th</strong><br>9pm</span>
-                            <h2>inteGREATion party</h2>
-                        </div>
-                        <div class="col-sm-6 ow-detail col-sm-height col-top">
-                            <p>
-                            Meet new friends and start your Prague studies by an amazing party full of funny games with special prizes! inteGREAT is more than a party!
-                            </p>
-                            <p>
-                            Where:</b> <a href="https://goo.gl/maps/RPcMJ1Go1cF2">P.M. club (Trojická 10, Prague 2)</a><br>
-                            <a href="https://isc.cvut.cz/ow">Meeting points and times</a><br>
-                            </p>
-                            <p>
-                            ► <a href="https://www.facebook.com/events/1575563575999442/"><strong>Facebook event!</strong></a>
-                            </p>
-                        </div>
-                    </div>
-                    <span class="vspace"></span>
-                    <div class="row row-ow row-sm-height">
-                        <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url(../img/activities/trips/liberec2016.jpg);">
-                            <span class="day">Thu &ndash; Fri<br><strong class="h-trips">18th &ndash; 19th</strong></span>
-                            <h2>Liberec Trip</h2>
-                        </div>
-                        <div class="col-sm-6 ow-detail col-sm-height col-top">
-                            <p>
-                            Liberec being one of the largest cities in the North of the Czech Republic offering a lot of things to do and is a great place to visit!<br>
-                            We will start at Svijany brewery learning how one of the best Czech beers is being made, we will look around the city centre and castle, and also expect a lot of fun activities as indoor watepark, laser tag, indoor adventure golf, science center IQlandia and a big party for you!
-                            </p>
-                            <p>
-                            LAST TICKETS LEFT!
-                            </p>
-                            <p>
-                            ► <a href="https://www.facebook.com/events/1055629487827252/"><strong>Facebook event!</strong></a>
-                            </p>
-                        </div>
-                    </div>
+
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day col-sm-height" style="background-image:url({{ asset('img/web/events/buddy_beer.jpg') }})">
+                    <span class="day">Saturday<br>February<br><strong>11th</strong><br>8pm</span>
+                    <h2>Buddy Beer</h2>
                 </div>
-            </div> -->
+                <div class="col-sm-6 ow-detail col-sm-height col-top">
+                    Welcooooome to The Beer Country! :D<br>
+                   <a href="https://www.youtube.com/watch?v=hSqO16fA9yY">https://www.youtube.com/watch?v=hSqO16fA9yY</a><br>
+                    How else we can welcome you here than with beer tasting! :P<br>
+                    Come and tap your own beer in a pub! You will get to know other exchange students and in the pub quiz you can win some prizes
+                    <p>
+                        <b>Where:</b><a href="http://www.thepub.cz/praha-6/?lng=en">The Pub</a>, <a href="https://goo.gl/maps/qEa96dZMiCE2">Československé armády 785/22</a>
+                    </p>
+                    <p>
+                        ► <a href="https://www.facebook.com/events/204887869986427/">Facebook event</a>
+                    </p>
+                </div>
+            </div>
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-1 col-sm-height">
+                    <span class="day">Monday<br>February<br><strong>15th</strong></span>
+                    <h2>First orientation day</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top">
+                    <table>
+                        <tr>
+                            <th>10:30 - 14:30</th>
+                            <td><strong>First information meeting</strong> (Important to attend)<br>
+                                <small>(Official Welcome, Studying at CTU, CTU Information Systems, All about the ISC, Sports at CTU, What you need to know about the Czech Republic)</small><br>
+                                <small>at <strong>Faculty of Civil Engineering, room D-1122</strong> (<a href="https://goo.gl/maps/ihLTv5fobsT2">see the map</a>)</small><br>
+                                <small>We will have two <strong>meeting points</strong>:
+                                    <ul class="">
+                                        <li>Masarykova Dormitory (in the lobby) 10:00</li>
+                                        <li>Strahov (at the bus stop 143, direction Dejvická) 9:45</li>
+                                    </ul>
+                                </small>
+                                <small><a href="https://isc.cvut.cz/ow">Meeting points - more information</a></small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>20:00 &ndash; 01:00</th>
+                            <td><strong>Tandem Party</strong><br>
+                                <small>(Café V lese)</small><br>
+                                <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('img/web/events/Tandem_spring2017.jpg') }});">
+                    <span class="day">Monday<br>February<br><strong>13th</strong><br>8pm</span>
+                    <h2>Tandem party</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top">
+                    <p>
+                    Get involved in our unique language learning program and enjoy the first party of the semester! Here you can meet your tandem partner to practice your language skills and have a beer in Masarykova Pub.
+                    </p>
+                    <p>
+                    Where:</b> <a href="https://goo.gl/maps/2c3qWUjNYE32">Café V lese (Krymská 12, 101 00 Praha 10)</a><br>
+                    <!-- a href="https://isc.cvut.cz/ow">Meeting points and times</a --><br>
+                    </p>
+                    <p>
+                    ► <a href="https://www.facebook.com/events/614492665410482/"><strong>Facebook event!</strong></a>
+                    </p>
+                </div>
+            </div>
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-2 col-sm-height">
+                    <span class="day">Tuesday<br>February<br><strong>16th</strong></span>
+                    <h2>Second orientation day</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top">
+                    <table>
+                        <tr>
+                            <th>morning</th>
+                            <td><strong>Registration at faculties</strong><br>
+                                <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>14:00 &ndash; 16:30</th>
+                            <td><strong>Second information meeting and registration for trips</strong><br>
+                                <small>Congress hall of the Masarykova dormitory</small><br>
+                                <small>(<strong>Important:</strong> Bring ESNcard and money in cash for the trips registration)</small></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height">
+                    <span class="day">Wednesday<br>February<br><strong>17th</strong><br>12:30pm</span>
+                    <h2>Prague Discovery Game</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top">
+                    <table>
+                        <tr>
+                            <th>13:00 &ndash; 20:00</th>
+                            <td><strong>Prague Discovery Game</strong><br>
+                                <small>(Explore the city of Prague in an entertaining way!)</small><br>
+                                Do you want to meet new friends from all over the world and have fun? Join us in the Prague Discovery Game and explore the city in an entertaining way!<br>
+                                <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integration_party.jpg') }})">
+                    <span class="day">Wednesday<br>February<br><strong>15th</strong><br>9pm</span>
+                    <h2>inteGREATion party</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top">
+                    <p>► Who?  ◄ InteGREATion party<br>
+                    ► When? ◄ Wednesday, 15. 2. 2017, 9 pm<br>
+                    ► Where?◄ <a href="http://stormclub.eu">Storm club (Tachovské nám. 290/5, 130 00 Praha 3)</a></p>
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/1575563575999442/"><strong>Facebook event!</strong></a>
+                    </p>
+
+                    <p>★ International
+                    ★ Night
+                    ★ Team-work
+                    ★ Entertainment
+                    ★ Global
+                    ★ Real
+                    ★ Extraordinary
+                    ★ Amazing
+                    ★ Together<br>
+
+                    inteGREAT more than a party
+
+                </div>
+            </div>
+            <span class="vspace"></span>
+
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-4 col-sm-height">
+                    <span class="day">Thu &ndash; Sun<br>February<br><strong class="h-trips">15th &ndash; 19th</strong></span>
+                    <h2>Orientation Week Trips</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" style="min-height: 400px">
+                    <p>
+                        During the Orientation Week you will also have an amazing opportunity to explore some great places around the Czech Republic with ISC members.
+                    </p>
+                    <p>
+                        <p><p><p>
+                    <!-- table class="trips-list">
+                        <tr>
+                            <th>South Moravia</th>
+                            <td>Thursday 29th - Friday 30th</td>
+                        </tr>
+                        <tr>
+                            <th>Jeseníky Mountains</th>
+                            <td>Thursday 29th - Saturday 1st</td>
+                        </tr>
+                        <tr>
+                            <th>Petřín Hill & Prague Castle</th>
+                            <td>Friday 30th</td>
+                        </tr>
+                        <tr>
+                            <th>Ostrava - The City of Steel</th>
+                            <td>Saturday 1st - Sunday 2nd</td>
+                        </tr>
+                        <tr>
+                            <th>Adršpach</th>
+                            <td>Saturday 1st - Sunday 2nd</td>
+                        </tr>
+                        <tr>
+                            <th>Czech Switzerland & Lužické Mts.</th>
+                            <td>Saturday 1st - Sunday 2nd</td>
+                        </tr>
+                        <tr>
+                            <th>Kutná Hora</th>
+                            <td>Saturday 1st</td>
+                        </tr>
+                        <tr>
+                            <th>Walk & Campfire in Prokop Valley</th>
+                            <td>Saturday 1st</td>
+                        </tr>
+                        <tr>
+                            <th>Pilsen</th>
+                            <td>Sunday 2nd. Meeting point: <a href="https://www.google.cz/maps/place/50%C2%B006'07.1%22N+14%C2%B023'20.3%22E/@50.1019704,14.3714626,14z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d50.1019722!4d14.3889722">HERE</a>, Departure time: 9:00</td>
+                        </tr>
+                        <tr>
+                            <th>Nostalgic Tram Ride</th>
+                            <td>Sunday 2nd</td>
+                        </tr>
+                    </table -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
             <!-- JAK MA VYPADAT EVENT
                     <span class="vspace"></span>
@@ -373,8 +440,7 @@
             <!-- ------------------------ div nemazat --------------------------------------------------------- -->
 
 
-        </div>
-    </div>
+
 
 
 
@@ -384,6 +450,5 @@
     <!-- ------------------------pokusná část --------------------------------------------------------- -->
 
     <span class="vspace"></span>
-    </div>
-    </div>
+
 @endsection
