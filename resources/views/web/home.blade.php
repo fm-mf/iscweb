@@ -53,12 +53,32 @@
         <!--------------------- Orientation week ----------------------------------------------------
 
         <!-- ------------------------ OW Fall 2016 --------------------------------------------------------- -->
-
+        <span class="vspace"></span>
         <div class="container events">
             <div class="container container-ow container-sm-height">
 
                 <!-- ------------------------ div containery prosím nechat --------------------------------------------------------- -->
-                <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>
+                <!-- h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1 -->
+
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day col-sm-height" style="background-image:url({{ asset('img/web/events/buddy_beer.jpg') }})">
+                        <span class="day">Saturday<br>February<br><strong>11th</strong><br>8pm</span>
+                        <h2>Buddy Beer</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top">
+                        Welcooooome to The Beer Country! :D<br>
+                        <a href="https://www.youtube.com/watch?v=hSqO16fA9yY">https://www.youtube.com/watch?v=hSqO16fA9yY</a><br>
+                        How else we can welcome you here than with beer tasting! :P<br>
+                        Come and tap your own beer in a pub! You will get to know other exchange students and in the pub quiz you can win some prizes
+                        <p>
+                            <b>Where:</b><a href="http://www.thepub.cz/praha-6/?lng=en">The Pub</a>, <a href="https://goo.gl/maps/qEa96dZMiCE2">Československé armády 785/22</a>
+                        </p>
+                        <p>
+                            ► <a href="https://www.facebook.com/events/204887869986427/">Facebook event</a>
+                        </p>
+                    </div>
+                </div>
 
                 <!-- ------------------------ div containery prosím nechat --------------------------------------------------------- -->
             </div>
