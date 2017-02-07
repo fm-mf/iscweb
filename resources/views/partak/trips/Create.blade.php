@@ -1,4 +1,4 @@
-@extends('partak.users.layout')
+@extends('partak.trips.layout')
 @section('inner-content')
 
     @if(session('successUpdate'))
