@@ -50,9 +50,6 @@ class AutocompleteController extends Controller
                 $thisLink, $student->person->avatar());
         }
 
-
-
-
         return response()->json([
             'items' => $items
         ]);

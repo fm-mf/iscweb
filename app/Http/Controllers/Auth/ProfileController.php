@@ -182,13 +182,6 @@ class ProfileController extends Controller
         if (in_array($emailDomain, $this->allowedDomains)) {
             return true;
         }
-        /*
-        foreach ($this->allowedDomains as $domain) {
-            if (preg_match(".*" . $domain, $emailDomain)) {
-                return true;
-            }
-        }
-        */
 
         return false;
     }

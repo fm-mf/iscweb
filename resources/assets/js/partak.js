@@ -18,10 +18,14 @@ Vue.component('multiselectinput', require('./components/MultiSelectInput.vue'))
 Vue.component('protectedbutton', require('./components/Button.vue'))
 Vue.component('preregister', require('./components/Preregister.vue'))
 
+if (typeof jsoptions === 'undefined') {
+    jsoptions = [];
+}
+
 const partak = new Vue({
     el: '#partakApp',
     data: {
-
+        options: jsoptions,
     },
     methods: {
     },

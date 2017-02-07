@@ -12,7 +12,8 @@
         "laravelcollective/html": "^5.2.0",
         "orangehill/iseed": "^2.3",
         "s-ichikawa/laravel-sendgrid-driver": "^1.1",
-        "torann/laravel-asana": "^0.4.0"
+        "torann/laravel-asana": "^0.4.0",
+        "zendframework/zend-permissions-acl": "^2.6"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.2",
