@@ -22,38 +22,38 @@
                 <h2>See when we're in the ISC Point:<!--<br><i>Subject to be extended later</i>--></h2>
                 <span class="show-menu"></span>
 
-                There are no regular opening hours during the exam period. The ISC Point will be open from {{ $wcFrom }}.
+               <!-- There are no regular opening hours during the exam period. The ISC Point will be open from {{ $wcFrom }}.-->
 
-               <!-- <table>
+               <table>
                     <tr>
                         <th>Monday</th>
-                        <td>14:00 - 22:00</td>
+                        <td>Closed</td>
                     </tr>
                     <tr>
                         <th>Tuesday</th>
-                        <td>14:00 - 22:00</td>
+                        <td>Closed</td>
                     </tr>
                     <tr>
                         <th>Wednesday</th>
-                        <td>14:00 - 22:00</td>
+                        <td>Closed</td>
                     </tr>
                     <tr>
                         <th>Thursday</th>
-                        <td>14:00 - 20:00</td>
+                        <td>12:00 - 20:00</td>
                     </tr>
                     <tr>
                         <th>Friday</th>
-                        <td>closed</td>
+                        <td>10:00 - 20:00</td>
                     </tr>
                     <tr>
                         <th>Saturday</th>
-                        <td>closed</td>
+                        <td>10:00 - 20:00</td>
                     </tr>
                     <tr>
                         <th>Sunday</th>
-                        <td>closed</td>
+                        <td>10:00 - 20:00</td>
                     </tr>
-                </table> -->
+                </table>
 
             </div>
         </div>
