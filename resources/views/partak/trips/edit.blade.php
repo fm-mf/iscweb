@@ -15,15 +15,42 @@
     <div class="container">
         <div class="row row-inner" id="form">
             <div class="col-md-7">
+                <h2>Edit trip</h2>
                 {{ Form::model($event, ['url' => 'partak/trips/edit/'. $event->id_event, 'method' => 'patch', 'id' => 'form']) }}
-                {{ Form::bsText('name', 'Name') }}
-                {{ Form::bsText('phone', 'Phone') }}
+                @include('partak.trips.editForm')
 
-                <multiselectinput formName="organizers" title="organizers" :options="options.organizers" :value="options.sroles" :show-labels="false" label="title" track-by="id_user" placeholder="Organizers"
-                                  :multiple="true"></multiselectinput>
+                {{ Form::bsSubmit('Update event') }}
 
-
+                {{ Form::close() }}
             </div>
         </div>
     </div>
+@stop
+
+@section('stylesheets')
+    @parent
+    <link href="{{ URL::asset('/css/picker.css') }}" rel="stylesheet" type="text/css">
+@stop
+
+@section('scripts')
+    @parent
+
+    <script src="{{ URL::asset('/js/picker.js') }}"></script>
+    <script src="{{ URL::asset('/js/picker.date.js') }}"></script>
+    <script src="{{ URL::asset('/js/picker.time.js') }}"></script>
+
+    <script  type="text/javascript">
+
+        var $inputDate = $('.date').pickadate({
+            editable: true,
+            firstDay: 1,
+            format: 'dd mmm yyyy'
+        });
+
+        //var picker = $inputDate.pickadate('picker');
+        //picker.set('view', new Date({!$date}));
+        var $inputTime = $('.time').pickatime({
+            editable: true
+        });
+    </script>
 @stop

@@ -9,9 +9,9 @@ class Event extends Model
 {
     public $timestamps = true;
     protected $primaryKey = 'id_event';
-    public $incrementing = false;
+    //public $incrementing = false;
 
-    protected $dates = ['datetime_from', 'datetime_to', 'registration_to', 'updated_at', 'created_at'];
+    protected $dates = ['datetime_from', 'datetime_to', 'registration_to', 'updated_at', 'created_at', 'visible_from'];
 
     protected $fillable = [
 

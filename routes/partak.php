@@ -34,7 +34,11 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     Route::get('/trips/detail/{id}', 'EventController@showDetail');
     Route::get('/trips/detail/{id_event}/add/{id_part}', 'EventController@addToEvent');
     Route::get('/trips/{id_event}/remove/{id_part}', 'EventController@removeFromEvent');
-    Route::get('/trips/edit/{id_event}', 'EventController@showEditForm');
+    Route::get('/trips/edit/{id_event}', 'EventController@showEditForm')->name('trips.edit');
+    Route::patch('/trips/edit/{id_event}', 'EventController@updateEditForm');
+    Route::get('/trips/create', 'EventController@showCreateForm');
+    Route::patch('/trips/create', 'EventController@submiteCreateForm');
+    Route::get('/trips/delete/{id_trip}', 'EventController@deleteEvent');
 
     Route::get('/users/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard');
     Route::get('/users/office-registration/{id}', 'OfficeRegistrationController@showExchangeStudent');
