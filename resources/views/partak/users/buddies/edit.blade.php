@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row row-inner">
             <div class="col-md-7">
-                {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch', 'id' => 'form']) }}
+                {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch', 'id' => 'roles']) }}
                     {{ Form::bsText('email', 'Email', $buddy->person->user->email) }}
                     {{ Form::bsText('phone', 'Phone') }}
 

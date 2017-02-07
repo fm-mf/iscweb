@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ExchangeStudent extends Model
 {
@@ -162,5 +163,29 @@ class ExchangeStudent extends Model
             array_push($filters, $v[$key]);
         }
         return $filters;
+    }
+
+    public static function registerExStudent($data)
+    {
+        return DB::transaction(function () use ($data) {
+            $user = new User;
+            $user->email = $data['email'];
+            $user->save();
+
+            $person = new Person;
+            $person->id_user = $user->id_user;
+            $person->first_name = $data['first_name'];
+            $person->last_name = $data['last_name'];
+            $person->sex = $data['sex'];
+            $person->save();
+
+            $exStudent = new ExchangeStudent();
+            $exStudent->id_user = $user->id_user;
+            $exStudent->id_country = $data['id_country'];
+            $exStudent->id_accommodation = $data['id_accommodation'];
+            $exStudent->id_faculty = $data['id_faculty'];
+            $exStudent->save();
+            return $exStudent;
+        });
     }
 }

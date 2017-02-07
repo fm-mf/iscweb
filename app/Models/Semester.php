@@ -11,6 +11,6 @@ class Semester extends Model
 
     public function exchangeStudents()
     {
-        return $this->belongsToMany('\App\Models\ExchangeStudents', 'semesters_has_exchange_students', 'id_semester', 'id_user');
+        return $this->belongsToMany('\App\Models\ExchangeStudent', 'semesters_has_exchange_students', 'id_semester', 'id_user');
     }
 }

@@ -14,7 +14,7 @@
                               :topline="['person.first_name', 'person.last_name']"
                               :subline="['person.user.email']"
                               placeholder="Search Exchange student..."
-                              target="{{ (isset($target))? $target : '/partak/users/office-registration/{id_user}' }}"
+                              target="{{ (isset($target))? $target : '/partak/users/office-registration/registration/{id_user}' }}"
                               :image="{url: '/avatars/', file: 'person.user.avatar'}">
                 </autocomplete>
             </div>
