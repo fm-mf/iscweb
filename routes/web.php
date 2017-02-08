@@ -41,6 +41,9 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 });
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');
+Route::get('/visa', function() {
+   return redirect('https://goo.gl/forms/4VyVa30v0estkh293');
+});
 
 
 Route::get('buddy-prirucka', function () { return redirect(asset('files/buddyPriruckaSpring2017.pdf')); });
