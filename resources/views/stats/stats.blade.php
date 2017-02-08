@@ -1,4 +1,4 @@
-@extends('layouts.web.layout')
+@extends('web.layouts.layout')
 @section('page')
 <div class="statistics">
     <h1>Statistika Buddy Programu</h1>

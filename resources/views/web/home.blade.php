@@ -1,4 +1,4 @@
-@extends('layouts.web.main')
+@extends('web.layouts.main')
 @section('content')
 
     <div id="events"></div>

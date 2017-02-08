@@ -96,14 +96,10 @@ class ProfileController extends Controller
 
     public function showProfileForm(Request $request)
     {
-        $faculties = [];
-        foreach (Faculty::all() as $faculty) {
-            $faculties[$faculty->id_faculty] = $faculty->faculty;
-        }
 
         $buddy = Buddy::with('person')->find(Auth::id());
 
-        return view('auth.profile')->with(['faculties' => $faculties, 'avatar' => $buddy->person->avatar(), 'buddy' => $buddy]);
+        return view('auth.profile')->with(['faculties' => Faculty::getOptions(), 'avatar' => $buddy->person->avatar(), 'buddy' => $buddy]);
     }
 
     public function updateProfile(Request $request)
@@ -186,13 +182,6 @@ class ProfileController extends Controller
         if (in_array($emailDomain, $this->allowedDomains)) {
             return true;
         }
-        /*
-        foreach ($this->allowedDomains as $domain) {
-            if (preg_match(".*" . $domain, $emailDomain)) {
-                return true;
-            }
-        }
-        */
 
         return false;
     }

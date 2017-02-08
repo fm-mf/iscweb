@@ -1,10 +1,9 @@
-@extends('layouts.partaknet')
+@extends('partak.layout.hp')
 
 @section('content')
 
     <div class="container">
         <div class="row subtitle">
-            <h1 class="align-center">Believe in ISC Spirit. Pass it on.</h1>
             <p class="col-sm-8 col-sm-offset-2 align-center">Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="/wiki">wiki</a>. Pro přihlášení použij uživatelské jméno <strong>User</strong> a heslo <strong>Vzdy*VIS*viC</strong>.</p>
         </div>
 

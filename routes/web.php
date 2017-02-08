@@ -11,71 +11,15 @@
 |
 */
 
+require_once "partak.php";
+require_once "buddyprogram.php";
+require_once "auth.php";
+
 if (Request::segment(1) == "user") {
     App::setLocale('cs');
 }
 
-// Redirect legacy links
-Route::get('/muj-buddy/register/update-exchange-profile/{hash}', function($hash) {
-    return redirect('/exchange/' . $hash);
-});
 
-Route::get('/muj-buddy/register/buddy', function() {
-    return redirect('/user/register');
-});
-
-
-
-
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-
-
-Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 'prefix' => 'partak'], function()
-{
-    Route::get('/', 'DashboardController@index');
-    Route::get('/trips', 'DashboardController@trips');
-    //Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
-});
-
-
-Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogram', 'prefix' => 'muj-buddy'], function()
-{
-    Route::get('/', 'ListingController@listExchangeStudents');
-    Route::get('/list', 'ListingController@listExchangeStudents');
-    Route::get('/profile/{id}', 'StudentController@showProfile');
-    Route::get('/become-buddy/{id}', 'StudentController@assignBuddy');
-    Route::get('/my-students/', 'ListingController@listMyStudents');
-    Route::get('/closed/', 'ListingController@showClosed');
-});
-
-Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
-{
-
-
-    Route::get('/', 'LoginController@showLoginForm');
-    Route::post('/', 'LoginController@login');
-    Route::get('/logout', 'LoginController@logout');
-
-    Route::get('/register', 'RegisterController@showRegistrationForm');
-    Route::post('/register', 'RegisterController@register');
-
-    Route::get('/profile', 'ProfileController@showProfileForm');
-    Route::patch('/profile', 'ProfileController@updateProfile');
-
-    Route::get('/verify', 'ProfileController@showVerificationForm');
-    Route::post('/verify', 'ProfileController@processVerificationForm');
-    Route::get('/verification-info', 'ProfileController@showVerificationInfo');
-
-    Route::get('/verify/{hash}', 'ProfileController@verifyBuddy');
-    Route::post('/noemail', 'ProfileController@processNoEmail');
-
-    Route::get('/thankyou', 'ProfileController@showThanks');
-
-    Route::get('password', 'ForgotPasswordController@showLinkRequestForm');
-    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
-    Route::post('password/reset', 'ResetPasswordController@reset');
-    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm');
-});
 
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
 {
@@ -88,7 +32,12 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
     Route::post('/avatar', 'AvatarController@upload');
     Route::post('/load', 'ApiController@load');
 
+    Route::post('/autocomplete/exchange-students', 'AutocompleteController@exchangeStudents');
+    Route::post('/autocomplete/buddies', 'AutocompleteController@buddies');
     Route::post('/liststudents', 'ApiController@load');
+
+    Route::post('/load-preregister', 'ApiController@loadPreregister');
+    Route::post('/load-preregister/save', 'ApiController@preregister');
 });
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');

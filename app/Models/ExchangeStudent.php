@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ExchangeStudent extends Model
 {
@@ -11,6 +12,10 @@ class ExchangeStudent extends Model
     protected $primaryKey = 'id_user';
     protected $dates = ['buddy_timestamp'];
     public $incrementing = false;
+
+    protected $fillable = [
+        'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation'
+    ];
 
     public function person()
     {
@@ -47,6 +52,11 @@ class ExchangeStudent extends Model
         return $this->hasOne('\App\Models\Buddy', 'id_user', 'id_buddy');
     }
 
+    public function events()
+    {
+        return $this->belongsToMany('\App\Models\Event', 'events_participants', 'id_user', 'id_event')->withPivot('stand_in');
+    }
+
     public function isSelfPaying()
     {
         return $this->person->user->hasRole('samoplatce');
@@ -57,9 +67,16 @@ class ExchangeStudent extends Model
         return $this->id_buddy != null;
     }
 
+    public function removeBuddy()
+    {
+        $this->id_buddy = NULL;
+        $this->buddy_timestamp = NULL;
+        $this->save();
+    }
+
     public static function findAll()
     {
-        return ExchangeStudent::with('person.user', 'country', 'faculty', 'accommodation', 'arrival');
+        return ExchangeStudent::with('person', 'person.user', 'country', 'faculty', 'accommodation', 'arrival');
     }
 
     public static function eagerFind($id_user)
@@ -146,5 +163,29 @@ class ExchangeStudent extends Model
             array_push($filters, $v[$key]);
         }
         return $filters;
+    }
+
+    public static function registerExStudent($data)
+    {
+        return DB::transaction(function () use ($data) {
+            $user = new User;
+            $user->email = $data['email'];
+            $user->save();
+
+            $person = new Person;
+            $person->id_user = $user->id_user;
+            $person->first_name = $data['first_name'];
+            $person->last_name = $data['last_name'];
+            $person->sex = $data['sex'];
+            $person->save();
+
+            $exStudent = new ExchangeStudent();
+            $exStudent->id_user = $user->id_user;
+            $exStudent->id_country = $data['id_country'];
+            $exStudent->id_accommodation = $data['id_accommodation'];
+            $exStudent->id_faculty = $data['id_faculty'];
+            $exStudent->save();
+            return $exStudent;
+        });
     }
 }

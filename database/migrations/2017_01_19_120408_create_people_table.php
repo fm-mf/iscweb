@@ -17,7 +17,7 @@ class CreatePeopleTable extends Migration {
 			$table->integer('id_user')->unsigned()->index('fk_people_users1');
 			$table->string('first_name', 45);
 			$table->string('last_name', 45);
-			$table->date('age')->nullable();
+			$table->integer('age')->nullable();
 			$table->enum('sex', array('M','F'))->nullable();
 			$table->enum('diet', array('Vegetarian','Vegan','Fish only'))->nullable();
 			$table->string('medical_issues')->nullable();

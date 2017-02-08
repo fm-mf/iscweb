@@ -1,7 +1,7 @@
-@extends('layouts.web.layout')
+@extends('web.layouts.layout')
 @section('page')
 <div class="header-wrapper">
-    @include('layouts.web.navigation')
+    @include('web.layouts.navigation')
     <p class="scroll-down"><a href="#" id="scroll">scroll down to see upcoming events <br> <span class="glyphicon glyphicon-chevron-down" style="font-size:20px;"></span></a></p>
 
     <div class="container circles center">

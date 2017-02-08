@@ -1,0 +1,121 @@
+<?php
+
+namespace App\Http\Controllers\Partak;
+
+use App\Models\Buddy;
+use App\Models\ExchangeStudent;
+use App\Models\Role;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Settings\Facade as Settings;
+use App\Models\Faculty;
+use Illuminate\Support\Facades\Validator;
+use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
+
+class BuddiesController extends Controller
+{
+    protected function profileValidator(array $data)
+    {
+        $validator = Validator::make($data, [
+            'phone' => 'max:15',
+            'age' => 'digits:4',
+            'email' => 'required|max:255|email',
+        ]);
+        return $validator;
+    }
+
+    public function showBuddiesDashboard()
+    {
+        $this->authorize('acl', 'buddy.view');
+        return view('partak.users.buddies.dashboard')->with([
+            'notVerifiedBuddies' => Buddy::with('person.user')->notVerified()->notDenied()
+        ]);
+    }
+
+    public function showBuddyDetail($id)
+    {
+        $this->authorize('acl', 'buddy.view');
+        $buddy = Buddy::findBuddy($id);
+        $semester = Settings::get('currentSemester');
+        $myStudents = $buddy->exchangeStudents()->bySemester($semester)->with('person.user')->get();
+
+        return view('partak.users.buddies.detail')->with([
+            'buddy' => $buddy,
+            'myStudents' => $myStudents,
+            'currentSemester' => $semester
+        ]);
+    }
+
+    public function removeExStudentFromBuddy($id_buddy, $id_exStudent)
+    {
+        $this->authorize('acl', 'buddy.remove');
+        $exStudent = ExchangeStudent::find($id_exStudent);
+        $exStudent->removeBuddy();
+        $removeSuccess = 'Buddy for exchange student with name '. $exStudent->person->first_name .' '. $exStudent->person->last_name .' was removed.';
+        return back()->with(['removeSuccess' => $removeSuccess]);
+    }
+
+    public function showEditFormBuddy($id)
+    {
+        $this->authorize('acl', 'buddy.edit');
+        $buddy = Buddy::with('person.user')->find($id);
+
+        JavaScript::put([
+            'jsoptions' => ['roles' => Role::all(), 'sroles' => $buddy->user()->roles]
+            ]);
+        return view('partak.users.buddies.edit')->with([
+            'buddy' => $buddy,
+            'faculties' => Faculty::getOptions()
+        ]);
+    }
+
+
+
+    public function submitEditFormBuddy(Request $request, $id)
+    {
+        $this->authorize('acl', 'buddy.edit');
+        $this->profileValidator($request->all())->validate();
+
+        $buddy = Buddy::with('person.user')->find($id);
+
+        $data = [];
+        foreach ($request->all() as $key => $value) {
+            if ($value) {
+                $data[$key] = $value;
+            }
+        }
+        $buddy->person->user->update($data);
+        $buddy->person->update($data);
+        $buddy->update($data);
+
+        $roles = explode(',', $request->roles);
+        $user = $buddy->user();
+        $user->roles()->sync($roles);
+
+        return back()->with(['successUpdate' => true,]);
+    }
+
+    public function approveBuddy($user_id)
+    {
+        $this->authorize('acl', 'buddy.verify');
+        $buddy = Buddy::find($user_id);
+        if ($buddy) {
+            $buddy->setVerified();
+            return back()->with(['success' => 'Buddy has been approved']);
+        } else {
+            return back()->withErrors(['approve' => 'Buddy was not found in our database.']);
+        }
+    }
+
+    public function denyBuddy($user_id)
+    {
+        $this->authorize('acl', 'buddy.verify');
+        $buddy = Buddy::find($user_id);
+        if ($buddy) {
+            $buddy->setDenied();
+            return back()->with(['success' => 'Buddy has been denied']);
+        } else {
+            return back()->withErrors(['approve' => 'Buddy was not found in our database.']);
+        }
+    }
+}

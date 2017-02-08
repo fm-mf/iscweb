@@ -189,6 +189,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FormServiceProvider::class,
         App\Providers\SettingsProvider::class,
+        //App\Providers\AclServiceProvider::class,
 
         /*
          * PhpStorm autocomplet

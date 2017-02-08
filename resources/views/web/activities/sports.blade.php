@@ -1,4 +1,4 @@
-@extends('layouts.web.activities')
+@extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
         <blockquote><p>Just play. Have fun. Enjoy the game.</p><p><small>Michael Jordan</small></p></blockquote>

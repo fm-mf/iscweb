@@ -3031,7 +3031,7 @@ output {
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  border-radius: 0;
+  border-radius: 5px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -4490,7 +4490,7 @@ tbody.collapse.in {
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #ccc;
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 .input-group-addon.input-sm,
@@ -4772,7 +4772,7 @@ tbody.collapse.in {
 
 @media (min-width: 400px) {
   .navbar {
-    border-radius: 4px;
+    border-radius: 0;
   }
 }
 
@@ -5097,8 +5097,8 @@ tbody.collapse.in {
 
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   margin-bottom: 0;
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -7688,14 +7688,121 @@ button.close {
   }
 }
 
+.container-xs-height {
+  display: table;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.row-xs-height {
+  display: table-row;
+}
+
+.col-xs-height {
+  display: table-cell;
+  float: none;
+}
+
+@media (min-width: 768px) {
+  .container-sm-height {
+    display: table;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .row-sm-height {
+    display: table-row;
+  }
+  .col-sm-height {
+    display: table-cell;
+    float: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-md-height {
+    display: table;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .row-md-height {
+    display: table-row;
+  }
+  .col-md-height {
+    display: table-cell;
+    float: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-lg-height {
+    display: table;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .row-lg-height {
+    display: table-row;
+  }
+  .col-lg-height {
+    display: table-cell;
+    float: none;
+  }
+}
+
+/* vertical alignment styles */
+.col-top {
+  vertical-align: top;
+}
+
+.col-middle {
+  vertical-align: middle;
+}
+
+.col-bottom {
+  vertical-align: bottom;
+}
+
 html, body {
   width: 100%;
   height: 100%;
-  font-family: "Open Sans", "Myriad Pro", Helvetica, Arial, sans-serif;
+  font-family: open-sans, myriad-pro, Helvetica, Arial, sans-serif;
 }
 
-* {
-  border-radius: 0 !important;
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 60px;
+}
+
+.footer-wrapper {
+  background: #0079C1;
+}
+
+.footer {
+  padding-top: 20px;
+  color: #fff;
+}
+
+.footer a {
+  color: #fff;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .errors {
@@ -7722,32 +7829,42 @@ html, body {
 }
 
 .menu-wrapper {
-  background-color: #2f2f2f;
-  border-bottom: 5px solid #4b4b4b;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.05);
+}
+
+.admin-nav {
+  margin: 0;
+  padding: 0;
 }
 
 .admin-nav li {
-  border-left: 1px solid #585858;
-  border-right: 1px solid #111111;
   margin-right: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .admin-nav a {
-  color: #fff;
-  text-shadow: #535353 0px 1px 2px;
+  color: #000;
+  padding-bottom: 3px;
 }
 
 .admin-nav a:hover {
   color: #3a3a3a;
-  text-shadow: none;
+  background: #fff !important;
+  border-bottom: 1px solid #1b6d85;
+  padding-bottom: 14px !important;
 }
 
 a.active {
-  background-color: #4b4b4b;
+  color: #1b6d85;
+  padding-bottom: 12px !important;
+  border-bottom: 3px solid #1b6d85;
 }
 
 body {
-  font-family: "proxima-nova" "Myriad Pro", Helvetica, Arial, sans-serif;
+  font-family: proxima-nova, myriad-pro, Helvetica, Arial, sans-serif;
 }
 
 .align-center {
@@ -7757,8 +7874,7 @@ body {
 h2 {
   font-weight: 700;
   font-size: 25px;
-  margin-bottom: 10px;
-  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 h3 {
@@ -7776,26 +7892,27 @@ h3 {
   border-radius: 2px;
 }
 
-.about-wrapper {
+.dashboard-header-wrapper {
   width: 100%;
-  min-height: 170px;
-  background-image: url("../img/partak/us.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top;
+  min-height: 550px;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background-image: url("../img/partak/devilAndAngel.jpg");
+  /*background-image:url($imgPath + "us.jpg");*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: -60px center;
+  color: #fff;
 }
 
-.about h2, .title {
+.title, .title-sp {
   font-size: 30px;
   text-align: center;
-  margin-top: 60px;
-  margin-bottom: 40px;
-  color: #fff !important;
+  padding-top: 300px;
+  font-weight: bold;
 }
 
-.about h2 strong, .title strong {
+.title strong, .title-sp strong {
   display: block;
   width: 500px;
   margin-left: auto;
@@ -7809,7 +7926,7 @@ h3 {
 }
 
 .title {
-  margin-top: 120px !important;
+  margin-top: 40px !important;
 }
 
 .title strong {
@@ -7826,17 +7943,6 @@ h3 {
   margin-top: 20px;
 }
 
-.footer-wrapper {
-  background: #272822;
-  margin-top: 20px;
-}
-
-.footer {
-  color: #cecece;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
 .offset {
   margin-left: 50px;
 }
@@ -7844,6 +7950,187 @@ h3 {
 a.disabled {
   pointer-events: none;
   cursor: default;
+}
+
+.subpage-header-wrapper {
+  width: 100%;
+  min-height: 70px;
+  background-image: url("../img/partak/burgersno.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 top;
+  overflow: hidden;
+  border-bottom: 5px solid #0079C1;
+  color: #fff;
+}
+
+.title-sp {
+  margin-top: 20px !important;
+}
+
+.title-sp strong {
+  width: 360px !important;
+}
+
+.content {
+  margin: 0;
+  padding: 0;
+  min-height: 500px;
+}
+
+.submenu {
+  padding: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #FAFAFA;
+  border-right: 1px solid #eeeeee;
+}
+
+.submenu ul {
+  padding: 0;
+  margin: 0;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px 5px;
+  padding-left: 40px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.submenu a:hover {
+  text-decoration: none;
+  background: #eeeeee;
+}
+
+.inner-content {
+  min-height: 500px;
+}
+
+.sub-active {
+  border-left: 3px solid #2a62bc;
+}
+
+.row.match-my-cols {
+  overflow: hidden;
+}
+
+.matched-cols {
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.autocomplete-input {
+  border-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.search-buddy {
+  padding-bottom: 40px;
+}
+
+.top-navigation {
+  color: #fff;
+  background: #333333;
+  margin: 0;
+}
+
+.top-navigation a {
+  color: #fff;
+}
+
+.partaknet-logo {
+  color: #000;
+  font-weight: bold;
+}
+
+.top-navigation-user {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.navbar-brand {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.row-grey {
+  background: #EDF2F6;
+}
+
+.row-inner {
+  max-width: 900px;
+  padding: 40px;
+}
+
+.buddy-detail h3 {
+  margin-bottom: 2px;
+}
+
+.edit-button {
+  margin-bottom: 8px;
+}
+
+.success {
+  background: #98ba0b;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  text-shadow: 0px 1px 2px #8d8b8b;
+}
+
+.alert-danger {
+  padding: 5px;
+  padding-left: 12px;
+}
+
+.no-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.buddy-detail-img {
+  margin-right: 30px;
+}
+
+.buddy-detail-icon {
+  margin-right: 10px;
+}
+
+/* Titles */
+.hline {
+  position: relative;
+  font-size: 14px;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  color: #7c7c7c;
+  margin-bottom: 20px !important;
+}
+
+.hline:before, .hline:after {
+  position: absolute;
+  top: 51%;
+  overflow: hidden;
+  width: 50%;
+  height: 1px;
+  content: '\a0';
+  background-color: #7c7c7c;
+}
+
+.hline:before {
+  margin-left: -50%;
+  text-align: right;
+}
+
+.hline span {
+  padding: 0 10px;
+  background: #fff;
 }
 
 /*# sourceMappingURL=partaknet.css.map */

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -28,9 +29,20 @@ class Buddy extends Model
         return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_buddy');
     }
 
+    public function organizedEvents()
+    {
+        return $this->belongsToMany('\App\Models\Event', 'events_organizers', 'id_user', 'id_event');
+    }
+
     public function setVerified()
     {
         $this->verified = 'y';
+        $this->save();
+    }
+
+    public function setDenied()
+    {
+        $this->verified = 'd';
         $this->save();
     }
 
@@ -39,9 +51,20 @@ class Buddy extends Model
         return $this->person->user;
     }
 
+    public function isVerified()
+    {
+        return $this->verified == 'y';
+    }
+
+
     public static function findBuddy($id_user)
     {
         return Buddy::with('person.user')->find($id_user);
+    }
+
+    public static function findAll()
+    {
+        return Buddy::with('person.user');
     }
 
     public static function registerBuddy($data)
@@ -69,5 +92,23 @@ class Buddy extends Model
     public function pickedStudentsToday()
     {
         return $this->exchangeStudents()->pickedToday()->count();
+    }
+
+    public static function scopeNotVerified($query)
+    {
+        return $query->where(function($query) {
+            $query->whereHas('person.user', function($query) {
+                $query->where('created_at', '>=', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString())->where('verified',  '!=', 'y');
+            })->orWhereHas('person.user', function($query) {
+                $query->where(function($query) {
+                    $query->whereNull('created_at')->orWhere('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString());
+                })->where('active', 'n');
+            });
+        });
+    }
+
+    public static function scopeNotDenied($query)
+    {
+        return $query->where('verified', '!=', 'd');
     }
 }

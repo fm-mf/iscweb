@@ -65,7 +65,7 @@ class RolesTableSeeder extends Seeder
             9 => 
             array (
                 'id_role' => 10,
-                'title' => 'buddyManager',
+                'title' => 'buddy-manager',
             ),
             10 => 
             array (
@@ -73,7 +73,18 @@ class RolesTableSeeder extends Seeder
                 'title' => 'point',
             ),
         ));
-        
+
+        \DB::table('roles_inheritance')->insert(array (
+            0 =>
+                array (
+                    'id_role' => 1,
+                    'id_inherited_role' => 2,
+                ),
+            1 => array(
+                'id_role' => 1,
+                'id_inherited_role' => 10
+            ),
+        ));
         
     }
 }
