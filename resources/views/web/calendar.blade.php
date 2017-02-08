@@ -36,7 +36,7 @@
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-1 col-sm-height">
-                    <span class="day">Monday<br>February<br><strong>15th</strong></span>
+                    <span class="day">Monday<br>February<br><strong>13th</strong></span>
                     <h2>First orientation day</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top">
@@ -52,14 +52,14 @@
                                         <li>Strahov (at the bus stop 143, direction Dejvická) 9:45</li>
                                     </ul>
                                 </small>
-                                <small><a href="https://isc.cvut.cz/ow">Meeting points - more information</a></small>
+                                <small><>Meeting points - more information</a></small>
                             </td>
                         </tr>
                         <tr>
                             <th>20:00 &ndash; 01:00</th>
                             <td><strong>Tandem Party</strong><br>
                                 <small>(Café V lese)</small><br>
-                                <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
+                                <small><a>Meeting points and times</a></small>
                             </td>
                         </tr>
                     </table>
@@ -69,7 +69,7 @@
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('img/web/events/Tandem_spring2017.jpg') }});">
                     <span class="day">Monday<br>February<br><strong>13th</strong><br>8pm</span>
-                    <h2>Tandem party</h2>
+                    <h2>Tandem Evening</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top">
                     <p>
@@ -87,7 +87,7 @@
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-2 col-sm-height">
-                    <span class="day">Tuesday<br>February<br><strong>16th</strong></span>
+                    <span class="day">Tuesday<br>February<br><strong>14th</strong></span>
                     <h2>Second orientation day</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top">
@@ -95,7 +95,7 @@
                         <tr>
                             <th>morning</th>
                             <td><strong>Registration at faculties</strong><br>
-                                <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
+                                <small><a>Meeting points and times</a></small>
                             </td>
                         </tr>
                         <tr>
@@ -110,7 +110,7 @@
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height">
-                    <span class="day">Wednesday<br>February<br><strong>17th</strong><br>12:30pm</span>
+                    <span class="day">Wednesday<br>February<br><strong>15th</strong><br>12:30pm</span>
                     <h2>Prague Discovery Game</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top">
@@ -120,7 +120,7 @@
                             <td><strong>Prague Discovery Game</strong><br>
                                 <small>(Explore the city of Prague in an entertaining way!)</small><br>
                                 Do you want to meet new friends from all over the world and have fun? Join us in the Prague Discovery Game and explore the city in an entertaining way!<br>
-                                <small><a href="https://isc.cvut.cz/ow">Meeting points and times</a></small>
+                                <small><a>Meeting points and times</a></small>
                             </td>
                         </tr>
                     </table>
@@ -141,7 +141,7 @@
                         ► <a href="https://www.facebook.com/events/1575563575999442/"><strong>Facebook event!</strong></a>
                     </p>
 
-                    <p>★ International
+                    <p><small>★ International
                         ★ Night
                         ★ Team-work
                         ★ Entertainment
@@ -151,7 +151,7 @@
                         ★ Amazing
                         ★ Together<br>
 
-                        inteGREAT more than a party
+                            inteGREAT more than a party</small>
 
                 </div>
             </div>
@@ -159,7 +159,7 @@
 
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-4 col-sm-height">
-                    <span class="day">Thu &ndash; Sun<br>February<br><strong class="h-trips">15th &ndash; 19th</strong></span>
+                    <span class="day">Thu &ndash; Sun<br>February<br><strong class="h-trips">16th &ndash; 19th</strong></span>
                     <h2>Orientation Week Trips</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" style="min-height: 400px">
@@ -167,7 +167,7 @@
                         During the Orientation Week you will also have an amazing opportunity to explore some great places around the Czech Republic with ISC members.
                     </p>
                     <p>
-                    <p><p><p>
+                    <p><br><br><br><br>
                     <!-- table class="trips-list">
                         <tr>
                             <th>South Moravia</th>

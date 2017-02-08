@@ -29,18 +29,17 @@
                 </thead>
                 <tbody>
 
-                <tr><td>Wednesday, 28th September</td><td>inteGREATion party</td><td>&nbsp;</td><td><a href="https://www.facebook.com/events/1688567391464427/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Wednesday, 5th October</td><td>Czech Presentation</td><td>Czech Republic</td><td><a href="https://www.facebook.com/events/1218646991526250/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Monday, 10th October</td><td>&nbsp;</td><td>Germany & South Korea</td><td><a href="https://www.facebook.com/events/1110605765681976/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Wednesday, 19th October</td><td>&nbsp;</td><td>Slovakia & Finland & China</td><td><a href="https://www.facebook.com/events/685974454886338/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Monday, 24th October</td><td>&nbsp;</td><td>Slovenia & Russia & India</td><td><a href="https://www.facebook.com/events/1776755445869889/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Wednesday, 2nd November</td><td>&nbsp;</td><td>Greece & Netherlands & Peru</td><td><a href="https://www.facebook.com/events/1744522969130697/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Thursday, 10th November</td><td>&nbsp;</td><td>Taiwan & Italy & Scotland</td><td><a href="https://www.facebook.com/events/185402921890120/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Monday, 14th November</td><td>&nbsp;</td><td>Belgium & Australia & Singapore</td><td><a href="https://www.facebook.com/events/988955214546595/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Wednesday, 23th November</td><td>&nbsp;</td><td>Argentina & Hungary & Lithuania & Turkey</td><td><a href="https://www.facebook.com/events/332643480420972/">Facebook event</a></td></tr>
-                <tr><td>Monday, 28th November</td><td>&nbsp;</td><td>Spain & Portugal & Mexico</td><td><a href="https://www.facebook.com/events/1780647028824637/">Facebook event</a></td></tr>
-                <tr><td>Monday, 5th December</td><td>&nbsp;</td><td>France & USA & Sweden</td><td><a href="https://www.facebook.com/events/306568169707023/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Thursday, 15th December</td><td>Farewell party</td><td>&nbsp;</td><td><a href="https://www.facebook.com/events/1798601880399760" target="_blank">Facebook event</a></td></tr>
+                <tr><td>Wednesday, 15th February</td><td>inteGREATion party</td><td>&nbsp;</td><td><a href="https://www.facebook.com/events/135752213604976/" target="_blank">Facebook event</a></td></tr>
+                <tr><td>Monday, 27th February</td><td>Czech Presentation</td><td>Czech Republic</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Wednesday, 8th March</td><td>&nbsp;</td><td>Germany & Republic of Korea & Finland</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Thursday, 16th March</td><td>&nbsp;</td><td>Taiwan & Italy & Slovakia</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Thursday, 23th March</td><td>&nbsp;</td><td>Sweden & Singapore & Turkey</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Wednesday, 5th April</td><td>&nbsp;</td><td>Spain & Argentina & Mexico</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Thursday, 13th April</td><td>&nbsp;</td><td>Bulgaria & Croatia & UK</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Thursday, 20th April</td><td>&nbsp;</td><td>Canada & China & Slovinia</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Thursday, 27th April</td><td>&nbsp;</td><td>USA & France & India</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Wednesday, 3rd May</td><td>&nbsp;</td><td>Grill party</td><td><a target="_blank">Facebook event</a></td></tr>
+                <tr><td>Thursday, 11th May</td><td>Boat party</td><td>&nbsp;</td><td><a target="_blank">Facebook event</a></td></tr>
                 </tbody>
             </table>
         </center>

@@ -10,7 +10,7 @@
                 <p>Take advantage of our free language courses! The courses are taught by you -
                     Erasmus and exchange students, Czech students and foreigners living in Prague.
                     They are <strong>free of charge</strong>, fun, and no registration is needed.
-                    We start in the third week of the semester (17th October 2016) and the courses take place in the
+                    We start in the third week of the semester (6th March 2017) and the courses take place in the
                     Masarykova dormitory and at Strahov, block 8.
 
 
@@ -35,12 +35,19 @@
                 </p>
 
                 <h2>TANDEM</h2>
-                <p>Tandem is a way of mutual learning and teaching languages. Basically, you will find someone who would teach you a foreign language and you would teach him yours in return.</p>
-                <p>The main advantage of Tandem is that it will be just you two who will set the time and the intensity of the courses! You can form as many couples as you wish. </p>
-                <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> or come to the Tandem Party.</p>
+                <p>Tandem is a way of mutual learning and teaching languages. Basically, you will find someone who would
+                    teach you a foreign language and you would teach him yours in return.</p>
+                <p>The main advantage of Tandem is that it will be just you two who will set the time and the intensity
+                    of the courses! You can form as many couples as you wish. </p>
+                <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> or come to the
+                    <a href="https://www.facebook.com/events/614492665410482/">Tandem Evening</a> on Monday 13th February.</p>
 
                 <h2>CAFÉ LINGEA</h2>
-                <p>Café Lingea is a conversational meeting where we informally chat in different languages (English + some chosen). Café Lingea takes place in a different coffee shop or restaurant each time, so it is also a good opportunity to discover some new places in Prague. Join the Facebook group <a href="https://www.facebook.com/groups/125659680939345">ISC Café Lingea</a>!</p>
+                <p>Café Lingea is a conversational meeting where we informally chat in different languages
+                    (English + some chosen). Café Lingea takes place in a different coffee shop or restaurant each time,
+                    so it is also a good opportunity to discover some new places in Prague. Join the Facebook group
+                    <a href="https://www.facebook.com/groups/125659680939345">ISC Café Lingea</a>!</p>
+                <p>1st Café Lingea will be in the 2nd week of the semester, the date will be updated!</p>
 
                 <br>
 
@@ -61,44 +68,16 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Café Lingea German & English</td>
-                        <td>Thursday 13th October</td>
-                        <td>18:00</td>
-                        <td>Cafe Prostoru_</td>
-                        <td><a href="https://www.facebook.com/events/1598026633835710/">Facebook event</a></td>
+                        <td>Tandem Evening</td>
+                        <td>Monday 13th February</td>
+                        <td>20:00</td>
+                        <td><a href="https://goo.gl/maps/2c3qWUjNYE32">Café V lese</a></td>
+                        <td><a href="https://www.facebook.com/events/614492665410482/">Facebook event</a></td>
                     </tr>
-                    <tr>
-                        <td>Chef Chat</td>
-                        <td>Thursday 20th October</td>
-                        <td><i>19:00</i></td>
-                        <td>Masarykova dormitory</td>
-                        <td><a href="https://www.facebook.com/events/323392688018133/">Facebook event</a></td>
-                    </tr>
-                    <tr>
-                        <td>Café Lingea Spanish & English</td>
-                        <td>Wednesday 26th October</td>
-                        <td><i>19:00</i></td>
-                        <td>Las Adelitas Lucemburská</td>
-                        <td><a href="https://www.facebook.com/events/1321667764532684/">Facebook event</a></td>
-                    </tr>
-                    <tr>
-                        <td>Café Lingea Italian & English</td>
-                        <td>Wednesday 9th November</td>
-                        <td><i>17:30</i></td>
-                        <td><i>Cafe Prostoru_</i></td>
-                        <td><a href="https://www.facebook.com/events/1801524790126734/">Facebook event</a></td>
-                    </tr>
-                    <tr>
-                        <td>Café Lingea French & English</td>
-                        <td>Tuesday 13th December</td>
-                        <td><i>18:00</i></td>
-                        <td><i>Cafe Prostoru_</i></td>
-                        <td><a href="https://www.facebook.com/events/916352651799684/">Facebook event</a></td>
-                    </tr>
-                    <!--				<tr>
+                    				<tr>
                                     <td colspan=5><i>More events will be announced soon!</i></td>
                                     </tr>
-                    -->
+
                     </tbody>
                 </table>
             </div>
@@ -108,9 +87,10 @@
 
 
 
-                <p>You can have a look at the <a href="http://www.isc.cvut.cz/files/languages-schedule.php" target="_blank">Fall 2016 schedule</a>.</p>
-                <p>The language courses are starting on <b>Monday 17th October</b>.</p>
-                <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><a href="http://www.isc.cvut.cz/files/languages-schedule.php"><img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
+                <!-- p>You can have a look at the <a href="http://www.isc.cvut.cz/files/languages-schedule.php" target="_blank">Spring 2017 schedule</a>.</p -->
+                <p>Schedule for upcoming semester will be available in first week of the semester</p>
+                <p>The language courses are starting on <b>Monday 6th March</b>.</p>
+                <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><!-- href="http://www.isc.cvut.cz/files/languages-schedule.php" --><a  ><img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
                 <p>Sometimes the classes have to be cancelled for various reasons. The following table shows the updated list of cancelled and rescheduled classes.</p>
                 <iframe width="370" height="400" frameborder="0" src="https://docs.google.com/spreadsheet/pub?key=0AoZEq64G2cV4dHZtcHdlVlpOV3F0WHNtVHlXS0tOTHc&single=true&gid=0&output=html&widget=true"></iframe>
 

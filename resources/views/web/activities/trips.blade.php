@@ -24,7 +24,7 @@
                 </ul>
             </div>
         </div>
-        <h1>FALL 2016 TRIPS & ACTIVITIES</h1>
+        <h1>Spring 2017 TRIPS & ACTIVITIES</h1>
         <center>
             <p>
                 For fresh news about ISC events subscribe: <a href="https://www.facebook.com/isc.ctu.prague/events/">Facebook ISC CTU in Prague!</a>

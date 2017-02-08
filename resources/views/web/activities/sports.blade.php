@@ -5,20 +5,26 @@
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
                 <p>
-                    Do you like playing football, basketball, volleyball or even floorball? If yes, and you want to practice some of those sports also in Prague, we organize them every week mostly on Juliska and Strahov - just check current situation (activities/sports on this website), come and play.
+                    Do you like playing football, basketball, volleyball or even floorball? If yes, and you want to practice
+                    some of those sports also in Prague, we organize them every week mostly on Juliska and Strahov - just check
+                    current situation (activities/sports on this website), come and play.
                 </p>
                 <p>
-                    There are several sports organized throughout the semester for international and Czech students . The level of sport events depends a lot on your participation and propositions.
+                    There are several sports organized throughout the semester for international and Czech students .
+                    The level of sport events depends a lot on your participation and propositions.
                 </p>
                 <p>
-                    To enroll to any sport, follow partial instructions or just contact supervising person (instructor). Some of the sports are for free, some are payed for.
+                    To enroll to any sport, follow partial instructions or just contact supervising person (instructor).
+                    Some of the sports are for free, some are payed for.
                 </p>
                 <p>
-                    Also, you can contact sport coordinator Jirka Vejrosta (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>) If you don´t receive an answer, just write once again, please.
+                    Also, you can contact sport coordinator Petr Šlajs (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>)
+                    If you don´t receive an answer, just write once again, please.
                 </p>
 
                 <p>
-                    You can also start to <strong>practice your own sport</strong> you know or you would like to try. In this case please contact  sport coordinator.
+                    You can also start to <strong>practice your own sport</strong> you know or you would like to try.
+                    In this case please contact sport coordinator.
                 </p>
 
                 <p><strong><big>All sports are starting during 1st and 2nd week of the semester</big></strong></p>
@@ -33,6 +39,11 @@
                 -->
 
                 <!-- ------------------------ SPORTS detailed info ------------------------------------------------- -->
+                <h2 class="align-center">Schedule for SPRING 2017 comming soon…</h2> <br>
+
+
+
+        <!-- -----------------------Schedule Fall 2016 -----------------------------------------
 
                 <h2 class="align-center">Schedule for FALL 2016</h2>
 
@@ -62,7 +73,7 @@
                                       <b>Contact person:</b> Lucka Marcalíková<br>
                                       <b>Price for renting bike:</b> 300 CZK (+1000 CZK as deposit) for 1 day<br>
                                     </li>
-                    -->
+
 
                     <li class="col-md-4 col-sm-6">
                         <h3>Football</h3>
@@ -134,7 +145,7 @@
 
                     </li>
 
-
+                    -->
 
                 <!-- ----------------------------- stare sporty SPRING 2015 ------------------------------------------------
 
