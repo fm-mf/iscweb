@@ -26,12 +26,14 @@ class EventController extends Controller
     public function showDashboard()
     {
         //dd(\Carbon\Carbon::today()->toDateTimeString());
+        $this->authorize('acl', 'trips.view');
         $visibleEvents = Event::findAllVisible();
         return view('partak.trips.dashboard')->with(['visibleEvents' => $visibleEvents,]);
     }
 
     public function showDetail($id)
     {
+        $this->authorize('acl', 'trips.view');
         $event = Event::find($id);
         $particip = $event->participants()->with('person.user')->get();
         $organizers = $event->organizers()->with('person.user')->get();
@@ -44,6 +46,7 @@ class EventController extends Controller
 
     public function addToEvent($id_event, $id_part)
     {
+        $this->authorize('acl', 'participant.add');
         (Event::find($id_event)->isFull()) ? $stand_in = 'y' : $stand_in = 'n';
         $part = ExchangeStudent::find($id_part);
         $part->events()->attach($id_event, ['stand_in' => $stand_in]);
@@ -52,6 +55,7 @@ class EventController extends Controller
 
     public function removeFromEvent($id_event, $id_part)
     {
+        $this->authorize('acl', 'participant.remove');
         $part = ExchangeStudent::find($id_part);
         if(Event::find($id_event)->isFull())
         {
@@ -67,6 +71,7 @@ class EventController extends Controller
 
     public function showEditForm($id_event)
     {
+        $this->authorize('acl', 'trips.edit');
         $this->authorize('acl', 'trips');
         $event = Event::find($id_event);
         //dd($event->organizers()->with('person.user')->get());
@@ -106,6 +111,7 @@ class EventController extends Controller
 
     public function updateEditForm(Request $request, $id_event)
     {
+        $this->authorize('acl', 'trips.edit');
         $this->eventValidator($request->all())->validate();
         $event = Event::find($id_event);
         if(isset($event)){
@@ -119,6 +125,7 @@ class EventController extends Controller
 
     public function showCreateForm()
     {
+        $this->authorize('acl', 'trips.add');
         $event = new Event();;
         $event->visible_from = Carbon::now();
         $event->datetime_from = Carbon::now();
@@ -129,6 +136,7 @@ class EventController extends Controller
 
     public function submiteCreateForm(Request $request)
     {
+        $this->authorize('acl', 'trips.add');
         $this->eventValidator($request->all())->validate();
         $event = new Event();
         $this->updateEvent($request, $event);
@@ -152,6 +160,7 @@ class EventController extends Controller
 
     public function deleteEvent($id_event)
     {
+        $this->authorize('acl', 'trips.remove');
         $event = Event::find($id_event);
         $event->participants()->detach();
         $event->delete();

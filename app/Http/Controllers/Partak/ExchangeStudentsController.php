@@ -27,17 +27,20 @@ class ExchangeStudentsController extends Controller
 
     public function showExchangeStudentDashboard()
     {
+        $this->authorize('acl', 'exchangeStudents.view');
         return view('partak.users.exchangeSudents.dashboard');
     }
 
     public function showDetailExchangeStudent($id)
     {
+        $this->authorize('acl', 'exchangeStudents.view');
         $exStudent = ExchangeStudent::with(['person.user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
         return view('partak.users.exchangeSudents.detail')->with(['exStudent' => $exStudent,]);
     }
 
     public function showEditFormExchangeStudent($id)
     {
+        $this->authorize('acl', 'exchangeStudents.edit');
         return view('partak.users.exchangeSudents.edit')->with([
             'exStudent' => ExchangeStudent::with('person.user')->find($id),
             'faculties' => Faculty::getOptions(),
@@ -47,8 +50,7 @@ class ExchangeStudentsController extends Controller
 
     public function submitEditFormExStudent(Request $request, $id)
     {
-
-
+        $this->authorize('acl', 'exchangeStudents.edit');
         $this->profileValidator($request->all())->validate();
 
         $exStudent = ExchangeStudent::with('person.user')->find($id);

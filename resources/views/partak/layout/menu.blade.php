@@ -5,11 +5,16 @@
                 <ul class="nav navbar-nav admin-nav">
                     <li><a href="{{ url('partak/') }}" @if(Request::is('partak')) class="active" @endif>Dashboard</a></li>
                     @can('acl', 'users.view')
-                    <li><a href="{{ url('partak/users/buddies') }}" @if(Request::is('partak/users/*')) class="active" @endif>Users</a></li>
+                    <li><a @if(Auth::user()->can('acl', 'buddy.view'))
+                                    href="{{ url('partak/users/buddies') }}"
+                           @elseif(Auth::user()->can('acl', 'exchangeStudents.view'))
+                                    href="{{ url('partak/users/exchange-students') }}"
+                           @endif @if(Request::is('partak/users/*')) class="active" @endif>Users</a></li>
                     @endcan
-                    @can('acl', 'trips', 'create')
+                    @can('acl', 'trips.view')
                     <li><a href="{{ url('partak/trips') }}" @if(Request::is('partak/trips') || Request::is('partak/trips/*')) class="active"@endif>Trips</a></li>
                     @endcan
+
                 </ul>
             </div>
         </div>

@@ -39,7 +39,8 @@ return [
             'resources' => [
                 'trips' => ['view'],
                 'participant' => ['add', 'remove'],
-                'exchangeStudents' => ['register', 'add', 'view'],
+                'users' => ['view'],
+                'exchangeStudents' => ['register', 'add', 'view', 'edit'],
             ],
             'inheritsFrom' => ['partak']
         ],
@@ -48,7 +49,9 @@ return [
             'id' => 10,
             'resources' => [
                 'buddy' => ['view', 'edit', 'remove'],
-                'exchangeStudents' => ['register', 'add', 'view']
+                'users' => ['view'],
+                'exchangeStudents' => ['view'],
+                'roles',    //zatim jenom v buddies edit formu
             ],
             'inheritsFrom' => ['partak']
         ],
@@ -56,9 +59,9 @@ return [
         'team' => [
             'id' => 4,
             'resources' => [
-                'users' => ['view'],
+                'trips' => ['edit', 'add'],
             ],
-            'inheritsFrom' => ['partak', 'point']
+            'inheritsFrom' => ['point']
         ],
 
         'board' => [
@@ -69,20 +72,28 @@ return [
             'inheritsFrom' => ['buddyManager', 'team']
         ],
 
+        'hr' => [
+            'id' => 12,
+            'resources' => [
+                'buddy' => ['verify'],
+            ],
+            'inheritsFrom' => ['board']
+        ],
+
+
         'admin' => [
             'id' => 7,
             'resources' => [
-
+                //'roles'
             ],
-            'inheritsFrom' => ['board', 'author']
+            'inheritsFrom' => ['hr']
         ],
 
         'supervisor' => [
             'id' => 1,
             'resources' => [
-                'partaknet',
-                'users' => ['view', 'edit'],
-                'trips',
+                'trips' => ['remove'],
+                'roles',
             ],
             'inheritsFrom' => ['admin']
         ],

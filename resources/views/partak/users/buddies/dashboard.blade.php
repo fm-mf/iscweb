@@ -34,29 +34,30 @@
                             </div>
                         </div>
                     @endif
-
-                    <h3>Not verified Buddies</h3>
-                    @if($notVerifiedBuddies->count() > 0)
-                    <div class="panel panel-default" id="protected">
-                        <table class="table">
-                            @foreach($notVerifiedBuddies->get() as $buddy)
-                                <tr>
-                                    <td>{{ $buddy->person->first_name }} {{ $buddy->person->last_name }}</td>
-                                    <td>{{ $buddy->user()->email }}</td>
-                                    <td align="right">
-                                        <protectedbutton url="{{ url('partak/users/buddies/approve/' . $buddy->id_user) }}"
-                                                         protection-text="Approve buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
-                                                         button-style="btn-success btn-xs">Approve</protectedbutton>
-                                        <protectedbutton url="{{ url('partak/users/buddies/deny/' . $buddy->id_user) }}"
-                                                         protection-text="Deny buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
-                                                         button-style="btn-danger btn-xs">Deny</protectedbutton>
-                                        <a href="{{ url('partak/users/buddies/' . $buddy->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </table>
-                    </div>
-                    @endif
+                    @can('acl', 'buddy.verify')
+                        <h3>Not verified Buddies</h3>
+                        @if($notVerifiedBuddies->count() > 0)
+                        <div class="panel panel-default" id="protected">
+                            <table class="table">
+                                @foreach($notVerifiedBuddies->get() as $buddy)
+                                    <tr>
+                                        <td>{{ $buddy->person->first_name }} {{ $buddy->person->last_name }}</td>
+                                        <td>{{ $buddy->user()->email }}</td>
+                                        <td align="right">
+                                            <protectedbutton url="{{ url('partak/users/buddies/approve/' . $buddy->id_user) }}"
+                                                             protection-text="Approve buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
+                                                             button-style="btn-success btn-xs">Approve</protectedbutton>
+                                            <protectedbutton url="{{ url('partak/users/buddies/deny/' . $buddy->id_user) }}"
+                                                             protection-text="Deny buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
+                                                             button-style="btn-danger btn-xs">Deny</protectedbutton>
+                                            <a href="{{ url('partak/users/buddies/' . $buddy->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                        @endif
+                    @endcan
                 </div><!-- /col -->
             </div>
         </div>

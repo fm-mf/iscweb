@@ -69,8 +69,9 @@
                 </div>
             </div>
         </div>
-        @include('partak.users.officeRegistration.search',['label' => 'Add Participant' .($trip->isFull())? 'as stand in' : '', 'target' => url('/partak/trips/detail/'. $trip->id_event .'/add/{id_user}')])
-
+        @can('acl', 'participant.add')
+            @include('partak.users.officeRegistration.search',['label' => 'Add Participant' .($trip->isFull())? 'as stand in' : '', 'target' => url('/partak/trips/detail/'. $trip->id_event .'/add/{id_user}')])
+        @endcan
         <div style="min-height: 300px">
             <div class="container">
                 <div class="row row-inner">
@@ -94,10 +95,13 @@
                                             <td>{{ $participant->person->getSex() }}</td>
                                             <td>{{ $participant->phone }}</td>
                                             <td>{{ $participant->esn_card_number }}</td>
-                                            <td><a href="{{ url('partak/users/exchange-students/' . $participant->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
-                                                <protectedbutton url="{{ url('partak/trips/'. $trip->id_event .'/remove/' . $participant->id_user) }}"
-                                                                 protection-text="Remove {{ $participant->person->first_name }} {{ $participant->person->last_name }} from event {{ $trip->name }}?"
-                                                                 button-style="btn btn-danger btn-xs">Remove</protectedbutton>
+                                            <td> @can('acl', 'exchangeStudents.view') <a href="{{ url('partak/users/exchange-students/' . $participant->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                                @endcan
+                                                @can('acl', 'participant.remove')
+                                                    <protectedbutton url="{{ url('partak/trips/'. $trip->id_event .'/remove/' . $participant->id_user) }}"
+                                                                     protection-text="Remove {{ $participant->person->first_name }} {{ $participant->person->last_name }} from event {{ $trip->name }}?"
+                                                                     button-style="btn btn-danger btn-xs">Remove</protectedbutton>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

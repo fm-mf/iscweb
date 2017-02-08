@@ -23,12 +23,13 @@ class OfficeRegistrationController extends Controller
 {
     public function showOfficeRegistrationDashboard()
     {
+        $this->authorize('acl', 'exchangeStudents.register');
         return view('partak.users.officeRegistration.dashboard');
     }
 
     public function showExchangeStudent($id)
     {
-        $exStudent = ExchangeStudent::eagerFind($id);
+        $this->authorize('acl', 'exchangeStudents.register');
         return view('partak.users.officeRegistration.register')->with([
             'exStudent' => ExchangeStudent::with('person.user')->find($id),
             'faculties' => Faculty::getOptions(),
@@ -38,6 +39,7 @@ class OfficeRegistrationController extends Controller
 
     public function esnRegistration($id)
     {
+        $this->authorize('acl', 'exchangeStudents.register');
         $exStudent = ExchangeStudent::find($id);
         $exStudent->esn_registered = 'y';
         $exStudent->save();
@@ -46,6 +48,7 @@ class OfficeRegistrationController extends Controller
 
     public function showCreateExStudent()
     {
+        $this->authorize('acl', 'exchangeStudents.add');
         $exStudent = new ExchangeStudent();
         return view('partak.users.officeRegistration.new')->with([
             'exStudent' => $exStudent,
@@ -57,7 +60,7 @@ class OfficeRegistrationController extends Controller
 
     public function createExStudent(Request $request)
     {
-        //TODO validation\
+        $this->authorize('acl', 'exchangeStudents.add');
         $this->profileValidator($request->all())->validate();
         $data = [];
         foreach ($request->all() as $key => $value) {
@@ -91,6 +94,7 @@ class OfficeRegistrationController extends Controller
 
     public function showPreregistrations($id = 1)
     {
+        $this->authorize('acl', 'exchangeStudents.register');
         return view('partak.users.preregistration')->with('currentId', $id);
     }
 

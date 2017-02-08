@@ -26,6 +26,7 @@ class BuddiesController extends Controller
 
     public function showBuddiesDashboard()
     {
+        $this->authorize('acl', 'buddy.view');
         return view('partak.users.buddies.dashboard')->with([
             'notVerifiedBuddies' => Buddy::with('person.user')->notVerified()->notDenied()
         ]);
@@ -33,6 +34,7 @@ class BuddiesController extends Controller
 
     public function showBuddyDetail($id)
     {
+        $this->authorize('acl', 'buddy.view');
         $buddy = Buddy::findBuddy($id);
         $semester = Settings::get('currentSemester');
         $myStudents = $buddy->exchangeStudents()->bySemester($semester)->with('person.user')->get();
@@ -46,6 +48,7 @@ class BuddiesController extends Controller
 
     public function removeExStudentFromBuddy($id_buddy, $id_exStudent)
     {
+        $this->authorize('acl', 'buddy.remove');
         $exStudent = ExchangeStudent::find($id_exStudent);
         $exStudent->removeBuddy();
         $removeSuccess = 'Buddy for exchange student with name '. $exStudent->person->first_name .' '. $exStudent->person->last_name .' was removed.';
@@ -54,6 +57,7 @@ class BuddiesController extends Controller
 
     public function showEditFormBuddy($id)
     {
+        $this->authorize('acl', 'buddy.edit');
         $buddy = Buddy::with('person.user')->find($id);
 
         JavaScript::put([
@@ -69,6 +73,7 @@ class BuddiesController extends Controller
 
     public function submitEditFormBuddy(Request $request, $id)
     {
+        $this->authorize('acl', 'buddy.edit');
         $this->profileValidator($request->all())->validate();
 
         $buddy = Buddy::with('person.user')->find($id);
@@ -92,6 +97,7 @@ class BuddiesController extends Controller
 
     public function approveBuddy($user_id)
     {
+        $this->authorize('acl', 'buddy.verify');
         $buddy = Buddy::find($user_id);
         if ($buddy) {
             $buddy->setVerified();
@@ -103,6 +109,7 @@ class BuddiesController extends Controller
 
     public function denyBuddy($user_id)
     {
+        $this->authorize('acl', 'buddy.verify');
         $buddy = Buddy::find($user_id);
         if ($buddy) {
             $buddy->setDenied();
