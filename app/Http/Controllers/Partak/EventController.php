@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
 use App\Models\Faculty;
+use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -66,10 +67,13 @@ class EventController extends Controller
 
     public function showEditForm($id_event)
     {
+        $this->authorize('acl', 'trips');
         $event = Event::find($id_event);
         //dd($event->organizers()->with('person.user')->get());
 
-
+        JavaScript::put([
+            'jsoptions' => ['organizers' => Buddy::all(), 'sorganizers' => $event->organizers()->with('person')->get()]
+        ]);
         return view('partak.trips.edit')->with([
             'event' => $event,
         ]);

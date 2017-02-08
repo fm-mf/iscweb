@@ -2,7 +2,7 @@
 
 {{ Form::bsText('name', 'Name') }}
 
-<multiselectinput formName="form" title="organizers" :options="options.organizers" :value="options.sroles" :show-labels="false" label="title" track-by="id_user" placeholder="Organizers"
+<multiselectinput formName="form" title="organizers" :options="options.organizers" :value="options.sorganizers" :show-labels="true" label="last_name" track-by="id_user" placeholder="Organizers"
                   :multiple="true"></multiselectinput>
 
 <div class="form-group row">

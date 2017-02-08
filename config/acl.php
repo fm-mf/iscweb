@@ -72,7 +72,7 @@ return [
         'admin' => [
             'id' => 7,
             'resources' => [
-                
+
             ],
             'inheritsFrom' => ['board', 'author']
         ],
@@ -84,7 +84,7 @@ return [
                 'users' => ['view', 'edit'],
                 'trips',
             ],
-            'inheritsFrom' => []
+            'inheritsFrom' => ['admin']
         ],
 
 
