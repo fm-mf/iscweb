@@ -138,7 +138,7 @@
                         ► Where?◄ <a href="http://stormclub.eu">Storm club (Tachovské nám. 290/5, 130 00 Praha 3)</a></p>
 
                     <p>
-                        ► <a href="https://www.facebook.com/events/1575563575999442/"><strong>Facebook event!</strong></a>
+                        ► <a href="https://www.facebook.com/events/135752213604976/"><strong>Facebook event!</strong></a>
                     </p>
 
                     <p><small>★ International
