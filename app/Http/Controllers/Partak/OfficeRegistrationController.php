@@ -23,8 +23,11 @@ class OfficeRegistrationController extends Controller
 {
     public function showOfficeRegistrationDashboard()
     {
+
         $this->authorize('acl', 'exchangeStudents.register');
-        return view('partak.users.officeRegistration.dashboard');
+        $esnRegistered = ExchangeStudent::byUniqueSemester(Settings::get('currentSemester'))
+            ->where('esn_registered', 'y')->with('person.user')->get();
+        return view('partak.users.officeRegistration.dashboard')->with(['esnRegistered' => $esnRegistered]);
     }
 
     public function showExchangeStudent($id)
