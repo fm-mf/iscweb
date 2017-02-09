@@ -26,7 +26,7 @@ class OfficeRegistrationController extends Controller
 
         $this->authorize('acl', 'exchangeStudents.register');
         $esnRegistered = ExchangeStudent::byUniqueSemester(Settings::get('currentSemester'))
-            ->where('esn_registered', 'y')->with('person.user')->get();
+            ->where('esn_registered', 'y')->count();
         return view('partak.users.officeRegistration.dashboard')->with(['esnRegistered' => $esnRegistered]);
     }
 
