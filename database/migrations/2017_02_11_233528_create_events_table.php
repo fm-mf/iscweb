@@ -15,17 +15,14 @@ class CreateEventsTable extends Migration {
 		Schema::create('events', function(Blueprint $table)
 		{
 			$table->increments('id_event');
-			$table->dateTime('datetime_from');
-			$table->dateTime('datetime_to');
-			$table->dateTime('registration_to')->nullable();
-			$table->dateTime('visible_from');
+			$table->dateTime('datetime_from')->nullable();
+			$table->dateTime('visible_from')->nullable();
 			$table->string('name', 200);
 			$table->string('facebook_url', 200)->nullable();
 			$table->text('description', 65535);
-			$table->integer('price')->unsigned()->nullable();
-			$table->integer('capacity')->unsigned()->nullable();
-            $table->timestamps();
-			$table->integer('modified_id_user')->unsigned();
+			$table->timestamps();
+			$table->integer('id_trip')->unsigned()->nullable()->index('id_trip');
+			$table->integer('modified_by')->unsigned()->index('modified_by');
 		});
 	}
 
