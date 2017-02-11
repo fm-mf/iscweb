@@ -17,6 +17,15 @@ class RolesController extends Controller
         return view('partak.roles.dashboard')->with(['roles' => $roles]);
     }
 
+    public function showPartaks()
+    {
+        $partaks = User::with('person')->whereHas('roles', function($query) {
+            $query->where('title', 'partak');
+        })->get();
+
+        return view('partak.roles.partaks')->with('partaks', $partaks);
+    }
+
     public function removeRole($userId, $roleId)
     {
         $user = User::find($userId);
@@ -24,7 +33,13 @@ class RolesController extends Controller
             return back()->withErrors(['user' => 'User not found.']);
         }
 
-        $role = Role::find($roleId);
+        if ($roleId == 'partak') {
+            $role = Role::where('title', 'partak')->first();
+            $roleId = $role->id_role;
+        } else {
+            $role = Role::find($roleId);
+        }
+
         if (!$role) {
             return back()->withErrors(['user' => 'Role not found.']);
         }
@@ -36,7 +51,7 @@ class RolesController extends Controller
         $user->roles()->detach($roleId);
         return back()->with([
             'successRemove' => 'Role <strong>' . $role->title . '</strong> successfully removed from
-            <strong>' . $user->person->first_name . $user->person->last_name . '</strong> '
+            <strong>' . $user->person->first_name . ' ' . $user->person->last_name . '</strong> '
         ]);
     }
 }

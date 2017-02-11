@@ -10,6 +10,7 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
 {
     Route::get('/', 'DashboardController@index');
     Route::get('/users/roles', 'RolesController@showDashboard');
+    Route::get('/users/partaks', 'RolesController@showPartaks');
     Route::get('/users/roles/remove/{id_user}/{id_role}', 'RolesController@removeRole');
 
     Route::get('/users/buddies', 'BuddiesController@showBuddiesDashboard');
