@@ -28,9 +28,12 @@
                 {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch', 'id' => 'roles']) }}
                     {{ Form::bsText('email', 'Email', $buddy->person->user->email) }}
                     {{ Form::bsText('phone', 'Phone') }}
-                    @can('acl', 'roles')
+                    @can('acl', 'roles.view')
                         <multiselectinput formName="roles" title="Roles" :options="options.roles" :value="options.sroles" :show-labels="false" label="title" track-by="id_role" placeholder="Roles"
                                      :multiple="true"></multiselectinput>
+                        @if ($errors->has('roles'))
+                            <p class="error-block alert-danger">{{ $errors->first('roles') }}</p>
+                        @endif
                     @endcan
                     {{ Form::bsSelect('id_faculty', 'Faculty', $faculties, $buddy->id_faculty, ['placeholder' => 'Choose faculty...']) }}
 

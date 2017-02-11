@@ -51,7 +51,7 @@ return [
                 'buddy' => ['view', 'edit', 'remove'],
                 'users' => ['view'],
                 'exchangeStudents' => ['view'],
-                'roles',    //zatim jenom v buddies edit formu
+                'roles' => ['view', 'partak', 'samoplatce']
             ],
             'inheritsFrom' => ['partak']
         ],
@@ -76,6 +76,7 @@ return [
             'id' => 12,
             'resources' => [
                 'buddy' => ['verify'],
+                'roles' => ['view', 'partak', 'buddyManager', 'point']
             ],
             'inheritsFrom' => ['board']
         ],
@@ -84,7 +85,7 @@ return [
         'admin' => [
             'id' => 7,
             'resources' => [
-                //'roles'
+                'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team']
             ],
             'inheritsFrom' => ['hr']
         ],
@@ -93,11 +94,9 @@ return [
             'id' => 1,
             'resources' => [
                 'trips' => ['remove'],
-                'roles',
+                'roles' => ['view', 'all'],
             ],
             'inheritsFrom' => ['admin']
         ],
-
-
-    ]
+    ],
 ];

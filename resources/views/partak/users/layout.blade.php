@@ -24,6 +24,12 @@
                             <a href="{{ url('partak/users/preregistrations') }}">Preregistrations</a>
                         </li>
                     @endcan
+
+                    @can('acl', 'roles.view')
+                            <li>
+                                <a href="{{ url('partak/users/roles') }}">Roles</a>
+                            </li>
+                        @endcan
                 </ul>
             </div>
             <div class="col-sm-9 no-padding matched-cols">
