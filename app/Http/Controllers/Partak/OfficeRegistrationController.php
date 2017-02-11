@@ -13,6 +13,7 @@ use App\Models\ExchangeStudent;
 use App\Models\Accommodation;
 use App\Models\Country;
 use App\Models\Person;
+use App\Models\Semester;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
@@ -75,6 +76,10 @@ class OfficeRegistrationController extends Controller
         $exStudent = ExchangeStudent::with('person.user')->find($exStudent->id_user);
         $exStudent->update($data);
         $exStudent->person->update($data);
+
+        $semester = Semester::where('semester', Settings::get('currentSemester'))->first();
+        $exStudent->semesters()->attach($semester->id_semester);
+
         return \Redirect::route('exStudent.edit',['id_user' => $exStudent->id_user]);
     }
 
