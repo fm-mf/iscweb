@@ -6,8 +6,10 @@ use App\Models\Person;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Tools\Cropper;
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
 
 class AvatarController extends Controller
 {
@@ -29,16 +31,25 @@ class AvatarController extends Controller
 
         $person = Person::find($user->id_user);
 
-        $cropper = new Cropper($request->input('avatar_src'), $request->input('avatar_data'), $request->file('avatar_file'));
+        $img = Image::make(Input::file('avatar_file'));
 
-        $person->avatar = $cropper->getResult();
+        $avatarData = json_decode(stripslashes($request->avatar_data));
+
+        $img->crop(intval($avatarData->width), intval($avatarData->height), intval($avatarData->x), intval($avatarData->y));
+        $img->resize(300, 300);
+
+        $fileName = \Ramsey\Uuid\Uuid::uuid4() . '.jpg';
+        $dst = storage_path() . '/app/avatars/' . $fileName;
+        $img->save($dst);
+
+        $person->avatar = $fileName;
         $person->save();
 
 
         return response()->json([
             'state' => 200,
-            'message' => $cropper->getMsg(),
-            'result' => asset('avatars/' . $cropper->getResult())
+            'message' => '',
+            'result' => asset('avatars/' . $fileName)
         ]);
     }
 }

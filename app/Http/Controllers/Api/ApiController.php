@@ -17,7 +17,7 @@ class ApiController extends Controller
         }
 
         $page = $request->page;
-        if ($page > 1) {d
+        if ($page > 1) {
             Paginator::currentPageResolver(function () use ($page) {
                 return $page;
             });

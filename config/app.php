@@ -177,6 +177,7 @@ return [
         Orangehill\Iseed\IseedServiceProvider::class,
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
         /*
@@ -249,7 +250,7 @@ return [
         'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
         'Settings' => \App\Settings\Facade::class,
         'Asana' => \Torann\LaravelAsana\Facade\Asana::class,
-
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

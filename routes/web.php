@@ -38,6 +38,8 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 
     Route::post('/load-preregister', 'ApiController@loadPreregister');
     Route::post('/load-preregister/save', 'ApiController@preregister');
+
+    Route::post('/trips', 'TripsAppController@index');
 });
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');
