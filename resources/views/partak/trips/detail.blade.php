@@ -20,13 +20,13 @@
                         <table class="table">
                             <tr>
                                 <th>Name</th>
-                                <td>{{ $trip->name }}</td>
+                                <td>{{ $trip->event->name }}</td>
                             </tr>
                             <tr>
                                 <th>From</th>
-                                <td>{{ $trip->datetime_from->toFormattedDateString() }}</td>
+                                <td>{{ $trip->event->datetime_from->toFormattedDateString() }}</td>
                                 <th>To</th>
-                                <td>{{ $trip->datetime_to->toFormattedDateString() }}</td>
+                                <td>{{ $trip->trip_date_to->toFormattedDateString() }}</td>
                             </tr>
                             <tr>
                                 <th>Capacity</th>
@@ -70,7 +70,7 @@
             </div>
         </div>
         @can('acl', 'participant.add')
-            @include('partak.users.officeRegistration.search',['label' => 'Add Participant' .($trip->isFull())? 'as stand in' : '', 'target' => url('/partak/trips/detail/'. $trip->id_event .'/add/{id_user}')])
+            @include('partak.users.officeRegistration.search',['label' => 'Add Participant' .($trip->isFull())? 'as stand in' : '', 'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}')])
         @endcan
         <div style="min-height: 300px">
             <div class="container">
@@ -90,7 +90,7 @@
                                     </tr>
                                     @foreach($particip as $participant)
                                         <tr>
-                                            <td>@if($participant->events()->wherePivot('stand_in', 'y')->where('events.id_event', $trip->id_event)->exists()) <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->person->first_name .' '. $participant->person->last_name}}</td>
+                                            <td>@if($participant->trips()->wherePivot('stand_in', 'y')->where('trips.id_trip', $trip->id_trip)->exists()) <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->person->first_name .' '. $participant->person->last_name}}</td>
                                             <td>{{ $participant->person->user->email }}</td>
                                             <td>{{ $participant->person->getSex() }}</td>
                                             <td>{{ $participant->phone }}</td>
@@ -98,7 +98,7 @@
                                             <td> @can('acl', 'exchangeStudents.view') <a href="{{ url('partak/users/exchange-students/' . $participant->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                                 @endcan
                                                 @can('acl', 'participant.remove')
-                                                    <protectedbutton url="{{ url('partak/trips/'. $trip->id_event .'/remove/' . $participant->id_user) }}"
+                                                    <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
                                                                      protection-text="Remove {{ $participant->person->first_name }} {{ $participant->person->last_name }} from event {{ $trip->name }}?"
                                                                      button-style="btn btn-danger btn-xs">Remove</protectedbutton>
                                                 @endcan

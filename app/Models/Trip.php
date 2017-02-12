@@ -28,12 +28,12 @@ class Trip extends Model
 
     public function organizers()
     {
-        return $this->belongsToMany('\App\Models\Buddy', 'trips_organizers', 'id_trip', 'id_user');
+        return $this->belongsToMany('\App\Models\Buddy', 'trips_organizers', 'id_trip', 'id_user')->withTimestamps();
     }
 
     public function participants()
     {
-        return $this->belongsToMany('\App\Models\ExchangeStudent', 'trips_participants', 'id_trip', 'id_user');
+        return $this->belongsToMany('\App\Models\ExchangeStudent', 'trips_participants', 'id_trip', 'id_user')->withTimestamps();
     }
 
     public function event()
@@ -66,8 +66,10 @@ class Trip extends Model
         if ($standIn == 'y' && !$allowStandIn) {
             return self::TRIP_FULL;
         }
-
-        $this->attach($idPart, ['stand_in' => $standIn]);
+        $this->participants()->attach($idPart, [
+            'stand_in' => $standIn,
+            'registered_by' => \Auth::id(),
+        ]);
 
         return ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;
     }
@@ -80,7 +82,7 @@ class Trip extends Model
             $standIn = $this->standInParticipants()->first();
             if(isset($standIn))
             {
-                $this->updateExistingPivot($standIn, ['stand_in' => 'n']);
+                $this->participants()->updateExistingPivot($standIn->id_user, ['stand_in' => 'n']);
             }
         }
         $this->participants()->detach($idPart);
@@ -89,17 +91,20 @@ class Trip extends Model
     public static function createTrip($data)
     {
         $event = Event::createEvent($data);
+        return DB::transaction(function () use ($data,$event) {
 
-        $trip = new Trip();
-        $trip->id_event = $event->id_event;
-        $time = $data['registration_time'] ? $data['registration_time'] : "00:00 AM";
-        $trip->registration_from = Carbon::createFromFormat('d M Y g:i A', $data['registration_date'] . ' ' . $time);
-        $time = $data['tripEnd_time'] ? $data['tripEnd_time'] : "00:00 AM";
-        $trip->trip_date_to = Carbon::createFromFormat('d M Y g:i A', $data['tripEnd_date'] . ' ' . $time);
-        $trip->capacity = $data['capacity'];
-        $trip->price = $data['price'];
-        $trip->modified_by = Auth::id();
-        $trip->save();
+            $trip = new Trip();
+            $trip->id_event = $event->id_event;
+            $time = $data['registration_time'] ? $data['registration_time'] : "00:00 AM";
+            $trip->registration_from = Carbon::createFromFormat('d M Y g:i A', $data['registration_date'] . ' ' . $time);
+            $time = $data['tripEnd_time'] ? $data['tripEnd_time'] : "00:00 AM";
+            $trip->trip_date_to = Carbon::createFromFormat('d M Y g:i A', $data['tripEnd_date'] . ' ' . $time);
+            $trip->capacity = $data['capacity'];
+            $trip->price = $data['price'];
+            $trip->modified_by = Auth::id();
+            $trip->save();
+            return $trip;
+        });
     }
 
 

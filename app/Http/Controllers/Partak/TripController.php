@@ -45,14 +45,16 @@ class TripController extends Controller
     public function addParticipantToTrip($id_trip, $id_part)
     {
         $this->authorize('acl', 'participant.add');
-        $result = Trip::find($id_trip)->addParticipant($id_part);
+        $trip = Trip::find($id_trip);
+        $result = $trip->addParticipant($id_part);
         return back()->with(['addSuccess' => true]);
     }
 
     public function removeParticipantFromTrip($id_trip, $id_part)
     {
         $this->authorize('acl', 'participant.remove');
-        $result = Trip::find($id_trip)->removeParticipant($id_part);
+        $trip = Trip::find($id_trip);
+        $result = $trip->removeParticipant($id_part);
         return back()->with(['removeSuccess' => true]);
     }
 

@@ -49,17 +49,19 @@ class Event extends Model
 
     public static function createEvent($data)
     {
-        $event = new Event();
-        $time = $data['visible_time'] ? $data['visible_time'] : "00:00 AM";
-        $event->visible_from = Carbon::createFromFormat('d M Y g:i A', $data['visible_date'] . ' ' . $time);
-        $time = $data['start_time'] ? $data['start_time'] : "00:00 AM";
-        $event->datetime_from = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time);
-        $event->name = $data['name'];
-        $event->description = $data['description'];
-        $event->facebook_url = $data['facebook_url'];
-        $event->modified_by = Auth::id();
-        $event->save();
-        return $event;
+        return DB::transaction(function () use ($data) {
+            $event = new Event();
+            $time = $data['visible_time'] ? $data['visible_time'] : "00:00 AM";
+            $event->visible_from = Carbon::createFromFormat('d M Y g:i A', $data['visible_date'] . ' ' . $time);
+            $time = $data['start_time'] ? $data['start_time'] : "00:00 AM";
+            $event->datetime_from = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time);
+            $event->name = $data['name'];
+            $event->description = $data['description'];
+            $event->facebook_url = $data['facebook_url'];
+            $event->modified_by = Auth::id();
+            $event->save();
+            return $event;
+        });
     }
 
 }
