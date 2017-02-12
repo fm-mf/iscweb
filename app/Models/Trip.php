@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Trip extends Model
 {
@@ -90,21 +92,30 @@ class Trip extends Model
 
     public static function createTrip($data)
     {
+        $data = self::updateDatetimes($data);
         $event = Event::createEvent($data);
-        return DB::transaction(function () use ($data,$event) {
+        $id_user = Auth::id();
+        return DB::transaction(function () use ($data, $event, $id_user) {
 
             $trip = new Trip();
             $trip->id_event = $event->id_event;
-            $time = $data['registration_time'] ? $data['registration_time'] : "00:00 AM";
-            $trip->registration_from = Carbon::createFromFormat('d M Y g:i A', $data['registration_date'] . ' ' . $time);
-            $time = $data['tripEnd_time'] ? $data['tripEnd_time'] : "00:00 AM";
-            $trip->trip_date_to = Carbon::createFromFormat('d M Y g:i A', $data['tripEnd_date'] . ' ' . $time);
+            $trip->registration_from = $data['registration_from'];
+            $trip->trip_date_to = $data['trip_date_to'];
             $trip->capacity = $data['capacity'];
             $trip->price = $data['price'];
-            $trip->modified_by = Auth::id();
+            $trip->modifid_by = $id_user;
             $trip->save();
             return $trip;
         });
+    }
+
+    protected static function updateDatetimes($data)
+    {
+        $time = $data['registration_time'] ? $data['registration_time'] : "00:00 AM";
+        $data['registration_from'] = Carbon::createFromFormat('d M Y g:i A', $data['registration_date'] . ' ' . $time);
+        $time = $data['end_time'] ? $data['end_time'] : "00:00 AM";
+        $data['trip_date_to'] = Carbon::createFromFormat('d M Y g:i A', $data['end_date'] . ' ' . $time);
+        return $data;
     }
 
 

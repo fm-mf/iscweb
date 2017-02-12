@@ -23,6 +23,7 @@ class CreateEventsTable extends Migration {
 			$table->timestamps();
 			$table->integer('id_trip')->unsigned()->nullable()->index('id_trip');
 			$table->integer('modified_by')->unsigned()->index('modified_by');
+			$table->string('cover', 100)->nullable();
 		});
 	}
 

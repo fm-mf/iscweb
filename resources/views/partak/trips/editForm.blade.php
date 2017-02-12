@@ -27,19 +27,19 @@
 
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('date', 'Registration to date', ['class' => 'control-label']) }}
+        {{ Form::label('date', 'Registration from date', ['class' => 'control-label']) }}
         @if ($errors->has('date'))
             <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
         @endif
-        {{ Form::text('registration_date', $event->registration_to->format('d M Y'), ['id' => 'registration_date', 'class' => 'form-control arrival date']) }}
+        {{ Form::text('registration_date', $trip->registration_from->format('d M Y'), ['id' => 'registration_date', 'class' => 'form-control arrival date']) }}
 
     </div>
     <div class="col-sm-6 right">
-        {{ Form::label('time', 'Registration to time', ['class' => 'control-label']) }}
+        {{ Form::label('time', 'Registration from time', ['class' => 'control-label']) }}
         @if ($errors->has('time'))
             <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
         @endif
-        {{ Form::text('registration_time', $event->registration_to->format('g:i A'), ['id' => 'registration_time', 'class' => 'form-control arrival time']) }}
+        {{ Form::text('registration_time', $trip->registration_from->format('g:i A'), ['id' => 'registration_time', 'class' => 'form-control arrival time']) }}
 
     </div>
     <div class="col-sm-6 info"></div>
@@ -71,7 +71,7 @@
         @if ($errors->has('date'))
             <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
         @endif
-        {{ Form::text('end_date', $event->datetime_to->format('d M Y'), ['id' => 'end_date', 'class' => 'form-control arrival date']) }}
+        {{ Form::text('end_date', $trip->trip_date_to->format('d M Y'), ['id' => 'end_date', 'class' => 'form-control arrival date']) }}
 
     </div>
     <div class="col-sm-6 right">
@@ -79,7 +79,7 @@
         @if ($errors->has('time'))
             <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
         @endif
-        {{ Form::text('end_time', $event->datetime_to->format('g:i A'), ['id' => 'end_time', 'class' => 'form-control arrival time']) }}
+        {{ Form::text('end_time', $trip->trip_date_to->format('g:i A'), ['id' => 'end_time', 'class' => 'form-control arrival time']) }}
 
     </div>
     <div class="col-sm-6 info"></div>
@@ -88,9 +88,9 @@
 {{ Form::bsText('facebook_url', 'Facebook event (url)') }}
 {{ Form::bsTextarea('description', 'Description (in English)') }}
 {{ Form::label('capacity', 'Capacity', ['class' => 'control-label']) }}
-{{ Form::number('capacity', $event->capacity, ['class' => 'form-control']) }}
+{{ Form::number('capacity', $trip->capacity, ['class' => 'form-control']) }}
 {{ Form::label('price', 'Price', ['class' => 'control-label']) }}
-{{ Form::number('price', $event->price, ['class' => 'form-control']) }}
+{{ Form::number('price', $trip->price, ['class' => 'form-control']) }}
 
 @section('stylesheets')
     @parent

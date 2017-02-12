@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Event extends Model
 {
@@ -49,19 +51,29 @@ class Event extends Model
 
     public static function createEvent($data)
     {
-        return DB::transaction(function () use ($data) {
+        $data = self::updateDatetimes($data);
+        $id_user = Auth::id();
+        return DB::transaction(function () use ($data, $id_user) {
             $event = new Event();
-            $time = $data['visible_time'] ? $data['visible_time'] : "00:00 AM";
-            $event->visible_from = Carbon::createFromFormat('d M Y g:i A', $data['visible_date'] . ' ' . $time);
-            $time = $data['start_time'] ? $data['start_time'] : "00:00 AM";
-            $event->datetime_from = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time);
+
+            $event->visible_from = $data['visible_from'];
+            $event->datetime_from = $data['datetime_from'];
             $event->name = $data['name'];
             $event->description = $data['description'];
             $event->facebook_url = $data['facebook_url'];
-            $event->modified_by = Auth::id();
+            $event->modified_by = $id_user;
             $event->save();
             return $event;
         });
+    }
+
+    protected static function updateDatetimes($data)
+    {
+        $time = $data['visible_time'] ? $data['visible_time'] : "00:00 AM";
+        $data['visible_from'] = Carbon::createFromFormat('d M Y g:i A', $data['visible_date'] . ' ' . $time);
+        $time = $data['start_time'] ? $data['start_time'] : "00:00 AM";
+        $data['datetime_from'] = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time);
+        return $data;
     }
 
 }
