@@ -25,7 +25,6 @@ class EventController extends Controller
 {
     public function showDashboard()
     {
-        //dd(\Carbon\Carbon::today()->toDateTimeString());
         $this->authorize('acl', 'trips.view');
         $visibleEvents = Event::findAllVisible();
         return view('partak.trips.dashboard')->with(['visibleEvents' => $visibleEvents,]);

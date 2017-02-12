@@ -22,10 +22,17 @@ class Event extends Model
         return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
     }
 
+    /*
     public function trip()
     {
         return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
     }
+    */
+    public function hasTrip()
+    {
+        return Trip::where('id_event', $this->id_event)->exists();
+    }
+
 
     public static function findAllVisible()
     {
@@ -40,6 +47,19 @@ class Event extends Model
         return Event::with('modified_by.user');
     }
 
-
+    public static function createEvent($data)
+    {
+        $event = new Event();
+        $time = $data['visible_time'] ? $data['visible_time'] : "00:00 AM";
+        $event->visible_from = Carbon::createFromFormat('d M Y g:i A', $data['visible_date'] . ' ' . $time);
+        $time = $data['start_time'] ? $data['start_time'] : "00:00 AM";
+        $event->datetime_from = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time);
+        $event->name = $data['name'];
+        $event->description = $data['description'];
+        $event->facebook_url = $data['facebook_url'];
+        $event->modified_by = Auth::id();
+        $event->save();
+        return $event;
+    }
 
 }
