@@ -62,20 +62,52 @@
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day col-sm-height" style="background-image:url({{ asset('img/web/events/buddy_beer.jpg') }})">
-                        <span class="day">Saturday<br>February<br><strong>11th</strong><br>8pm</span>
-                        <h2>Buddy Beer</h2>
+                    <div class="col-sm-6 ow-day ow-1 col-sm-height">
+                        <span class="day">Monday<br>February<br><strong>13th</strong></span>
+                        <h2>First orientation day</h2>
                     </div>
                     <div class="col-sm-6 ow-detail col-sm-height col-top">
-                        Welcooooome to The Beer Country! :D<br>
-                        <a href="https://www.youtube.com/watch?v=hSqO16fA9yY">https://www.youtube.com/watch?v=hSqO16fA9yY</a><br>
-                        How else we can welcome you here than with beer tasting! :P<br>
-                        Come and tap your own beer in a pub! You will get to know other exchange students and in the pub quiz you can win some prizes
+                        <table>
+                            <tr>
+                                <th>10:30 - 14:30</th>
+                                <td><strong>First information meeting</strong> (Important to attend)<br>
+                                    <small>(Official Welcome, Studying at CTU, CTU Information Systems, All about the ISC, Sports at CTU, What you need to know about the Czech Republic)</small><br>
+                                    <small>at <strong>Faculty of Civil Engineering, room D-1122</strong> (<a href="https://goo.gl/maps/ihLTv5fobsT2">see the map</a>)</small><br>
+                                    <small>We will have two <strong>meeting points</strong>:
+                                        <ul class="">
+                                            <li>Masarykova Dormitory (in the lobby) 10:00</li>
+                                            <li>Strahov (at the bus stop 143, direction Dejvická) 9:45</li>
+                                        </ul>
+                                    </small>
+                                    <small><>Meeting points - more information</a></small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>20:00 &ndash; 01:00</th>
+                                <td><strong>Tandem Party</strong><br>
+                                    <small>(Café V lese)</small><br>
+                                    <small><a>Meeting points and times</a></small>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('img/web/events/Tandem_spring2017.jpg') }});">
+                        <span class="day">Monday<br>February<br><strong>13th</strong><br>8pm</span>
+                        <h2>Tandem Evening</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top">
                         <p>
-                            <b>Where:</b><a href="http://www.thepub.cz/praha-6/?lng=en">The Pub</a>, <a href="https://goo.gl/maps/qEa96dZMiCE2">Československé armády 785/22</a>
+                            Get involved in our unique language learning program and enjoy the first party of the semester! Here you can meet your tandem partner to practice your language skills and have a beer in Masarykova Pub.
                         </p>
                         <p>
-                            ► <a href="https://www.facebook.com/events/204887869986427/">Facebook event</a>
+                            Where:</b> <a href="https://goo.gl/maps/2c3qWUjNYE32">Café V lese (Krymská 12, 101 00 Praha 10)</a><br>
+                            <!-- a href="https://isc.cvut.cz/ow">Meeting points and times</a --><br>
+                        </p>
+                        <p>
+                            ► <a href="https://www.facebook.com/events/614492665410482/"><strong>Facebook event!</strong></a>
                         </p>
                     </div>
                 </div>

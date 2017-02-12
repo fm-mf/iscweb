@@ -16,25 +16,6 @@
 
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day col-sm-height" style="background-image:url({{ asset('img/web/events/buddy_beer.jpg') }})">
-                    <span class="day">Saturday<br>February<br><strong>11th</strong><br>8pm</span>
-                    <h2>Buddy Beer</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top">
-                    Welcooooome to The Beer Country! :D<br>
-                   <a href="https://www.youtube.com/watch?v=hSqO16fA9yY">https://www.youtube.com/watch?v=hSqO16fA9yY</a><br>
-                    How else we can welcome you here than with beer tasting! :P<br>
-                    Come and tap your own beer in a pub! You will get to know other exchange students and in the pub quiz you can win some prizes
-                    <p>
-                        <b>Where:</b><a href="http://www.thepub.cz/praha-6/?lng=en">The Pub</a>, <a href="https://goo.gl/maps/qEa96dZMiCE2">Československé armády 785/22</a>
-                    </p>
-                    <p>
-                        ► <a href="https://www.facebook.com/events/204887869986427/">Facebook event</a>
-                    </p>
-                </div>
-            </div>
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-1 col-sm-height">
                     <span class="day">Monday<br>February<br><strong>13th</strong></span>
                     <h2>First orientation day</h2>
@@ -166,50 +147,32 @@
                     <p>
                         During the Orientation Week you will also have an amazing opportunity to explore some great places around the Czech Republic with ISC members.
                     </p>
-                    <p>
-                    <p><br><br><br><br>
-                    <!-- table class="trips-list">
+                    <table class="trips-list">
                         <tr>
-                            <th>South Moravia</th>
-                            <td>Thursday 29th - Friday 30th</td>
+                            <th>South Bohemia</th>
+                            <td>16th-17th February</td>
                         </tr>
                         <tr>
-                            <th>Jeseníky Mountains</th>
-                            <td>Thursday 29th - Saturday 1st</td>
-                        </tr>
-                        <tr>
-                            <th>Petřín Hill & Prague Castle</th>
-                            <td>Friday 30th</td>
-                        </tr>
-                        <tr>
-                            <th>Ostrava - The City of Steel</th>
-                            <td>Saturday 1st - Sunday 2nd</td>
-                        </tr>
-                        <tr>
-                            <th>Adršpach</th>
-                            <td>Saturday 1st - Sunday 2nd</td>
-                        </tr>
-                        <tr>
-                            <th>Czech Switzerland & Lužické Mts.</th>
-                            <td>Saturday 1st - Sunday 2nd</td>
+                            <th>Gotic Castle Karlštejn + Kozel Brewery</th>
+                            <td>18th February (meeting 9:30 - yee no early waking up!)</td>
                         </tr>
                         <tr>
                             <th>Kutná Hora</th>
-                            <td>Saturday 1st</td>
+                            <td>18th February</td>
                         </tr>
                         <tr>
-                            <th>Walk & Campfire in Prokop Valley</th>
-                            <td>Saturday 1st</td>
+                            <th>Karlovy Vary</th>
+                            <td>18th-19th February</td>
+                        </tr>
+                        <tr>
+                            <th>South Moravia Wine Trip</th>
+                            <td>18th-19th February</td>
                         </tr>
                         <tr>
                             <th>Pilsen</th>
-                            <td>Sunday 2nd. Meeting point: <a href="https://www.google.cz/maps/place/50%C2%B006'07.1%22N+14%C2%B023'20.3%22E/@50.1019704,14.3714626,14z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d50.1019722!4d14.3889722">HERE</a>, Departure time: 9:00</td>
+                            <td>25th February</td>
                         </tr>
-                        <tr>
-                            <th>Nostalgic Tram Ride</th>
-                            <td>Sunday 2nd</td>
-                        </tr>
-                    </table -->
+                   </table>
                     </p>
                 </div>
             </div>
