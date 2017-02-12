@@ -41,11 +41,6 @@ class TripsAppController extends Controller
 
     public function index(Request $request)
     {
-        return response()->json([
-            self::FIELD_STATUS => self::STATUS_SUCCESS,
-            self::FIELD_DATA => [],
-            self::FIELD_TRIPS => []
-        ]);
 
 
         if (!$this->authenticate($request)) {
@@ -194,5 +189,9 @@ class TripsAppController extends Controller
         return true;
     }
 }
+
+[
+    ''
+]
 
 ?>
