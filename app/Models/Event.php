@@ -36,6 +36,7 @@ class Event extends Model
 
     public function update(array $attributes = [], array $options = [])
     {
+        //dd($attributes);
         return parent::update(self::updateDatetimes($attributes), $options);
     }
 

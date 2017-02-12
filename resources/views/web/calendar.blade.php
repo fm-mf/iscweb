@@ -225,11 +225,14 @@
                             <h2>{{ $event->name }}</h2>
                         </div>
                         <div class="col-sm-6 ow-detail col-sm-height col-top">
-                            <p>
-                                {{ $event->description }}
+
+                                {!! $event->description !!}
+
+                            @if(isset($event->facebook_url) && $event->facebook_url != NULL)
                             <p>
                                 ► <a href="{{ $event->facebook_url }}"><strong>Facebook event!</strong></a>
                             </p>
+                            @endif
                         </div>
                     </div>
                 @endforeach
