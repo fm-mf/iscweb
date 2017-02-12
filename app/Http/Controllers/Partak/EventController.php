@@ -26,7 +26,7 @@ class EventController extends Controller
     public function showDashboard()
     {
         $this->authorize('acl', 'events.view');
-        $visibleEvents = Event::findAllVisible();
+        $visibleEvents = Event::findAllActive();
         return view('partak.events.dashboard')->with(['activeEvents' => $visibleEvents,]);
     }
 

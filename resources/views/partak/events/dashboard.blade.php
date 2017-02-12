@@ -10,12 +10,14 @@
                         <table class="table">
                             <tr>
                                 <th>Name</th>
+                                <th>Visible from</th>
                                 <th>From</th>
                                 <th>Detail</th>
                             </tr>
                             @foreach($activeEvents as $event)
                                 <tr>
                                     <td>{{ $event->name }}</td>
+                                    <td>{{ $event->visible_from->toFormattedDateString() }}</td>
                                     <td>{{ $event->datetime_from->toFormattedDateString() }}</td>
                                     <td><a href="{{ url('partak/events/edit/' . $event->id_event) }}" role="button" class="btn btn-info btn-xs">Detail</a></td>
                                     @can('acl', 'trips.remove') <td><protectedbutton  url="{{ url('partak/events/delete/'. $event->id_event) }}"

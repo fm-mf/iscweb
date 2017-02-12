@@ -42,13 +42,22 @@ class Event extends Model
     public function cover()
     {
         //TODO: vratit spravny cover
-        return asset('img/web/events/Beer_pong.jpg');
+        return asset('/img/web/events/Beer_pong.jpg');
     }
 
     public static function findAllVisible()
     {
         return Event::with('modifiedBy.user')
             ->whereDate('datetime_from', '>=', Carbon::today())
+            ->whereDate('visible_from','<=', Carbon::today())
+            ->get();
+    }
+
+    public static function findAllActive()
+    {
+        return Event::with('modifiedBy.user')
+            ->whereDate('datetime_from', '>=', Carbon::today())
+            //->whereDate('visible_from','<=', Carbon::today())
             ->get();
     }
 

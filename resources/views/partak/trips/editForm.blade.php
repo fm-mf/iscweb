@@ -2,6 +2,8 @@
 
 {{ Form::bsText('name', 'Name') }}
 
+<!-- TODO: Pridat moznost pridani coveru eventu -->
+
 <div class="form-group row">
     <div class="col-sm-6 left">
         {{ Form::label('date', 'Visible from date', ['class' => 'control-label']) }}
