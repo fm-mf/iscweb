@@ -65,7 +65,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
         Route::get('/activities/integreat', function() { return view('web.activities.integreat'); });
         Route::get('/activities/trips', function() { return view('web.activities.trips'); });
     Route::get('/contact', 'WebController@showContacts');
-    Route::get('/calendar', function() { return view('web.calendar'); });
+    Route::get('/calendar', 'WebController@showCalendar');
     Route::get('/buddy', function () { return view('web.buddy'); });
     Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); });
 });

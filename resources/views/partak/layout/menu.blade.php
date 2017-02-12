@@ -14,6 +14,9 @@
                     @can('acl', 'trips.view')
                     <li><a href="{{ url('partak/trips') }}" @if(Request::is('partak/trips') || Request::is('partak/trips/*')) class="active"@endif>Trips</a></li>
                     @endcan
+                    @can('acl', 'events.view')
+                        <li><a href="{{ url('partak/events') }}" @if(Request::is('partak/events') || Request::is('partak/events/*')) class="active"@endif>Events</a></li>
+                    @endcan
 
                 </ul>
             </div>

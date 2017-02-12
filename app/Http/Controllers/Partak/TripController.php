@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Partak;
 
 use App\Models\Buddy;
+use App\Models\Event;
 use App\Models\ExchangeStudent;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -67,7 +68,8 @@ class TripController extends Controller
             'jsoptions' => ['organizers' => Buddy::all(), 'sorganizers' => $trip->organizers()->with('person')->get()]
         ]);
         return view('partak.trips.edit')->with([
-            'Trip' => $trip,
+            'trip' => $trip,
+            'event' => $trip->event,
         ]);
     }
 
@@ -96,12 +98,15 @@ class TripController extends Controller
     {
         $this->authorize('acl', 'trips.add');
         $trip = new Trip();
-        dd($trip);
-        $trip->event->visible_from = Carbon::now();//
-        $trip->event->datetime_from = Carbon::now();//
+        $event = new Event();
+        $event->visible_from = Carbon::now();//
+        $event->datetime_from = Carbon::now();//
         $trip->registration_from = Carbon::now();//
         $trip->trip_date_to = Carbon::now();//
-        return view('partak.trips.Create')->with(['trip' => $trip,]);
+        return view('partak.trips.Create')->with([
+            'trip' => $trip,
+            'event' => $event
+        ]);
     }
 
     public function submitCreateForm(Request $request)

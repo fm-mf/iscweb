@@ -1,4 +1,4 @@
-@extends('partak.trips.layout')
+@extends('partak.events.layout')
 @section('inner-content')
 
     @if(session('successUpdate'))
@@ -15,10 +15,10 @@
     <div class="container">
         <div class="row row-inner" id="form">
             <div class="col-md-7">
-                <h2>Edit trip</h2>
-                {{ Form::model($event, ['url' => 'partak/trips/edit/'. $event->id_event, 'method' => 'patch', 'id' => 'form']) }}
+                <h2>Edit event</h2>
+                {{ Form::model($event, ['url' => 'partak/events/edit/'. $event->id_event, 'method' => 'patch', 'id' => 'form']) }}
 
-                @include('partak.trips.editForm',['trips' => true])
+                @include('partak.trips.editForm',['trips' => false])
 
                 {{ Form::bsSubmit('Update event') }}
 

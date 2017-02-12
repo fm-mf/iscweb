@@ -214,6 +214,27 @@
                 </div>
             </div>
 
+            @if(isset($events) && $events->count() > 0)
+                @foreach($events as $event)
+                    <span class="vspace"></span>
+                    <div class="row row-ow row-sm-height">
+                        <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ $event->cover() }})">
+                            <span class="day">{{ $event->datetime_from->format('l') }}<br>{{ $event->datetime_from->format('F') }}<br>
+                                <strong>{{ $event->datetime_from->format('jS') }}</strong><br>
+                                {{ $event->datetime_from->hour }}{{ ($event->datetime_from->minute == 0) ? $event->datetime_from->format('a') : $event->datetime_from->format(':ia') }}</span>
+                            <h2>{{ $event->name }}</h2>
+                        </div>
+                        <div class="col-sm-6 ow-detail col-sm-height col-top">
+                            <p>
+                                {{ $event->description }}
+                            <p>
+                                ► <a href="{{ $event->facebook_url }}"><strong>Facebook event!</strong></a>
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+
         </div>
     </div>
 
