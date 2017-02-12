@@ -35,7 +35,12 @@
                                 <td></td>
                             </tr>
                             <tr>
-
+                                <th>Price</th>
+                                <td>{{ $trip->price }} Kč</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
                             </tr>
                         </table>
                     </div>
@@ -70,7 +75,7 @@
             </div>
         </div>
         @can('acl', 'participant.add')
-            @include('partak.users.officeRegistration.search',['label' => 'Add Participant' .($trip->isFull())? 'as stand in' : '', 'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}')])
+            @include('partak.users.officeRegistration.search',['label' => 'Add Participant', 'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}')])
         @endcan
         <div style="min-height: 300px">
             <div class="container">
@@ -107,7 +112,7 @@
                                     @endforeach
                                 </table>
                             </div>
-                        @else Event doesn't participants
+                        @else Event doesn't have participants
                         @endif
                     </div>
                 </div>

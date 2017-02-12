@@ -19,9 +19,7 @@ class Trip extends Model
 
     protected $dates = ['registration_from', 'trip_date_to', 'registration_to', 'updated_at', 'created_at'];
 
-    protected $fillable = [
-
-    ];
+    protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'updated_at', 'created_at', 'capacity', 'price', 'modifid_by'];
 
     public function modifiedBy()
     {
@@ -68,31 +66,40 @@ class Trip extends Model
         if ($standIn == 'y' && !$allowStandIn) {
             return self::TRIP_FULL;
         }
-        $this->participants()->attach($idPart, [
-            'stand_in' => $standIn,
-            'registered_by' => \Auth::id(),
-        ]);
+        if(! $this->participants()->find($idPart))
+        {
+            $this->participants()->attach($idPart, [
+                'stand_in' => $standIn,
+                'registered_by' => Auth::id(),
+                'paid' => $standIn == 'y' ? 0 : $this->price,
+            ]);
+        }
 
         return ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;
     }
 
     public function removeParticipant($idPart)
     {
-        $part = ExchangeStudent::find($idPart);
-        if($this->isFull())
+        $part = $this->participants()->withPivot('stand_in')->find($idPart);
+        if($this->isFull() && $part->pivot->stand_in == 'n')
         {
             $standIn = $this->standInParticipants()->first();
             if(isset($standIn))
             {
-                $this->participants()->updateExistingPivot($standIn->id_user, ['stand_in' => 'n']);
+                $this->participants()->updateExistingPivot($standIn->id_user, ['stand_in' => 'n', 'paid' => $this->price]);
             }
         }
         $this->participants()->detach($idPart);
     }
 
+    public function update(array $attributes = [], array $options = [])
+    {
+        return parent::update(self::updateDatetimes($attributes), $options);
+    }
+
     public static function createTrip($data)
     {
-        $data = self::updateDatetimes($data);
+        $data = updateDatetimes($data);
         $event = Event::createEvent($data);
         $id_user = Auth::id();
         return DB::transaction(function () use ($data, $event, $id_user) {

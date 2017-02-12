@@ -22,7 +22,7 @@
                                     <td>{{ $trip->trip_date_to->toFormattedDateString() }}</td>
                                     <td>{{ $trip->price }}@if(isset($trip->price)) Kč@endif</td>
                                     <td><a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a></td>
-                                    @can('acl', 'trips.remove') <td><protectedbutton  url="{{ url('partak/trips/delete/'. $trip->id_event) }}"
+                                    @can('acl', 'trips.remove') <td><protectedbutton  url="{{ url('partak/trips/delete/'. $trip->id_trip) }}"
                                                           protection-text="Delete {{ $trip->name }} trip?"
                                                           button-style="btn-danger"><span class="glyphicon glyphicon-remove up"></span> Delete</protectedbutton></td>
                                     @endcan

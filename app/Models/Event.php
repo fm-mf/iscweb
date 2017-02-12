@@ -15,9 +15,7 @@ class Event extends Model
 
     protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
 
-    protected $fillable = [
-
-    ];
+    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'modified_by'];
 
     public function modifiedBy()
     {
@@ -36,10 +34,20 @@ class Event extends Model
     }
 
 
+    public function update(array $attributes = [], array $options = [])
+    {
+        return parent::update(self::updateDatetimes($attributes), $options);
+    }
+
+    public function cover()
+    {
+        //TODO: vratit spravny cover
+        return asset('img/web/events/Beer_pong.jpg');
+    }
+
     public static function findAllVisible()
     {
         return Event::with('modifiedBy.user')
-            ->whereDate('visible_from', '<=', Carbon::today())
             ->whereDate('datetime_from', '>=', Carbon::today())
             ->get();
     }
@@ -70,9 +78,9 @@ class Event extends Model
     protected static function updateDatetimes($data)
     {
         $time = $data['visible_time'] ? $data['visible_time'] : "00:00 AM";
-        $data['visible_from'] = Carbon::createFromFormat('d M Y g:i A', $data['visible_date'] . ' ' . $time);
+        $data['visible_from'] = Carbon::createFromFormat('d M Y g:i A', $data['visible_date'] . ' ' . $time)->toDateTimeString();
         $time = $data['start_time'] ? $data['start_time'] : "00:00 AM";
-        $data['datetime_from'] = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time);
+        $data['datetime_from'] = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time)->toDateTimeString();
         return $data;
     }
 
