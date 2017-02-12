@@ -38,9 +38,13 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 
     Route::post('/load-preregister', 'ApiController@loadPreregister');
     Route::post('/load-preregister/save', 'ApiController@preregister');
+
+    Route::get('/trips', 'TripsAppController@index');
+    Route::post('/trips', 'TripsAppController@index');
 });
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');
+
 Route::get('/visa', function() {
    return redirect('https://goo.gl/forms/4VyVa30v0estkh293');
 });

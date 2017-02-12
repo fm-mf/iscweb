@@ -12,8 +12,8 @@ use App\Http\Controllers\Controller;
 
 class TripsAppController extends Controller
 {
-    const APP_USERNAME = '';
-    const APP_PASSWORD = '';
+    const APP_USERNAME = 'isc';
+    const APP_PASSWORD = 'trips999';
 
     const USERNAME_KEY = 'username';
     const PASSWORD_KEY = 'password';
@@ -39,6 +39,41 @@ class TripsAppController extends Controller
     const ERR_INTERNAL = 'INTERNAL';
     const ERR_CARD = 'CARD';
 
+    public function index(Request $request)
+    {
+        return response()->json([
+            self::FIELD_STATUS => self::STATUS_SUCCESS,
+            self::FIELD_DATA => [],
+            self::FIELD_TRIPS => []
+        ]);
+
+
+        if (!$this->authenticate($request)) {
+            return $this->generateErrror(self::ERR_AUTHENTICATION);
+        }
+
+        if (!$request->has(self::ACTION_KEY)) {
+            return $this->generateErrror(self::ERR_INTERNAL);
+        }
+
+        switch ($request->get(self::ACTION_KEY)) {
+            case self::ACTION_LOAD :
+                return $this->load($request);
+                break;
+            case self::ACTION_REGISTER:
+                return $this->register($request);
+                break;
+            case self::ACTION_UNREGISTER:
+                return $this->unregister($request);
+                break;
+            case self::ACTION_REFRESH:
+                return $this->refresh($request);
+                break;
+            default:
+                return $this->generateErrror(self::ERR_INTERNAL);
+        }
+    }
+
     public function load(Request $request)
     {
         if (!$request->has(self::CARD_NUMBER_KEY)) {
@@ -52,13 +87,16 @@ class TripsAppController extends Controller
             return $this->generateErrror(sefl::ERR_CARD);
         }
 
-        $trips = Trip::whereHasNot('participants', function($query) use($exStudent) {
-            $query->where('id_user', $exStudent->id_user);
-        });
-
         return response()->json([
             self::FIELD_STATUS => self::STATUS_SUCCESS,
-            self::FIELD_DATA => $trips,
+            self::FIELD_DATA => [
+                'id_user' => $exStudent->id_user,
+                'first_name' => $exStudent->person->first_name,
+                'last_name' => $exStudent->person->last_name,
+                'sex' => $exStudent->person->sex,
+                'faculty' => $exStudent->faculty->faculty
+            ],
+            self::FIELD_TRIPS => $this->loadTrips($exStudent->id_user)
         ]);
     }
 
@@ -76,6 +114,7 @@ class TripsAppController extends Controller
             return response()->json([
                 self::FIELD_STATUS => self::STATUS_SUCCESS,
                 self::FIELD_DATA => [],
+                self::FIELD_TRIPS => $this->loadTrips($userId)
             ]);
         } else {
             return $this->generateErrror(self::ERR_INTERNAL);
@@ -97,9 +136,42 @@ class TripsAppController extends Controller
         return response()->json([
             self::FIELD_STATUS => self::STATUS_SUCCESS,
             self::FIELD_DATA => [],
+            self::FIELD_TRIPS => $this->loadTrips($userId),
         ]);
-
     }
+
+    public function refresh(Request $request)
+    {
+        if (!$request->has(self::USER_ID_KEY)) {
+            return $this->generateErrror(self::ERR_INTERNAL);
+        }
+        $userId = $request->get(self::USER_ID_KEY);
+
+        return response()->json([
+            self::FIELD_STATUS => self::STATUS_SUCCESS,
+            self::FIELD_DATA => [],
+            self::FIELD_TRIPS => $this->loadTrips($userId),
+        ]);
+    }
+
+    private function loadTrips($userId)
+    {
+        $trips = Trip::whereHasNot('participants', function($query) use($userId) {
+            $query->where('id_user', $userId);
+        });
+
+        $result = [];
+        foreach ($trips as $trip) {
+            $result[] = [
+                'id_trip' => $trip->id_trip,
+                'trip_name' => $trip->trip_name,
+                'trip_description' => $trip->trip_description
+            ];
+        }
+
+        return $result;
+    }
+
 
     private function generateErrror($type)
     {
