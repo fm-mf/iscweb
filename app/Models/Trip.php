@@ -1,11 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Trip extends Model
 {
+    const REGULAR_PARTICIPANT = 1;
+    const STAND_IN = 2;
+    const TRIP_FULL = 3;
+
     public $timestamps = true;
     protected $primaryKey = 'id_trip';
     //public $incrementing = false;
@@ -49,10 +53,38 @@ class Trip extends Model
     public function isFull() {
         return $this->freeSpots() == 0;
     }
+
     public function standInParticipants()
     {
         return $this->participants()->wherePivot('stand_in','y');
     }
+
+    public function addParticipant($idPart, $allowStandIn = true)
+    {
+        $standIn = $this->isFull() ? 'y' : 'n';
+        if ($standIn == 'y' && !$allowStandIn) {
+            return self::TRIP_FULL;
+        }
+        
+        $this->attach($idPart, ['stand_in' => $standIn]);
+
+        return ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;
+    }
+
+    public function removeParticipant($idPart)
+    {
+        $part = ExchangeStudent::find($idPart);
+        if($this->isFull())
+        {
+            $standIn = $this->standInParticipants()->first();
+            if(isset($standIn))
+            {
+                $this->updateExistingPivot($standIn, ['stand_in' => 'n']);
+            }
+        }
+        $this->participants()->detach($idPart);
+    }
+
 
     public static function findAllVisible()
     {

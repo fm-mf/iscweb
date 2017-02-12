@@ -24,7 +24,7 @@ class Event extends Model
 
     public function trip()
     {
-        return $this->hasOne('\App\Models\Trip', 'id_event', 'id_event');
+        return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
     }
 
     public static function findAllVisible()
