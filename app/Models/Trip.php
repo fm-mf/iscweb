@@ -66,11 +66,18 @@ class Trip extends Model
         if ($standIn == 'y' && !$allowStandIn) {
             return self::TRIP_FULL;
         }
+
+        if (Auth::id()) {
+            $registeredBy = Auth::id();
+        } else {
+            $registeredBy = 464;
+        }
+
         if(! $this->participants()->find($idPart))
         {
             $this->participants()->attach($idPart, [
                 'stand_in' => $standIn,
-                'registered_by' => Auth::id(),
+                'registered_by' => $registeredBy,
                 'paid' => $standIn == 'y' ? 0 : $this->price,
             ]);
         }

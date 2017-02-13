@@ -39,6 +39,7 @@ class TripsAppController extends Controller
     const ERR_DATABASE = 'DB';
     const ERR_INTERNAL = 'INTERNAL';
     const ERR_CARD = 'CARD';
+    const ERR_TEST = 'TEST';
 
     public function index(Request $request)
     {
