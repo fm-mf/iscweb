@@ -21,6 +21,14 @@
 
     <!--The schedule of the Orientation Week will be announced soon. Stay tuned!-->
     <div class="row">
+        <a href="{{ asset('/files/OW_S2017/OW_S2017_Meeting_points_Registrations_at_faculties.pdf') }}">Registrations</a><br>
+        <a href="{{ asset('/files/OW_S2017/OW_S2017_CTU_Sports.pdf') }}">Sport at CTU</a><br>
+        <a href="{{ asset('/files/OW_S2017/OW_S2017_CTU_Visa.pdf') }}">Visa</a><br>
+        <a href="{{ asset('/files/OW_S2017/OW_S2017_Czech_courses.pdf') }}">Czech courses</a>
+    </div>
+
+
+    <div class="row">
         <h3>{{ $owFromTo }}</h3>
     </div>
 
@@ -48,6 +56,7 @@
                 <li>Enjoy the first beer of the semester and get involved in our unique language learning program! Here you can meet a tandem partner to practice your language skills and have a drink.</li>
             </ul>
         </div>
+        <h4>OW presentation Monday</h4>
     </div>
 
     <div class="row">
@@ -69,6 +78,11 @@
             <ul>
                 <li>ISC trip registrations (ESN card & cash needed)</li>
             </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="{{ asset('/files/OW_S2017/OW_S2017_Meeting_points_Registrations_at_faculties.pdf') }}">Meeting points - Tuesday</a>
         </div>
     </div>
 

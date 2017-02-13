@@ -23,7 +23,9 @@
                 <span class="show-menu"></span>
 
                <!-- There are no regular opening hours during the exam period. The ISC Point will be open from {{ $wcFrom }}.-->
-
+                We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
+                Fixed opening hours will be from Monday 20th.
+                <!--
                <table>
                     <tr>
                         <th>Monday</th>
@@ -53,7 +55,7 @@
                         <th>Sunday</th>
                         <td>10:00 - 20:00</td>
                     </tr>
-                </table>
+                </table> -->
 
             </div>
         </div>
