@@ -38,9 +38,13 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 
     Route::post('/load-preregister', 'ApiController@loadPreregister');
     Route::post('/load-preregister/save', 'ApiController@preregister');
+
+    Route::get('/trips', 'TripsAppController@index');
+    Route::post('/trips', 'TripsAppController@index');
 });
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');
+
 Route::get('/visa', function() {
    return redirect('https://goo.gl/forms/4VyVa30v0estkh293');
 });
@@ -61,7 +65,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
         Route::get('/activities/integreat', function() { return view('web.activities.integreat'); });
         Route::get('/activities/trips', function() { return view('web.activities.trips'); });
     Route::get('/contact', 'WebController@showContacts');
-    Route::get('/calendar', function() { return view('web.calendar'); });
+    Route::get('/calendar', 'WebController@showCalendar');
     Route::get('/buddy', function () { return view('web.buddy'); });
     Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); });
 });

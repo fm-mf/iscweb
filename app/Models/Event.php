@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Event extends Model
 {
@@ -11,58 +13,85 @@ class Event extends Model
     protected $primaryKey = 'id_event';
     //public $incrementing = false;
 
-    protected $dates = ['datetime_from', 'datetime_to', 'registration_to', 'updated_at', 'created_at', 'visible_from'];
+    protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
 
-    protected $fillable = [
-
-    ];
+    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'modified_by'];
 
     public function modifiedBy()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'modified_id_user');
+        return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
     }
 
-    public function organizers()
+    /*
+    public function trip()
     {
-        return $this->belongsToMany('\App\Models\Buddy', 'events_organizers', 'id_event', 'id_user');
+        return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
+    }
+    */
+    public function hasTrip()
+    {
+        return Trip::where('id_event', $this->id_event)->exists();
     }
 
-    public function participants()
+
+    public function update(array $attributes = [], array $options = [])
     {
-        return $this->belongsToMany('\App\Models\ExchangeStudent', 'events_participants', 'id_event', 'id_user');
+        //dd($attributes);
+        return parent::update(self::updateDatetimes($attributes), $options);
     }
 
-    public function howIsFill()
+    public function cover()
     {
-        return $this->participants()->wherePivot('stand_in', 'n')->count();
-    }
-
-    public function freeSpots()
-    {
-        return $this->capacity - $this->howIsFill();
-    }
-
-    public function isFull() {
-        return $this->freeSpots() == 0;
-    }
-    public function standInParticipants()
-    {
-        return $this->participants()->wherePivot('stand_in','y');
+        //TODO: vratit spravny cover
+        return asset('/img/web/events/Beer_pong.jpg');
     }
 
     public static function findAllVisible()
     {
         return Event::with('modifiedBy.user')
-            ->whereDate('visible_from', '<=', Carbon::today())
-            ->whereDate('registration_to', '>', Carbon::today())
+            ->whereDate('datetime_from', '>=', Carbon::today())
+            ->whereDate('visible_from','<=', Carbon::today())
+            ->get();
+    }
+
+    public static function findAllActive()
+    {
+        return Event::with('modifiedBy.user')
+            ->whereDate('datetime_from', '>=', Carbon::today())
+            //->whereDate('visible_from','<=', Carbon::today())
             ->get();
     }
 
     public static function findAll()
     {
-        return Event::with('modiedBy.user');
+        return Event::with('modified_by.user');
     }
 
+    public static function createEvent($data)
+    {
+        $data = self::updateDatetimes($data);
+        $id_user = Auth::id();
+        return DB::transaction(function () use ($data, $id_user) {
+            $event = new Event();
 
+            $event->visible_from = $data['visible_from'];
+            $event->datetime_from = $data['datetime_from'];
+            $event->name = $data['name'];
+            $event->description = $data['description'];
+            $event->facebook_url = $data['facebook_url'];
+            $event->modified_by = $id_user;
+            $event->save();
+            return $event;
+        });
+    }
+
+    protected static function updateDatetimes($data)
+    {
+        $time = $data['visible_time'] ? $data['visible_time'] : "00:00 AM";
+        $data['visible_from'] = Carbon::createFromFormat('d M Y g:i A', $data['visible_date'] . ' ' . $time)->toDateTimeString();
+        $time = $data['start_time'] ? $data['start_time'] : "00:00 AM";
+        $data['datetime_from'] = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time)->toDateTimeString();
+        return $data;
+    }
 
 }

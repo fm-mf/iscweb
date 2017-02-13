@@ -14,7 +14,7 @@
                 :multiple="multiple"
                 v-on:input="onInput"
         ></multiselect>
-        <input type="hidden" :name="formName" v-if="formName" :value="myvalues">
+        <input type="hidden" :name="formName" :value="myvalues">
     </div>
 </template>
 

@@ -85,7 +85,8 @@ return [
         'admin' => [
             'id' => 7,
             'resources' => [
-                'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team']
+                'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team'],
+                'events' => ['edit', 'add', 'view'],
             ],
             'inheritsFrom' => ['hr']
         ],

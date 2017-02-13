@@ -32,15 +32,21 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     //Route::get('/users/office-registration/{id}', 'OfficeRegistrationControler@showExchangeStudent');
     //Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
 
-    Route::get('/trips', 'EventController@showDashboard');
-    Route::get('/trips/detail/{id}', 'EventController@showDetail');
-    Route::get('/trips/detail/{id_event}/add/{id_part}', 'EventController@addToEvent');
-    Route::get('/trips/{id_event}/remove/{id_part}', 'EventController@removeFromEvent');
-    Route::get('/trips/edit/{id_event}', 'EventController@showEditForm')->name('trips.edit');
-    Route::patch('/trips/edit/{id_event}', 'EventController@updateEditForm');
-    Route::get('/trips/create', 'EventController@showCreateForm');
-    Route::patch('/trips/create', 'EventController@submiteCreateForm');
-    Route::get('/trips/delete/{id_trip}', 'EventController@deleteEvent');
+    Route::get('/trips', 'TripController@showDashboard');
+    Route::get('/trips/detail/{id}', 'TripController@showDetail');
+    Route::get('/trips/detail/{id_event}/add/{id_part}', 'TripController@addParticipantToTrip');
+    Route::get('/trips/{id_event}/remove/{id_part}', 'TripController@removeParticipantFromTrip');
+    Route::get('/trips/edit/{id_trip}', 'TripController@showEditForm')->name('trips.edit');
+    Route::patch('/trips/edit/{id_trip}', 'TripController@submitEditForm');
+    Route::get('/trips/create', 'TripController@showCreateForm');
+    Route::patch('/trips/create', 'TripController@submitCreateForm');
+    Route::get('/trips/delete/{id_trip}', 'TripController@deleteTrip');
+
+    Route::get('/events', 'EventController@showDashboard');
+    Route::get('/events/edit/{id_event}', 'EventController@showEditForm')->name('events.edit');
+    Route::patch('/events/edit/{id_event}', 'EventController@submmitEditForm');
+    Route::get('/events/create', 'EventController@showCreateForm');
+    Route::patch('/events/create', 'EventController@submitCreateForm');
 
     Route::get('/users/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard');
     Route::get('/users/office-registration/registration/{id}', 'OfficeRegistrationController@showExchangeStudent');

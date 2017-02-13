@@ -33,7 +33,7 @@
                                         <li>Strahov (at the bus stop 143, direction Dejvická) 9:45</li>
                                     </ul>
                                 </small>
-                                <small><>Meeting points - more information</a></small>
+                                <small><>Meeting points - more information</small>
                             </td>
                         </tr>
                         <tr>
@@ -176,6 +176,30 @@
                     </p>
                 </div>
             </div>
+
+            @if(isset($events) && $events->count() > 0)
+                @foreach($events as $event)
+                    <span class="vspace"></span>
+                    <div class="row row-ow row-sm-height">
+                        <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ $event->cover() }})">
+                            <span class="day">{{ $event->datetime_from->format('l') }}<br>{{ $event->datetime_from->format('F') }}<br>
+                                <strong>{{ $event->datetime_from->format('jS') }}</strong><br>
+                                {{ $event->datetime_from->hour }}{{ ($event->datetime_from->minute == 0) ? $event->datetime_from->format('a') : $event->datetime_from->format(':ia') }}</span>
+                            <h2>{{ $event->name }}</h2>
+                        </div>
+                        <div class="col-sm-6 ow-detail col-sm-height col-top">
+
+                                {!! $event->description !!}
+
+                            @if(isset($event->facebook_url) && $event->facebook_url != NULL)
+                            <p>
+                                ► <a href="{{ $event->facebook_url }}"><strong>Facebook event!</strong></a>
+                            </p>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+            @endif
 
         </div>
     </div>

@@ -1,0 +1,173 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: speedy
+ * Date: 5.2.17
+ * Time: 9:41
+ */
+
+namespace App\Http\Controllers\Partak;
+
+use App\Models\Buddy;
+use App\Models\Event;
+use App\Models\ExchangeStudent;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Trip;
+use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
+class TripController extends Controller
+{
+    public function showDashboard()
+    {
+
+        $this->authorize('acl', 'trips.view');
+        $visibleTrips = Trip::findAllUpcoming();
+        //dd($visibleTrips);
+        return view('partak.trips.dashboard')->with(['visibleTrips' => $visibleTrips,]);
+    }
+
+    public function showDetail($id)
+    {
+        $this->authorize('acl', 'trips.view');
+        $trip = Trip::with('event')->find($id);
+        $particip = $trip->participants()->with('person.user')->get();
+        $organizers = $trip->organizers()->with('person.user')->get();
+        return view('partak.trips.detail')->with([
+           'trip' => $trip,
+            'particip' => $particip,
+            'organizers' => $organizers,
+        ]);
+    }
+
+    public function addParticipantToTrip($id_trip, $id_part)
+    {
+        $this->authorize('acl', 'participant.add');
+        $trip = Trip::find($id_trip);
+        $result = $trip->addParticipant($id_part);
+        return back()->with(['addSuccess' => true]);
+    }
+
+    public function removeParticipantFromTrip($id_trip, $id_part)
+    {
+        $this->authorize('acl', 'participant.remove');
+        $trip = Trip::find($id_trip);
+        $result = $trip->removeParticipant($id_part);
+        return back()->with(['removeSuccess' => true]);
+    }
+
+    public function showEditForm($id_trip)
+    {
+        $this->authorize('acl', 'trips.edit');
+        //$this->authorize('acl', 'trips');
+        $trip = Trip::with('event')->find($id_trip);
+
+        $buddies = [];
+        foreach(Buddy::with('person')->partak()->get() as $buddy) {
+            $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->first_name . ' ' . $buddy->person->last_name];
+        }
+
+        $organizers = [];
+        foreach($trip->organizers()->with('person')->get() as $organizer) {
+            $organizers[] = ['id_user' => $organizer->id_user, 'name' => $organizer->person->first_name . ' ' . $organizer->person->last_name];
+        }
+
+        JavaScript::put([
+            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => $organizers]
+        ]);
+        return view('partak.trips.edit')->with([
+            'trip' => $trip,
+            'event' => $trip->event,
+        ]);
+    }
+
+    public function submitEditForm(Request $request, $id_trip)
+    {
+        $this->authorize('acl', 'trips.edit');
+        $this->tripValidator($request->all())->validate();
+        $trip = Trip::with('event')->find($id_trip);
+        if(isset($trip)){
+            $data = [];
+            foreach ($request->all() as $key => $value) {
+                if ($value) {
+                    $data[$key] = $value;
+                }
+            }
+            $trip->update($data);
+            $trip->event->update($data);
+            return back()->with(['success' => 'Trip was updated successfully']);
+        }
+        else {
+            return back()->with(['!success' => 'Trip wasn\'t updated']);
+        }
+    }
+
+    public function showCreateForm()
+    {
+        $this->authorize('acl', 'trips.add');
+
+        $buddies = [];
+        foreach(Buddy::with('person')->partak()->get() as $buddy) {
+            $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->first_name . ' ' . $buddy->person->last_name];
+        }
+
+
+        JavaScript::put([
+            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => []]
+        ]);
+
+        $trip = new Trip();
+        $event = new Event();
+        $event->visible_from = Carbon::now();//
+        $event->datetime_from = Carbon::now();//
+        $trip->registration_from = Carbon::now();//
+        $trip->trip_date_to = Carbon::now();//
+        return view('partak.trips.Create')->with([
+            'trip' => $trip,
+            'event' => $event
+        ]);
+    }
+
+    public function submitCreateForm(Request $request)
+    {
+        $this->authorize('acl', 'trips.add');
+        $this->tripValidator($request->all())->validate();
+
+        $data = [];
+        foreach ($request->all() as $key => $value) {
+            if ($value) {
+                $data[$key] = $value;
+            }
+        }
+        $trip = Trip::createTrip($data);
+        return \Redirect::route('trips.edit',['id_trip' => $trip->id_trip]);
+    }
+
+    protected function tripValidator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required',
+            'visible_date' => 'required|date_format:d M Y',
+            'visible_time' => 'date_format:g:i A',
+            'registration_date' => 'date_format:d M Y',
+            'registration_time' => 'date_format:g:i A',
+            'start_date' => 'required|date_format:d M Y',
+            'start_time' => 'date_format:g:i A',
+            'end_date' => 'required|date_format:d M Y',
+            'end_time' => 'date_format:g:i A',
+        ]);
+    }
+
+    public function deleteTrip($id_trip)
+    {
+        $this->authorize('acl', 'trips.remove');
+        $trip = Trip::find($id_trip);
+        $trip->participants()->detach();
+        $trip->delete();
+        return back();
+    }
+
+}
