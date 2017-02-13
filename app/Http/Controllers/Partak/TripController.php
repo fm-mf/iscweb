@@ -135,6 +135,8 @@ class TripController extends Controller
     {
         $this->authorize('acl', 'trips.add');
         $this->tripValidator($request->all())->validate();
+
+        dd($request->all());
         $data = [];
         foreach ($request->all() as $key => $value) {
             if ($value) {

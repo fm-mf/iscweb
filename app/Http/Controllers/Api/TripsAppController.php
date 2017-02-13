@@ -160,13 +160,13 @@ class TripsAppController extends Controller
                 $organizers .= " " . $organizer->person->first_name . ' ' . $organizer->person->last_name;
             }
 
-            $dateFrom = $trip->trip_date_from ? $trip->trip_date_from->toDateTimeString() : null;
+            $dateFrom = $trip->event->datetime_from ? $trip->event->datetime_from->toDateTimeString() : null;
             $dateTo = $trip->trip_date_to ? $trip->trip_date_to->toDateTimeString() : null;
 
             $result[] = [
                 'id_trip' => $trip->id_trip,
-                'trip_name' => $trip->trip_name,
-                'trip_description' => $trip->trip_description,
+                'trip_name' => $trip->event->name,
+                'trip_description' => $trip->event->description,
                 'trip_organizers' => $organizers,
                 'trip_date_from' => $dateFrom,
                 'trip_date_to' => $dateTo,

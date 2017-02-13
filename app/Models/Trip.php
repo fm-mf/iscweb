@@ -109,6 +109,9 @@ class Trip extends Model
         $data = self::updateDatetimes($data);
         $event = Event::createEvent($data);
         $id_user = Auth::id();
+
+        dd($data);
+
         return DB::transaction(function () use ($data, $event, $id_user) {
 
             $trip = new Trip();
@@ -118,6 +121,7 @@ class Trip extends Model
             $trip->capacity = $data['capacity'];
             $trip->price = $data['price'];
             $trip->modifid_by = $id_user;
+
             $trip->save();
             return $trip;
         });
