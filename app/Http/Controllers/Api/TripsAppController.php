@@ -151,9 +151,6 @@ class TripsAppController extends Controller
 
     private function loadTrips($userId)
     {
-        $trips = Trip::whereHasNot('participants', function($query) use($userId) {
-            $query->where('id_user', $userId);
-        });
 
         $result[] = [
             'id_trip' => 2,
@@ -168,22 +165,6 @@ class TripsAppController extends Controller
             'registered' => 'n'
         ];
         return $result;
-
-        $result = [];
-        foreach ($trips as $trip) {
-            $result[] = [
-                'id_trip' => $trip->id_trip,
-                'trip_name' => $trip->trip_name,
-                'trip_description' => $trip->trip_description,
-                'trip_organizers' => 'Organizers',
-                'trip_date_from' => $trip->trip_date_from,
-                'trip_date_to' => $trip->trip_date_to,
-                'trip_capacity' => $trip->capacity,
-                'trip_price' => $trip->trip_price,
-                'trip_participants' => $trip->trip_participants,
-                'registered' => 'n'
-            ];
-        }
 
         return $result;
     }
