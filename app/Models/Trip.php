@@ -120,8 +120,7 @@ class Trip extends Model
             $trip->trip_date_to = $data['trip_date_to'];
             $trip->capacity = $data['capacity'];
             $trip->price = $data['price'];
-            $trip->modifid_by = $id_user;
-
+            $trip->modified_by = $id_user;
             $trip->save();
             return $trip;
         });
@@ -130,6 +129,7 @@ class Trip extends Model
     protected static function updateDatetimes($data)
     {
         $time = $data['registration_time'] ? $data['registration_time'] : "00:00 AM";
+        //dd($data['registration_date']);
         $data['registration_from'] = Carbon::createFromFormat('d M Y g:i A', $data['registration_date'] . ' ' . $time);
         $time = $data['end_time'] ? $data['end_time'] : "00:00 AM";
         $data['trip_date_to'] = Carbon::createFromFormat('d M Y g:i A', $data['end_date'] . ' ' . $time);
