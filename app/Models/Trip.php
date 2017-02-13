@@ -79,6 +79,7 @@ class Trip extends Model
                 'stand_in' => $standIn,
                 'registered_by' => $registeredBy,
                 'paid' => $standIn == 'y' ? 0 : $this->price,
+                'comment' => isset($this->comment)? $this->comment : NULL,
             ]);
         }
 
