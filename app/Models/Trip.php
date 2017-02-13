@@ -106,7 +106,7 @@ class Trip extends Model
 
     public static function createTrip($data)
     {
-        $data = updateDatetimes($data);
+        $data = self::updateDatetimes($data);
         $event = Event::createEvent($data);
         $id_user = Auth::id();
         return DB::transaction(function () use ($data, $event, $id_user) {
