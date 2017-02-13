@@ -79,7 +79,7 @@ class TripsAppController extends Controller
         $exStudent = ExchangeStudent::where('esn_card_number', $cardNumber)->first();
 
         if (!$exStudent) {
-            return $this->generateErrror(sefl::ERR_CARD);
+            return $this->generateErrror(self::ERR_CARD);
         }
 
         return response()->json([
@@ -155,12 +155,33 @@ class TripsAppController extends Controller
             $query->where('id_user', $userId);
         });
 
+        $result[] = [
+            'id_trip' => 2,
+            'trip_name' => 'testovaci',
+            'trip_description' => 'desc',
+            'trip_organizers' => 'Organizers',
+            'trip_date_from' => '2017-10-10 00:00:00',
+            'trip_date_to' => '2017-10-11 00:00:00',
+            'trip_capacity' => 20,
+            'trip_price' => 55,
+            'trip_participants' => 10,
+            'registered' => 'n'
+        ];
+        return $result;
+
         $result = [];
         foreach ($trips as $trip) {
             $result[] = [
                 'id_trip' => $trip->id_trip,
                 'trip_name' => $trip->trip_name,
-                'trip_description' => $trip->trip_description
+                'trip_description' => $trip->trip_description,
+                'trip_organizers' => 'Organizers',
+                'trip_date_from' => $trip->trip_date_from,
+                'trip_date_to' => $trip->trip_date_to,
+                'trip_capacity' => $trip->capacity,
+                'trip_price' => $trip->trip_price,
+                'trip_participants' => $trip->trip_participants,
+                'registered' => 'n'
             ];
         }
 
