@@ -60,7 +60,7 @@ class Trip extends Model
         return $this->participants()->wherePivot('stand_in','y');
     }
 
-    public function addParticipant($idPart, $allowStandIn = true)
+    public function addParticipant($idPart, $allowStandIn = false)
     {
         $standIn = $this->isFull() ? 'y' : 'n';
         if ($standIn == 'y' && !$allowStandIn) {
