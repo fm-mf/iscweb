@@ -64,8 +64,19 @@ class TripController extends Controller
         $this->authorize('acl', 'trips.edit');
         //$this->authorize('acl', 'trips');
         $trip = Trip::with('event')->find($id_trip);
+
+        $buddies = [];
+        foreach(Buddy::with('person')->partak()->get() as $buddy) {
+            $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->first_name . ' ' . $buddy->person->last_name];
+        }
+
+        $organizers = [];
+        foreach($trip->organizers()->with('person')->get() as $organizer) {
+            $organizers[] = ['id_user' => $organizer->id_user, 'name' => $organizer->person->first_name . ' ' . $organizer->person->last_name];
+        }
+
         JavaScript::put([
-            'jsoptions' => ['organizers' => Buddy::all(), 'sorganizers' => $trip->organizers()->with('person')->get()]
+            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => $organizers]
         ]);
         return view('partak.trips.edit')->with([
             'trip' => $trip,
@@ -97,6 +108,17 @@ class TripController extends Controller
     public function showCreateForm()
     {
         $this->authorize('acl', 'trips.add');
+
+        $buddies = [];
+        foreach(Buddy::with('person')->partak()->get() as $buddy) {
+            $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->first_name . ' ' . $buddy->person->last_name];
+        }
+
+
+        JavaScript::put([
+            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => []]
+        ]);
+
         $trip = new Trip();
         $event = new Event();
         $event->visible_from = Carbon::now();//

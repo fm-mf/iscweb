@@ -111,4 +111,12 @@ class Buddy extends Model
     {
         return $query->where('verified', '!=', 'd');
     }
+
+    public static function scopePartak($query)
+    {
+        return $query->whereHas('person.user.roles', function($query) {
+            $query->where('title', 'partak');
+        });
+
+    }
 }
