@@ -2,7 +2,8 @@
 /public/storage
 /public/avatars
 /storage/*.key
-public/js
+/public/js/buttons.js
+/public/js/partak.js
 public/css
 /vendor
 /.idea
