@@ -39,7 +39,7 @@
 </div>
 
 
-<multiselectinput formName="organizers" title="Organizers" :options="options.organizers" :value="options.sorganizers" :show-labels="true" label="name" track-by="id_user" placeholder="Organizers"
+<multiselectinput form-name="organizers" title="Organizers" :options="options.organizers" :value="options.sorganizers" :show-labels="true" label="name" track-by="id_user" placeholder="Organizers"
                   :multiple="true"></multiselectinput>
 
 {{ Form::label('capacity', 'Capacity', ['class' => 'control-label']) }}

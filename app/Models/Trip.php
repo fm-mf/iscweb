@@ -101,18 +101,38 @@ class Trip extends Model
 
     public function update(array $attributes = [], array $options = [])
     {
-        return parent::update(self::updateDatetimes($attributes), $options);
+        parent::update(self::updateDatetimes($attributes), $options);
+
+        if (array_key_exists('organizers', $attributes));
+
+        $organizers = $attributes['organizers'];
+        if (!is_array($organizers)) {
+            $organizers = explode(',', $organizers);
+        }
+
+        $toSync = [];
+        foreach ($organizers as $organizer) {
+            $toSync[$organizer] = ['add_by' => Auth::id()];
+        }
+        $this->organizers()->sync($toSync);
+
+
     }
 
     public static function createTrip($data)
     {
         $data = self::updateDatetimes($data);
         $event = Event::createEvent($data);
+
         $id_user = Auth::id();
+        if (!$id_user) $id_user = 4736; //id of office account
 
-        dd($data);
+        $organizers = $data['organizers'];
+        if (!is_array($organizers)) {
+            $organizers = explode(',', $organizers);
+        }
 
-        return DB::transaction(function () use ($data, $event, $id_user) {
+        return DB::transaction(function () use ($data, $event, $id_user, $organizers) {
 
             $trip = new Trip();
             $trip->id_event = $event->id_event;
@@ -122,6 +142,12 @@ class Trip extends Model
             $trip->price = $data['price'];
             $trip->modified_by = $id_user;
             $trip->save();
+
+            foreach($organizers as $organizer) {
+                $trip->organizers()->attach($organizer, ['add_by' => $id_user]);
+            }
+
+
             return $trip;
         });
     }
