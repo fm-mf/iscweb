@@ -62,7 +62,7 @@ class EventController extends Controller
 
     public function showCreateForm()
     {
-        $this->authorize('acl', 'trips.add');
+        $this->authorize('acl', 'events.add');
         $event = new Event();;
         $event->visible_from = Carbon::now();
         $event->datetime_from = Carbon::now();
@@ -71,7 +71,7 @@ class EventController extends Controller
 
     public function submitCreateForm(Request $request)
     {
-        $this->authorize('acl', 'trips.add');
+        $this->authorize('acl', 'events.add');
         $this->eventValidator($request->all())->validate();
         $data = [];
         foreach ($request->all() as $key => $value) {
@@ -97,7 +97,7 @@ class EventController extends Controller
 
     public function deleteEvent($id_event)
     {
-        $this->authorize('acl', 'trips.remove');
+        $this->authorize('acl', 'events.remove');
         $event = Event::find($id_event);
         $event->participants()->detach();
         $event->delete();
