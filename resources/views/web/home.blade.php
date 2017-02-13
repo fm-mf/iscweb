@@ -79,7 +79,7 @@
                                             <li>Strahov (at the bus stop 143, direction Dejvická) 9:45</li>
                                         </ul>
                                     </small>
-                                    <small><>Meeting points - more information</a></small>
+                                    <small><>Meeting points - more information</small>
                                 </td>
                             </tr>
                             <tr>
