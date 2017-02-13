@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Models\Event;
 use App\Models\ExchangeStudent;
 use App\Models\Trip;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,6 +39,7 @@ class TripsAppController extends Controller
     const ERR_DATABASE = 'DB';
     const ERR_INTERNAL = 'INTERNAL';
     const ERR_CARD = 'CARD';
+    const ERR_TEST = 'TEST';
 
     public function index(Request $request)
     {
@@ -79,7 +81,7 @@ class TripsAppController extends Controller
         $exStudent = ExchangeStudent::where('esn_card_number', $cardNumber)->first();
 
         if (!$exStudent) {
-            return $this->generateErrror(sefl::ERR_CARD);
+            return $this->generateErrror(self::ERR_CARD);
         }
 
         return response()->json([
@@ -151,17 +153,45 @@ class TripsAppController extends Controller
 
     private function loadTrips($userId)
     {
-        $trips = Trip::whereHasNot('participants', function($query) use($userId) {
-            $query->where('id_user', $userId);
-        });
-
         $result = [];
-        foreach ($trips as $trip) {
+        $insertTrip = function($trip, $registered) use (&$result) {
+            $organizers = "";
+            foreach ($trip->organizers as $organizer) {
+                $organizers .= " " . $organizer->person->first_name . ' ' . $organizer->person->last_name;
+            }
+
+            $dateFrom = $trip->trip_date_from ? $trip->trip_date_from->toDateTimeString() : null;
+            $dateTo = $trip->trip_date_to ? $trip->trip_date_to->toDateTimeString() : null;
+
             $result[] = [
                 'id_trip' => $trip->id_trip,
                 'trip_name' => $trip->trip_name,
-                'trip_description' => $trip->trip_description
+                'trip_description' => $trip->trip_description,
+                'trip_organizers' => $organizers,
+                'trip_date_from' => $dateFrom,
+                'trip_date_to' => $dateTo,
+                'trip_capacity' => $trip->capacity,
+                'trip_price' => $trip->price,
+                'trip_participants' => $trip->howIsFill(),
+                'registered' => $registered,
             ];
+
+        };
+
+        $tripsRegistered = Trip::with('organizers.peron')->whereHas('participants', function($query) use($userId) {
+            $query->where('exchange_students.id_user', $userId);
+        })->get();
+
+        foreach ($tripsRegistered as $trip) {
+            $insertTrip($trip, 'y');
+        }
+
+        $tripsNotRegistered = Trip::with('organizers.peron')->whereDoesntHave('participants', function($query) use($userId) {
+            $query->where('exchange_students.id_user', $userId);
+        })->get();
+
+        foreach ($tripsNotRegistered as $trip) {
+            $insertTrip($trip, 'n');
         }
 
         return $result;
