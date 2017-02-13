@@ -101,20 +101,22 @@ class Trip extends Model
 
     public function update(array $attributes = [], array $options = [])
     {
-        parent::update(self::updateDatetimes($attributes), $options);
-
-        if (array_key_exists('organizers', $attributes));
-
-        $organizers = $attributes['organizers'];
-        if (!is_array($organizers)) {
-            $organizers = explode(',', $organizers);
-        }
 
         $toSync = [];
-        foreach ($organizers as $organizer) {
-            $toSync[$organizer] = ['add_by' => Auth::id()];
+        if (array_key_exists('organizers', $attributes))
+        {
+            $organizers = $attributes['organizers'];
+            if (!is_array($organizers)) {
+                $organizers = explode(',', $organizers);
+            }
+            foreach ($organizers as $organizer) {
+                $toSync[$organizer] = ['add_by' => Auth::id()];
+            }
         }
+
         $this->organizers()->sync($toSync);
+
+        return parent::update(self::updateDatetimes($attributes), $options);
 
 
     }
