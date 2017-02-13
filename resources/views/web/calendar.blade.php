@@ -176,7 +176,7 @@
                     </p>
                 </div>
             </div>
-
+            <!--
             @if(isset($events) && $events->count() > 0)
                 @foreach($events as $event)
                     <span class="vspace"></span>
@@ -200,7 +200,7 @@
                     </div>
                 @endforeach
             @endif
-
+            -->
         </div>
     </div>
 
