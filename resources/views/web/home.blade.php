@@ -62,30 +62,40 @@
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-1 col-sm-height">
-                        <span class="day">Monday<br>February<br><strong>13th</strong></span>
-                        <h2>First orientation day</h2>
+                    <div class="col-sm-6 ow-day ow-2 col-sm-height">
+                        <span class="day">Tuesday<br>February<br><strong>14th</strong></span>
+                        <h2>Second orientation day</h2>
                     </div>
                     <div class="col-sm-6 ow-detail col-sm-height col-top">
                         <table>
                             <tr>
-                                <th>10:30 - 14:30</th>
-                                <td><strong>First information meeting</strong> (Important to attend)<br>
-                                    <small>(Official Welcome, Studying at CTU, CTU Information Systems, All about the ISC, Sports at CTU, What you need to know about the Czech Republic)</small><br>
-                                    <small>at <strong>Faculty of Civil Engineering, room D-1122</strong> (<a href="https://goo.gl/maps/ihLTv5fobsT2">see the map</a>)</small><br>
-                                    <small>We will have two <strong>meeting points</strong>:
-                                        <ul class="">
-                                            <li>Masarykova Dormitory (in the lobby) 10:00</li>
-                                            <li>Strahov (at the bus stop 143, direction Dejvická) 9:45</li>
-                                        </ul>
-                                    </small>
-                                    <small><>Meeting points - more information</small>
+                                <th>morning</th>
+                                <td><strong>Registration at faculties</strong><br>
+                                    <small><a>Meeting points and times</a></small>
                                 </td>
                             </tr>
                             <tr>
-                                <th>20:00 &ndash; 01:00</th>
-                                <td><strong>Tandem Party</strong><br>
-                                    <small>(Café V lese)</small><br>
+                                <th>14:00 &ndash; 16:30</th>
+                                <td><strong>Second information meeting and registration for trips</strong><br>
+                                    <small>Congress hall of the Masarykova dormitory</small><br>
+                                    <small>(<strong>Important:</strong> Bring ESNcard and money in cash for the trips registration)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height">
+                        <span class="day">Wednesday<br>February<br><strong>15th</strong><br>12:30pm</span>
+                        <h2>Prague Discovery Game</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top">
+                        <table>
+                            <tr>
+                                <th>13:00 &ndash; 20:00</th>
+                                <td><strong>Prague Discovery Game</strong><br>
+                                    <small>(Explore the city of Prague in an entertaining way!)</small><br>
+                                    Do you want to meet new friends from all over the world and have fun? Join us in the Prague Discovery Game and explore the city in an entertaining way!<br>
                                     <small><a>Meeting points and times</a></small>
                                 </td>
                             </tr>
@@ -94,21 +104,31 @@
                 </div>
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('img/web/events/Tandem_spring2017.jpg') }});">
-                        <span class="day">Monday<br>February<br><strong>13th</strong><br>8pm</span>
-                        <h2>Tandem Evening</h2>
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integration_party.jpg') }})">
+                        <span class="day">Wednesday<br>February<br><strong>15th</strong><br>9pm</span>
+                        <h2>inteGREATion party</h2>
                     </div>
                     <div class="col-sm-6 ow-detail col-sm-height col-top">
+                        <p>► Who?  ◄ InteGREATion party<br>
+                            ► When? ◄ Wednesday, 15. 2. 2017, 9 pm<br>
+                            ► Where?◄ <a href="http://stormclub.eu">Storm club (Tachovské nám. 290/5, 130 00 Praha 3)</a></p>
+
                         <p>
-                            Get involved in our unique language learning program and enjoy the first party of the semester! Here you can meet your tandem partner to practice your language skills and have a beer in Masarykova Pub.
+                            ► <a href="https://www.facebook.com/events/135752213604976/"><strong>Facebook event!</strong></a>
                         </p>
-                        <p>
-                            Where:</b> <a href="https://goo.gl/maps/2c3qWUjNYE32">Café V lese (Krymská 12, 101 00 Praha 10)</a><br>
-                            <!-- a href="https://isc.cvut.cz/ow">Meeting points and times</a --><br>
-                        </p>
-                        <p>
-                            ► <a href="https://www.facebook.com/events/614492665410482/"><strong>Facebook event!</strong></a>
-                        </p>
+
+                        <p><small>★ International
+                                ★ Night
+                                ★ Team-work
+                                ★ Entertainment
+                                ★ Global
+                                ★ Real
+                                ★ Extraordinary
+                                ★ Amazing
+                                ★ Together<br>
+
+                                inteGREAT more than a party</small>
+
                     </div>
                 </div>
 
