@@ -30,43 +30,7 @@
 @yield('page')
 
 <!------------ FOOTER ---------------- -->
-<div class="footer-wrap">
-    <div class="container footer">
-        <div class="row">
-            <div class="col-sm-2">
-                <h3>Our projects</h3>
-                <span class="bar"></span>
-                <ul class="list-unstyled">
-                    <li><a href="http://www.integreat.cz" target="_blank"><img src="{{ URL::asset('img/web/integreat_svetle_60x60.png') }}" width="17px"> inteGREAT</a></li>
-                    <!-- <li><a href="http://isc.cvut.cz/survivalguide">SURVIVAL GUIDE</a></li> -->
-                    <li><a href="http://isc.cvut.cz/saf" target="_blank">Study Abroad Fair</a></li>
-                    <li>ISC Care</li>
-                </ul>
-            </div>
-            <div class="col-sm-2">
-                <h3>Our channels</h3>
-                <span class="bar"></span>
-                <ul class="list-unstyled">
-                    <li><a href="https://www.facebook.com/isc.ctu.prague" target="_blank"><img src="{{ URL::asset('img/web/fb.png') }}" width="17px"> Facebook</a></li>
-                    <li><a href="https://www.linkedin.com/company/1201189" target="_blank"><img src="{{ URL::asset('img/web/in.png') }}" width="17px"> LinkedIn</a></li>
-                    <li><a href="http://www.youtube.com/user/ISCCTUPrague" target="_blank"><img src="{{ URL::asset('img/web/youtube.png') }}" width="17px"> YouTube</a></li>
-                    <li><a href="http://www.flickr.com/groups/iscctu/" target="_blank">Flickr</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-2">
-                <h3>Czech Members</h3>
-                <span class="bar"></span>
-                <ul class="list-unstyled">
-                    <li><a href="{{ url('partak') }}">ParťákNet</a></li>
-                    <li><a href="{{ url('muj-buddy') }}">Buddy Program</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-6">
-                <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z.s.</p>
-            </div>
-        </div><!-- /row -->
-    </div><!-- /footer -->
-</div><!-- /footer-wrap -->
+
 
 @section('javascript')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
