@@ -156,7 +156,10 @@ class TripsAppController extends Controller
         $insertTrip = function($trip, $registered) use (&$result) {
             $organizers = "";
             foreach ($trip->organizers as $organizer) {
-                $organizers .= " " . $organizer->person->first_name . ' ' . $organizer->person->last_name;
+                $organizers .= ", " . $organizer->person->first_name . ' ' . $organizer->person->last_name;
+            }
+            if ($organizers != "") {
+                $organizers = substr($organizers, 2);
             }
 
             $dateFrom = $trip->event->datetime_from ? $trip->event->datetime_from->toDateTimeString() : null;
@@ -177,7 +180,7 @@ class TripsAppController extends Controller
 
         };
 
-        $tripsRegistered = Trip::with('organizers.peron')->whereHas('participants', function($query) use($userId) {
+        $tripsRegistered = Trip::with('organizers.person')->whereHas('participants', function($query) use($userId) {
             $query->where('exchange_students.id_user', $userId);
         })->get();
 
@@ -185,7 +188,7 @@ class TripsAppController extends Controller
             $insertTrip($trip, 'y');
         }
 
-        $tripsNotRegistered = Trip::with('organizers.peron')->whereDoesntHave('participants', function($query) use($userId) {
+        $tripsNotRegistered = Trip::with('organizers.person')->whereDoesntHave('participants', function($query) use($userId) {
             $query->where('exchange_students.id_user', $userId);
         })->get();
 
