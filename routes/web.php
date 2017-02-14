@@ -44,6 +44,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
 });
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');
+Route::get('/owstats', 'Stats\StatsController@showOwTripsStatistics');
 
 Route::get('/visa', function() {
    return redirect('https://goo.gl/forms/4VyVa30v0estkh293');

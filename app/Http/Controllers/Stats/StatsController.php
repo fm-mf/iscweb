@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Stats;
 
 use App\Models\Country;
 use App\Models\ExchangeStudent;
+use App\Models\Trip;
 use App\Settings\Facade as Settings;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -25,4 +26,11 @@ class StatsController extends Controller
             }])->orderBy('exchange_student_count', 'desc')->get()
         ]);
     }
+
+    public function showOwTripsStatistics()
+    {
+        $trips = Trip::with('event')->get();
+        return view('stats.owTripsStats')->with(['trips' => $trips]);
+    }
+
 }

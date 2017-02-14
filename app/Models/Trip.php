@@ -46,6 +46,11 @@ class Trip extends Model
         return $this->participants()->wherePivot('stand_in', 'n')->count();
     }
 
+    public function howIsFillPercentage()
+    {
+        return ($this->howIsFill() / $this->capacity) * 100;
+    }
+
     public function freeSpots()
     {
         return $this->capacity - $this->howIsFill();
