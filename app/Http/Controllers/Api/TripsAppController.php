@@ -158,7 +158,7 @@ class TripsAppController extends Controller
             foreach ($trip->organizers as $organizer) {
                 $organizers .= " " . $organizer->person->first_name . ' ' . $organizer->person->last_name;
             }
-            $organizers = "";
+
             $dateFrom = $trip->event->datetime_from ? $trip->event->datetime_from->toDateTimeString() : null;
             $dateTo = $trip->trip_date_to ? $trip->trip_date_to->toDateTimeString() : null;
 
