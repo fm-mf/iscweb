@@ -44,6 +44,9 @@
                             </tr>
                         </table>
                     </div>
+                    @can('acl', 'trips.edit')
+                        <a href="{{ url('partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs">Edit</a>
+                    @endcan
                 </div>
             </div>
         </div>
