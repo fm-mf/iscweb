@@ -55,7 +55,8 @@
                 <a href="{{ asset('/files/OW_S2017/OW_S2017_Meeting_points_Registrations_at_faculties.pdf') }}">Registrations at faculties</a><br>
                 <a href="{{ asset('/files/OW_S2017/OW_S2017_CTU_Sports.pdf') }}">Sport at CTU</a><br>
                 <a href="{{ asset('/files/OW_S2017/OW_S2017_CTU_Visa.pdf') }}">Visa</a><br>
-                <a href="{{ asset('/files/OW_S2017/OW_S2017_Czech_courses.pdf') }}">Czech courses</a>
+                <a href="{{ asset('/files/OW_S2017/OW_S2017_Czech_courses.pdf') }}">Czech courses</a><br>
+                <a href="{{ asset('/files/OW_S2017/KOS_manual_CTU_Spring_2017.pdf') }}">KOS manual</a>
             </div>
 
 
