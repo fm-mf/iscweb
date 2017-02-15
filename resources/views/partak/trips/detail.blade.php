@@ -86,6 +86,8 @@
                     <div class="col-sm-12">
                         <h3>Participants</h3>
                         @if($particip->count() > 0)
+                            <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" role="button" class="btn btn-danger btn-xs">PDF </a>
+                            <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" role="button" class="btn btn-success btn-xs">Excel</a>
                             <div class="panel panel-default">
                                 <table class="table">
                                     <tr>

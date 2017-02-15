@@ -34,6 +34,8 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
 
     Route::get('/trips', 'TripController@showDashboard');
     Route::get('/trips/detail/{id}', 'TripController@showDetail');
+    Route::get('/trips/detail/{id}/pdf', 'TripController@showDetailPdf');
+    Route::get('/trips/detail/{id}/excel', 'TripController@showDetailExcel');
     Route::get('/trips/detail/{id_event}/add/{id_part}', 'TripController@addParticipantToTrip');
     Route::get('/trips/{id_event}/remove/{id_part}', 'TripController@removeParticipantFromTrip');
     Route::get('/trips/edit/{id_trip}', 'TripController@showEditForm')->name('trips.edit');

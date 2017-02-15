@@ -186,11 +186,16 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
+        App\Providers\EventServiceProvider::class,       // App\Providers\BroadcastServiceProvider::class,
+
         App\Providers\RouteServiceProvider::class,
         App\Providers\FormServiceProvider::class,
         App\Providers\SettingsProvider::class,
         //App\Providers\AclServiceProvider::class,
+
+        //PDF
+        Barryvdh\DomPDF\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * PhpStorm autocomplet
@@ -251,6 +256,8 @@ return [
         'Settings' => \App\Settings\Facade::class,
         'Asana' => \Torann\LaravelAsana\Facade\Asana::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
