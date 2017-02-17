@@ -3,7 +3,7 @@
 
     <div class="row-grey">
         <div class="container">
-            <div class="row-inner">
+            <div class="row row-inner">
                 <div class="col-sm-12">
                     <h3>Active trips</h3>
                     @if($visibleTrips->count() > 0)
@@ -41,4 +41,4 @@
             </div>
         </div>
     </div>
-@stop
+    @stop

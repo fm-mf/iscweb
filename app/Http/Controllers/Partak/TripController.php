@@ -54,17 +54,28 @@ class TripController extends Controller
     {
         $this->authorize('acl', 'trips.view');
         $trip = Trip::with('event')->find($id);
-        $particip = $trip->participants()->with('person.user')->get();
+
+
+        $particip = $trip->participants()->with(['person' => function($query) {
+            $query->orderBy('people.last_name', 'asc')->with('user');
+        }])->get();
+
         $pdf = PDF::loadView('partak.trips.pdf', [ 'particip' => $particip, 'trip' => $trip] )->setOptions(['dpi' => 96, 'fontHeightRatio' =>0.7]);
+
+        //return view('partak.trips.pdf')->with([ 'particip' => $particip, 'trip' => $trip]);
         return $pdf->setPaper('a4', 'landscape')->download($trip->event->nameWithoutSpaces() .'_participants.pdf');
-        //return view('partak.trips.pdf', [ 'particip' => $particip]);
+
     }
 
     public function showDetailExcel($id)
     {
         $this->authorize('acl', 'trips.view');
         $trip = Trip::with('event')->find($id);
-        $particip = $trip->participants()->with('person.user')->get();
+
+        $particip = $trip->participants()->with(['person' => function($query) {
+                $query->orderBy('people.last_name', 'asc')->with('user');
+            }])->get();
+
         $excell = Excel::create($trip->event->nameWithoutSpaces() .'_participants', function($excel) use($particip, $trip) {
 
             $excel->sheet('First sheet', function ($sheet) use($particip, $trip) {
