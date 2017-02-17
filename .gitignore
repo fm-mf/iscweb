@@ -4,7 +4,7 @@
 /storage/*.key
 /public/js/buttons.js
 /public/js/partak.js
-public/css
+/public/*.css
 /vendor
 /.idea
 Homestead.json

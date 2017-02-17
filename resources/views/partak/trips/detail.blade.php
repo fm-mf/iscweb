@@ -86,8 +86,14 @@
                     <div class="col-sm-12">
                         <h3>Participants</h3>
                         @if($particip->count() > 0)
-                            <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" role="button" class="btn btn-danger btn-xs">PDF </a>
-                            <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" role="button" class="btn btn-success btn-xs">Excel</a>
+                            <div class="export-links">
+                                <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" class="export-link export-link-pdf">
+                                    <img src="{{ asset('img/partak/pdf.png') }}" width="35"> PDF
+                                </a>
+                                <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="export-link export-link-pdf">
+                                    <img src="{{ asset('img/partak/xls.png') }}" width="35"> Excel
+                                </a>
+                            </div>
                             <div class="panel panel-default">
                                 <table class="table">
                                     <tr>

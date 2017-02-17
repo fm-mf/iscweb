@@ -342,4 +342,18 @@ a.disabled {
   padding-right: 0 !important;
 }
 
+.export-links {
+  padding-bottom: 20px;
+}
+
+.export-link {
+  padding-right: 20px;
+}
+.export-link:hover {
+  text-decoration: none;
+}
+.export-link img {
+  margin-right: 5px;
+}
+
 @import "users";
