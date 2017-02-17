@@ -88,7 +88,7 @@ return [
                 'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team'],
                 'events' => ['edit', 'add', 'view'],
             ],
-            'inheritsFrom' => ['partak']
+            'inheritsFrom' => ['hr']
         ],
 
         'supervisor' => [
