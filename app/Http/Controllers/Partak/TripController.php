@@ -52,8 +52,9 @@ class TripController extends Controller
 
     public function showDetailPdf($id)
     {
-        $this->authorize('acl', 'trips.view');
+        //$this->authorize('acl', 'trips.view');
         $trip = Trip::with('event')->find($id);
+        $this->authorize('view', $trip);
 
 
         $particip = $trip->participants()->with(['person' => function($query) {
@@ -69,8 +70,9 @@ class TripController extends Controller
 
     public function showDetailExcel($id)
     {
-        $this->authorize('acl', 'trips.view');
+        //$this->authorize('acl', 'trips.view');
         $trip = Trip::with('event')->find($id);
+        $this->authorize('view', $trip);
 
         $particip = $trip->participants()->with(['person' => function($query) {
                 $query->orderBy('people.last_name', 'asc')->with('user');
@@ -89,25 +91,28 @@ class TripController extends Controller
 
     public function addParticipantToTrip($id_trip, $id_part)
     {
-        $this->authorize('acl', 'participant.add');
+        //$this->authorize('acl', 'participant.add');
         $trip = Trip::find($id_trip);
+        $this->authorize('addParticipant', $trip);
         $result = $trip->addParticipant($id_part);
         return back()->with(['addSuccess' => true]);
     }
 
     public function removeParticipantFromTrip($id_trip, $id_part)
     {
-        $this->authorize('acl', 'participant.remove');
+        //$this->authorize('acl', 'participant.remove');
         $trip = Trip::find($id_trip);
+        $this->authorize('removeParticipant', $trip);
         $result = $trip->removeParticipant($id_part);
         return back()->with(['removeSuccess' => true]);
     }
 
     public function showEditForm($id_trip)
     {
-        $this->authorize('acl', 'trips.edit');
+        //$this->authorize('acl', 'trips.edit');
         //$this->authorize('acl', 'trips');
         $trip = Trip::with('event')->find($id_trip);
+        $this->authorize('edit', $trip);
 
         $buddies = [];
         foreach(Buddy::with('person')->partak()->get() as $buddy) {
@@ -130,9 +135,10 @@ class TripController extends Controller
 
     public function submitEditForm(Request $request, $id_trip)
     {
-        $this->authorize('acl', 'trips.edit');
-        $this->tripValidator($request->all())->validate();
+        //$this->authorize('acl', 'trips.edit');
         $trip = Trip::with('event')->find($id_trip);
+        $this->authorize('edit', $trip);
+        $this->tripValidator($request->all())->validate();
         if(isset($trip)){
             $data = [];
             foreach ($request->all() as $key => $value) {

@@ -127,6 +127,11 @@ class Trip extends Model
 
     }
 
+    public function isOrganizer($id_user)
+    {
+        return $this->organizers()->where('trips_organizers.id_user', $id_user)->exists();
+    }
+
     public static function createTrip($data)
     {
         $data = self::updateDatetimes($data);

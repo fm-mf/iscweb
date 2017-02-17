@@ -18,10 +18,24 @@ class TripPolicy
      * @param  \App\Models\Trip  $trip
      * @return mixed
      */
+
     public function view(User $user, Trip $trip)
-    {   $organize = $trip->organizers()->where('trips_organizers.id_user', $user->id_user)->exists();
-        if($organize) return true;
-        if($user->can('acl', 'trips.view')) return true;
-        return false;
+    {
+        return $trip->isOrganizer($user->id_user) || $user->can('acl', 'trips.view');
+    }
+
+    public function edit(User $user, Trip $trip)
+    {
+        return $trip->isOrganizer($user->id_user) || $user->can('acl', 'trips.edit');
+    }
+
+    public function addParticipant(User $user, Trip $trip)
+    {
+        return $trip->isOrganizer($user->id_user) || $user->can('acl', 'participant.add');
+    }
+
+    public function removeParticipant(User $user, Trip $trip)
+    {
+        return $trip->isOrganizer($user->id_user) || $user->can('acl', 'participant.remove');
     }
 }

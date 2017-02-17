@@ -7,7 +7,7 @@
                 <div class="col-sm-12">
 
                         <h3>My trips</h3>
-                        @if(\App\Models\Buddy::with('trips')->find(Auth::id())->isOrganizerOfTrip())
+                        @if(\App\Models\Buddy::with('trips')->find(Auth::id())->trips->count() > 0)
                             <div class="panel panel-default" id="protected">
                                 <table class="table">
                                     <tr>

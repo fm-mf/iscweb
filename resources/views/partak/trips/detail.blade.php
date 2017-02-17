@@ -44,7 +44,7 @@
                             </tr>
                         </table>
                     </div>
-                    @can('acl', 'trips.edit')
+                    @can('edit', $trip)
                         <a href="{{ url('partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs">Edit</a>
                     @endcan
                 </div>
@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        @can('acl', 'participant.add')
+        @can('addParticipant', $trip)
             @include('partak.users.officeRegistration.search',['label' => 'Add Participant', 'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}')])
         @endcan
         <div style="min-height: 300px">
@@ -113,7 +113,7 @@
                                             <td>{{ $participant->esn_card_number }}</td>
                                             <td> @can('acl', 'exchangeStudents.view') <a href="{{ url('partak/users/exchange-students/' . $participant->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                                 @endcan
-                                                @can('acl', 'participant.remove')
+                                                @can('removeParticipant', $trip)
                                                     <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
                                                                      protection-text="Remove {{ $participant->person->first_name }} {{ $participant->person->last_name }} from event {{ $trip->name }}?"
                                                                      button-style="btn btn-danger btn-xs">Remove</protectedbutton>
