@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
 <body>
 <h3 align="center">{{ $trip->event->name }} participants</h3>
     <div class="container">
@@ -14,6 +18,7 @@
                                 <th>Sex</th>
                                 <th>Phone</th>
                                 <th>ESN cart number</th>
+                                <th>Accommodation</th>
                             </tr>
                             @foreach($particip as $participant)
                                 <tr>
@@ -23,6 +28,7 @@
                                     <td>{{ $participant->person->getSex() }}</td>
                                     <td>{{ $participant->phone }}</td>
                                     <td>{{ $participant->esn_card_number }}</td>
+                                    <td>{{ $participant->accommodation->full_name }}</td>
                                 </tr>
                             @endforeach
                         </table>

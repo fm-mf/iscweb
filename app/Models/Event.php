@@ -46,11 +46,17 @@ class Event extends Model
         return asset('/img/web/events/Beer_pong.jpg');
     }
 
+    public function nameWithoutSpaces()
+    {
+        return str_replace(' ', '_', $this->name);
+    }
+
     public static function findAllVisible()
     {
         return Event::with('modifiedBy.user')
             ->whereDate('datetime_from', '>=', Carbon::today())
             ->whereDate('visible_from','<=', Carbon::today())
+            ->orderBy('datetime_from','asc')
             ->get();
     }
 
