@@ -11,9 +11,14 @@
                                     href="{{ url('partak/users/exchange-students') }}"
                            @endif @if(Request::is('partak/users/*')) class="active" @endif>Users</a></li>
                     @endcan
-                    @can('acl', 'trips.view')
-                    <li><a href="{{ url('partak/trips') }}" @if(Request::is('partak/trips') || Request::is('partak/trips/*')) class="active"@endif>Trips</a></li>
-                    @endcan
+                    <li><a @if(Auth::user()->can('acl', 'trips.view'))
+                                href="{{ url('partak/trips') }}"
+                           @else
+                                href="{{ url('partak/trips/mytrips') }}"
+
+                           @endif
+                           @if(Request::is('partak/trips') || Request::is('partak/trips/*')) class="active"@endif>Trips</a></li>
+
                     @can('acl', 'events.view')
                         <li><a href="{{ url('partak/events') }}" @if(Request::is('partak/events') || Request::is('partak/events/*')) class="active"@endif>Events</a></li>
                     @endcan

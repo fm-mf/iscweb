@@ -33,6 +33,7 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     //Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
 
     Route::get('/trips', 'TripController@showDashboard');
+    Route::get('/trips/mytrips', 'TripController@showMyTrips');
     Route::get('/trips/detail/{id}', 'TripController@showDetail');
     Route::get('/trips/detail/{id}/pdf', 'TripController@showDetailPdf');
     Route::get('/trips/detail/{id}/excel', 'TripController@showDetailExcel');

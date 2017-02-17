@@ -29,7 +29,7 @@ class Buddy extends Model
         return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_buddy');
     }
 
-    public function organizedTrips()
+    public function trips()
     {
         return $this->belongsToMany('\App\Models\Trip', 'trips_organizers', 'id_user', 'id_trip');
     }

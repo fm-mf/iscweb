@@ -32,10 +32,15 @@ class TripController extends Controller
         return view('partak.trips.dashboard')->with(['visibleTrips' => $visibleTrips,]);
     }
 
+    public function showMyTrips()
+    {
+        return view('partak.trips.mytrips');
+    }
+
     public function showDetail($id)
     {
-        $this->authorize('acl', 'trips.view');
         $trip = Trip::with('event')->find($id);
+        $this->authorize('view', $trip);
         $particip = $trip->participants()->with('person.user')->get();
         $organizers = $trip->organizers()->with('person.user')->get();
         return view('partak.trips.detail')->with([
@@ -192,8 +197,10 @@ class TripController extends Controller
     public function deleteTrip($id_trip)
     {
         $this->authorize('acl', 'trips.remove');
-        $trip = Trip::find($id_trip);
+        $trip = Trip::with('evetn')->find($id_trip);
+        $trip->organizers()->detach();
         $trip->participants()->detach();
+        $trip->event->delete();
         $trip->delete();
         return back();
     }
