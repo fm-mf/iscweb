@@ -57,7 +57,9 @@ class TripController extends Controller
         $this->authorize('view', $trip);
 
 
-        $particip = $trip->participants()->with('person.user')->get()->sortBy('person.last_name');
+        $particip = $trip->participants()->with('person.user')
+            ->join('people', 'people.id_user', 'exchange_students.id_user')
+            ->orderBy('people.last_name', 'asc')->get();
 
         $pdf = PDF::loadView('partak.trips.pdf', [ 'particip' => $particip, 'trip' => $trip] )->setOptions(['dpi' => 96, 'fontHeightRatio' =>0.7]);
 
@@ -72,8 +74,9 @@ class TripController extends Controller
         $trip = Trip::with('event')->find($id);
         $this->authorize('view', $trip);
 
-        $particip = $trip->participants()->with('person.user')->get()->sortBy('person.last_name');
-
+        $particip = $trip->participants()->with('person.user')
+            ->join('people', 'people.id_user', 'exchange_students.id_user')
+            ->orderBy('people.last_name', 'asc')->get();
 
         $excell = Excel::create($trip->event->nameWithoutSpaces() .'_participants', function($excel) use($particip, $trip) {
 

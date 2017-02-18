@@ -106,7 +106,7 @@
                                     </tr>
                                     @foreach($particip as $participant)
                                         <tr>
-                                            <td>@if($participant->trips()->wherePivot('stand_in', 'y')->where('trips.id_trip', $trip->id_trip)->exists()) <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->person->first_name .' '. $participant->person->last_name}}</td>
+                                            <td>@if($participant->trips()->wherePivot('stand_in', 'y')->where('trips.id_trip', $trip->id_trip)->exists()) <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->person->last_name .' '. $participant->person->first_name}}</td>
                                             <td>{{ $participant->person->user->email }}</td>
                                             <td>{{ $participant->person->getSex() }}</td>
                                             <td>{{ $participant->phone }}</td>

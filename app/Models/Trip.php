@@ -190,6 +190,4 @@ class Trip extends Model
         return Event::with('modifid_by.user');
     }
 
-
-
 }
