@@ -61,10 +61,21 @@ class BuddiesController extends Controller
 
     public function showBuddiesDashboard()
     {
-        $this->authorize('acl', 'buddy.view');
-        return view('partak.users.buddies.dashboard')->with([
-            'notVerifiedBuddies' => Buddy::with('person.user')->notVerified()->notDenied()
-        ]);
+        if(Auth::user()->can('acl', 'buddy.view'))
+        {
+            return view('partak.users.buddies.dashboard')->with([
+                'notVerifiedBuddies' => Buddy::with('person.user')->notVerified()->notDenied()
+            ]);
+        }
+        elseif(Auth::user()->can('acl', 'exchangeStudents.view'))
+        {
+            return redirect()->action('Partak\ExchangeStudentsController@showExchangeStudentDashboard');
+        }
+        else
+        {
+            throw new \Illuminate\Auth\Access\AuthorizationException('You are not authorized');
+        }
+
     }
 
     public function showBuddyDetail($id)

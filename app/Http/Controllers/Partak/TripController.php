@@ -26,15 +26,22 @@ class TripController extends Controller
     public function showDashboard()
     {
 
-        $this->authorize('acl', 'trips.view');
-        $visibleTrips = Trip::findAllUpcoming();
-        //dd($visibleTrips);
-        return view('partak.trips.dashboard')->with(['visibleTrips' => $visibleTrips,]);
+        if(Auth::user()->can('acl', 'trips.view'))
+        {
+            $visibleTrips = Trip::findAllUpcoming();
+            //dd($visibleTrips);
+            return view('partak.trips.dashboard')->with(['visibleTrips' => $visibleTrips,]);
+        }
+        else
+        {
+            return redirect()->action('Partak\TripController@showMyTrips');
+        }
+
     }
 
     public function showMyTrips()
     {
-        return view('partak.trips.mytrips');
+        return view('partak.trips.mytrips')->with(['myTrips' => Buddy::with('trips')->find(Auth::id())->trips ]);
     }
 
     public function showDetail($id)
@@ -57,9 +64,9 @@ class TripController extends Controller
         $this->authorize('view', $trip);
 
 
-        $particip = $trip->participants()->with('person.user')
-            ->join('people', 'people.id_user', 'exchange_students.id_user')
-            ->orderBy('people.last_name', 'asc')->get();
+        $particip = $trip->participants()->with('person.user')->get()->sortby(function ($item){
+            return strtolower($item->person->last_name);
+        });
 
         $pdf = PDF::loadView('partak.trips.pdf', [ 'particip' => $particip, 'trip' => $trip] )->setOptions(['dpi' => 96, 'fontHeightRatio' =>0.7]);
 
@@ -74,10 +81,9 @@ class TripController extends Controller
         $trip = Trip::with('event')->find($id);
         $this->authorize('view', $trip);
 
-        $particip = $trip->participants()->with('person.user')
-            ->join('people', 'people.id_user', 'exchange_students.id_user')
-            ->orderBy('people.last_name', 'asc')->get();
-
+        $particip = $trip->participants()->with('person.user')->get()->sortby(function ($item){
+            return strtolower($item->person->last_name);
+        });
         $excell = Excel::create($trip->event->nameWithoutSpaces() .'_participants', function($excel) use($particip, $trip) {
 
             $excel->sheet('First sheet', function ($sheet) use($particip, $trip) {

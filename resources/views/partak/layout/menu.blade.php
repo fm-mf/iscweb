@@ -5,19 +5,9 @@
                 <ul class="nav navbar-nav admin-nav">
                     <li><a href="{{ url('partak/') }}" @if(Request::is('partak')) class="active" @endif>Dashboard</a></li>
                     @can('acl', 'users.view')
-                    <li><a @if(Auth::user()->can('acl', 'buddy.view'))
-                                    href="{{ url('partak/users/buddies') }}"
-                           @elseif(Auth::user()->can('acl', 'exchangeStudents.view'))
-                                    href="{{ url('partak/users/exchange-students') }}"
-                           @endif @if(Request::is('partak/users/*')) class="active" @endif>Users</a></li>
+                    <li><a href="{{ url('partak/users') }}" @if(Request::is('partak/users/*')) class="active" @endif>Users</a></li>
                     @endcan
-                    <li><a @if(Auth::user()->can('acl', 'trips.view'))
-                                href="{{ url('partak/trips') }}"
-                           @else
-                                href="{{ url('partak/trips/mytrips') }}"
-
-                           @endif
-                           @if(Request::is('partak/trips') || Request::is('partak/trips/*')) class="active"@endif>Trips</a></li>
+                    <li><a href="{{ url('partak/trips') }}" @if(Request::is('partak/trips') || Request::is('partak/trips/*')) class="active"@endif>Trips</a></li>
 
                     @can('acl', 'events.view')
                         <li><a href="{{ url('partak/events') }}" @if(Request::is('partak/events') || Request::is('partak/events/*')) class="active"@endif>Events</a></li>

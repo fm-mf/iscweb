@@ -7,7 +7,7 @@
                 <div class="col-sm-12">
 
                         <h3>My trips</h3>
-                        @if(\App\Models\Buddy::with('trips')->find(Auth::id())->trips->count() > 0)
+                        @if($myTrips->count() > 0)
                             <div class="panel panel-default" id="protected">
                                 <table class="table">
                                     <tr>
@@ -17,7 +17,7 @@
                                         <th>Price</th>
                                         <th>Actions</th>
                                     </tr>
-                                    @foreach(\App\Models\Buddy::with('trips')->find(Auth::id())->trips as $trip)
+                                    @foreach($myTrips as $trip)
                                         <tr>
                                             <td>{{ $trip->event->name }}</td>
                                             <td>{{ $trip->event->datetime_from->toFormattedDateString() }}</td>
