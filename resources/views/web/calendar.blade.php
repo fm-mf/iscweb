@@ -60,7 +60,7 @@
                         ► <a href="https://www.facebook.com/events/1652606798378403/"><strong>Facebook event!</strong></a>
                     </p>
 
-                    <br><br><br>
+                    <br>
                 </div>
             </div>
 
