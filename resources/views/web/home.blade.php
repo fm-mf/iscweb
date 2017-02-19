@@ -62,73 +62,19 @@
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-2 col-sm-height">
-                        <span class="day">Tuesday<br>February<br><strong>14th</strong></span>
-                        <h2>Second orientation day</h2>
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/Cover_EiS.jpg') }})">
+                        <span class="day">Tuesday<br>February<br><strong>21st</strong><br>7pm</span>
+                        <h2>Erasmus in School & Care meeting</h2>
                     </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top">
-                        <table>
-                            <tr>
-                                <th>morning</th>
-                                <td><strong>Registration at faculties</strong><br>
-                                    <small><a>Meeting points and times</a></small>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>14:00 &ndash; 16:30</th>
-                                <td><strong>Second information meeting and registration for trips</strong><br>
-                                    <small>Congress hall of the Masarykova dormitory</small><br>
-                                    <small>(<strong>Important:</strong> Bring ESNcard and money in cash for the trips registration)</small></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height">
-                        <span class="day">Wednesday<br>February<br><strong>15th</strong><br>12:30pm</span>
-                        <h2>Prague Discovery Game</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top">
-                        <table>
-                            <tr>
-                                <th>13:00 &ndash; 20:00</th>
-                                <td><strong>Prague Discovery Game</strong><br>
-                                    <small>(Explore the city of Prague in an entertaining way!)</small><br>
-                                    Do you want to meet new friends from all over the world and have fun? Join us in the Prague Discovery Game and explore the city in an entertaining way!<br>
-                                    <small><a>Meeting points and times</a></small>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integration_party.jpg') }})">
-                        <span class="day">Wednesday<br>February<br><strong>15th</strong><br>9pm</span>
-                        <h2>inteGREATion party</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top">
-                        <p>► Who?  ◄ InteGREATion party<br>
-                            ► When? ◄ Wednesday, 15. 2. 2017, 9 pm<br>
-                            ► Where?◄ <a href="http://stormclub.eu">Storm club (Tachovské nám. 290/5, 130 00 Praha 3)</a></p>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>►Where: <a href="https://goo.gl/maps/cm3RR4AWRT82">Masarykova dormitory room R404</a></p>
+                        <p>►An informative meeting about Erasmus in school and about projects which you can do to make the world around us smile.
 
                         <p>
-                            ► <a href="https://www.facebook.com/events/135752213604976/"><strong>Facebook event!</strong></a>
+                            ► <a href="https://www.facebook.com/events/1652606798378403/"><strong>Facebook event!</strong></a>
                         </p>
 
-                        <p><small>★ International
-                                ★ Night
-                                ★ Team-work
-                                ★ Entertainment
-                                ★ Global
-                                ★ Real
-                                ★ Extraordinary
-                                ★ Amazing
-                                ★ Together<br>
-
-                                inteGREAT more than a party</small>
-
+                        <br><br><br>
                     </div>
                 </div>
 

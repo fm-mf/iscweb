@@ -11,51 +11,11 @@
     </h1 -->
     <span class="vspace"></span>
 
+
     <div class="container events">
         <div class="container container-ow container-sm-height">
 
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-2 col-sm-height">
-                    <span class="day">Tuesday<br>February<br><strong>14th</strong></span>
-                    <h2>Second orientation day</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top">
-                    <table>
-                        <tr>
-                            <th>morning</th>
-                            <td><strong>Registration at faculties</strong><br>
-                                <small><a>Meeting points and times</a></small>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>14:00 &ndash; 16:30</th>
-                            <td><strong>Second information meeting and registration for trips</strong><br>
-                                <small>Congress hall of the Masarykova dormitory</small><br>
-                                <small>(<strong>Important:</strong> Bring ESNcard and money in cash for the trips registration)</small></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height">
-                    <span class="day">Wednesday<br>February<br><strong>15th</strong><br>12:30pm</span>
-                    <h2>Prague Discovery Game</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top">
-                    <table>
-                        <tr>
-                            <th>13:00 &ndash; 20:00</th>
-                            <td><strong>Prague Discovery Game</strong><br>
-                                <small>(Explore the city of Prague in an entertaining way!)</small><br>
-                                Do you want to meet new friends from all over the world and have fun? Join us in the Prague Discovery Game and explore the city in an entertaining way!<br>
-                                <small><a>Meeting points and times</a></small>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+        <!--
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integration_party.jpg') }})">
@@ -85,46 +45,25 @@
 
                 </div>
             </div>
+            -->
             <span class="vspace"></span>
-
             <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-4 col-sm-height">
-                    <span class="day">Thu &ndash; Sun<br>February<br><strong class="h-trips">16th &ndash; 19th</strong></span>
-                    <h2>Orientation Week Trips</h2>
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/Cover_EiS.jpg') }})">
+                    <span class="day">Tuesday<br>February<br><strong>21st</strong><br>7pm</span>
+                    <h2>Erasmus in School & Care meeting</h2>
                 </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top" style="min-height: 400px">
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>►Where: <a href="https://goo.gl/maps/cm3RR4AWRT82">Masarykova dormitory room R404</a></p>
+                    <p>►An informative meeting about Erasmus in school and about projects which you can do to make the world around us smile.
+
                     <p>
-                        During the Orientation Week you will also have an amazing opportunity to explore some great places around the Czech Republic with ISC members.
+                        ► <a href="https://www.facebook.com/events/1652606798378403/"><strong>Facebook event!</strong></a>
                     </p>
-                    <table class="trips-list">
-                        <tr>
-                            <th>South Bohemia</th>
-                            <td>16th-17th February</td>
-                        </tr>
-                        <tr>
-                            <th>Gotic Castle Karlštejn + Kozel Brewery</th>
-                            <td>18th February (meeting 9:30 - yee no early waking up!)</td>
-                        </tr>
-                        <tr>
-                            <th>Kutná Hora</th>
-                            <td>18th February</td>
-                        </tr>
-                        <tr>
-                            <th>Karlovy Vary</th>
-                            <td>18th-19th February</td>
-                        </tr>
-                        <tr>
-                            <th>South Moravia Wine Trip</th>
-                            <td>18th-19th February</td>
-                        </tr>
-                        <tr>
-                            <th>Pilsen</th>
-                            <td>25th February</td>
-                        </tr>
-                   </table>
-                    </p>
+
+                    <br><br><br>
                 </div>
             </div>
+
             <!--
             @if(isset($events) && $events->count() > 0)
                 @foreach($events as $event)
@@ -133,7 +72,7 @@
                         <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ $event->cover() }})">
                             <span class="day">{{ $event->datetime_from->format('l') }}<br>{{ $event->datetime_from->format('F') }}<br>
                                 <strong>{{ $event->datetime_from->format('jS') }}</strong><br>
-                                {{ $event->datetime_from->hour }}{{ ($event->datetime_from->minute == 0) ? $event->datetime_from->format('a') : $event->datetime_from->format(':ia') }}</span>
+                                {{ $event->datetime_from->format('g') }}{{ ($event->datetime_from->minute == 0) ? $event->datetime_from->format('a') : $event->datetime_from->format(':ia') }}</span>
                             <h2>{{ $event->name }}</h2>
                         </div>
                         <div class="col-sm-6 ow-detail col-sm-height col-top">

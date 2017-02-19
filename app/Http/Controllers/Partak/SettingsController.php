@@ -7,7 +7,6 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Torann\LaravelAsana\Facade\Asana;
 use App\Settings\Facade as Settings;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +15,6 @@ class SettingsController extends Controller
     public function showSettings()
     {
         $this->authorize('acl', 'settings.edit');
-        //dd(Settings::all());
         $currentSemester = Semester::where('semester', Settings::get('currentSemester'))->select('id_semester')->first();
         $sems = Semester::where('id_semester', '>=', $currentSemester->id_semester - 1)->get();
         $semesters = [];
