@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Guide;
 
+use Carbon\Carbon;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,16 +26,42 @@ class PageController extends Controller
                 $page = "home";
                 break;
             case "basic-information":
-                $with = ['wcFrom' => Settings::get('wcFrom'),
-                            'owFrom' => Settings::get('owFrom'),
-                            'owFromTo' => Settings::get('owFromTo')];
+                $with = ['wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
+                            'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
+                            'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
+                ];
                 break;
             case "orientation-week":
-                $with = ['owFromTo' => Settings::get('owFromTo')];
+                $with = ['owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo'))];
                 break;
         }
         return view('guide.' . $page)->with($with);
+    }
 
-
+    private function dateToCorrectFormat($from, $to = null)
+    {
+        $dateFrom = Carbon::createFromFormat('d/m/Y' ,$from);
+        $result = '';
+        if($to == null) $result = $dateFrom->format('l F jS');
+        else
+        {
+            $dateTo = Carbon::createFromFormat('d/m/Y' ,$to);
+            if($dateFrom->year == $dateTo->year)
+            {
+                if($dateFrom->month != $dateTo->month )
+                {
+                    $result = $dateFrom->format('F jS') .' - '. $dateTo->format('F jS, Y');
+                }
+                else
+                {
+                    $result = $dateFrom->format('F jS') .' - '. $dateTo->format('jS, Y');
+                }
+            }
+            else
+            {
+                $result = $dateFrom->format('F jS Y') .' - '. $dateTo->format('F jS Y');
+            }
+        }
+        return $result;
     }
 }

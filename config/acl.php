@@ -87,6 +87,7 @@ return [
             'resources' => [
                 'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team'],
                 'events' => ['edit', 'add', 'view'],
+                'settings' => ['edit'],
             ],
             'inheritsFrom' => ['hr']
         ],

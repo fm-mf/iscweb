@@ -13,7 +13,7 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     Route::get('/users/partaks', 'RolesController@showPartaks');
     Route::get('/users/roles/remove/{id_user}/{id_role}', 'RolesController@removeRole');
 
-    Route::get('/users', 'BuddiesController@showBuddiesDashboard');
+    Route::get('/users', 'DashboardController@users');
 
     Route::get('/users/buddies', 'BuddiesController@showBuddiesDashboard');
     Route::get('/users/buddies/{id}', 'BuddiesController@showBuddyDetail');
@@ -34,7 +34,8 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
     //Route::get('/users/office-registration/{id}', 'OfficeRegistrationControler@showExchangeStudent');
     //Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
 
-    Route::get('/trips', 'TripController@showDashboard');
+    Route::get('/trips', 'DashboardController@trips');
+    Route::get('/trips/upcoming', 'TripController@showUpcoming');
     Route::get('/trips/mytrips', 'TripController@showMyTrips');
     Route::get('/trips/detail/{id}', 'TripController@showDetail');
     Route::get('/trips/detail/{id}/pdf', 'TripController@showDetailPdf');
@@ -61,5 +62,8 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
 
     Route::get('/users/preregistrations', 'OfficeRegistrationController@showPreregistrations');
     Route::get('/users/preregistrations/{id}', 'OfficeRegistrationController@showPreregistrations');
+
+    Route::get('/settings', 'SettingsController@showSettings');
+    Route::patch('/settings', 'SettingsController@submitSettings');
 });
 

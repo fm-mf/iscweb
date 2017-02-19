@@ -7,7 +7,7 @@
     <p>
     <ul>
         <li>get accommodated at your dorm</li>
-        <li>get the Welcome pack - in the ISC Point - from {{$wcFrom}}</li>
+        <li>get the Welcome pack - in the ISC Point - from {{ $wcFrom }}</li>
         <li>get ISC membership before {{$owFrom}} - required to register for Orientation Week trips. Come to the ISC Point in Masarykova dorm, room R304</li>
         <li>get your public transportation card</li>
         <li>get your student ID</li>

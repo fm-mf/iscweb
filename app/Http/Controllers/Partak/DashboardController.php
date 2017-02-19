@@ -16,6 +16,30 @@ class DashboardController extends Controller
 
     public function trips(Request $request)
     {
-        return view('partak.trips')->with(['user' => $request->user()]);
+
+        if($request->user()->can('acl', 'trips.view'))
+        {
+            return redirect()->action('Partak\TripController@showUpcoming');
+        }
+        else
+        {
+            return redirect()->action('Partak\TripController@showMyTrips');
+        }
+    }
+
+    public function users(Request $request)
+    {
+        if($request->user()->can('acl', 'buddy.view'))
+        {
+            return redirect()->action('Partak\BuddiesController@showBuddiesDashboard');
+        }
+        elseif($request->user()->can('acl', 'exchangeStudents.view'))
+        {
+            return redirect()->action('Partak\ExchangeStudentsController@showExchangeStudentDashboard');
+        }
+        else
+        {
+            throw new \Illuminate\Auth\Access\AuthorizationException('You are not authorized');
+        }
     }
 }

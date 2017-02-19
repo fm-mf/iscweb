@@ -23,20 +23,12 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class TripController extends Controller
 {
-    public function showDashboard()
+    public function showUpcoming()
     {
-
-        if(Auth::user()->can('acl', 'trips.view'))
-        {
-            $visibleTrips = Trip::findAllUpcoming();
-            //dd($visibleTrips);
-            return view('partak.trips.dashboard')->with(['visibleTrips' => $visibleTrips,]);
-        }
-        else
-        {
-            return redirect()->action('Partak\TripController@showMyTrips');
-        }
-
+        $this->authorize('acl', 'trips.view');
+        $visibleTrips = Trip::findAllUpcoming();
+        //dd($visibleTrips);
+        return view('partak.trips.dashboard')->with(['visibleTrips' => $visibleTrips,]);
     }
 
     public function showMyTrips()
