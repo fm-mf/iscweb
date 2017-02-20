@@ -31,7 +31,10 @@ class AutocompleteController extends Controller
     {
         //dd ($request->target);
         $search = ExchangeStudent::findAll()->bySemester(Settings::get('currentSemester'));
-        $search = $this->query($search, $request->field, $request->input)->limit($request->limit);
+        $fullName = strpos($request->input, ' ') !== false
+            && in_array('person.first_name', $request->field['columns'])
+            && in_array('person.last_name', $request->field['columns']);
+        $search = $this->query($search, $request->field, $request->input, $fullName)->limit($request->limit);
 
 
         $link = $request->target;
@@ -58,7 +61,10 @@ class AutocompleteController extends Controller
     public function buddies(Request $request)
     {
         $search = Buddy::findAll();
-        $search = $this->query($search, $request->field, $request->input)->limit($request->limit);
+        $fullName = strpos($request->input, ' ') !== false
+            && in_array('person.first_name', $request->field['columns'])
+            && in_array('person.last_name', $request->field['columns']);
+        $search = $this->query($search, $request->field, $request->input, $fullName)->limit($request->limit);
 
         $link = $request->target;
         if ($link) {
@@ -81,33 +87,50 @@ class AutocompleteController extends Controller
         ]);
     }
 
-    private function query($query, $field, $input)
+    private function query($query, $field, $input, $fullName = false)
     {
-        $query->where(function($query) use ($field, $input) {
+        $query->where(function($query) use ($field, $input, $fullName) {
             $firstQ = true;
-            foreach ($field['columns'] as $column) {
-                $commaPos = strrpos($column, '.');
-                if ($commaPos) {
-                    $table = substr($column, 0, $commaPos);
-                    $col = substr($column, $commaPos + 1);
-                    if ($firstQ) {
-                        $firstQ = false;
-                        $query->whereHas($table, function ($query) use ($col, $input) {
-                            $query->where($col, 'LIKE', '%' . $input . '%');
-                        });
-                    } else {
-                        $query->orWhereHas($table, function ($query) use ($col, $input) {
-                            $query->where($col, 'LIKE', '%' . $input . '%');
-                        });
-                    }
-                } else {
-                    if ($firstQ) {
-                        $firstQ = false;
-                        $query->where($column, 'LIKE', '%' . $input . '%');
-                    } else {
-                        $query->orWhere($column, 'LIKE', '%' . $input . '%');
-                    }
+            if($fullName){
+                $namePos = strpos($input, ' ');
+                $name = [substr($input, 0, $namePos), substr($input, $namePos + 1)];
 
+                $table = 'person';
+                $col = ['first_name', 'last_name'];
+                $query->whereHas($table, function ($query) use ($col, $name) {
+                    $query->where($col[0], 'LIKE', '%' . $name[0]. '%')
+                    ->where($col[1], 'LIKE', '%' . $name[1]. '%');
+                })->orWhereHas($table, function ($query) use ($col, $name) {
+                    $query->where($col[1], 'LIKE', '%' . $name[0] . '%')
+                        ->where($col[0], 'LIKE', '%' . $name[1] . '%');
+                });
+            }
+            else
+            {
+                foreach ($field['columns'] as $column) {
+                    $commaPos = strrpos($column, '.');
+                    if ($commaPos) {
+                        $table = substr($column, 0, $commaPos);
+                        $col = substr($column, $commaPos + 1);
+                        if ($firstQ) {
+                            $firstQ = false;
+                            $query->whereHas($table, function ($query) use ($col, $input) {
+                                $query->where($col, 'LIKE', '%' . $input . '%');
+                            });
+                        } else {
+                            $query->orWhereHas($table, function ($query) use ($col, $input) {
+                                $query->where($col, 'LIKE', '%' . $input . '%');
+                            });
+                        }
+                    } else {
+                        if ($firstQ) {
+                            $firstQ = false;
+                            $query->where($column, 'LIKE', '%' . $input . '%');
+                        } else {
+                            $query->orWhere($column, 'LIKE', '%' . $input . '%');
+                        }
+
+                    }
                 }
             }
         });
