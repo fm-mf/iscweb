@@ -35,7 +35,7 @@
 
         {{ Form::open(['url' => '/user']) }}
 
-            {{ Form::bsText('email', 'Email', null, ['placeholder' => 'Email']) }}
+            {{ Form::bsText('email', 'Email', '', null, ['placeholder' => 'Email']) }}
             {{ Form::bsPassword('password', 'Heslo', ['placeholder' => 'Heslo']) }}
             {{ Form::bsSubmit('Prihlasit') }}
 
