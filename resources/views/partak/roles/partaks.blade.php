@@ -33,6 +33,7 @@
                             <td>{{ $partak->person->first_name }} {{ $partak->person->last_name }}</td>
                             <td>{{ $partak->email }}</td>
                             <td align="right">
+                                <a href="{{ url('partak/users/buddies/' . $partak->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                 <protectedbutton url="{{ url('partak/users/roles/remove/' . $partak->id_user . '/partak') }}"
                                                  protection-text="Remove {{ $partak->person->first_name }} {{ $partak->person->last_name }} from Partaks?"
                                                  button-style="btn-danger btn-xs align-right">Remove</protectedbutton>
