@@ -26,7 +26,7 @@
         <div class="row row-inner">
             <div class="col-md-7">
                 {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch', 'id' => 'roles']) }}
-                    {{ Form::bsText('email', 'Email', $buddy->person->user->email) }}
+                    {{ Form::bsText('email', 'Email','required', $buddy->person->user->email) }}
                     {{ Form::bsText('phone', 'Phone') }}
                     @can('acl', 'roles.view')
                         <multiselectinput formName="roles" title="Roles" :options="options.roles" :value="options.sroles" :show-labels="false" label="title" track-by="id_role" placeholder="Roles"
