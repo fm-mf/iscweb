@@ -1,5 +1,5 @@
 <div class="form-group">
-    {{ Form::label($name, $label, ['class' => 'control-label']) }}
+    {{ Form::label($name, $label, ['class' => 'control-label '. $required]) }}
     @if ($errors->has($name))
         <p class="error-block alert-danger">{{ $errors->first($name) }}</p>
     @endif

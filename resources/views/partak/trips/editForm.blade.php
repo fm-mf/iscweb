@@ -1,12 +1,11 @@
 
-
-{{ Form::bsText('name', 'Name') }}
+{{ Form::bsText('name','Name', 'required') }}
 
 <!-- TODO: Pridat moznost pridani coveru eventu -->
 
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('date', 'Visible from date', ['class' => 'control-label']) }}
+        {{ Form::label('date', 'Visible from date', ['class' => 'control-label required' ]) }}
         @if ($errors->has('date'))
             <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
         @endif
@@ -14,7 +13,7 @@
 
     </div>
     <div class="col-sm-6 right">
-        {{ Form::label('time', 'Visible from time', ['class' => 'control-label']) }}
+        {{ Form::label('time', 'Visible from time', ['class' => 'control-label required']) }}
         @if ($errors->has('time'))
             <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
         @endif
@@ -26,7 +25,7 @@
 
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('date', 'Event starts date', ['class' => 'control-label']) }}
+        {{ Form::label('date', 'Event starts date', ['class' => 'control-label required']) }}
         @if ($errors->has('date'))
             <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
         @endif
@@ -34,7 +33,7 @@
 
     </div>
     <div class="col-sm-6 right">
-        {{ Form::label('time', 'Event starts time', ['class' => 'control-label']) }}
+        {{ Form::label('time', 'Event starts time', ['class' => 'control-label required']) }}
         @if ($errors->has('time'))
             <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
         @endif
@@ -48,7 +47,7 @@
 @endif
 
 {{ Form::bsText('facebook_url', 'Facebook event (url)') }}
-{{ Form::bsTextarea('description', 'Description (in English)') }}
+{{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
 
 
 @section('stylesheets')

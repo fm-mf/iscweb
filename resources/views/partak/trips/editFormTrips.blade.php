@@ -1,6 +1,6 @@
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('date', 'Event end date', ['class' => 'control-label']) }}
+        {{ Form::label('date', 'Event end date', ['class' => 'control-label required']) }}
         @if ($errors->has('date'))
             <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
         @endif
@@ -8,7 +8,7 @@
 
     </div>
     <div class="col-sm-6 right">
-        {{ Form::label('time', 'Event end time', ['class' => 'control-label']) }}
+        {{ Form::label('time', 'Event end time', ['class' => 'control-label required']) }}
         @if ($errors->has('time'))
             <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
         @endif
@@ -20,7 +20,7 @@
 
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('date', 'Registration from date', ['class' => 'control-label']) }}
+        {{ Form::label('date', 'Registration from date', ['class' => 'control-label required']) }}
         @if ($errors->has('date'))
             <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
         @endif
@@ -28,7 +28,7 @@
 
     </div>
     <div class="col-sm-6 right">
-        {{ Form::label('time', 'Registration from time', ['class' => 'control-label']) }}
+        {{ Form::label('time', 'Registration from time', ['class' => 'control-label required']) }}
         @if ($errors->has('time'))
             <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
         @endif
@@ -42,7 +42,7 @@
 <multiselectinput form-name="organizers" title="Organizers" :options="options.organizers" :value="options.sorganizers" :show-labels="true" label="name" track-by="id_user" placeholder="Organizers"
                   :multiple="true"></multiselectinput>
 
-{{ Form::label('capacity', 'Capacity', ['class' => 'control-label']) }}
+{{ Form::label('capacity', 'Capacity', ['class' => 'control-label required']) }}
 {{ Form::number('capacity', $trip->capacity, ['class' => 'form-control']) }}
-{{ Form::label('price', 'Price', ['class' => 'control-label']) }}
+{{ Form::label('price', 'Price', ['class' => 'control-label required']) }}
 {{ Form::number('price', $trip->price, ['class' => 'form-control']) }}

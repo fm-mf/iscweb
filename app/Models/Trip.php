@@ -121,7 +121,9 @@ class Trip extends Model
         }
 
         $this->organizers()->sync($toSync);
-
+        if(! array_key_exists('price', $attributes)) $attributes['price'] = 0;
+        if(! array_key_exists('capacity', $attributes)) $attributes['capacity'] = 0;
+        //dd($attributes);
         return parent::update(self::updateDatetimes($attributes), $options);
 
 
@@ -140,7 +142,7 @@ class Trip extends Model
         $id_user = Auth::id();
         if (!$id_user) $id_user = 4736; //id of office account
 
-        $organizers = $data['organizers'];
+        $organizers = array_key_exists('organizers', $data) ? $data['organizers'] : [];
         if (!is_array($organizers)) {
             $organizers = explode(',', $organizers);
         }
@@ -151,8 +153,8 @@ class Trip extends Model
             $trip->id_event = $event->id_event;
             $trip->registration_from = $data['registration_from'];
             $trip->trip_date_to = $data['trip_date_to'];
-            $trip->capacity = $data['capacity'];
-            $trip->price = $data['price'];
+            (array_key_exists('capacity', $data)) ? $trip->capacity = $data['capacity'] : 0;
+            (array_key_exists('price', $data)) ? $trip->price = $data['price'] : 0;
             $trip->modified_by = $id_user;
             $trip->save();
 

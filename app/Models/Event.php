@@ -85,8 +85,8 @@ class Event extends Model
             $event->visible_from = $data['visible_from'];
             $event->datetime_from = $data['datetime_from'];
             $event->name = $data['name'];
-            isset($data['description']) ? $event->description = $data['description'] : '';
-            isset($data['facebook_url']) ? $event->facebook_url = $data['facebook_url'] : NULL;
+            $event->description = $data['description'];
+            array_key_exists('facebook_url', $data) ? $event->facebook_url = $data['facebook_url'] : NULL;
             $event->modified_by = $id_user;
             $event->save();
             return $event;
