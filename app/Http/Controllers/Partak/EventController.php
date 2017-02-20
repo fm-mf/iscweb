@@ -92,6 +92,7 @@ class EventController extends Controller
             'visible_time' => 'date_format:g:i A',
             'start_date' => 'required|date_format:d M Y',
             'start_time' => 'date_format:g:i A',
+            'description' => 'required',
         ]);
     }
 

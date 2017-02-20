@@ -36,6 +36,8 @@ class Event extends Model
 
     public function update(array $attributes = [], array $options = [])
     {
+
+        if(! array_key_exists('facebook_url', $attributes)) $attributes['facebook_url'] = NULL;
         //dd($attributes);
         return parent::update(self::updateDatetimes($attributes), $options);
     }
@@ -83,8 +85,8 @@ class Event extends Model
             $event->visible_from = $data['visible_from'];
             $event->datetime_from = $data['datetime_from'];
             $event->name = $data['name'];
-            $event->description = $data['description'];
-            $event->facebook_url = $data['facebook_url'];
+            isset($data['description']) ? $event->description = $data['description'] : '';
+            isset($data['facebook_url']) ? $event->facebook_url = $data['facebook_url'] : NULL;
             $event->modified_by = $id_user;
             $event->save();
             return $event;

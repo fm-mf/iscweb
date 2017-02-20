@@ -206,6 +206,7 @@ class TripController extends Controller
             'start_time' => 'date_format:g:i A',
             'end_date' => 'required|date_format:d M Y',
             'end_time' => 'date_format:g:i A',
+            'description' => 'required',
         ]);
     }
 
