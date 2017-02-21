@@ -15,37 +15,6 @@
     <div class="container events">
         <div class="container container-ow container-sm-height">
 
-        <!--
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integration_party.jpg') }})">
-                    <span class="day">Wednesday<br>February<br><strong>15th</strong><br>9pm</span>
-                    <h2>inteGREATion party</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top">
-                    <p>► Who?  ◄ InteGREATion party<br>
-                        ► When? ◄ Wednesday, 15. 2. 2017, 9 pm<br>
-                        ► Where?◄ <a href="http://stormclub.eu">Storm club (Tachovské nám. 290/5, 130 00 Praha 3)</a></p>
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/135752213604976/"><strong>Facebook event!</strong></a>
-                    </p>
-
-                    <p><small>★ International
-                        ★ Night
-                        ★ Team-work
-                        ★ Entertainment
-                        ★ Global
-                        ★ Real
-                        ★ Extraordinary
-                        ★ Amazing
-                        ★ Together<br>
-
-                            inteGREAT more than a party</small>
-
-                </div>
-            </div>
-            -->
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/Cover_EiS.jpg') }})">
@@ -61,6 +30,36 @@
                     </p>
 
                     <br>
+                </div>
+            </div>
+
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/Czech_party.jpg') }})">
+                    <span class="day">Monday<br>February<br><strong>27th</strong><br>9pm</span>
+                    <h2>inteGREATion party</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top">
+                    <p>► Who?  ◄ ISC inteGREAT Czech party<br>
+                        ► When? ◄ Monday, 27. 2. 2017, 9 pm<br>
+                        ► Where?◄ <a href="http://www.pmclub.net">PM club (Trojická 10, 128 00 Praha 2) </a></p>
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/1825648877685088/" target="_blank"><strong>Facebook event!</strong></a>
+                    </p>
+
+                    <p><small>★ International
+                            ★ Night
+                            ★ Team-work
+                            ★ Entertainment
+                            ★ Global
+                            ★ Real
+                            ★ Extraordinary
+                            ★ Amazing
+                            ★ Together<br>
+
+                            inteGREAT more than a party</small>
+
                 </div>
             </div>
 
