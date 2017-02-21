@@ -36,6 +36,11 @@ class Trip extends Model
         return $this->belongsToMany('\App\Models\ExchangeStudent', 'trips_participants', 'id_trip', 'id_user')->withTimestamps();
     }
 
+    public function buddyParticipants()
+    {
+        return $this->belongsToMany('\App\Models\Buddy', 'trips_participants', 'id_trip', 'id_user')->withTimestamps();
+    }
+
     public function event()
     {
         return $this->hasOne('\App\Models\Event', 'id_event', 'id_event');
@@ -43,7 +48,7 @@ class Trip extends Model
 
     public function howIsFill()
     {
-        return $this->participants()->wherePivot('stand_in', 'n')->count();
+        return $this->participants()->wherePivot('stand_in', 'n')->count() + $this->buddyParticipants()->wherePivot('stand_in', 'n')->count();
     }
 
     public function howIsFillPercentage()
@@ -65,7 +70,7 @@ class Trip extends Model
         return $this->participants()->wherePivot('stand_in','y');
     }
 
-    public function addParticipant($idPart, $allowStandIn = false)
+    public function addParticipant($idPart, $data, $allowStandIn = false)
     {
         $standIn = $this->isFull() ? 'y' : 'n';
         if ($standIn == 'y' && !$allowStandIn) {
@@ -78,14 +83,26 @@ class Trip extends Model
             $registeredBy = 464;
         }
 
-        if(! $this->participants()->find($idPart))
+        if(! ($this->participants()->find($idPart) || $this->buddyParticipants()->find($idPart)))
         {
-            $this->participants()->attach($idPart, [
-                'stand_in' => $standIn,
-                'registered_by' => $registeredBy,
-                'paid' => $standIn == 'y' ? 0 : $this->price,
-                'comment' => isset($this->comment)? $this->comment : NULL,
-            ]);
+            if($this->buddy === false)
+            {
+                $this->participants()->attach($idPart, [
+                    'stand_in' => $standIn,
+                    'registered_by' => $registeredBy,
+                    'paid' => $data['paid'],
+                    'comment' => array_key_exists('comment', $data) ? $data['comment'] : null,
+                ]);
+            }
+            else
+            {
+                $this->buddyParticipants()->attach($idPart, [
+                    'stand_in' => $standIn,
+                    'registered_by' => $registeredBy,
+                    'paid' => $data['paid'],
+                    'comment' => array_key_exists('comment', $data) ? $data['comment'] : null,
+                ]);
+            }
         }
 
         return ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;

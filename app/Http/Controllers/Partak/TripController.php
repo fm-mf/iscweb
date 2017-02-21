@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Partak;
 use App\Models\Buddy;
 use App\Models\Event;
 use App\Models\ExchangeStudent;
+use App\Models\Person;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade as PDF;
 use Maatwebsite\Excel\Facades\Excel;
+use phpDocumentor\Reflection\Types\Null_;
 
 class TripController extends Controller
 {
@@ -33,19 +35,31 @@ class TripController extends Controller
 
     public function showMyTrips()
     {
-        return view('partak.trips.mytrips')->with(['myTrips' => Buddy::with('trips')->find(Auth::id())->trips ]);
+        return view('partak.trips.mytrips')->with(['myTrips' => Buddy::with('organizedTrips')->find(Auth::id())->organizedTrips ]);
     }
 
     public function showDetail($id)
     {
         $trip = Trip::with('event')->find($id);
         $this->authorize('view', $trip);
-        $particip = $trip->participants()->with('person.user')->get();
+        if($trip->buddy === 'true'){
+            $particip = $trip->buddyParticipants()->with('person.user')->get();
+            $url = 'api/autocomplete/buddies';
+            $buddy = true;
+        }
+        else {
+            $particip = $trip->participants()->with('person.user')->get();
+            $url = 'api/autocomplete/exchange-students';
+            //dd($particip);
+            $buddy = false;
+        }
+        //dd($trip->participants()->with('person.user')->get());
         $organizers = $trip->organizers()->with('person.user')->get();
         return view('partak.trips.detail')->with([
            'trip' => $trip,
             'particip' => $particip,
             'organizers' => $organizers,
+            'buddy' => $buddy,
         ]);
     }
 
@@ -87,13 +101,40 @@ class TripController extends Controller
         return $excell->download('xls');
     }
 
-    public function addParticipantToTrip($id_trip, $id_part)
+    public function confirmAddParticipant($id_trip, $id_part)
+    {
+        $trip = Trip::find($id_trip);
+        $this->authorize('addParticipant', $trip);
+        $part = Buddy::with('person.user')->find($id_part);
+        if(!isset($part) || $part == null)
+        {
+            $part = ExchangeStudent::with('person.user')->find($id_part);
+        }
+        $diets = ['Vegetarian' =>'Vegetarian','Vegan' => 'Vegan','Fish only' => 'Fish only'];
+        return view('partak.trips.confirmPage')->with([
+            'trip' => $trip,
+            'part' => $part,
+            'diets' => $diets,
+        ]);
+    }
+
+    public function addParticipantToTrip(Request $request, $id_trip, $id_part)
     {
         //$this->authorize('acl', 'participant.add');
         $trip = Trip::find($id_trip);
         $this->authorize('addParticipant', $trip);
-        $result = $trip->addParticipant($id_part);
-        return back()->with(['addSuccess' => true]);
+        $data = [];
+        foreach ($request->all() as $key => $value) {
+            if ($value) {
+                $data[$key] = $value;
+            }
+        }
+        if(! array_key_exists('diet', $data)) $data['diet'] = null;
+        if(! array_key_exists('paid', $data)) $data['paid'] = 0;
+        $part = Person::find($id_part);
+        $part->update($data);
+        $result = $trip->addParticipant($id_part, $data);
+        return redirect()->action('Partak\TripController@showDetail', ['id' => $id_trip]);
     }
 
     public function removeParticipantFromTrip($id_trip, $id_part)
