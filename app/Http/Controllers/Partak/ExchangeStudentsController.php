@@ -65,7 +65,7 @@ class ExchangeStudentsController extends Controller
         }
         if(! isset($data['esn_registered'])) $data['esn_registered'] = 'n';
         $exStudent->person->user->update($data);
-        $exStudent->person->update($data);
+        $exStudent->person->updateWithIssuesAndDiet($data);
         $exStudent->update($data);
 
         return back()->with(['successUpdate' => true,]);

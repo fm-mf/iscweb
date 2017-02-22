@@ -121,7 +121,7 @@ class BuddiesController extends Controller
             }
         }
         $buddy->person->user->update($data);
-        $buddy->person->update($data);
+        $buddy->person->updateWithIssuesAndDiet($data);
         $buddy->update($data);
 
         if ($request->exists('roles')) {

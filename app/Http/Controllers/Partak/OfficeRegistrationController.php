@@ -76,7 +76,7 @@ class OfficeRegistrationController extends Controller
         $exStudent = ExchangeStudent::registerExStudent($data);
         $exStudent = ExchangeStudent::with('person.user')->find($exStudent->id_user);
         $exStudent->update($data);
-        $exStudent->person->update($data);
+        $exStudent->person->updateWithIssuesAndDiet($data);
 
         $semester = Semester::where('semester', Settings::get('currentSemester'))->first();
         $exStudent->semesters()->attach($semester->id_semester);
