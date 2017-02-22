@@ -5,17 +5,17 @@
 
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('date', 'Visible from date', ['class' => 'control-label required' ]) }}
-        @if ($errors->has('date'))
-            <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
+        {{ Form::label('visible_date', 'Visible from date', ['class' => 'control-label required' ]) }}
+        @if ($errors->has('visible_date'))
+            <p class="error-block alert-danger">{{ $errors->first('visible_date') }}</p>
         @endif
         {{ Form::text('visible_date',($event->visible_from) ? $event->visible_from->format('d M Y') :'', ['id' => 'visible_date', 'class' => 'form-control arrival date']) }}
 
     </div>
     <div class="col-sm-6 right">
-        {{ Form::label('time', 'Visible from time', ['class' => 'control-label required']) }}
-        @if ($errors->has('time'))
-            <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
+        {{ Form::label('visible_time', 'Visible from time', ['class' => 'control-label required']) }}
+        @if ($errors->has('visible_time'))
+            <p class="error-block alert-danger">{{ $errors->first('visible_time') }}</p>
         @endif
         {{ Form::text('visible_time', $event->visible_from->format('g:i A'), ['id' => 'visible_time', 'class' => 'form-control arrival time']) }}
 
@@ -25,17 +25,17 @@
 
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('date', 'Event starts date', ['class' => 'control-label required']) }}
-        @if ($errors->has('date'))
-            <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
+        {{ Form::label('start_date', 'Event starts date', ['class' => 'control-label required']) }}
+        @if ($errors->has('start_date'))
+            <p class="error-block alert-danger">{{ $errors->first('start_date') }}</p>
         @endif
         {{ Form::text('start_date', $event->datetime_from->format('d M Y'), ['id' => 'start_date', 'class' => 'form-control arrival date']) }}
 
     </div>
     <div class="col-sm-6 right">
         {{ Form::label('time', 'Event starts time', ['class' => 'control-label required']) }}
-        @if ($errors->has('time'))
-            <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
+        @if ($errors->has('start_time'))
+            <p class="error-block alert-danger">{{ $errors->first('start_time') }}</p>
         @endif
         {{ Form::text('start_time', $event->datetime_from->format('g:i A'), ['id' => 'start_time', 'class' => 'form-control arrival time']) }}
 

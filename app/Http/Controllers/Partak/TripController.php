@@ -248,6 +248,8 @@ class TripController extends Controller
             'end_date' => 'required|date_format:d M Y',
             'end_time' => 'date_format:g:i A',
             'description' => 'required',
+            'price' => 'required|integer|min:0',
+            'capacity' => 'required|integer|min:0',
         ]);
     }
 

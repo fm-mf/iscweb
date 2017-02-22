@@ -20,17 +20,17 @@
 
 <div class="form-group row">
     <div class="col-sm-6 left">
-        {{ Form::label('date', 'Registration from date', ['class' => 'control-label required']) }}
-        @if ($errors->has('date'))
-            <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
+        {{ Form::label('registration_date', 'Registration from date', ['class' => 'control-label required']) }}
+        @if ($errors->has('registration_date'))
+            <p class="error-block alert-danger">{{ $errors->first('registration_date') }}</p>
         @endif
         {{ Form::text('registration_date', $trip->registration_from->format('d M Y'), ['id' => 'registration_date', 'class' => 'form-control arrival date']) }}
 
     </div>
     <div class="col-sm-6 right">
-        {{ Form::label('time', 'Registration from time', ['class' => 'control-label required']) }}
-        @if ($errors->has('time'))
-            <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
+        {{ Form::label('registration_time', 'Registration from time', ['class' => 'control-label required']) }}
+        @if ($errors->has('registration_time'))
+            <p class="error-block alert-danger">{{ $errors->first('registration_time') }}</p>
         @endif
         {{ Form::text('registration_time', $trip->registration_from->format('g:i A'), ['id' => 'registration_time', 'class' => 'form-control arrival time']) }}
 
@@ -43,6 +43,12 @@
                   :multiple="true"></multiselectinput>
 
 {{ Form::label('capacity', 'Capacity', ['class' => 'control-label required']) }}
+@if ($errors->has('capacity'))
+    <p class="error-block alert-danger">{{ $errors->first('capacity') }}</p>
+@endif
 {{ Form::number('capacity', $trip->capacity, ['class' => 'form-control']) }}
 {{ Form::label('price', 'Price', ['class' => 'control-label required']) }}
+@if ($errors->has('price'))
+    <p class="error-block alert-danger">{{ $errors->first('price') }}</p>
+@endif
 {{ Form::number('price', $trip->price, ['class' => 'form-control']) }}
