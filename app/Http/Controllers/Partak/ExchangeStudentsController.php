@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Partak;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use App\Models\Accommodation;
+use App\Models\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
@@ -45,6 +46,7 @@ class ExchangeStudentsController extends Controller
             'exStudent' => ExchangeStudent::with('person.user')->find($id),
             'faculties' => Faculty::getOptions(),
             'accommodations' => Accommodation::getOptions(),
+            'diets' => Person::getAllDiets(),
         ]);
     }
 

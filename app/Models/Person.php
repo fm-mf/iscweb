@@ -65,4 +65,16 @@ class Person extends Model
         return ($this->sex == "M")? 'Male' : 'Female';
     }
 
+    public static function getAllDiets()
+    {
+        return ['Vegetarian' =>'Vegetarian','Vegan' => 'Vegan','Fish only' => 'Fish only'];
+    }
+
+    public function update(array $attributes = [], array $options = [])
+    {
+        if(! array_key_exists('diet', $attributes)) $attributes['diet'] = null;
+        if(! array_key_exists('medical_issues', $attributes)) $attributes['medical_issues'] = null;
+        return parent::update($attributes, $options);
+    }
+
 }

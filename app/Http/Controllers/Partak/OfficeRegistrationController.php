@@ -59,6 +59,7 @@ class OfficeRegistrationController extends Controller
             'faculties' => Faculty::getOptions(),
             'accommodations' => Accommodation::getOptions(),
             'countries' => Country::getOptions(),
+            'diets' => Person::getAllDiets(),
         ]);
     }
 

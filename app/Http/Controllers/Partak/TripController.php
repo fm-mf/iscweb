@@ -110,11 +110,10 @@ class TripController extends Controller
         {
             $part = ExchangeStudent::with('person.user')->find($id_part);
         }
-        $diets = ['Vegetarian' =>'Vegetarian','Vegan' => 'Vegan','Fish only' => 'Fish only'];
         return view('partak.trips.confirmPage')->with([
             'trip' => $trip,
             'part' => $part,
-            'diets' => $diets,
+            'diets' => Person::getAllDiets(),
         ]);
     }
 
@@ -129,7 +128,6 @@ class TripController extends Controller
                 $data[$key] = $value;
             }
         }
-        if(! array_key_exists('diet', $data)) $data['diet'] = null;
         if(! array_key_exists('paid', $data)) $data['paid'] = 0;
         $part = Person::find($id_part);
         $part->update($data);

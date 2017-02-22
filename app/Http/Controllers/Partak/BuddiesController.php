@@ -100,7 +100,8 @@ class BuddiesController extends Controller
             ]);
         return view('partak.users.buddies.edit')->with([
             'buddy' => $buddy,
-            'faculties' => Faculty::getOptions()
+            'faculties' => Faculty::getOptions(),
+            'diets' => Person::getAllDiets(),
         ]);
     }
 

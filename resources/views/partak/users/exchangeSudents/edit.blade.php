@@ -24,7 +24,7 @@
             <div class="row-inner">
                 <div class="col-md-7">
                     {{ Form::model($exStudent, ['url' => 'partak/users/exchange-students/edit/'. $exStudent->id_user, 'method' => 'patch']) }}
-                        {{ Form::bsText('email', 'Email', $exStudent->person->user->email) }}
+                        {{ Form::bsText('email', 'Email','required', $exStudent->person->user->email) }}
                         {{ Form::bsText('phone', 'Phone') }}
                         {{ Form::label('esn_registered', 'ESN registered', ['class' => 'control-label']) }}
                         {{ Form::checkbox('esn_registered', 'y', $exStudent->esn_registered == 'y') }}
@@ -50,7 +50,9 @@
                             </div>
                         </div>
 
-                        {{ Form::bsText('medical_issues', 'Medical issues', $exStudent->person->medical_issues) }}
+                        {{ Form::bsText('medical_issues', 'Medical issues','', $exStudent->person->medical_issues) }}
+
+                        {{ Form::bsSelect('diet', 'Diet', $diets, $exStudent->person->diet, ['placeholder' => 'Select diet'])  }}
                         {{ Form::bsTextarea('about', 'About') }}
                         {{ Form::bsSubmit('Update profile') }}
 
