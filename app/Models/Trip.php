@@ -53,6 +53,7 @@ class Trip extends Model
 
     public function howIsFillPercentage()
     {
+        if($this->capacity == 0) return 0;
         return ($this->howIsFill() / $this->capacity) * 100;
     }
 
