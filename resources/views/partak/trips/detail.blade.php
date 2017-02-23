@@ -10,6 +10,10 @@
             </div>
         </div>
     @endif
+    @if (isset($addError))
+        {{ dd($addError) }}
+        <p class="error-block alert-danger">{{ $addError }}</p>
+    @endif
 
 
     <div class="row-grey">
@@ -88,7 +92,7 @@
                     <div class="row search-buddy">
                         <div class="row-inner">
                             <div class="col-sm-8 col-sm-offset-0">
-                                <h3>{{ 'Add Participant' }}</h3>
+                                <h3>Add Participant</h3>
                                 <autocomplete url="{{ url('api/autocomplete/buddies') }}"
                                               :fields="[
                                                             {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
@@ -138,8 +142,13 @@
                                             <td>{{ $participant->person->getSex() }}</td>
                                             <td>{{ $participant->phone }}</td>
                                             @if(! $buddy) <td>{{ $participant->esn_card_number }}</td> @endif
-                                            <td> @can('acl', 'exchangeStudents.view') <a href="{{ url('partak/users/exchange-students/' . $participant->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
-                                                @endcan
+                                            <td> @if($buddy)
+                                                    @can('acl', 'users.view') <a href="{{ url('partak/users/buddies/' . $participant->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                                    @endcan
+                                                 @else
+                                                    @can('acl', 'exchangeStudents.view') <a href="{{ url('partak/users/exchange-students/' . $participant->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                                    @endcan
+                                                @endif
                                                 @can('removeParticipant', $trip)
                                                     <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
                                                                      protection-text="Remove {{ $participant->person->first_name }} {{ $participant->person->last_name }} from event {{ $trip->name }}?"

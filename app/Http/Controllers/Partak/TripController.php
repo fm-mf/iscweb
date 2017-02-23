@@ -109,6 +109,7 @@ class TripController extends Controller
         if(!isset($part) || $part == null)
         {
             $part = ExchangeStudent::with('person.user')->find($id_part);
+            if($part->esn_registered === 'n') return \Redirect::back()->with(['addError' => 'You can not add participant without esn card']);
         }
         return view('partak.trips.confirmPage')->with([
             'trip' => $trip,

@@ -62,7 +62,18 @@ class Person extends Model
 
     public function getSex()
     {
-        return ($this->sex == "M")? 'Male' : 'Female';
+        if($this->sex == "M")
+        {
+            return 'Male';
+        }
+        elseif($this->sex == "F")
+        {
+            return 'Female';
+        }
+        else
+        {
+            return 'Hermafrodit';
+        }
     }
 
     public static function getAllDiets()
