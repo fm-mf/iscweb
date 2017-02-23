@@ -6,6 +6,7 @@ use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Person;
 use Doctrine\Common\Proxy\Autoloader;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
