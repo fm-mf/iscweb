@@ -52,7 +52,7 @@
                             <b>Where:</b> <a href="https://goo.gl/maps/6eWgvNXyNiP2">Pod Juliskou Sports Center</a><br>
                             <b>Meeting point:</b> at 20:40 in the lobby of <a href="https://goo.gl/maps/OCtHW">Masarykova dormitory</a><br>
                             <b>Price:</b> 50 Kč, for ISC members 30Kč<br>
-                            <b>Contact person:</b> Florin Buffon<br>
+                            <b>Contact person:</b> Searching<br>
                             <b>What to bring:</b> indoor shoes and sport clothes<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/1494986440518838/">join our group</a>
 
@@ -329,13 +329,13 @@ of losing fat while improving your fitness level. We will do 25 minutes of non-s
                 <a href="{{ url('/img/web/activities/sports/sports-12.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-12-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
+                <a href="{{ url('/img/web/activities/sports/sports-13.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-13-t.jpg') }}"></a>
+            </li>
+            <li class="col-sm-4 col-lg-3">
                 <a href="{{ url('/img/web/activities/sports/sports-4.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-4-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
                 <a href="{{ url('/img/web/activities/sports/sports-9.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-9-t.jpg') }}"></a>
-            </li>
-            <li class="col-sm-4 col-lg-3">
-                <a href="{{ url('/img/web/activities/sports/sports-10.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-10-t.jpg') }}"></a>
             </li>
             <li class="col-sm-4 col-lg-3">
                 <a href="{{ url('/img/web/activities/sports/sports-11.jpg') }}" data-lightbox="sports"><img src="{{ asset('/img/web/activities/sports/sports-11-t.jpg') }}"></a>
