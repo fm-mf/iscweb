@@ -42,7 +42,7 @@
     <div class="footer row">
         <div class="col-sm-12">
             <p>V případě technických potíží nás kontaktuj na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
-            <p>&copy; 2016 | International Student Club CTU in Prague, z.s.</p>
+            <p>&copy; 2017 | International Student Club CTU in Prague, z.s.</p>
         </div>
     </div>
 @endsection

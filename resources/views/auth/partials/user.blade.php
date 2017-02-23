@@ -1,4 +1,4 @@
-{{ Form::bsText('email', 'Email', old('email'), []) }}
+{{ Form::bsText('email', 'Email','', old('email'), []) }}
 
 <div class="form-group row">
     <div class="col-sm-6 left">
