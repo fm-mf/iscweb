@@ -57,7 +57,7 @@
 
                     {{ Form::bsText('medical_issues', 'Medical Issues','', $buddy->person->medical_issues) }}
 
-                    {{ Form::bsSelect('diet', 'Diet', $diets, $buddy->person->diet, ['placeholder' => 'Select diet'])  }}
+                    {{ Form::bsSelect('diet', 'Diet', $diets, $buddy->person->diet, ['placeholder' => 'No diet'])  }}
 
                     <!-- TODO validation of inputs -->
                     {{ Form::bsTextarea('about', 'About') }}

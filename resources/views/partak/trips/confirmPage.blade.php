@@ -25,7 +25,7 @@
                 {{ Form::model($part, ['url' => '/partak/trips/detail/'. $trip->id_trip .'/add/'. $part->id_user, 'method' => 'patch', 'id' => 'roles']) }}
                 {{ Form::bsText('medical_issues', 'Medical Issues','', $part->person->medical_issues) }}
 
-                {{ Form::bsSelect('diet', 'Diet', $diets, $part->person->diet, ['placeholder' => 'Select diet'])  }}
+                {{ Form::bsSelect('diet', 'Diet', $diets, $part->person->diet, ['placeholder' => 'No diet'])  }}
 
                 {{ Form::label('paid', 'Paid', ['class' => 'control-label required']) }}
                 {{ Form::number('paid', $trip->price, ['class' => 'form-control']) }}

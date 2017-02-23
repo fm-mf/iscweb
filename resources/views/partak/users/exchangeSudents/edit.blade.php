@@ -52,7 +52,7 @@
 
                         {{ Form::bsText('medical_issues', 'Medical issues','', $exStudent->person->medical_issues) }}
 
-                        {{ Form::bsSelect('diet', 'Diet', $diets, $exStudent->person->diet, ['placeholder' => 'Select diet'])  }}
+                        {{ Form::bsSelect('diet', 'Diet', $diets, $exStudent->person->diet, ['placeholder' => 'No diet'])  }}
                         {{ Form::bsTextarea('about', 'About') }}
                         {{ Form::bsSubmit('Update profile') }}
 
