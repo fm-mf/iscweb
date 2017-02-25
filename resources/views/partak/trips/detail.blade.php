@@ -34,7 +34,7 @@
                             </tr>
                             <tr>
                                 <th>Capacity</th>
-                                <td>@if($trip->isFull()) <b>Event is Full</b> @else{{ $trip->howIsfill() .'/'. $trip->capacity }}@endif</td>
+                                <td>@if($trip->isFull()) <b>Event is Full</b>@endif {{ $trip->howIsfill() .'/'. $trip->capacity }}</td>
                                 <td></td>
                                 <td></td>
                             </tr>
