@@ -17,24 +17,6 @@
 
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/Cover_EiS.jpg') }})">
-                    <span class="day">Tuesday<br>February<br><strong>21st</strong><br>7pm</span>
-                    <h2>Erasmus in School & Care meeting</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>►Where: <a href="https://goo.gl/maps/cm3RR4AWRT82">Masarykova dormitory room R404</a></p>
-                    <p>►An informative meeting about Erasmus in school and about projects which you can do to make the world around us smile.
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/1652606798378403/"><strong>Facebook event!</strong></a>
-                    </p>
-
-                    <br>
-                </div>
-            </div>
-
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/Czech_party.jpg') }})">
                     <span class="day">Monday<br>February<br><strong>27th</strong><br>9pm</span>
                     <h2>inteGREATion party</h2>
@@ -63,6 +45,46 @@
                 </div>
             </div>
 
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea1.jpg') }})">
+                    <span class="day">Thursday<br>March<br><strong>2nd</strong><br>6pm</span>
+                    <h2>1st Café Lingea (English & Czech)</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>►Where: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a></p>
+                    <p>Would you like to meet new people and have fun? Café Lingea is a great opportunity to learn or practice
+                        two languages over a cup of tea/coffee/beer/wine. This semester we are opening with this special event
+                        where these two languages are Czech and English!<br>
+                        Join us in Kabinet Café, close to Dejvice campus!
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/662297163977690/"><strong>Facebook event!</strong></a>
+                    </p>
+
+                    <br>
+                </div>
+            </div>
+            <!--
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea1.jpg') }})">
+                    <span class="day">Fri &ndash; Sun<br>March<br><strong>17th &ndash; 19th</strong><br>8am</span>
+                    <h2>Berlin + Dresden Trip</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>►Meetin point: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a></p>
+                    <p>► Price: ?</p>
+                    <p>Let's go to explore two amazing cities Berlin&Dresden with us! Enjoy sightseeing. Meet new friends. Have fun.
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/662297163977690/"><strong>Facebook event!</strong></a>
+                    </p>
+
+                    <br>
+                </div>
+            </div>
+                -->
             <!--
             @if(isset($events) && $events->count() > 0)
                 @foreach($events as $event)

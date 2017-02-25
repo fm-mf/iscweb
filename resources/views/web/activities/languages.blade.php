@@ -70,13 +70,20 @@
                     <tr>
                         <td>Tandem Evening</td>
                         <td>Monday 13th February</td>
-                        <td>20:00</td>
+                        <td>8pm</td>
                         <td><a href="https://goo.gl/maps/2c3qWUjNYE32">Café V lese</a></td>
                         <td><a href="https://www.facebook.com/events/614492665410482/">Facebook event</a></td>
                     </tr>
-                    				<tr>
+                    <tr>
+                        <td>1st Café Lingea (English & Czech)</td>
+                        <td>Thursday 2nd March</td>
+                        <td>6pm</td>
+                        <td><a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café</a></td>
+                        <td><a href="https://www.facebook.com/events/662297163977690/">Facebook event</a></td>
+                    </tr>
+                    			<!--	<tr>
                                     <td colspan=5><i>More events will be announced soon!</i></td>
-                                    </tr>
+                                    </tr> -->
 
                     </tbody>
                 </table>

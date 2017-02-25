@@ -11,7 +11,6 @@
         </div>
     @endif
     @if (isset($addError))
-        {{ dd($addError) }}
         <p class="error-block alert-danger">{{ $addError }}</p>
     @endif
 
