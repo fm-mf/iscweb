@@ -11,11 +11,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Settings\Facade as Settings;
 use App\Models\ExchangeStudent;
+use Carbon\Carbon;
 
 class WebController extends Controller
 {
     public function showContacts() {
-        return view('web.contact') -> with(['wcFrom' => Settings::get('wcFrom')]);
+        $dateFrom = Carbon::createFromFormat('d/m/Y' ,Settings::get('wcFrom'));
+        return view('web.contact') -> with(['wcFrom' => $dateFrom->format('l F jS')]);
     }
 
     public function showCalendar()

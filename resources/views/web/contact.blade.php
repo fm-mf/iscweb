@@ -22,40 +22,40 @@
                 <h2>See when we're in the ISC Point:<!--<br><i>Subject to be extended later</i>--></h2>
                 <span class="show-menu"></span>
 
-               <!-- There are no regular opening hours during the exam period. The ISC Point will be open from {{ $wcFrom }}.-->
-                We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
-                Fixed opening hours will be from Monday 20th.
-                <!--
+               <!-- There are no regular opening hours during the exam period. The ISC Point will be open from {{ $wcFrom }}. -->
+                <!-- We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
+                Fixed opening hours will be from Monday 20th. -->
+
                <table>
                     <tr>
                         <th>Monday</th>
-                        <td>Closed</td>
+                        <td>14:00 - 22:00</td>
                     </tr>
                     <tr>
                         <th>Tuesday</th>
-                        <td>Closed</td>
+                        <td>14:00 - 22:00</td>
                     </tr>
                     <tr>
                         <th>Wednesday</th>
-                        <td>Closed</td>
+                        <td>14:00 - 22:00</td>
                     </tr>
                     <tr>
                         <th>Thursday</th>
-                        <td>12:00 - 20:00</td>
+                        <td>16:00 - 20:00</td>
                     </tr>
                     <tr>
                         <th>Friday</th>
-                        <td>10:00 - 20:00</td>
+                        <td>16:00 - 18:00</td>
                     </tr>
                     <tr>
                         <th>Saturday</th>
-                        <td>10:00 - 20:00</td>
+                        <td>Closed</td>
                     </tr>
                     <tr>
                         <th>Sunday</th>
-                        <td>10:00 - 20:00</td>
+                        <td>Closed</td>
                     </tr>
-                </table> -->
+                </table>
 
             </div>
         </div>
