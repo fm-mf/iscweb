@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row link-map visible-xs align-center">
             <div class="col-sm-12">
-                <a href="https://www.google.com/maps/place/International+Student+Club+CTU+in+Prague/@50.084071,14.4119155,14z/data=!4m5!1m2!2m1!1sinternational+student+club+ctu+in+prague!3m1!1s0x470b953c0f37a36f:0x6d538d168df03b66"> <button type="button" class="btn btn-primary">Find us on Google maps</button></a>
+                <a href="https://www.google.com/maps/place/International+Student+Club+CTU+in+Prague/@50.1010161,14.3872774,17z/data=!4m8!1m2!2m1!1sinternational+student+club+ctu+in+prague!3m4!1s0x470b953c0f37a36f:0x6d538d168df03b66!8m2!3d50.1006367!4d14.3869159"> <button type="button" class="btn btn-primary">Find us on Google maps</button></a>
             </div>
         </div>
 
@@ -23,6 +23,7 @@
                 <span class="show-menu"></span>
 
                <!-- There are no regular opening hours during the exam period. The ISC Point will be open from {{ $wcFrom }}. -->
+
                 <!-- We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
                 Fixed opening hours will be from Monday 20th. -->
 
@@ -339,13 +340,13 @@
             var myLatlng = new google.maps.LatLng(50.100532, 14.386943);
             var mapOptions = {
                 center: new google.maps.LatLng(50.104634, 14.457110),
-                zoom: 12,
+                zoom: 13,
                 scrollwheel: false,
                 disableDefaultUI: true,
                 zoomControl: true,
             };
             var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-            var image = '/img/marker.png';
+            var image = '/img/web/marker.png';
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
