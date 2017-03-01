@@ -94,10 +94,10 @@
 
 
 
-                <!-- p>You can have a look at the <a href="http://www.isc.cvut.cz/files/languages-schedule.php" target="_blank">Spring 2017 schedule</a>.</p -->
+                <p>You can have a look at the <a href="http://www.isc.cvut.cz/files/languages-schedule.php" target="_blank">Spring 2017 schedule</a>.</p>
                 <p>Schedule for upcoming semester will be available in first week of the semester</p>
                 <p>The language courses are starting on <b>Monday 6th March</b>.</p>
-                <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><!-- href="http://www.isc.cvut.cz/files/languages-schedule.php" --><a  ><img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
+                <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><a href="http://www.isc.cvut.cz/files/languages-schedule.php" ><img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
                 <p>Sometimes the classes have to be cancelled for various reasons. The following table shows the updated list of cancelled and rescheduled classes.</p>
                 <iframe width="370" height="400" frameborder="0" src="https://docs.google.com/spreadsheet/pub?key=0AoZEq64G2cV4dHZtcHdlVlpOV3F0WHNtVHlXS0tOTHc&single=true&gid=0&output=html&widget=true"></iframe>
 
