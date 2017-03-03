@@ -15,76 +15,85 @@
     <div class="container events">
         <div class="container container-ow container-sm-height">
 
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/Czech_party.jpg') }})">
-                    <span class="day">Monday<br>February<br><strong>27th</strong><br>9pm</span>
-                    <h2>inteGREATion party</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top">
-                    <p>► Who?  ◄ ISC inteGREAT Czech party<br>
-                        ► When? ◄ Monday, 27. 2. 2017, 9 pm<br>
-                        ► Where?◄ <a href="http://www.pmclub.net">PM club (Trojická 10, 128 00 Praha 2) </a></p>
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/1825648877685088/" target="_blank"><strong>Facebook event!</strong></a>
-                    </p>
-
-                    <p><small>★ International
-                            ★ Night
-                            ★ Team-work
-                            ★ Entertainment
-                            ★ Global
-                            ★ Real
-                            ★ Extraordinary
-                            ★ Amazing
-                            ★ Together<br>
-
-                            inteGREAT more than a party</small>
-
-                </div>
-            </div>
 
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea1.jpg') }})">
-                    <span class="day">Thursday<br>March<br><strong>2nd</strong><br>6pm</span>
-                    <h2>1st Café Lingea (English & Czech)</h2>
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
+                    <span class="day">Friday<br>March<br><strong>10th</strong><br>8pm</span>
+                    <h2>Foosball Tournament</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>►Where: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a></p>
-                    <p>Would you like to meet new people and have fun? Café Lingea is a great opportunity to learn or practice
-                        two languages over a cup of tea/coffee/beer/wine. This semester we are opening with this special event
-                        where these two languages are Czech and English!<br>
-                        Join us in Kabinet Café, close to Dejvice campus!
+                    <p>► Where: <a href="https://goo.gl/maps/jaYbdEWQ8it">Klub 011 Strahov</a></p>
+                    <p>► Price: 50 CZK (For table rent and prize for the winner)</p>
+                    <p>► <a href="https://docs.google.com/spreadsheets/d/1u3YGoOzrFxRgW1zOp3oeAVk8vMpMaqxyO6PVfcEoXdc/edit?usp=sharing">Registration</a></p>
+                    <p>Do you want to show your foosball skills or just try
+                        the Czech number one pub sport? Then join for our foosball tournament!
+
 
                     <p>
-                        ► <a href="https://www.facebook.com/events/662297163977690/"><strong>Facebook event!</strong></a>
+                        ► <a href="https://www.facebook.com/events/603928563138197/"><strong>Facebook event!</strong></a>
                     </p>
 
                     <br>
                 </div>
             </div>
-            <!--
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea1.jpg') }})">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
+                    <span class="day">Saturday<br>March<br><strong>11th</strong><br>2pm</span>
+                    <h2>Geocaching, treasure hunting!</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>► Where: <a href="https://goo.gl/maps/8hM2fzGTWWL2">náměstí Jana Palacha 1</a></p>
+                    <p>► <a href="https://docs.google.com/spreadsheets/d/1GST4r-s72Jo6K96dubWlCVPaKBAv_FfjCBH_lIOuuUY/edit#gid=0">Registration</a></p>
+                    <p>Geocaching is an outdoor recreational activity, in which participants use a Global Positioning System (or your MOBILE PHONE!) to hide and seek containers, called "geocaches" or "caches", at specific locations marked by coordinates all over the world.
+                        A typical cache is a small waterproof container containing a logbook and sometimes a pen or pencil.
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/406808712996567/"><strong>Facebook event!</strong></a>
+                    </p>
+
+                    <br>
+                </div>
+            </div>
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
+                    <span class="day">Monday<br>March<br><strong>13th</strong><br>6pm</span>
+                    <h2>Jump Arena</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>► Where: <a href="https://goo.gl/8hgq0T">JumpArena</a></p>
+                    <p>► Price: 225 CZK / hour / person - please bring cash and student card with you :) You can stay for one or two hours depending on how much you love it.</p>
+                    <p>►<a href="https://docs.google.com/spreadsheets/d/1UdzEi_OfIFEfqNXmHYL7o0XUgEbZFNSQJSM4uFYVH2E/edit#gid=0"> Registration</a></p>
+                    <p>Ever wanted to try a huge trampoline arena? Trampoline basketball? Diving into a big foam pit? Come with us and jump around JumpArenaZlicin, try some flips, dunk on the basketball hoop, and maybe even relax with a drink afterward.
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/1103953586381055/"><strong>Facebook event!</strong></a>
+                    </p>
+
+                    <br>
+                </div>
+            </div>
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/berlin+dresden.jpg') }})">
                     <span class="day">Fri &ndash; Sun<br>March<br><strong>17th &ndash; 19th</strong><br>8am</span>
                     <h2>Berlin + Dresden Trip</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
                     <p>►Meetin point: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a></p>
-                    <p>► Price: ?</p>
+                    <p>► Price: 3000CZK</p>
                     <p>Let's go to explore two amazing cities Berlin&Dresden with us! Enjoy sightseeing. Meet new friends. Have fun.
 
                     <p>
-                        ► <a href="https://www.facebook.com/events/662297163977690/"><strong>Facebook event!</strong></a>
+                        ► <a href="https://www.facebook.com/events/1685833638381468/"><strong>Facebook event!</strong></a>
                     </p>
 
                     <br>
                 </div>
             </div>
-                -->
+
             <!--
             @if(isset($events) && $events->count() > 0)
                 @foreach($events as $event)

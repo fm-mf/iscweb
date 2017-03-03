@@ -63,49 +63,20 @@
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/Czech_party.jpg') }})">
-                        <span class="day">Monday<br>February<br><strong>27th</strong><br>9pm</span>
-                        <h2>inteGREATion party</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top">
-                        <p>► Who?  ◄ ISC inteGREAT Czech party<br>
-                            ► When? ◄ Monday, 27. 2. 2017, 9 pm<br>
-                            ► Where?◄ <a href="http://www.pmclub.net">PM club (Trojická 10, 128 00 Praha 2) </a></p>
-
-                        <p>
-                            ► <a href="https://www.facebook.com/events/1825648877685088/" target="_blank"><strong>Facebook event!</strong></a>
-                        </p>
-
-                        <p><small>★ International
-                                ★ Night
-                                ★ Team-work
-                                ★ Entertainment
-                                ★ Global
-                                ★ Real
-                                ★ Extraordinary
-                                ★ Amazing
-                                ★ Together<br>
-
-                                inteGREAT more than a party</small>
-
-                    </div>
-                </div>
-
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea1.jpg') }})">
-                        <span class="day">Thursday<br>March<br><strong>2nd</strong><br>6pm</span>
-                        <h2>1st Café Lingea (English & Czech)</h2>
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
+                        <span class="day">Friday<br>March<br><strong>10th</strong><br>8pm</span>
+                        <h2>Foosball Tournament</h2>
                     </div>
                     <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>►Where: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a></p>
-                        <p>Would you like to meet new people and have fun? Café Lingea is a great opportunity to learn or practice
-                            two languages over a cup of tea/coffee/beer/wine. This semester we are opening with this special event
-                            where these two languages are Czech and English!<br>
-                            Join us in Kabinet Café, close to Dejvice campus!
+                        <p>► Where: <a href="https://goo.gl/maps/jaYbdEWQ8it">Klub 011 Strahov</a></p>
+                        <p>► Price: 50 CZK (For table rent and prize for the winner)</p>
+                        <p>► <a href="https://docs.google.com/spreadsheets/d/1u3YGoOzrFxRgW1zOp3oeAVk8vMpMaqxyO6PVfcEoXdc/edit?usp=sharing">Registration</a></p>
+                        <p>Do you want to show your foosball skills or just try
+                            the Czech number one pub sport? Then join for our foosball tournament!
+
 
                         <p>
-                            ► <a href="https://www.facebook.com/events/662297163977690/"><strong>Facebook event!</strong></a>
+                            ► <a href="https://www.facebook.com/events/603928563138197/"><strong>Facebook event!</strong></a>
                         </p>
 
                         <br>
