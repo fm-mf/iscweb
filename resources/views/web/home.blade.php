@@ -60,6 +60,33 @@
                 <!-- ------------------------ div containery prosím nechat --------------------------------------------------------- -->
                 <!-- h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1 -->
 
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integreat_korea_germany__.jpg') }})">
+                        <span class="day">Wednesday<br>March<br><strong>8th</strong><br>9pm</span>
+                        <h2>inteGREAT ★ Finland & Germany & Korea</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>
+                            ► Who? ◄ Finland & Germany & South Korea<br>
+                            ► When? ◄ Wednesday, 8. 3. 2017, 9 pm<br>
+                            ► Where?◄ <a href="https://www.rockcafe.cz/en/">Rock café</a> (Národní třída 20, Prague)<p>
+
+                        <p>
+                            ► <a href="https://www.facebook.com/events/183227775495777/"><strong>Facebook event!</strong></a>
+                        </p>
+                        <p>★ International
+                            ★ Night
+                            ★ Team-work
+                            ★ Entertainment
+                            ★ Global
+                            ★ Real
+                            ★ Extraordinary
+                            ★ Amazing
+                            ★ Together</p>
+                        inteGREAT more than a party
+                    </div>
+                </div>
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">

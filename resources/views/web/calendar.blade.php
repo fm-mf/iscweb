@@ -15,6 +15,33 @@
     <div class="container events">
         <div class="container container-ow container-sm-height">
 
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integreat_korea_germany__.jpg') }})">
+                    <span class="day">Wednesday<br>March<br><strong>8th</strong><br>9pm</span>
+                    <h2>inteGREAT ★ Finland & Germany & Korea</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>
+                    ► Who? ◄ Finland & Germany & South Korea<br>
+                     ► When? ◄ Wednesday, 8. 3. 2017, 9 pm<br>
+                     ► Where?◄ <a href="https://www.rockcafe.cz/en/">Rock café</a> (Národní třída 20, Prague)<p>
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/183227775495777/"><strong>Facebook event!</strong></a>
+                    </p>
+                    <p>★ International
+                        ★ Night
+                        ★ Team-work
+                        ★ Entertainment
+                        ★ Global
+                        ★ Real
+                        ★ Extraordinary
+                        ★ Amazing
+                        ★ Together</p>
+                    inteGREAT more than a party
+                </div>
+            </div>
 
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
@@ -23,9 +50,9 @@
                     <h2>Foosball Tournament</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>► Where: <a href="https://goo.gl/maps/jaYbdEWQ8it">Klub 011 Strahov</a></p>
-                    <p>► Price: 50 CZK (For table rent and prize for the winner)</p>
-                    <p>► <a href="https://docs.google.com/spreadsheets/d/1u3YGoOzrFxRgW1zOp3oeAVk8vMpMaqxyO6PVfcEoXdc/edit?usp=sharing">Registration</a></p>
+                    <p>► Where: <a href="https://goo.gl/maps/jaYbdEWQ8it">Klub 011 Strahov</a><br>
+                    ► Price: 50 CZK (For table rent and prize for the winner)<br>
+                        ► <a href="https://docs.google.com/spreadsheets/d/1u3YGoOzrFxRgW1zOp3oeAVk8vMpMaqxyO6PVfcEoXdc/edit?usp=sharing">Registration</a></p>
                     <p>Do you want to show your foosball skills or just try
                         the Czech number one pub sport? Then join for our foosball tournament!
 
@@ -33,8 +60,6 @@
                     <p>
                         ► <a href="https://www.facebook.com/events/603928563138197/"><strong>Facebook event!</strong></a>
                     </p>
-
-                    <br>
                 </div>
             </div>
             <span class="vspace"></span>
@@ -44,16 +69,14 @@
                     <h2>Geocaching, treasure hunting!</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>► Where: <a href="https://goo.gl/maps/8hM2fzGTWWL2">náměstí Jana Palacha 1</a></p>
-                    <p>► <a href="https://docs.google.com/spreadsheets/d/1GST4r-s72Jo6K96dubWlCVPaKBAv_FfjCBH_lIOuuUY/edit#gid=0">Registration</a></p>
+                    <p>► Where: <a href="https://goo.gl/maps/8hM2fzGTWWL2">náměstí Jana Palacha 1</a><br>
+                        ► <a href="https://docs.google.com/spreadsheets/d/1GST4r-s72Jo6K96dubWlCVPaKBAv_FfjCBH_lIOuuUY/edit#gid=0">Registration</a></p>
                     <p>Geocaching is an outdoor recreational activity, in which participants use a Global Positioning System (or your MOBILE PHONE!) to hide and seek containers, called "geocaches" or "caches", at specific locations marked by coordinates all over the world.
                         A typical cache is a small waterproof container containing a logbook and sometimes a pen or pencil.
 
                     <p>
                         ► <a href="https://www.facebook.com/events/406808712996567/"><strong>Facebook event!</strong></a>
                     </p>
-
-                    <br>
                 </div>
             </div>
             <span class="vspace"></span>
@@ -63,18 +86,45 @@
                     <h2>Jump Arena</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>► Where: <a href="https://goo.gl/8hgq0T">JumpArena</a></p>
-                    <p>► Price: 225 CZK / hour / person - please bring cash and student card with you :) You can stay for one or two hours depending on how much you love it.</p>
-                    <p>►<a href="https://docs.google.com/spreadsheets/d/1UdzEi_OfIFEfqNXmHYL7o0XUgEbZFNSQJSM4uFYVH2E/edit#gid=0"> Registration</a></p>
+                    <p>► Where: <a href="https://goo.gl/8hgq0T">JumpArena</a><br>
+                    ► Price: 225 CZK / hour / person - please bring cash and student card with you :) <br>
+                    ►<a href="https://docs.google.com/spreadsheets/d/1UdzEi_OfIFEfqNXmHYL7o0XUgEbZFNSQJSM4uFYVH2E/edit#gid=0"> Registration</a></p>
                     <p>Ever wanted to try a huge trampoline arena? Trampoline basketball? Diving into a big foam pit? Come with us and jump around JumpArenaZlicin, try some flips, dunk on the basketball hoop, and maybe even relax with a drink afterward.
 
                     <p>
                         ► <a href="https://www.facebook.com/events/1103953586381055/"><strong>Facebook event!</strong></a>
                     </p>
-
-                    <br>
                 </div>
             </div>
+
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
+                    <span class="day">Thursday<br>March<br><strong>16th</strong><br>9pm</span>
+                    <h2>inteGREAT ★ Italy & Slovakia & Taiwan</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>
+                        ► Who? ◄ Italy & Slovakia & Taiwan<br>
+                        ► When? ◄ Thursday, 16. 3. 2017, 9 pm<br>
+                        ► Where?◄ <a href="http://stormclub.eu">Storm club</a> (Tachovské nám. 290/5, 130 00 Praha 3)<p>
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/1409679205719342/"><strong>Facebook event!</strong></a>
+                    </p>
+                    <p>★ International
+                        ★ Night
+                        ★ Team-work
+                        ★ Entertainment
+                        ★ Global
+                        ★ Real
+                        ★ Extraordinary
+                        ★ Amazing
+                        ★ Together</p>
+                    inteGREAT more than a party
+                </div>
+            </div>
+
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/berlin+dresden.jpg') }})">
@@ -82,17 +132,18 @@
                     <h2>Berlin + Dresden Trip</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>►Meetin point: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a></p>
-                    <p>► Price: 3000CZK</p>
+                    <p>►Meetin point: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a><br>
+                    ► Price: 3000CZK</br>
                     <p>Let's go to explore two amazing cities Berlin&Dresden with us! Enjoy sightseeing. Meet new friends. Have fun.
 
                     <p>
                         ► <a href="https://www.facebook.com/events/1685833638381468/"><strong>Facebook event!</strong></a>
                     </p>
-
                     <br>
                 </div>
             </div>
+
+
 
             <!--
             @if(isset($events) && $events->count() > 0)
