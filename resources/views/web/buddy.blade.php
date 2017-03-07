@@ -118,14 +118,15 @@
 <div class="container events">
     <div class="container container-ow container-sm-height">
         <div class="row row-ow row-sm-height">
-            <div class="col-sm-6 ow-day col-sm-height" style="background-image:url({{ asset('img/buddy/events/Buddy-Session.jpg') }});">
-                <span class="day">Středa<br>25.1.<br>18:30<br>Buddy Session</span>
+            <div class="col-sm-6 ow-day col-sm-height" style="background-image:url({{ asset('img/buddy/events/Co_je_isc.png') }});">
+                <span class="day">Pondělí<br>13.1.<br>19:00<br>Co je ISC a jak se zapojit?</span>
             </div>
             <div class="col-sm-6 ow-detail col-sm-height col-top">
-                <p>Chceš zažít super zážitky, procvičit si cizí jazyky a ještě k tomu poznat nové kamarády? Staň se Buddym! Na ČVUT brzo přijede spousta nových zahraničních studentů ze světa, co se chtějí pobavit a zažít nová dobrodružství.
+                <p>Nikdy jsi neslyšel/a o ISC? Nestihl/a Buddy Session před začátkem semestru? Chceš si otevřít dveře do světa a najít kamarády ze všech kontinentů? Nebo prostě chceš vědět víc?
 
-                <p> Informační schůzka Buddy Session, kde se dozvíš víc o Buddy programu a vlastně vše potřebné bude ve vzdělávacím centru NTK od 18:30 (u vstupu NTK3 naproti noční studovně, od recepce po schodech do 2. patra).</p>
-                <p>Více na události <a href="https://www.facebook.com/events/625887214279758/">&nbsp;<img src="{{ asset('img/web/fb.png') }}" width="17px">&nbsp;</a>
+                <p> Tak už neváhej a přijď na informační přednášku o ISC a zjistíš, co děláme a jak se právě ty můžeš zapojit.
+
+                <p>Více na události <a href="https://www.facebook.com/events/1781891538799947/">&nbsp;<img src="{{ asset('img/web/fb.png') }}" width="17px">&nbsp;</a>
             </div>
         </div>
     </div>
