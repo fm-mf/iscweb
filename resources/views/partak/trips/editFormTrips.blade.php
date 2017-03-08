@@ -42,6 +42,7 @@
 <multiselectinput form-name="organizers" title="Organizers" :options="options.organizers" :value="options.sorganizers" :show-labels="true" label="name" track-by="id_user" placeholder="Organizers"
                   :multiple="true"></multiselectinput>
 
+{{ Form::bsSelect('type', 'Who can participate', $types, $trip->type)  }}
 {{ Form::label('capacity', 'Capacity', ['class' => 'control-label required']) }}
 @if ($errors->has('capacity'))
     <p class="error-block alert-danger">{{ $errors->first('capacity') }}</p>

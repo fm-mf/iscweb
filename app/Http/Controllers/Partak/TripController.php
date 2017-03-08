@@ -42,24 +42,18 @@ class TripController extends Controller
     {
         $trip = Trip::with('event')->find($id);
         $this->authorize('view', $trip);
-        if($trip->buddy === 'true'){
-            $particip = $trip->buddyParticipants()->with('person.user')->get();
-            $url = 'api/autocomplete/buddies';
-            $buddy = true;
-        }
-        else {
-            $particip = $trip->participants()->with('person.user')->get();
-            $url = 'api/autocomplete/exchange-students';
-            //dd($particip);
-            $buddy = false;
-        }
+        $partBuddy = $trip->buddyParticipants()->with('person.user')->get();
+        $partEx = $trip->participants()->with('person.user')->get();
+        //if(! isset($partBuddy)) $partBuddy = [];
+        //if(! isset($partEx)) $partEx = [];
+        $particip = $partBuddy->merge($partEx);
+        //dd([$particip, $partEx, $partBuddy]);
         //dd($trip->participants()->with('person.user')->get());
         $organizers = $trip->organizers()->with('person.user')->get();
         return view('partak.trips.detail')->with([
            'trip' => $trip,
             'particip' => $particip,
             'organizers' => $organizers,
-            'buddy' => $buddy,
         ]);
     }
 
@@ -168,6 +162,7 @@ class TripController extends Controller
         return view('partak.trips.edit')->with([
             'trip' => $trip,
             'event' => $trip->event,
+            'types' => Trip::getAllTypes(),
         ]);
     }
 
@@ -215,7 +210,8 @@ class TripController extends Controller
         $trip->trip_date_to = Carbon::now();//
         return view('partak.trips.Create')->with([
             'trip' => $trip,
-            'event' => $event
+            'event' => $event,
+            'types' => Trip::getAllTypes(),
         ]);
     }
 

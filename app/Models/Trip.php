@@ -19,7 +19,7 @@ class Trip extends Model
 
     protected $dates = ['registration_from', 'trip_date_to', 'registration_to', 'updated_at', 'created_at'];
 
-    protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'updated_at', 'created_at', 'capacity', 'price', 'modifid_by'];
+    protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'updated_at', 'created_at', 'capacity', 'price', 'modifid_by', 'type'];
 
     public function modifiedBy()
     {
@@ -49,6 +49,11 @@ class Trip extends Model
     public function howIsFill()
     {
         return $this->participants()->wherePivot('stand_in', 'n')->count() + $this->buddyParticipants()->wherePivot('stand_in', 'n')->count();
+    }
+
+    public function howIsFillWithDetail()
+    {
+        return 'ExStudents: '. $this->participants()->wherePivot('stand_in', 'n')->count() .' / Buddies: '. $this->buddyParticipants()->wherePivot('stand_in', 'n')->count();
     }
 
     public function howIsFillPercentage()
@@ -83,12 +88,12 @@ class Trip extends Model
         } else {
             $registeredBy = 464;
         }
-
         if(! ($this->participants()->find($idPart) || $this->buddyParticipants()->find($idPart)))
         {
-            if($this->buddy === false)
+            $part = ExchangeStudent::find($idPart);
+            if(! isset($part))
             {
-                $this->participants()->attach($idPart, [
+                $this->buddyParticipants()->attach($idPart, [
                     'stand_in' => $standIn,
                     'registered_by' => $registeredBy,
                     'paid' => $data['paid'],
@@ -97,7 +102,7 @@ class Trip extends Model
             }
             else
             {
-                $this->buddyParticipants()->attach($idPart, [
+                $this->participants()->attach($idPart, [
                     'stand_in' => $standIn,
                     'registered_by' => $registeredBy,
                     'paid' => $data['paid'],
@@ -208,6 +213,18 @@ class Trip extends Model
     public static function findAll()
     {
         return Event::with('modifid_by.user');
+    }
+
+    public static function getAllTypes()
+    {
+        $data = \DB::select('describe trips type');
+        preg_match('/^enum\((.*)\)$/', $data[0]->Type, $matches);
+        foreach( explode(',', $matches[1]) as $value )
+        {
+            $value = trim( $value, "'" );
+            $enum[$value] = $value;
+        }
+        return $enum;
     }
 
 }

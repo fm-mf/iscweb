@@ -33,7 +33,7 @@
                             </tr>
                             <tr>
                                 <th>Capacity</th>
-                                <td>@if($trip->isFull()) <b>Event is Full</b>@endif {{ $trip->howIsfill() .'/'. $trip->capacity }}</td>
+                                <td>@if($trip->isFull()) <b>Event is Full</b>@endif {{ $trip->howIsfill() .'/'. $trip->capacity }} @if($trip->type === 'ex+buddy'), {{ $trip->howIsFillWithDetail() }} @endif</td>
                                 <td></td>
                                 <td></td>
                             </tr>
@@ -48,7 +48,7 @@
                         </table>
                     </div>
                     @can('edit', $trip)
-                        <a href="{{ url('partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs">Edit</a>
+                        <a href="{{ url('/partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs">Edit</a>
                     @endcan
                 </div>
             </div>
@@ -81,17 +81,18 @@
             </div>
         </div>
         @can('addParticipant', $trip)
-            @if(! $buddy)
+            @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
             @include('partak.users.officeRegistration.search',[
-            'label' => 'Add Participant',
+            'label' => 'Add Exchange student',
             'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}'),
             ])
-            @else
+            @endif
+            @if($trip->type === 'buddy' || $trip->type === 'ex+buddy')
                 <div class="container">
                     <div class="row search-buddy">
                         <div class="row-inner">
                             <div class="col-sm-8 col-sm-offset-0">
-                                <h3>Add Participant</h3>
+                                <h3>Add Buddy</h3>
                                 <autocomplete url="{{ url('api/autocomplete/buddies') }}"
                                               :fields="[
                                                             {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
@@ -131,7 +132,7 @@
                                         <th>Email</th>
                                         <th>Sex</th>
                                         <th>Phone</th>
-                                        @if(! $buddy) <th>ESN cart number</th>@endif
+                                        <th>ESN cart number</th>
                                         <th>Detail</th>
                                     </tr>
                                     @foreach($particip as $participant)
@@ -140,8 +141,8 @@
                                             <td>{{ $participant->person->user->email }}</td>
                                             <td>{{ $participant->person->getSex() }}</td>
                                             <td>{{ $participant->phone }}</td>
-                                            @if(! $buddy) <td>{{ $participant->esn_card_number }}</td> @endif
-                                            <td> @if($buddy)
+                                            <td> @if($participant instanceof \App\Models\ExchangeStudent) {{ $participant->esn_card_number }} @endif </td>
+                                            <td> @if($participant instanceof \App\Models\Buddy)
                                                     @can('acl', 'users.view') <a href="{{ url('partak/users/buddies/' . $participant->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                                     @endcan
                                                  @else
