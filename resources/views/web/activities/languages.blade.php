@@ -39,15 +39,14 @@
                     teach you a foreign language and you would teach him yours in return.</p>
                 <p>The main advantage of Tandem is that it will be just you two who will set the time and the intensity
                     of the courses! You can form as many couples as you wish. </p>
-                <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> or come to the
-                    <a href="https://www.facebook.com/events/614492665410482/">Tandem Evening</a> on Monday 13th February.</p>
+                <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> and find your Tandem partner!
 
                 <h2>CAFÉ LINGEA</h2>
                 <p>Café Lingea is a conversational meeting where we informally chat in different languages
                     (English + some chosen). Café Lingea takes place in a different coffee shop or restaurant each time,
                     so it is also a good opportunity to discover some new places in Prague. Join the Facebook group
                     <a href="https://www.facebook.com/groups/125659680939345">ISC Café Lingea</a>!</p>
-                <p>1st Café Lingea will be in the 2nd week of the semester, the date will be updated!</p>
+                <p>Café Lingeas are here for you every 2 weeks!</p>
 
                 <br>
 
@@ -95,7 +94,7 @@
 
 
                 <p>You can have a look at the <a href="http://www.isc.cvut.cz/files/languages-schedule.php" target="_blank">Spring 2017 schedule</a>.</p>
-                <p>Schedule for upcoming semester will be available in first week of the semester</p>
+                <!-- <p>Schedule for upcoming semester will be available in first week of the semester</p> -->
                 <p>The language courses are starting on <b>Monday 6th March</b>.</p>
                 <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><a href="http://www.isc.cvut.cz/files/languages-schedule.php" ><img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
                 <p>Sometimes the classes have to be cancelled for various reasons. The following table shows the updated list of cancelled and rescheduled classes.</p>
