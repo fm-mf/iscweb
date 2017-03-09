@@ -17,34 +17,6 @@
 
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integreat_korea_germany__.jpg') }})">
-                    <span class="day">Wednesday<br>March<br><strong>8th</strong><br>9pm</span>
-                    <h2>inteGREAT ★ Finland & Germany & Korea</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>
-                    ► Who? ◄ Finland & Germany & South Korea<br>
-                     ► When? ◄ Wednesday, 8. 3. 2017, 9 pm<br>
-                     ► Where?◄ <a href="https://www.rockcafe.cz/en/">Rock café</a> (Národní třída 20, Prague)<p>
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/183227775495777/"><strong>Facebook event!</strong></a>
-                    </p>
-                    <p>★ International
-                        ★ Night
-                        ★ Team-work
-                        ★ Entertainment
-                        ★ Global
-                        ★ Real
-                        ★ Extraordinary
-                        ★ Amazing
-                        ★ Together</p>
-                    inteGREAT more than a party
-                </div>
-            </div>
-
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
                     <span class="day">Friday<br>March<br><strong>10th</strong><br>8pm</span>
                     <h2>Foosball Tournament</h2>
@@ -97,15 +69,37 @@
                 </div>
             </div>
 
+            <!--  pridat cover a link na FB
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
+                    <span class="day">Wednesday<br>March<br><strong>15th</strong><br>7pm</span>
+                    <h2>2nd Café Lingea</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>
+                        ► Where?◄ <a href="https://goo.gl/maps/geJkF7cp8iA2">Bernard Pub Cesta Časem</a>
+                    <p>
+                        This time, the plan is to meet in a nice cosy pub Cesta časem where, being supported by alcoholic
+                        beverages, we shall try to practice our <b>German</b> language. <b>English</b> is also allowed. Don’t be afraid
+                        of coming even if you don’t control any of those two that well. Neither do us:-)
+                    </p>
+
+                    <p>
+                        ► <a ><strong>Facebook event!</strong></a>
+                    </p>
+                </div>
+            </div>
+            -->
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
                     <span class="day">Thursday<br>March<br><strong>16th</strong><br>9pm</span>
-                    <h2>inteGREAT ★ Italy & Slovakia & Taiwan</h2>
+                    <h2>inteGREAT ★ Taiwan</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
                     <p>
-                        ► Who? ◄ Italy & Slovakia & Taiwan<br>
+                        ► Who? ◄ Taiwan<br>
                         ► When? ◄ Thursday, 16. 3. 2017, 9 pm<br>
                         ► Where?◄ <a href="http://stormclub.eu">Storm club</a> (Tachovské nám. 290/5, 130 00 Praha 3)<p>
 
@@ -143,8 +137,65 @@
                 </div>
             </div>
 
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
+                    <span class="day">Thursday<br>March<br><strong>23th</strong><br>9pm</span>
+                    <h2>inteGREAT ★ Canada & China & Turkey</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>
+                        ► Who? ◄ Canada & China & Turkey<br>
+                        ► When? ◄ Thursday, 23. 3. 2017, 9 pm<br>
+                        ► Where?◄ <a href="www.pmclub.net"> P.M.Club</a> (Trojická 10, Praha 2)<p>
 
+                    <p>
+                        ► <a href="https://www.facebook.com/events/1164147040349679/"><strong>Facebook event!</strong></a>
+                    </p>
+                    <p>★ International
+                        ★ Night
+                        ★ Team-work
+                        ★ Entertainment
+                        ★ Global
+                        ★ Real
+                        ★ Extraordinary
+                        ★ Amazing
+                        ★ Together</p>
+                    inteGREAT more than a party
+                </div>
+            </div>
+            <!--  Zkratit
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/Wild_Weekend.jpg') }})">
+                    <span class="day">Fri &ndash; Sun<br>March<br><strong>24th &ndash; 26th</strong><br>8am</span>
+                    <h2>Wild Weekend</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>► Price: 1300CZK
+                    <p>
+                        This is gonna be a special weekend you definitely need to experience when you want to tell yourself:
+                        “Yes, I really lived out my Erasmus in Czech Republic!”</p>
 
+                      <p>  For those who are still wondering why is this event called WILD Weekend a few questions might help
+                        you to find out little more about it: Have you ever slept under the stars? Cooked a lunch in a forest?
+                        Been to a place without any network or electricity? Or haven’t seen a wolf or a bear? How far can you hike?
+
+                       <p> If this excites your interest and curiosity than you should go for that! Fill in the form please
+                        and complete the registration by paying the 1 300 CZK in the ISC Point until 20th March.
+                        Keep in mind that the capacity is limited for 15 International students and 15 Czech students.
+                        <p>The registration forms:<br>
+                        1) <a href="https://docs.google.com/a/isc.cvut.cz/forms/d/13KWsUdlQs7SGtM-WX8_0YZvxTN-WyZ6aNP1QdmUQDT0/edit"> Czech Students</a><br>
+                        2) <a href="https://docs.google.com/a/isc.cvut.cz/forms/d/1xfpOLl2XG7qzTQ9uS4pB89_hV3lkJdhqV6WAWkxfXF4/edit"> International Students</a>
+                    </p>
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/1858857484332122/"><strong>Facebook event!</strong></a>
+                    </p>
+                    <br>
+                </div>
+            </div>
+            -->
             <!--
             @if(isset($events) && $events->count() > 0)
                 @foreach($events as $event)

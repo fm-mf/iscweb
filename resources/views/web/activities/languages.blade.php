@@ -80,6 +80,13 @@
                         <td><a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café</a></td>
                         <td><a href="https://www.facebook.com/events/662297163977690/">Facebook event</a></td>
                     </tr>
+                    <tr>
+                        <td>2st Café Lingea (English & German)</td>
+                        <td>Wednesday 15th March</td>
+                        <td>7pm</td>
+                        <td><a href="https://goo.gl/maps/geJkF7cp8iA2">Bernard Pub Cesta Časem</a></td>
+                        <td><a >Facebook event</a></td>
+                    </tr>
                     			<!--	<tr>
                                     <td colspan=5><i>More events will be announced soon!</i></td>
                                     </tr> -->
