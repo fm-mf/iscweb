@@ -62,34 +62,6 @@
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/integreat_korea_germany__.jpg') }})">
-                        <span class="day">Wednesday<br>March<br><strong>8th</strong><br>9pm</span>
-                        <h2>inteGREAT ★ Finland & Germany & Korea</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>
-                            ► Who? ◄ Finland & Germany & South Korea<br>
-                            ► When? ◄ Wednesday, 8. 3. 2017, 9 pm<br>
-                            ► Where?◄ <a href="https://www.rockcafe.cz/en/">Rock café</a> (Národní třída 20, Prague)<p>
-
-                        <p>
-                            ► <a href="https://www.facebook.com/events/183227775495777/"><strong>Facebook event!</strong></a>
-                        </p>
-                        <p>★ International
-                            ★ Night
-                            ★ Team-work
-                            ★ Entertainment
-                            ★ Global
-                            ★ Real
-                            ★ Extraordinary
-                            ★ Amazing
-                            ★ Together</p>
-                        inteGREAT more than a party
-                    </div>
-                </div>
-
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
                     <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
                         <span class="day">Friday<br>March<br><strong>10th</strong><br>8pm</span>
                         <h2>Foosball Tournament</h2>
@@ -107,6 +79,40 @@
                         </p>
 
                         <br>
+                    </div>
+                </div>
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
+                        <span class="day">Saturday<br>March<br><strong>11th</strong><br>2pm</span>
+                        <h2>Geocaching, treasure hunting!</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>► Where: <a href="https://goo.gl/maps/8hM2fzGTWWL2">náměstí Jana Palacha 1</a><br>
+                            ► <a href="https://docs.google.com/spreadsheets/d/1GST4r-s72Jo6K96dubWlCVPaKBAv_FfjCBH_lIOuuUY/edit#gid=0">Registration</a></p>
+                        <p>Geocaching is an outdoor recreational activity, in which participants use a Global Positioning System (or your MOBILE PHONE!) to hide and seek containers, called "geocaches" or "caches", at specific locations marked by coordinates all over the world.
+                            A typical cache is a small waterproof container containing a logbook and sometimes a pen or pencil.
+
+                        <p>
+                            ► <a href="https://www.facebook.com/events/406808712996567/"><strong>Facebook event!</strong></a>
+                        </p>
+                    </div>
+                </div>
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
+                        <span class="day">Monday<br>March<br><strong>13th</strong><br>6pm</span>
+                        <h2>Jump Arena</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>► Where: <a href="https://goo.gl/8hgq0T">JumpArena</a><br>
+                            ► Price: 225 CZK / hour / person - please bring cash and student card with you :) <br>
+                            ►<a href="https://docs.google.com/spreadsheets/d/1UdzEi_OfIFEfqNXmHYL7o0XUgEbZFNSQJSM4uFYVH2E/edit#gid=0"> Registration</a></p>
+                        <p>Ever wanted to try a huge trampoline arena? Trampoline basketball? Diving into a big foam pit? Come with us and jump around JumpArenaZlicin, try some flips, dunk on the basketball hoop, and maybe even relax with a drink afterward.
+
+                        <p>
+                            ► <a href="https://www.facebook.com/events/1103953586381055/"><strong>Facebook event!</strong></a>
+                        </p>
                     </div>
                 </div>
 
