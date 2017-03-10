@@ -69,10 +69,9 @@
                 </div>
             </div>
 
-            <!--  pridat cover a link na FB
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea2.jpg') }})">
                     <span class="day">Wednesday<br>March<br><strong>15th</strong><br>7pm</span>
                     <h2>2nd Café Lingea</h2>
                 </div>
@@ -90,7 +89,7 @@
                     </p>
                 </div>
             </div>
-            -->
+
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
@@ -164,7 +163,7 @@
                     inteGREAT more than a party
                 </div>
             </div>
-            <!--  Zkratit
+
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/Wild_Weekend.jpg') }})">
@@ -172,18 +171,16 @@
                     <h2>Wild Weekend</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>► Price: 1300CZK
+                    <p>► Price: 1300CZK (register in the ISC Point until 20th March)
                     <p>
-                        This is gonna be a special weekend you definitely need to experience when you want to tell yourself:
-                        “Yes, I really lived out my Erasmus in Czech Republic!”</p>
+                        Special weekend you definitely need to experience if you wanna say: “Yes, I really lived out in
+                         Czechia!”
+                    </p>
 
-                      <p>  For those who are still wondering why is this event called WILD Weekend a few questions might help
-                        you to find out little more about it: Have you ever slept under the stars? Cooked a lunch in a forest?
-                        Been to a place without any network or electricity? Or haven’t seen a wolf or a bear? How far can you hike?
+                      <p>Any ideas why „wild“? … How far can you hike? Have you ever slept under the stars? Cooked a lunch
+                       in a forest? Been to a place without any network?
 
-                       <p> If this excites your interest and curiosity than you should go for that! Fill in the form please
-                        and complete the registration by paying the 1 300 CZK in the ISC Point until 20th March.
-                        Keep in mind that the capacity is limited for 15 International students and 15 Czech students.
+                       <p> The capacity is limited (15 International and 15 Czech students).
                         <p>The registration forms:<br>
                         1) <a href="https://docs.google.com/a/isc.cvut.cz/forms/d/13KWsUdlQs7SGtM-WX8_0YZvxTN-WyZ6aNP1QdmUQDT0/edit"> Czech Students</a><br>
                         2) <a href="https://docs.google.com/a/isc.cvut.cz/forms/d/1xfpOLl2XG7qzTQ9uS4pB89_hV3lkJdhqV6WAWkxfXF4/edit"> International Students</a>
@@ -195,7 +192,6 @@
                     <br>
                 </div>
             </div>
-            -->
             <!--
             @if(isset($events) && $events->count() > 0)
                 @foreach($events as $event)
