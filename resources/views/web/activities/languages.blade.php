@@ -85,7 +85,7 @@
                         <td>Wednesday 15th March</td>
                         <td>7pm</td>
                         <td><a href="https://goo.gl/maps/geJkF7cp8iA2">Bernard Pub Cesta Časem</a></td>
-                        <td><a >Facebook event</a></td>
+                        <td><a href="https://www.facebook.com/events/1748119202185320/">Facebook event</a></td>
                     </tr>
                     			<!--	<tr>
                                     <td colspan=5><i>More events will be announced soon!</i></td>

@@ -14,43 +14,7 @@
 
     <div class="container events">
         <div class="container container-ow container-sm-height">
-
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
-                    <span class="day">Friday<br>March<br><strong>10th</strong><br>8pm</span>
-                    <h2>Foosball Tournament</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>► Where: <a href="https://goo.gl/maps/jaYbdEWQ8it">Klub 011 Strahov</a><br>
-                    ► Price: 50 CZK (For table rent and prize for the winner)<br>
-                        ► <a href="https://docs.google.com/spreadsheets/d/1u3YGoOzrFxRgW1zOp3oeAVk8vMpMaqxyO6PVfcEoXdc/edit?usp=sharing">Registration</a></p>
-                    <p>Do you want to show your foosball skills or just try
-                        the Czech number one pub sport? Then join for our foosball tournament!
-
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/603928563138197/"><strong>Facebook event!</strong></a>
-                    </p>
-                </div>
-            </div>
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
-                    <span class="day">Saturday<br>March<br><strong>11th</strong><br>2pm</span>
-                    <h2>Geocaching, treasure hunting!</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>► Where: <a href="https://goo.gl/maps/8hM2fzGTWWL2">náměstí Jana Palacha 1</a><br>
-                        ► <a href="https://docs.google.com/spreadsheets/d/1GST4r-s72Jo6K96dubWlCVPaKBAv_FfjCBH_lIOuuUY/edit#gid=0">Registration</a></p>
-                    <p>Geocaching is an outdoor recreational activity, in which participants use a Global Positioning System (or your MOBILE PHONE!) to hide and seek containers, called "geocaches" or "caches", at specific locations marked by coordinates all over the world.
-                        A typical cache is a small waterproof container containing a logbook and sometimes a pen or pencil.
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/406808712996567/"><strong>Facebook event!</strong></a>
-                    </p>
-                </div>
-            </div>
+            
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
@@ -85,7 +49,7 @@
                     </p>
 
                     <p>
-                        ► <a ><strong>Facebook event!</strong></a>
+                        ► <a href="https://www.facebook.com/events/1748119202185320/"><strong>Facebook event!</strong></a>
                     </p>
                 </div>
             </div>
@@ -126,7 +90,7 @@
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
                     <p>►Meetin point: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a><br>
-                    ► Price: 3000CZK</br>
+                    ► Price: 3000CZK
                     <p>Let's go to explore two amazing cities Berlin&Dresden with us! Enjoy sightseeing. Meet new friends. Have fun.
 
                     <p>
