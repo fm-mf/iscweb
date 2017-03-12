@@ -250,6 +250,7 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
+                    <!--
                     <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Sports_Petr.jpg') }}"class="img-circle">
                         <div class="contact-details">
@@ -260,6 +261,7 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
+                    -->
                     <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Care_Misa.jpg') }}"class="img-circle">
                         <div class="contact-details">
@@ -270,6 +272,7 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
+                    <!--
                     <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Visa_Pepa.jpg') }}"class="img-circle">
                         <div class="contact-details">
@@ -300,7 +303,8 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
-                    <!-- <li class="col-md-4 col-sm-6">
+
+                    <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Promo_Nicol.jpg') }}"class="img-circle">
                         <div class="contact-details">
                             <h4>Nicol Minichová</h4><br>
@@ -309,7 +313,7 @@
                             Phone: (+420) 000 000 000<br>
                         </div>
                         <span class="clearfix"></span>
-                    </li> -->
+                    </li>
                     <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Press_Pavel.jpg') }}"class="img-circle">
                         <div class="contact-details">
@@ -320,6 +324,7 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
+                    -->
                 </ul>
             </div>
         </div>
