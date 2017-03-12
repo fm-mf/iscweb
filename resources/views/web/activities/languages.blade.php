@@ -1,7 +1,20 @@
 @extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
+        <ul class="row list-unstyled contacts">
+            <li class="col-md-4 col-sm-6 col-md-offset-4">
+                <img src="{{ asset('img/web/contacts/2017spring/Languages_Verca.jpg') }}"class="img-circle">
+                <div class="contact-details">
+                    <h4>Verča Paštyková</h4><br>
+                    <strong>Languages Coordinator</strong><br>
+                    Email: <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a><br>
+                    Phone: (+420) 775 478 059<br>
+                </div>
+                <span class="clearfix"></span>
+            </li>
+        </ul>
         <blockquote><p>One language sets you in a corridor for life. Two languages open every door along the way.</p><p><small>Frank Smith</small></p></blockquote>
+
         <div class="row">
             <div class="col-sm-8">
                 <h2>LANGUAGE COURSES</h2>

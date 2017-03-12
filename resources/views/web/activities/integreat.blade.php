@@ -1,7 +1,18 @@
 @extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
-
+        <ul class="row list-unstyled contacts">
+            <li class="col-md-4 col-sm-6 col-md-offset-4">
+                <img src="{{ asset('img/web/contacts/2017spring/inteGREAT_Eliska.jpg') }}" class="img-circle">
+                <div class="contact-details">
+                    <h4>Eliška Beránková</h4><br>
+                    <strong>inteGREAT Coordinator</strong><br>
+                    Email: <a href="mailto:integreat@isc.cvut.cz">integreat@isc.cvut.cz</a><br>
+                    Phone: (+420) 602 157 159<br>
+                </div>
+                <span class="clearfix"></span>
+            </li>
+        </ul>
         <blockquote><p>Share. Experience. InteGREAT!</p></blockquote>
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">

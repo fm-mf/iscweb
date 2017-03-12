@@ -1,30 +1,37 @@
 @extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
+        <ul class="row list-unstyled contacts">
+            <li class="col-md-4 col-sm-6 col-md-offset-4">
+                <img src="{{ asset('img/web/contacts/2017spring/Sports_Petr.jpg') }}"class="img-circle">
+                <div class="contact-details">
+                    <h4>Petr Šlajs</h4><br>
+                    <strong>Sports Coordinator</strong><br>
+                    Email: <a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a><br>
+                    Phone: (+420) 724 537 680<br>
+                </div>
+                <span class="clearfix"></span>
+            </li>
+        </ul>
         <blockquote><p>Just play. Have fun. Enjoy the game.</p><p><small>Michael Jordan</small></p></blockquote>
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
                 <p>
-                    Do you like playing football, basketball, volleyball or even floorball? If yes, and you want to practice
-                    some of those sports also in Prague, we organize them every week mostly on Juliska and Strahov - just check
-                    current situation (activities/sports on this website), come and play.
+                    Do you like sport? Would you like to play football, basketball, volleyball or other? ISC organizes sport
+                    events every week. The level of sport classes depends on your participation and propositions.
+                    No matter if you are a professional or if you would like to try a new sport. To enroll in any sport,
+                    follow partial instructions or just contact supervising person (instructor). Some of the sports are
+                    for free, some are paid for.
                 </p>
                 <p>
-                    There are several sports organized throughout the semester for international and Czech students .
-                    The level of sport events depends a lot on your participation and propositions.
+                    In any case, you can contact ISC Sport coordinator Petr Šlajs (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>).
                 </p>
                 <p>
-                    To enroll to any sport, follow partial instructions or just contact supervising person (instructor).
-                    Some of the sports are for free, some are payed for.
+                    If the choice of sport events is not enough various for you, you can come up with your idea and you
+                    can even organize your sport classes. If you would like to do so, contact ISC Sport coordinator please.
                 </p>
                 <p>
-                    Also, you can contact sport coordinator Petr Šlajs (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>)
-                    If you don´t receive an answer, just write once again, please.
-                </p>
-
-                <p>
-                    You can also start to <strong>practice your own sport</strong> you know or you would like to try.
-                    In this case please contact sport coordinator.
+                    There is a Facebook group for each of the sport. Please, join the yours to follow the current instructions and situation.
                 </p>
 
                 <p><strong><big>All sports are starting during 1st and 2nd week of the semester</big></strong></p>
