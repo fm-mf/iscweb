@@ -51,9 +51,19 @@ class Trip extends Model
         return $this->participants()->wherePivot('stand_in', 'n')->count() + $this->buddyParticipants()->wherePivot('stand_in', 'n')->count();
     }
 
+    public function howIsFillSimple()
+    {
+        return $this->howIsfill() .'/'. $this->capacity;
+    }
+
     public function howIsFillWithDetail()
     {
-        return 'ExStudents: '. $this->participants()->wherePivot('stand_in', 'n')->count() .' / Buddies: '. $this->buddyParticipants()->wherePivot('stand_in', 'n')->count();
+        $result = '';
+        if($this->isFull()) $result = $result . '<b>Event is Full</b> ';
+        $result = $result . $this->howIsFillSimple();
+        if($this->type === 'ex+buddy') $result = $result . ', ExStudents: '. $this->participants()->wherePivot('stand_in', 'n')->count()
+            .' / Buddies: '. $this->buddyParticipants()->wherePivot('stand_in', 'n')->count();
+        return $result;
     }
 
     public function howIsFillPercentage()

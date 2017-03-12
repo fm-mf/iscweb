@@ -33,7 +33,7 @@
                             </tr>
                             <tr>
                                 <th>Capacity</th>
-                                <td>@if($trip->isFull()) <b>Event is Full</b>@endif {{ $trip->howIsfill() .'/'. $trip->capacity }} @if($trip->type === 'ex+buddy'), {{ $trip->howIsFillWithDetail() }} @endif</td>
+                                <td>{!! $trip->howIsFillWithDetail() !!}</td>
                                 <td></td>
                                 <td></td>
                             </tr>

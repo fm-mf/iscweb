@@ -15,6 +15,7 @@
                                         <th>From</th>
                                         <th>To</th>
                                         <th>Price</th>
+                                        <th>Capacity</th>
                                         <th>Actions</th>
                                     </tr>
                                     @foreach($myTrips as $trip)
@@ -23,6 +24,7 @@
                                             <td>{{ $trip->event->datetime_from->toFormattedDateString() }}</td>
                                             <td>{{ $trip->trip_date_to->toFormattedDateString() }}</td>
                                             <td>{{ $trip->price }}@if(isset($trip->price)) Kč@endif</td>
+                                            <td>{{ $trip->howIsFillSimple() }}</td>
                                             <td align="right">
                                                 <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                                 @can('acl', 'trips.edit')
