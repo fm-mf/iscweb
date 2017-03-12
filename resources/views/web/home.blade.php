@@ -63,44 +63,6 @@
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
                     <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
-                        <span class="day">Friday<br>March<br><strong>10th</strong><br>8pm</span>
-                        <h2>Foosball Tournament</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>► Where: <a href="https://goo.gl/maps/jaYbdEWQ8it">Klub 011 Strahov</a></p>
-                        <p>► Price: 50 CZK (For table rent and prize for the winner)</p>
-                        <p>► <a href="https://docs.google.com/spreadsheets/d/1u3YGoOzrFxRgW1zOp3oeAVk8vMpMaqxyO6PVfcEoXdc/edit?usp=sharing">Registration</a></p>
-                        <p>Do you want to show your foosball skills or just try
-                            the Czech number one pub sport? Then join for our foosball tournament!
-
-
-                        <p>
-                            ► <a href="https://www.facebook.com/events/603928563138197/"><strong>Facebook event!</strong></a>
-                        </p>
-
-                        <br>
-                    </div>
-                </div>
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
-                        <span class="day">Saturday<br>March<br><strong>11th</strong><br>2pm</span>
-                        <h2>Geocaching, treasure hunting!</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>► Where: <a href="https://goo.gl/maps/8hM2fzGTWWL2">náměstí Jana Palacha 1</a><br>
-                            ► <a href="https://docs.google.com/spreadsheets/d/1GST4r-s72Jo6K96dubWlCVPaKBAv_FfjCBH_lIOuuUY/edit#gid=0">Registration</a></p>
-                        <p>Geocaching is an outdoor recreational activity, in which participants use a Global Positioning System (or your MOBILE PHONE!) to hide and seek containers, called "geocaches" or "caches", at specific locations marked by coordinates all over the world.
-                            A typical cache is a small waterproof container containing a logbook and sometimes a pen or pencil.
-
-                        <p>
-                            ► <a href="https://www.facebook.com/events/406808712996567/"><strong>Facebook event!</strong></a>
-                        </p>
-                    </div>
-                </div>
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
                         <span class="day">Monday<br>March<br><strong>13th</strong><br>6pm</span>
                         <h2>Jump Arena</h2>
                     </div>
@@ -113,6 +75,55 @@
                         <p>
                             ► <a href="https://www.facebook.com/events/1103953586381055/"><strong>Facebook event!</strong></a>
                         </p>
+                    </div>
+                </div>
+
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea2.jpg') }})">
+                        <span class="day">Wednesday<br>March<br><strong>15th</strong><br>7pm</span>
+                        <h2>2nd Café Lingea</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>
+                            ► Where?◄ <a href="https://goo.gl/maps/geJkF7cp8iA2">Bernard Pub Cesta Časem</a>
+                        <p>
+                            This time, the plan is to meet in a nice cosy pub Cesta časem where, being supported by alcoholic
+                            beverages, we shall try to practice our <b>German</b> language. <b>English</b> is also allowed. Don’t be afraid
+                            of coming even if you don’t control any of those two that well. Neither do us:-)
+                        </p>
+
+                        <p>
+                            ► <a href="https://www.facebook.com/events/1748119202185320/"><strong>Facebook event!</strong></a>
+                        </p>
+                    </div>
+                </div>
+
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
+                        <span class="day">Thursday<br>March<br><strong>16th</strong><br>9pm</span>
+                        <h2>inteGREAT ★ Taiwan</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>
+                            ► Who? ◄ Taiwan<br>
+                            ► When? ◄ Thursday, 16. 3. 2017, 9 pm<br>
+                            ► Where?◄ <a href="http://stormclub.eu">Storm club</a> (Tachovské nám. 290/5, 130 00 Praha 3)<p>
+
+                        <p>
+                            ► <a href="https://www.facebook.com/events/1409679205719342/"><strong>Facebook event!</strong></a>
+                        </p>
+                        <p>★ International
+                            ★ Night
+                            ★ Team-work
+                            ★ Entertainment
+                            ★ Global
+                            ★ Real
+                            ★ Extraordinary
+                            ★ Amazing
+                            ★ Together</p>
+                        inteGREAT more than a party
                     </div>
                 </div>
 
