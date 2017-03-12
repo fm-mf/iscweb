@@ -7,6 +7,7 @@ use App\Models\ExchangeStudent;
 use App\Settings\Facade as Settings;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use ReflectionClass;
 
 class Item
@@ -92,17 +93,13 @@ class AutocompleteController extends Controller
         $query->where(function($query) use ($field, $input, $fullName) {
             $firstQ = true;
             if($fullName){
-                $namePos = strpos($input, ' ');
-                $name = [substr($input, 0, $namePos), substr($input, $namePos + 1)];
-
+                $name = str_replace(' ', '%', $input);
                 $table = 'person';
                 $col = ['first_name', 'last_name'];
                 $query->whereHas($table, function ($query) use ($col, $name) {
-                    $query->where($col[0], 'LIKE', '%' . $name[0]. '%')
-                    ->where($col[1], 'LIKE', '%' . $name[1]. '%');
+                    $query->where(DB::raw('CONCAT(first_name, " ", last_name)'), 'LIKE', '%' . $name . '%');
                 })->orWhereHas($table, function ($query) use ($col, $name) {
-                    $query->where($col[1], 'LIKE', '%' . $name[0] . '%')
-                        ->where($col[0], 'LIKE', '%' . $name[1] . '%');
+                    $query->where(DB::raw('CONCAT(last_name, " ", first_name)'), 'LIKE', '%' . $name . '%');
                 });
             }
             else
