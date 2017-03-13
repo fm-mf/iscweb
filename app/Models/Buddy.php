@@ -61,6 +61,10 @@ class Buddy extends Model
         return $this->verified == 'y';
     }
 
+    public function getDetailLink()
+    {
+        return url('partak/users/buddies/' . $this->id_user);
+    }
 
     public static function findBuddy($id_user)
     {

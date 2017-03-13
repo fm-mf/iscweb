@@ -74,6 +74,12 @@ class ExchangeStudent extends Model
         $this->save();
     }
 
+    public function getDetailLink()
+    {
+        return url('partak/users/exchange-students/' . $this->id_user);
+    }
+
+
     public static function findAll()
     {
         return ExchangeStudent::with('person', 'person.user', 'country', 'faculty', 'accommodation', 'arrival');
