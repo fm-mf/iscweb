@@ -66,6 +66,11 @@ class Buddy extends Model
         return url('partak/users/buddies/' . $this->id_user);
     }
 
+    public function whoAmI($who)
+    {
+        return 'buddy' == $who;
+    }
+
     public static function findBuddy($id_user)
     {
         return Buddy::with('person.user')->find($id_user);

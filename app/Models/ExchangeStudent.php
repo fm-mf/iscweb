@@ -74,6 +74,11 @@ class ExchangeStudent extends Model
         $this->save();
     }
 
+    public function whoAmI($who)
+    {
+        return 'exchangeStudent' == $who;
+    }
+
     public function getDetailLink()
     {
         return url('partak/users/exchange-students/' . $this->id_user);

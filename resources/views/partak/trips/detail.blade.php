@@ -141,9 +141,11 @@
                                             <td>{{ $participant->person->user->email }}</td>
                                             <td>{{ $participant->person->getSex() }}</td>
                                             <td>{{ $participant->phone }}</td>
-                                            <td> @if($participant instanceof \App\Models\ExchangeStudent) {{ $participant->esn_card_number }} @endif</td>
-                                            <td> @can('acl', 'users.view') <a href="{{ $participant->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
-                                                    @endcan
+                                            <td> @if($participant->whoAmI('exchangeStudent')) {{ $participant->esn_card_number }} @endif</td>
+                                            <td> @if(($participant->whoAmI('buddy') && Auth::user()->can('acl', 'users.view')) ||
+                                                        ($participant->whoAmI('exchangeStudent') && Auth::user()->can('acl', 'exchangeStudents.view')))
+                                                    <a href="{{ $participant->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                                @endif
                                                 @can('removeParticipant', $trip)
                                                     <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
                                                                      protection-text="Remove {{ $participant->person->first_name }} {{ $participant->person->last_name }} from event {{ $trip->name }}?"
