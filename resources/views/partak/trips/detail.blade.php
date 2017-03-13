@@ -142,7 +142,7 @@
                                             <td>{{ $participant->person->getSex() }}</td>
                                             <td>{{ $participant->phone }}</td>
                                             <td> @if($participant->whoAmI('exchangeStudent')) {{ $participant->esn_card_number }} @endif</td>
-                                            <td> @if(($participant->whoAmI('buddy') && Auth::user()->can('acl', 'users.view')) ||
+                                            <td> @if(($participant->whoAmI('buddy') && Auth::user()->can('acl', 'buddy.view')) ||
                                                         ($participant->whoAmI('exchangeStudent') && Auth::user()->can('acl', 'exchangeStudents.view')))
                                                     <a href="{{ $participant->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                                 @endif
