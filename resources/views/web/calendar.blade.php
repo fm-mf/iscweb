@@ -14,24 +14,6 @@
 
     <div class="container events">
         <div class="container container-ow container-sm-height">
-            
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
-                    <span class="day">Monday<br>March<br><strong>13th</strong><br>6pm</span>
-                    <h2>Jump Arena</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>► Where: <a href="https://goo.gl/8hgq0T">JumpArena</a><br>
-                    ► Price: 225 CZK / hour / person - please bring cash and student card with you :) <br>
-                    ►<a href="https://docs.google.com/spreadsheets/d/1UdzEi_OfIFEfqNXmHYL7o0XUgEbZFNSQJSM4uFYVH2E/edit#gid=0"> Registration</a></p>
-                    <p>Ever wanted to try a huge trampoline arena? Trampoline basketball? Diving into a big foam pit? Come with us and jump around JumpArenaZlicin, try some flips, dunk on the basketball hoop, and maybe even relax with a drink afterward.
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/1103953586381055/"><strong>Facebook event!</strong></a>
-                    </p>
-                </div>
-            </div>
 
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
@@ -97,6 +79,28 @@
                         ► <a href="https://www.facebook.com/events/1685833638381468/"><strong>Facebook event!</strong></a>
                     </p>
                     <br>
+                </div>
+            </div>
+
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/cafe_in_dark.jpg') }})">
+                    <span class="day">Tuesday<br>March<br><strong>21th</strong><br>4:30pm</span>
+                    <h2>Invisible Exhibition</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>
+                        ► Where? ◄ <a href="https://goo.gl/maps/r5yL1Sew7tn">Location</a><br>
+                        ► Price ◄ 120CZK<br>
+                        ► Registration ◄ Come to  ISC Point (R304) on 14th - 17th March and pay there for the registration
+                    <p>
+                        What will you see at this exhibition? Well, nothing. Not even your hand in front of your face.
+                        It gives you a taste of what everyday life is like without sight.
+                    </p>
+
+                    <p>
+                        ► <a ><strong>Facebook event!</strong></a>
+                    </p>
                 </div>
             </div>
 
