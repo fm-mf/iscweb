@@ -4,6 +4,7 @@
             <div class="collapse navbar-collapse navbar-main-collapse col-sm-9">
                 <ul class="nav navbar-nav admin-nav">
                     <li><a href="{{ url('partak/') }}" @if(Request::is('partak')) class="active" @endif>Dashboard</a></li>
+                    <li><a href="{{ url('iscproisc') }}">ISC pro ISC</a> </li>
                     @can('acl', 'users.view')
                     <li><a href="{{ url('partak/users') }}" @if(Request::is('partak/users/*')) class="active" @endif>Users</a></li>
                     @endcan
