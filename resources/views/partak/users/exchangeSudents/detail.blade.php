@@ -21,7 +21,7 @@
                     <span class="input-group-addon" id="url"><span class="glyphicon glyphicon-link"></span> </span>
                     <input type="text" id="unique_url" class="form-control" value="{{ url('/exchange/'). '/' . $exStudent->person->user->hash }}" aria-describedby="url" readonly="">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-copy"></span> </button>
+                        <button class="btn btn-default" type="button" onclick="copy()"><span class="glyphicon glyphicon-copy"></span> </button>
                       </span>
                 </div><!-- /input-group -->
             </div>
@@ -30,3 +30,15 @@
 
     @include('partak.users.exStudentDetailTable')
 @stop
+
+@section('scripts')
+    @parent
+    <script type="text/javascript">
+        function copy() {
+            var url = document.getElementById('unique_url');
+            url.select();
+            var suc = document.execCommand('copy');
+        }
+    </script>
+
+    @stop
