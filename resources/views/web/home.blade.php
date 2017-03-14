@@ -129,8 +129,8 @@
 
                 <!-- ------------------------ div containery prosím nechat --------------------------------------------------------- -->
             </div>
+            <h2 style="text-align: center">You can find more upcoming events in <a href="{{ url('calendar') }}">Calendar</a></h2>
         </div>
-
         <!------------------------------ VZOR EVENT --------------------------------------------
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">

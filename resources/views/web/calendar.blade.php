@@ -99,7 +99,7 @@
                     </p>
 
                     <p>
-                        ► <a ><strong>Facebook event!</strong></a>
+                        ► <a href="https://www.facebook.com/events/1503070023058776/"><strong>Facebook event!</strong></a>
                     </p>
                 </div>
             </div>
