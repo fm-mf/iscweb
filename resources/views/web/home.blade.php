@@ -62,24 +62,6 @@
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
-                        <span class="day">Monday<br>March<br><strong>13th</strong><br>6pm</span>
-                        <h2>Jump Arena</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>► Where: <a href="https://goo.gl/8hgq0T">JumpArena</a><br>
-                            ► Price: 225 CZK / hour / person - please bring cash and student card with you :) <br>
-                            ►<a href="https://docs.google.com/spreadsheets/d/1UdzEi_OfIFEfqNXmHYL7o0XUgEbZFNSQJSM4uFYVH2E/edit#gid=0"> Registration</a></p>
-                        <p>Ever wanted to try a huge trampoline arena? Trampoline basketball? Diving into a big foam pit? Come with us and jump around JumpArenaZlicin, try some flips, dunk on the basketball hoop, and maybe even relax with a drink afterward.
-
-                        <p>
-                            ► <a href="https://www.facebook.com/events/1103953586381055/"><strong>Facebook event!</strong></a>
-                        </p>
-                    </div>
-                </div>
-
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
                     <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea2.jpg') }})">
                         <span class="day">Wednesday<br>March<br><strong>15th</strong><br>7pm</span>
                         <h2>2nd Café Lingea</h2>
@@ -124,6 +106,24 @@
                             ★ Amazing
                             ★ Together</p>
                         inteGREAT more than a party
+                    </div>
+                </div>
+
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/berlin+dresden.jpg') }})">
+                        <span class="day">Fri &ndash; Sun<br>March<br><strong>17th &ndash; 19th</strong><br>8am</span>
+                        <h2>Berlin + Dresden Trip</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>►Meetin point: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a><br>
+                            ► Price: 3000CZK
+                        <p>Let's go to explore two amazing cities Berlin&Dresden with us! Enjoy sightseeing. Meet new friends. Have fun.
+
+                        <p>
+                            ► <a href="https://www.facebook.com/events/1685833638381468/"><strong>Facebook event!</strong></a>
+                        </p>
+                        <br>
                     </div>
                 </div>
 
