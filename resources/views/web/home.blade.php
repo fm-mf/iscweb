@@ -62,27 +62,6 @@
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea2.jpg') }})">
-                        <span class="day">Wednesday<br>March<br><strong>15th</strong><br>7pm</span>
-                        <h2>2nd Café Lingea</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>
-                            ► Where?◄ <a href="https://goo.gl/maps/geJkF7cp8iA2">Bernard Pub Cesta Časem</a>
-                        <p>
-                            This time, the plan is to meet in a nice cosy pub Cesta časem where, being supported by alcoholic
-                            beverages, we shall try to practice our <b>German</b> language. <b>English</b> is also allowed. Don’t be afraid
-                            of coming even if you don’t control any of those two that well. Neither do us:-)
-                        </p>
-
-                        <p>
-                            ► <a href="https://www.facebook.com/events/1748119202185320/"><strong>Facebook event!</strong></a>
-                        </p>
-                    </div>
-                </div>
-
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
                     <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
                         <span class="day">Thursday<br>March<br><strong>16th</strong><br>9pm</span>
                         <h2>inteGREAT ★ Taiwan</h2>
@@ -112,11 +91,11 @@
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
                     <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/berlin+dresden.jpg') }})">
-                        <span class="day">Fri &ndash; Sun<br>March<br><strong>17th &ndash; 19th</strong><br>8am</span>
+                        <span class="day">Fri &ndash; Sun<br>March<br><strong>17th &ndash; 19th</strong><br>9:30am</span>
                         <h2>Berlin + Dresden Trip</h2>
                     </div>
                     <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>►Meetin point: <a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café, Terronská 25, Praha 6 Dejvice</a><br>
+                        <p>►Meetin point: <a href="https://goo.gl/maps/LHRwtJ3SwHM2">At the lobby Masarykova dormitory</a><br>
                             ► Price: 3000CZK
                         <p>Let's go to explore two amazing cities Berlin&Dresden with us! Enjoy sightseeing. Meet new friends. Have fun.
 
@@ -124,6 +103,28 @@
                             ► <a href="https://www.facebook.com/events/1685833638381468/"><strong>Facebook event!</strong></a>
                         </p>
                         <br>
+                    </div>
+                </div>
+
+                <span class="vspace"></span>
+                <div class="row row-ow row-sm-height">
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/cafe_in_dark.jpg') }})">
+                        <span class="day">Tuesday<br>March<br><strong>21th</strong><br>4:30pm</span>
+                        <h2>Invisible Exhibition</h2>
+                    </div>
+                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>
+                            ► Where? ◄ <a href="https://goo.gl/maps/r5yL1Sew7tn">Location</a><br>
+                            ► Price ◄ 120CZK<br>
+                            ► Registration ◄ Come to  ISC Point (R304) on 14th - 17th March and pay there for the registration
+                        <p>
+                            What will you see at this exhibition? Well, nothing. Not even your hand in front of your face.
+                            It gives you a taste of what everyday life is like without sight.
+                        </p>
+
+                        <p>
+                            ► <a href="https://www.facebook.com/events/1503070023058776/"><strong>Facebook event!</strong></a>
+                        </p>
                     </div>
                 </div>
 
