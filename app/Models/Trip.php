@@ -167,6 +167,11 @@ class Trip extends Model
         return $this->organizers()->where('trips_organizers.id_user', $id_user)->exists();
     }
 
+    public function isOpen()
+    {
+        return ! $this->isFull() && $this->registration_from <= Carbon::now();
+    }
+
     public static function createTrip($data)
     {
         $data = self::updateDatetimes($data);

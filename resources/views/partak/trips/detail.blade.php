@@ -80,37 +80,39 @@
                 </div>
             </div>
         </div>
-        @can('addParticipant', $trip)
-            @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
-            @include('partak.users.officeRegistration.search',[
-            'label' => 'Add Exchange student',
-            'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}'),
-            ])
-            @endif
-            @if($trip->type === 'buddy' || $trip->type === 'ex+buddy')
-                <div class="container">
-                    <div class="row search-buddy">
-                        <div class="row-inner">
-                            <div class="col-sm-8 col-sm-offset-0">
-                                <h3>Add Buddy</h3>
-                                <autocomplete url="{{ url('api/autocomplete/buddies') }}"
-                                              :fields="[
-                                                            {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
-                                                            {title: 'Name', columns: ['person.first_name', 'person.last_name']},
-                                                            {title: 'Email', columns: ['person.user.email']},
-                                                             ]"
-                                              :topline="['person.first_name', 'person.last_name']"
-                                              :subline="['person.user.email']"
-                                              placeholder="Search Buddy..."
-                                              target="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}' }}"
-                                              :image="{url: '/avatars/', file: 'person.user.avatar'}">
-                                </autocomplete>
+        @if($trip->isOpen())
+            @can('addParticipant', $trip)
+                @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
+                @include('partak.users.officeRegistration.search',[
+                'label' => 'Add Exchange student',
+                'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}'),
+                ])
+                @endif
+                @if($trip->type === 'buddy' || $trip->type === 'ex+buddy')
+                    <div class="container">
+                        <div class="row search-buddy">
+                            <div class="row-inner">
+                                <div class="col-sm-8 col-sm-offset-0">
+                                    <h3>Add Buddy</h3>
+                                    <autocomplete url="{{ url('api/autocomplete/buddies') }}"
+                                                  :fields="[
+                                                                {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
+                                                                {title: 'Name', columns: ['person.first_name', 'person.last_name']},
+                                                                {title: 'Email', columns: ['person.user.email']},
+                                                                 ]"
+                                                  :topline="['person.first_name', 'person.last_name']"
+                                                  :subline="['person.user.email']"
+                                                  placeholder="Search Buddy..."
+                                                  target="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}' }}"
+                                                  :image="{url: '/avatars/', file: 'person.user.avatar'}">
+                                    </autocomplete>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endif
-        @endcan
+                @endif
+            @endcan
+        @endif
         <div style="min-height: 300px">
             <div class="container">
                 <div class="row row-inner">
