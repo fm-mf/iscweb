@@ -15,10 +15,10 @@
             <td>{{ $trip->price }}@if(isset($trip->price)) Kč@endif</td>
             <td>{{ $trip->howIsFillSimple() }}</td>
             <td align="right">
-                <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a>
-                @can('acl', 'trips.edit')
+                @can('edit', $trip)
                     <a href="{{ url('partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs">Edit</a>
                 @endcan
+                <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                 @can('acl', 'trips.remove')
                     <protectedbutton  url="{{ url('partak/trips/delete/'. $trip->id_trip) }}"
                                       protection-text="Delete {{ $trip->name }} trip?"
