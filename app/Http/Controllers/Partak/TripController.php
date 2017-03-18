@@ -28,9 +28,12 @@ class TripController extends Controller
     public function showUpcoming()
     {
         $this->authorize('acl', 'trips.view');
-        $visibleTrips = Trip::findAllUpcoming();
-        //dd($visibleTrips);
-        return view('partak.trips.dashboard')->with(['visibleTrips' => $visibleTrips,]);
+        $visibleTrips = Trip::findAllUpcoming()->sortby('event.datetime_from');
+        $oldTrips = Trip::findMaxYearOld();
+        return view('partak.trips.dashboard')->with([
+            'visibleTrips' => $visibleTrips,
+            'oldTrips' => $oldTrips,
+        ]);
     }
 
     public function showMyTrips()
@@ -40,15 +43,9 @@ class TripController extends Controller
 
     public function showDetail($id)
     {
-        $trip = Trip::with('event')->find($id);
+        $trip = Trip::with('event', 'participants', 'buddyParticipants')->find($id);
         $this->authorize('view', $trip);
-        $partBuddy = $trip->buddyParticipants()->with('person.user')->get();
-        $partEx = $trip->participants()->with('person.user')->get();
-        //if(! isset($partBuddy)) $partBuddy = [];
-        //if(! isset($partEx)) $partEx = [];
-        $particip = $partBuddy->merge($partEx);
-        //dd([$particip, $partEx, $partBuddy]);
-        //dd($trip->participants()->with('person.user')->get());
+        $particip = $trip->buddyParticipants->merge($trip->participants);
         $organizers = $trip->organizers()->with('person.user')->get();
         return view('partak.trips.detail')->with([
            'trip' => $trip,
@@ -60,15 +57,18 @@ class TripController extends Controller
     public function showDetailPdf($id)
     {
         //$this->authorize('acl', 'trips.view');
-        $trip = Trip::with('event')->find($id);
+        $trip = Trip::with('event', 'buddyParticipants', 'participants')->find($id);
         $this->authorize('view', $trip);
 
-
-        $particip = $trip->participants()->with('person.user')->get()->sortby(function ($item){
+        $particip = $trip->buddyParticipants->merge($trip->participants)->sortby(function ($item){
             return strtolower($item->person->last_name);
         });
-
-        $pdf = PDF::loadView('partak.trips.pdf', [ 'particip' => $particip, 'trip' => $trip] )->setOptions(['dpi' => 96, 'fontHeightRatio' =>0.7]);
+        $exBuddy = $trip->type == 'ex+buddy';
+        $pdf = PDF::loadView('partak.trips.pdf', [
+            'particip' => $particip,
+            'trip' => $trip,
+            'exBuddy' => $exBuddy,
+        ] )->setOptions(['dpi' => 96, 'fontHeightRatio' =>0.7]);
 
         //return view('partak.trips.pdf')->with([ 'particip' => $particip, 'trip' => $trip]);
         return $pdf->setPaper('a4', 'landscape')->download($trip->event->nameWithoutSpaces() .'_participants.pdf');
@@ -78,15 +78,15 @@ class TripController extends Controller
     public function showDetailExcel($id)
     {
         //$this->authorize('acl', 'trips.view');
-        $trip = Trip::with('event')->find($id);
+        $trip = Trip::with('event', 'buddyParticipants', 'participants')->find($id);
         $this->authorize('view', $trip);
 
-        $particip = $trip->participants()->with('person.user')->get()->sortby(function ($item){
+        $particip = $trip->buddyParticipants->merge($trip->participants)->sortby(function ($item){
             return strtolower($item->person->last_name);
         });
         $excell = Excel::create($trip->event->nameWithoutSpaces() .'_participants', function($excel) use($particip, $trip) {
 
-            $excel->sheet('First sheet', function ($sheet) use($particip, $trip) {
+            $excel->sheet('Participants', function ($sheet) use($particip, $trip) {
 
 
                 $sheet->loadView('partak.trips.pdf')->with([ 'particip' => $particip, 'trip' => $trip]);

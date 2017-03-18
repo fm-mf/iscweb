@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="{{ asset('css/pdf.css') }}" rel="stylesheet" type="text/css">
+   >
 </head>
 
 <body>
@@ -23,13 +24,13 @@
                             <tbody>
                             @foreach($particip as $participant)
                                 <tr>
-                                    <td> {{ $participant->person->last_name .' '. $participant->person->first_name}}</td>
-                                    <td>{{ $participant->country->full_name }}</td>
+                                    <td>{{ $participant->person->last_name .' '. $participant->person->first_name}}</td>
+                                    <td>{{ $participant->whoAmI('exchangeStudent')? $participant->country->full_name : 'Buddy' }}</td>
                                     <td>{{ $participant->person->user->email }}</td>
                                     <td>{{ $participant->person->getSex() }}</td>
                                     <td>{{ $participant->phone }}</td>
-                                    <td>{{ $participant->esn_card_number }}</td>
-                                    <td>{{ $participant->accommodation->full_name }}</td>
+                                    <td>@if($participant->whoAmI('exchangeStudent')) {{ $participant->esn_card_number }}@endif</td>
+                                    <td>@if($participant->whoAmI('exchangeStudent')){{ $participant->accommodation->full_name }}@endif</td>
                                 </tr>
                             @endforeach
                             </tbody>

@@ -214,11 +214,19 @@ class Trip extends Model
     public static function findAllUpcoming()
     {
         return Trip::with('modifiedBy.user','event')
-            ->join('events', 'events.id_event','trips.id_event')
-            ->whereDate('events.datetime_from', '>=', Carbon::today())
-            //->whereDate('trip_date_to', '>', Carbon::today())
-            ->get();
+            ->whereHas('event', function ($query) {
+                $query->whereDate('datetime_from', '>=', Carbon::today());
+            })->get();
     }
+    public static function findMaxYearOld()
+    {
+        return Trip::with('event')
+            ->whereHas('event', function ($query) {
+                $query->whereDate('datetime_from', '<', Carbon::today())
+                    ->whereDate('datetime_from', '>', Carbon::today()->subYear());
+            })->get();
+    }
+
 
     public static function findAll()
     {
