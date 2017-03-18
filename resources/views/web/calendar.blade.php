@@ -17,52 +17,6 @@
 
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
-                    <span class="day">Thursday<br>March<br><strong>16th</strong><br>9pm</span>
-                    <h2>inteGREAT ★ Taiwan</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>
-                        ► Who? ◄ Taiwan<br>
-                        ► When? ◄ Thursday, 16. 3. 2017, 9 pm<br>
-                        ► Where?◄ <a href="http://stormclub.eu">Storm club</a> (Tachovské nám. 290/5, 130 00 Praha 3)<p>
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/1409679205719342/"><strong>Facebook event!</strong></a>
-                    </p>
-                    <p>★ International
-                        ★ Night
-                        ★ Team-work
-                        ★ Entertainment
-                        ★ Global
-                        ★ Real
-                        ★ Extraordinary
-                        ★ Amazing
-                        ★ Together</p>
-                    inteGREAT more than a party
-                </div>
-            </div>
-
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
-                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/berlin+dresden.jpg') }})">
-                    <span class="day">Fri &ndash; Sun<br>March<br><strong>17th &ndash; 19th</strong><br>8am</span>
-                    <h2>Berlin + Dresden Trip</h2>
-                </div>
-                <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p>►Meetin point: <a href="https://goo.gl/maps/LHRwtJ3SwHM2">At the lobby Masarykova dormitory</a><br>
-                    ► Price: 3000CZK
-                    <p>Let's go to explore two amazing cities Berlin&Dresden with us! Enjoy sightseeing. Meet new friends. Have fun.
-
-                    <p>
-                        ► <a href="https://www.facebook.com/events/1685833638381468/"><strong>Facebook event!</strong></a>
-                    </p>
-                    <br>
-                </div>
-            </div>
-
-            <span class="vspace"></span>
-            <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/cafe_in_dark.jpg') }})">
                     <span class="day">Tuesday<br>March<br><strong>21th</strong><br>4:30pm</span>
                     <h2>Invisible Exhibition</h2>
@@ -79,6 +33,31 @@
 
                     <p>
                         ► <a href="https://www.facebook.com/events/1503070023058776/"><strong>Facebook event!</strong></a>
+                    </p>
+                </div>
+            </div>
+
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
+                    <span class="day">Wednesday<br>March<br><strong>22th</strong><br>8pm</span>
+                    <h2>ISC Bowling night</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>
+                        ► Where? ◄ <a href="https://goo.gl/maps/xmpLuwhGbN52">Victoria Bowling</a><br>
+                        ► Price ◄ 270CZK <br>
+                        ► Registration ◄ <a href="https://docs.google.com/spreadsheets/d/1DjxAmbxDC2-u_xBbzNRm5d9ua0AhU27fC78mNczRqMY/edit?usp=sharing">Fill this Google sheet registration form</a>
+                    <p>
+                        Let's do some sports! Pub Sports! Join us to this awesome event and enjoy all the Czech most
+                        popular pub sports for the whole night. There will be 4 lines for bowling, 2 pool tables, darts
+                        and foosball available for the whole night. So take your friends and come to challenge othes in
+                        the game of your choice.
+                        Don't forget to check all the ways to win a free shot for you and your teammates!
+                    </p>
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/1749167288728404/"><strong>Facebook event!</strong></a>
                     </p>
                 </div>
             </div>
@@ -135,6 +114,28 @@
 
                     <p>
                         ► <a href="https://www.facebook.com/events/1858857484332122/"><strong>Facebook event!</strong></a>
+                    </p>
+                    <br>
+                </div>
+            </div>
+
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/krakow_spring2017.jpg') }})">
+                    <span class="day">Fri &ndash; Sun<br>Mar - Apr<br><strong>31st &ndash; 2nd</strong><br>5:30am</span>
+                    <h2>Krakow + Auschwitz Trip</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p> <!-- ►Meetin point: <a href="https://goo.gl/maps/LHRwtJ3SwHM2">At the lobby Masarykova dormitory</a><br> -->
+                        ► Price: 3300CZK (register in the ISC Point from 20th March)
+                    <p>Do you want to spend another wonderful weekend with ISC Spirit and also discover something from
+                        Europe heritage? Join us to Cracow trip. Cracow is historical city inscribed in the World Heritage
+                        List. We will also visit former concentration camp Auschwitz-Birkenau and one of the oldest salt
+                        mines in the world - Wieliczka.
+                    </p>
+
+                    <p>
+                        ► <a href="https://www.facebook.com/events/382871975444995/"><strong>Facebook event! (more details)</strong></a>
                     </p>
                     <br>
                 </div>
