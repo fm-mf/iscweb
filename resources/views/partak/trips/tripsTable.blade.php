@@ -23,7 +23,7 @@
                     <protectedbutton  url="{{ url('partak/trips/delete/'. $trip->id_trip) }}"
                                       protection-text="Delete {{ $trip->name }} trip?"
                                       button-style="btn-danger btn-xs"><span class="glyphicon glyphicon-remove up"></span> Delete</protectedbutton></td>
-            @endcan
+                @endcan
         </tr>
     @endforeach
 </table>

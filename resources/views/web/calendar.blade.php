@@ -140,6 +140,34 @@
                     <br>
                 </div>
             </div>
+
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
+                    <span class="day">Wednesday<br>April<br><strong>5th</strong><br>9pm</span>
+                    <h2>inteGREAT ★ Spain & Argentina & Mexico</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                    <p>
+                        ► Who? ◄ Spain & Argentina & Mexico<br>
+                        ► When? ◄ Wednesday, 5. 4. 2017, 9 pm<br>
+                        ► Where?◄ <a href="https://www.rockcafe.cz/en/">Rock Cafe</a>(Národní 20, 110 00 Praha 1)<p>
+
+                    <p>
+                        ► <a><strong>Facebook event! coming soon</strong></a>
+                    </p>
+                    <p>★ International
+                        ★ Night
+                        ★ Team-work
+                        ★ Entertainment
+                        ★ Global
+                        ★ Real
+                        ★ Extraordinary
+                        ★ Amazing
+                        ★ Together</p>
+                    inteGREAT more than a party
+                </div>
+            </div>
             <!--
             @if(isset($events) && $events->count() > 0)
                 @foreach($events as $event)
