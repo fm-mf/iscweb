@@ -11,17 +11,23 @@ use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ExchangeStudentsController extends Controller
 {
-    protected function profileValidator(array $data)
+    protected function profileValidator(array $data,$id)
     {
         $validator = Validator::make($data, [
             'phone' => 'max:15',
             'age' => 'digits:4',
-            'email' => 'required|max:255|email',
+            'email' => [
+                'required',
+                'max:255',
+                'email',
+                Rule::unique('users')->ignore($id, 'id_user'),
+            ],
             'esn_card_number' => 'max:12',
-            'medical_issues' => 'max:255'
+            'medical_issues' => 'max:255',
         ]);
         return $validator;
     }
@@ -53,7 +59,7 @@ class ExchangeStudentsController extends Controller
     public function submitEditFormExStudent(Request $request, $id)
     {
         $this->authorize('acl', 'exchangeStudents.edit');
-        $this->profileValidator($request->all())->validate();
+        $this->profileValidator($request->all(), $id)->validate();
 
         $exStudent = ExchangeStudent::with('person.user')->find($id);
 

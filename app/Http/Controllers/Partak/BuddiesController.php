@@ -14,6 +14,7 @@ use App\Settings\Facade as Settings;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
 class BuddiesController extends Controller
@@ -23,7 +24,13 @@ class BuddiesController extends Controller
         $validator = Validator::make($data, [
             'phone' => 'max:15',
             'age' => 'digits:4',
-            'email' => 'required|max:255|email',
+            'email' => [
+                'required',
+                'max:255',
+                'email',
+                Rule::unique('users')->ignore($id, 'id_user'),
+            ],
+
         ]);
 
         $validator->after(function ($validator) use ($data, $id) {

@@ -94,7 +94,7 @@ class OfficeRegistrationController extends Controller
             'id_accommodation' => 'required',
             'phone' => 'max:15',
             'age' => 'digits:4',
-            'email' => 'required|max:255|email',
+            'email' => 'required|max:255|email|unique:users,email',
             'esn_card_number' => 'max:12',
             'medical_issues' => 'max:255'
         ]);
