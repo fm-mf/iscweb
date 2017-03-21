@@ -1,13 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: speedy
- * Date: 5.2.17
- * Time: 8:59
+ * Routes for PartakNet
+ * Namespace: Partak
+ * Middleware: checkpartak, auth
+ * Prefix: partak
  */
 
-Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 'prefix' => 'partak'], function()
-{
+
     Route::get('/', 'DashboardController@index');
     Route::get('/users/roles', 'RolesController@showDashboard');
     Route::get('/users/partaks', 'RolesController@showPartaks');
@@ -66,5 +65,4 @@ Route::group(['middleware' => ['checkpartak', 'auth'], 'namespace' => 'Partak', 
 
     Route::get('/settings', 'SettingsController@showSettings');
     Route::patch('/settings', 'SettingsController@submitSettings');
-});
 

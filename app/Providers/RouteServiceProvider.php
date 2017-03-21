@@ -39,6 +39,12 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapPartakRoutes();
+
+        $this->mapBuddyprogramRoutes();
+
+        $this->mapAuthRoutes();
+
         //
     }
 
@@ -70,10 +76,46 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::group([
             'middleware' => 'api',
-            'namespace' => $this->namespace,
+            'namespace' => $this->namespace . '\Api',
             'prefix' => 'api',
         ], function ($router) {
             require base_path('routes/api.php');
         });
     }
+
+    /**
+     *
+     */
+    protected function mapPartakRoutes()
+    {
+        Route::group([
+            'middleware' => ['web','checkpartak', 'auth'],
+            'namespace' => $this->namespace . '\Partak',
+            'prefix' => 'partak'
+        ], function ($router) {
+            require base_path('routes/partak.php');
+        });
+    }
+
+    protected function mapBuddyprogramRoutes()
+    {
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/buddyprogram.php');
+        });
+    }
+
+    protected  function mapAuthRoutes()
+    {
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace . '\Auth',
+            'prefix' => 'user'
+        ], function ($router) {
+            require base_path('routes/auth.php');
+        });
+    }
+
 }

@@ -1,16 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: speedy
- * Date: 5.2.17
- * Time: 9:04
+ * Routes for authentication
+ * Namespace: Auth
+ * Middleware:
+ * Prefix: user
  */
 
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-
-
-Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
-{
     Route::get('/', 'LoginController@showLoginForm');
     Route::post('/', 'LoginController@login');
     Route::get('/logout', 'LoginController@logout');
@@ -34,4 +29,3 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'user'], function ()
     Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
     Route::post('password/reset', 'ResetPasswordController@reset');
     Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm');
-});

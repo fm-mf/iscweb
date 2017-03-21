@@ -11,10 +11,6 @@
 |
 */
 
-require_once "partak.php";
-require_once "buddyprogram.php";
-require_once "auth.php";
-
 if (Request::segment(1) == "user") {
     App::setLocale('cs');
 }
@@ -27,21 +23,6 @@ Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
     Route::patch('/', 'ProfileController@updateProfile');
 });
 
-Route::group(['namespace' => 'Api', 'prefix' => 'api'], function()
-{
-    Route::post('/avatar', 'AvatarController@upload');
-    Route::post('/load', 'ApiController@load');
-
-    Route::post('/autocomplete/exchange-students', 'AutocompleteController@exchangeStudents');
-    Route::post('/autocomplete/buddies', 'AutocompleteController@buddies');
-    Route::post('/liststudents', 'ApiController@load');
-
-    Route::post('/load-preregister', 'ApiController@loadPreregister');
-    Route::post('/load-preregister/save', 'ApiController@preregister');
-
-    Route::get('/trips', 'TripsAppController@index');
-    Route::post('/trips', 'TripsAppController@index');
-});
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');
 Route::get('/owstats', 'Stats\StatsController@showOwTripsStatistics');
@@ -77,4 +58,6 @@ Route::group(['namespace' => 'Guide', 'prefix' => 'guide'], function() {
 
     Route::get('/{page}', 'PageController@showPage');
 });
+//Restart password from old web
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 

@@ -12,6 +12,9 @@ class SettingsProvider extends ServiceProvider
      *
      * @return void
      */
+
+    //defer registration of this provider until it's needed
+    protected $defer = true;
     public function boot()
     {
         //
@@ -27,5 +30,8 @@ class SettingsProvider extends ServiceProvider
         $this->app->singleton('settings', function ($app) {
             return new Settings();
         });
+    }
+    public function provides(){
+        return [Settings::class];
     }
 }
