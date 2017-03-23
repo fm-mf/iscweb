@@ -24,7 +24,7 @@ class ExchangeStudentsController extends Controller
                 'required',
                 'max:255',
                 'email',
-                Rule::unique('users')->ignore($id, 'id_user'),
+                Rule::unique('users')->ignore($id, 'id_user'), //ignore current user when updating profile
             ],
             'esn_card_number' => 'max:12',
             'medical_issues' => 'max:255',

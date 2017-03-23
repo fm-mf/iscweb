@@ -58,6 +58,7 @@ return [
 
         'team' => [
             'id' => 4,
+            'buddy' => ['view', 'edit', 'remove'],
             'resources' => [
                 'trips' => ['edit', 'add'],
             ],
