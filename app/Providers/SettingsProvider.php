@@ -14,7 +14,7 @@ class SettingsProvider extends ServiceProvider
      */
 
     //defer registration of this provider until it's needed
-    //protected $defer = true;
+    protected $defer = true;
     public function boot()
     {
         //
@@ -31,7 +31,7 @@ class SettingsProvider extends ServiceProvider
             return new Settings();
         });
     }
-    /*public function provides(){
-        return [Settings::class];
-    }*/
+    public function provides(){
+        return ['settings'];
+    }
 }
