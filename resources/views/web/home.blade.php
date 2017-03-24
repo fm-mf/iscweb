@@ -64,76 +64,47 @@
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/cafe_in_dark.jpg') }})">
-                        <span class="day">Tuesday<br>March<br><strong>21th</strong><br>4:30pm</span>
-                        <h2>Invisible Exhibition</h2>
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea3.jpg') }})">
+                        <span class="day">Monday<br>March<br><strong>27th</strong><br>6pm</span>
+                        <h2>3rd Café Lingea (English + Italian)</h2>
                     </div>
                     <div class="col-sm-6 ow-detail col-sm-height col-top" >
+                        <p>► When: Monday, March 27th, at 18:00<br>
+                            ► Were: <a href="https://goo.gl/maps/24Utk5NnMhK2">Cafe Prostoru_</a>
                         <p>
-                            ► Where? ◄ <a href="https://goo.gl/maps/r5yL1Sew7tn">Location</a><br>
-                            ► Price ◄ 120CZK<br>
-                            ► Registration ◄ Come to  ISC Point (R304) on 14th - 17th March and pay there for the registration
-                        <p>
-                            What will you see at this exhibition? Well, nothing. Not even your hand in front of your face.
-                            It gives you a taste of what everyday life is like without sight.
+                            Hello and welcome!
+                            The third Cafe Lingea italian/english takes place in Cafe Prostoru in the national technical library
+                            in Campus. We begin at 18:00 on Monday and you’re free to speak in any language you want italian, english,
+                            czech or perhaps some other langauge. If you have something which is somehow related to Italy don’t hesitate
+                            and bring it. This event is also an opportunity to made new friends. Italian speaking people will be surely
+                            excited to teach you a bit of italian 😉
                         </p>
-
                         <p>
-                            ► <a href="https://www.facebook.com/events/1503070023058776/"><strong>Facebook event!</strong></a>
+                            ► <a href="https://www.facebook.com/events/168795366971963/"><strong>Facebook event!</strong></a>
                         </p>
+                        <br>
                     </div>
                 </div>
 
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/ISC_logo.jpg') }})">
-                        <span class="day">Wednesday<br>March<br><strong>22th</strong><br>8pm</span>
-                        <h2>ISC Bowling night</h2>
+                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/krakow_spring2017.jpg') }})">
+                        <span class="day">Fri &ndash; Sun<br>Mar - Apr<br><strong>31st &ndash; 2nd</strong><br>5:30am</span>
+                        <h2>Krakow + Auschwitz Trip</h2>
                     </div>
                     <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>
-                            ► Where? ◄ <a href="https://goo.gl/maps/xmpLuwhGbN52">Victoria Bowling</a><br>
-                            ► Price ◄ 270CZK <br>
-                            ► Registration ◄ <a href="https://docs.google.com/spreadsheets/d/1DjxAmbxDC2-u_xBbzNRm5d9ua0AhU27fC78mNczRqMY/edit?usp=sharing">Fill this Google sheet registration form</a>
-                        <p>
-                            Let's do some sports! Pub Sports! Join us to this awesome event and enjoy all the Czech most
-                            popular pub sports for the whole night. There will be 4 lines for bowling, 2 pool tables, darts
-                            and foosball available for the whole night. So take your friends and come to challenge othes in
-                            the game of your choice.
-                            Don't forget to check all the ways to win a free shot for you and your teammates!
+                        <p> <!-- ►Meetin point: <a href="https://goo.gl/maps/LHRwtJ3SwHM2">At the lobby Masarykova dormitory</a><br> -->
+                            ► Price: 3300CZK (register in the ISC Point from 20th March)
+                        <p>Do you want to spend another wonderful weekend with ISC Spirit and also discover something from
+                            Europe heritage? Join us to Cracow trip. Cracow is historical city inscribed in the World Heritage
+                            List. We will also visit former concentration camp Auschwitz-Birkenau and one of the oldest salt
+                            mines in the world - Wieliczka.
                         </p>
 
                         <p>
-                            ► <a href="https://www.facebook.com/events/1749167288728404/"><strong>Facebook event!</strong></a>
+                            ► <a href="https://www.facebook.com/events/382871975444995/"><strong>Facebook event! (more details)</strong></a>
                         </p>
-                    </div>
-                </div>
-
-                <span class="vspace"></span>
-                <div class="row row-ow row-sm-height">
-                    <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/integreat/inteGREAT.jpg') }})">
-                        <span class="day">Thursday<br>March<br><strong>23th</strong><br>9pm</span>
-                        <h2>inteGREAT ★ Canada & China & Turkey</h2>
-                    </div>
-                    <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                        <p>
-                            ► Who? ◄ Canada & China & Turkey<br>
-                            ► When? ◄ Thursday, 23. 3. 2017, 9 pm<br>
-                            ► Where?◄ <a href="www.pmclub.net"> P.M.Club</a> (Trojická 10, Praha 2)<p>
-
-                        <p>
-                            ► <a href="https://www.facebook.com/events/1164147040349679/"><strong>Facebook event!</strong></a>
-                        </p>
-                        <p>★ International
-                            ★ Night
-                            ★ Team-work
-                            ★ Entertainment
-                            ★ Global
-                            ★ Real
-                            ★ Extraordinary
-                            ★ Amazing
-                            ★ Together</p>
-                        inteGREAT more than a party
+                        <br>
                     </div>
                 </div>
 
