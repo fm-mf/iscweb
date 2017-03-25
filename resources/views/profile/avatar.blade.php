@@ -3,7 +3,7 @@
 <div class="row crop-avatar" id="crop-avatar">
     <!-- Current avatar -->
     <div class="col-sm-4">
-        <div class="avatar-view" title="Change the avatar">
+        <div class="avatar-view avatar-edit" title="Change the avatar">
             <img src="{{ asset($avatar) }}" alt="Avatar" id="avatar">
         </div>
     </div>
