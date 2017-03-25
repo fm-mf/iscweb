@@ -86,7 +86,7 @@ class EventController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $image_name = $event->id_event . '.' . $file->extension();
-            Image::make($file)->save($image_name);
+            Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
             $event['cover'] = $image_name;
             $event->save();
         }

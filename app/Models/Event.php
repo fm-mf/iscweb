@@ -45,7 +45,7 @@ class Event extends Model
     public function cover()
     {
         //TODO: vratit spravny cover
-        return asset('/img/web/events/Beer_pong.jpg');
+        return 'events/covers/' . $this->cover;
     }
 
     public function nameWithoutSpaces()
