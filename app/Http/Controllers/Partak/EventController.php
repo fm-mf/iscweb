@@ -17,9 +17,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
 use App\Models\Faculty;
+use Illuminate\Support\Facades\Input;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class EventController extends Controller
 {
@@ -81,6 +83,13 @@ class EventController extends Controller
         }
         $data['modified_by'] = Auth::id();
         $event = Event::createEvent($data);
+        if ($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $image_name = $event->id_event . '.' . $file->extension();
+            Image::make($file)->save($image_name);
+            $event['cover'] = $image_name;
+            $event->save();
+        }
         return \Redirect::route('events.edit',['id_event' => $event->id_event]);
     }
 
@@ -93,6 +102,7 @@ class EventController extends Controller
             'start_date' => 'required|date_format:d M Y',
             'start_time' => 'date_format:g:i A',
             'description' => 'required',
+            'cover' => 'max:307400|mimes:jpg,jpeg,png',
         ]);
     }
 

@@ -16,7 +16,7 @@
         <div class="row row-inner" id="form">
             <div class="col-md-7">
                 <h2>Create event</h2>
-                {{ Form::model($event, ['url' => 'partak/events/create/', 'method' => 'patch', 'id' => 'form']) }}
+                {{ Form::model($event, ['url' => 'partak/events/create/', 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
 
                 @include('partak.trips.editForm',['trips' => false])
 

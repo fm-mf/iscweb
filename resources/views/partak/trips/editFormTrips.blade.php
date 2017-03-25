@@ -43,13 +43,5 @@
                   :multiple="true"></multiselectinput>
 
 {{ Form::bsSelect('type', 'Who can participate', $types, $trip->type)  }}
-{{ Form::label('capacity', 'Capacity', ['class' => 'control-label required']) }}
-@if ($errors->has('capacity'))
-    <p class="error-block alert-danger">{{ $errors->first('capacity') }}</p>
-@endif
-{{ Form::number('capacity', $trip->capacity, ['class' => 'form-control']) }}
-{{ Form::label('price', 'Price', ['class' => 'control-label required']) }}
-@if ($errors->has('price'))
-    <p class="error-block alert-danger">{{ $errors->first('price') }}</p>
-@endif
-{{ Form::number('price', $trip->price, ['class' => 'form-control']) }}
+{{ Form::bsNumber('capacity', 'Capacity', 'required', 0, ['min' => 0]) }}
+{{ Form::bsNumber('price', 'Price', 'required', 0, ['min' => 0]) }}

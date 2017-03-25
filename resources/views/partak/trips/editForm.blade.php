@@ -1,7 +1,6 @@
 
-{{ Form::bsText('name','Name', 'required') }}
-
-<!-- TODO: Pridat moznost pridani coveru eventu -->
+{{ Form::bsText('name', 'Name', 'required') }}
+{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png']) }}
 
 <div class="form-group row">
     <div class="col-sm-6 left">
@@ -46,7 +45,7 @@
     @include('partak.trips.editFormTrips')
 @endif
 
-{{ Form::bsText('facebook_url', 'Facebook event (url)') }}
+{{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
 {{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
 
 

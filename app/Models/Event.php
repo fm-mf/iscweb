@@ -81,12 +81,12 @@ class Event extends Model
         $id_user = Auth::id();
         return DB::transaction(function () use ($data, $id_user) {
             $event = new Event();
-
             $event->visible_from = $data['visible_from'];
             $event->datetime_from = $data['datetime_from'];
             $event->name = $data['name'];
+
             $event->description = $data['description'];
-            array_key_exists('facebook_url', $data) ? $event->facebook_url = $data['facebook_url'] : NULL;
+            $event->facebook_url = array_key_exists('facebook_url', $data) ? $data['facebook_url'] : NULL;
             $event->modified_by = $id_user;
             $event->save();
             return $event;
