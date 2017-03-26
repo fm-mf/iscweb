@@ -42,9 +42,9 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/about-us', function() { return view('web.about'); });
     Route::get('/buddy-program', function() { return view('web.buddy-program'); });
     Route::get('/activities', function() { return view('web.activities'); });
-        Route::get('/activities/language-programs', function() { return view('web.activities.languages'); });
+        Route::get('/activities/language-programs', 'WebController@showLanguagesTable');
         Route::get('/activities/sports', function() { return view('web.activities.sports'); });
-        Route::get('/activities/integreat', function() { return view('web.activities.integreat'); });
+        Route::get('/activities/integreat', 'WebController@showInteGreatTable');
         Route::get('/activities/trips', function() { return view('web.activities.trips'); });
     Route::get('/contact', 'WebController@showContacts');
     Route::get('/calendar', 'WebController@showCalendar');

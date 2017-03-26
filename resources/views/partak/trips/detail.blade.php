@@ -1,23 +1,20 @@
 @extends('partak.trips.layout')
 @section('inner-content')
 
-    @if(session('successUpdate'))
-        <div class="row">
-            <div class="row-inner">
-                <div class="success">
-                    <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> Profile was successfully updated.
-                </div>
-            </div>
-        </div>
-    @endif
-    @if (isset($addError))
-        <p class="error-block alert-danger">{{ $addError }}</p>
-    @endif
-
-
     <div class="row-grey">
         <div class="container">
             <div class="row row-inner">
+                @if(session('successUpdate'))
+                    <div class="success">
+                        <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span>{{ session('successUpdate') }}<br>
+                    </div>
+                    <div style="min-height: 30px"></div>
+                @elseif(session('error'))
+                    <div class="alert-danger">
+                        <span class="glyphicon glyphicon-alert" style="padding-right:5px;"></span>{{ session('error') }}<br>
+                    </div>
+                    <div style="min-height: 30px"></div>
+                @endif
                 <div class="col-sm-8">
                     <div class="panel panel-default">
                         <table class="table">

@@ -12,6 +12,7 @@ class Trip extends Model
     const REGULAR_PARTICIPANT = 1;
     const STAND_IN = 2;
     const TRIP_FULL = 3;
+    const PARTICIPANT_ALREADY_IN = 4;
 
     public $timestamps = true;
     protected $primaryKey = 'id_trip';
@@ -119,6 +120,8 @@ class Trip extends Model
                     'comment' => array_key_exists('comment', $data) ? $data['comment'] : null,
                 ]);
             }
+        } else {
+            return self::PARTICIPANT_ALREADY_IN;
         }
 
         return ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;
@@ -250,4 +253,19 @@ class Trip extends Model
         return $enum;
     }
 
+    public function getStatusMessage($messageCode, $part)
+    {
+        $partName = $part->first_name . ' ' . $part->last_name;
+        switch ($messageCode)
+        {
+            case self::REGULAR_PARTICIPANT:
+                return $partName . ' was successfully add to ' . $this->event->name;
+            case self::STAND_IN:
+                return $partName . ' was successfully add in to ' . $this->event->name . ' as stand in';
+            case self::TRIP_FULL:
+                return 'Trip '. $this->event->name . 'is FULL!!!';
+            case self::PARTICIPANT_ALREADY_IN:
+                return $partName . ' is already in ' . $this->event->name;
+        }
+    }
 }

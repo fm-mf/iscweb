@@ -1,7 +1,33 @@
 
-{{ Form::bsText('name','Name', 'required') }}
-
-<!-- TODO: Pridat moznost pridani coveru eventu -->
+{{ Form::bsText('name', 'Name', 'required') }}<script>
+    function cover_change(files) {
+        var preview = $('#cover_preview')[0];
+        if (files.length <= 0) {
+            preview.src = preview.getAttribute('href');
+            if (preview.src == '') {
+                preview.style.display = 'none';
+            }
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function () {
+            preview.src = reader.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(files[0]);
+    }
+</script>
+{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/pngm image/jpg', 'onchange' => 'cover_change(this.files)']) }}
+<img id="cover_preview" width="100%" src="{{$event->cover()}}" href="{{$event->cover()}}" style="display: {{$event->hasCover() ? 'block' : 'none'}};"/>
+@if(! $trips)
+    @if($event->event_type == 'integreat')
+        {{ Form::bsText('countries', 'Countries', '', $event->integreat_party->countries) }}
+        {{ Form::bsText('theme', 'Theme', '', $event->integreat_party->theme) }}
+    @elseif($event->event_type == 'languages')
+        {{ Form::bsText('where', 'Where', '', $event->languages_event->where) }}
+        {{ Form::bsText('where_url', 'Url address from Google Maps', '', $event->languages_event->where_url) }}
+    @endif
+@endif
 
 <div class="form-group row">
     <div class="col-sm-6 left">
@@ -44,9 +70,11 @@
 </div>
 @if($trips)
     @include('partak.trips.editFormTrips')
+@else
+    {{ Form::bsSelect('event_type', 'Type of event', $event_types, $event->event_type)  }}
 @endif
 
-{{ Form::bsText('facebook_url', 'Facebook event (url)') }}
+{{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
 {{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
 
 

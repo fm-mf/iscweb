@@ -103,7 +103,17 @@
                     			<!--	<tr>
                                     <td colspan=5><i>More events will be announced soon!</i></td>
                                     </tr> -->
-
+                    @if(isset($langEvents) && $langEvents->count() > 0)
+                        @foreach($langEvents as $langEvent)
+                            <tr>
+                                <td>{{ $langEvent->event->name }}</td>
+                                <td>{{ $langEvent->event->datetime_from->format('l, jS F') }}</td>
+                                <td>{{ $langEvent->event->getTimeFormatted() }}</td>
+                                <td><a {{  isset($langEvent->where_url)? 'href='.$langEvent->where_url : ''  }} target="_blank">{{ $langEvent->where }}</a></td>
+                                <td><a {!! isset($langEvent->event->facebook_url)? 'href='.$langEvent->event->facebook_url : ''  !!} target="_blank">Facebook event</a></td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
