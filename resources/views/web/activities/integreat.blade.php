@@ -43,7 +43,6 @@
                 <tr><td>Wednesday, 15th February</td><td>inteGREATion party</td><td>&nbsp;</td><td><a href="https://www.facebook.com/events/135752213604976/" target="_blank">Facebook event</a></td></tr>
                 <tr><td>Monday, 27th February</td><td>Czech Presentation</td><td>Czech Republic</td><td><a href="https://www.facebook.com/events/1825648877685088/" target="_blank">Facebook event</a></td></tr>
                 <tr><td>Wednesday, 8th March</td><td>&nbsp;</td><td>Germany & Republic of Korea & Finland</td><td><a href="https://www.facebook.com/events/183227775495777/" target="_blank">Facebook event</a></td></tr>
-                <tr><td>Thursday, 16th March</td><td>&nbsp;</td><td>Taiwan</td><td><a href="https://www.facebook.com/events/1409679205719342/" target="_blank">Facebook event</a></td></tr>
                 <tr><td>Thursday, 23th March</td><td>&nbsp;</td><td>Canada & China & Turkey</td><td><a href="https://www.facebook.com/events/1164147040349679/" target="_blank">Facebook event</a></td></tr>
                 <tr><td>Wednesday, 5th April</td><td>&nbsp;</td><td>Spain & Argentina & Mexico</td><td><a target="_blank">Facebook event</a></td></tr>
                 <tr><td>Thursday, 13th April</td><td>&nbsp;</td><td>Bulgaria & Croatia & UK</td><td><a target="_blank">Facebook event</a></td></tr>
@@ -51,6 +50,12 @@
                 <tr><td>Thursday, 27th April</td><td>&nbsp;</td><td>USA & France & India</td><td><a target="_blank">Facebook event</a></td></tr>
                 <tr><td>Wednesday, 3rd May</td><td>&nbsp;</td><td>Grill party</td><td><a target="_blank">Facebook event</a></td></tr>
                 <tr><td>Thursday, 11th May</td><td>Boat party</td><td>&nbsp;</td><td><a target="_blank">Facebook event</a></td></tr>
+                @if(isset($events) && $events->count() > 0)
+                    @foreach($events as $integreat)
+                        <tr><td>{{ $integreat->event->datetime_from->format('l, jS F') }}</td><td>{{ $integreat->theme }} </td> <td>{{ $integreat->countries }}</td>
+                            <td><a {{ isset($integreat->event->facebook_url)? 'href='.$integreat->event->facebook_url : ''  }} target="_blank">Facebook event</a></td></tr>
+                    @endforeach
+                @endif
                 </tbody>
             </table>
         </center>

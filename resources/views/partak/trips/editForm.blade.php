@@ -1,5 +1,5 @@
-{{ Form::bsText('name', 'Name', 'required') }}
-<script>
+
+{{ Form::bsText('name', 'Name', 'required') }}<script>
     function cover_change(files) {
         var preview = $('#cover_preview')[0];
         if (files.length <= 0) {
@@ -19,6 +19,15 @@
 </script>
 {{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png', 'onchange' => 'cover_change(this.files)']) }}
 <img id="cover_preview" width="100%" src="{{$event->cover()}}" href="{{$event->cover()}}" style="display: {{$event->hasCover() ? 'block' : 'none'}};"/>
+@if(! $trips)
+    @if($event->type == 'integreat')
+        {{ Form::bsText('countries', 'Countries', '', $event->integreat_party->countries) }}
+        {{ Form::bsText('theme', 'Theme', '', $event->integreat_party->theme) }}
+    @elseif($event->type == 'languages')
+        {{ Form::bsText('where', 'Where', '', $event->languages_event->where) }}
+        {{ Form::bsText('where_url', 'Url address from Google Maps', '', $event->languages_event->where_url) }}
+    @endif
+@endif
 
 <div class="form-group row">
     <div class="col-sm-6 left">
@@ -61,6 +70,8 @@
 </div>
 @if($trips)
     @include('partak.trips.editFormTrips')
+@else
+    {{ Form::bsSelect('type', 'Type of event', $types, $event->type)  }}
 @endif
 
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
@@ -79,7 +90,7 @@
     <script src="{{ URL::asset('/js/picker.date.js') }}"></script>
     <script src="{{ URL::asset('/js/picker.time.js') }}"></script>
 
-    <script type="text/javascript">
+    <script  type="text/javascript">
 
         var $inputDate = $('.date').pickadate({
             editable: true,

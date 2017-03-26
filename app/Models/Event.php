@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Settings\Settings;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -15,11 +16,21 @@ class Event extends Model
 
     protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
 
-    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'modified_by'];
+    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'modified_by', 'type'];
 
     public function modifiedBy()
     {
         return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
+    }
+
+    public function Integreat_party()
+    {
+        return $this->hasOne('\App\Models\Integreat_party','id_event', 'id_event');
+    }
+
+    public function Languages_event()
+    {
+        return $this->hasOne('\App\Models\Languages_event','id_event', 'id_event');
     }
 
     /*
@@ -51,6 +62,30 @@ class Event extends Model
     {
         //TODO: vratit spravny cover
         return $this->cover ? '/events/covers/' . $this->cover : '';
+    }
+
+    public function calendarDateTimeFrom()
+    {
+        $time = $this->datetime_from->format('l') . '<br>'; //get name of the day in week eg. Mondey
+        $time .= $this->datetime_from->format('F') . '<br>'; // get name of the month eg. March
+        $time .= '<strong>' . $this->datetime_from->format('jS') . '</strong><br>'; //get day in month eg 30th
+        $time .= $this->getTimeFormatted();
+
+        return $time;
+    }
+
+    public function getTimeFormatted()
+    {
+        $time = $this->datetime_from->format('g'); //get hour of the start
+        if($this->datetime_from->minute == 0) {
+            // if minutes are equal 0 then add only am or pm
+            $time .= $this->datetime_from->format('a');
+        } else {
+            // if minutes are non zero then add minutes plus am or pm
+            $time .= $this->datetime_from->format(':ia');
+        }
+
+        return $time;
     }
 
     public function nameWithoutSpaces()
@@ -93,6 +128,7 @@ class Event extends Model
             $event->description = $data['description'];
             $event->facebook_url = array_key_exists('facebook_url', $data) ? $data['facebook_url'] : NULL;
             $event->modified_by = $id_user;
+            $event->type = $data['type'];
             $event->save();
             return $event;
         });
@@ -106,5 +142,32 @@ class Event extends Model
         $data['datetime_from'] = Carbon::createFromFormat('d M Y g:i A', $data['start_date'] . ' ' . $time)->toDateTimeString();
         return $data;
     }
+
+    public static function getAllTypes()
+    {
+        $data = \DB::select('describe events type');
+        preg_match('/^enum\((.*)\)$/', $data[0]->Type, $matches);
+        foreach( explode(',', $matches[1]) as $value )
+        {
+            $value = trim( $value, "'" );
+            $enum[$value] = $value;
+        }
+        return $enum;
+    }
+
+    /**
+     * Returns collection of integreat events for which are held after $fromDate
+     *
+     * @param $fromDate
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
+     */
+    public static function getAllIntegreatEvents($fromDate)
+    {
+        return Event::with('Integreat_party')->where('type', '=', 'integreat')
+            ->whereDate('visible_from','>=', $fromDate)
+            ->orderBy('datetime_from','asc')
+            ->get();
+    }
+
 
 }
