@@ -40,7 +40,7 @@ class Integreat_party extends Model {
     public static function getAllPartiesFrom($from)
     {
         return Integreat_party::wherehas('event', function ($query) use($from) {
-                $query->where('type', '=', 'integreat')
+                $query->where('event_type', '=', 'integreat')
                     ->whereDate('visible_from','>=', $from);
             })->get()->sortby('event.datetime_from');
     }

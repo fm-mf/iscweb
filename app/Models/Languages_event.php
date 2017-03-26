@@ -34,7 +34,7 @@ class Languages_event extends Model {
     public static function getLangEventsFrom($from)
     {
         return Languages_event::wherehas('event', function ($query) use($from) {
-            $query->where('type', '=', 'languages')
+            $query->where('event_type', '=', 'languages')
                 ->whereDate('visible_from','>=', $from);
         })->get()->sortby('event.datetime_from');
     }
