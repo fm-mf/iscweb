@@ -12,8 +12,8 @@ class GithubController extends Controller
     public function githubUpdate(Request $request)
     {
 
-	$payload = decodePayload($request->get('payload'));
-
+	//$payload = decodePayload($request->get('payload'));
+    $payload = $request;
 	if ( $payload['ref'] != 'refs/heads/master' )
 	{
 		shell_exec('echo "Ignoring push to ' . $request->payload('ref') . '." >> /var/www/deploy-scripts/log');
@@ -22,11 +22,12 @@ class GithubController extends Controller
 	shell_exec('/var/www/deploy-scripts/iscweb');
     }
 
+    /*
     public function decodePayload($payload)
     {
         return json_decode($payload);
     }
-
+    */
 
 }
 
