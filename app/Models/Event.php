@@ -16,7 +16,7 @@ class Event extends Model
 
     protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
 
-    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'modified_by', 'type'];
+    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'modified_by', 'event_type'];
 
     public function modifiedBy()
     {
@@ -128,7 +128,7 @@ class Event extends Model
             $event->description = $data['description'];
             $event->facebook_url = array_key_exists('facebook_url', $data) ? $data['facebook_url'] : NULL;
             $event->modified_by = $id_user;
-            $event->type = $data['type'];
+            if(array_key_exists('event_type', $data)) $event->event_type = $data['event_type'];
             $event->save();
             return $event;
         });
@@ -145,7 +145,7 @@ class Event extends Model
 
     public static function getAllTypes()
     {
-        $data = \DB::select('describe events type');
+        $data = \DB::select('describe events event_type');
         preg_match('/^enum\((.*)\)$/', $data[0]->Type, $matches);
         foreach( explode(',', $matches[1]) as $value )
         {
@@ -163,7 +163,7 @@ class Event extends Model
      */
     public static function getAllIntegreatEvents($fromDate)
     {
-        return Event::with('Integreat_party')->where('type', '=', 'integreat')
+        return Event::with('Integreat_party')->where('event_type', '=', 'integreat')
             ->whereDate('visible_from','>=', $fromDate)
             ->orderBy('datetime_from','asc')
             ->get();

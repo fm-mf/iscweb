@@ -5,7 +5,7 @@
         <div class="row">
             <div class="row-inner">
                 <div class="success">
-                    <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> Profile was successfully updated.
+                    <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> Event was successfully created.
                 </div>
             </div>
         </div>

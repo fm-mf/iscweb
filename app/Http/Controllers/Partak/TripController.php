@@ -127,7 +127,18 @@ class TripController extends Controller
         $part = Person::find($id_part);
         $part->update($data);
         $result = $trip->addParticipant($id_part, $data);
-        return redirect()->action('Partak\TripController@showDetail', ['id' => $id_trip]);
+        if ($result < 3){
+            $successUpdate = $trip->getStatusMessage($result, $part);
+            $error = null;
+        } else {
+            $error = $trip->getStatusMessage($result, $part);
+            $successUpdate = null;
+        }
+        return redirect()->action('Partak\TripController@showDetail', ['id' => $id_trip])
+            ->with([
+                'successUpdate' => $successUpdate,
+                'error' => $error,
+                ]);
     }
 
     public function removeParticipantFromTrip($id_trip, $id_part)
@@ -243,8 +254,8 @@ class TripController extends Controller
             'end_date' => 'required|date_format:d M Y',
             'end_time' => 'date_format:g:i A',
             'description' => 'required',
-            'price' => 'required|integer|min:0',
-            'capacity' => 'required|integer|min:0',
+            'price' => 'required|integer|min:0|max:65535',
+            'capacity' => 'required|integer|min:0||max:65535',
         ]);
     }
 

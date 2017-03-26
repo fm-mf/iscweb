@@ -40,8 +40,9 @@ class EventController extends Controller
         $event = Event::with('Integreat_party', 'Languages_event')->find($id_event);
         return view('partak.events.edit')->with([
             'event' => $event,
-            'types' => $event->getAllTypes(),
+            'event_types' => $event->getAlltypes(),
         ]);
+
     }
 
     public function submmitEditForm(Request $request, $id_event)
@@ -57,12 +58,6 @@ class EventController extends Controller
                 }
             }
             $data['modified_by'] = Auth::id();
-            if ($request->hasFile('cover')) {
-                $file = $request->file('cover');
-                $image_name = $event->id_event . '.' . $file->extension();
-                Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-                $data['cover'] = $image_name;
-            }
             if($data['type'] == 'integreat')
             {
                 if(isset($event->integreat_party))
@@ -72,7 +67,7 @@ class EventController extends Controller
                     Integreat_party::creatParty($event->id_event, $data);
                 }
 
-            } else if ($data['type'] == 'languages') {
+            } else if ($data['event_type'] == 'languages') {
                 if(isset($event->languages_event))
                 {
                     $event->languages_event->update($data);
@@ -81,7 +76,9 @@ class EventController extends Controller
                 }
             }
             $event->update($data);
-            return back()->with(['success' => 'Event was updated successfully']);
+            return back()->with([
+                'successUpdate' => 'Event was successfully updated.',
+                ]);
         }
         else {
             return back()->with(['!success' => 'Event wasn\'t updated']);
@@ -96,15 +93,15 @@ class EventController extends Controller
         $event->visible_from = Carbon::now();
         $event->datetime_from = Carbon::now();
         if ($request->is('partak/events/create/integreat')) {
-            $event->type = 'integreat';
+            $event->event_type = 'integreat';
             $event->integreat_party = new Integreat_party();
         } else if($request->is('partak/events/create/languages')){
-            $event->type = 'languages';
+            $event->event_type = 'languages';
             $event->languages_event = new Languages_event();
         }
         return view('partak.events.create')->with([
             'event' => $event,
-            'types' => $event->getAllTypes(),
+            'event_types' => $event->getAllevent_types(),
         ]);
 
     }
@@ -127,13 +124,15 @@ class EventController extends Controller
             Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
             $event['cover'] = $image_name;
         }
-        if($data['type'] == 'integreat'){
+        if($data['event_type'] == 'integreat'){
             Integreat_party::creatParty($event->id_event, $data);
-        } else if($data['type'] == 'languages') {
+        } else if($data['event_type'] == 'languages') {
             Languages_event::creatLanguagesEvent($event->id_event, $data);
         }
         $event->save();
-        return \Redirect::route('events.edit',['id_event' => $event->id_event]);
+        return \Redirect::route('events.edit',[
+            'id_event' => $event->id_event,
+            ])->with(['successUpdate' => 'Event was successfully created.',]);
     }
 
     protected function eventValidator(array $data)

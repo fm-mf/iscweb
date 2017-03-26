@@ -16,6 +16,12 @@ class Integreat_party extends Model {
         return $this->belongsTo('\App\Models\Event', 'id_event', 'id_event');
     }
 
+    /**
+     * Create new instance and fill it with data
+     * @param $id_event
+     * @param $data array key => value
+     * @return Integreat_party
+     */
     public static function creatParty($id_event, $data)
     {
         $party = new Integreat_party();

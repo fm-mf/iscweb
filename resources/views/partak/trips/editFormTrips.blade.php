@@ -43,5 +43,5 @@
                   :multiple="true"></multiselectinput>
 
 {{ Form::bsSelect('type', 'Who can participate', $types, $trip->type)  }}
-{{ Form::bsNumber('capacity', 'Capacity', 'required', 0, ['min' => 0]) }}
-{{ Form::bsNumber('price', 'Price', 'required', 0, ['min' => 0]) }}
+{{ Form::bsNumber('capacity', 'Capacity', 'required', $trip->capacity, ['min' => 0]) }}
+{{ Form::bsNumber('price', 'Price', 'required', $trip->price, ['min' => 0]) }}
