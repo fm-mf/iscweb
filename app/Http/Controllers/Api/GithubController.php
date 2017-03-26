@@ -13,7 +13,7 @@ class GithubController extends Controller
     {
 	if ( $request->input('ref') != 'refs/heads/master' )
 	{
-		shell_exec('echo "Ignoring push to ' . $request->input('ref') . '." >> /var/www/deploy-scripts/log');
+		shell_exec('echo "Ignoring push to ' . $request->payload('ref') . '." >> /var/www/deploy-scripts/log');
 		return;
 	}
 	shell_exec('/var/www/deploy-scripts/iscweb');
