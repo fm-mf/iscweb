@@ -14,12 +14,10 @@ class GithubController extends Controller
         $payload = $request;
         if ( $payload['ref'] != 'refs/heads/master' )
         {
-            shell_exec('echo uncool >> /var/www/deploy-scripts/log');
             shell_exec('echo "Ignoring push to ' . $payload['ref'] . '." >> /var/www/deploy-scripts/log');
             return;
         }
-        print ('cool');
-	shell_exec('/var/www/deploy-scripts/iscweb');
+	    shell_exec('/var/www/deploy-scripts/iscweb');
     }
 }
 
