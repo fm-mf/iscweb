@@ -1,6 +1,24 @@
-
 {{ Form::bsText('name', 'Name', 'required') }}
-{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png']) }}
+<script>
+    function cover_change(files) {
+        var preview = $('#cover_preview')[0];
+        if (files.length <= 0) {
+            preview.src = preview.getAttribute('href');
+            if (preview.src == '') {
+                preview.style.display = 'none';
+            }
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function () {
+            preview.src = reader.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(files[0]);
+    }
+</script>
+{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png', 'onchange' => 'cover_change(this.files)']) }}
+<img id="cover_preview" width="100%" src="{{$event->cover()}}" href="{{$event->cover()}}" style="display: {{$event->hasCover() ? 'block' : 'none'}};"/>
 
 <div class="form-group row">
     <div class="col-sm-6 left">
@@ -61,7 +79,7 @@
     <script src="{{ URL::asset('/js/picker.date.js') }}"></script>
     <script src="{{ URL::asset('/js/picker.time.js') }}"></script>
 
-    <script  type="text/javascript">
+    <script type="text/javascript">
 
         var $inputDate = $('.date').pickadate({
             editable: true,

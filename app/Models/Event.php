@@ -42,10 +42,15 @@ class Event extends Model
         return parent::update(self::updateDatetimes($attributes), $options);
     }
 
+    public function hasCover()
+    {
+        return $this->cover ? true : false;
+    }
+
     public function cover()
     {
         //TODO: vratit spravny cover
-        return 'events/covers/' . $this->cover;
+        return $this->cover ? '/events/covers/' . $this->cover : '';
     }
 
     public function nameWithoutSpaces()

@@ -54,6 +54,12 @@ class EventController extends Controller
                 }
             }
             $data['modified_by'] = Auth::id();
+            if ($request->hasFile('cover')) {
+                $file = $request->file('cover');
+                $image_name = $event->id_event . '.' . $file->extension();
+                Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
+                $data['cover'] = $image_name;
+            }
             $event->update($data);
             return back()->with(['success' => 'Event was updated successfully']);
         }
@@ -65,7 +71,8 @@ class EventController extends Controller
     public function showCreateForm()
     {
         $this->authorize('acl', 'events.add');
-        $event = new Event();;
+        $event = new Event();
+        $event->cover = null;
         $event->visible_from = Carbon::now();
         $event->datetime_from = Carbon::now();
         return view('partak.events.create')->with(['event' => $event,]);
