@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-sm-4 col-lg-2">
                 @if ($avatar)
-                <div class="avatar-view" title="Change the avatar">
+                <div class="avatar-view" title="Profile picture">
                     <img src="{{ asset($avatar) }}" alt="Avatar" id="avatar">
                 </div>
                 @endif
