@@ -55,5 +55,6 @@ class Kernel extends HttpKernel
 
         'checkbuddy' => \App\Http\Middleware\CheckBuddy::class,
         'checkpartak' => \App\Http\Middleware\CheckPartak::class,
+	'github.secret.token' => \App\Http\Middleware\githubSecretTokenMiddleware::class,
     ];
 }

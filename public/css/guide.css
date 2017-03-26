@@ -7959,4 +7959,8 @@ body {
   background: none;
 }
 
+.navigation .row {
+  max-width: 100%;
+}
+
 /*# sourceMappingURL=guide.css.map */
