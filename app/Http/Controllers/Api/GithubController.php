@@ -11,13 +11,21 @@ class GithubController extends Controller
 {
     public function githubUpdate(Request $request)
     {
-	if ( $request->input('ref') != 'refs/heads/master' )
+	$payload = $request->decodePayload($request->get('payload');
+
+	if ( $payload->['ref'] != 'refs/heads/master' )
 	{
 		shell_exec('echo "Ignoring push to ' . $request->payload('ref') . '." >> /var/www/deploy-scripts/log');
 		return;
 	}
 	shell_exec('/var/www/deploy-scripts/iscweb');
     }
+
+    public function decodePayload($payload)
+    {
+        return json_decode($payload);
+    }
+
 
 }
 
