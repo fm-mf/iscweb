@@ -52,6 +52,8 @@
     Route::get('/events/edit/{id_event}', 'EventController@showEditForm')->name('events.edit');
     Route::patch('/events/edit/{id_event}', 'EventController@submmitEditForm');
     Route::get('/events/create', 'EventController@showCreateForm');
+    Route::get('/events/create/integreat', 'EventController@showCreateForm');
+    Route::get('/events/create/languages', 'EventController@showCreateForm');
     Route::patch('/events/create', 'EventController@submitCreateForm');
 
     Route::get('/users/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard');

@@ -1,6 +1,15 @@
 
 {{ Form::bsText('name', 'Name', 'required') }}
 {{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png']) }}
+@if(! $trips)
+    @if($event->type == 'integreat')
+        {{ Form::bsText('countries', 'Countries', '', $event->integreat_party->countries) }}
+        {{ Form::bsText('theme', 'Theme', '', $event->integreat_party->theme) }}
+    @elseif($event->type == 'languages')
+        {{ Form::bsText('where', 'Where', '', $event->languages_event->where) }}
+        {{ Form::bsText('where_url', 'Url address from Google Maps', '', $event->languages_event->where_url) }}
+    @endif
+@endif
 
 <div class="form-group row">
     <div class="col-sm-6 left">
@@ -43,6 +52,8 @@
 </div>
 @if($trips)
     @include('partak.trips.editFormTrips')
+@else
+    {{ Form::bsSelect('type', 'Type of event', $types, $event->type)  }}
 @endif
 
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}

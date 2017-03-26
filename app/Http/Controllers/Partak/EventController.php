@@ -12,6 +12,8 @@ use App\Models\Buddy;
 use App\Models\Event;
 use App\Models\ExchangeStudent;
 use App\Models\Accommodation;
+use App\Models\Integreat_party;
+use App\Models\Languages_event;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,13 +34,15 @@ class EventController extends Controller
         return view('partak.events.dashboard')->with(['activeEvents' => $visibleEvents,]);
     }
 
-    public function showEditForm($id_event)
+    public function showEditForm(Request $request, $id_event)
     {
         $this->authorize('acl', 'events.view');
-        $event = Event::find($id_event);
+        $event = Event::with('Integreat_party', 'Languages_event')->find($id_event);
         return view('partak.events.edit')->with([
-           'event' => $event,
+            'event' => $event,
+            'types' => $event->getAllTypes(),
         ]);
+
     }
 
     public function submmitEditForm(Request $request, $id_event)
@@ -54,6 +58,23 @@ class EventController extends Controller
                 }
             }
             $data['modified_by'] = Auth::id();
+            if($data['type'] == 'integreat')
+            {
+                if(isset($event->integreat_party))
+                {
+                    $event->integreat_party->update($data);
+                } else {
+                    Integreat_party::creatParty($event->id_event, $data);
+                }
+
+            } else if ($data['type'] == 'languages') {
+                if(isset($event->languages_event))
+                {
+                    $event->languages_event->update($data);
+                } else {
+                    Languages_event::creatLanguagesEvent($event->id_event, $data);
+                }
+            }
             $event->update($data);
             return back()->with(['success' => 'Event was updated successfully']);
         }
@@ -62,13 +83,24 @@ class EventController extends Controller
         }
     }
 
-    public function showCreateForm()
+    public function showCreateForm(Request $request)
     {
         $this->authorize('acl', 'events.add');
-        $event = new Event();;
+        $event = new Event();
         $event->visible_from = Carbon::now();
         $event->datetime_from = Carbon::now();
-        return view('partak.events.create')->with(['event' => $event,]);
+        if ($request->is('partak/events/create/integreat')) {
+            $event->type = 'integreat';
+            $event->integreat_party = new Integreat_party();
+        } else if($request->is('partak/events/create/languages')){
+            $event->type = 'languages';
+            $event->languages_event = new Languages_event();
+        }
+        return view('partak.events.create')->with([
+            'event' => $event,
+            'types' => $event->getAllTypes(),
+        ]);
+
     }
 
     public function submitCreateForm(Request $request)
@@ -88,8 +120,13 @@ class EventController extends Controller
             $image_name = $event->id_event . '.' . $file->extension();
             Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
             $event['cover'] = $image_name;
-            $event->save();
         }
+        if($data['type'] == 'integreat'){
+            Integreat_party::creatParty($event->id_event, $data);
+        } else if($data['type'] == 'languages') {
+            Languages_event::creatLanguagesEvent($event->id_event, $data);
+        }
+        $event->save();
         return \Redirect::route('events.edit',['id_event' => $event->id_event]);
     }
 

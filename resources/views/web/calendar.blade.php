@@ -94,9 +94,7 @@
                     <span class="vspace"></span>
                     <div class="row row-ow row-sm-height">
                         <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ url($event->cover()) }})">
-                            <span class="day">{{ $event->datetime_from->format('l') }}<br>{{ $event->datetime_from->format('F') }}<br>
-                                <strong>{{ $event->datetime_from->format('jS') }}</strong><br>
-                                {{ $event->datetime_from->format('g') }}{{ ($event->datetime_from->minute == 0) ? $event->datetime_from->format('a') : $event->datetime_from->format(':ia') }}</span>
+                            <span class="day">{!! $event->calendarDateTimeFrom() !!}</span>
                             <h2>{{ $event->name }}</h2>
                         </div>
                         <div class="col-sm-6 ow-detail col-sm-height col-top">
