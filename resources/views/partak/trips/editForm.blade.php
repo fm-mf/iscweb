@@ -17,7 +17,7 @@
         reader.readAsDataURL(files[0]);
     }
 </script>
-{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png', 'onchange' => 'cover_change(this.files)']) }}
+{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/pngm image/jpg', 'onchange' => 'cover_change(this.files)']) }}
 <img id="cover_preview" width="100%" src="{{$event->cover()}}" href="{{$event->cover()}}" style="display: {{$event->hasCover() ? 'block' : 'none'}};"/>
 @if(! $trips)
     @if($event->event_type == 'integreat')

@@ -215,6 +215,7 @@ class TripController extends Controller
 
         $trip = new Trip();
         $event = new Event();
+        $event->cover = null;
         $event->visible_from = Carbon::now();//
         $event->datetime_from = Carbon::now();//
         $trip->registration_from = Carbon::now();//

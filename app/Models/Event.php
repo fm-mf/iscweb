@@ -61,7 +61,7 @@ class Event extends Model
     public function cover()
     {
         //TODO: vratit spravny cover
-        return $this->cover ? '/events/covers/' . $this->cover : '';
+        return isset($this->cover) ? '/events/covers/' . $this->cover : '';
     }
 
     public function calendarDateTimeFrom()

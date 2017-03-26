@@ -58,7 +58,7 @@ class EventController extends Controller
                 }
             }
             $data['modified_by'] = Auth::id();
-            if($data['type'] == 'integreat')
+            if($data['event_type'] == 'integreat')
             {
                 if(isset($event->integreat_party))
                 {
@@ -74,6 +74,12 @@ class EventController extends Controller
                 } else {
                     Languages_event::creatLanguagesEvent($event->id_event, $data);
                 }
+            }
+            if ($request->hasFile('cover')) {
+                $file = $request->file('cover');
+                $image_name = $event->id_event . '.' . $file->extension();
+                Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
+                $data['cover'] = $image_name;
             }
             $event->update($data);
             return back()->with([
@@ -101,7 +107,7 @@ class EventController extends Controller
         }
         return view('partak.events.create')->with([
             'event' => $event,
-            'event_types' => $event->getAllevent_types(),
+            'event_types' => $event->getAlltypes(),
         ]);
 
     }
