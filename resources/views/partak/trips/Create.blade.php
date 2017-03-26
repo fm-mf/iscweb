@@ -15,7 +15,7 @@
         <div class="row row-inner" id="form">
             <div class="col-md-7">
                 <h2>Create trip</h2>
-                {{ Form::model($event, ['url' => 'partak/trips/create', 'method' => 'patch', 'id' => 'form']) }}
+                {{ Form::model($event, ['url' => 'partak/trips/create', 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
                 @include('partak.trips.editForm',['trips' => true])
 
                 {{ Form::bsSubmit('Create event') }}

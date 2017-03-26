@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade as PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use phpDocumentor\Reflection\Types\Null_;
+use Intervention\Image\Facades\Image;
 
 class TripController extends Controller
 {
@@ -190,6 +191,13 @@ class TripController extends Controller
                     $data[$key] = $value;
                 }
             }
+            if ($request->hasFile('cover')) {
+                $file = $request->file('cover');
+                $image_name = $trip->event->id_event . '.' . $file->extension();
+                \File::delete(storage_path() . '/app/events/covers/' . $trip->event->cover);
+                Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
+                $data['cover'] = $image_name;
+            }
             $trip->update($data);
             $trip->event->update($data);
             return back()->with(['success' => 'Trip was updated successfully']);
@@ -238,7 +246,16 @@ class TripController extends Controller
                 $data[$key] = $value;
             }
         }
+
         $trip = Trip::createTrip($data);
+        $trip = Trip::with('event')->find($trip->id_trip);
+        if ($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $image_name = $trip->event->id_event . '.' . $file->extension();
+            Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
+            $trip->event->cover = $image_name;
+        }
+        $trip->event->save();
         return \Redirect::route('trips.edit',['id_trip' => $trip->id_trip]);
     }
 
@@ -257,6 +274,7 @@ class TripController extends Controller
             'description' => 'required',
             'price' => 'required|integer|min:0|max:65535',
             'capacity' => 'required|integer|min:0||max:65535',
+            'cover' => 'max:307400|mimes:jpg,jpeg,png',
         ]);
     }
 
