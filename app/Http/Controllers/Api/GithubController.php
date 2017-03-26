@@ -13,7 +13,7 @@ class GithubController extends Controller
     {
 	$payload = $request->decodePayload($request->get('payload');
 
-	if ( $payload->['ref'] != 'refs/heads/master' )
+	if ( $payload['ref'] != 'refs/heads/master' )
 	{
 		shell_exec('echo "Ignoring push to ' . $request->payload('ref') . '." >> /var/www/deploy-scripts/log');
 		return;
