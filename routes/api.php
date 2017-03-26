@@ -38,3 +38,4 @@ use Illuminate\Http\Request;
     Route::post('/trips', 'TripsAppController@index');
 
     Route::post('/github', ['middleware' => 'github.secret.token', 'uses' => 'GithubController@githubUpdate']);
+    Route::get('/github', ['middleware' => 'github.secret.token', 'uses' => 'GithubController@githubUpdate']);

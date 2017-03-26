@@ -22,8 +22,6 @@ class githubSecretTokenMiddleware
         if ($sig_check !== $request->header('x-hub-signature'))
             return response(['error' => 'Unauthorized'], 401);
 
-        shell_exec('echo "Hello, world!" > ../deploy-test-iscweb/foo');
-
         return $next($request);
     }    
 }

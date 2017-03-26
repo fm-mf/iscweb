@@ -11,7 +11,12 @@ class GithubController extends Controller
 {
     public function githubUpdate(Request $request)
     {
-        shell_exec('/var/www/.iscweb.deploy');
+	if ( $request->input('ref') != 'refs/heads/master' )
+	{
+		shell_exec('echo "Ignoring push to ' . $request->input('ref') . '." >> /var/www/deploy-scripts/log');
+		return;
+	}
+	shell_exec('/var/www/deploy-scripts/iscweb');
     }
 
 }
