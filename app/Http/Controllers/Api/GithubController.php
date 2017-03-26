@@ -11,7 +11,8 @@ class GithubController extends Controller
 {
     public function githubUpdate(Request $request)
     {
-	$payload = $request->decodePayload($request->get('payload');
+
+	$payload = decodePayload($request->get('payload'));
 
 	if ( $payload['ref'] != 'refs/heads/master' )
 	{
