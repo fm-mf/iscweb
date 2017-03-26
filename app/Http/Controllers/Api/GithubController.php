@@ -11,15 +11,10 @@ class GithubController extends Controller
 {
     public function githubUpdate(Request $request)
     {
-        shell_exec('echo "Hook caught" >> /var/www/deploy-scripts/log');
-
-        $payload = json_decode($request->get('payload'));
-        shell_exec('echo "Payload generated" >> /var/www/deploy-scripts/log');
-        //$payload = $request;
+        $payload = $request;
         if ( $payload['ref'] != 'refs/heads/master' )
         {
             shell_exec('echo uncool >> /var/www/deploy-scripts/log');
-            shell_exec('echo "' . $request->get('payload') . '" >> /var/www/deploy-scripts/log' );
             shell_exec('echo "Ignoring push to ' . $payload['ref'] . '." >> /var/www/deploy-scripts/log');
             return;
         }
