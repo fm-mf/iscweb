@@ -27,7 +27,7 @@ class GithubController extends Controller
     {
         return json_decode($payload);
     }
-    
+
 
 }
 
