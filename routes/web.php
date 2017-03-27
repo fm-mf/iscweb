@@ -38,7 +38,7 @@ Route::get('/buddy/files/buddyPriruckaSpring2017.pdf', function () { return redi
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
-    Route::get('/', function() { return view('web.home'); });
+    Route::get('/', 'WebController@showHomePage');
     Route::get('/about-us', function() { return view('web.about'); });
     Route::get('/buddy-program', function() { return view('web.buddy-program'); });
     Route::get('/activities', function() { return view('web.activities'); });

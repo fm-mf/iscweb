@@ -68,42 +68,18 @@
     -->
 
                 <!-- -------------- rozvrh languages eventů ---------------------->
-                <table class="presentations-list">
-                    <thead>
-                    <tr>
-                        <th>Event</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Where</th>
-                        <th>More info</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Tandem Evening</td>
-                        <td>Monday 13th February</td>
-                        <td>8pm</td>
-                        <td><a href="https://goo.gl/maps/2c3qWUjNYE32">Café V lese</a></td>
-                        <td><a href="https://www.facebook.com/events/614492665410482/">Facebook event</a></td>
-                    </tr>
-                    <tr>
-                        <td>1st Café Lingea (English & Czech)</td>
-                        <td>Thursday 2nd March</td>
-                        <td>6pm</td>
-                        <td><a href="https://goo.gl/maps/7ZDHTrYMUGU2">Kabinet Café</a></td>
-                        <td><a href="https://www.facebook.com/events/662297163977690/">Facebook event</a></td>
-                    </tr>
-                    <tr>
-                        <td>2st Café Lingea (English & German)</td>
-                        <td>Wednesday 15th March</td>
-                        <td>7pm</td>
-                        <td><a href="https://goo.gl/maps/geJkF7cp8iA2">Bernard Pub Cesta Časem</a></td>
-                        <td><a href="https://www.facebook.com/events/1748119202185320/">Facebook event</a></td>
-                    </tr>
-                    			<!--	<tr>
-                                    <td colspan=5><i>More events will be announced soon!</i></td>
-                                    </tr> -->
-                    @if(isset($langEvents) && $langEvents->count() > 0)
+                @if(isset($langEvents) && $langEvents->count() > 0)
+                    <table class="presentations-list">
+                        <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Where</th>
+                            <th>More info</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         @foreach($langEvents as $langEvent)
                             <tr>
                                 <td>{{ $langEvent->event->name }}</td>
@@ -113,9 +89,10 @@
                                 <td><a {!! isset($langEvent->event->facebook_url)? 'href='.$langEvent->event->facebook_url : ''  !!} target="_blank">Facebook event</a></td>
                             </tr>
                         @endforeach
-                    @endif
-                    </tbody>
-                </table>
+
+                        </tbody>
+                    </table>
+                @endif
             </div>
             <div class="col-sm-4 schedule">
                 <h2>See the schedule</h2>

@@ -14,7 +14,7 @@
 
     <div class="container events">
         <div class="container container-ow container-sm-height">
-
+            <!--
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
                 <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea3.jpg') }})">
@@ -46,7 +46,7 @@
                     <h2>Krakow + Auschwitz Trip</h2>
                 </div>
                 <div class="col-sm-6 ow-detail col-sm-height col-top" >
-                    <p> <!-- ►Meetin point: <a href="https://goo.gl/maps/LHRwtJ3SwHM2">At the lobby Masarykova dormitory</a><br> -->
+                    <p> <!-- ►Meetin point: <a href="https://goo.gl/maps/LHRwtJ3SwHM2">At the lobby Masarykova dormitory</a><br> 
                         ► Price: 3300CZK (register in the ISC Point from 20th March)
                     <p>Do you want to spend another wonderful weekend with ISC Spirit and also discover something from
                         Europe heritage? Join us to Cracow trip. Cracow is historical city inscribed in the World Heritage
@@ -88,7 +88,7 @@
                     inteGREAT more than a party
                 </div>
             </div>
-
+            -->
             @if(isset($events) && $events->count() > 0)
                 @foreach($events as $event)
                     <span class="vspace"></span>

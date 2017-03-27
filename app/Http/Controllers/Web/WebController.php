@@ -18,6 +18,17 @@ use Hamcrest\Core\Set;
 
 class WebController extends Controller
 {
+    public function showHomePage()
+    {
+        $events = Event::findAllVisible();
+        $more = $events->count() > 3;
+        $events = $events->slice(0, 3);
+        return view('web.home')->with([
+            'events' => $events,
+            'more' => $more,
+            ]);
+    }
+
     public function showContacts() {
         $dateFrom = Carbon::createFromFormat('d/m/Y' ,Settings::get('wcFrom'));
         return view('web.contact') -> with(['wcFrom' => $dateFrom->format('l F jS')]);

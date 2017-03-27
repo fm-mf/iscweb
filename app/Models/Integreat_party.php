@@ -45,4 +45,11 @@ class Integreat_party extends Model {
             })->get()->sortby('event.datetime_from');
     }
 
+    public function update(array $attributes = [], array $options = [])
+    {
+        if(! array_key_exists('countries', $attributes)) $attributes['countries'] = NULL;
+        if(! array_key_exists('theme', $attributes)) $attributes['theme'] = NULL;
+        return parent::update($attributes, $options);
+    }
+
 }

@@ -39,4 +39,11 @@ class Languages_event extends Model {
         })->get()->sortby('event.datetime_from');
     }
 
+    public function update(array $attributes = [], array $options = [])
+    {
+        if(! array_key_exists('where', $attributes)) $attributes['where'] = NULL;
+        if(! array_key_exists('where_url', $attributes)) $attributes['where_url'] = NULL;
+        return parent::update($attributes, $options);
+    }
+
 }
