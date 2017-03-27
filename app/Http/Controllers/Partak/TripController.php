@@ -200,7 +200,7 @@ class TripController extends Controller
             }
             $trip->update($data);
             $trip->event->update($data);
-            return back()->with(['success' => 'Trip was updated successfully']);
+            return back()->with(['success' => 'Trip was successfully updated']);
         }
         else {
             return back()->with(['!success' => 'Trip wasn\'t updated']);
@@ -256,7 +256,8 @@ class TripController extends Controller
             $trip->event->cover = $image_name;
         }
         $trip->event->save();
-        return \Redirect::route('trips.edit',['id_trip' => $trip->id_trip]);
+        return \Redirect::route('trips.edit',['id_trip' => $trip->id_trip])
+            ->with(['success' => 'Trip was successfully created.']);
     }
 
     protected function tripValidator(array $data)

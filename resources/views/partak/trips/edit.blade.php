@@ -1,11 +1,11 @@
 @extends('partak.trips.layout')
 @section('inner-content')
 
-    @if(session('successUpdate'))
+    @if(session('success'))
         <div class="row">
             <div class="row-inner">
                 <div class="success">
-                    <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> Profile was successfully updated.
+                    <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span>{{ session('success') }}
                 </div>
             </div>
         </div>
