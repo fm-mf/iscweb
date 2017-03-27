@@ -30,8 +30,12 @@ class EventController extends Controller
     public function showDashboard()
     {
         $this->authorize('acl', 'events.view');
-        $visibleEvents = Event::findAllActive();
-        return view('partak.events.dashboard')->with(['activeEvents' => $visibleEvents,]);
+        $visibleEvents = Event::findAllActive()->sortby('datetime_from');
+        $oldEvents = Event::findMaxYearOld()->sortby('datetime_from');
+        return view('partak.events.dashboard')->with([
+            'activeEvents' => $visibleEvents,
+            'oldEvents' => $oldEvents,
+            ]);
     }
 
     public function showEditForm(Request $request, $id_event)

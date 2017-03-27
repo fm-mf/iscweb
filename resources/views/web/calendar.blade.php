@@ -9,11 +9,6 @@
     <!-- h1>ORIENTATION WEEK | Feb 13th &ndash; Feb 2th<br>
     <small>for incoming spring 2017 exchange students</small>
     </h1 -->
-    <span class="vspace"></span>
-
-
-    <div class="container events">
-        <div class="container container-ow container-sm-height">
             <!--
             <span class="vspace"></span>
             <div class="row row-ow row-sm-height">
@@ -89,8 +84,11 @@
                 </div>
             </div>
             -->
-            @if(isset($events) && $events->count() > 0)
-                @foreach($events as $event)
+    @if(isset($events) && $events->count() > 0)
+        @foreach($events as $event)
+            <span class="vspace"></span>
+            <div class="container events">
+                <div class="container container-ow container-sm-height">
                     <span class="vspace"></span>
                     <div class="row row-ow row-sm-height">
                         <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ url($event->cover()) }})">
@@ -108,11 +106,15 @@
                             @endif
                         </div>
                     </div>
-                @endforeach
-            @endif
+                </div>
+            </div>
+        @endforeach
+    @else
+        <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>
+        <h2><IMG src="{{ asset('img/web/fb_blue.png') }}"><a href="https://www.facebook.com/isc.ctu.prague/events"> Subscribe</a></h2>
+    @endif
 
-        </div>
-    </div>
+
 
 
             <!-- JAK MA VYPADAT EVENT

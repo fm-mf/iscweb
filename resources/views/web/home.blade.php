@@ -128,6 +128,8 @@
                             </div>
                         </div>
                     @endforeach
+                @else
+                    <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>
                 @endif
 
                 <!-- ------------------------ div containery prosím nechat --------------------------------------------------------- -->

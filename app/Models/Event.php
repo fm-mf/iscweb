@@ -93,6 +93,13 @@ class Event extends Model
         return str_replace(' ', '_', $this->name);
     }
 
+    public static function findMaxYearOld()
+    {
+        return Event::whereDate('datetime_from', '<', Carbon::today())
+                    ->whereDate('datetime_from', '>', Carbon::today()->subYear())
+                    ->get();
+    }
+
     public static function findAllVisible()
     {
         return Event::with('modifiedBy.user')
@@ -147,6 +154,7 @@ class Event extends Model
     {
         $data = \DB::select('describe events event_type');
         preg_match('/^enum\((.*)\)$/', $data[0]->Type, $matches);
+        $enum = [];
         foreach( explode(',', $matches[1]) as $value )
         {
             $value = trim( $value, "'" );
