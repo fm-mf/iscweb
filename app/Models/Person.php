@@ -95,4 +95,18 @@ class Person extends Model
         return $this->update($attributes, $options);
     }
 
+    public function getShortDiet()
+    {
+        switch ($this->diet)
+        {
+            case 'Vegetarian':
+                return 'V';
+            case 'Vegan':
+                return 'Vn';
+            case 'Fish only':
+                return 'F';
+        }
+
+    }
+
 }

@@ -90,7 +90,7 @@ class TripController extends Controller
             $excel->sheet('Participants', function ($sheet) use($particip, $trip) {
 
 
-                $sheet->loadView('partak.trips.pdf')->with([ 'particip' => $particip, 'trip' => $trip]);
+                $sheet->loadView('partak.trips.excel', [ 'particip' => $particip, 'trip' => $trip]);//->with([ 'particip' => $particip, 'trip' => $trip]);
             });
         });
         return $excell->download('xls');

@@ -78,7 +78,7 @@ return [
             'id' => 12,
             'resources' => [
                 'buddy' => ['verify'],
-                'roles' => ['view', 'partak', 'buddyManager', 'point']
+                'roles' => ['view', 'partak', 'buddyManager', 'point'],
             ],
             'inheritsFrom' => ['board']
         ],
@@ -90,6 +90,7 @@ return [
                 'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team'],
                 'events' => ['edit', 'add', 'view'],
                 'settings' => ['edit'],
+                'details' => ['view'],
             ],
             'inheritsFrom' => ['hr']
         ],

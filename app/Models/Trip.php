@@ -22,6 +22,11 @@ class Trip extends Model
 
     protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'updated_at', 'created_at', 'capacity', 'price', 'modifid_by', 'type'];
 
+    public function createdBy()
+    {
+        return $this->hasOne('\App\Models\Person', 'id_user', 'created_by');
+    }
+
     public function modifiedBy()
     {
         return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
@@ -197,6 +202,7 @@ class Trip extends Model
             (array_key_exists('capacity', $data)) ? $trip->capacity = $data['capacity'] : 0;
             (array_key_exists('price', $data)) ? $trip->price = $data['price'] : 0;
             $trip->modified_by = $id_user;
+            $trip->created_by = $id_user;
             $trip->save();
 
             foreach($organizers as $organizer) {

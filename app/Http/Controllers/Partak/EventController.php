@@ -8,19 +8,14 @@
 
 namespace App\Http\Controllers\Partak;
 
-use App\Models\Buddy;
+
 use App\Models\Event;
-use App\Models\ExchangeStudent;
-use App\Models\Accommodation;
 use App\Models\Integreat_party;
 use App\Models\Languages_event;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
-use App\Models\Faculty;
-use Illuminate\Support\Facades\Input;
-use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -30,11 +25,16 @@ class EventController extends Controller
     public function showDashboard()
     {
         $this->authorize('acl', 'events.view');
-        $visibleEvents = Event::findAllActive()->sortby('datetime_from');
+        $fromDate = Carbon::createFromFormat('d/m/Y' , Settings::get('wcFrom'));
+        $visibleEvents = Event::findAllNormalActive()->sortby('datetime_from');
+        $integreatEvents = Event::findAllInteGreatInFromDate($fromDate);
+        $languagesEvents = Event::findAllLanguagesFromDate($fromDate);
         $oldEvents = Event::findMaxYearOld()->sortby('datetime_from');
         return view('partak.events.dashboard')->with([
             'activeEvents' => $visibleEvents,
             'oldEvents' => $oldEvents,
+            'languagesEvents' => $languagesEvents,
+            'integreatEvents' => $integreatEvents,
             ]);
     }
 

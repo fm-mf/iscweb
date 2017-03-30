@@ -16,11 +16,16 @@ class Event extends Model
 
     protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
 
-    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'modified_by', 'event_type'];
+    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'created_by', 'modified_by', 'event_type'];
+
+    public function createdBy()
+    {
+        return $this->belongsTo('\App\Models\Person', 'id_user', 'created_by');
+    }
 
     public function modifiedBy()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
+        return $this->belongsTo('\App\Models\Person', 'id_user', 'modified_by');
     }
 
     public function Integreat_party()
@@ -31,6 +36,11 @@ class Event extends Model
     public function Languages_event()
     {
         return $this->hasOne('\App\Models\Languages_event','id_event', 'id_event');
+    }
+
+    public function Trip()
+    {
+        return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
     }
 
     /*
@@ -109,17 +119,36 @@ class Event extends Model
             ->get();
     }
 
-    public static function findAllActive()
+    public static function findAllNormalActive()
     {
         return Event::with('modifiedBy.user')
+            ->where('event_type', 'normal')
+            ->whereDoesntHave('trip')
             ->whereDate('datetime_from', '>=', Carbon::today())
-            //->whereDate('visible_from','<=', Carbon::today())
-            ->get();
+            ->get()->sortby('datetime_from');;
+    }
+
+    public static function findAllInteGreatInFromDate($fromDate)
+    {
+        return Event::with('modifiedBy.user')
+            ->where('event_type', 'integreat')
+            ->whereHas('integreat_party')
+            ->whereDate('datetime_from', '>=', $fromDate)
+            ->get()->sortby('datetime_from');;
+    }
+
+    public static function findAllLanguagesFromDate($fromDate)
+    {
+        return Event::with('modifiedBy.user')
+            ->where('event_type', 'languages')
+            ->whereHas('Languages_event')
+            ->whereDate('datetime_from', '>=', $fromDate)
+            ->get()->sortby('datetime_from');;
     }
 
     public static function findAll()
     {
-        return Event::with('modified_by.user');
+        return Event::with('modified_by.user')->sortby('datetime_from');;
     }
 
     public static function createEvent($data)
@@ -135,6 +164,7 @@ class Event extends Model
             $event->description = $data['description'];
             $event->facebook_url = array_key_exists('facebook_url', $data) ? $data['facebook_url'] : NULL;
             $event->modified_by = $id_user;
+            $event->created_by = $id_user;
             if(array_key_exists('event_type', $data)) $event->event_type = $data['event_type'];
             $event->save();
             return $event;

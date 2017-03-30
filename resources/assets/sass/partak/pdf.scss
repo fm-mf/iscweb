@@ -9,3 +9,27 @@ h3 {
 body {
   font-family: "DejaVu Sans", sans-serif;
 }
+.header,
+.footer {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+}
+.header {
+  top: 0px;
+}
+.footer {
+  bottom: 0px;
+}
+
+.star:after{
+  content:'*';
+  color:black;
+  padding-left:5px;
+}
+
+.star_before:before{
+  content:'*';
+  color:black;
+  padding-left:5px;
+}
