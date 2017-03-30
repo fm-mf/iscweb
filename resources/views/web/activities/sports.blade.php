@@ -59,7 +59,7 @@
                             <b>Where:</b> <a href="https://goo.gl/maps/6eWgvNXyNiP2">Pod Juliskou Sports Center</a><br>
                             <b>Meeting point:</b> at 20:40 in the lobby of <a href="https://goo.gl/maps/OCtHW">Masarykova dormitory</a><br>
                             <b>Price:</b> 50 Kč, for ISC members 30Kč<br>
-                            <b>Contact person:</b>Srini Vasan, Sakthi Shakz<br>
+                            <b>Contact person:</b> Srini Vasan, Sakthi Shakz<br>
                             <b>What to bring:</b> indoor shoes and sport clothes<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/1494986440518838/">join our group</a>
 
