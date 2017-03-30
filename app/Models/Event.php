@@ -20,12 +20,12 @@ class Event extends Model
 
     public function createdBy()
     {
-        return $this->belongsTo('\App\Models\Person', 'id_user', 'created_by');
+        return $this->hasOne('\App\Models\Person', 'id_user', 'created_by');
     }
 
     public function modifiedBy()
     {
-        return $this->belongsTo('\App\Models\Person', 'id_user', 'modified_by');
+        return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
     }
 
     public function Integreat_party()
