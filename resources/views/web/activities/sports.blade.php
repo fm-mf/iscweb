@@ -59,7 +59,7 @@
                             <b>Where:</b> <a href="https://goo.gl/maps/6eWgvNXyNiP2">Pod Juliskou Sports Center</a><br>
                             <b>Meeting point:</b> at 20:40 in the lobby of <a href="https://goo.gl/maps/OCtHW">Masarykova dormitory</a><br>
                             <b>Price:</b> 50 Kč, for ISC members 30Kč<br>
-                            <b>Contact person:</b> Searching<br>
+                            <b>Contact person:</b>Srini Vasan, Sakthi Shakz<br>
                             <b>What to bring:</b> indoor shoes and sport clothes<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/1494986440518838/">join our group</a>
 
@@ -78,7 +78,7 @@
                     <ul class="row list-unstyled contacts">
                         <li class="col-md-5 col-sm-6">
                             <h3>Floorball</h3>
-                            <b>When:</b> Thursday 16:30 – 18:00<br>
+                            <b>When:</b> Thursday 17:00 – 18:00<br>
                             <b>Meeting point:</b> at 20:40 in the lobby of <a href="https://goo.gl/maps/OCtHW">Masarykova dormitory</a><br>
                             <b>Where:</b> <a href="http://www.utvs.cvut.cz/en/sports-pod-juliskou.html">"Pod Juliskou" Sports Center</a><br>
                             <b>Price:</b> 50 Kč, for ISC members 30Kč<br>
