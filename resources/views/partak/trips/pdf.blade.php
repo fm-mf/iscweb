@@ -27,7 +27,7 @@
                 @foreach($particip as $participant)
                     <tr>
                         <td>{{ $participant->person->last_name .' '. $participant->person->first_name}}</td>
-                        <td>{{ $participant->country->full_name }}</td>
+                        <td>{{ $participant->whoAmI('exchangeStudent')?  $participant->country->full_name : 'BUDDY' }}</td>
                         <td>{{ $participant->person->diet ? $participant->person->getShortDiet()  : '-' }}</td>
                         <td>{{ $participant->person->medical_issues }}</td>
                         <td>{{ $participant->person->getSex() }}</td>
