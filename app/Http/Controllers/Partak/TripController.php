@@ -153,8 +153,6 @@ class TripController extends Controller
 
     public function showEditForm($id_trip)
     {
-        //$this->authorize('acl', 'trips.edit');
-        //$this->authorize('acl', 'trips');
         $trip = Trip::with('event')->find($id_trip);
         $this->authorize('edit', $trip);
 

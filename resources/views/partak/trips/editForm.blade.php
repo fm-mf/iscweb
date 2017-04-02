@@ -21,7 +21,7 @@
     @can('acl', 'details.view')
         <div class="form-group row">
             <div class="col-sm-5 left">
-                {{ Form::bsText('createdby', 'Created By', '', $event->createdby->person ? $event->createdby->person->getFullName() : '', ['readonly' => '', 'required' => '']) }}
+                {{ Form::bsText('createdby', 'Created By', '', $event->createdby ? $event->createdby->person->getFullName() : '', ['readonly' => '', 'required' => '']) }}
             </div>
             <div class="col-sm-5 left">
                 {{ Form::bsText('createdat', 'Created at', '', $event->created_at, ['readonly' => '']) }}
@@ -30,12 +30,12 @@
                 <div>
                     <label></label>
                 </div>
-                <a href="{{ $event->createdby->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                <a href="{{ $event->createdby ?  $event->createdby->getDetailLink() : '' }}" role="button" class="btn btn-info btn-xs">Detail</a>
             </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-5 left">
-                {{ Form::bsText('modifiedby', 'Modified By', '', $event->modifiedby->person->getFullName(), ['readonly' => '', 'required' => '']) }}
+                {{ Form::bsText('modifiedby', 'Modified By', '', $event->modifiedby ? $event->modifiedby->person->getFullName() : '', ['readonly' => '', 'required' => '']) }}
             </div>
             <div class="col-sm-5 left">
                 {{ Form::bsText('updatedat', 'Last Modify at', '', $event->updated_at, ['readonly' => '']) }}
@@ -44,7 +44,7 @@
                 <div>
                     <label></label>
                 </div>
-                <a href="{{ $event->modifiedby->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                <a href="{{ $event->modifiedby ? $event->modifiedby->getDetailLink() : '' }}" role="button" class="btn btn-info btn-xs">Detail</a>
             </div>
         </div>
     @endcan
