@@ -54,7 +54,8 @@ class ExchangeStudent extends Model
 
     public function trips()
     {
-        return $this->belongsToMany('\App\Models\Trip', 'trips_participants', 'id_user', 'id_trip')->withPivot('stand_in');
+        return $this->belongsToMany('\App\Models\Trip', 'trips_participants', 'id_user', 'id_trip')
+            ->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at');
     }
 
     public function isSelfPaying()

@@ -38,4 +38,9 @@ class TripPolicy
     {
         return $trip->isOrganizer($user->id_user) || $user->can('acl', 'participant.remove');
     }
+
+    public function viewPayment(User $user, Trip $trip)
+    {
+        return $user->can('acl', 'trips.view_payment');
+    }
 }

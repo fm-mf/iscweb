@@ -113,6 +113,7 @@ class EventController extends Controller
         return view('partak.events.create')->with([
             'event' => $event,
             'event_types' => $event->getAlltypes(),
+            'create' => true,
         ]);
 
     }

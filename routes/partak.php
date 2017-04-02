@@ -47,6 +47,7 @@
     Route::get('/trips/create', 'TripController@showCreateForm');
     Route::patch('/trips/create', 'TripController@submitCreateForm');
     Route::get('/trips/delete/{id_trip}', 'TripController@deleteTrip');
+    Route::get('/trips/{id_event}/payment/{id_payment}', 'TripController@showPaymentDetail');
 
     Route::get('/events', 'EventController@showDashboard');
     Route::get('/events/edit/{id_event}', 'EventController@showEditForm')->name('events.edit');

@@ -91,6 +91,7 @@ return [
                 'events' => ['edit', 'add', 'view'],
                 'settings' => ['edit'],
                 'details' => ['view'],
+                'trips' => ['view_payment'],
             ],
             'inheritsFrom' => ['hr']
         ],

@@ -18,7 +18,7 @@
                 {{ Form::model($event, ['url' => 'partak/trips/create', 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
                 @include('partak.trips.editForm',['trips' => true])
 
-                {{ Form::bsSubmit('Create event') }}
+                {{ Form::bsSubmit('Create trip') }}
 
                 {{ Form::close() }}
             </div>

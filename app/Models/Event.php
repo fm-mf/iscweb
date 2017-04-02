@@ -20,12 +20,12 @@ class Event extends Model
 
     public function createdBy()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'created_by');
+        return $this->hasOne('\App\Models\Buddy', 'id_user', 'created_by');
     }
 
     public function modifiedBy()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
+        return $this->hasOne('\App\Models\Buddy', 'id_user', 'modified_by');
     }
 
     public function Integreat_party()
@@ -112,7 +112,7 @@ class Event extends Model
 
     public static function findAllVisible()
     {
-        return Event::with('modifiedBy.user')
+        return Event::with('modifiedBy')
             ->whereDate('datetime_from', '>=', Carbon::today())
             ->whereDate('visible_from','<=', Carbon::today())
             ->orderBy('datetime_from','asc')
@@ -121,7 +121,7 @@ class Event extends Model
 
     public static function findAllNormalActive()
     {
-        return Event::with('modifiedBy.user')
+        return Event::with('modifiedBy')
             ->where('event_type', 'normal')
             ->whereDoesntHave('trip')
             ->whereDate('datetime_from', '>=', Carbon::today())
@@ -130,7 +130,7 @@ class Event extends Model
 
     public static function findAllInteGreatInFromDate($fromDate)
     {
-        return Event::with('modifiedBy.user')
+        return Event::with('modifiedBy')
             ->where('event_type', 'integreat')
             ->whereHas('integreat_party')
             ->whereDate('datetime_from', '>=', $fromDate)
@@ -139,7 +139,7 @@ class Event extends Model
 
     public static function findAllLanguagesFromDate($fromDate)
     {
-        return Event::with('modifiedBy.user')
+        return Event::with('modifiedBy')
             ->where('event_type', 'languages')
             ->whereHas('Languages_event')
             ->whereDate('datetime_from', '>=', $fromDate)

@@ -4,7 +4,7 @@
     <div class="row-grey">
         <div class="container">
             <div class="row row-inner">
-                @if(session('successUpdate'))
+                @if( session('successUpdate'))
                     <div class="success">
                         <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span>{{ session('successUpdate') }}<br>
                     </div>
@@ -81,8 +81,8 @@
             @can('addParticipant', $trip)
                 @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
                 @include('partak.users.officeRegistration.search',[
-                'label' => 'Add Exchange student',
-                'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}'),
+                    'label' => 'Add Exchange student',
+                    'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}'),
                 ])
                 @endif
                 @if($trip->type === 'buddy' || $trip->type === 'ex+buddy')
@@ -145,6 +145,9 @@
                                                         ($participant->whoAmI('exchangeStudent') && Auth::user()->can('acl', 'exchangeStudents.view')))
                                                     <a href="{{ $participant->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                                 @endif
+                                                @can('viewPayment', $trip)
+                                                    <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-xs">Payment</a>
+                                                @endcan
                                                 @can('removeParticipant', $trip)
                                                     <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
                                                                      protection-text="Remove {{ $participant->person->first_name }} {{ $participant->person->last_name }} from event {{ $trip->name }}?"

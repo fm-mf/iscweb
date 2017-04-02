@@ -14,23 +14,23 @@ class Trip extends Model
     const TRIP_FULL = 3;
     const PARTICIPANT_ALREADY_IN = 4;
 
-    public $timestamps = true;
+    public $timestamps = false;
     protected $primaryKey = 'id_trip';
     //public $incrementing = false;
 
-    protected $dates = ['registration_from', 'trip_date_to', 'registration_to', 'updated_at', 'created_at'];
+    protected $dates = ['registration_from', 'trip_date_to', 'registration_to'];
 
-    protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'updated_at', 'created_at', 'capacity', 'price', 'modifid_by', 'type'];
+    protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'capacity', 'price', 'type'];
 
-    public function createdBy()
+    /*public function createdBy()
     {
         return $this->hasOne('\App\Models\Person', 'id_user', 'created_by');
-    }
+    }*/
 
-    public function modifiedBy()
+    /*public function modifiedBy()
     {
         return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
-    }
+    }*/
 
     public function organizers()
     {
@@ -39,12 +39,14 @@ class Trip extends Model
 
     public function participants()
     {
-        return $this->belongsToMany('\App\Models\ExchangeStudent', 'trips_participants', 'id_trip', 'id_user')->withTimestamps();
+        return $this->belongsToMany('\App\Models\ExchangeStudent', 'trips_participants', 'id_trip', 'id_user')
+            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id');
     }
 
     public function buddyParticipants()
     {
-        return $this->belongsToMany('\App\Models\Buddy', 'trips_participants', 'id_trip', 'id_user')->withTimestamps();
+        return $this->belongsToMany('\App\Models\Buddy', 'trips_participants', 'id_trip', 'id_user')
+            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id');
     }
 
     public function event()
@@ -201,8 +203,8 @@ class Trip extends Model
             $trip->trip_date_to = $data['trip_date_to'];
             (array_key_exists('capacity', $data)) ? $trip->capacity = $data['capacity'] : 0;
             (array_key_exists('price', $data)) ? $trip->price = $data['price'] : 0;
-            $trip->modified_by = $id_user;
-            $trip->created_by = $id_user;
+//            $trip->modified_by = $id_user;
+            //$trip->created_by = $id_user;
             $trip->save();
 
             foreach($organizers as $organizer) {
@@ -227,7 +229,7 @@ class Trip extends Model
 
     public static function findAllUpcoming()
     {
-        return Trip::with('modifiedBy.user','event')
+        return Trip::with('event')
             ->whereHas('event', function ($query) {
                 $query->whereDate('datetime_from', '>=', Carbon::today());
             })->get();
@@ -244,7 +246,7 @@ class Trip extends Model
 
     public static function findAll()
     {
-        return Event::with('modifid_by.user');
+        return Event::get();
     }
 
     public static function getAllTypes()

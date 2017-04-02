@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title"><b><a href="javascript:history.go(-1)">Go Back</a>. You are not allowed to be here !!!</b></div>
+                <div class="title"><b>You are not allowed to be here !!! <a href="javascript:history.go(-1)">Go Back</a>.</b></div>
             </div>
         </div>
     </body>

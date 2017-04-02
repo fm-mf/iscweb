@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class Person extends Model
 {
@@ -62,17 +63,13 @@ class Person extends Model
 
     public function getSex()
     {
-        if($this->sex == "M")
-        {
-            return 'Male';
-        }
-        elseif($this->sex == "F")
-        {
-            return 'Female';
-        }
-        else
-        {
-            return 'Hermafrodit';
+        switch ($this->sex){
+            case 'M':
+                return 'Male';
+            case 'F':
+                return 'Female';
+            default:
+                return 'Hermafrodit';
         }
     }
 
@@ -105,8 +102,17 @@ class Person extends Model
                 return 'Vn';
             case 'Fish only':
                 return 'F';
+            default:
+                return '-';
         }
 
+    }
+
+    public function getFullName($lastNameFirst = false)
+    {
+        if($lastNameFirst)
+            return $this->last_name . ' ' . $this->first_name;
+        return $this->first_name . ' ' . $this->last_name;
     }
 
 }

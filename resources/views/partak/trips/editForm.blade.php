@@ -17,18 +17,40 @@
         reader.readAsDataURL(files[0]);
     }
 </script>
-@can('acl', 'details.view')
-    <div class="form-group row">
-        <div class="col-sm-6 left">
-            {{ Form::bsText('modifiedby', 'Modified By', '', $event->modifiedby->first_name . ' ' . $event->modifiedby->last_name, ['readonly' => '', 'required' => '']) }}
+@if(! isset($create) || $create == false)
+    @can('acl', 'details.view')
+        <div class="form-group row">
+            <div class="col-sm-5 left">
+                {{ Form::bsText('createdby', 'Created By', '', $event->createdby->person ? $event->createdby->person->getFullName() : '', ['readonly' => '', 'required' => '']) }}
+            </div>
+            <div class="col-sm-5 left">
+                {{ Form::bsText('createdat', 'Created at', '', $event->created_at, ['readonly' => '']) }}
+            </div>
+            <div class="col-sm-2 left">
+                <div>
+                    <label></label>
+                </div>
+                <a href="{{ $event->createdby->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+            </div>
         </div>
-        <div class="col-sm-6 left">
-            {{ Form::bsText('updated_at', 'Last Modify at', '', $event->update_at, ['readonly' => '']) }}
+        <div class="form-group row">
+            <div class="col-sm-5 left">
+                {{ Form::bsText('modifiedby', 'Modified By', '', $event->modifiedby->person->getFullName(), ['readonly' => '', 'required' => '']) }}
+            </div>
+            <div class="col-sm-5 left">
+                {{ Form::bsText('updatedat', 'Last Modify at', '', $event->updated_at, ['readonly' => '']) }}
+            </div>
+            <div class="col-sm-2 left">
+                <div>
+                    <label></label>
+                </div>
+                <a href="{{ $event->modifiedby->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+            </div>
         </div>
-    </div>
-@endcan
+    @endcan
+@endif
 
-{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/pngm image/jpg', 'onchange' => 'cover_change(this.files)']) }}
+{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png image/jpg', 'onchange' => 'cover_change(this.files)']) }}
 <img id="cover_preview" width="100%" src="{{$event->cover()}}" href="{{$event->cover()}}" style="display: {{$event->hasCover() ? 'block' : 'none'}};"/>
 @if(! $trips)
     @if($event->event_type == 'integreat')
@@ -127,7 +149,7 @@
                 "insertdatetime table contextmenu directionality",
                 "paste textpattern"
             ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+            toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
         };
 
         tinymce.init(editor_config);

@@ -191,6 +191,7 @@ class TripController extends Controller
                     $data[$key] = $value;
                 }
             }
+            $data['modified_by'] = Auth::id();
             if ($request->hasFile('cover')) {
                 $file = $request->file('cover');
                 $image_name = $trip->event->id_event . '.' . $file->extension();
@@ -213,7 +214,7 @@ class TripController extends Controller
 
         $buddies = [];
         foreach(Buddy::with('person')->partak()->get() as $buddy) {
-            $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->first_name . ' ' . $buddy->person->last_name];
+            $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->getFullName()];
         }
 
 
@@ -232,6 +233,7 @@ class TripController extends Controller
             'trip' => $trip,
             'event' => $event,
             'types' => Trip::getAllTypes(),
+            'create' => true,
         ]);
     }
 
@@ -276,6 +278,22 @@ class TripController extends Controller
             'price' => 'required|integer|min:0|max:65535',
             'capacity' => 'required|integer|min:0||max:65535',
             'cover' => 'max:307400|mimes:jpg,jpeg,png',
+        ]);
+    }
+
+    public function showPaymentDetail($id_event, $id_payment)
+    {
+        $trip = Trip::with('event')->find($id_event);
+        $this->authorize('viewPayment', $trip);
+        $part = $trip->participants()->where('id', $id_payment)->first();
+        if($part == null){
+            $part = $trip->buddyParticipants()->where('id', $id_payment)->first();
+        }
+        $registerby = Buddy::with('person')->find($part->pivot->registered_by);
+        return view('partak.trips.paymentDetail')->with([
+            'trip' => $trip,
+            'part' => $part,
+            'registerby' => $registerby,
         ]);
     }
 
