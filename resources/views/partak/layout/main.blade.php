@@ -51,6 +51,11 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.row -->
     </div><!-- /.container -->
+    @if(session('notAuthorize'))
+        <div class="alert-danger">
+            <span class="glyphicon glyphicon-alert" style="padding-right:5px;"></span>{{ session('notAuthorize') }}<br>
+        </div>
+    @endif
 </nav>
 @yield('page')
 

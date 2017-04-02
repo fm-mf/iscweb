@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -44,6 +45,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof AuthorizationException)
+        {
+            if($request->is('partak') || $request->is('partak/*'))
+                return back()->with(['notAuthorize' => 'You are not authorize for this Action']);
+            else
+                return response()->view('errors.unauthorized');
+        }
         return parent::render($request, $exception);
     }
 
@@ -62,4 +70,10 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest('user');
     }
+
+    protected function unauthorized($request, AuthorizationException $exception)
+    {
+        return response()->view('errors.unauthorized');
+    }
+
 }
