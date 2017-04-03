@@ -295,7 +295,7 @@
                 </li>
                 <li id="q4"><a data-toggle="collapse" data-parent="q4" href="#collapseQ4">Jak bude probíhat orientation week?</a>
                     <p id="collapseQ4" class="panel-collapse collapse">Podrobný program orientation week najdou zahraňáci na našem webu v sekci
-                        <a href="https://www.isc.cvut.cz/guide/sg.php?page=orientation-week"><button type="button" class="btn btn-primary btn-xs">Survival Guide</button></a><br>
+                        <a href="{{ url('guide/orientation-week') }}"><button type="button" class="btn btn-primary btn-xs">Survival Guide</button></a><br>
                         Registrace na fakultách budou organizované ISC, nemusíš tedy zahraňáka doprovázet, jen se ujisti, že už má svůj Welcome pack.</p>
                 </li>
                 <li id="q5"><a data-toggle="collapse" data-parent="q5" href="#collapseQ5">Co je to Welcome pack?</a>

@@ -153,8 +153,6 @@ class BuddiesController extends Controller
     {
         $this->authorize('acl', 'buddy.verify');
         $buddy = Buddy::find($user_id);
-        if($buddy == null)
-            throw new UserDoesntExist("Buddy does not exist !!!");
         if ($buddy) {
             $buddy->setVerified();
             return back()->with(['success' => 'Buddy has been approved']);
@@ -167,8 +165,6 @@ class BuddiesController extends Controller
     {
         $this->authorize('acl', 'buddy.verify');
         $buddy = Buddy::find($user_id);
-        if($buddy == null)
-            throw new UserDoesntExist("Buddy does not exist !!!");
         if ($buddy) {
             $buddy->setDenied();
             return back()->with(['success' => 'Buddy has been denied']);
