@@ -29,11 +29,10 @@
 
 
                     <br><br>
-                    <!--
 
-                                    <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">Have a look at the <b>Fall 2016 schedule</b></a>
-                                </p> -->
-                <h2>Languages courses are over for this semester</h2>
+                                    <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">Have a look at the <b>Spring 2017 schedule</b></a>
+                                </p>
+                <!-- <h2>Languages courses are over for this semester</h2> -->
                 <br><br>
                 <p>
                     <b>Where are the classrooms?</b><br>

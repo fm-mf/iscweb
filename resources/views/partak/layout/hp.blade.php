@@ -2,7 +2,7 @@
 @section('page')
 <div class="dashboard-header">
 <div class="dashboard-header-wrapper">
-    <h1 class="title">Believe in ISC Spirit. Pass it on.</h1>
+   <!-- <h1 class="title">Believe in ISC Spirit. Pass it on.</h1> -->
 
     <span class="show-menu"></span>
 </div>

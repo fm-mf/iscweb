@@ -125,14 +125,16 @@ h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
 
 .dashboard-header-wrapper {
   width: 100%;
-  min-height: 550px;
+  //height: 100%;
+  min-height: 450px;
   overflow: hidden;
   border-bottom: 1px solid rgba(255,255,255, 0.3);
-  background-image:url($imgPath + "devilAndAngel.jpg");
+  background-image:url($imgPath + "cover_misa.png");
+  //background-image:url($imgPath + "devilAndAngel.jpg");
   //background-image:url($imgPath + "burgers.jpg");
   /*background-image:url($imgPath + "us.jpg");*/
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   color: #fff;
 }
