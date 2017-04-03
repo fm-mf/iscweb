@@ -30,7 +30,7 @@ class TripController extends Controller
     {
         $this->authorize('acl', 'trips.view');
         $visibleTrips = Trip::findAllUpcoming()->sortby('event.datetime_from');
-        $oldTrips = Trip::findMaxYearOld();
+        $oldTrips = Trip::findMaxYearOld()->sortByDesc('event.datetime_from');
         return view('partak.trips.dashboard')->with([
             'visibleTrips' => $visibleTrips,
             'oldTrips' => $oldTrips,
