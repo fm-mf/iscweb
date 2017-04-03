@@ -48,9 +48,14 @@ class Handler extends ExceptionHandler
         if ($exception instanceof AuthorizationException)
         {
             if($request->is('partak') || $request->is('partak/*'))
-                return back()->with(['notAuthorize' => 'You are not authorize for this Action']);
+                return back()->with(['AlertMessage' => 'You are not authorize for this Action']);
             else
                 return response()->view('errors.unauthorized');
+        }
+        if($exception instanceof UserDoesntExist)
+        {
+            if($request->is('partak') || $request->is('partak/*'))
+                return back()->with(['AlertMessage' => $exception->getMessage()]);
         }
         return parent::render($request, $exception);
     }

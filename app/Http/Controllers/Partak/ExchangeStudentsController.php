@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Partak;
 
+use App\Exceptions\UserDoesntExist;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use App\Models\Accommodation;
@@ -42,14 +43,19 @@ class ExchangeStudentsController extends Controller
     {
         $this->authorize('acl', 'exchangeStudents.view');
         $exStudent = ExchangeStudent::with(['person.user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
+        if($exStudent == null)
+            throw new UserDoesntExist("Exchange Student does not exist !!!");
         return view('partak.users.exchangeSudents.detail')->with(['exStudent' => $exStudent,]);
     }
 
     public function showEditFormExchangeStudent($id)
     {
         $this->authorize('acl', 'exchangeStudents.edit');
+        $exStudent = ExchangeStudent::with('person.user')->find($id);
+        if($exStudent == null)
+            throw new UserDoesntExist();
         return view('partak.users.exchangeSudents.edit')->with([
-            'exStudent' => ExchangeStudent::with('person.user')->find($id),
+            'exStudent' => $exStudent,
             'faculties' => Faculty::getOptions(),
             'accommodations' => Accommodation::getOptions(),
             'diets' => Person::getAllDiets(),

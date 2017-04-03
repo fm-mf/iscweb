@@ -51,9 +51,9 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.row -->
     </div><!-- /.container -->
-    @if(session('notAuthorize'))
+    @if(session('AlertMessage'))
         <div class="alert-danger">
-            <span class="glyphicon glyphicon-alert" style="padding-right:5px;"></span>{{ session('notAuthorize') }}<br>
+            <span class="glyphicon glyphicon-alert" style="padding-right:5px;"></span>{{ session('AlertMessage') }}<br>
         </div>
     @endif
 </nav>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Partak;
 
+use App\Exceptions\UserDoesntExist;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use App\Models\Role;
@@ -79,6 +80,8 @@ class BuddiesController extends Controller
     {
         $this->authorize('acl', 'buddy.view');
         $buddy = Buddy::findBuddy($id);
+        if($buddy == null)
+            throw new UserDoesntExist("Buddy does not exist !!!");
         $semester = Settings::get('currentSemester');
         $myStudents = $buddy->exchangeStudents()->bySemester($semester)->with('person.user')->get();
 
@@ -102,6 +105,8 @@ class BuddiesController extends Controller
     {
         $this->authorize('acl', 'buddy.edit');
         $buddy = Buddy::with('person.user')->find($id);
+        if($buddy == null)
+            throw new UserDoesntExist("Buddy does not exist !!!");
 
         JavaScript::put([
             'jsoptions' => ['roles' => Role::all(), 'sroles' => $buddy->user()->roles]
@@ -148,6 +153,8 @@ class BuddiesController extends Controller
     {
         $this->authorize('acl', 'buddy.verify');
         $buddy = Buddy::find($user_id);
+        if($buddy == null)
+            throw new UserDoesntExist("Buddy does not exist !!!");
         if ($buddy) {
             $buddy->setVerified();
             return back()->with(['success' => 'Buddy has been approved']);
@@ -160,6 +167,8 @@ class BuddiesController extends Controller
     {
         $this->authorize('acl', 'buddy.verify');
         $buddy = Buddy::find($user_id);
+        if($buddy == null)
+            throw new UserDoesntExist("Buddy does not exist !!!");
         if ($buddy) {
             $buddy->setDenied();
             return back()->with(['success' => 'Buddy has been denied']);
