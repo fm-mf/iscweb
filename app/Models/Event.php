@@ -114,7 +114,7 @@ class Event extends Model
     {
         return Event::with('modifiedBy')
             ->whereDate('datetime_from', '>=', Carbon::today())
-            ->whereDate('visible_from','<=', Carbon::today())
+            ->where('visible_from','<=', Carbon::now())
             ->orderBy('datetime_from','asc')
             ->get();
     }
