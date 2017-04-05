@@ -62,6 +62,7 @@ return [
                 'trips' => ['edit', 'add'],
                 'buddy' => ['view', 'edit', 'remove'],
                 'roles' => ['view', 'partak'],
+                'events' => ['edit', 'add', 'view'],
             ],
             'inheritsFrom' => ['point']
         ],
@@ -88,7 +89,7 @@ return [
             'id' => 7,
             'resources' => [
                 'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team'],
-                'events' => ['edit', 'add', 'view'],
+
                 'settings' => ['edit'],
                 'details' => ['view'],
                 'trips' => ['view_payment'],
