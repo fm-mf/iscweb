@@ -71,14 +71,7 @@
         <h3>English speaking medical care</h3>
     </div>
     <div class="row">
-        <div class="col-lg-12"><p>At  the  Student  Health  Centre  on  the  Dejvice
-                campus, there is an English speaking general doctor:
-            <address>
-                MUDr. Sophie Gemperlová,<br>
-                ul. Bílá 6,<br>
-                Praha 6, tel.: 234606155
-            </address>
-            </p>
+        <div class="col-lg-12">
             <p>
             <address>
                 Městská poliklinika Praha,<br>
