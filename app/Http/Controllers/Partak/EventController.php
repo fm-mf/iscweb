@@ -29,7 +29,7 @@ class EventController extends Controller
         $visibleEvents = Event::findAllNormalActive()->sortby('datetime_from');
         $integreatEvents = Event::findAllInteGreatInFromDate($fromDate);
         $languagesEvents = Event::findAllLanguagesFromDate($fromDate);
-        $oldEvents = Event::findMaxYearOld()->sortby('datetime_from');
+        $oldEvents = Event::findMaxYearOld()->sortByDesc('datetime_from');
         return view('partak.events.dashboard')->with([
             'activeEvents' => $visibleEvents,
             'oldEvents' => $oldEvents,

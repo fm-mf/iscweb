@@ -16,7 +16,8 @@ class Event extends Model
 
     protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
 
-    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at', 'visible_from', 'cover', 'created_by', 'modified_by', 'event_type'];
+    protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at',
+        'visible_from', 'cover', 'created_by', 'modified_by', 'event_type'];
 
     public function createdBy()
     {
@@ -54,7 +55,11 @@ class Event extends Model
         return Trip::where('id_event', $this->id_event)->exists();
     }
 
-
+    /**
+     * @param array $attributes
+     * @param array $options
+     * @return bool
+     */
     public function update(array $attributes = [], array $options = [])
     {
 
@@ -63,14 +68,21 @@ class Event extends Model
         return parent::update(self::updateDatetimes($attributes), $options);
     }
 
+    /**
+     * @return bool
+     */
     public function hasCover()
     {
         return $this->cover ? true : false;
     }
 
+    /**
+     * Returns path to event's cover
+     * @return string
+     */
     public function cover()
     {
-        //TODO: vratit spravny cover
+        //todo: path to default cover
         return isset($this->cover) ? '/events/covers/' . $this->cover : '';
     }
 
@@ -84,6 +96,9 @@ class Event extends Model
         return $time;
     }
 
+    /**
+     * @return string
+     */
     public function getTimeFormatted()
     {
         $time = $this->datetime_from->format('g'); //get hour of the start
@@ -98,11 +113,17 @@ class Event extends Model
         return $time;
     }
 
+    /**
+     * @return string
+     */
     public function nameWithoutSpaces()
     {
         return str_replace(' ', '_', $this->name);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
+     */
     public static function findMaxYearOld()
     {
         return Event::whereDate('datetime_from', '<', Carbon::today())
@@ -206,6 +227,4 @@ class Event extends Model
             ->orderBy('datetime_from','asc')
             ->get();
     }
-
-
 }
