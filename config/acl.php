@@ -37,7 +37,7 @@ return [
         'point' => [
             'id' => 11,
             'resources' => [
-                'trips' => ['view'],
+                'trips' => ['view', 'view_payment'],
                 'participant' => ['add', 'remove'],
                 'users' => ['view'],
                 'exchangeStudents' => ['register', 'add', 'view', 'edit'],
@@ -92,7 +92,6 @@ return [
 
                 'settings' => ['edit'],
                 'details' => ['view'],
-                'trips' => ['view_payment'],
             ],
             'inheritsFrom' => ['hr']
         ],
