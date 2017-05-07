@@ -47,7 +47,7 @@ class SendVotingMail extends Command
     {
         $semester = Settings::get('currentSemester');
         $exchangeStudents = ExchangeStudent::with('person.user')
-            ->bySemester($semester)->limit(5)->get();
+            ->bySemester($semester)->get();
         $emailsSentToExchangeStudents = 0;
 
         $this->info("=== Sending emails to exchange students");
@@ -59,7 +59,7 @@ class SendVotingMail extends Command
         $this->info($emailsSentToExchangeStudents . " emails sent to exchange students");
 
         $emailsSentToPartaks = 0;
-        $partaks = Buddy::partak()->limit(5)->get();
+        $partaks = Buddy::partak()->get();
         $this->info("=== Sending emails to partaks");
         foreach ($partaks as $partak) {
             $this->info("Sending email to " . $partak->person->user->email);
