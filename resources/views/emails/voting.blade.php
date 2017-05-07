@@ -17,7 +17,7 @@
         You should be ON TIME for the boarding. It is separated into three different times 7:00 PM, 7:30 PM and 8:00 PM. You should come dressed up.</p>
     <p>The boarding location is below ( <a href="https://goo.gl/maps/fWt5KmXz55q">Google maps</a> ):</p>
 
-    <img src="img/web/boat_map_2017.png" alt="Map" width="450"/>
+    <img src="{{ asset('img/web/boat_map_2017.png') }}" alt="Map" width="450"/>
     <p>
         Don't hesitate anymore, find your Buddy, your friends, and your costume. Come to the ISC Point to buy the tickets. Be on time on Thursday 11. 5. 2017 and see you on the boat!</p>
     <p>
