@@ -32,11 +32,7 @@ class VotingController extends Controller
         $countriesList = [];
         $countries = Country::whereIn('two_letters', $this->activeCountries)->where('id_country', '<>', $country->id_country)->get(); 
         foreach ($countries as $country) {
-            if ($country->two_letters == "GB") {
-                $countriesList[$country->id_country] = $country->full_name . ' (Scotland)';
-            } else {
-                $countriesList[$country->id_country] = $country->full_name;
-            }
+            $countriesList[$country->id_country] = $country->full_name;
         }
 
         $currentSemesterId = \App\Models\Semester::where('semester', Settings::get('currentSemester'))->first()->id_semester;
