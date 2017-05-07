@@ -15,7 +15,7 @@
     <p>You can vote for every country except your own until Wednesday midnight. </p>
     <p>
         You should be ON TIME for the boarding. It is separated into three different times 7:00 PM, 7:30 PM and 8:00 PM. You should come dressed up.</p>
-    <p>The boarding location is below:</p>
+    <p>The boarding location is below ( <a href="https://goo.gl/maps/fWt5KmXz55q">Google maps</a> ):</p>
 
     <img src="img/web/boat_map_2017.png" alt="Map" width="450"/>
     <p>
