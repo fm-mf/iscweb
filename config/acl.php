@@ -67,6 +67,14 @@ return [
             'inheritsFrom' => ['point']
         ],
 
+        'integreatCoordinator' => [
+            'id' => 8, //TODO: update
+            'resources' => [
+                'votingResults' => ['view'],
+            ],
+            'inheritsFrom' => ['team']
+        ],
+        
         'board' => [
             'id' => 5,
             'resources' => [
@@ -101,6 +109,7 @@ return [
             'resources' => [
                 'trips' => ['remove'],
                 'roles' => ['view', 'all'],
+                'votingResults' => ['view'],
             ],
             'inheritsFrom' => ['admin']
         ],
