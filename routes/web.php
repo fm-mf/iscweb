@@ -55,6 +55,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/voting/results', 'VotingController@showResults');
     Route::get('/voting/thank-you', 'VotingController@showThankYou');
     Route::get('/voting/{hash}', 'VotingController@showVotingForm');
+    Route::get('/voting-test', 'VotingController@showTestEmail');
 });
 
 // Survival Guide

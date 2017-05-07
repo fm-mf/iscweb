@@ -96,6 +96,11 @@ class VotingController extends Controller
         return view('web.voting.thankyou');
     }
 
+    public function showTestEmail()
+    {
+        return view('emails.voting')->with(['hash' => '0f217c3a7bb9602781b9f2edd5e53a36']);
+    }
+
     private function collapseVotes($countries) {
         $result = [];
         $min = 88888888;
@@ -111,4 +116,5 @@ class VotingController extends Controller
         }
         return $result;
     }
+
 }

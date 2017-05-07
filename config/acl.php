@@ -97,9 +97,9 @@ return [
             'id' => 7,
             'resources' => [
                 'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team'],
-
                 'settings' => ['edit'],
                 'details' => ['view'],
+                'votingResults' => ['view'],
             ],
             'inheritsFrom' => ['hr']
         ],
@@ -109,7 +109,6 @@ return [
             'resources' => [
                 'trips' => ['remove'],
                 'roles' => ['view', 'all'],
-                'votingResults' => ['view'],
             ],
             'inheritsFrom' => ['admin']
         ],
