@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\SendRegistrationMailToExchangeStudents;
 use App\Console\Commands\SendRegistrationReminder;
+use App\Console\Commands\SendVotingMail_PartakFix;
 use App\Console\Commands\VerificationFix;
 use App\Console\Commands\SendVotingMail;
 use Illuminate\Console\Scheduling\Schedule;
@@ -21,6 +22,7 @@ class Kernel extends ConsoleKernel
         SendRegistrationReminder::class,
         VerificationFix::class,
         SendVotingMail::class,
+        SendVotingMail_PartakFix::class,
     ];
 
     /**
