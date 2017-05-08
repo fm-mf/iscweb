@@ -68,7 +68,7 @@ return [
         ],
 
         'integreatCoordinator' => [
-            'id' => 8, //TODO: update
+            'id' => 13, //TODO: update
             'resources' => [
                 'votingResults' => ['view'],
             ],
@@ -96,7 +96,7 @@ return [
         'admin' => [
             'id' => 7,
             'resources' => [
-                'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team'],
+                'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team', 'integreatCoordinator'],
                 'settings' => ['edit'],
                 'details' => ['view'],
                 'votingResults' => ['view'],

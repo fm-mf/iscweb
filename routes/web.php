@@ -52,7 +52,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); });
 
     Route::post('/voting/process', 'VotingController@processVoting');
-    Route::get('/voting/results', 'VotingController@showResults');
+    Route::get('/voting/results', 'VotingController@showResults')->middleware(['checkpartak', 'auth']);
     Route::get('/voting/thank-you', 'VotingController@showThankYou');
     Route::get('/voting/{hash}', 'VotingController@showVotingForm');
     Route::get('/voting-test', 'VotingController@showTestEmail');
