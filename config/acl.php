@@ -68,7 +68,7 @@ return [
         ],
 
         'integreatCoordinator' => [
-            'id' => 13, //TODO: update
+            'id' => 13,
             'resources' => [
                 'votingResults' => ['view'],
             ],
