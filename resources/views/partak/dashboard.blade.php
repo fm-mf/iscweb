@@ -28,8 +28,7 @@
                 <ul class="list-unstyled list-colored">
 
                     <li>
-                        <p><h3><strong>Třetí číslo Průvodce světem ISC</strong></h3></p>
-                        <p>Podívejte se, co se událo v ISC během posledních dvou týdnů: <a href="https://drive.google.com/file/d/0B6FVYAfC-ldzQW8wamRpOFpaSGZ5WnJIMG85bXd6MmxkSzZF/view?usp=sharing">Průvodce světem ISC</a></p>
+                        <p>Podívejte se, co se událo v ISC: <a href="https://blog.isc.cvut.cz">ISC blog</a></p>
                     </li>
 
                     <li>
