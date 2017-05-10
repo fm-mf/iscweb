@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -17,6 +18,9 @@ class VotingController extends Controller
 
     public function showVotingForm($hash)
     {
+        $endDate = Carbon::createFromFormat('Y-m-d H:i:s', Settings::get('votingEnd'));
+        if($endDate <= Carbon::now())
+            return view('web.voting.end');
         $user = User::findByHash($hash);
 
         if (!$user) {

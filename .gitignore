@@ -5,7 +5,6 @@
 /public/js/partak.js
 /public/js/echangestudentslist.js
 /public/languages
-/public/css/*
 /vendor
 /.idea
 Homestead.json
@@ -17,4 +16,4 @@ _ide_helper.php
 vendor/
 _ide_helper_models.php
 .phpstorm.meta.php
-public/css/
+/public/css/
