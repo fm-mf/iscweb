@@ -90,14 +90,14 @@ class TripController extends Controller
             $excel->sheet('Participants', function ($sheet) use($particip, $trip) {
 
                 $sheet->mergeCells('A1:I1');
-                $sheet->setColumnFormat(array(
+                $sheet->setColumnFormat(array( //columns A and H (order number and phone number) format is set to number
                     'A' => '0',
                     'H' => '0',
                 ));
                 $sheet->setHeight(array(
                     1 => 20,
                 ));
-                $sheet->setFreeze('A4');
+                $sheet->setFreeze('A4'); //Freez row with column description
                 $sheet->loadView('partak.trips.excel', [ 'particip' => $particip, 'trip' => $trip]);//->with([ 'particip' => $particip, 'trip' => $trip]);
             });
         });

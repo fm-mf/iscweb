@@ -29,8 +29,8 @@
             <?php $i = 1; ?>
                 @foreach($particip as $participant)
                     <tr>
-                        <td>{{ $i }}</td>
-                        <td>{{ $participant->person->last_name .' '. $participant->person->first_name}}</td>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $participant->person->getFullName(true)}}</td>
                         <td>{{ $participant->whoAmI('exchangeStudent')?  $participant->country->full_name : 'BUDDY'}}</td>
                         <td>{{ $participant->person->diet ? $participant->person->diet  : '-' }}</td>
                         <td>{{ $participant->person->medical_issues }}</td>
@@ -43,7 +43,6 @@
                         <td>{{ $participant->pivot->paid }}</td>
                         <td>{{ \App\Models\Person::find($participant->pivot->registered_by)->getFullName() }}</td>
                     </tr>
-                    <?php $i++; ?>
                 @endforeach
             </tbody>
         </table>
