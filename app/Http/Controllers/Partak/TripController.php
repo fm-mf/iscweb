@@ -89,7 +89,15 @@ class TripController extends Controller
 
             $excel->sheet('Participants', function ($sheet) use($particip, $trip) {
 
-
+                $sheet->mergeCells('A1:I1');
+                $sheet->setColumnFormat(array(
+                    'A' => '0',
+                    'H' => '0',
+                ));
+                $sheet->setHeight(array(
+                    1 => 20,
+                ));
+                $sheet->setFreeze('A4');
                 $sheet->loadView('partak.trips.excel', [ 'particip' => $particip, 'trip' => $trip]);//->with([ 'particip' => $particip, 'trip' => $trip]);
             });
         });
