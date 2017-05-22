@@ -54,7 +54,7 @@
                 <h2>ISC Care</h2>
                 <p>ISC je <strong>týmem dobrovolníků</strong>, kteří nemyslí jen na sebe, kterým záleží na vzdělání sebe i druhých a kteří se chtějí podílet na utváření budoucnosti ČVUT, České Republiky, Evropy a celého světa. V tomto máme obrovský potenciál a proto jsme oživili projekt ISC Care zaměřený na <strong>filantropii</strong>.</p>
 
-                <p>Pod ISC Care spadá také <a href="http://socialerasmus.esn.org">SocialErasmus</a> &#8211; mezinárodní projekt, který umožňuje zahraničním studentům se aktivně zapojit do místní komunity skrze dobrovolnické aktivity, díky kterým obohatí nejen ji, ale i sebe touto neocenitelnou zkušeností.</p>
+                <p>Pod ISC Care spadá také <a href="http://socialerasmus.esn.org" target="_blank">SocialErasmus</a> &#8211; mezinárodní projekt, který umožňuje zahraničním studentům se aktivně zapojit do místní komunity skrze dobrovolnické aktivity, díky kterým obohatí nejen ji, ale i sebe touto neocenitelnou zkušeností.</p>
 
 
                 <p>ISC <strong>cares</strong> about others, their education, their cultural awareness and cares about the future. <strong>So let's CARE</strong>, because that's how we can all together conquer the world.</p>
@@ -116,10 +116,10 @@
                         <a href="https://drive.google.com/folderview?id=0B2sebxB3kcgYfnNyd3J2U28xMWtXdHVDQVFhZGJyZGQyU1hWcmttNS1FWnNSZzJOUm5HZGc&usp=drive_web">Podklady a materiály ESN</a>
                         <p>Aktuální loga, šablony ESN</p>
                     </li>
-                    <li>
+                    {{--<li>
                         <a href="https://drive.google.com/drive/folders/0B6FVYAfC-ldzOU9vUC1ZS050cTA?usp=sharing">ISC tiskoviny</a>
                         <p>Zde nejdete všechna čísla ISC zpravodaje a Diary of ISC (DISC)</p>
-                    </li>
+                    </li>--}}
                     <li>
                         <a href="http://www.isc.cvut.cz/files/iscCtuSpiritBook.pdf" alt="Download PDF version of ISC Spirit Book">ISC Spirit Book [PDF]</a>
                         <p>Elektronická verze ISC Spirit Book</p>
