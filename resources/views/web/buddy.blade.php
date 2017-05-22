@@ -112,7 +112,7 @@
 </div>
 
 <!-- ============================= Kalendář ====================================== -->
-
+<!--
 <h2 id="info">Kalendář mezinárodních událostí</h2>
 
 <div class="container events">
@@ -131,7 +131,7 @@
         </div>
     </div>
 </div>
-
+-->
 <!-- h2 id="info">Jak se stát Buddym</h2 -->
 
 <!-- <div class="container events">
