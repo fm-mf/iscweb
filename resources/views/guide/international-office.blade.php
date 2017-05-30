@@ -73,7 +73,7 @@
         <h3>Contacts</h3>
     </div>
     <div class="row">
-        <div class="col-lg-12"><a href="https://goo.gl/maps/219SyEhjjMM2">Adress: Jugoslávských partyzánů 3,<br>
+        <div class="col-lg-12">Adress: <a href="https://goo.gl/maps/219SyEhjjMM2" target="_blank">Jugoslávských partyzánů 3,<br>
             160 00, Prague 6<p></p></a>
         </div>
     </div>
