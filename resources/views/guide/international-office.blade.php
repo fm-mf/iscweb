@@ -73,9 +73,8 @@
         <h3>Contacts</h3>
     </div>
     <div class="row">
-        <div class="col-lg-12">Adress: office: B1-251,<br>
-            Zikova 4,<br>
-            166 36, Prague 6<p></p>
+        <div class="col-lg-12"><a href="https://goo.gl/maps/219SyEhjjMM2">Adress: Jugoslávských partyzánů 3,<br>
+            160 00, Prague 6<p></p></a>
         </div>
     </div>
     <ul class="row list-unstyled">
@@ -84,7 +83,8 @@
             <strong>Head of International Office</strong><br>
             <strong>Phone</strong>: 224 353 465, <strong>Fax</strong>: 223 311 042 <br>
             <strong>Email</strong>:
-            <a href="mailto:volfgang.melecky@rek.cvut.cz">volfgang.melecky@rek.cvut.cz</a>
+            <a href="mailto:volfgang.melecky@rek.cvut.cz">volfgang.melecky@rek.cvut.cz</a><br>
+            <strong>Room</strong>: A-811
 
         </li>
         <li class="col-xs-12 col-sm-6">
@@ -94,15 +94,17 @@
             <strong>Email</strong>:
             <a href="mailto:bilova@vc.cvut.cz">bilova@vc.cvut.cz</a>
             <br>
+            <strong>Room</strong>: A-802a<br>
             <strong>Office hours</strong>: Mon-Thu: 7:30-11:00, 13:00-15:30<br>
             <ul><ul><ul>Fri: 7:30-11:00, 13:00-15:00<br></ul></ul></ul>
         </li>
         <li class="col-xs-12 col-sm-6">
-            <h4>Ms. Kateřina Bosková</h4>
+            <h4>Ms. Kateřina Bošková</h4>
             <strong>Czech Culture Course</strong><br>
             <b>Phone</b>: 224 353 466, <b>Fax</b>: 223 311 042<br>
             <b>Email</b>:
-            <a href="mailto:Katerina.boskova@cvut.cz">Katerina.boskova@cvut.cz</a>
+            <a href="mailto:katerina.boskova@cvut.cz">Katerina.boskova@cvut.cz</a><br>
+            <strong>Room</strong>: A-801a
 
         </li>
     </ul>
