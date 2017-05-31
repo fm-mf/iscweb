@@ -160,13 +160,23 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
-                    <li class="col-md-4 col-sm-6">
+                    {{--<li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Interel_Michael.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Michael Hartman</h4><br>
                             <strong>International Relations</strong><br>
                             Email: <a href="mailto:interel@isc.cvut.cz">interel@isc.cvut.cz</a><br>
                             Phone: (+420) 721 155 881<br>
+                        </div>
+                        <span class="clearfix"></span>
+                    </li>--}}
+                    <li class="col-md-4 col-sm-6">
+                        <img src="{{ asset('img/web/contacts/2017spring/Interel_Pepa.jpg') }}"class="img-circle">
+                        <div class="contact-details">
+                            <h4>Josef Klesa</h4><br>
+                            <strong>International Relations</strong><br>
+                            Email: <a href="mailto:interel@isc.cvut.cz">interel@isc.cvut.cz</a><br>
+                            Phone: (+420) 728 481 627<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>

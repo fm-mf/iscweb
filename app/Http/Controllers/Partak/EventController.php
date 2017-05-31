@@ -44,7 +44,7 @@ class EventController extends Controller
         $event = Event::with('Integreat_party', 'Languages_event')->find($id_event);
         return view('partak.events.edit')->with([
             'event' => $event,
-            'event_types' => $event->getAlltypes(),
+            'event_types' => Event::getAllTypes(),
         ]);
 
     }
