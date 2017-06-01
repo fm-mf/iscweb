@@ -132,6 +132,22 @@
     </div>
 </div>
 -->
+<h2></h2>
+<div class="container events">
+    <div class="container container-ow container-sm-height">
+        <div class="row row-ow row-sm-height">
+            <div class="col-sm-6 ow-day col-sm-height" style="background-image:url({{ asset('img/web/events/grillyourbuddy.png') }});">
+                <span class="day">Středa<br>14.6.<br>16:00<br>ISC Grilovačka</span>
+            </div>
+            <div class="col-sm-6 ow-detail col-sm-height col-top">
+                <p>Ahoj všichni,
+                    zveme vás na skvělou ISC grilovačku, kde budete mít možnost setkat se se současnými Parťáky, s Alumni, ale třeba i s Rektorátníky.
+                    Ohlédneme se za uplynulým semestrem, představíme nové koordinátory a rozloučíme se s těmi končícími.
+                <p>Více na události <a href="https://www.facebook.com/events/310899549335186/" target="_blank">&nbsp;<img src="{{ asset('img/web/fb.png') }}" width="17px">&nbsp;</a>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- h2 id="info">Jak se stát Buddym</h2 -->
 
 <!-- <div class="container events">
