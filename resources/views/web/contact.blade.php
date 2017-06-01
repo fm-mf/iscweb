@@ -22,12 +22,12 @@
                 <h2>See when we're in the ISC Point:<!--<br><i>Subject to be extended later</i>--></h2>
                 <span class="show-menu"></span>
 
-               <!-- There are no regular opening hours during the exam period. The ISC Point will be open from {{ $wcFrom }}. -->
+               There are no regular opening hours during the exam period.{{-- The ISC Point will be open from  $wcFrom --}}.
 
                 <!-- We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
                 Fixed opening hours will be from Monday 20th. -->
 
-               <table>
+               {{--<table>
                     <tr>
                         <th>Monday</th>
                         <td>14:00 - 22:00</td>
@@ -56,7 +56,7 @@
                         <th>Sunday</th>
                         <td>Closed</td>
                     </tr>
-                </table>
+                </table>--}}
 
             </div>
         </div>
@@ -171,7 +171,7 @@
                         <span class="clearfix"></span>
                     </li>--}}
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/Interel_Pepa.jpg') }}"class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Interel_Pepa.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Josef Klesa</h4><br>
                             <strong>International Relations</strong><br>
