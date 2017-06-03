@@ -179,7 +179,9 @@ class Trip extends Model
 
     public function isOpen()
     {
-        return ! $this->isFull() && $this->registration_from <= Carbon::now();
+        return ! $this->isFull()
+            && $this->registration_from <= Carbon::now()
+            && $this->event->datetime_from->addDays(7) >= Carbon::now();
     }
 
     public static function createTrip($data)

@@ -121,7 +121,7 @@
                                     <img src="{{ asset('img/partak/pdf.png') }}" width="35"> PDF
                                 </a>
                                 <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="export-link export-link-pdf">
-                                    <img src="{{ asset('img/partak/xls.png') }}" width="35"> Excel
+                                    <img src="{{ asset('img/partak/xls.png') }}" width="35"> Excel (all info)
                                 </a>
                             </div>
                             <div class="panel panel-default">
@@ -136,7 +136,7 @@
                                     </tr>
                                     @foreach($particip as $participant)
                                         <tr>
-                                            <td>@if($participant->trips()->wherePivot('stand_in', 'y')->where('trips.id_trip', $trip->id_trip)->exists()) <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->person->last_name .' '. $participant->person->first_name}}</td>
+                                            <td>@if($participant->trips()->wherePivot('stand_in', 'y')->where('trips.id_trip', $trip->id_trip)->exists()) <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->person->getFullName(true)}}</td>
                                             <td>{{ $participant->person->user->email }}</td>
                                             <td>{{ $participant->person->getSex() }}</td>
                                             <td>{{ $participant->phone }}</td>
@@ -148,11 +148,13 @@
                                                 @can('viewPayment', $trip)
                                                     <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-xs">Payment</a>
                                                 @endcan
-                                                @can('removeParticipant', $trip)
-                                                    <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
-                                                                     protection-text="Remove {{ $participant->person->first_name }} {{ $participant->person->last_name }} from event {{ $trip->name }}?"
-                                                                     button-style="btn btn-danger btn-xs">Remove</protectedbutton>
-                                                @endcan
+                                                @if($trip->isOpen())
+                                                    @can('removeParticipant', $trip)
+                                                        <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
+                                                                         protection-text="Remove {{ $participant->person->getFullName() }} from event {{ $trip->name }}?"
+                                                                         button-style="btn btn-danger btn-xs">Remove</protectedbutton>
+                                                    @endcan
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
