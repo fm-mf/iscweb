@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        @if($trip->isOpen())
+        @if($trip->isOpen() && !$trip->isFull())
             @can('addParticipant', $trip)
                 @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
                 @include('partak.users.officeRegistration.search',[
