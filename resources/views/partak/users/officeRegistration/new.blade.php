@@ -37,7 +37,7 @@
                                 {{ Form::select('sex', ['M' => 'Male', 'F' => 'Female'], null, ['placeholder' => 'Choose sex...', 'class' => 'form-control']) }}
                             </div>
                             <div class="col-sm-6 right">
-                                {{ Form::label('age', 'Year of berth', ['class' => 'control-label']) }}
+                                {{ Form::label('age', 'Year of birth', ['class' => 'control-label']) }}
                                 @if ($errors->has('age'))
                                     <p class="error-block alert-danger">{{ $errors->first('age') }}</p>
                                 @endif

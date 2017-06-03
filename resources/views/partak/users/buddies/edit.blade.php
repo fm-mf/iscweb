@@ -47,7 +47,7 @@
                             {{ Form::select('sex', ['M' => 'Male', 'F' => 'Female'], $buddy->person->sex, ['placeholder' => 'Choose sex...', 'class' => 'form-control']) }}
                         </div>
                         <div class="col-sm-6 right">
-                            {{ Form::label('age', 'Year of berth', ['class' => 'control-label']) }}
+                            {{ Form::label('age', 'Year of birth', ['class' => 'control-label']) }}
                             @if ($errors->has('age'))
                                 <p class="error-block alert-danger">{{ $errors->first('age') }}</p>
                             @endif
@@ -59,7 +59,6 @@
 
                     {{ Form::bsSelect('diet', 'Diet', $diets, $buddy->person->diet, ['placeholder' => 'No diet'])  }}
 
-                    <!-- TODO validation of inputs -->
                     {{ Form::bsTextarea('about', 'About') }}
 
                     {{ Form::bsSubmit('Update profile') }}
