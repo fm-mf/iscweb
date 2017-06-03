@@ -32,10 +32,10 @@
                         <td>{{ $i++ }}</td>
                         <td>{{ $participant->person->getFullName(true)}}</td>
                         <td>{{ $participant->whoAmI('exchangeStudent')?  $participant->country->full_name : 'BUDDY'}}</td>
-                        <td>{{ $participant->person->diet ? $participant->person->diet  : '-' }}</td>
+                        <td>{{ $participant->person->diet ?? '-' }}</td>
                         <td>{{ $participant->person->medical_issues }}</td>
                         <td>{{ $participant->person->getSex() }}</td>
-                        <td>{{ $participant->person->email }}</td>
+                        <td>{{ $participant->person->user->email }}</td>
                         <td>{{ $participant->phone }}</td>
                         <td>@if($participant->whoAmI('exchangeStudent')) {{ $participant->esn_card_number }}@endif</td>
                         <td>@if($participant->whoAmI('exchangeStudent')){{ $participant->accommodation->full_name }}@endif</td>
