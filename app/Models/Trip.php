@@ -108,30 +108,42 @@ class Trip extends Model
         } else {
             $registeredBy = 464;
         }
-        if(! ($this->participants()->find($idPart) || $this->buddyParticipants()->find($idPart)))
+
+        $part = DB::table('trips_participants')
+            ->where('id_trip', $this->id_trip)
+            ->where('id_user', $idPart)
+            ->first();
+
+        if(! isset($part))
         {
-            $part = ExchangeStudent::find($idPart);
-            if(! isset($part))
-            {
-                $this->buddyParticipants()->attach($idPart, [
+            DB::table('trips_participants')
+                ->insert([
+                    'id_trip' => $this->id_trip,
+                    'id_user' => $idPart,
                     'stand_in' => $standIn,
                     'registered_by' => $registeredBy,
                     'paid' => $data['paid'],
                     'comment' => array_key_exists('comment', $data) ? $data['comment'] : null,
+                    'updated_at' => Carbon::now(),
+                    'created_at' => Carbon::now(),
                 ]);
-            }
-            else
-            {
-                $this->participants()->attach($idPart, [
+        } elseif ($part->deleted_at != null) {
+            DB::table('trips_participants')
+                ->where('id_trip', $this->id_trip)
+                ->where('id_user', $idPart)
+                ->update([
+                    'deleted_at' => null,
+                    'deleted_by' => null,
                     'stand_in' => $standIn,
                     'registered_by' => $registeredBy,
                     'paid' => $data['paid'],
                     'comment' => array_key_exists('comment', $data) ? $data['comment'] : null,
+                    'updated_at' => Carbon::now(),
                 ]);
-            }
         } else {
             return self::PARTICIPANT_ALREADY_IN;
         }
+
 
         return ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;
     }
@@ -152,7 +164,8 @@ class Trip extends Model
             ->where('id_user', $idPart)
             ->update([
                 'deleted_at' => Carbon::now(),
-                'deleted_by' => Auth::id()]);
+                'deleted_by' => Auth::id(),
+                ]);
     }
 
     public function update(array $attributes = [], array $options = [])
