@@ -40,13 +40,15 @@ class Trip extends Model
     public function participants()
     {
         return $this->belongsToMany('\App\Models\ExchangeStudent', 'trips_participants', 'id_trip', 'id_user')
-            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id');
+            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id', 'deleted_at')
+            ->whereNull('trips_participants.deleted_at');
     }
 
     public function buddyParticipants()
     {
         return $this->belongsToMany('\App\Models\Buddy', 'trips_participants', 'id_trip', 'id_user')
-            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id');
+            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id', 'deleted_at')
+            ->whereNull('trips_participants.deleted_at');;
     }
 
     public function event()
@@ -145,7 +147,12 @@ class Trip extends Model
                 $this->participants()->updateExistingPivot($standIn->id_user, ['stand_in' => 'n', 'paid' => $this->price]);
             }
         }
-        $this->participants()->detach($idPart);
+        DB::table('trips_participants')
+            ->where('id_trip', $this->id_trip)
+            ->where('id_user', $idPart)
+            ->update([
+                'deleted_at' => Carbon::now(),
+                'deleted_by' => Auth::id()]);
     }
 
     public function update(array $attributes = [], array $options = [])
