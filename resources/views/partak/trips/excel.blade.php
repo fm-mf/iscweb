@@ -30,15 +30,15 @@
                 @foreach($particip as $participant)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $participant->person->getFullName(true)}}</td>
-                        <td>{{ $participant->whoAmI('exchangeStudent')?  $participant->country->full_name : 'BUDDY'}}</td>
-                        <td>{{ $participant->person->diet ?? '-' }}</td>
-                        <td>{{ $participant->person->medical_issues }}</td>
-                        <td>{{ $participant->person->getSex() }}</td>
-                        <td>{{ $participant->person->user->email }}</td>
-                        <td>{{ $participant->phone }}</td>
-                        <td>@if($participant->whoAmI('exchangeStudent')) {{ $participant->esn_card_number }}@endif</td>
-                        <td>@if($participant->whoAmI('exchangeStudent')){{ $participant->accommodation->full_name }}@endif</td>
+                        <td>{{ $participant->getFullName(true)}}</td>
+                        <td>{{ $participant->exchangeStudent->country->full_name ?? 'BUDDY'}}</td>
+                        <td>{{ $participant->diet ?? '-' }}</td>
+                        <td>{{ $participant->medical_issues }}</td>
+                        <td>{{ $participant->getSex() }}</td>
+                        <td>{{ $participant->user->email }}</td>
+                        <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? ''}}</td>
+                        <td>{{ $participant->exchangeStudent->esn_card_number ?? '' }}</td>
+                        <td>{{ $participant->exchangeStudent->accommodation->full_name ?? ''}}</td>
                         <td>{{ $participant->pivot->comment }}</td>
                         <td>{{ $participant->pivot->paid }}</td>
                         <td>{{ \App\Models\Person::find($participant->pivot->registered_by)->getFullName() }}</td>

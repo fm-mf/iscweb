@@ -136,23 +136,23 @@
                                     </tr>
                                     @foreach($particip as $participant)
                                         <tr>
-                                            <td>@if($participant->trips()->wherePivot('stand_in', 'y')->where('trips.id_trip', $trip->id_trip)->exists()) <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->person->getFullName(true)}}</td>
-                                            <td>{{ $participant->person->user->email }}</td>
-                                            <td>{{ $participant->person->getSex() }}</td>
-                                            <td>{{ $participant->phone }}</td>
-                                            <td> @if($participant->whoAmI('exchangeStudent')) {{ $participant->esn_card_number }} @endif</td>
-                                            <td> @if(($participant->whoAmI('buddy') && Auth::user()->can('acl', 'buddy.view')) ||
-                                                        ($participant->whoAmI('exchangeStudent') && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                                    <a href="{{ $participant->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                            <td>@if($participant->pivot->stand_in == "y") <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->getFullName(true)}}</td>
+                                            <td>{{ $participant->user->email }}</td>
+                                            <td>{{ $participant->getSex() }}</td>
+                                            <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
+                                            <td>{{ $participant->exchangeStudent->esn_card_number ?? '-' }}</td>
+                                            <td> @if((isset($participant->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
+                                                        (isset($participant->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
+                                                    <a href="{{ ($participant->exchangeStudent ?? $participant->buddy)->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                                 @endif
                                                 @can('viewPayment', $trip)
                                                     <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-xs">Payment</a>
                                                 @endcan
                                                 @if($trip->isOpen())
                                                     @can('removeParticipant', $trip)
-                                                        <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
-                                                                         protection-text="Remove {{ $participant->person->getFullName() }} from event {{ $trip->name }}?"
-                                                                         button-style="btn btn-danger btn-xs">Remove</protectedbutton>
+                                                    <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
+                                                                     protection-text="Remove {{ $participant->getFullName() }} from event {{ $trip->event->name }}?"
+                                                                     button-style="btn btn-danger btn-xs">Remove</protectedbutton>
                                                     @endcan
                                                 @endif
                                             </td>
