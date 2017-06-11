@@ -83,6 +83,16 @@ class Person extends Model
         }
     }
 
+    public function getEmailAttribute($value)
+    {
+        return $this->user->email;
+    }
+
+    public function setEmailAttribute($value)
+    {
+        $this->user->email = $value;
+    }
+
     public static function getAllDiets()
     {
         $data = \DB::select('describe people diet');

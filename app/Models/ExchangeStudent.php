@@ -86,6 +86,15 @@ class ExchangeStudent extends Model
         return url('partak/users/exchange-students/' . $this->id_user);
     }
 
+    public function getEmailAttribute($value)
+    {
+        return $this->person->email;
+    }
+
+    public function setEmailAttribute($value)
+    {
+        $this->person->email = $value;
+    }
 
     public static function findAll()
     {

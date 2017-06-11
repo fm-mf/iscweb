@@ -71,6 +71,16 @@ class Buddy extends Model
         return 'buddy' == $who;
     }
 
+    public function getEmailAttribute($value)
+    {
+        return $this->person->email;
+    }
+
+    public function setEmailAttribute($value)
+    {
+        $this->person->email = $value;
+    }
+
     public static function findBuddy($id_user)
     {
         return Buddy::with('person.user')->find($id_user);
