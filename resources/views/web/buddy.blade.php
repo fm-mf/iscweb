@@ -132,7 +132,7 @@
     </div>
 </div>
 -->
-<h2></h2>
+{{--<h2></h2>
 <div class="container events">
     <div class="container container-ow container-sm-height">
         <div class="row row-ow row-sm-height">
@@ -147,7 +147,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 <!-- h2 id="info">Jak se stát Buddym</h2 -->
 
 <!-- <div class="container events">

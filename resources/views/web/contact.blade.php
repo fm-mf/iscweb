@@ -241,12 +241,12 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/IT_Speedy.jpg') }}"class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017fall/IT_filip.jpg') }}"class="img-circle">
                         <div class="contact-details">
-                            <h4>Martin "Speedy" Průcha</h4><br>
+                            <h4>Filip Marek</h4><br>
                             <strong>IT Coordinator</strong><br>
                             Email: <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a><br>
-                            Phone: (+420) 736 683 644<br>
+                            Phone: (+420) don't know<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
