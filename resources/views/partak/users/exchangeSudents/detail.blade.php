@@ -17,28 +17,10 @@
         <div class="row row-inner">
             <div class="col-sm-8">
                 <label for="unique_url">Unique URL</label>
-                <div class="input-group">
-                    <span class="input-group-addon" id="url"><span class="glyphicon glyphicon-link"></span> </span>
-                    <input type="text" id="unique_url" class="form-control" value="{{ url('/exchange/'). '/' . $exStudent->person->user->hash }}" aria-describedby="url" readonly="">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick="copy()"><span class="glyphicon glyphicon-copy"></span> </button>
-                      </span>
-                </div><!-- /input-group -->
+                <unique-url url="{{ url('/exchange/'). '/' . $exStudent->person->user->hash }}"></unique-url>
             </div>
         </div>
     </div>
 
     @include('partak.users.exStudentDetailTable')
 @stop
-
-@section('scripts')
-    @parent
-    <script type="text/javascript">
-        function copy() {
-            var url = document.getElementById('unique_url');
-            url.select();
-            var suc = document.execCommand('copy');
-        }
-    </script>
-
-    @stop

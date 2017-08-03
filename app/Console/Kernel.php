@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ImportExchangeStudents;
 use App\Console\Commands\SendRegistrationMailToExchangeStudents;
 use App\Console\Commands\SendRegistrationReminder;
 use App\Console\Commands\SendVotingMail_PartakFix;
@@ -23,6 +24,7 @@ class Kernel extends ConsoleKernel
         VerificationFix::class,
         SendVotingMail::class,
         SendVotingMail_PartakFix::class,
+        ImportExchangeStudents::class,
     ];
 
     /**

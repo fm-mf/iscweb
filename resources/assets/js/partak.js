@@ -17,6 +17,7 @@ Vue.component('autocomplete', require('./components/Autocomplete.vue'))
 Vue.component('multiselectinput', require('./components/MultiSelectInput.vue'))
 Vue.component('protectedbutton', require('./components/Button.vue'))
 Vue.component('preregister', require('./components/Preregister.vue'))
+Vue.component('unique-url', require('./components/UniqueUrlCopy.vue'))
 
 if (typeof jsoptions === 'undefined') {
     jsoptions = [];
