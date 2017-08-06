@@ -110,10 +110,11 @@ class ExchangeStudent extends Model
 
     public static function scopeByUniqueSemester($query, $semester)
     {
+        $previusSmemester = Semester::where('semester', $semester)->first()->previousSemester();
         return $query->whereHas('semesters', function($query) use ($semester) {
             $query->where('semester', $semester);
-        })->whereDoesntHave('semesters', function($query) use ($semester) {
-            $query->where('semester', '<>', $semester);
+        })->whereDoesntHave('semesters', function($query) use ($previusSmemester) {
+            $query->where('semester', $previusSmemester->semester);
         });
     }
 

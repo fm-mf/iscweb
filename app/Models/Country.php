@@ -36,4 +36,25 @@ class Country extends Model
             });
         })->get();
     }
+
+    public static function getCountryIdFromTwoLetter(string $code): int
+    {
+        if (strlen($code) !== 2)
+        {
+            throw new \Exception('Code length is not two letters');
+        }
+        if ($code === 'UK') {
+            $code = 'GB';
+        }
+        return self::where('two_letters', $code)->first(['id_country'])->id_country;
+    }
+
+    public static function getCountryIdFromThreeLetter(string $code): int
+    {
+        if (strlen($code) !== 3)
+        {
+            throw new \Exception('Code length is not three letters');
+        }
+            return self::where('three_letters', $code)->first(['id_country'])->id_country;
+    }
 }

@@ -18,4 +18,9 @@ class Faculty extends Model
         return $faculties;
     }
 
+    public static function getFacultyFromAbbreviation($abbreviation): self
+    {
+        return self::where('abbreviation', $abbreviation)->first();
+    }
+
 }
