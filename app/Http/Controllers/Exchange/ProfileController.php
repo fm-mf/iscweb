@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Exchange;
 use App\Models\Accommodation;
 use App\Models\Arrival;
 use App\Models\ExchangeStudent;
+use App\Models\Person;
 use App\Models\Transportation;
 use App\Models\User;
 use Carbon\Carbon;
@@ -17,7 +18,7 @@ class ProfileController extends Controller
     public function showProfileForm($hash)
     {
         $user = User::findByHash($hash);
-        $student = ExchangeStudent::find($user->id_user);
+        $student = ExchangeStudent::with('person')->find($user->id_user);
 
         $accommodations = [];
         foreach (Accommodation::all() as $accommodation) {
@@ -54,6 +55,7 @@ class ProfileController extends Controller
             'currentTime' => $currentTime,
             'optedOut' => $student->want_buddy == 'n',
             'userHash' => $student->person->user->hash,
+            'diets' => Person::getAllDiets(),
         ]);
     }
 
@@ -92,6 +94,10 @@ class ProfileController extends Controller
         }
 
         $student->save();
+        $student->person->updateWithIssuesAndDiet([
+            'medical_issues' => $request->medical_issues,
+            'diet' => $request->diet,
+        ]);
 
         return redirect('/exchange/'.$request->hash)->with('success', true);
 
