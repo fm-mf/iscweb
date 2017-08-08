@@ -25,7 +25,7 @@ class ListingController extends Controller
     public function listExchangeStudents()
     {
         if (!Settings::get('isDatabaseOpen')) {
-           return redirect('/muj-buddy/closed');
+            return view('buddyprogram.closed');
         }
         $firstArrivalDay = Carbon::parse(Settings::get('firstArrivalDay'));
         for ($dayOffset = 0; $dayOffset < 15; ++$dayOffset) {
