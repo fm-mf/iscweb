@@ -19,7 +19,7 @@ Artisan::command('inspire', function () {
 
 Artisan::command('test', function () {
     $emails = [
-        // 'president@isc.cvut.cz',
+        'president@isc.cvut.cz',
         'vicepresident@isc.cvut.cz',
     ];
     $student = \App\Models\ExchangeStudent::with('person.user')->where('id_user', 4777)->first();
