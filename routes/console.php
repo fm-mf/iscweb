@@ -16,3 +16,15 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('test', function () {
+    $emails = [
+        'president@isc.cvut.cz',
+        'vicepresident@isc.cvut.cz',
+    ];
+    $student = \App\Models\ExchangeStudent::with('person.user')->where('id_user', 4777)->first();
+    foreach ($emails as $email) {
+        \Illuminate\Support\Facades\Mail::to($email)->send(new \App\Mail\RegistrationMail($student));
+        $this->comment('Mail send to ' . $email);
+    }
+});
