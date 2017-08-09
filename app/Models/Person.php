@@ -23,6 +23,16 @@ class Person extends Model
         return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
     }
 
+    public function exchangeStudent()
+    {
+        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
+    }
+
+    public function Buddy()
+    {
+        return $this->belongsTo('\App\Models\Buddy', 'id_user', 'id_user');
+    }
+
     public function avatar()
     {
         $avatar = $this->avatar;
@@ -71,6 +81,16 @@ class Person extends Model
             default:
                 return 'Hermafrodit';
         }
+    }
+
+    public function getEmailAttribute($value)
+    {
+        return $this->user->email;
+    }
+
+    public function setEmailAttribute($value)
+    {
+        $this->user->email = $value;
     }
 
     public static function getAllDiets()

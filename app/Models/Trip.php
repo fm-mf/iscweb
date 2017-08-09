@@ -22,15 +22,6 @@ class Trip extends Model
 
     protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'capacity', 'price', 'type'];
 
-    /*public function createdBy()
-    {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'created_by');
-    }*/
-
-    /*public function modifiedBy()
-    {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'modified_by');
-    }*/
 
     public function organizers()
     {
@@ -39,14 +30,16 @@ class Trip extends Model
 
     public function participants()
     {
-        return $this->belongsToMany('\App\Models\ExchangeStudent', 'trips_participants', 'id_trip', 'id_user')
-            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id');
+        return $this->belongsToMany('\App\Models\Person', 'trips_participants', 'id_trip', 'id_user')
+            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id')
+            ->wherePivot('deleted_by', null);
     }
 
-    public function buddyParticipants()
+    public function deletedParticipants()
     {
-        return $this->belongsToMany('\App\Models\Buddy', 'trips_participants', 'id_trip', 'id_user')
-            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id');
+        return $this->belongsToMany('\App\Models\Person', 'trips_participants', 'id_trip', 'id_user')
+            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id')
+            ->wherePivot('deleted_by', '!=', null);
     }
 
     public function event()
@@ -56,7 +49,7 @@ class Trip extends Model
 
     public function howIsFill()
     {
-        return $this->participants()->wherePivot('stand_in', 'n')->count() + $this->buddyParticipants()->wherePivot('stand_in', 'n')->count();
+        return $this->participants()->wherePivot('stand_in', 'n')->count();
     }
 
     public function howIsFillSimple()
@@ -67,10 +60,15 @@ class Trip extends Model
     public function howIsFillWithDetail()
     {
         $result = '';
-        if($this->isFull()) $result = $result . '<b>Event is Full</b> ';
+        if ($this->isFull()) $result = $result . '<b>Event is Full</b> ';
         $result = $result . $this->howIsFillSimple();
-        if($this->type === 'ex+buddy') $result = $result . ', ExStudents: '. $this->participants()->wherePivot('stand_in', 'n')->count()
-            .' / Buddies: '. $this->buddyParticipants()->wherePivot('stand_in', 'n')->count();
+        if ($this->type === 'ex+buddy') {
+            $participats = $this->participants()->with('buddy', 'exchangeStudent')->wherePivot('stand_in', 'n')->get();
+            $buddyCount = $participats->filter(function ($value, $key) {
+                return isset($value->buddy);
+            })->count();
+            $result = $result . ', ExStudents: ' . ($participats->count() - $buddyCount) . ' / Buddies: ' . $buddyCount;
+        }
         return $result;
     }
 
@@ -106,27 +104,25 @@ class Trip extends Model
         } else {
             $registeredBy = 464;
         }
-        if(! ($this->participants()->find($idPart) || $this->buddyParticipants()->find($idPart)))
-        {
-            $part = ExchangeStudent::find($idPart);
-            if(! isset($part))
-            {
-                $this->buddyParticipants()->attach($idPart, [
-                    'stand_in' => $standIn,
-                    'registered_by' => $registeredBy,
-                    'paid' => $data['paid'],
-                    'comment' => array_key_exists('comment', $data) ? $data['comment'] : null,
-                ]);
-            }
-            else
-            {
-                $this->participants()->attach($idPart, [
-                    'stand_in' => $standIn,
-                    'registered_by' => $registeredBy,
-                    'paid' => $data['paid'],
-                    'comment' => array_key_exists('comment', $data) ? $data['comment'] : null,
-                ]);
-            }
+
+        $part = $this->participants()->find($idPart);
+        $deletePart = $this->deletedParticipants()->find($idPart);
+        if(isset($deletePart)) {    //if softDeleted, only update row
+            $this->deletedParticipants()->updateExistingPivot($idPart, [
+                'deleted_at' => null,
+                'deleted_by' => null,
+                'stand_in' => $standIn,
+                'registered_by' => $registeredBy,
+                'paid' => $data['paid'],
+                'comment' => $data['comment'] ?? null,
+            ]);
+        } elseif(! isset($part)) {  //new participant
+            $this->participants()->attach($idPart, [
+                'stand_in' => $standIn,
+                'registered_by' => $registeredBy,
+                'paid' => $data['paid'],
+                'comment' => $data['comment'] ?? null,
+            ]);
         } else {
             return self::PARTICIPANT_ALREADY_IN;
         }
@@ -136,7 +132,8 @@ class Trip extends Model
 
     public function removeParticipant($idPart)
     {
-        $part = $this->participants()->withPivot('stand_in')->find($idPart);
+        //stand in not supported yet
+        /*$part = $this->participants()->withPivot('stand_in')->find($idPart);
         if($this->isFull() && $part->pivot->stand_in == 'n')
         {
             $standIn = $this->standInParticipants()->first();
@@ -144,8 +141,13 @@ class Trip extends Model
             {
                 $this->participants()->updateExistingPivot($standIn->id_user, ['stand_in' => 'n', 'paid' => $this->price]);
             }
-        }
-        $this->participants()->detach($idPart);
+        }*/
+
+        //Soft delete
+        $this->participants()->updateExistingPivot($idPart, [
+            'deleted_at' => Carbon::now(),
+            'deleted_by' => Auth::id(),
+        ]);
     }
 
     public function update(array $attributes = [], array $options = [])
@@ -174,13 +176,21 @@ class Trip extends Model
 
     public function isOrganizer($id_user)
     {
-        return $this->organizers()->where('trips_organizers.id_user', $id_user)->exists();
+        $organizer = $this->organizers->first(function ($value, $key) use($id_user){
+            return $value->id_user == $id_user;
+        });
+        return isset($organizer);
     }
 
     public function isOpen()
     {
         return $this->registration_from <= Carbon::now()
             && $this->event->datetime_from->addDays(7) >= Carbon::now();
+    }
+
+    public static function withParticipants(... $with)
+    {
+        return self::with('participants.user', 'participants.exchangeStudent', 'participants.buddy', ...$with);
     }
 
     public static function createTrip($data)
@@ -191,7 +201,7 @@ class Trip extends Model
         $id_user = Auth::id();
         if (!$id_user) $id_user = 4736; //id of office account
 
-        $organizers = array_key_exists('organizers', $data) ? $data['organizers'] : [];
+        $organizers = $data['organizers'] ?? [];
         if (!is_array($organizers)) {
             $organizers = explode(',', $organizers);
         }
@@ -202,16 +212,13 @@ class Trip extends Model
             $trip->id_event = $event->id_event;
             $trip->registration_from = $data['registration_from'];
             $trip->trip_date_to = $data['trip_date_to'];
-            (array_key_exists('capacity', $data)) ? $trip->capacity = $data['capacity'] : 0;
-            (array_key_exists('price', $data)) ? $trip->price = $data['price'] : 0;
-//            $trip->modified_by = $id_user;
-            //$trip->created_by = $id_user;
+            $trip->capacity = $data['capacity'] ?? 0;
+            $trip->price = $data['price'] ?? 0;
             $trip->save();
 
             foreach($organizers as $organizer) {
                 $trip->organizers()->attach($organizer, ['add_by' => $id_user]);
             }
-
 
             return $trip;
         });
@@ -219,10 +226,10 @@ class Trip extends Model
 
     protected static function updateDatetimes($data)
     {
-        $time = $data['registration_time'] ? $data['registration_time'] : "00:00 AM";
+        $time = $data['registration_time'] ?? "00:00 AM";
         //dd($data['registration_date']);
         $data['registration_from'] = Carbon::createFromFormat('d M Y g:i A', $data['registration_date'] . ' ' . $time);
-        $time = $data['end_time'] ? $data['end_time'] : "00:00 AM";
+        $time = $data['end_time'] ?? "00:00 AM";
         $data['trip_date_to'] = Carbon::createFromFormat('d M Y g:i A', $data['end_date'] . ' ' . $time);
         return $data;
     }

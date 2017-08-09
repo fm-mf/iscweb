@@ -21,26 +21,26 @@ class TripPolicy
 
     public function view(User $user, Trip $trip)
     {
-        return $trip->isOrganizer($user->id_user) || $user->can('acl', 'trips.view');
+        return $user->can('acl', 'trips.view') || $trip->isOrganizer($user->id_user);
     }
 
     public function edit(User $user, Trip $trip)
     {
-        return $trip->isOrganizer($user->id_user) || $user->can('acl', 'trips.edit');
+        return $user->can('acl', 'trips.edit') || $trip->isOrganizer($user->id_user);
     }
 
     public function addParticipant(User $user, Trip $trip)
     {
-        return $trip->isOrganizer($user->id_user) || $user->can('acl', 'participant.add');
+        return $user->can('acl', 'participant.add') || $trip->isOrganizer($user->id_user);
     }
 
     public function removeParticipant(User $user, Trip $trip)
     {
-        return $trip->isOrganizer($user->id_user) || $user->can('acl', 'participant.remove');
+        return $user->can('acl', 'participant.remove') || $trip->isOrganizer($user->id_user);
     }
 
     public function viewPayment(User $user, Trip $trip)
     {
-        return $user->can('acl', 'trips.view_payment');
+        return $user->can('acl', 'trips.view_payment') || $trip->isOrganizer($user->id_user);
     }
 }

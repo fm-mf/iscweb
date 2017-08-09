@@ -3,10 +3,10 @@
     <div class="container">
         <div class="row-inner buddy-detail">
             <h2 >Payment detail for trip {{ $trip->event->name }}</h2>
-            <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($part->person->avatar()) }}">
-            <h3>{{ $part->person->getFullName()}}</h3>
-            <span class="glyphicon glyphicon-envelope up buddy-detail-icon"></span> {{ $part->person->user->email }} <br>
-            <span class="glyphicon glyphicon-phone-alt buddy-detail-icon"></span> @if(isset($part->phone)) {{ $part->phone }} @else No Phone @endif<br>
+            <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($part->avatar()) }}">
+            <h3>{{ $part->getFullName()}}</h3>
+            <span class="glyphicon glyphicon-envelope up buddy-detail-icon"></span> {{ $part->user->email }} <br>
+            <span class="glyphicon glyphicon-phone-alt buddy-detail-icon"></span> {{ $part->exchangeStudent->phone ?? $part->buddy->phone ?? 'No Phone' }}<br>
         </div>
     </div>
     <div class="container">
