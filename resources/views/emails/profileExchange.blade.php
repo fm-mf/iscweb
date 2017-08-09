@@ -4,7 +4,9 @@
     <title>ISC CTU Buddy program</title>
 </head>
 <body>
-<p>Hi there!<br>It's less than a month to your arrivals and we're doing our best to set up the buddy program for you! We would very much appreciate your input now. Our goal is to find a buddy for every one of you. But since all buddies are volunteers, we can't promise anything. What will help, however, is if you fill out the following form:</p>
+<p>Hi there!<br>It's less than a month to your arrivals and we're doing our best to set up the buddy program for you!
+    We would very much appreciate your input now.
+    Our goal is to find a buddy for every one of you. But since all buddies are volunteers, we can't promise anything. What will help, however, is if you fill out the following form:</p>
 
 <p><a href="Link">Link</a></p>
 <p><b>Please, keep the link for future updates of your arrival information.</b></p>
