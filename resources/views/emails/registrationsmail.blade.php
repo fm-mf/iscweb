@@ -5,9 +5,9 @@
 </head>
 <body>
 <p>Hi there!<br>It's less than a month to your arrivals and we're doing our best to set up the Buddy program
-    for you!
-<p>We would very much appreciate your input now.
-<p> We are preparing activities and events for the upcoming semester and we would like to know what your expectations are.
+    for you!<br>
+We would very much appreciate your input now.<br>
+We are preparing activities and events for the upcoming semester and we would like to know what your expectations are.
     We will do our best to adjust the program to your wishes and suggestions. Please tell us, it will help us a lot to
     improve - LINK TYPE FORM</p>
 <p>Our goal is to find a buddy for every one of you. But since all buddies are volunteers, we can't promise anything.
