@@ -16,14 +16,18 @@ class StatsController extends Controller
     public function showStatistics()
     {
         $currentSemester = Settings::get('currentSemester');
+        $countriesStates = Country::withCount(['exchangeStudent' => function($query) use ($currentSemester) {
+            $query->byUniqueSemester($currentSemester);
+        }])->orderBy('exchange_student_count', 'desc')->get();
         return view('stats.stats')->with([
             'students' => ExchangeStudent::byUniqueSemester($currentSemester)->count(),
             'studentsWithFilledProfile' => ExchangeStudent::byUniqueSemester($currentSemester)->whereNotNull('about')->wantBuddy()->count(),
             'studentsWithBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->has('buddy')->whereNotNull('about')->count(),
             'studentsWithFilledProfileWithoutBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->wantBuddy()->doesntHave('buddy')->whereNotNull('about')->count(),
-            'countriesStats' => Country::withCount(['exchangeStudent' => function($query) use ($currentSemester) {
-                $query->byUniqueSemester($currentSemester);
-            }])->orderBy('exchange_student_count', 'desc')->get()
+            'countriesStats' => $countriesStates,
+            'countriesCount' => $countriesStates->filter(function ($key) {
+                return $key->exchange_student_count > 0;
+            })->count(),
         ]);
     }
 

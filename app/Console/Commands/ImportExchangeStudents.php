@@ -44,7 +44,7 @@ class ImportExchangeStudents extends Command
     private $fallSemesterEn = 'fall';
     private $springSemesterCz = 'L';
     private $springSemesterEn = 'spring';
-    private $bouthSemestersCz = 'ZL';
+    private $bothSemestersCz = 'ZL';
 
     private $firstNameKey = 'jmeno';
     private $lastNameKey = 'prijmeni';
@@ -113,9 +113,10 @@ class ImportExchangeStudents extends Command
      * Create user and person instance and try to save it into db
      *
      * @param $data : any collection
-     * @return bool
+     * @return User
+     * @throws \Exception
      */
-    private function createUser($data)
+    private function createUser($data): User
     {
         $shouldCreateEx = true;
         try {
@@ -135,9 +136,11 @@ class ImportExchangeStudents extends Command
             $this->writeOutException('Email already exists', $data[$this->emailKey], $e);
             $user = User::where('email', $data[$this->emailKey])->first();
             $shouldCreateEx = $this->userAlreadyExists($user, $data);
+            if (!$shouldCreateEx) {
+                throw new \Exception('Exchange Student already exists.');
+            }
         }
-
-        return $shouldCreateEx ? $user : null;
+        return $user;
     }
 
     private function getSex($data): string
@@ -152,11 +155,14 @@ class ImportExchangeStudents extends Command
         }
     }
 
-    private function createExchangeStudent($data)
+    private function createExchangeStudent($data): bool
     {
-        $user = $this->createUser($data);
+        try {
+            $user = $this->createUser($data);
+        } catch (\Exception $e) {
+            return false;
+        }
 
-        if (isset($user)) {
             $exchangeStudent = new ExchangeStudent();
             $exchangeStudent->id_user = $user->id_user;
             $exchangeStudent->school = $data[$this->schoolKey];
@@ -169,8 +175,6 @@ class ImportExchangeStudents extends Command
             $this->info('ExchangeStudent created');
             $this->logger->addLine($exchangeStudent);
             return true;
-        }
-        return false;
     }
 
     private function getSemestersToString(ExchangeStudent $exchangeStudent): string
@@ -210,7 +214,7 @@ class ImportExchangeStudents extends Command
 
     private function userAlreadyExists(User $user, $data): bool
     {
-        $result = false;
+        $createExchangeStudent = false;
         $message = $user->email . ' is: ';
         $exchangeStudent = ExchangeStudent::with(['semesters'])
             ->whereHas('person.user', function ($query) use ($user) {
@@ -229,7 +233,7 @@ class ImportExchangeStudents extends Command
 
             $this->addSemesters($exchangeStudent, $data);
         } else {
-            $result = true;
+            $createExchangeStudent = true;
         }
         if (isset($buddyExists)) {
             $message = 'Is Buddy';
@@ -239,7 +243,7 @@ class ImportExchangeStudents extends Command
             }
             $this->info($message);
         }
-        return $result;
+        return $createExchangeStudent;
     }
 
 
