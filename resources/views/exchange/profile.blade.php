@@ -1,7 +1,7 @@
 @extends('layouts.user.user')
 
 @section('content')
-    <h1>Nastavení profilu</h1>
+    <h1>Profile settings</h1>
 
     @if (session('success'))
         <div class="row">
@@ -69,15 +69,19 @@
     {{ Form::bsText('medical_issues', 'Medical issues','', $student->person->medical_issues) }}
     {{ Form::bsSelect('diet', 'Diet', $diets, $student->person->diet, ['placeholder' => 'No diet'])  }}
 
+    <h3 class="col-sm-12"><span>COUNTRY PRESENTATION</span></h3>
+    <div class="col-sm-12 form-group">
+        <label>
+            {{ Form::checkbox('wants_present', null, $wantsPresent) }} I would like to present my country in any of ISC events. (We are all interested in the difference of the nations.)
+        </label>
+    </div>
+
     <h3 class="col-sm-12"><span>OPT OUT</span></h3>
-    <div class="col-sm-12">
+    <div class="col-sm-12 form-group">
         <label>
             {{ Form::checkbox('opt_out', null, $optedOut) }} I don't wish to have a buddy
         </label>
     </div>
-
-
-    <h3 class="col-sm-12"><span>ARRIVAL INFORMATION</span></h3>
 
     {{ Form::bsSubmit('Update your profile') }}
 
@@ -86,8 +90,8 @@
 
     <div class="footer row">
         <div class="col-sm-12">
-            <p>V případě technických potíží nás kontaktuj na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
-            <p>&copy; 2017 | International Student Club CTU in Prague, o.s.</p>
+            <p>In case of technical issues, please, contact us at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
+            <p>&copy; 2017 | International Student Club CTU in Prague, z.s.</p>
         </div>
     </div>
 @stop
