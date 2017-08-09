@@ -42,9 +42,12 @@ class SendRegistrationMailToExchangeStudents extends Command
     {
         $semester = $this->argument('semester');
         $exchangeStudents = ExchangeStudent::with('person.user')->byUniqueSemester($semester)->get();
+        $count = 0;
         foreach ($exchangeStudents as $student) {
             // Mail::to($student->person->user->email)->send(new RegistrationMail($student));
             $this->info("Sending email to " . $student->person->user->email);
+            $count++;
         }
+        $this->info($count);
     }
 }
