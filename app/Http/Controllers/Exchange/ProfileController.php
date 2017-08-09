@@ -53,6 +53,7 @@ class ProfileController extends Controller
             'currentTransportation' => $currentTransportation,
             'currentDate' => $currentDate,
             'currentTime' => $currentTime,
+            'wantsPresent' => $student->wants_present == 'y',
             'optedOut' => $student->want_buddy == 'n',
             'userHash' => $student->person->user->hash,
             'diets' => Person::getAllDiets(),
@@ -85,6 +86,12 @@ class ProfileController extends Controller
             $arrival->save();
         } else if ($student->arrival) {
             $student->arrival->delete();
+        }
+
+        if ($request->wants_present) {
+            $student->wants_present = 'y';
+        } else {
+            $student->wants_present = 'n';
         }
 
         if ($request->opt_out) {
