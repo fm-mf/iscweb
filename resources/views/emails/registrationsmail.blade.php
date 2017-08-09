@@ -15,7 +15,7 @@
 <p>Also, our goal is to find a buddy for every one of you. But since all buddies are volunteers, we can't promise anything.
     However what would help is if you filled out the following form:</p>
 
-<p><a href="https://isc.cvut.cz/exchange/{{ $hash }}">https://isc.cvut.cz/exchange/{{ $hash }}</a></p>
+<p><a href="https://www.isc.cvut.cz/exchange/{{ $hash }}">https://www.isc.cvut.cz/exchange/{{ $hash }}</a></p>
 
 <p><b>Please, keep the link for future updates of your arrival information.</b></p>
 <p>The information you share will be visible to Czech buddies, so that it would be easier for them to choose based on the
@@ -26,7 +26,7 @@
 <p>If, for any reason, you don't wish to have a Czech buddy, you can also take your name out of the program by checking
     the "I don't wish to have a buddy" option in the same form. Just remember that taking part in the buddy program is
     the best way to meet Czech people, learn something about us and our culture and, above all, it can make your first
-    days in Prague significantly easier, since not all people in Prague speak <English class=""></English></p>
+    days in Prague significantly easier, since not all people in Prague speak English.</p>
 
 <p>You can find more information about the International Student Club and our activities on our website
     <a href="https://www.isc.cvut.cz">www.isc.cvut.cz</a>.
