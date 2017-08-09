@@ -6,13 +6,14 @@
 <body>
 <p>Hi there!<br>
     It's few weeks to your arrivals and we're doing our best to set up the buddy program for you! <br>
-We would very much appreciate your input now.<br>
+    We would very much appreciate your input now.<br>
     We are preparing activities and events for the upcoming semester and we would like to know what your expectations are.
     We will do our best to adjust the program to your wishes and suggestions. Please tell us by filling out this Expectation
     form, it will help us a lot: <a href="https://iscctu.typeform.com/to/jR6TQo">https://iscctu.typeform.com/to/jR6TQo</a>
+</p>
 
 <p>Also, our goal is to find a buddy for every one of you. But since all buddies are volunteers, we can't promise anything.
-    What will help, however, is if you fill out the following form:</p>
+    However what would help is if you filled out the following form:</p>
 
 <p><a href="https://isc.cvut.cz/exchange/{{ $hash }}">https://isc.cvut.cz/exchange/{{ $hash }}</a></p>
 
@@ -21,7 +22,7 @@ We would very much appreciate your input now.<br>
     <b>date of your arrival</b> and things you might have in common. Exchange students, who submit the form, will be given
     <b>priority in the program</b>. So go ahead! You can fill information about your <b>hobbies</b>, about your
     <b>field of study</b> and even about the
-    reason of choosing Prague as your exchange destination. :)
+    reason of choosing Prague as your exchange destination. :)</p>
 <p>If, for any reason, you don't wish to have a Czech buddy, you can also take your name out of the program by checking
     the "I don't wish to have a buddy" option in the same form. Just remember that taking part in the buddy program is
     the best way to meet Czech people, learn something about us and our culture and, above all, it can make your first
