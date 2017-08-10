@@ -121,22 +121,22 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/Vicepresident_Marcela.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/IT_Speedy.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Marcela "Marcí" Růžičková</h4><br>
+                            <h4>Martin "Speedy" Průcha</h4><br>
                             <strong>Vicepresident</strong><br>
                             Email: <a href="mailto:vicepresident@isc.cvut.cz">vicepresident@isc.cvut.cz</a><br>
-                            Phone: (+420) 724 051 662<br>
+                            Phone: (+420) 736 683 644<br>
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/Hr_Paja.jpg') }}" width="100px" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/male-silhouette-150.jpg') }}" width="100px" class="img-circle">
                         <div class="contact-details">
-                            <h4>Pavlína Pokošová</h4><br>
+                            <h4>Tomáš Hanousek</h4><br>
                             <strong>Human Resources</strong><br>
                             Email: <a href="mailto:hr@isc.cvut.cz">hr@isc.cvut.cz</a><br>
-                            Phone: (+420) 720 372 718<br>
+                            {{--Phone: (+420) <br>--}}
                         </div>
                         <span class="clearfix"></span>
                     </li>
@@ -151,12 +151,12 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/PR_Evca.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/male-silhouette-150.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Eva Machová</h4><br>
+                            <h4>Jan Jarkovský</h4><br>
                             <strong>Public Relations</strong><br>
                             Email: <a href="mailto:pr@isc.cvut.cz">pr@isc.cvut.cz</a><br>
-                            Phone: (+420) 736 724 862<br>
+                            {{--Phone: (+420) <br>--}}
                         </div>
                         <span class="clearfix"></span>
                     </li>
@@ -201,12 +201,12 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/Point_Ivo.jpg') }}" class="img-circle">
+                        <img src="{{ asset('img/web/contacts/male-silhouette-150.jpg') }}" class="img-circle">
                         <div class="contact-details">
-                            <h4>Ivo Vodička</h4><br>
+                            <h4>David Mládek</h4><br>
                             <strong>Point Coordinator</strong><br>
                             Email: <a href="mailto:point@isc.cvut.cz">point@isc.cvut.cz</a><br>
-                            Phone: (+420) 725 280 920<br>
+                            {{--Phone: (+420) <br>--}}
                         </div>
                         <span class="clearfix"></span>
                     </li>
@@ -221,7 +221,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/Languages_Verca.jpg') }}"class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Languages_Verca.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Verča Paštyková</h4><br>
                             <strong>Languages Coordinator</strong><br>
@@ -231,7 +231,7 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/Buddy_Terka.jpg') }}"class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Buddy_Terka.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Tereza Faltysová</h4><br>
                             <strong>Buddy Coordinator</strong><br>
@@ -241,17 +241,17 @@
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017fall/IT_filip.jpg') }}"class="img-circle">
+                        <img src="{{ asset('img/web/contacts/male-silhouette-150.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Filip Marek</h4><br>
                             <strong>IT Coordinator</strong><br>
                             Email: <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a><br>
-                            Phone: (+420) don't know<br>
+                            {{--Phone: (+420) <br>--}}
                         </div>
                         <span class="clearfix"></span>
                     </li>
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/Alumni_Sekretarka.jpg') }}"class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Alumni_Sekretarka.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Vojtěch Novák</h4><br>
                             <strong>Alumni Coordinator</strong><br>
@@ -260,7 +260,7 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
-                    <!--
+                    {{--
                     <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Sports_Petr.jpg') }}"class="img-circle">
                         <div class="contact-details">
@@ -271,9 +271,9 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
-                    -->
+                    --}}
                     <li class="col-md-4 col-sm-6">
-                        <img src="{{ asset('img/web/contacts/2017spring/Care_Misa.jpg') }}"class="img-circle">
+                        <img src="{{ asset('img/web/contacts/2017spring/Care_Misa.jpg') }}" class="img-circle">
                         <div class="contact-details">
                             <h4>Michaela Šímová</h4><br>
                             <strong>ISC Care Coordinator</strong><br>
@@ -282,7 +282,7 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
-                    <!--
+                    {{--
                     <li class="col-md-4 col-sm-6">
                         <img src="{{ asset('img/web/contacts/2017spring/Visa_Pepa.jpg') }}"class="img-circle">
                         <div class="contact-details">
@@ -334,7 +334,7 @@
                         </div>
                         <span class="clearfix"></span>
                     </li>
-                    -->
+                    --}}
                 </ul>
             </div>
         </div>
