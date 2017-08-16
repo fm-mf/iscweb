@@ -67,3 +67,9 @@ Route::group(['namespace' => 'Guide', 'prefix' => 'guide'], function() {
 //Restart password from old web
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 
+Route::group(['namespace' => 'Exchange', 'prefix' => 'FlagParade'], function()
+{
+    Route::get('/{hash}', 'ProfileController@showFlagParade');
+    Route::post('/{hash}', 'ProfileController@singUpFlagParade');
+});
+

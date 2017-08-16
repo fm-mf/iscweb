@@ -41,14 +41,14 @@
                             <table class="table">
                                 @foreach($notVerifiedBuddies->get() as $buddy)
                                     <tr>
-                                        <td>{{ $buddy->person->first_name }} {{ $buddy->person->last_name }}</td>
+                                        <td>{{ $buddy->person->getFullName() }}</td>
                                         <td>{{ $buddy->user()->email }}</td>
                                         <td align="right">
                                             <protectedbutton url="{{ url('partak/users/buddies/approve/' . $buddy->id_user) }}"
-                                                             protection-text="Approve buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
+                                                             protection-text="Approve buddy {{ $buddy->person->getFullName() }}?"
                                                              button-style="btn-success btn-xs">Approve</protectedbutton>
                                             <protectedbutton url="{{ url('partak/users/buddies/deny/' . $buddy->id_user) }}"
-                                                             protection-text="Deny buddy {{ $buddy->person->first_name }} {{ $buddy->person->last_name }}?"
+                                                             protection-text="Deny buddy {{ $buddy->person->getFullName() }}?"
                                                              button-style="btn-danger btn-xs">Deny</protectedbutton>
                                             <a href="{{ url('partak/users/buddies/' . $buddy->id_user) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                         </td>

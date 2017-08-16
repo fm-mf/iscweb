@@ -113,7 +113,7 @@ class Trip extends Model
                 'deleted_by' => null,
                 'stand_in' => $standIn,
                 'registered_by' => $registeredBy,
-                'paid' => $data['paid'],
+                'paid' => $data['paid'] ?? 0,
                 'comment' => $data['comment'] ?? null,
             ]);
         } elseif(! isset($part)) {  //new participant
@@ -186,6 +186,15 @@ class Trip extends Model
     {
         return $this->registration_from <= Carbon::now()
             && $this->event->datetime_from->addDays(7) >= Carbon::now();
+    }
+
+    public function isSignIn($id_user)
+    {
+        $signIn = Person::where('id_user', $id_user)->whereHas('buddy.trips.event', function ($query) {
+            $query->where('name', $this->id_event);
+        })->orWhereHas('exchangeStudent.trips.event', function ($query) {
+            $query->where('name', 'Flag Parade');
+        })->exists();
     }
 
     public static function withParticipants(... $with)

@@ -7,8 +7,10 @@ use App\Models\Arrival;
 use App\Models\ExchangeStudent;
 use App\Models\Person;
 use App\Models\Transportation;
+use App\Models\Trip;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -108,6 +110,35 @@ class ProfileController extends Controller
 
         return redirect('/exchange/'.$request->hash)->with('success', true);
 
+    }
+
+    public function showFlagParade($hash)
+    {
+        $user = User::where('hash', $hash)->exists();
+        if ($user) {
+            $signIn = Trip::wherehas('event', function ($query) {
+                $query->where('name', 'Flag Parade');
+            })->whereHas('participants.user', function ($query) use ($hash) {
+                    $query->where('hash', $hash);
+                })->exists();
+            return view('exchange.FlagParadeRegistration')->with([
+                'hash' => $hash,
+                'signIn' => $signIn,
+            ]);
+        }
+        return view('errors.unauthorized');
+    }
+
+    public function singUpFlagParade($hash)
+    {
+        $user = User::where('hash', $hash)->first();
+        $trip = Trip::whereHas('event', function ($query) {
+            $query->where('name', 'Flag Parade');
+        })->first();
+        $trip->addParticipant($user->id_user, null);
+        return \redirect()->action('Exchange\ProfileController@showFlagParade', [
+            'hash' => $user->hash,
+        ]);
     }
 
     protected function profileValidator(array $data)
