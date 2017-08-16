@@ -105,7 +105,7 @@ class ProfileController extends Controller
         $student->save();
         $student->person->updateWithIssuesAndDiet([
             'medical_issues' => $request->medical_issues,
-            'diet' => $request->diet,
+            'diet' => $request->diet == '' ? null : $request->diet,
         ]);
 
         return redirect('/exchange/'.$request->hash)->with('success', true);
