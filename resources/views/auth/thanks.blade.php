@@ -4,7 +4,7 @@
 <div class="register-wrapper">
         <div class="left-column"></div>
         <div class="container-thanks">
-            <img src="{{ URL::asset('img/auth/logo-reg.png') }}" als="International Student Club" class="logo">
+            <img src="{{ URL::asset('img/web/logo.png') }}" alt="International Student Club" class="logo">
             <h1>Děkujeme za registraci do Buddy Programu!</h1>
             @if (!$verified)
                 <p>Děkujeme za odpověď. Brzy se Ti ozveme. Zatím se můžeš kouknout na chystané akce, kde tě rádi uvidíme!<br>
