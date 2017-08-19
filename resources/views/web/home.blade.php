@@ -20,10 +20,9 @@
             </div>
         </div>
 
-        <!--
+        {{--
         <h1>UPCOMING EVENTS</h1>
-        -->
-        <!--
+
         <div class="container events">
             <div class="container container-ow container-sm-height">
                 <div class="row row-ow row-sm-height">
@@ -48,20 +47,19 @@
                 </div>
             </div>
         </div>
-        -->
+        --}}
 
-        <!--------------------- Orientation week ----------------------------------------------------
+        <!--------------------- Orientation week ---------------------------------------------------- -->
 
-        <!-- ------------------------ OW Fall 2016 --------------------------------------------------------- -->
+        {{-- ------------------------ OW Fall 2016 --------------------------------------------------------- --}}
         <span class="vspace"></span>
         <div class="container events">
             <div class="container container-ow container-sm-height">
 
-                <!-- ------------------------ div containery prosím nechat --------------------------------------------------------- -->
-                <!-- h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1 -->
+                {{-- ------------------------ div containery prosím nechat --------------------------------------------------------- --}}
+                {{--
+                <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>
 
-
-                <!--
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
                     <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('/img/web/events/2017_lingea3.jpg') }})">
@@ -106,9 +104,11 @@
                         </p>
                         <br>
                     </div>
-                </div> -->
+                </div>
+                --}}
 
                 @if(isset($events) && $events->count() > 0)
+                    <h1>UPCOMING EVENTS</h1>
                     @foreach($events as $event)
                         <span class="vspace"></span>
                         <div class="row row-ow row-sm-height">
@@ -132,11 +132,11 @@
                     <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>
                 @endif
 
-                <!-- ------------------------ div containery prosím nechat --------------------------------------------------------- -->
+                {{-- ------------------------ div containery prosím nechat --------------------------------------------------------- --}}
             </div>
             @if($more)<h2 style="text-align: center">You can find more upcoming events in <a href="{{ url('calendar') }}">Calendar</a></h2>@endif
         </div>
-        <!------------------------------ VZOR EVENT --------------------------------------------
+        {{-- ---------------------------- VZOR EVENT --------------------------------------------
                 <span class="vspace"></span>
                 <div class="row row-ow row-sm-height">
                     <div class="col-sm-6 ow-day col-sm-height" style="background-image:url(../img/events/christmas_feast1.jpg);">
@@ -170,10 +170,10 @@
 
                     </div>
                 </div>
-        -->
+        --}}
 
 
-        <!-- ---------------tlačítko do kalenáře, když je hodně eventů------------------>
+        {{-- ---------------tlačítko do kalenáře, když je hodně eventů------------------
         <!--
         <span class="vspace"></span>
         <p class="align-center" style="padding-top:20px;"><a n:href="calendar:"> <button type="button" class="btn btn-primary">See all upcoming events in Calendar</button></a></p>
@@ -202,7 +202,7 @@
                 </div>
             </div>
         </div>
-        -->
+        --> --}}
         <!--------------------- About us ---------------------------------------------------->
         <div class="container-fluid about" id="about-us">
             <div class="row">

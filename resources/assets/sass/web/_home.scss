@@ -182,7 +182,9 @@
   text-align:center;
   background: hsla(0,0%,0%,0.71);
   height:100%;
-  padding-top:50px;
+  @media (min-width: 768px) {
+    padding-top: 50px;
+  }
 }
 .day strong {
   font-size:45px;

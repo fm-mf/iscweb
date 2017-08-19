@@ -112,7 +112,7 @@
 </div>
 
 <!-- ============================= Kalendář ====================================== -->
-<!--
+{{--
 <h2 id="info">Kalendář mezinárodních událostí</h2>
 
 <div class="container events">
@@ -131,7 +131,7 @@
         </div>
     </div>
 </div>
--->
+--}}
 {{--<h2></h2>
 <div class="container events">
     <div class="container container-ow container-sm-height">
@@ -148,31 +148,31 @@
         </div>
     </div>
 </div>--}}
-<!-- h2 id="info">Jak se stát Buddym</h2 -->
 
-<!-- <div class="container events">
+@if (\Carbon\Carbon::now('Europe/Prague')->lt(\Carbon\Carbon::create(2017, 9, 13, 18, 30, 00, 'Europe/Prague')->addHours(2)))
+<h2 id="info">Jak se stát Buddym</h2>
+
+<div class="container events">
     <div class="container container-ow container-sm-height">
         <span class="vspace"></span>
         <div class="row row-ow row-sm-height">
-            <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url(img/events/Co_je_ISC_Fall2016.png);">
-                <span class="day">Středa<br>Listopad<br><strong>2.</strong><br>20:00</span>
-                <h2>Co je ISC aneb Jak se zapojit</h2>
+            <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url(https://www.isc.cvut.cz/events/covers/58.jpeg)">
+                <span class="day">Středa<br><strong>13.</strong><br>září<br>18:30</span>
+                <h2>Buddy Session</h2>
             </div>
             <div class="col-sm-6 ow-detail col-sm-height col-top">
+
+                <p>Staň se Buddym!</p>
+                <p>Co to obnáší? Vybereš si zahraničního studenta dle svého uvážení a trochu mu píchneš v začátcích. Neboj, není to nic náročného.</p>
+                <p>Informační schůzka, kde se dozvíš víc, bude ve vzdělávacím centru NTK (u vstupu NTK3 naproti noční studovně, od recepce po schodech do 2. patra).</p>
                 <p>
-                    <b>Kde?</b> <a href="https://goo.gl/maps/mHoQ1M6kv9u" target="_blank"> ISC R404 (tzn. nad Pointem)</a><br>
-                </p>
-                <p>
-                    Líbí se ti Buddy program a akce, které děláme? Chtěl by ses podílet na jejich vytváření? Nebo prostě chceš vědět něco víc o ISC? Přijď na informační přednášku ISC a zjistíš, co děláme a jak se můžeš zapojit!
-                </p>
-                <p>
-                    ► <a href="https://www.facebook.com/events/1765809590352501/" target="_blank">Událost na Facebooku</a>
+                    ► <a href="https://www.facebook.com/events/164916980735947/?fref=ts"><strong>Facebook event!</strong></a>
                 </p>
             </div>
         </div>
     </div>
 </div>
--->
+@endif
 
 <!-- ============================= Co to obnáší ====================================== -->
 <h2>CO OBNÁŠÍ BÝT BUDDYM?</h2>
@@ -198,7 +198,7 @@
     </div>
 </div>
 
-<!--
+{{--
         <div class="container info" id="info">
 
             <div class="row">
@@ -210,7 +210,7 @@
             </div>
         </div>
 
--->
+--}}
 
 <div class="container info" id="info">
 
