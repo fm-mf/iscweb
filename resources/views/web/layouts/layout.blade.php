@@ -36,7 +36,7 @@
                 <h3>Our projects</h3>
                 <span class="bar"></span>
                 <ul class="list-unstyled">
-                    <li><a href="http://www.integreat.cz" target="_blank"><img src="{{ URL::asset('img/web/integreat_svetle_60x60.png') }}" width="17px"> inteGREAT</a></li>
+                    <li><a href="http://www.integreat.cz" target="_blank"><img src="{{ URL::asset('img/web/integreat_svetle_60x60.png') }}" width="17"> inteGREAT</a></li>
                     <!-- <li><a href="http://isc.cvut.cz/survivalguide">SURVIVAL GUIDE</a></li> -->
                     <li><a href="http://isc.cvut.cz/saf" target="_blank">Study Abroad Fair</a></li>
                     <li>ISC Care</li>
@@ -46,9 +46,9 @@
                 <h3>Our channels</h3>
                 <span class="bar"></span>
                 <ul class="list-unstyled">
-                    <li><a href="https://www.facebook.com/isc.ctu.prague" target="_blank"><img src="{{ URL::asset('img/web/fb.png') }}" width="17px"> Facebook</a></li>
-                    <li><a href="https://www.linkedin.com/company/1201189" target="_blank"><img src="{{ URL::asset('img/web/in.png') }}" width="17px"> LinkedIn</a></li>
-                    <li><a href="http://www.youtube.com/user/ISCCTUPrague" target="_blank"><img src="{{ URL::asset('img/web/youtube.png') }}" width="17px"> YouTube</a></li>
+                    <li><a href="https://www.facebook.com/isc.ctu.prague" target="_blank"><img src="{{ URL::asset('img/web/fb.png') }}" width="17"> Facebook</a></li>
+                    <li><a href="https://www.linkedin.com/company/1201189" target="_blank"><img src="{{ URL::asset('img/web/in.png') }}" width="17"> LinkedIn</a></li>
+                    <li><a href="http://www.youtube.com/user/ISCCTUPrague" target="_blank"><img src="{{ URL::asset('img/web/youtube.png') }}" width="17"> YouTube</a></li>
                     <li><a href="http://www.flickr.com/groups/iscctu/" target="_blank">Flickr</a></li>
                 </ul>
             </div>
