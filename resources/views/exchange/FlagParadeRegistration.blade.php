@@ -4,6 +4,10 @@
     @if($signIn)
         <h1>Flag parade</h1>
         <p>You are <strong>Sing In</strong></p>
+        <form method="post" action="{{ '/FlagParade/' . $hash . '/delete' }}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="submit" value="Sing Out">
+        </form>
     @else
         <form method="post" action="{{ '/FlagParade/' . $hash }}">
             <h1>Do you want to participate in Flag parade?</h1>

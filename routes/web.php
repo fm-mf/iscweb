@@ -71,5 +71,6 @@ Route::group(['namespace' => 'Exchange', 'prefix' => 'FlagParade'], function()
 {
     Route::get('/{hash}', 'ProfileController@showFlagParade');
     Route::post('/{hash}', 'ProfileController@singUpFlagParade');
+    Route::post('/{hash}/delete', 'ProfileController@deleteFlagParade');
 });
 

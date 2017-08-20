@@ -141,6 +141,18 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function deleteFlagParade($hash)
+    {
+        $trip = Trip::whereHas('event', function ($query) {
+            $query->where('name', 'Flag Parade');
+        })->first();
+        $user = User::where('hash', $hash)->first();
+        $trip->removeParticipant($user->id_user);
+        return \redirect()->action('Exchange\ProfileController@showFlagParade', [
+            'hash' => $user->hash,
+        ]);
+    }
+
     protected function profileValidator(array $data)
     {
         return Validator::make($data, [
