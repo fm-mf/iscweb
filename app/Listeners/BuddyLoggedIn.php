@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 
 use App\Models\Buddy;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Login;
 
 class BuddyLoggedIn
@@ -27,7 +28,7 @@ class BuddyLoggedIn
     {
         $buddy = Buddy::findBuddy($event->user->getAuthIdentifier());
         if ($buddy != null) {
-            $buddy->last_login = new \DateTime();
+            $buddy->last_login = Carbon::now('UTC');
             $buddy->save();
         }
     }
