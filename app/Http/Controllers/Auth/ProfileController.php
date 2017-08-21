@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Events\BuddyRegistered;
+use App\Events\BuddyVerified;
 use App\Events\BuddyWithoutEmailRegistered;
 use App\Mail\LetHRKnow;
 use App\Mail\VerifyUser;
@@ -163,7 +164,7 @@ class ProfileController extends Controller
         if ($user) {
             $buddy = Buddy::findBuddy($user->id_user);
             $buddy->setVerified();
-            event(new BuddyRegistered($buddy));
+            event(new BuddyVerified($buddy));
             return redirect('/user/thankyou')->with('verified', true);
         } else {
             return view('auth.invalidhash');
