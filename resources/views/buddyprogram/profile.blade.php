@@ -37,6 +37,7 @@
                         @else
                             Zatím nevyplněno <br>
                         @endif
+                        <strong>Ubytování</strong>: {{ $exchangeStudent->accommodation->full_name }} <br>
                     </div>
                 </div>
             </div>

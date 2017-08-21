@@ -59,8 +59,8 @@ return [
     'min'                  => [
         'numeric' => ':attribute musí být větší než :min.',
         'file'    => ':attribute musí být větší než :min Kilobytů.',
-        'string'  => ':attribute musí být delší než :min znaků.',
-        'array'   => ':attribute musí obsahovat více než :min prvků.',
+        'string'  => ':attribute musí obsahovat alespoň :min znaků.',
+        'array'   => ':attribute musí obsahovat alespoň :min prvků.',
     ],
     'not_in'               => 'Zvolená hodnota pro :attribute je neplatná.',
     'numeric'              => ':attribute musí být číslo.',

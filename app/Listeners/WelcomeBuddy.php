@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: filip
- * Date: 21.8.17
- * Time: 16:48
- */
 
 namespace App\Listeners;
 
@@ -33,6 +27,12 @@ class WelcomeBuddy
      */
     public function handle(BuddyVerified $event)
     {
-        Mail::to($event->buddy->person->user->email)->send(new WelcomeToBuddyProgramme());
+        if (!$event->buddy->isWelcomeSent()) {
+            Mail::to($event->buddy->person->user->email)->send(new WelcomeToBuddyProgramme());
+            if (!in_array($event->buddy->person->user->email, Mail::failures())) {
+                $event->buddy->welcome_mail_sent = 1;
+                $event->buddy->save();
+            }
+        }
     }
 }

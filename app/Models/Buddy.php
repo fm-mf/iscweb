@@ -63,6 +63,15 @@ class Buddy extends Model
         return $this->verified == 'y';
     }
 
+    public function setWelcomeSent() {
+        $this->welcome_mail_sent = 1;
+        $this->save();
+    }
+
+    public function isWelcomeSent() {
+        return $this->welcome_mail_sent == 1;
+    }
+
     public function getDetailLink()
     {
         return url('partak/users/buddies/' . $this->id_user);
