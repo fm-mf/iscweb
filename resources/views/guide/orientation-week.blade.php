@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-md-12 bg-danger">
-            <p>Orientation week is held by ISC one week before semester starts and it provides you many important informations
+            <p>Orientation week is held by ISC one week before semester starts and it provides you many important information
                 which can simplify your first days of your stay in the Czech Republic.
                 It is strongly recommended to attend this program.
                 During this week you will get to know the main bureaucracy at the CTU.
@@ -100,7 +100,8 @@
             </p>
             <ul class="list-unstyled">
                 <li>When: Various times for different faculties</li>
-                <li>Where: At your faculty (more informations in the presentations on the first day)</li>
+                <li>Where: At your faculty (more information in the presentations on the first day)</li>
+                <li>Meeting points: in front of the faculties</li>
                 <li class="bg-danger">You will need:
                     <ul>
                         <li>The green <strong>study record book</strong> from the Welcome pack</li>
@@ -158,7 +159,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h3>Registation at faculties</h3>
-            <p class="bg-info">Apply the same informations as for DAY 2</p>
+            <p class="bg-info">Applies the same information as for DAY 2</p>
         </div>
     </div>
     <div class="row">
@@ -194,7 +195,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h3>Registation at faculties</h3>
-            <p class="bg-info">Applies the same informations as for DAY 2</p>
+            <p class="bg-info">Applies the same information as for DAY 2</p>
         </div>
     </div>
     <div class="row">
@@ -202,7 +203,7 @@
             <h3>Trips around the Czech Republic</h3>
             <p>One-day or two-day events introducing you to a lot of interesting places</p>
             <ul class="list-unstyled">
-                <li>When/Where: various times and places for each trip, more informations on DAY 2 at the second information meeting</li>
+                <li>When/Where: various times and places for each trip, more information on DAY 2 at the second information meeting</li>
                 <li class="bg-danger">You will need:
                     <ul>
                         <li>Cash</li>
