@@ -120,7 +120,7 @@ class WebController extends Controller
                         'name' => 'David Mládek',
                         'position' => 'Point Coordinator',
                         'email' => 'point@isc.cvut.cz',
-                        'phone' => '+420 ',
+                        'phone' => '+420 721 155 737',
                         'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),
                 array (
                         'name' => 'Míša Petříková',

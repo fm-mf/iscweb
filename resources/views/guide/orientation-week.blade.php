@@ -9,7 +9,7 @@
         <div class="col-md-12 bg-danger">
             <p>Orientation week is held by ISC one week before semester starts and it provides you many important information
                 which can simplify your first days of your stay in the Czech Republic.
-                It is strongly recommended to attend this program.
+                <strong>It is strongly recommended to attend this program.</strong>
                 During this week you will get to know the main bureaucracy at the CTU.
                 Besides, we will help you to make new local and international friends through parties, games and a lot of trips.
                 You shouldn’t miss this great opportunity!
@@ -29,7 +29,7 @@
     </div>
 
     <div class="row">
-        <h2>DAY 1 - Monday <strong>(September 25th)</strong></h2>
+        <h2>DAY 1 – Monday <strong>(25 September)</strong></h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -90,7 +90,7 @@
     --}}
 
     <div class="row">
-        <h2>DAY 2 - Tuesday (September 26th)</h2>
+        <h2>DAY 2 – Tuesday (26 September)</h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -123,13 +123,12 @@
         <div class="col-lg-12">
             <h3>Second information meeting</h3>
             <ul class="list-unstyled">
-                <li>When: <strong>14:00</strong> - 16:30</li>
-                <li>Where: Congress Hall of the Masarykova dormitory</li>
+                <li>When: <strong>14:00</strong> - 18:00</li>
+                <li>Where: Faculty of Electrical Engeneering, room 256 and 358</li>
                 <li>Topics:
                     <ul>
+                        <li>ISC presentation</li>
                         <li>ISC trips presentations and registrations (<strong>ESNcard + cash needed</strong>)</li>
-                        <li>ISC care</li>
-                        <li>Your email account</li>
                     </ul>
                 </li>
             </ul>
@@ -154,17 +153,17 @@
     --}}
 
     <div class="row">
-        <h2>DAY 3 - Wednesday (September 27th)</h2>
+        <h2>DAY 3 – Wednesday (27 September)</h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>Registation at faculties</h3>
-            <p class="bg-info">Applies the same information as for DAY 2</p>
+            <p class="bg-info">Applies the same information as for the DAY 2</p>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h3>Prague Discovery Game (PDG)</h3>
+            <h3>Prague Discovery Game</h3>
             <p>A great treasure hunt across Prague organized by ISC Activities team</p>
             <ul class="list-unstyled">
                 <li>When: in the afternoon</li>
@@ -190,12 +189,12 @@
     </div>
 
     <div class="row">
-        <h2>DAY 4-7 - Thursday to Sunday (September 28th – October 1st) </h2>
+        <h2>DAY 4–7 – Thursday to Sunday (28 September – 1 October) </h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h3>Registation at faculties</h3>
-            <p class="bg-info">Applies the same information as for DAY 2</p>
+            <h3>Registation at some faculties</h3>
+            <p class="bg-info">Applies the same information as for the DAY 2</p>
         </div>
     </div>
     <div class="row">
