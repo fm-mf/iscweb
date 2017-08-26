@@ -35,6 +35,17 @@ class PageController extends Controller
             case "orientation-week":
                 $with += ['owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo'))];
                 break;
+            /* Temporary */
+            case "about-CTU":
+                $with += ['rector' => Settings::get('rector')];
+                break;
+            case "basic-information":
+                $with = ['wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
+                        'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
+                        'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
+                ];
+                break;
+            /* /Temporary */
         }
         return view('guide.' . $page)->with($with);
     }
