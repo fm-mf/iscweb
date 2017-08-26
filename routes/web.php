@@ -32,9 +32,9 @@ Route::get('/visa', function() {
 });
 
 
-Route::get('buddy-prirucka', function () { return redirect(asset('files/buddyPriruckaSpring2017.pdf')); });
+Route::get('buddy-prirucka', function () { return response()->file('files/buddy-prirucka-fall-2017.pdf'); });
 //redirect from old web
-Route::get('/buddy/files/buddyPriruckaSpring2017.pdf', function () { return redirect(asset('files/buddyPriruckaSpring2017.pdf')); });
+Route::get('/buddy/files/buddyPriruckaSpring2017.pdf', function () { return redirect(url('buddy-prirucka')); });
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {

@@ -222,7 +222,7 @@
 
 
             <p>
-                <a href="{{ asset('files/buddyPriruckaSpring2017.pdf') }}">
+                <a href="{{ url('buddy-prirucka') }}">
                     <button type="button" class="btn btn-default">Stáhnout Buddy Příručku (PDF)</button>
                 </a>
             </p>
