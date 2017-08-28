@@ -168,7 +168,7 @@ class WebController extends Controller
                         'name' => 'Jakub Švehla',
                         'position' => 'Visa Coordinator',
                         'email' => 'visa@isc.cvut.cz',
-                        'phone' => '+420 ',
+                        'phone' => '+420 603 831 593',
                         'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),/*
                 array (
                         'name' => 'Vojtěch Zacharda',
