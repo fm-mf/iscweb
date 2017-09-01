@@ -10,4 +10,19 @@ div {
   overflow: auto;
 }
 
+footer {
+  background-color: #29a9e1;
+  color: #ffffff;
+  padding: 2rem 1rem;
+}
+
+footer > * {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @import "landing-page";
+@import "about";
+@import "presentations";
+@import "partners";
