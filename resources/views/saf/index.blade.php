@@ -1,4 +1,4 @@
 @extends('layouts.saf.layout')
 @section('page')
-    <h1>Nadpis</h1>
+    @include('saf.landing-page')
 @endsection
