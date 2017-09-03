@@ -5,13 +5,14 @@
   padding: 0;
 }
 
-#partners > ul >li {
+#partners > ul > li {
   margin: 1rem;
   flex-basis: 30rem;
+  text-align: justify;
 }
 
 @media (max-width: 66.875rem) {
-  #partners > ul >li {
+  #partners > ul > li {
     flex-grow: 1;
   }
 }
