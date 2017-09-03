@@ -368,7 +368,7 @@
                     <!-- <li><a href="http://www.integreat.cz">inteGREAT</a></li> -->
                     <!-- <li><a href="http://isc.cvut.cz/survivalguide">SURVIVAL GUIDE</a></li> -->
                     <!-- <li>ISC Care</li> -->
-                    <li><a href="#">Study Abroad Fair</a></li>
+                    <li><a href="{{ url('scvutdosveta') }}" target="_blank">S ČVUT do světa</a></li>
                 </ul>
             </div>
             <div class="col-sm-2">

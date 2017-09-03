@@ -38,7 +38,7 @@
                 <ul class="list-unstyled">
                     <li><a href="http://www.integreat.cz" target="_blank"><img src="{{ URL::asset('img/web/integreat_svetle_60x60.png') }}" width="17"> inteGREAT</a></li>
                     <!-- <li><a href="http://isc.cvut.cz/survivalguide">SURVIVAL GUIDE</a></li> -->
-                    <li><a href="http://isc.cvut.cz/saf" target="_blank">Study Abroad Fair</a></li>
+                    <li><a href="{{ url('scvutdosveta') }}" target="_blank">S ČVUT do světa</a></li>
                     <li>ISC Care</li>
                 </ul>
             </div>

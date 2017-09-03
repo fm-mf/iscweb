@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>ParťákNET | ISC CTU in Prague</title>
 
     <meta id="token" name="csrf-token" content="{{csrf_token()}}">
     <meta property="og:title" content="">
@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand partaknet-logo" href="https://isc.cvut.cz">
-                    <img src="{{ asset('img/web/logo2.png') }}" style="margin-top: 5px !important;" width="150" id="logo" alt="International Student Club">
+                    <img src="{{ asset('img/web/logo.png') }}" style="margin-top: 5px !important;" width="150" id="logo" alt="International Student Club">
                     <!--PartákNET-->
                 </a>
             </div><!-- /.navbar-header -->
