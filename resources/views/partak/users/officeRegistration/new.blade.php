@@ -27,6 +27,9 @@
                         {{ Form::bsSelect('id_accommodation', 'Accommodation', $accommodations, null, ['placeholder' => 'Choose accommodation...']) }}
                         {{ Form::bsSelect('id_country', 'County', $countries, null, ['placeholder' => 'Choose country...']) }}
 
+                        {{ Form::label('fullTime', 'Full-time student', ['class' => 'control-label']) }}
+                        {{ Form::checkbox('fullTime', 'y') }}
+
 
                         <div class="form-group row" style="overflow: hidden">
                             <div class="col-sm-6 left">

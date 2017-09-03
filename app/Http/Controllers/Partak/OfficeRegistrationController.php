@@ -81,6 +81,10 @@ class OfficeRegistrationController extends Controller
         $semester = Semester::where('semester', Settings::get('currentSemester'))->first();
         $exStudent->semesters()->attach($semester->id_semester);
 
+        if (array_key_exists('fullTime', $data) && $data['fullTime'] == 'y') {
+            $exStudent->person->user->addRole(9); // 'samoplatce'
+        }
+
         return \Redirect::route('exStudent.edit',['id_user' => $exStudent->id_user]);
     }
 
