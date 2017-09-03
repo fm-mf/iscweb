@@ -85,7 +85,7 @@ class ExchangeStudent extends Model
     {
         return url('partak/users/exchange-students/' . $this->id_user);
     }
-
+/*
     public function getEmailAttribute($value)
     {
         return $this->person->email;
@@ -95,7 +95,7 @@ class ExchangeStudent extends Model
     {
         $this->person->email = $value;
     }
-
+*/
     public static function findAll()
     {
         return ExchangeStudent::with('person', 'person.user', 'country', 'faculty', 'accommodation', 'arrival');
