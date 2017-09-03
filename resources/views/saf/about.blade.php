@@ -3,7 +3,6 @@
         V loňském roce se přitom obsadila méně než polovina volných míst.
         Šance dostat se na Erasmus nebo Mimoevropské bilaterální dohody je obrovská.</p>
     <h2>O nás</h2>
-    <img src="{{ asset('img/saf/') }}" />
     <ul>
         <li><img src="{{ asset('img/saf/logo-isc-vertikalni-barevne.svg') }}" /></li>
         <li><img src="{{ asset('img/saf/logo-cvut-symbol.svg') }}" /></li>

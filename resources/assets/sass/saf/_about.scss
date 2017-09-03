@@ -1,14 +1,3 @@
-#about {
-  padding: 2rem 1rem;
-  clear: both;
-}
-
-#about > * {
-  max-width: 64rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #about > div > img {
   display: none;
   float: right;
@@ -39,9 +28,10 @@ p > span {
   display: block;
 }
 
-@media (min-width: 24rem) {
+@media (min-width: 22rem) {
   #about > div > img {
     display: block;
     max-width: 25%;
+    min-width: 10rem;
   }
 }

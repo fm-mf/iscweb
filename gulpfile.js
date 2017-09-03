@@ -28,6 +28,7 @@ elixir((mix) => {
         .sass('web/buddy.scss', 'public/css/buddy.css')
         .sass('errors.scss', 'public/css/errors.css')
         .sass('saf/saf.scss', 'public/css/saf.css')
+        .sass('saf/saf-partner.scss', 'public/css/saf-partner.css')
         .webpack('echangestudentslist.js')
         .webpack('partak.js');
 });
