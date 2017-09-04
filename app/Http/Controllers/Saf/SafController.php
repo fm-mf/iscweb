@@ -85,7 +85,7 @@ class SafController extends Controller
                 array(
                         'img' => 'logo-campus-france.png',
                         'title' => 'Campus France',
-                        'description' => 'Campus France is the French national agency for the promotion of higher education, international student services and international mobility. ',
+                        'description' => 'Espace Campus France Česká republika (ECF) sídlí ve Francouzském institutu a nabízí informační službu českým studentům, kteří chtějí začít nebo pokračovat ve studiích ve Francii.',
                         'url' => 'campus-france',
                 ),
                 array(
@@ -121,7 +121,7 @@ class SafController extends Controller
                 array(
                         'img' => 'logo-best.png',
                         'title' => 'BEST',
-                        'description' => 'BEST, Board of European Students of Technology, je neustále se rozšiřující, nezisková, nepolitická organizace. Od roku 1989 podporujeme studenty z celé Evropy ve vzájemné komunikaci, spolupráci a výměně zkušeností.',
+                        'description' => 'BEST, Board of European Students of Technology, je neustále se rozšiřující, nezisková, nepolitická organizace. Od roku 1989 podporuje studenty z celé Evropy ve vzájemné komunikaci, spolupráci a výměně zkušeností.',
                         'url' => 'best',
                 ),
                 array(

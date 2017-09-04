@@ -22,7 +22,7 @@
             <strong>18. října</strong> vyrazíme s našimi 556 zahraničními studenty a studenty VŠCHT, UK, ČZU a VŠE
             do historického centra Prahy na Flag Parade k příležitosti oslav 30 let programu Erasmus+.
             <strong>20. října</strong> vás čeká veletrh zaměřený na studium v Evropě a <strong>25. října</strong> na celý svět.</p>
-        <p>Chcete být v obraze? Tak Sledujte novinky na naší Facebookové události
+        <p>Chcete být v obraze? Tak sledujte novinky na naší Facebookové události
             <a href="https://www.facebook.com/events/869570839847799" target="_blank"> S ČVUT do světa Study Abroad Fair</a>.</p>
     </div>
 </section>
