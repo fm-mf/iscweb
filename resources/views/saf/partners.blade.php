@@ -2,7 +2,7 @@
     <h2>Partneři</h2>
     <ul>
         @foreach ($partners as $partner)
-            @if ($partner['title'] !== '')
+            @if ($partner['title'] !== '' && $partner['description'] !== '')
             <li>
                 @if ($partner['url'] !== '')
                 <a href="{{ url('scvutdosveta/'. $partner['url']) }}">

@@ -72,14 +72,14 @@ class SafController extends Controller
                 ),
                 array(
                         'img' => 'logo-fulbright-vertical.gif',
-                        'title' => 'Fulbright',
-                        'description' => 'Prestižní Fulbrightovy stipendijní programy financované českou a americkou vládou a administrované Komisí J. Williama Fulbrighta poskytují českým postgraduálním studentům, akademikům a vědcům příležitost studovat, provádět výzkum či vyučovat na amerických univerzitách.',
+                        'title' => 'Fulbrightova komise',
+                        'description' => 'Prestižní Fulbrightovy stipendijní programy financované českou a americkou vládou a administrované Komisí J. Williama Fulbrighta poskytují příležitost studovat, provádět výzkum či vyučovat na amerických univerzitách.',
                         'url' => 'fulbright',
                 ),
                 array(
                         'img' => 'logo-bakala-foundation.png',
                         'title' => 'Bakala Foundation',
-                        'description' => 'Bakala Foundation je česká rodinná nadace Zdeňka a Michaely Bakalových. Byla založena v roce 2007 s cílem podporovat studium talentovaných studentů na prestižních zahraničních univerzitách prostřednictvím programu Scholarship.',
+                        'description' => 'Bakala Foundation je česká nadace Zdeňka a Michaely Bakalových. Byla založena v roce 2007 s cílem podporovat studium talentovaných studentů na prestižních zahraničních univerzitách prostřednictvím programu Scholarship.',
                         'url' => 'bakala-foundation',
                 ),
                 array(

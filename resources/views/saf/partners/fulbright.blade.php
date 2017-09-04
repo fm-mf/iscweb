@@ -7,9 +7,9 @@
 
     <section>
         <div>
-            <img src="{{ asset('img/saf/partners/logo-fulbright-horizontal.gif') }}" alt="Logo Fulbright" title="Logo Fulbright" class="logo" />
+            <img src="{{ asset('img/saf/partners/logo-fulbright-horizontal.gif') }}" alt="Logo Fulbrightovy komise" title="Logo Fulbrightovy komise" class="logo" />
         </div>
-        <h1>Fulbright</h1>
+        <h1>Fulbrightova komise</h1>
         <p>Prestižní Fulbrightovy stipendijní programy financované českou a americkou vládou a administrované Komisí
             J. Williama Fulbrighta poskytují českým postgraduálním studentům, akademikům a vědcům příležitost studovat,
             provádět výzkum či vyučovat na amerických univerzitách.</p>
