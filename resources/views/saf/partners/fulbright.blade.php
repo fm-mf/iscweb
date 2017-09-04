@@ -1,6 +1,6 @@
 @extends('layouts.saf.partner-subpage')
 
-@section('title', 'Fulbtight &ndash; ')
+@section('title', 'Fulbrightova komise &ndash; ')
 
 @section('page')
     @parent
