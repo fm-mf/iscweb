@@ -1,6 +1,9 @@
-$().ready(function(){
-    $("#landing-page").children(".more").click(function(){
-        $("body").stop().animate({scrollTop:parseInt(window.getComputedStyle($("#landing-page")[0], null).height)}, 500, 'swing', function() {
-        });
-    });
+$(document).ready(function() {
+    $landingPage = $('#landing-page');
+    $landingPage.children(".more").click(
+        function(event) {
+            event.preventDefault();
+            $('html, body').stop().animate({ scrollTop: $landingPage.offset().top + $landingPage.outerHeight() });
+        }
+    );
 });
