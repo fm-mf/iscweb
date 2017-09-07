@@ -21,4 +21,17 @@
         <p>Každoročně s Fulbrightem do USA v rámci různých stipendijních kategorií vycestuje až 40 českých „fulbrightistů“.
             Poměr vybraných stipendistů k počtu přihlášek se pohybuje mezi jedna ku třem a jedna ku pěti.</p>
     </section>
+
+    <section>
+        <h2>Semináře o studiu v USA</h2>
+        <p>Zájemcům o vysokoškolské studium v USA nabízí poradenské centrum Fulbrightovy komise sérii bezplatných seminářů.</p>
+        <dl>
+            <dt>14.9.  Jak na vysokou školu do USA</dt>
+            <dt>12.10. Jak na americké přijímací zkoušky</dt>
+            <dt>26.10. Jak financovat studium v USA</dt>
+            <dt>16.11. Jak na eseje pro americké přijímací řízení</dt>
+            <dt>23.11. Jak připravit kvalitní přihlášku na americké univerzity</dt>
+        </dl>
+        <p>Více informací na <a href="http://www.fulbright.cz/akce" target="_blank">www.fulbright.cz/akce</a>.</p>
+    </section>
 @endsection

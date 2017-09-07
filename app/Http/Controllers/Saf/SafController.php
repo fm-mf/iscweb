@@ -89,10 +89,10 @@ class SafController extends Controller
                         'url' => 'campus-france',
                 ),
                 array(
-                        'img' => '',
-                        'title' => '',
-                        'description' => '',
-                        'url' => '',
+                        'img' => 'logo-japan-embassy.jpg',
+                        'title' => 'Japan Embassy',
+                        'description' => 'Japonské informační a kulturní centrum (JICC) je součástí Velvyslanectví Japonska v ČR.',
+                        'url' => 'japan-embassy',
                 ),
                 array(
                         'img' => '',

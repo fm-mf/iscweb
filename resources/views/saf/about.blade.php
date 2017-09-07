@@ -15,7 +15,7 @@
             Jsem Věra, studentka projektového managementu na ČVUT v Praze, ale taky na QUT v Austrálii a na NSYSU na Taiwanu.
             Od července, kdy jsem se vrátila ze svých zahraničních výjezdů, se ve studentském klubu ISC podílím
             na přípravě veletrhu studia v zahraničí Study Abroad Fair. Máme jasný, ale nelehký úkol:
-            inspirovat, motivovat a podpořit další studenty, aby se vydali na svou cestu S ČVUT do světa.</p>
+            inspirovat, motivovat a podpořit další studenty, aby se vydali na svou cestu <strong>S ČVUT do světa</strong>.</p>
         <p>Spojili jsme síly se zahraničním oddělením rektorátu ČVUT, nadacemi a organizacemi podporujícími studium v zahraničí,
             studentskými kluby a především zkušenými studenty, kteří se s námi všemi podělí o své zážitky z výjezdů do celého světa.</p>
         <p>Od <strong>9. října</strong> se můžete těšit na cestovatelské přednášky na všech fakultách ČVUT (termíny upřesníme).
