@@ -15,7 +15,7 @@ class Person extends Model
     //protected $dates = ['age'];
 
     protected $fillable = [
-        'firs_name', 'last_name', 'age', 'sex', 'diet', 'medical_issues', 'avatar'
+        'first_name', 'last_name', 'age', 'sex', 'diet', 'medical_issues', 'avatar'
     ];
 
     public function user()

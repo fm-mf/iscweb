@@ -31,6 +31,9 @@ class RegistrationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.registrationsmail')->from('buddy@isc.cvut.cz')->with('hash', $this->exchangeStudent->person->user->hash);
+        return $this->view('emails.registrationsmail')
+                ->from('buddy@isc.cvut.cz', 'ISC CTU in Prague')
+                ->subject('Buddy Program – Registration email')
+                ->with('hash', $this->exchangeStudent->person->user->hash);
     }
 }
