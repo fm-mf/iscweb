@@ -1,0 +1,50 @@
+#inspiration > div > a > div > * {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+@media (max-width: 30rem) {
+  #inspiration > div > a > div > * {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+#inspiration > div > a:hover > div {
+  text-decoration: underline;
+}
+
+#inspiration > div > a > div > p:first-child {
+  font-size: 2em;
+}
+
+#inspiration > div > a > div > p + p {
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.7);
+  font-style: italic;
+}
+
+#inspiration > div {
+  background-image: url("/img/saf/athens.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  color: #ffffff;
+  min-height: 17rem;
+  font-size: 1.25rem;
+}
+
+#inspiration > div > a {
+  display: block;
+  position: relative;
+  padding-bottom: 25%;
+  color: inherit;
+}
+
+#inspiration > div > a > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0));
+}

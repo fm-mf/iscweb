@@ -25,13 +25,13 @@
     <section>
         <h2>Semináře o studiu v USA</h2>
         <p>Zájemcům o vysokoškolské studium v USA nabízí poradenské centrum Fulbrightovy komise sérii bezplatných seminářů.</p>
-        <dl>
-            <dt>14.9.  Jak na vysokou školu do USA</dt>
-            <dt>12.10. Jak na americké přijímací zkoušky</dt>
-            <dt>26.10. Jak financovat studium v USA</dt>
-            <dt>16.11. Jak na eseje pro americké přijímací řízení</dt>
-            <dt>23.11. Jak připravit kvalitní přihlášku na americké univerzity</dt>
-        </dl>
+        <ul>
+            <li>14. 9. &ndash; Jak na vysokou školu do USA</li>
+            <li>12. 10. &ndash; Jak na americké přijímací zkoušky</li>
+            <li>26. 10. &ndash; Jak financovat studium v USA</li>
+            <li>16. 11. &ndash; Jak na eseje pro americké přijímací řízení</li>
+            <li>23. 11. &ndash; Jak připravit kvalitní přihlášku na americké univerzity</li>
+        </ul>
         <p>Více informací na <a href="http://www.fulbright.cz/akce" target="_blank">www.fulbright.cz/akce</a>.</p>
     </section>
 @endsection

@@ -1,24 +1,48 @@
-section > div > div > p {
+section > div.inspiration > a > div > p {
   margin-left: 2rem;
+  margin-right: 2rem;
 }
 
-section > div > div > p:first-child {
+@media (max-width: 30rem) {
+  section > div.inspiration > a > div > p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+section > div.inspiration > a:hover > div > p {
+  text-decoration: underline;
+}
+
+section > div.inspiration > a > div > p:first-child {
   font-size: 2em;
 }
 
-section > div > div > p + p {
+section > div.inspiration > a > div > p + p {
   font-size: 1.5em;
   color: rgba(0, 0, 0, 0.7);
   font-style: italic;
 }
 
-section > div {
-  position: relative;
+section > div.inspiration {
+  background-image: url("/img/saf/athens.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 30%;
+  min-height: 15rem;
 }
 
-section > div > div {
+section > div.inspiration > a {
+  display: block;
+  position: relative;
+  padding-bottom: 50%;
+  color: inherit;
+}
+
+section > div.inspiration > a > div {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0));
 }

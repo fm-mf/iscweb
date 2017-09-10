@@ -1,10 +1,12 @@
 <section id="inspiration">
-    <h1>Inspirace</h1>
+    <h2>Inspirace</h2>
 
     <div>
         <a href="{{ url('scvutdosveta/athens') }}">
-            <h2>Týden v Evropě na zkoušku</h2>
-            <p>Vyzkoušej si studium v zahraničí bez závazků. Přihlášky do programu ATHENS jsou otevřeny do 21. září.</p>
+            <div>
+                <h3>Týden v&nbsp;Evropě na zkoušku</h3>
+                <p>Vyzkoušej si studium v&nbsp;zahraničí bez závazků. Přihlášky do programu ATHENS jsou otevřeny do 21.&nbsp;září.</p>
+            </div>
         </a>
     </div>
 </section>
