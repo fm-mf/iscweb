@@ -6,10 +6,11 @@
 
     <title>Přihlášení</title>
 
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href="{{ URL::asset('css/login.css') }}" rel="stylesheet" type="text/css">
 
-    <link rel="shortcut icon" href="{$basePath}/favicon.ico">
 
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
     <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>

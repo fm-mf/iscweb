@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ParťákNET | ISC CTU in Prague</title>
 
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
+
     <meta id="token" name="csrf-token" content="{{csrf_token()}}">
     <meta property="og:title" content="">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
 
-    <link rel="shortcut icon" href="/favicon.ico">
 
     @section('stylesheets')
         <link href="{{ URL::asset('/css/partaknet.css') }}" rel="stylesheet" type="text/css">

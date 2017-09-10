@@ -11,7 +11,7 @@
     <meta property="og:url" content="http://isc.cvut.cz">
     <meta property="og:image" content="http://isc.cvut.cz/img/isc-web.jpg">
 
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
     @section('stylesheets')
         <link href="{{ URL::asset('css/web.css') }}" rel="stylesheet" type="text/css">

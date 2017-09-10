@@ -1,137 +1,181 @@
 @extends('layouts.guide.layout')
+
+@section('title', 'Health care &ndash; ')
+
 @section('content')
-    <div class="row">
-        <h1>Health care</h1>
-    </div>
-    <div class="row">
-        <div class="col-md-12 bg-success"><p>International students normally have quite good
-                experience with the ordinary public Czech health
-                care services. There is no need to pay extra for visiting a private practice.</p>
-            <p>Please inform the International Office (or your faculty contact person) about any health condition
-                that should be notified (e.g. diabetes).</p>
-        </div>
-    </div>
+    <h1>Health care</h1>
+    <ul>
+        <li>International students normally have quite good experience with the ordinary public Czech health care services.</li>
+        <li>Usually there is no need to visit a private practice and pay extra for it</li>
+        <li>Please inform the International Office (or your faculty contact person) about any health condition that should be notified (e.g. diabetes).</li>
+    </ul>
 
-    <div class="row">
-        <div class="col-md-12 bg-success">For  students  from  the  EU,  Norway,  Switzerland,
-            Liechtenstein and Iceland it is important to have the European Health Insurance Card (EHIC).
-        </div>
-    </div>
+    <h2>EHIC card</h2>
+    <img src="{{ asset('img/guide/ehic.jpg') }}" />
+    <p>For students from the EU it is necessary to have a European Health Insurance Card (EHIC) with confirmation from VZP (public health insurance system in CR).</p>
+    <p>See &quot;<a href="{{ url('guide/cards#ehic') }}">Cards</a>&quot; to find how to get this confirmation.</p>
 
+    <h2>Urgent medical treatment</h2>
+    <ul>
+        <li>CZK 90 extra fee</li>
+        <li>when you go to the hospital in &quot;ambulance hours&quot; (&quot;Pohotovost/Ambulance&quot;) (different for each hospital) </li>
+    </ul>
 
-    <div class="row">
-        <h3>Emergency medical treatment</h3>
-    </div>
-    <div class="row">
-        <div class="col-md-12 bg-danger"><p>Dial <strong>155</strong> from your phone to call an ambulance. Note that this is only intended for emergency, possibly <strong>life-threatening</strong> situations and should not be misused!</p>
-        </div>
-    </div>
-    <div class="row">
-        <h3>Standard medical care</h3>
-    </div>
-    <div class="row">
-        <div class="col-lg-12"><p><strong>Standard medical care must be paid for (cash
-                    payment is normally required) unless you register after your arrival in the Czech Republic
-                    at <a href="http://www.vzp.cz/" target="_blank">VZP</a>.</strong>  (Všeobecná  zdravotní  pojišťovna České
-                republiky).  </p>
-            <p>Visit VZP at Na Perštýně 6, Prague 1 to obtain
-                an  official  document  providing  you  the  same
-                health service as for citizens of the Czech Repub-
-                lic, with just a small charge for consultations and
-                prescriptions.</p>
-            <p>To  obtain  treatment  under  the  provisions
-                of  the  European  regulations  it  is  important  to
-                contact a medical institution that has a contract
-                with the public health insurance system (most of
-                them have, but some institutions are private).</p>
-            <p>If  in doubt, contact the Centre for International  Reimbursements,  Centrum  mezistátních
-                úhrad, <a href="http://www.cmu.cz/" target="_blank">CMÚ</a></p>
-        </div>
-    </div>
+    <h2>Standard medical care</h2>
+    <ul>
+        <li>must be paid on the spot</li>
+        <li>bring cash with you (especially dentists’ treatments are really expensive)</li>
+        <li>EHIC card with the confirmation paper covers basic treatments (See &quot;<a href="{{ url('guide/cards#ehic') }}">Cards</a>&quot; to find how to get it)
+            <ul>
+                <li>Double check that the doctor has a contract with VZP (public health insurance system in CR)</li>
+                <li><a href="https://www.kancelarzp.cz/en" target="_blank">www.kancelarzp.cz/en </a> </li>
+            </ul>
+        </li>
+        <li>Students from non-EU countries
+            <ul>
+                <li>required to have health insurance from an authorized insurance company licensed to operate in the Czech Republic</li>
+                <li>The original contract has to be written in Czech language (or you have to obtain a certified translation into Czech language).</li>
+            </ul>
+        </li>
+    </ul>
 
-    <div class="row">
-        <div class="col-lg-12">Students  from  non-EU  countries  are  required  to  have health  insurance  from  an  authorized  insurance  company. The original contract has to be written in Czech language, or you have to obtain a certified translation into Czech language. There are several Czech insurance companies that provide the right type of insurance specially for international students. Usually you can arrange
-            the insurance on-line.
-        </div>
-    </div>
+    <h2>Pharmacies near the main campus</h2>
+    <dl>
+        <dt>Dr. Max</dt>
+        <dd>Vítězné nám. 13, Praha 6</dd>
+        <dd><strong>nonstop</strong></dd>
+        <dt>Benu</dt>
+        <dd>Vítězné nám. 9, Praha 6</dd>
+        <dd>Mon - Fri: 7:30 - 18:00</dd>
+        <dd>Sat: 8:00 - 14:00</dd>
+        <dt>Dejvická Lékárna</dt>
+        <dd>Dejvická 29, Praha 6</dd>
+        <dd>Mon - Fri: 7:30 - 18:30</dd>
+        <dd>Sat: 8:00 - 12:00</dd>
+        <dt>Pharmacy Student House</dt>
+        <dd>Bechyňova 3, Praha 6</dd>
+        <dd>Mon - Fri: 8:00 - 16:00</dd>
+        <dt>Dr. Max</dt>
+        <dd>Jugoslávských partyzánů 20, Praha 6</dd>
+        <dd>Mon - Fri: 8:00 - 18:30</dd>
+    </dl>
 
-    <div class="row">
-        <h3>Prescriptions</h3>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">Prescriptions are issued through doctors and dispensed by pharmacies. You will be asked to pay a
-            share of the costs, which is not refundable. Note
-            that some medicines available over-the-counter
-            in your home country need a prescription here,
-            and for some common medicines you must provide an identity document.
-        </div>
-    </div>
+    <h2>Prescriptions</h2>
+    <ul>
+        <li>Issued through the doctor</li>
+        <li>Dispensed by any pharmacy</li>
+        <li>ou can be asked to pay a share of costs</li>
+        <li>Some medicines that you can get over-the-counter in your country may be sold only on prescription here</li>
+    </ul>
 
-    <div class="row">
-        <h3>English speaking medical care</h3>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <p>
-            <address>
-                Městská poliklinika Praha,<br>
-                Spálená 12,<br>
-                Praha 1, tel.: 224 947 113<br>
-                <a href="http://www.prahamp.cz/" target="_blank">prahamp.cz</a>
-            </address>
-            </p>
-            <p>
-            <address>
-                Nemocnice na Homolce, <br>
-                Hospital (foreign pavilion)<br>
-                <a href="http://www.homolka.cz/en-CZ/home.html" target="_blank">homolka.cz</a> <br>
-                Praha 5, Roentgenova 2 (tel.: 257 271 111)
-            </address>
-            </p>
-            <p>
-        </div>
-    </div>
+    <h2>English speaking medical care</h2>
+    <p>In case of emergency call <strong><a href="tel:112">112</a></strong></p>
 
-    <div class="row">
-        <h3>English Speaking Private medical care </h3>
-    </div>
-    <div class="row">
-        <div class="col-lg-12"><p>Listed are some of the Prague's private medical care providers. You might be charged a substantial amounts of money for receiving a medical treatment from any one of them.
+    <h3>Motol University Hospital</h3>
+    <ul>
+        <li><strong>Ambulance</strong></li>
+        <li>English speaking centre for foreigners (&quot;Cizinecká ambulance&quot;)</li>
+        <li>Phone: <a href="tel:+420 224 438 577">+420 224 438 577</a></li>
+        <li>Address: <address>V Úvalu 84, Praha 5</address></li>
+        <li>You can make an appointment (in order not to spend hours waiting there)</li>
+        <li>Office hours
+            <dl>
+                <dt>Mon, Tue, Thu</dt>
+                <dd>9:00 -16.30</dd>
+                <dt>Wed</dt>
+                <dd>7:30 - 15:00</dd>
+                <dt>Fri</dt>
+                <dd>9:00 - 14:00</dd>
+            </dl>
+        </li>
+        <li><a href="https://www.fnmotol.cz/en/samoplatci/health-care-services-for-foreigners/" target="_blank">www.fnmotol.cz/en/samoplatci/health-care-services-for-foreigners/</a></li>
+    </ul>
 
-            <address>
-                Medicover, <a href="http://www.medicover.cz" target="_blank">medicover.cz</a><br>
-                Tylovo nám. 3/15, Praha 2, Na Perštýně 10, <br>
-                Praha 1 (tel.: 234 630 111-112)
-            </address>
+    <h3>Military University Hospital Prague &ndash; Střešovice</h3>
+    <ul>
+        <li>Information desk (24/7, English speaking): <a href="tel:+420 973 208 333">+420 973 208 333</a> (they will direct you to the right person)</li>
+        <li><address>U Vojenské nemocnice 1200, Praha 6</address></li>
+        <li>Includes also <strong>ambulance</strong></li>
+        <li><a href="https://www.uvn.cz/index.php?option=com_content&view=article&id=5082&Itemid=2032&lang=en" target="_blank">Military University Hospital Prague website</a></li>
+    </ul>
 
-            </p>
-            <p>
-            <address>
-                Canadian Medical Care, <a href="http://www.cmcpraha.cz" target="_blank">cmcpraha.cz</a><br>
-                Veleslavínská 1, Praha 6 (tel.: 235 360 133)
-            </address>
+    <h3>Městská poliklinika Praha</h3>
+    <ul>
+        <li><address>Spálená 12, Praha 1</address></li>
+        <li><a href="tel:+420 222 924 211">+420 222 924 211</a></li>
+        <li>For students, contract with CTU</li>
+        <li>Most of the doctors are English-speaking. For contacts and office hours see <a hre="http://www.prahamp.cz/index.php?oid=1262545" target="_blank">their website (only in CZ -> ask your buddy to help you with translation)</a></li>
+    </ul>
 
-            </p>
-            <p>
-            <address>
-                Mediconet, <a href="http://www.mediconet.cz" target="_blank">mediconet.cz</a> <br>
-                Na Poříčí 1041/12, Praha 1 (tel.: 221 775 111)
-            </address>
+    <h3>Student Health Centre</h3>
+    <ul>
+        <li>Bechyňova 3, Praha 6, 2nd floor</li>
+        <li>
+            <dl>
+                <dt>MUDr. Sadílková</dt>
+                <dd><a href="tel:+420 212 243 144">+420 212 243 144</a></dd>
+                <dd>room 411</dd>
+                <dd>Mon, Wed: 8-15</dd>
+                <dd>Tue: 12-18</dd>
+                <dd>Thu: 8-12</dd>
+                <dd>Fri: 8-14</dd>
+                <dt>MUDr. Jitka Adámková</dt>
+                <dd><a href="tel:+420 234 606 163">+420 234 606 163</a></dd>
+                <dd>room 431</dd>
+                <dt>MUDr. Šulcová &ndash; dentist</dt>
+                <dd><a href="tel:+420 233 320 229">+420 233 320 229</a></dd>
+                <dd>Mon: 8:00-16:00</dd>
+                <dd>Tue: 8:00 - 18:00</dd>
+                <dd>Wed, Thu: 8:00 - 14:00</dd>
+                <dd>Fri: 8:00 - 13:00</dd>
+            </dl>
+        </li>
+    </ul>
 
-        </div>
-    </div>
+    <h2>Helpful vocab</h2>
+    <dl>
+        <dt>Ache/pain</dt>
+        <dd>Bolest</dd>
+        <dt>Allergy</dt>
+        <dd>alergie</dd>
+        <dt>Bleeding</dt>
+        <dd>krvácení</dd>
+        <dt>Broken</dt>
+        <dd>zlomený</dd>
+        <dt>Burn</dt>
+        <dd>popálení</dd>
+        <dt>Constipation</dt>
+        <dd>nadýmání</dd>
+        <dt>Cramps</dt>
+        <dd>křeče</dd>
+        <dt>Cough</dt>
+        <dd>kašel</dd>
+        <dt>Diarrhea</dt>
+        <dd>průjem</dd>
+        <dt>Dizziness</dt>
+        <dd>závrať</dd>
+        <dt>Fever</dt>
+        <dd>horečka</dd>
+        <dt>Injury</dt>
+        <dd>úraz</dd>
+        <dt>Nausea</dt>
+        <dd>nevolnost</dd>
+        <dt>Poisoning</dt>
+        <dd>otrava</dd>
+        <dt>Painful</dt>
+        <dd>bolestivý</dd>
+        <dt>Rash</dt>
+        <dd>vyrážka</dd>
+        <dt>Shock</dt>
+        <dd>šok</dd>
+        <dt>Sneezing</dt>
+        <dd>kýchání</dd>
+        <dt>Sunstroke</dt>
+        <dd>úžeh/úpal</dd>
+        <dt>Unconsciousness</dt>
+        <dd>bezvědomí</dd>
+        <dt>Vomiting</dt>
+        <dd>zvracení</dd>
+    </dl>
 
-    <div class="row">
-        <h3>Emergency dentists</h3>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">Městská poliklinika Praha has English speaking dentists:
-            <address>
-                Spálená 12, Praha 1 (tel.: 222 924 268)<br>
-                Mon - Fri 19:00-7:00, Sat, Sun, holidays - nonstop <br>
-                <a href="http://www.prahamp.cz/" target="_blank">prahamp.cz</a>
-            </address>
-
-        </div>
-    </div>
 @stop

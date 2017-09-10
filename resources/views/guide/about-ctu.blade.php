@@ -6,8 +6,8 @@
         on the basis of a foundation deed signed by Emperor Joseph I and dated 18 January, 1707. </p>
 </div>
 <div class="row">
-    <div class="col-lg-4">RECTOR</div>
-    <div class="col-lg-4">{{$rector }}</div>
+    <div class="col-lg-4">Rector</div>
+    <div class="col-lg-4">{{ $rector }}</div>
 </div>
 
 <div class="row">
@@ -33,28 +33,28 @@
     <h2>Faculties</h2>
 </div>
 <div class="row">
-    <div class="col-lg-12">Faculty of Civil Engineering (Faculty 1/F1, FSv/FCE), <a href="http://fsv.cvut.cz" target="_blank">fsv.cvut.cz</a></div>
+    <div class="col-lg-12"><a href="http://www.fsv.cvut.cz/index.php" target="_blank">Faculty of Civil Engineering</a> (Faculty 1/F1, FSv/FCE)</div>
 </div>
 <div class="row">
-    <div class="col-lg-12">Faculty of Mechanical Engineering (F2, FS/FME), <a href="http://fs.cvut.cz" target="_blank">fs.cvut.cz</a></div>
+    <div class="col-lg-12"><a href="https://www.fs.cvut.cz/en/home/" target="_blank">Faculty of Mechanical Engineering</a> (F2, FS/FME)</div>
 </div>
 <div class="row">
-    <div class="col-lg-12">Faculty of Electrical Engineering (F3, FEL/FEE), <a href="http://fel.cvut.cz" target="_blank">fel.cvut.cz</a></div>
+    <div class="col-lg-12"><a href="https://www.fel.cvut.cz/en/" target="_blank">Faculty of Electrical Engineering</a> (F3, FEL/FEE)</div>
 </div>
 <div class="row">
-    <div class="col-lg-12">Faculty of Nuclear Science and Physical Engineering (F4, FJFI), <a href="http://fjfi.cvut.cz" target="_blank">fjfi.cvut.cz</a></div>
+    <div class="col-lg-12"><a href="https://www.fjfi.cvut.cz/en/" target="_blank">Faculty of Nuclear Science and Physical Engineering</a> (F4, FJFI)</div>
 </div>
 <div class="row">
-    <div class="col-lg-12">Faculty of Architecture (F5, FA), <a href="http://fa.cvut.cz" target="_blank">fa.cvut.cz</a></div>
+    <div class="col-lg-12"><a href="https://www.fa.cvut.cz/En" target="_blank">Faculty of Architecture</a> (F5, FA)</div>
 </div>
 <div class="row">
-    <div class="col-lg-12">Faculty of Transportation Sciences (F6, FD/FT), <a href="http://fd.cvut.cz" target="_blank">fd.cvut.cz</a></div>
+    <div class="col-lg-12"><a href="https://www.fd.cvut.cz/english/" target="_blank">Faculty of Transportation Sciences</a> (F6, FD/FT)</div>
 </div>
 <div class="row">
-    <div class="col-lg-12">Faculty of Biomedical Engineering (F7, FBMI/FBE), <a href="http://fbmi.cvut.cz" target="_blank">fbmi.cvut.cz</a></div>
+    <div class="col-lg-12"><a href="http://en.fbmi.cvut.cz/" target="_blank">Faculty of Biomedical Engineering</a> (F7, FBMI/FBE)</div>
 </div>
 <div class="row">
-    <div class="col-lg-12">Faculty of Information Technology (F8, FIT), <a href="http://fit.cvut.cz" target="_blank">fit.cvut.cz</a></div>
+    <div class="col-lg-12"><a href="https://www.fit.cvut.cz/en" target="_blank">Faculty of Information Technology</a> (F8, FIT)</div>
 </div>
 
 <div class="row">
@@ -78,4 +78,4 @@
 <div class="row">
     <div class="col-lg-12">Centre for Information and Counselling Services</div>
 </div>
-    @stop
+@stop

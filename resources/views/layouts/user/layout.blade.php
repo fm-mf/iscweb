@@ -7,13 +7,13 @@
 
     <title>Buddy Program</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
     @section('stylesheets')
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="{{ URL::asset('css/user.css') }}" rel="stylesheet" type="text/css">
     @show
 
-    <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}">
 
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
     <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>

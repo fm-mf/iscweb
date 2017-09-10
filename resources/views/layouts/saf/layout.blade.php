@@ -6,11 +6,11 @@
 
         <title>@yield('title')S ČVUT do světa | {{ $shortName }}</title>
 
+        <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
         @section('stylesheets')
             <link href="{{ URL::asset('css/saf.css') }}" rel="stylesheet" type="text/css" />
         @show
 
-        <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}" />
     </head>
     <body>
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPBKF8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

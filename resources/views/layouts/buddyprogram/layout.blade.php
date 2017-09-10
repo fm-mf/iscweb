@@ -7,14 +7,14 @@
 
     <title>Buddy Program</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
     @section('stylesheets')
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="{{ asset('css/buddyprogram.css') }}" rel="stylesheet" type="text/css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     @show
 
-    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
     <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>

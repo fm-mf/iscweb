@@ -5,7 +5,7 @@ h3 {font-size:20px;}
   position:relative;
   min-height: 100%;
   width: 100%;
-  background-image:url($imgPath + "bg2.jpg");
+  background-image:url($imgPath + "background-subpage.jpg");
   background-position: 0px 0px;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -14,6 +14,11 @@ h3 {font-size:20px;}
   margin:0;
   paddint:0;
 }
+
+address {
+  display: inline;
+}
+
 .container-fluid {
   height:100%;
 }
@@ -27,8 +32,19 @@ h3 {font-size:20px;}
   padding: 0;
   margin:0;
 }
-#left-column h1 {
 
+#sg-title h1 {
+  text-transform: uppercase;
+}
+
+#sg-title a {
+  display: block;
+  color: inherit;
+}
+
+#sg-title a:hover {
+  color: inherit;
+  text-decoration: none;
 }
 
 #sg-title, #sg-title-bg {height: 110px;}
@@ -220,4 +236,68 @@ h3 {font-size:20px;}
 .bg-danger {
   padding:20px;
   margin-bottom: 20px;
+}
+
+#isc-esn > img {
+  width: 24rem;
+  display: block;
+  float: left;
+  margin: 1rem;
+}
+
+#partners > img {
+  float: right;
+  width: 24rem;
+}
+
+h1, h2, h3 {
+  clear: both;
+}
+
+#isc-esn > img {
+  width: 24rem;
+  display: block;
+  float: left;
+  margin: 1rem;
+}
+
+#partners > img {
+  float: right;
+  width: 24rem;
+}
+
+h1, h2, h3 {
+  clear: both;
+}
+
+#czech-phrases > dl::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+#czech-phrases > dl > dt {
+  clear: both;
+}
+
+#czech-phrases > dl > dt + dd::before {
+  display: inline-block;
+  content: "=";
+  margin-right: 1rem;
+}
+
+#czech-phrases > dl > dd + dd::before {
+   display: inline;
+   content: "[";
+ }
+
+#czech-phrases > dl > dd + dd::after {
+  display: inline;
+  content: "]";
+}
+
+#czech-phrases > dl > dt,
+#czech-phrases > dl > dd {
+  float: left;
+  margin-left: 1rem;
 }

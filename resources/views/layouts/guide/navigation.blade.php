@@ -14,34 +14,44 @@
     <div id="left-column" class="container">
         <div id="sg-title-bg"></div>
         <div id="sg-title" class="row">
-            <h1>SURVIVAL GUIDE<br>
-                <small>WILL GUIDE YOU THROUGH YOUR STAY AT CTU</small>
-            </h1>
+            <a href="{{ url('guide') }}">
+                <h1>Survival Guide<br>
+                    <small>will guide you through your stay at ctu</small>
+                </h1>
+            </a>
         </div>
         <div class="row menu">
             <ul class="nav nav-stacked">
-                <li class="blue"><a href="{{ url ('guide/basic-information') }}">First days in Prague</a>
+                <li class="blue"><a href="{{ url ('guide/first-steps') }}">First steps</a>
                     <ul class="nav nav-stacked">
-                        <li><a href="{{ url('guide/legal-information') }}">Legal information</a></li>
-                        <li><a href="{{ url('guide/orientation-week') }}">Orientation Week</a></li>
-                        <li><a href="{{ url('guide/international-office') }}">International Office</a></li>
+                        <li><a href="{{ url('guide/introduction') }}">Introduction</a></li>
+                        <li><a href="{{ url('guide/welcome-pack') }}">Welcome pack</a></li>
+                        <li><a href="{{ url('guide/orientation-week') }}">Orientation week</a></li>
+                        <li><a href="{{ url('guide/cards') }}">Cards</a></li>
+                        <li><a href="{{ url('guide/kos') }}">KOS &amp; Classes registration</a></li>
+                        <li><a href="{{ url('guide/eduroam') }}">Eduroam</a></li>
                     </ul>
                 </li>
-                <li class="purple"><a href="{{url('guide/about-CTU')}}">Studying at CTU</a>
+                <li class="purple"><a href="{{url('guide/about-ctu')}}">CTU &amp; Useful information</a>
                     <ul class="nav nav-stacked">
-                        <li><a href="{{ url('guide/useful-information') }}">Useful Information</a></li>
-                        <li><a href="{{ url('guide/contact-list') }}">Contact list</a></li>
-                        <li><a href="{{ url('guide/ISC') }}">International Student Club</a></li>
-                        <li><a href="{{ url('guide/CTU-dormitories') }}">CTU Dormitories</a></li>
-                        <!--<li><a href="#">Dejvice Campus Map</a></li>-->
+                        <li><a href="{{ url('guide/academic-year') }}">Academic year calendar</a></li>
+                        <li><a href="{{ url('guide/campus') }}">Campus</a></li>
+                        <li><a href="{{ url('guide/dormitories') }}">Dormitories</a></li>
+                        <li><a href="{{ url('guide/isc-esn') }}">ISC &amp; ESN</a></li>
                     </ul>
                 </li>
-                <li class="green"><a href="{{ url('guide/leisure-time') }}">Living in Prague</a>
+                <li class="green"><a href="{{ url('guide/czech-it-out') }}">Czech it out!</a>
                     <ul class="nav nav-stacked">
-                        <li><a href="{{ url('guide/getting-around') }}">Getting around the city</a></li>
-                        <li><a href="{{ url('guide/private-accommodation') }}">Private accommodation</a></li>
-                        <li><a href="{{ url('guide/health-care') }}">Health Care</a></li>
-                        <li><a href="{{ url('guide/basic-vocabulary') }}">Basic vocabulary</a></li>
+                        <li><a href="{{ url('guide/visa') }}">Visa</a></li>
+                        <li><a href="{{ url('guide/health-care') }}">Health care</a></li>
+                        <li><a href="{{ url('guide/living-in-prague') }}">Living in Prague</a></li>
+                        <li><a href="{{ url('guide/transportation') }}">Transportation</a></li>
+                        <li><a href="{{ url('guide/money-exchange') }}">Money exchange</a></li>
+                        <li><a href="{{ url('guide/post-office') }}">Post office</a></li>
+                        <li><a href="{{ url('guide/phone') }}">Phone</a></li>
+                        <li><a href="{{ url('guide/culture-shock') }}">Culture shock</a></li>
+                        <li><a href="{{ url('guide/czech-phrases') }}">Czech phrases</a></li>
+                        <li><a href="{{ url('guide/funny-facts') }}">Funny facts</a></li>
                     </ul>
                 </li>
             </ul>

@@ -6,6 +6,8 @@
 
     <title>International Student Club - Buddy Program</title>
 
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
+
     <link href="{{ asset('css/buddy.css') }}" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" media="screen" />
