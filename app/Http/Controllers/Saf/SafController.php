@@ -18,7 +18,17 @@ class SafController extends Controller
         return view('saf.index')->with($with);
     }
 
-    public function showPartner($partnerUrl) {
+    public function showPage()
+    {
+        $page = request()->segment(count(request()->segments()));
+        $with = ['shortName' => Settings::get('shortName'),
+                'officialName' => Settings::get('officialName'),
+                'year' => Carbon::now()->year,];
+        return view('saf.' . $page)->with($with);
+    }
+
+    public function showPartner($partnerUrl)
+    {
         $with = ['shortName' => Settings::get('shortName'),
             'officialName' => Settings::get('officialName'),
             'year' => Carbon::now()->year,];

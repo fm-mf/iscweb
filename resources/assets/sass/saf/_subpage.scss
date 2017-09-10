@@ -1,0 +1,24 @@
+section > div > div > p {
+  margin-left: 2rem;
+}
+
+section > div > div > p:first-child {
+  font-size: 2em;
+}
+
+section > div > div > p + p {
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.7);
+  font-style: italic;
+}
+
+section > div {
+  position: relative;
+}
+
+section > div > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

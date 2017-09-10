@@ -8,6 +8,7 @@
     {{--@include('saf.presentations')--}}
     @include('saf.partners')
     {{--@include('saf.exchange-programmes')--}}
+    @include('saf.inspiration')
 @endsection
 
 @section('scripts')
