@@ -175,6 +175,27 @@
     </div>
 </div>
 @endif
+@if (\Carbon\Carbon::now('Europe/Prague')->lt(\Carbon\Carbon::create(2017, 10, 8, 18, 00, 00, 'Europe/Prague')))
+    <div class="container events">
+        <div class="container container-ow container-sm-height">
+            <span class="vspace"></span>
+            <div class="row row-ow row-sm-height">
+                <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url(https://www.isc.cvut.cz/events/covers/61.jpeg)">
+                    <span class="day">Pátek&ndash;Neděle<br><strong>6.&ndash;8.</strong><br>října</span>
+                    <h2>Buddy Weekend</h2>
+                </div>
+                <div class="col-sm-6 ow-detail col-sm-height col-top">
+
+                    <p>Za odměnu všem buddíkům! Neváhejte, bude to sranda!<p>
+
+                    <p>Kde: přísně tajné</p>
+                    <p>Více info a registrace: <a href="mailto:buddy@isc.vvut.cz">buddy@isc.cvut.cz</a>
+                    <p>Cena: 300 Kč</p>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
 
 <!-- ============================= Co to obnáší ====================================== -->
 <h2>CO OBNÁŠÍ BÝT BUDDYM?</h2>
