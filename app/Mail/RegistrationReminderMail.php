@@ -33,7 +33,7 @@ class RegistrationReminderMail extends Mailable
     {
         return $this->view('emails.reminder')
             ->with('hash', $this->exchangeStudent->person->user->hash)
-            ->from('buddy@isc.cvut.cz')
+            ->from('buddy@isc.cvut.cz', 'ISC CTU in Prague')
             ->subject('Buddy Program Registration');
     }
 }

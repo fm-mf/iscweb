@@ -45,8 +45,8 @@ class SendRegistrationReminder extends Command
             ->byUniqueSemester($semester)->get();
         $emailsSent = 0;
         foreach ($exchangeStudents as $student) {
-            $this->info("Sending email to " . $student->person->user->email);
-            Mail::to($student->person->user->email)->send(new RegistrationReminderMail($student));
+            $this->info("Sending email to " . $student->person->email);
+            Mail::to($student->person->email)->send(new RegistrationReminderMail($student));
             ++$emailsSent;
         }
         $this->info($emailsSent . " emails sent");
