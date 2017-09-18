@@ -136,12 +136,11 @@
             <dd>Phone: <a href="tel:+420 224 359 826">+420 224 359 826</a></dd>
             <dd>Email: <a href="mailto:hana.krizova@fit.cvut.cz">hana.krizova@fit.cvut.cz</a></dd>
         <dt>Masaryk Institute of Advanced Studies</dt>
-            <dd><a href="" target="_blank">Map of the faculty</a></dd>
-            <dd>Kolejni 2637/2a, Prague 6, 160 00</dd>
-            <dd>Mgr. Gabriela Dohnalova, office: m133</dd>
+            <dd>Kolejní 2637/2a, Prague 6, 160 00</dd>
+            <dd>Kateřina Zelenková, office: m133</dd>
             <dd>Department for International Cooperation</dd>
             <dd>Phone: <a href="tel:+420 224 353 153">+420 224 353 153</a></dd>
-            <dd>Email: <a href="mailto:gabriela.dohnalova@cvut.cz">gabriela.dohnalova@cvut.cz</a></dd>
+            <dd>Email: <a href="mailto:katerina.zelenkova@cvut.cz">katerina.zelenkova@cvut.cz</a></dd>
     </dl>
 
     <dl>
