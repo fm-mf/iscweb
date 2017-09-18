@@ -105,10 +105,10 @@ class SafController extends Controller
                         'url' => 'japan-embassy',
                 ),
                 array(
-                        'img' => '',
-                        'title' => '',
-                        'description' => '',
-                        'url' => '',
+                        'img' => 'logo-dzs.png',
+                        'title' => 'Dům zahraniční spolupráce',
+                        'description' => 'Dům zahraniční spolupráce (DZS) je příspěvkovou organizací Ministerstva školství, mládeže a tělovýchovy.',
+                        'url' => 'dzs',
                 ),
                 array(
                         'img' => 'logo-study-cz.png',

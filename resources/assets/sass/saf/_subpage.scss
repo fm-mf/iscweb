@@ -20,16 +20,32 @@ section > div.inspiration > a > div > p:first-child {
 
 section > div.inspiration > a > div > p + p {
   font-size: 1.5em;
-  color: rgba(0, 0, 0, 0.7);
   font-style: italic;
 }
 
+section > div.inspiration.light > a > div > p + p {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+section > div.inspiration.dark > a > div > p + p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 section > div.inspiration {
-  background-image: url("/img/saf/athens.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 30%;
   min-height: 15rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+section > div.inspiration#uhlir {
+  background-image: url("/img/saf/athens.jpg");
+}
+
+section > div.inspiration#chovanec {
+  background-image: url("/img/saf/athens2.jpg");
 }
 
 section > div.inspiration > a {
@@ -44,5 +60,13 @@ section > div.inspiration > a > div {
   top: 0;
   left: 0;
   width: 100%;
+}
+
+section > div.inspiration.light > a > div {
   background: linear-gradient(rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0));
+}
+
+section > div.inspiration.dark > a > div {
+  background: linear-gradient(rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0));
+  color: #ffffff;
 }

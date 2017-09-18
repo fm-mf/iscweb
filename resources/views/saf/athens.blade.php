@@ -48,13 +48,25 @@
         </ul>
         <p>Více informací o tom, jak vyplnit přihlášku a kam s&nbsp;ní zajít najdete na
             <a href="https://portal.cvut.cz/informace-pro-studenty/mezinarodni-programy/athens/" target="_blank">Portálu ČVUT</a>
-            v&nbsp;sekci mezinárodní programy &ndash; Athens. Najdete tam i zprávy z&nbsp;pobytů.</p>
+            v&nbsp;sekci Mezinárodní programy &ndash; Athens. Najdete tam i zprávy z pobytů, nebo si přečtěte
+            následující zážitky našich kamarádů Vojty Uhlíře (<abbr title="Fakulta elektrotechnická">FEL</abbr>)
+            a Martina Chovance (<abbr title="Fakulta informačních technologií">FIT</abbr>).</p>
 
-        <div class="inspiration">
+        <div id="uhlir" class="inspiration light">
             <a href="https://www.facebook.com/notes/czech-it-abroad/zkus-si-studium-v-zahraničí/1555944037791485/" target="_blank">
                 <div>
                     <p>Zkuste si studium v&nbsp;zahraničí</p>
                     <p>&bdquo;Jediný závazek je, že musíte odjet.&ldquo; Vojta Uhlíř</p>
+                </div>
+            </a>
+        </div>
+
+        <div id="chovanec" class="inspiration dark">
+            <a href="https://www.facebook.com/notes/martin-chovanec/týden-v-paříži-s-čvut/10155732851099549/" target="_blank">
+                <div>
+                    <p>Zkuste si studium v&nbsp;zahraničí</p>
+                    <p>&bdquo;Po týdnu v Paříži jsem se rozhodl vyrazit na semestr do Švýcarska,
+                        což byla snad nejlepší věc, kterou jsem na ČVUT mohl udělat.&ldquo; Martin Chovanec</p>
                 </div>
             </a>
         </div>
