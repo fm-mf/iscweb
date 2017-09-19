@@ -27,6 +27,13 @@
                 <h2>Co se děje v ISC?</h2>
                 <ul class="list-unstyled list-colored">
 
+                    @if(\Carbon\Carbon::now('Europe/Prague')->lt(\Carbon\Carbon::create(2017, 9, 25, 0, 0, 0, 'Europe/Prague')))
+                    <li style="background-color: orange">
+                        <strong>Důležité &ndash; ISC pro ISC</strong>
+                        <p>Projekt, který má pomoci parťákům osvojit si schopnosti a dovednosti – softskills, posunout je zase o krůček dál a připravit je na těžké a nepříjemné situace "běžného" života.</p>
+                        <p>Otevřete si během registrace <a href="https://goo.gl/forms/vtGvagFXCOPKgRBS2" target="_blank">ISC pro ISC form</a>, pokud budete mít dlouhou chvíli a v případě zájmu ho vyplňte.</p>
+                    </li>
+                    @endif
                     <li>
                         <p>Podívejte se, co se událo v ISC: <a href="https://blog.isc.cvut.cz">ISC blog</a></p>
                     </li>
