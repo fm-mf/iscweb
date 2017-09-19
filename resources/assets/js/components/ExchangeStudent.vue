@@ -3,12 +3,12 @@
         <transition name="slide-fade">
         <li class="list-group-item student" v-show="visible">
             <div class="student-info">
-                <h3>{{ student.person.first_name }} {{ student.person.last_name }} ({{student.id_user}})</h3>
-                <small>{{ student.person.user.email }}</small>
+                <h3>{{ student.person.last_name }}, {{ student.person.first_name }} ({{student.id_user}})</h3>
+                <small>{{ student.person.user.email }}</small> <!--
                 <div class="form-goup">
                     <label for="phone">Phone</label>
                     <input type="text" name="phone" id="phone" v-model="phone" class="form-control">
-                </div>
+                </div> -->
                 <div class="form-goup">
                     <label for="esn">ESN Card Number</label>
                     <input type="text" name="esn" id="esn" v-model="esn" class="form-control">
@@ -71,7 +71,7 @@
 
         methods: {
             save() {
-                if (!this.phone || !this.esn) {
+                if (!this.esn) {
                     console.log('errrr');
                     return;
                 }
