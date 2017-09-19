@@ -169,7 +169,14 @@ class WebController extends Controller
                         'position' => 'Visa Coordinator',
                         'email' => 'visa@isc.cvut.cz',
                         'phone' => '+420 603 831 593',
-                        'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),/*
+                        'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),
+                array (
+                    'name' => 'Věra Mouchová',
+                    'position' => 'SAF Coordinator',
+                    'email' => 'saf@isc.cvut.cz',
+                    'phone' => '+420 720 582 278',
+                    'avatar' => asset('img/web/contacts/2016spring/it.jpg')),
+            /*
                 array (
                         'name' => 'Vojtěch Zacharda',
                         'position' => 'Photo Coordinator',
