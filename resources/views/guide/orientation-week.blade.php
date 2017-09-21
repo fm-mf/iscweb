@@ -76,20 +76,18 @@
             </ul>
         </div>
     </div>
-    {{--
     <div class="row">
         <div class="col-lg-12">
             <h3>OW presentation Monday</h3>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled">{{--
                 <li><a href="{{ asset('/files/OW_S2017/OW_S2017_Meeting_points_Registrations_at_faculties.pdf') }}">Registrations at faculties</a></li>
                 <li><a href="{{ asset('/files/OW_S2017/OW_S2017_CTU_Sports.pdf') }}">Sport at CTU</a></li>
                 <li><a href="{{ asset('/files/OW_S2017/OW_S2017_CTU_Visa.pdf') }}">Visa</a></li>
-                <li><a href="{{ asset('/files/OW_S2017/OW_S2017_Czech_courses.pdf') }}">Czech courses</a></li>
-                <li><a href="{{ asset('/files/OW_S2017/KOS_manual_CTU_Spring_2017.pdf') }}">KOS manual</a></li>
+                <li><a href="{{ asset('/files/OW_S2017/OW_S2017_Czech_courses.pdf') }}">Czech courses</a></li> --}}
+                <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}">KOS manual</a></li>
             </ul>
         </div>
     </div>
-    --}}
 
     <div class="row">
         <h2>DAY 2 – Tuesday (26 September)</h2>
