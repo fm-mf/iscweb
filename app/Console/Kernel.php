@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\ImportExchangeStudents;
 use App\Console\Commands\ImportFullTimeStudents;
+use App\Console\Commands\SendEmailNoBuddy;
 use App\Console\Commands\SendRegistrationMailToExchangeStudents;
 use App\Console\Commands\SendRegistrationReminder;
 use App\Console\Commands\SendVotingMail_PartakFix;
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
         SendVotingMail_PartakFix::class,
         ImportExchangeStudents::class,
         ImportFullTimeStudents::class,
+        SendEmailNoBuddy::class,
     ];
 
     /**
