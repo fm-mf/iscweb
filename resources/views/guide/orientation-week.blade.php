@@ -41,7 +41,7 @@
                 <li>Where: <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>The Bethlehem Chapel</strong> (Betlémské náměstí 255/4, Praha 1)</a></li>
                 <li>Meeting points:
                     <ul>
-                        <li>9:00 at Strahov</li>
+                        <li>9:00 at Strahov (bus stop Koleje Strahov)</li>
                         <li>9:30 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
@@ -65,11 +65,11 @@
             <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
             <ul class="list-unstyled">
                 <li>When: 20:00</li>
-                <li>Where: TBA</li>
+                <li>Where: <a href="https://goo.gl/maps/qgZJ57LcLtM2" target="_blank">Storm Club (Tachovské náměstí 290/5, Prague 3)</a></li>
                 <li>Meeting points:
                     <ul>
-                        <li>At Strahov</li>
-                        <li>In the lobby of the Masarykova dormitory</li>
+                        <li>19:00 at bus stop Koleje Strahov</li>
+                        <li>19:15 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
                 <li>See: <a href="{{ url('activities/language-programs') }}" target="_blank">{{ url('activities/language-programs') }}</a></li>
@@ -100,9 +100,25 @@
             </p>
             <p class="bg-warning">Please attend this registration event at your faculty. Do not treat it as optional.</p>
             <ul class="list-unstyled">
-                <li>When: Various times for different faculties</li>
+                <li>When:
+                    <ul>
+                        <li>9:00 &ndash; <abbr title="Faculty of Civil Engineering">FCE</abbr>, <abbr title="Faculty of Biomedical Engineering">FBME</abbr>, <abbr title="Masaryk Institute of Advanced Studies">MIAS</abbr></li>
+                        <li>9:30 &ndash; <abbr title="Faculty of Architecture">FA</abbr></li>
+                        <li>10:00 &ndash; <abbr title="Faculty of Nuclear Sciences and Physical Engineering">FNSPE</abbr></li>
+                        <li>10:30 &ndash; <abbr title="Faculty of Information Technology">FIT</abbr></li>
+                    </ul>
+                </li>
                 <li>Where: At your faculty (more information in the presentations on the first day)</li>
-                <li>Meeting points: in front of the faculties</li>
+                <li>Meeting points:
+                    <ul>
+                        <li>FCE &ndash; 8:50 in font of the faculty</li>
+                        <li>FBME &ndash; 8:00 in the lobby of the Masarykova dormitory</li>
+                        <li>MIAS &ndash; 8:45 in the lobby of the Masarykova dormitory</li>
+                        <li>FA &ndash; 9:15 in font of the faculty</li>
+                        <li>FNSPE &ndash; 9:20 in the lobby of the Masarykova dormitory</li>
+                        <li>FIT &ndash; 10:15 in font of the faculty</li>
+                    </ul>
+                </li>
                 <li class="bg-danger"><strong>You will need</strong>
                     <ul>
                         <li>The green <strong>study record book</strong> from the Welcome Pack</li>
@@ -135,7 +151,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div>{{--
     <div class="row">
         <div class="col-lg-12">
             <h3>Blind Date</h3>
@@ -145,7 +161,7 @@
                 <li>Where: TBA</li>
             </ul>
         </div>
-    </div>
+    </div> --}}
     {{--
     <div class="row">
         <div class="col-lg-12">
@@ -160,7 +176,35 @@
     <div class="row">
         <div class="col-lg-12">
             <h3>Registation at faculties</h3>
-            <p class="bg-info">See the registration information for DAY 2</p>
+            <ul class="list-unstyled">
+                <li>When:
+                    <ul>
+                        <li>9:00 &ndash; <abbr title="Faculty of Mechanical Engineering">FME</abbr>, <abbr title="Faculty of Electrical Engineering">FEE</abbr>, <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
+                    </ul>
+                </li>
+                <li>Where: At your faculty (more information in the presentations on the first day)</li>
+                <li>Meeting points:
+                    <ul>
+                        <li>FME &ndash; 8:45 in font of the faculty</li>
+                        <li>FEE &ndash; 8:50 in font of the faculty</li>
+                        <li>FTS &ndash; 8:50 in front of the <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>Bethlehem Chapel</strong></a></li>
+                    </ul>
+                </li>
+                <li class="bg-danger"><strong>You will need</strong>
+                    <ul>
+                        <li>The green <strong>study record book</strong> from the Welcome Pack</li>
+                        <li>A passport photo</li>
+                        <li>A pen</li>
+                    </ul>
+                </li>
+                <li>You will get:
+                    <ul>
+                        <li>The list of your classes</li>
+                        <li>Your schedule</li>
+                        <li>Your email account</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="row">
@@ -182,8 +226,8 @@
                 <li>Where: <a href="https://goo.gl/maps/NYAwpVKPeyJ2" target="_blank">P.M. Club (Trojická 10, Praha 2)</a></li>
                 <li>Meeting points:
                     <ul>
-                        <li>At Strahov</li>
-                        <li>In the lobby of the Masarykova dormitory</li>
+                        <li>20:30 at bus stop Koleje Strahov</li>
+                        <li>20:30 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
             </ul>
@@ -192,12 +236,6 @@
 
     <div class="row">
         <h2>DAY 4–7 – Thursday to Sunday (28 September – 1 October) </h2>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>Registation at some faculties</h3>
-            <p class="bg-info">See the registration information for DAY 2</p>
-        </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
