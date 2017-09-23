@@ -111,12 +111,12 @@
                 <li>Where: At your faculty (more information in the presentations on the first day)</li>
                 <li>Meeting points:
                     <ul>
-                        <li>FCE &ndash; 8:50 in font of the faculty</li>
+                        <li>FCE &ndash; 8:50 in front of the faculty</li>
                         <li>FBME &ndash; 8:00 in the lobby of the Masarykova dormitory</li>
                         <li>MIAS &ndash; 8:45 in the lobby of the Masarykova dormitory</li>
-                        <li>FA &ndash; 9:15 in font of the faculty</li>
+                        <li>FA &ndash; 9:15 in front of the faculty</li>
                         <li>FNSPE &ndash; 9:20 in the lobby of the Masarykova dormitory</li>
-                        <li>FIT &ndash; 10:15 in font of the faculty</li>
+                        <li>FIT &ndash; 10:15 in front of the faculty</li>
                     </ul>
                 </li>
                 <li class="bg-danger"><strong>You will need</strong>
@@ -185,8 +185,8 @@
                 <li>Where: At your faculty (more information in the presentations on the first day)</li>
                 <li>Meeting points:
                     <ul>
-                        <li>FME &ndash; 8:45 in font of the faculty</li>
-                        <li>FEE &ndash; 8:50 in font of the faculty</li>
+                        <li>FME &ndash; 8:45 in front of the faculty</li>
+                        <li>FEE &ndash; 8:50 in front of the faculty</li>
                         <li>FTS &ndash; 8:50 in front of the <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>Bethlehem Chapel</strong></a></li>
                     </ul>
                 </li>
