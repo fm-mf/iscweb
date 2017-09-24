@@ -43,7 +43,7 @@
         <ul>
             <li>21. září: MÚVS</li>
             <li>25. září: FD</li>
-            <li>26. září: FS, FSv, FEL, FJFI, KÚ</li>
+            <li>26. září: FS, FSv, FEL, FJFI, FIT, KÚ</li>
             <li>27. září: FA, FBMI</li>
         </ul>
         <p>Více informací o tom, jak vyplnit přihlášku a kam s&nbsp;ní zajít najdete na
