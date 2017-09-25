@@ -114,4 +114,9 @@
 
     <h2>Other obligations</h2>
     <p>To report a change of address or a change of travel document, visit the <a href="http://www.mvcr.cz/mvcren/article/contacts-alien-police-alien-police.aspx" target="_blank">Foreign Police</a>.</p>
+
+    <h2>OW presentation Monday</h2>
+    <ul class="list-unstyled">
+        <li><a href="{{ asset('/files/ow-presentations-fall-2017/visa-fall-2017.pdf') }}">Visa</a></li>
+    </ul>
 @stop

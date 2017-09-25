@@ -31,4 +31,8 @@
         <li>It is best to go to your <strong>study department</strong> and ask the lady to make the changes (sometimes only they can enter the changes)</li>
         <li>More information in presentation on the first day of Orientation Week</li>
     </ul>
+    <h3>OW presentation form Monday</h3>
+    <ul class="list-unstyled">
+        <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}">KOS manual</a></li>
+    </ul>
 @stop

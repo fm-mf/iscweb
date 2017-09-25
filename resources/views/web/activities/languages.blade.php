@@ -23,14 +23,15 @@
                 <p>Take advantage of our free language courses! The courses are taught by you -
                     Erasmus and exchange students, Czech students and foreigners living in Prague.
                     They are <strong>free of charge</strong>, fun, and no registration is needed.
-                    We start in the third week of the semester (6th March 2017) and the courses take place in the
+                    Language courses for Fall semester 2017 start on Monday, 16 October.
+                    The schedule will be updated on Tuesday, 10 October. The courses take place in the
                     Masarykova dormitory and at Strahov, block 8.
 
 
 
                     <br><br>
 
-                                    <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">Have a look at the <b>Spring 2017 schedule</b></a>
+                                    <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">Have a look at the <b>Fall 2017 schedule</b></a>
                                 </p>
                 <!-- <h2>Languages courses are over for this semester</h2> -->
                 <br><br>
@@ -51,7 +52,9 @@
                     teach you a foreign language and you would teach him yours in return.</p>
                 <p>The main advantage of Tandem is that it will be just you two who will set the time and the intensity
                     of the courses! You can form as many couples as you wish. </p>
-                <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> and find your Tandem partner!
+                <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> and find your Tandem partner!</p>
+                <p>Come to the Tandem evening on Monday 25th September to the Storm club!
+                    See the <a href="https://www.facebook.com/events/1495117237210389/" target="_blank">facebook event</a>.</p>
 
                 <h2>CAFÉ LINGEA</h2>
                 <p>Café Lingea is a conversational meeting where we informally chat in different languages
@@ -99,9 +102,9 @@
 
 
 
-                <p>You can have a look at the <a href="http://www.isc.cvut.cz/files/languages-schedule.php" target="_blank">Spring 2017 schedule</a>.</p>
+                <p>You can have a look at the <a href="http://www.isc.cvut.cz/files/languages-schedule.php" target="_blank">Fall 2017 schedule</a>.</p>
                 <!-- <p>Schedule for upcoming semester will be available in first week of the semester</p> -->
-                <p>The language courses are starting on <b>Monday 6th March</b>.</p>
+                <p>Language courses for Fall semester 2017 start on <strong>Monday, 16 October</strong>. The schedule will be updated on Tuesday, 10 October.</p>
                 <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><a href="http://www.isc.cvut.cz/files/languages-schedule.php" ><img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
                 <p>Sometimes the classes have to be cancelled for various reasons. The following table shows the updated list of cancelled and rescheduled classes.</p>
                 <iframe width="370" height="400" frameborder="0" src="https://docs.google.com/spreadsheet/pub?key=0AoZEq64G2cV4dHZtcHdlVlpOV3F0WHNtVHlXS0tOTHc&single=true&gid=0&output=html&widget=true"></iframe>
