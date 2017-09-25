@@ -180,8 +180,8 @@ class TripsAppController extends Controller
 
         };
 
-        $tripsRegistered = Trip::with('organizers.person')->whereHas('participants', function($query) use($userId) {
-            $query->where('exchange_students.id_user', $userId);
+        $tripsRegistered = Trip::with('organizers')->whereHas('participants', function($query) use($userId) {
+            $query->where('people.id_user', $userId);
         })->get();
 
         foreach ($tripsRegistered as $trip) {
@@ -189,7 +189,7 @@ class TripsAppController extends Controller
         }
 
         $tripsNotRegistered = Trip::with('organizers.person')->whereDoesntHave('participants', function($query) use($userId) {
-            $query->where('exchange_students.id_user', $userId);
+            $query->where('people.id_user', $userId);
         })->get();
 
         foreach ($tripsNotRegistered as $trip) {
