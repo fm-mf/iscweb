@@ -32,8 +32,13 @@ class StatsController extends Controller
 
     public function showOwTripsStatistics()
     {
-        $trips = Trip::with('event')->get();
-        return view('stats.owTripsStats')->with(['trips' => $trips]);
+        $trips = Trip::with( 'event')
+                ->whereHas('event', function ($query) {
+                    $query->where('datetime_from', '>', Carbon::now('Europe/Prague'))
+                            ->where('registration_from', '<=', Carbon::now('Europe/Prague')->addDay())
+                            ->whereIn('type', array('exchange', 'ex+buddy'));
+                })->get();
+        return view('stats.owTripsStats')->with(['trips' => $tripsNotRegistered]);
     }
 
 }

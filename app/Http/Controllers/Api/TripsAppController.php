@@ -188,9 +188,15 @@ class TripsAppController extends Controller
             $insertTrip($trip, 'y');
         }
 
-        $tripsNotRegistered = Trip::with('organizers.person')->whereDoesntHave('participants', function($query) use($userId) {
-            $query->where('people.id_user', $userId);
-        })->get();
+        $tripsNotRegistered = Trip::with('organizers.person', 'event')
+                ->whereHas('event', function ($query) {
+                    $query->where('datetime_from', '>', Carbon::now('Europe/Prague'))
+                            ->where('registration_from', '<=', Carbon::now('Europe/Prague'))
+                            ->whereIn('type', array('exchange', 'ex+buddy'));
+                })
+                ->whereDoesntHave('participants', function($query) use($userId) {
+                    $query->where('people.id_user', $userId);
+                })->get();
 
         foreach ($tripsNotRegistered as $trip) {
             $insertTrip($trip, 'n');
