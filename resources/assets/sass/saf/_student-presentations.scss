@@ -1,0 +1,16 @@
+div.carousel-item {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-item > a {
+  display: block;
+  padding-bottom: 56.25%;
+}
+
+@for $i from 1 through 19 {
+  div#p-#{$i} {
+    background-image: url('/img/saf/student-presentations/#{$i}.jpg');
+  }
+}

@@ -14,7 +14,8 @@ class SafController extends Controller
             'officialName' => Settings::get('officialName'),
             'year' => Carbon::now()->year,
             'presentations' => SafController::getPresentations(),
-            'partners' => SafController::getPartners(),];
+            'partners' => SafController::getPartners(),
+            'presentationsFbUrl' => SafController::getPresentationsFbUrl()];
         return view('saf.index')->with($with);
     }
 
@@ -71,15 +72,34 @@ class SafController extends Controller
         );
     }
 
+    private static function getPresentationsFbUrl()
+    {
+        return array(
+                'https://www.facebook.com/events/620915551630611/',
+                'https://www.facebook.com/events/620915551630611/',
+                'https://www.facebook.com/events/1554194781293701/',
+                'https://www.facebook.com/events/1554194781293701/',
+                'https://www.facebook.com/events/1404848446281184/',
+                'https://www.facebook.com/events/1404848446281184/',
+                'https://www.facebook.com/events/1404848446281184/',
+                'https://www.facebook.com/events/154907591766389/',
+                'https://www.facebook.com/events/154907591766389/',
+                'https://www.facebook.com/events/292175311265613/',
+                'https://www.facebook.com/events/292175311265613/',
+                'https://www.facebook.com/events/292175311265613/',
+                'https://www.facebook.com/events/181584949076144/',
+                'https://www.facebook.com/events/181584949076144/',
+                'https://www.facebook.com/events/181584949076144/',
+                'https://www.facebook.com/events/1952674328279363/',
+                'https://www.facebook.com/events/1952674328279363/',
+                'https://www.facebook.com/events/509337686086017/',
+                'https://www.facebook.com/events/509337686086017/',
+        );
+    }
+
     private static function getPartners()
     {
         return array(
-                array(
-                        'img' => '',
-                        'title' => '',
-                        'description' => '',
-                        'url' => '',
-                ),
                 array(
                         'img' => 'logo-fulbright-vertical.gif',
                         'title' => 'Fulbrightova komise',
@@ -105,6 +125,12 @@ class SafController extends Controller
                         'url' => 'japan-embassy',
                 ),
                 array(
+                        'img' => 'logo-daad.jpg',
+                        'title' => 'Deutscher Akademischer Austauschdienst',
+                        'description' => 'Centrum DAAD Praha poskytuje informace o studiu a výzkumu v Německu i o stipendiích.',
+                        'url' => 'daad',
+                ),
+                array(
                         'img' => 'logo-dzs.png',
                         'title' => 'Dům zahraniční spolupráce',
                         'description' => 'Dům zahraniční spolupráce (DZS) je příspěvkovou organizací Ministerstva školství, mládeže a tělovýchovy.',
@@ -117,16 +143,22 @@ class SafController extends Controller
                         'url' => 'study-cz',
                 ),
                 array(
-                        'img' => 'logo-aiesec.png',
-                        'title' => 'AIESEC',
+                        'img' => 'logo-czech-us.png',
+                        'title' => 'Czech-us',
                         'description' => '',
-                        'url' => 'aiesec',
+                        'url' => 'czech-us',
                 ),
                 array(
-                        'img' => '',
-                        'title' => '',
-                        'description' => '',
-                        'url' => '',
+                        'img' => 'logo-master-more.jpg',
+                        'title' => 'Master a More',
+                        'description' => 'Master a More poskytuje informace o vzdělávání a profesním rozvoji, pořádají veletrh magisterských studií.',
+                        'url' => 'master-more',
+                ),
+                array(
+                        'img' => 'logo-aiesec.png',
+                        'title' => 'AIESEC',
+                        'description' => 'AIESEC je největší studenty řízená organizace na světě, která přispívá společnosti rozvojem mladých lidí a příležitostmi v&nbsp;mezinárodním prostředí.',
+                        'url' => 'aiesec',
                 ),
                 array(
                         'img' => 'logo-best.png',

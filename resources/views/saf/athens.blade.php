@@ -70,5 +70,14 @@
                 </div>
             </a>
         </div>
+
+        <div id="stadler" class="inspiration dark">
+            <a href="https://www.facebook.com/notes/michal-štádler/tour-de-kebab-athes-v-istanbulu/10154633984626548/" target="_blank">
+                <div>
+                    <p>Tour de Kebab (Athens v Istanbulu)</p>
+                    <p>&bdquo;Z ČVUT jsme na Istanbul Technical University letěli 3. A všichni 3 s jediným cílem&hellip;&ldquo; Michal Štádler (FIT)</p>
+                </div>
+            </a>
+        </div>
     </section>
 @endsection

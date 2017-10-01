@@ -1,5 +1,5 @@
 <section id="partners">
-    <h2>Partneři</h2>
+    <h2>Vystavovatelé</h2>
     <ul>
         @foreach ($partners as $partner)
             @if ($partner['title'] !== '' && $partner['description'] !== '')

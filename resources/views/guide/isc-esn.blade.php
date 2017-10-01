@@ -105,6 +105,7 @@
         <p>Choose the best flat from Flatio's offer of medium-term rents. View it with their virtual tour,
             view photos, reviews and the landlord's profile. For a discount, use promo code &quot;RentwithESN&quot;.</p>
         <p><a href="https://www.esn-cz.cz/partners/flatio" target="_blank">www.esn-cz.cz/partners/flatio</a></p>
+        <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
 
         <h3>Bohemian Hostels</h3>
         <img src="{{ asset('img/guide/partners/logo-bohemian-hostels.png') }}" />
