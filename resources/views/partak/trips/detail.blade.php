@@ -131,7 +131,7 @@
                                         <th>Email</th>
                                         <th>Sex</th>
                                         <th>Phone</th>
-                                        <th>ESN cart number</th>
+                                        <th>ESN card number</th>
                                         <th>Detail</th>
                                     </tr>
                                     @foreach($particip as $participant)
