@@ -26,7 +26,7 @@
 
                 <!-- We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
                 Fixed opening hours will be from Monday 20th. -->
-
+{{--
                 <h3><strong>Registrations</strong></h3>
                 <table>
                     <tr>
@@ -40,27 +40,28 @@
                 </table>
                 <h3><strong>Orientation Week</strong></h3>
                 <p>Between Mon 25 Sep and Sun 1 Oct there are no regular hours.</p>
-
-                {{--<table>
+--}}
+                <table>
                      <tr>
                          <th>Monday</th>
-                         <td>14:00 - 22:00</td>
+                         <td>14:00 &ndash; 16:00<br>
+                             18:00 &ndash; 20:00</td>
                      </tr>
                      <tr>
                          <th>Tuesday</th>
-                         <td>14:00 - 22:00</td>
+                         <td>14:00 - 20:00</td>
                      </tr>
                      <tr>
                          <th>Wednesday</th>
-                         <td>14:00 - 22:00</td>
+                         <td>14:00 - 20:00</td>
                      </tr>
                      <tr>
                          <th>Thursday</th>
-                         <td>16:00 - 20:00</td>
+                         <td>16:00 - 22:00</td>
                      </tr>
                      <tr>
                          <th>Friday</th>
-                         <td>16:00 - 18:00</td>
+                         <td>Closed</td>
                      </tr>
                      <tr>
                          <th>Saturday</th>
@@ -70,7 +71,7 @@
                          <th>Sunday</th>
                          <td>Closed</td>
                      </tr>
-                 </table>--}}
+                 </table>
 
             </div>
         </div>
