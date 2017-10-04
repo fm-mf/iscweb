@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Integreat_party;
 use App\Models\Languages_event;
+use App\Models\Semester;
 use App\Settings\Facade as Settings;
 use App\Models\ExchangeStudent;
 use Carbon\Carbon;
@@ -44,12 +45,12 @@ class WebController extends Controller
     public function showInteGreatTable()
     {
         $fromDate = Carbon::createFromFormat('d/m/Y' , Settings::get('wcFrom'));
-        //$integreatEv = Event::getAllIntegreatEvents($fromDate);
         $integreatEv = Integreat_party::getAllPartiesFrom($fromDate);
-        //dd($integreatEv->first()->integreat_party->countries);
-        //dd($integreatEv);
+        $currentSemester = Semester::getCurrentSemester()->getFullName();
+        $currentSemester = strtoupper($currentSemester);
         return view('web.activities.integreat')->with([
             'events' => $integreatEv,
+            'currentSemester' => $currentSemester,
         ]);
     }
 

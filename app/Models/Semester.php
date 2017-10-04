@@ -60,5 +60,11 @@ class Semester extends Model
         return $this->semester;
     }
 
+    public function getFullName(): string
+    {
+        $pos = strlen($this->semester) - 4;
+        return substr_replace($this->semester, ' ', $pos, 0);
+    }
+
 
 }

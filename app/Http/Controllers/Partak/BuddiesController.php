@@ -6,12 +6,11 @@ use App\Exceptions\UserDoesntExist;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use App\Models\Role;
+use App\Models\Semester;
 use App\Models\User;
 use App\Models\Person;
-use Doctrine\Common\Proxy\Autoloader;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Settings\Facade as Settings;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -82,9 +81,9 @@ class BuddiesController extends Controller
         $buddy = Buddy::findBuddy($id);
         if($buddy == null)
             throw new UserDoesntExist("Buddy does not exist !!!");
-        $semester = Settings::get('currentSemester');
-        $myStudents = $buddy->exchangeStudents()->bySemester($semester)->with('person.user')->get();
-
+        $semester = Semester::getCurrentSemester();
+        $myStudents = $buddy->exchangeStudents()->bySemester($semester->semester)->with('person.user')->get();
+        $semester = ucfirst($semester->getFullName());
         return view('partak.users.buddies.detail')->with([
             'buddy' => $buddy,
             'myStudents' => $myStudents,
