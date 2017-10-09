@@ -20,9 +20,9 @@ use Illuminate\Http\Request;
  * Prefix: api
  */
 
-/*Route::get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:api');*/
+});*/
 
     Route::post('/avatar', 'AvatarController@upload');
     Route::post('/load', 'ApiController@load');

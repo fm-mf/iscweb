@@ -1,0 +1,31 @@
+let mix = require('laravel-mix');
+
+/*
+ |--------------------------------------------------------------------------
+ | Mix Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Mix provides a clean, fluent API for defining some Webpack build steps
+ | for your Laravel application. By default, we are compiling the Sass
+ | file for the application as well as bundling up all the JS files.
+ |
+ */
+
+mix.js('resources/assets/js/echangestudentslist.js', 'public/js')
+    .js('resources/assets/js/partak.js', 'public/js')
+    .sass('resources/assets/sass/web/web.scss', 'public/css')
+    .sass('resources/assets/sass/web/buddy.scss', 'public/css')
+    .sass('resources/assets/sass/auth/user.scss', 'public/css')
+    .sass('resources/assets/sass/auth/login.scss', 'public/css')
+    .sass('resources/assets/sass/partak/partaknet.scss', 'public/css')
+    .sass('resources/assets/sass/partak/pdf.scss', 'public/css')
+    .sass('resources/assets/sass/picker/picker.scss', 'public/css')
+    .sass('resources/assets/sass/buddyprogram/buddyprogram.scss', 'public/css')
+    .sass('resources/assets/sass/guide/guide.scss', 'public/css')
+    .sass('resources/assets/sass/guide/guide_subpage.scss', 'public/css')
+    .sass('resources/assets/sass/errors.scss', 'public/css')
+    .sass('resources/assets/sass/saf/saf.scss', 'public/css')
+    .sass('resources/assets/sass/saf/saf-partner.scss', 'public/css')
+    .options({
+        processCssUrls: false
+     });
