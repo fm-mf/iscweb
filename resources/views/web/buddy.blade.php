@@ -113,6 +113,27 @@
     </div>
 </div>
 
+{{-- S ČVUT do světa --}}
+<h2>S ČVUT do světa</h2>
+<div class="container info">
+    <div class="row">
+        <div class="col-lg-7 col-md-5 col-sm-12">
+            <p>Na ČVUT je možnost vyjet do zahraničí pro více než 1000 studentů každý rok. V loňském roce se
+                přitom obsadila méně než polovina volných míst. Šance dostat se na Erasmus nebo Mimoevropské
+                bilaterální dohody je obrovská.</p>
+            <p>Od 11. do 25. října budou probíhat na fakultách cestovatelské přednášky od studentů,
+                kteří již vyjeli.</p>
+            <p>Program a další informace naleznete na stránce <a href="{{ url('/scvutdosveta') }}">S ČVUT do světa.</a></p>
+            <p>Sledujte také naši <a href="https://www.facebook.com/isc.saf/" target="_blank"><span class="glyphicon glyphicon-thumbs-up"></span> Facebookovou stránku</a>.</p>
+        </div>
+        <div class="col-lg-5 col-md-7 col-sm-12">
+            <a href="{{ url('/scvutdosveta') }}">
+                <img class="image" src="{{ asset('img/saf/logo-s-cvut-do-sveta.png') }}" alt="Logo S ČVUT do světa" title="Logo S ČVUT do světa" />
+            </a>
+        </div>
+    </div>
+</div>
+
 <!-- ============================= Kalendář ====================================== -->
 {{--
 <h2 id="info">Kalendář mezinárodních událostí</h2>
