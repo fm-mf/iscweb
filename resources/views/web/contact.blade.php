@@ -44,24 +44,23 @@
                 <table>
                      <tr>
                          <th>Monday</th>
-                         <td>14:00 &ndash; 16:00<br>
-                             18:00 &ndash; 20:00</td>
+                         <td>14:00 &ndash; 20:00</td>
                      </tr>
                      <tr>
                          <th>Tuesday</th>
-                         <td>14:00 - 20:00</td>
+                         <td>14:00 &ndash; 20:00</td>
                      </tr>
                      <tr>
                          <th>Wednesday</th>
-                         <td>14:00 - 20:00</td>
+                         <td>14:00 &ndash; 20:00</td>
                      </tr>
                      <tr>
                          <th>Thursday</th>
-                         <td>16:00 - 22:00</td>
+                         <td>14:00 &ndash; 22:00</td>
                      </tr>
                      <tr>
                          <th>Friday</th>
-                         <td>Closed</td>
+                         <td>14:00 &ndash; 16:00</td>
                      </tr>
                      <tr>
                          <th>Saturday</th>
