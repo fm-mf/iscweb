@@ -13,6 +13,7 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/echangestudentslist.js', 'public/js')
     .js('resources/assets/js/partak.js', 'public/js')
+    .js('resources/assets/js/saf/saf.js', 'public/js/saf')
     .sass('resources/assets/sass/web/web.scss', 'public/css')
     .sass('resources/assets/sass/web/buddy.scss', 'public/css')
     .sass('resources/assets/sass/auth/user.scss', 'public/css')
@@ -29,3 +30,7 @@ mix.js('resources/assets/js/echangestudentslist.js', 'public/js')
     .options({
         processCssUrls: false
      });
+
+if (!mix.inProduction()) {
+    mix.sourceMaps();
+}
