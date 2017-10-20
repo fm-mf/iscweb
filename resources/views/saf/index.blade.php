@@ -5,6 +5,7 @@
 @section('page')
     @include('saf.landing-page')
     @include('saf.about')
+    @include('saf.harmonogram-saf')
     {{--@include('saf.presentations')--}}
     @include('saf.student-presentations')
     @include('saf.partners')

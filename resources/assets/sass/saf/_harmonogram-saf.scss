@@ -1,0 +1,14 @@
+#harmonogram-saf dt {
+  clear: both;
+  float: left;
+}
+
+#harmonogram-saf dd {
+  float: left;
+}
+
+#harmonogram-saf dl:after {
+  display: block;
+  content: "";
+  clear: both;
+}
