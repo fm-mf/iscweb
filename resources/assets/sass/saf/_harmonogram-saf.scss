@@ -1,5 +1,5 @@
 #harmonogram-saf dt {
-  clear: both;
+  clear: left;
   float: left;
 }
 
@@ -11,4 +11,33 @@
   display: block;
   content: "";
   clear: both;
+}
+
+#video-cover {
+  width: 100%;
+  max-width: 1280px;
+}
+
+#video-cover > video {
+  width: 100%;
+  display: block;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#harmonogram-saf img {
+  display: block;
+}
+
+#harmonogram-saf h1, #harmonogram-saf h2, #harmonogram-saf h3, #harmonogram-saf h4 {
+  clear: both;
+}
+
+@media (min-width: 30rem) {
+  #harmonogram-saf img {
+    float: right;
+    width: 50%;
+    max-width: 16rem;
+  }
 }

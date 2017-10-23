@@ -1,0 +1,23 @@
+#chatbot-link-float {
+  display: none;
+}
+
+.chatbot-link a {
+  display: inline-block;
+}
+
+.chatbot-link img {
+  width: 100%;
+  max-width: 20rem;
+}
+
+@media (min-width: 40rem) {
+  #chatbot-link-float {
+    display: block;
+    float: right;
+  }
+
+  #chatbot-link-bottom {
+    display: none;
+  }
+}

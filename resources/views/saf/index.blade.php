@@ -7,9 +7,10 @@
     @include('saf.about')
     @include('saf.harmonogram-saf')
     {{--@include('saf.presentations')--}}
-    @include('saf.student-presentations')
     @include('saf.partners')
+    @include('saf.student-presentations')
     {{--@include('saf.exchange-programmes')--}}
+    @include('saf.chatbot')
     @include('saf.inspiration')
 @endsection
 
