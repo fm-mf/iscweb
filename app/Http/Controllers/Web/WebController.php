@@ -101,8 +101,8 @@ class WebController extends Controller
                         'avatar' => asset('img/web/contacts/2017fall/pr-janek.jpg')),
                 array (
                         'name' => 'Josef Klesa',
-                        'position' => 'International Relations',
-                        'email' => 'interel@isc.cvut.cz',
+                        'position' => 'Local Representative',
+                        'email' => 'lr@isc.cvut.cz',
                         'phone' => '+420 728 481 627',
                         'avatar' => asset('img/web/contacts/2017fall/lr-pipa.jpg')),
                 array (
