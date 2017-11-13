@@ -5,27 +5,26 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
-        "barryvdh/laravel-debugbar": "^2.3",
-        "barryvdh/laravel-dompdf": "^0.7.1",
-        "maatwebsite/excel": "~2.1.0",
+        "php": ">=7.0",
+        "barryvdh/laravel-dompdf": "^0.8.1",
         "intervention/image": "^2.3",
         "laracasts/utilities": "~2.0",
-        "laravel/framework": "5.3.*",
-        "laravelcollective/html": "^5.2.0",
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4.0",
+        "maatwebsite/excel": "~2.1.0",
         "orangehill/iseed": "^2.3",
         "s-ichikawa/laravel-sendgrid-driver": "^1.1",
         "torann/laravel-asana": "^0.4.0",
         "zendframework/zend-permissions-acl": "^2.6"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.2",
+        "barryvdh/laravel-debugbar": "^2.3",
+        "barryvdh/laravel-ide-helper": "^2.4",
         "fzaninotto/faker": "~1.4",
+        "laracasts/generators": "^1.1",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*",
-        "way/generators": "dev-feature/laravel-five-stable",
+        "phpunit/phpunit": "~5.7",
         "xethron/migrations-generator": "^2.0"
     },
     "autoload": {
@@ -37,9 +36,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "scripts": {
         "post-root-package-install": [
@@ -59,12 +58,7 @@
     },
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "repositories": {
-        "repo-name": {
-            "type": "vcs",
-            "url": "https://github.com/jamisonvalenta/Laravel-4-Generators.git"
-        }
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
 }
