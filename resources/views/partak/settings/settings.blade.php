@@ -43,6 +43,11 @@
                     @endif
                     {{ Form::text('owTo', $settings['owTo']->format('d M Y'), ['id' => 'owTo', 'class' => 'form-control arrival date', 'style' => 'margin-bottom: 15px']) }}
 
+                    {{ Form::label('electionStreamUrl', 'Link to the election stream', ['class' => 'control-label']) }}
+                    @if ($errors->has('electionStreamUrl'))
+                        <p class="error-block alert-danger">{{ $errors->first('electionStreamUrl') }}</p>
+                    @endif
+                    {{ Form::url('electionStreamUrl', $settings['electionStreamUrl'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
                     {{ Form::bsSubmit('Update settings') }}
 

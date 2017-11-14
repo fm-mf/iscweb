@@ -48,6 +48,9 @@ class SettingsController extends Controller
         {
             \Settings::set($key, $value);
         }
+        if (!isset($data['electionStreamUrl'])) {
+            \Settings::set('electionStreamUrl', '');
+        }
         return back()->with(['successUpdate' => true]);
     }
 
@@ -61,6 +64,7 @@ class SettingsController extends Controller
             'wcFrom' => 'required|date_format:d M Y',
             'owFrom' => 'date_format:d M Y',
             'owTo' => 'required|date_format:d M Y',
+            'electionStreamUrl' => 'nullable|url'
         ]);
     }
 }

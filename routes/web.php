@@ -57,6 +57,17 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/voting/thank-you', 'VotingController@showThankYou');
     Route::get('/voting/{hash}', 'VotingController@showVotingForm');
     Route::get('/voting-test', 'VotingController@showTestEmail');
+
+    Route::get('/volba', 'WebController@redirectToElectionStream');
+    Route::get('/president', function() {
+        return redirect(url('/volba'), 301);
+    });
+    Route::get('/volbapresidenta', function() {
+      return redirect(url('/volba'), 301);
+    });
+    Route::get('/volba-presidenta', function() {
+        return redirect(url('/volba'), 301);
+    });
 });
 
 // Survival Guide

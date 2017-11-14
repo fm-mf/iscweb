@@ -66,6 +66,15 @@ class WebController extends Controller
         ]);
     }
 
+    public function redirectToElectionStream()
+    {
+        $streamUrl = Settings::get('electionStreamUrl');
+        if ($streamUrl != "") {
+            return redirect($streamUrl);
+        }
+        return redirect(url('/'));
+    }
+
     private function getContactsArray()
     {
         return array(
