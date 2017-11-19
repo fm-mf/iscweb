@@ -27,19 +27,20 @@
                 <p>To enroll to any sport, follow partial instructions or just contact
                     supervising person (instructor). Some of the sports are for free, some are
                     payed for.</p>
-                <p>Also, you can contact ISC Sport coordinator Petr Šlajs (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>).
-                    If you don´t receive an answer, just write once again, please.
+                <p>Also, you can contact ISC Sports coordinator Petr Šlajs
+                    (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>).
+                    If you don't receive an answer, just write once again, please.
                 </p>
                 <p>You can also start to <strong>practice your own sport</strong> you know or
-                    you would like to try. In this case please contact sport coordinator.
+                    you would like to try. In this case please contact sports coordinator.
                 </p>
                 <p>Please join your sport group on Facebook so we can find out how many people
-                    are interest.
+                    are interested.
                 </p>
 
                 <p><strong>All sports are starting during the 1st and 2nd week of the semester.</strong></p>
 
-
+{{--
                 <!-- ------------------------ SPORTS SCHEDULE picture ------------------------------------------------- -->
 
                 <!--
@@ -50,22 +51,20 @@
 
                 <!-- ------------------------ SPORTS detailed info ------------------------------------------------- -->
                 <!-- <h2 class="align-center">Schedule for Fall 2017 comming soon…</h2> <br> -->
-
+--}}
                 <h2 class="align-center">Schedule for Fall 2017</h2>
 
                 <div class="container sports-list">
                     <ul class="row list-unstyled contacts">
                         <li class="col-md-5 col-sm-6">
                             <h3>Football</h3>
-
-                            <b>When:</b> Sunday 21:00 &ndash 23:00<br>
+                            <b>When:</b> Sunday 21:00 &ndash; 23:00<br>
                             <b>Where:</b> <a href="https://goo.gl/maps/teK4WH75a2p" target="_blank">&quot;Pod Juliskou&quot; Sports Center</a> (Pod Juliskou 4, Prague 6)<br>
                             <b>Meeting point:</b> at 20:40 in the lobby of the <a href="https://goo.gl/maps/cV8kVJogz1F2" target="_blank">Masarykova dormitory</a><br>
                             <b>Price:</b> CZK 50, for ISC members CZK 30<br>
-                            <b>Contact person:</b><br>
+                            <b>Contact person:</b> Felix Richardson<br>
                             <b>What to bring:</b> indoor shoes and sport clothes<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/1494986440518838/" target="_blank">join our group</a>
-
                         </li>
 
                         <li class="col-md-5 col-sm-6">
@@ -80,27 +79,35 @@
                     </ul>
                     <ul class="row list-unstyled contacts">
                         <li class="col-md-5 col-sm-6">
-                            <h3>Floorball</h3>
+                            <h3>Basketball</h3>
                             <b>When:</b> Wednesday 20:30 &ndash; 22:00<br>
                             <b>Where:</b> <a href="https://goo.gl/maps/NirGfLFhER32" target="_blank">Primary School &ndash; ZŠ Bílá</a> (Bílá 1, Prague 6)<br>
                             <b>Meeting point:</b> at 20:15 in the lobby of the <a href="https://goo.gl/maps/cV8kVJogz1F2" target="_blank">Masarykova dormitory</a><br>
+                            <b>Price:</b> CZK 40, for ISC members CZK 20<br>
+                            <b>Contact person:</b> Tereza Kadlecová<br>
+                            <b>What to bring:</b> indoor shoes and sport clothes<br>
+                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/573672776173969/" target="_blank">join our group</a>
+                        </li>
+
+                        <li class="col-md-5 col-sm-6">
+                            <h3>Floorball</h3>
+                            <b>When:</b> Thursday 21:00 &ndash; 22:30<br>
+                            <b>Where:</b> <a href="https://goo.gl/maps/teK4WH75a2p" target="_blank">&quot;Pod Juliskou&quot; Sports Center</a> (Pod Juliskou 4, Prague 6)<br>
                             <b>Price:</b> CZK 50, for ISC members CZK 30<br>
-                            <b>Contact person:</b> Matěj Kamenický <br>
+                            <b>Contact person:</b> Matěj Kamenický<br>
                             <b>What to bring:</b> indoor shoes a sport clothes <br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/isc.floorball/" target="_blank">join our group</a><br><br>
                         </li>
-
-
-                        <li class="col-md-5 col-sm-6">
-                            <h3>Salsa</h3>
-                            <b>Time and place:</b> in the process (follow FB group)<br>
-                            <b>Price:</b> Free!<br>
-                            <b>Contact person:</b> Jose Palacios<br>
-                            <b>What to bring:</b> comfortable shoes and clothes<br>
-                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/328139057395194/" target="_blank">join our group</a>
-                        </li>
                     </ul>
                     <ul class="row list-unstyled contacts">
+                        <li class="col-md-5 col-sm-6">
+                            <h3>Salsa</h3>
+                            <b>When:</b> Tuesday 19:30 &ndash; 21:00<br>
+                            <b>Where:</b> <a href="https://goo.gl/maps/cV8kVJogz1F2" target="_blank">Masarykova dormitory, room R605</a> (Thákurova 550/1, Prague 6)<br>
+                            <b>Price:</b> Free!<br>
+                            <b>Contact person:</b> Jose Palacios<br>
+                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/328139057395194/" target="_blank">join our group</a>
+                        </li>
                         <li class="col-md-5 col-sm-6">
                             <h3>Volleyball</h3>
                             <b>When:</b> Monday 20:30 &ndash; 22:00 <br>
@@ -110,25 +117,6 @@
                             <b>What to bring:</b> indoor shoes and sport clothes<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/426942574167221/" target="_blank">join our group</a>
 
-                        </li>
-
-                        <li class="col-md-5 col-sm-6">
-                            <h3>Basketball</h3>
-                            <b>Time and place:</b> follow FB group<br>
-                            <b>Price:</b> depends on number of players<br>
-                            <b>Contact person:</b> Tereza Kadlecová<br>
-                            <b>What to bring:</b> indoor shoes and sport clothes<br>
-                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/573672776173969/" target="_blank">join our group</a>
-                        </li>
-                    </ul>
-                    <ul class="row list-unstyled contacts">
-
-                        <li class="col-md-5 col-sm-6">
-                            <h3>Yoga (Beer Yoga)</h3>
-                            <b>Time and place:</b> in the process<br>
-                            <b>Price:</b> depends on locality<br>
-                            <b>Contact person:</b> Emma Závodská<br>
-                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/1424689370896554/" target="_blank">join our group</a>
                         </li>
                     </ul>
                 </div>
