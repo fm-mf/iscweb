@@ -18,13 +18,13 @@
     @show
 
 
-    <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
+    <script type="text/javascript" src="https://use.typekit.net/aav2ndi.js"></script>
     <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>
 </head>
 
 <body id="page-top">
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPBKF8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){ w[l]=w[l]||[];w[l].push({ 'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MPBKF8');</script>
+<script>(function(w,d,s,l,i){ w[l]=w[l]||[];w[l].push({ 'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=(l!=='dataLayer'?'&l='+l:'');j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MPBKF8');</script>
 
 @yield('page')
 
@@ -58,6 +58,7 @@
                 <ul class="list-unstyled">
                     <li><a href="{{ url('partak') }}">ParťákNet</a></li>
                     <li><a href="{{ url('muj-buddy') }}">Buddy Program</a></li>
+                    <li><a href="{{ url('press') }}">ISC Blog</a></li>
                 </ul>
             </div>
             <div class="col-sm-6">
@@ -68,54 +69,55 @@
 </div><!-- /footer-wrap -->
 
 @section('javascript')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="{{ asset('js/guide/bootstrap.min.js') }}"></script>
-<script>
-    $(document).ready(function() {
-        var theLoc = $('.show-menu').position().top;
-        $(window).scroll(function() {
-            if (theLoc >= $(window).scrollTop()) {
-                if ($('.navbar-custom').hasClass('top-nav-collapse')) {
-                    $('.navbar-custom').fadeOut(300, function() {
-                        $('.navbar-custom').removeClass('top-nav-collapse').show(0);
-                    });
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{ asset('js/guide/bootstrap.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            var theLoc = $('.show-menu').position().top;
+            $(window).scroll(function() {
+                var navbar_custom = $('.navbar-custom');
+                if (theLoc >= $(window).scrollTop()) {
+                    if (navbar_custom.hasClass('top-nav-collapse')) {
+                        navbar_custom.fadeOut(300, function() {
+                            navbar_custom.removeClass('top-nav-collapse').show(0);
+                        });
+                    }
+                } else {
+                    if (!navbar_custom.hasClass('top-nav-collapse')) {
+                        navbar_custom.hide(0).addClass('top-nav-collapse').fadeIn(600);
+                    }
                 }
-            } else {
-                if (!$('.navbar-custom').hasClass('top-nav-collapse')) {
-                    $('.navbar-custom').hide(0).addClass('top-nav-collapse').fadeIn(600);
-                }
-            }
+            });
         });
-    });
-</script>
-<script>
+    </script>
+    <script>
 
-    $('#scroll').on('click', function(e) {
-        e.preventDefault();
-        var eventDiv = $("#events");
-        var pos = eventDiv.position().top;
-        $("html, body").animate({
-            scrollTop: pos
+        $('#scroll').on('click', function(e) {
+            e.preventDefault();
+            var eventDiv = $("#events");
+            var pos = eventDiv.position().top;
+            $("html, body").animate({
+                scrollTop: pos
+            });
+            return false;
         });
-        return false;
-    });
 
-    $('#about-link').on('click', function(e) {
-        e.preventDefault();
-        var eventDiv = $("#about-us");
-        var pos = eventDiv.position().top;
-        $("html, body").animate({
-            scrollTop: pos
+        $('#about-link').on('click', function(e) {
+            e.preventDefault();
+            var eventDiv = $("#about-us");
+            var pos = eventDiv.position().top;
+            $("html, body").animate({
+                scrollTop: pos
+            });
+            return false;
         });
-        return false;
-    });
 
-    document.querySelector("#logo").addEventListener('contextmenu', function(event) {
-        event.preventDefault();
-        $('#logo-download').modal('show')
-    }, false);
+        document.querySelector("#logo").addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            $('#logo-download').modal('show')
+        }, false);
 
-</script>
+    </script>
 
 @show
 
