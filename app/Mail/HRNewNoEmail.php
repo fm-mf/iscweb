@@ -36,6 +36,6 @@ class HRNoEmail extends Mailable
         return $this->view('emails.noEmail')
                     ->with(['buddy' => $this->buddy, 'motivation' => $this->motivation])
                     ->from('it.support@isc.cvut.cz')
-                    ->subject('Opět dobré zprávy!');
+                    ->subject('Nový buddy bez univerzitního e-mailu');
     }
 }

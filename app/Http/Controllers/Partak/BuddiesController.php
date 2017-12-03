@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Partak;
 
+use App\Events\BuddyVerified;
 use App\Exceptions\UserDoesntExist;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
@@ -154,6 +155,7 @@ class BuddiesController extends Controller
         $buddy = Buddy::find($user_id);
         if ($buddy) {
             $buddy->setVerified();
+            event(new BuddyVerified($buddy));
             return back()->with(['success' => 'Buddy has been approved']);
         } else {
             return back()->withErrors(['approve' => 'Buddy was not found in our database.']);

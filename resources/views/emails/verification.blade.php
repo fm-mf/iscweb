@@ -7,7 +7,9 @@
     <body>
         <p>Ahoj!</p>
         <p>Děkujeme za registraci do Buddy Programu.</p>
-        <p>Pro přístup do databáze zahraničních studentů klikni na následující odkaz: <br>
-            <a href="{{ url('user/verify/' . $person->user->hash) }}">{{ url('user/verify/' . $person->user->hash) }}</a></p>
+        <p>Pro přístup do databáze zahraničních studentů klikni na následující odkaz:<br>
+            <a href="{{ url('user/verify/' . $person->user->hash) }}">Ověřit</a>,<br>
+            případně zkopírojte do adresního řádku prohlížeče následující odkaz:<br>
+            {{ url('user/verify/' . $person->user->hash) }}</p>
     </body>
 </html>
