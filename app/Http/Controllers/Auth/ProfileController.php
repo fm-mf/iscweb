@@ -72,8 +72,8 @@ class ProfileController extends Controller
     protected function profileValidator(array $data)
     {
         return Validator::make($data, [
-            'phone' => 'max:15',
-            'age' => 'digits:4'
+            'phone' => 'max:20',
+            'age' => 'integer|min:1901|max:2155|nullable'
         ]);
     }
 
@@ -92,6 +92,14 @@ class ProfileController extends Controller
             }
         });
 
+        return $validator;
+    }
+
+    protected function motivationValidator(array $data)
+    {
+        $validator = Validator::make($data, [
+                'motivation' => 'required',
+        ]);
         return $validator;
     }
 
@@ -149,6 +157,7 @@ class ProfileController extends Controller
     public function processNoEmail(Request $request)
     {
         $buddy = Buddy::findBuddy(Auth::id());
+        $this->motivationValidator($request->all())->validate();
         event(new BuddyWithoutEmailRegistered($buddy, $request->motivation));
         return redirect('/user/thankyou')->with('verified', false);
     }

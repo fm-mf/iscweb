@@ -63,6 +63,11 @@ class Buddy extends Model
         return $this->verified == 'y';
     }
 
+    public function isSubscribed()
+    {
+        return $this->subscribed == 'y';
+    }
+
     public function setWelcomeSent() {
         $this->welcome_mail_sent = 1;
         $this->save();
@@ -131,13 +136,14 @@ class Buddy extends Model
 
     public static function scopeNotVerified($query)
     {
-        return $query->where(function($query) {
-            $query->whereHas('person.user', function($query) {
-                $query->where('created_at', '>=', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString())->where('verified',  '!=', 'y');
-            })->orWhereHas('person.user', function($query) {
-                $query->where(function($query) {
-                    $query->whereNull('created_at')->orWhere('created_at', '<', Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString());
-                })->where('active', 'n');
+        $applicableDate = Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString();
+        return $query->where(function($query) use ($applicableDate) {
+            $query->whereHas('person.user', function($query) use ($applicableDate) {
+                $query->where('created_at', '>=', $applicableDate)->where('verified', '!=', 'y');
+            })->orWhereHas('person.user', function($query) use ($applicableDate) {
+                $query->where(function($query) use ($applicableDate) {
+                    $query->whereNull('created_at')->orWhere('created_at', '<', $applicableDate);
+                })->where('active', 'n')->where('subscribed', 'y');
             });
         });
     }

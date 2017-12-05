@@ -27,7 +27,7 @@ class WelcomeBuddy
      */
     public function handle(BuddyVerified $event)
     {
-        if (!$event->buddy->isWelcomeSent()) {
+        if (!$event->buddy->isWelcomeSent() && $event->buddy->isSubscribed()) {
             Mail::to($event->buddy->person->user->email)->send(new WelcomeToBuddyProgramme());
             if (!in_array($event->buddy->person->user->email, Mail::failures())) {
                 $event->buddy->welcome_mail_sent = 1;

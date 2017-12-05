@@ -154,11 +154,12 @@ class BuddiesController extends Controller
         $this->authorize('acl', 'buddy.verify');
         $buddy = Buddy::find($user_id);
         if ($buddy) {
+            $buddyName = $buddy->person->first_name . ' ' . $buddy->person->last_name;
             $buddy->setVerified();
             event(new BuddyVerified($buddy));
-            return back()->with(['success' => 'Buddy has been approved']);
+            return redirect('/partak/users/buddies')->with(['success' => 'Buddy ' . $buddyName . 'has been approved']);
         } else {
-            return back()->withErrors(['approve' => 'Buddy was not found in our database.']);
+            return redirect('/partak/users/buddies')->withErrors(['approve' => 'Buddy was not found in our database.']);
         }
     }
 
@@ -167,10 +168,11 @@ class BuddiesController extends Controller
         $this->authorize('acl', 'buddy.verify');
         $buddy = Buddy::find($user_id);
         if ($buddy) {
+            $buddyName = $buddy->person->first_name . ' ' . $buddy->person->last_name;
             $buddy->setDenied();
-            return back()->with(['success' => 'Buddy has been denied']);
+            return redirect('/partak/users/buddies')->with(['success' => 'Buddy ' . $buddyName . ' has been denied']);
         } else {
-            return back()->withErrors(['approve' => 'Buddy was not found in our database.']);
+            return redirect('/partak/users/buddies')->withErrors(['approve' => 'Buddy was not found in our database.']);
         }
     }
 }
