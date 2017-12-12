@@ -1,10 +1,10 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="cs">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>International Student Club - Buddy Program</title>
+    <title>Buddy Program | ISC CTU in Prague</title>
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
@@ -257,13 +257,33 @@
 --}}
 
 <div class="container info" id="info">
+    <div class="row" id="buddy-session">
+        <div class="col-sm-10 col-sm-offset-1 text-align-center">
+            <h2>Buddy Session</h2>
+            <p>Buddy Session je informační schůzka, kde se dozvíš vše potřebné k tomu, jak být
+                správným Buddym, a aktuální informace do nového semestru. Většinou se koná zruba
+                v&nbsp;polovině záři (ZS) a ledna (LS). Po tom, co se do Buddy programu
+                zaregistruješ, tě o ní budeme informovat emailem nebo na FB stránce
+                <a href="https://www.facebook.com/isc.ctu.prague/" target="_blank">ISC CTU in Prague</a>.
+                Pokud bys měl jakékoliv dotazy ještě před Buddy Session nebo jsi něco nenašel
+                v&nbsp;Buddy příručce, neváhej se zeptat našeho Buddy coordinátora na
+                <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>.</p>
+        </div>
+    </div>
+</div>
 
+<div class="container info" id="info">
     <div class="row" id="buddy-prirucka">
         <div class="col-sm-10 col-sm-offset-1 text-align-center">
-            <h2>BUDDY PŘÍRUČKA</h2>
-            <p>Všechny potřebné informace ohledně Buddy programu jsme sepsali do <strong>Buddy příručky</strong>. Pomůže jak Tobě, tak Tvému zahraničnímu studentovi. Obsahuje informace o tom <strong>nejdůležitějším</strong>, co budeš v prvních dnech po příjezdu studenta potřebovat, ale i do dalších dní Ti dá pár rad. Neváhej a čerpej z ní informace, aby jsi na nic důležitého nezapomněl(a). Věříme, že v ní najdeš odpovědi na své otázky a pokud ne, tak se ptej na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>
+            <h2>Buddy příručka</h2>
+            <p>Všechny potřebné informace ohledně Buddy programu jsme sepsali do
+                <strong>Buddy příručky</strong>. Pomůže jak Tobě, tak Tvému zahraničnímu
+                studentovi. Obsahuje informace o tom <strong>nejdůležitějším</strong>, co budeš
+                v&nbsp;prvních dnech po příjezdu studenta potřebovat, ale i do dalších dní Ti dá
+                pár rad. Neváhej a čerpej z&nbsp;ní informace, aby jsi na nic důležitého
+                nezapomněl(a). Věříme, že v&nbsp;ní najdeš odpovědi na své otázky a pokud ne,
+                tak se ptej na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>.
             </p>
-
 
             <p>
                 <a href="{{ url('buddy-prirucka') }}">
