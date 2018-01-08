@@ -8,6 +8,7 @@ use App\Console\Commands\SendEmailNoBuddy;
 use App\Console\Commands\SendRegistrationMailToExchangeStudents;
 use App\Console\Commands\SendRegistrationReminder;
 use App\Console\Commands\SendVotingMail_PartakFix;
+use App\Console\Commands\TestExchangeRegistrationEmail;
 use App\Console\Commands\VerificationFix;
 use App\Console\Commands\SendVotingMail;
 use Illuminate\Console\Scheduling\Schedule;
@@ -29,6 +30,8 @@ class Kernel extends ConsoleKernel
         ImportExchangeStudents::class,
         ImportFullTimeStudents::class,
         SendEmailNoBuddy::class,
+
+        TestExchangeRegistrationEmail::class,
     ];
 
     /**
