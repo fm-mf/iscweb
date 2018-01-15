@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\DynamicHiddenVisible;
 use Illuminate\Database\Eloquent\Model;
 
 class Accommodation extends Model
 {
+    use DynamicHiddenVisible;
+
     protected $table = 'accommodation';
     public $timestamps = false;
     protected $primaryKey = 'id_accommodation';

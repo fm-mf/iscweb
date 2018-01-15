@@ -8,11 +8,12 @@
     import ExchangeStudent from './ExchangeStudent.vue'
 
     class StudentsModel {
-        constructor($url, $currentId)
+        constructor($url, $currentId, $currentLastName)
         {
             this.items = [];
             this.url = $url;
             this.lastId = $currentId - 1;
+            this.lastLastName = $currentLastName;
             this.update();
         }
 
@@ -26,12 +27,14 @@
             });
 
             console.log (_this.url);
+            console.log(_this.lastLastName);
             $.ajax({
                 url: (_this.url),
                 method: 'post',
                 dataType: 'json',
                 data: {
                     id: _this.lastId + 1,
+                    lastName: _this.lastLastName,
                     limit: $limit
                 },
             }).done(function(newData) {
@@ -45,6 +48,7 @@
                 }
 
                 _this.lastId = _this.items[_this.items.length - 1].id_user;
+                _this.lastLastName = _this.items[_this.items.length - 1].person.last_name;
             }).fail(function(error) {
                 alert('error');
             });
@@ -58,7 +62,7 @@
 
     export default {
 
-        props: ['url', 'currentId'],
+        props: ['url', 'currentId', 'currentLastName'],
 
         components: {
             ExchangeStudent
@@ -66,7 +70,7 @@
 
         data () {
             return {
-                model: new StudentsModel(this.url, this.currentId)
+                model: new StudentsModel(this.url, this.currentId, this.currentLastName)
             }
         },
 

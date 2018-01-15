@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Notifications\PasswordReset;
+use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,7 +11,7 @@ use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, DynamicHiddenVisible;
 
     /**
      * The attributes that are mass assignable.

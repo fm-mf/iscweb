@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Accommodation;
+use App\Models\Arrival;
+use App\Models\Country;
 use App\Models\ExchangeStudent;
+use App\Models\Faculty;
+use App\Models\Person;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
@@ -34,6 +40,13 @@ class ApiController extends Controller
             }
         }
 
+        ExchangeStudent::setStaticVisible(['accommodation', 'arrival', 'country', 'faculty', 'person', 'school']);
+        Accommodation::setStaticVisible(['id_accommodation', 'full_name']);
+        Arrival::setStaticVisible(['arrival']);
+        Country::setStaticVisible(['id_country', 'full_name']);
+        Faculty::setStaticVisible(['id_faculty', 'abbreviation']);
+        Person::setStaticVisible(['first_name', 'last_name']);
+
         return response()->json(
             $students->paginate(50)
         );
@@ -41,7 +54,26 @@ class ApiController extends Controller
 
     public function loadPreregister(Request $request)
     {
-        $students = ExchangeStudent::with('person.user')->byUniqueSemester(Settings::get('currentSemester'))->whereNull('esn_card_number')->whereNull('phone')->where('id_user', '>=', $request->id)->limit($request->limit)->get();
+        if ($request->lastName == null) {
+            $request->lastName = '';
+        }
+        $students = ExchangeStudent::with('person.user')
+                ->byUniqueSemester(Settings::get('currentSemester'))
+                ->join('people', 'people.id_user', 'exchange_students.id_user')
+                ->whereNull('esn_card_number')
+                ->whereNull('phone')
+                ->where('exchange_students.id_user', '<>', $request->id - 1)
+                ->whereHas('person', function ($query) use ($request) {
+                    $query->where('last_name', '>=', $request->lastName);
+                })
+                ->orderBy('last_name')
+                ->orderBy('first_name')
+                ->limit($request->limit)->get();
+
+        ExchangeStudent::setStaticVisible(['id_user', 'person']);
+        Person::setStaticVisible(['first_name', 'last_name', 'user']);
+        User::setStaticVisible(['email']);
+
         return response()->json(
             $students
         );

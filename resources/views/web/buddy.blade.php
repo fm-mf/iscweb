@@ -172,7 +172,7 @@
     </div>
 </div>--}}
 
-@if (\Carbon\Carbon::now('Europe/Prague')->lt(\Carbon\Carbon::create(2017, 9, 13, 18, 30, 00, 'Europe/Prague')->addHours(2)))
+@if (\Carbon\Carbon::now('Europe/Prague')->lt(\Carbon\Carbon::create(2018, 1, 25, 18, 30, 00, 'Europe/Prague')->addHours(2)))
 <h2 id="info">Jak se stát Buddym</h2>
 
 <div class="container events">
@@ -180,7 +180,7 @@
         <span class="vspace"></span>
         <div class="row row-ow row-sm-height">
             <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url(https://www.isc.cvut.cz/events/covers/58.jpeg)">
-                <span class="day">Středa<br><strong>13.</strong><br>září<br>18:30</span>
+                <span class="day">Čtvrtek<br><strong>25.</strong><br>ledna<br>18:30</span>
                 <h2>Buddy Session</h2>
             </div>
             <div class="col-sm-6 ow-detail col-sm-height col-top">
@@ -189,7 +189,7 @@
                 <p>Co to obnáší? Vybereš si zahraničního studenta dle svého uvážení a trochu mu píchneš v začátcích. Neboj, není to nic náročného.</p>
                 <p>Informační schůzka, kde se dozvíš víc, bude ve vzdělávacím centru NTK (u vstupu NTK3 naproti noční studovně, od recepce po schodech do 2. patra).</p>
                 <p>
-                    ► <a href="https://www.facebook.com/events/164916980735947/?fref=ts"><strong>Facebook event!</strong></a>
+                    ► <a href="https://www.facebook.com/events/386611458450417/"><strong>Facebook event!</strong></a>
                 </p>
             </div>
         </div>

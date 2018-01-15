@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Boolean;
 
 class Person extends Model
 {
+    use DynamicHiddenVisible;
+
     public $timestamps = false;
     protected $primaryKey = 'id_user';
     public $incrementing = false;
