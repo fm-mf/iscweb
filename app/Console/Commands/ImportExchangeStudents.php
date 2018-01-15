@@ -23,7 +23,7 @@ class ImportExchangeStudents extends Command
      *
      * @var string
      */
-    protected $signature = 'exchangeStudents:import';
+    protected $signature = 'exchangeStudents:import {fileName}';
 
     /**
      * The console command description.
@@ -88,7 +88,7 @@ class ImportExchangeStudents extends Command
         foreach ($exchangeStudents as $exchangeStudent) {
             $lineNumber++;
             $this->info($lineNumber . ': ' . $exchangeStudent[$this->emailKey]);
-            if (in_array($exchangeStudent[$this->noteKey], $this->cancellingNotes)) {
+            if (in_array($exchangeStudent[$this->noteKey], $this->cancellingNotes) || $exchangeStudent[$this->emailKey] == null) {
                 $this->info($exchangeStudent[$this->lastNameKey]
                     . ' ' . $exchangeStudent[$this->firstNameKey]
                     . ' skip because of note: ' .
@@ -200,10 +200,10 @@ class ImportExchangeStudents extends Command
 
     private function initial()
     {
-        $fileName = 'Seznam_studentu_17_18.xls';
-        $this->filePath = storage_path('app/public/') . $fileName;
+        $fileName = $this->argument('fileName');
+        $this->filePath = storage_path('app/import/') . $fileName;
         $this->setSemesters();
-        $this->logger = new ImportLogger('import_' . $this->currentSemester->semester . '.log');
+        $this->logger = new ImportLogger('import_' . $fileName . '_' . $this->currentSemester->semester . '.log');
     }
 
     private function writeOutException(String $message, string $email, \Exception $exception)
