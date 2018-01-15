@@ -22,14 +22,18 @@
         <p>
             See <a href="https://isc.cvut.cz/ow">Meeting points and times</a>
         </p>
-    </div>
-
-    The schedule of the Orientation Week will be announced soon. Stay tuned!--}}
+    </div>--}}
 
     <div class="row">
         <h2>Orientation Week Programme: {{ $owFromTo }}</h2>
     </div>
 
+    <div class="row">
+        <div class="col-md-12 bg-info">
+            <p><strong>The schedule of the Orientation Week will be announced soon. Stay tuned!</strong></p>
+        </div>
+    </div>
+{{--
     <div class="row">
         <h2>DAY 1 – Monday <strong>(25 September)</strong></h2>
     </div>
@@ -169,7 +173,7 @@
         </div>
     </div>
     --}}
-
+{{--
     <div class="row">
         <h2>DAY 3 – Wednesday (27 September)</h2>
     </div>
@@ -252,7 +256,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div>--}}
 
     <div class="row">
         <div class="col-md-12 bg-danger">

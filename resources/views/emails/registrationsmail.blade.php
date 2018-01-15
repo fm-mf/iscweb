@@ -38,14 +38,14 @@
 </p>
 
 <p>You can find more information about the International Student Club and our activities on our
-    <a href="{{ url() }}">website</a>.
+    <a href="{{ url('/') }}">website</a>.
     And if you have any questions, feel free to ask at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
 
 <p>Thank you and see you in Prague!</p>
 
 <p>Volunteers of International Student Club CTU in Prague</p>
 
-<p><a href="{{ url() }}">Web</a>: https://isc.cvut.cz<br>
+<p><a href="{{ url('/') }}">Web</a>: {{ url('/') }}<br>
     <a href="https://www.facebook.com/isc.ctu.prague/">FB page</a>: https://www.facebook.com/isc.ctu.prague/<br>
     <a href="https://www.facebook.com/groups/ISC2018Spring/">FB group</a>: https://www.facebook.com/groups/ISC2018Spring/</p>
 </body>
