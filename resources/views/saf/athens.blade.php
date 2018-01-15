@@ -34,17 +34,16 @@
             Kromě toho si na těchto stránkách můžete porovnat i náklady jednotlivých zemí.</p>
 
         <h2>Termín výjezdu a deadline přihlášek</h2>
-        <p>Tento semestr se ATHENS koná na všech univerzitách <strong>11.&ndash;18. listopadu</strong> 2017.</p>
+        <p>Tento semestr se ATHENS koná na všech univerzitách <strong>17.&ndash;24. března</strong> 2018.</p>
         <p>Na přihlášku nepotřebujete žádný jazykový certifikát ani projít testem,
             pouze si vyberete kurz z&nbsp;katalogu, který najdete <a href="http://www.athensprogramme.com/catalog" target="_blank">tady</a>.
             Deadline odevzdání přihlášek se blíží a jelikož ji musíte vyplňovat nejen online,
             ale i donést na svou fakultu, je dobré začít. :)</p>
         <p>Každá fakulta má termín odevzdání jindy, zpravidla dopoledne:</p>
         <ul>
-            <li>21. září: MÚVS</li>
-            <li>25. září: FD</li>
-            <li>26. září: FS, FSv, FEL, FJFI, FIT, KÚ</li>
-            <li>27. září: FA, FBMI</li>
+            <li>22. ledna: MÚVS</li>
+            <li>23. ledna: FS, FSv, FEL, FJFI, FA, FD, FIT</li>
+            <li>24. ledna: FBMI, KÚ</li>
         </ul>
         <p>Více informací o tom, jak vyplnit přihlášku a kam s&nbsp;ní zajít najdete na
             <a href="https://portal.cvut.cz/informace-pro-studenty/mezinarodni-programy/athens/" target="_blank">Portálu ČVUT</a>

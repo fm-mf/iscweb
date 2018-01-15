@@ -33,7 +33,7 @@ class RegistrationMail extends Mailable
     {
         return $this->view('emails.registrationsmail')
                 ->from('buddy@isc.cvut.cz', 'ISC CTU in Prague')
-                ->subject('Buddy Program – Registration email')
+                ->subject('Buddy Program ISC CTU in Prague')
                 ->with('hash', $this->exchangeStudent->person->user->hash);
     }
 }
