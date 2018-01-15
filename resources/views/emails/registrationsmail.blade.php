@@ -30,11 +30,11 @@
     high chance to get one. After being paired with your Buddy, he or she will contact you by
     an email. Please be patient, this might take a few days/weeks.</p>
 
-<p>If, for any reason, you don't wish to have a Czech buddy, you can take your name out of the
+<p><small>If, for any reason, you don't wish to have a Czech buddy, you can take your name out of the
     program by checking the "I don't wish to have a buddy" option in the form.<br>
     But remember that taking part in the Buddy Program is the best way to meet Czech people,
     learn something about us and our culture and, above all, it can make your first days
-    in Prague significantly easier.
+    in Prague significantly easier.</small>
 </p>
 
 <p>You can find more information about the International Student Club and our activities on our
