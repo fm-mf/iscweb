@@ -136,7 +136,7 @@ class WebController extends Controller
                         'name' => 'Václav David',
                         'position' => 'Activities Coordinator',
                         'email' => 'activities@isc.cvut.cz',
-                        'phone' => '',// '+420 731 858 146',
+                        'phone' => '+420 731 858 146',
                         'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),
                 array (
                         'name' => 'Kateřina Čermáková',
