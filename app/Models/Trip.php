@@ -188,9 +188,9 @@ class Trip extends Model
             && $this->event->datetime_from->addDays(7) >= Carbon::now();
     }
 
-    public function isSignIn($id_user)
+    public function isSignIn($id_user): bool
     {
-        $signIn = Person::where('id_user', $id_user)->whereHas('buddy.trips.event', function ($query) {
+        return Person::where('id_user', $id_user)->whereHas('buddy.trips.event', function ($query) {
             $query->where('name', $this->id_event);
         })->orWhereHas('exchangeStudent.trips.event', function ($query) {
             $query->where('name', 'Flag Parade');

@@ -21,8 +21,8 @@
             <div class="contact-info col-md-4 col-sm-6 opening-hours">
                 <h2>See when we're in the ISC Point:<!--<br><i>Subject to be extended later</i>--></h2>
                 <span class="show-menu"></span>
-{{--
-               There are no regular opening hours during the exam period. The ISC Point will be open from  $wcFrom. --}}
+
+               There are no regular opening hours during the exam period. The ISC Point will be open from  {{  $wcFrom }}.
 
                 <!-- We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
                 Fixed opening hours will be from Monday 20th. -->
@@ -41,7 +41,7 @@
                 <h3><strong>Orientation Week</strong></h3>
                 <p>Between Mon 25 Sep and Sun 1 Oct there are no regular hours.</p>
 --}}
-                <table>
+{{--                <table>
                      <tr>
                          <th>Monday</th>
                          <td>14:00 &ndash; 20:00</td>
@@ -70,7 +70,7 @@
                          <th>Sunday</th>
                          <td>Closed</td>
                      </tr>
-                 </table>
+                 </table>      --}}
 
             </div>
         </div>
