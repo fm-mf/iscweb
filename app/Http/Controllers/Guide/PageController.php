@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Settings\Facade as Settings;
 use App\Models\ExchangeStudent;
+use Illuminate\Support\Facades\View;
 
 class PageController extends Controller
 {
@@ -47,7 +48,11 @@ class PageController extends Controller
                 break;
             /* /Temporary */
         }
-        return view('guide.' . $page)->with($with);
+        $viewName = 'guide.' . $page;
+        if (!View::exists($viewName)) {
+            abort(404);
+        }
+        return view($viewName)->with($with);
     }
 
     private function dateToCorrectFormat($from, $to = null)

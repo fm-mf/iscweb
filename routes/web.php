@@ -33,7 +33,7 @@ Route::get('/visa', function() {
 });
 
 
-Route::get('buddy-prirucka', function () { return response()->file('files/buddy-prirucka-fall-2017.pdf'); });
+Route::get('buddy-prirucka', function () { return response()->file('files/buddy-prirucka-spring-2018.pdf'); });
 //redirect from old web
 Route::get('/buddy/files/buddyPriruckaSpring2017.pdf', function () { return redirect(url('buddy-prirucka')); });
 
@@ -72,9 +72,17 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 
 // Survival Guide
 Route::group(['namespace' => 'Guide', 'prefix' => 'guide'], function() {
-   Route::get('/', 'PageController@showPage');
+    Route::get('/', 'PageController@showPage')->name('guide');
 
-    Route::get('/{page}', 'PageController@showPage');
+    /*
+     * Redirect from the old Survival guide URLs
+     */
+    Route::get('/sg.php', function () {
+        $page = Request::get('page');
+        return redirect(route('guide-page', ['page' => $page]), 301);
+    });
+
+    Route::get('/{page}', 'PageController@showPage')->name('guide-page');
 });
 //Restart password from old web
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
