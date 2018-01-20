@@ -91,7 +91,7 @@
     <div class="footer row">
         <div class="col-sm-12">
             <p>In case of technical issues, please, contact us at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
-            <p>&copy; 2017 | International Student Club CTU in Prague, z.s.</p>
+            <p>&copy; {{ \Carbon\Carbon::now()->year }} | International Student Club CTU in Prague, z.s.</p>
         </div>
     </div>
 @stop
