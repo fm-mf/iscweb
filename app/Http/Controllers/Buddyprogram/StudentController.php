@@ -6,6 +6,7 @@ use App\Events\ExchangeStudentPicked;
 use App\Exceptions\AlreadyHasBuddyException;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
+use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -22,7 +23,16 @@ class StudentController extends Controller
         $exchangeStudent = ExchangeStudent::eagerFind($exchangeStudentId);
 
         if (!Settings::get('isDatabaseOpen') && $exchangeStudent->id_buddy != Auth::id()) {
-            return redirect('/muj-buddy/closed');
+            return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
+        }
+
+        if ($exchangeStudent == null) {
+            $errors['accessDenied'] = 'Nemáte oprávnění k prohlížení zvoleného záznamu.';
+            return redirect(action('Buddyprogram\ListingController@listExchangeStudents'))->withErrors($errors);
+        }
+        if ($exchangeStudent->id_buddy != Auth::id() && (!$exchangeStudent->hasSemester(Semester::getCurrentSemester()) || $exchangeStudent->about == null || $exchangeStudent->hasBuddy() || !$exchangeStudent->wantBuddy())) {
+            $errors['accessDenied'] = 'Nemáte oprávnění k prohlížení zvoleného záznamu.';
+            return redirect(action('Buddyprogram\ListingController@listExchangeStudents'))->withErrors($errors);
         }
 
         $canChoose = $me->pickedStudentsToday() < Settings::get('limitPerDay', 1);
@@ -37,7 +47,7 @@ class StudentController extends Controller
     public function assignBuddy($exchangeStudentId)
     {
         if (!Settings::get('isDatabaseOpen')) {
-            return redirect('/muj-buddy/closed');
+            return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
         }
 
         $me = Buddy::find(Auth::id());

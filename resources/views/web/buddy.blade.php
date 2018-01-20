@@ -56,7 +56,7 @@
                             <a href="#contact" class="link">KONTAKT</a>
                         </li>
                         <li>
-                            <a href="{{ 'muj-buddy' }}" class="button">Buddy Program <small>(přihlášení)</small></a>
+                            <a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}" class="button">Buddy Program <small>(přihlášení)</small></a>
                         </li>
                         <li>
 
@@ -77,7 +77,7 @@
         <h1>Chceš potkat nové kamarády <br> z celého světa, zlepšit cizí jazyk a podílet se na vytváření mezinárodní komunity na ČVUT?</h1>
         <p class="p-btn">
             <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-registration">Staň se Buddym!</button> -->
-            <a href="{{ url('user/register') }}"><button type="button" class="btn btn-primary btn-lg">Staň se Buddym!</button></a>
+            <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}"><button type="button" class="btn btn-primary btn-lg">Staň se Buddym!</button></a>
             <span class="show-menu"></span>
         </p>
     </div>
@@ -121,13 +121,13 @@
             <p>Na ČVUT je možnost vyjet do zahraničí pro více než 1000 studentů každý rok. V loňském roce se
                 přitom obsadila méně než polovina volných míst. Šance dostat se na Erasmus nebo Mimoevropské
                 bilaterální dohody je obrovská.</p>
-            <p>Od 11. do 25. října budou probíhat na fakultách cestovatelské přednášky od studentů,
-                kteří již vyjeli.</p>
-            <p>Program a další informace naleznete na stránce <a href="{{ url('/scvutdosveta') }}">S ČVUT do světa.</a></p>
+            {{--<p>Od 11. do 25. října budou probíhat na fakultách cestovatelské přednášky od studentů,
+                kteří již vyjeli.</p>--}}
+            <p>Program a další informace naleznete na stránce <a href="{{ action('Saf\SafController@showIndex') }}">S ČVUT do světa.</a></p>
             <p>Sledujte také naši <a href="https://www.facebook.com/isc.saf/" target="_blank"><span class="glyphicon glyphicon-thumbs-up"></span> Facebookovou stránku</a>.</p>
         </div>
         <div class="col-lg-5 col-md-7 col-sm-12">
-            <a href="{{ url('/scvutdosveta') }}">
+            <a href="{{ action('Saf\SafController@showIndex') }}">
                 <img class="image" src="{{ asset('img/saf/logo-s-cvut-do-sveta.png') }}" alt="Logo S ČVUT do světa" title="Logo S ČVUT do světa" />
             </a>
         </div>
@@ -361,13 +361,13 @@
             <ul id="questions" class="list-unstyled">
                 <li id="q1"><a data-toggle="collapse" data-parent="q1" href="#collapseQ1">Jak se stát buddym?</a>
                     <p id="collapseQ1" class="panel-collapse collapse">Stačí se
-                        <a href="http://www.isc.cvut.cz/muj-buddy/register/buddy"><button type="button" class="btn btn-primary btn-xs">zaregistrovat</button></a>
+                        <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}"><button type="button" class="btn btn-primary btn-xs">zaregistrovat</button></a>
                         <!--<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-registration">zaregistrovat</button> -->
                         Po spuštění buddy programu pak emailem obdržíš přístup do databáze, kde si můžeš vybrat zahraničního studenta.</p>
                 <li id="q2"><a data-toggle="collapse" data-parent="q2" href="#collapseQ2">Můžu mít zahraňáka, i když moje angličtina není moc dobrá?</a>
                     <p id="collapseQ2" class="panel-collapse collapse">Bez obav! Být součástí Buddy Programu je skvělá příležitost, jak si zlepšit cizí jazyk.
                         Tak neváhej a
-                        <a href="http://www.isc.cvut.cz/muj-buddy/register/buddy"><button type="button" class="btn btn-primary btn-xs">zaregistruj se</button></a></p>
+                        <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}"><button type="button" class="btn btn-primary btn-xs">zaregistruj se</button></a></p>
                 </li>
                 </li>
                 <li id="q3"><a data-toggle="collapse" data-parent="q3" href="#collapseQ3">Kolik si můžu vybrat zahraničních studentů?</a>
@@ -375,7 +375,7 @@
                 </li>
                 <li id="q4"><a data-toggle="collapse" data-parent="q4" href="#collapseQ4">Jak bude probíhat orientation week?</a>
                     <p id="collapseQ4" class="panel-collapse collapse">Podrobný program orientation week najdou zahraňáci na našem webu v sekci
-                        <a href="{{ url('guide/orientation-week') }}"><button type="button" class="btn btn-primary btn-xs">Survival Guide</button></a><br>
+                        <a href="{{ action('Guide\PageController@showPage', ['page' => 'orientation-week']) }}"><button type="button" class="btn btn-primary btn-xs">Survival Guide</button></a><br>
                         Registrace na fakultách budou organizované ISC, nemusíš tedy zahraňáka doprovázet, jen se ujisti, že už má svůj Welcome pack.</p>
                 </li>
                 <li id="q5"><a data-toggle="collapse" data-parent="q5" href="#collapseQ5">Co je to Welcome pack?</a>
@@ -385,7 +385,7 @@
                 </li>
                 <li id="q6"><a data-toggle="collapse" data-parent="q6" href="#collapseQ6">Kde a kdy můžu Welcome pack vyzvednout a musí u toho být i zahraňák?</a>
                     <p id="collapseQ6" class="panel-collapse collapse">Welcome packy je možné vyzvednout v
-                        <a href="https://www.isc.cvut.cz/contact/"><button type="button" class="btn btn-primary btn-xs">ISC Point</button></a> od čtvrtka 22.9.2016 denně mezi 12 a 22 hod.
+                        <a href="{{ action('Web\WebController@showContacts') }}"><button type="button" class="btn btn-primary btn-xs">ISC Point</button></a> od čtvrtka 22.9.2016 denně mezi 12 a 22 hod.
                         Nejlepší je, když přijedete oba společně rovnou z letiště.</p>
                 </li>
 
@@ -413,7 +413,7 @@
                         Napiš nám na <a href="mailto:hr@isc.cvut.cz">hr@isc.cvut.cz</a> nebo se rovnou stav do našeho
                         <a href="https://www.google.com/maps/place/International+Student+Club+CTU+in+Prague/@50.084071,14.4119155,14z/data=!4m5!1m2!2m1!1sinternational+student+club+ctu+in+prague!3m1!1s0x470b953c0f37a36f:0x6d538d168df03b66"> <button type="button" class="btn btn-primary btn-xs">officu</button></a>
                         Každého aktivního studenta uvítáme a možností zapojení je celá řada. Jen zajdi na
-                        <a href="http://isc.cvut.cz"> <button type="button" class="btn btn-primary btn-xs">naše stránky</button></a>
+                        <a href="{{ action('Web\WebController@showHomePage') }}"> <button type="button" class="btn btn-primary btn-xs">naše stránky</button></a>
                         a uvidíš co vše děláme. </p>
                 </li>
             </ul>
@@ -432,7 +432,7 @@
                     <!-- <li><a href="http://www.integreat.cz">inteGREAT</a></li> -->
                     <!-- <li><a href="http://isc.cvut.cz/survivalguide">SURVIVAL GUIDE</a></li> -->
                     <!-- <li>ISC Care</li> -->
-                    <li><a href="{{ url('scvutdosveta') }}" target="_blank">S ČVUT do světa</a></li>
+                    <li><a href="{{ action('Saf\SafController@showIndex') }}" target="_blank">S ČVUT do světa</a></li>
                 </ul>
             </div>
             <div class="col-sm-2">
@@ -449,7 +449,7 @@
                 <h3>Parťák Net</h3>
                 <span class="bar"></span>
                 <ul class="list-unstyled">
-                    <li><a href="{{ 'partak' }}" target="_blank">ParťákNet</a></li>
+                    <li><a href="{{ action('Partak\DashboardController@index') }}" target="_blank">ParťákNet</a></li>
                 </ul>
             </div>
             <div class="col-sm-6">

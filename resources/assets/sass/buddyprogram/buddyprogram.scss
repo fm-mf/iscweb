@@ -1,5 +1,5 @@
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
 // Variables
 @import "variables";
@@ -11,7 +11,7 @@
 html, body {
   width: 100%;
   height: 100%;
-  font-family:"proxima-nova", "Myriad Pro", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 * {
@@ -34,10 +34,13 @@ html, body {
   font-size: 200%;
 }
 
+.nav li {
+  text-transform: uppercase;
+}
+
 .site-wrapper {
   h1 {
     font-size: 25px;
-    font-family:"myriad-pro";
     margin:0; margin-bottom:40px;
   }
 

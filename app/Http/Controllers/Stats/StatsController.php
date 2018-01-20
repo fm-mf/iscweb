@@ -9,12 +9,14 @@ use App\Settings\Facade as Settings;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
 
 class StatsController extends Controller
 {
 
     public function showStatistics()
     {
+        App::setLocale('cs');
         $currentSemester = Settings::get('currentSemester');
         $countriesStates = Country::withCount(['exchangeStudent' => function($query) use ($currentSemester) {
             $query->byUniqueSemester($currentSemester);

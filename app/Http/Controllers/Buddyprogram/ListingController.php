@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Buddyprogram;
 
+use App\Models\Arrival;
 use App\Settings\Facade as Settings;
 use App\Models\Accommodation;
 use App\Models\Buddy;
@@ -12,7 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
 class ListingController extends Controller
@@ -25,19 +26,20 @@ class ListingController extends Controller
     public function listExchangeStudents()
     {
         if (!Settings::get('isDatabaseOpen')) {
-            return view('buddyprogram.closed');
+            return $this->showClosed();
         }
-        $firstArrivalDay = Carbon::parse(Settings::get('firstArrivalDay'));
-        for ($dayOffset = 0; $dayOffset < 15; ++$dayOffset) {
-            $day = $firstArrivalDay->copy()->addDays($dayOffset);
-            $arrivalDates[] = $day->format('d M Y');
+
+        $currentSemester = Settings::get('currentSemester');
+        $arrivalDates = Arrival::withStudents($currentSemester)->select(DB::raw('DATE(`arrival`) AS `arrival`'))->distinct()->pluck('arrival');
+        for($i = 0; $i < count($arrivalDates); $i++) {
+            $arrivalDatesFormated[] = Carbon::parse($arrivalDates[$i])->format('j. n. Y');
         }
 
         JavaScript::put([
-            'jscountries' => Country::allWithStudents(Settings::get('currentSemester')),
-            'jsfaculties' => Faculty::all(),
-            'jsaccommodation' => Accommodation::all(),
-            'jsdays' => $arrivalDates
+            'jscountries' => Country::withStudents($currentSemester)->get(),
+            'jsfaculties' => Faculty::withStudents($currentSemester)->get(),
+            'jsaccommodation' => Accommodation::withStudents($currentSemester)->get(),
+            'jsdays' => $arrivalDatesFormated,
         ]);
 
         return view('buddyprogram.list');

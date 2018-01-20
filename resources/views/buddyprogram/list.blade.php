@@ -1,6 +1,13 @@
 @extends('layouts.buddyprogram.layout')
 
 @section('content')
+    @if($errors->count() > 0)
+        <div class="row">
+        @foreach($errors->all() as $error)
+            <div class="flash col-md-12">{{$error}}</div>
+        @endforeach
+        </div>
+    @endif
     <div id="app" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
         <div v-cloak>
         <table>

@@ -18,11 +18,16 @@ Route::get('/muj-buddy/register/buddy', function() {
 Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogram', 'prefix' => 'muj-buddy'], function()
 {
     Route::get('/', 'ListingController@listExchangeStudents');
-    Route::get('/list', 'ListingController@listExchangeStudents');
     Route::get('/profile/{id}', 'StudentController@showProfile');
     Route::get('/become-buddy/{id}', 'StudentController@assignBuddy');
-    Route::get('/my-students/', 'ListingController@listMyStudents');
-    Route::get('/closed/', 'ListingController@showClosed');
+    Route::get('/my-students', 'ListingController@listMyStudents');
+
+    Route::get('/list', function () {
+        return redirect(action('Buddyprogram\ListingController@listExchangeStudents'), 301);
+    });
+    Route::get('/closed', function () {
+        return redirect(action('Buddyprogram\ListingController@listExchangeStudents'), 301);
+    });
 });
 
 

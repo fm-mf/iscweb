@@ -24,4 +24,11 @@ class Arrival extends Model
     {
         return $this->hasOne('\App\Models\Transportation', 'id_transportation', 'id_transportation');
     }
+
+    public function scopeWithStudents($query, $semester)
+    {
+        return $query->whereHas('exchangeStudent', function ($query) use ($semester) {
+            $query->byUniqueSemester($semester)->wantBuddy()->withoutBuddy()->whereNotNull('about');
+        })->orderBy('arrival');
+    }
 }

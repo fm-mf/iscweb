@@ -15,9 +15,9 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     @show
 
-
+{{--
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>
+    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>--}}
 </head>
 <body>
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPBKF8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -26,11 +26,11 @@
 <div class="site-wrapper">
     <div class="menu">
         <ul class="nav nav-stacked">
-            <li><a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}"><img src="{{ URL::asset('img/buddyprogram/users.png') }}"><br>VOLNÍ STUDENTI</a></li>
-            <li><a href="{{ action('Buddyprogram\ListingController@listMyStudents') }}"><img src="{{ URL::asset('img/buddyprogram/user.png') }}"><br>MOJI STUDENTI</a></li>
-            <!--<li><a n:href="Homepage:arrivals"><img src="{$basePath}/img/arrivals.png"><br>PŘÍJEZDY</a></li>-->
-            <!--<li><a href="#"><img src="{$basePath}/img/settings.png"><br>MŮJ ÚČET</a></li>-->
-            <li class="logout"><a href="{{ url('user/logout') }}"><img src="{{ URL::asset('img/buddyprogram/log-out.png') }}"><br>ODHLÁSIT</a></li>
+            <li><a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}"><img src="{{ URL::asset('img/buddyprogram/users.png') }}"><br>Volní studenti</a></li>
+            <li><a href="{{ action('Buddyprogram\ListingController@listMyStudents') }}"><img src="{{ URL::asset('img/buddyprogram/user.png') }}"><br>Moji studenti</a></li>
+            {{--<li><a n:href="Homepage:arrivals"><img src="{$basePath}/img/arrivals.png"><br>PŘÍJEZDY</a></li>--}}
+            <li><a href="{{ action('Auth\ProfileController@showProfileForm') }}"><img src="{{ URL::asset('img/buddyprogram/settings.png') }}"><br>Můj profil</a></li>
+            <li class="logout"><a href="{{ action('Auth\LoginController@logout') }}"><img src="{{ URL::asset('img/buddyprogram/log-out.png') }}"><br>Odhlásit</a></li>
         </ul>
     </div>
 

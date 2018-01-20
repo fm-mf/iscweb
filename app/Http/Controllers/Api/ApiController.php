@@ -29,8 +29,11 @@ class ApiController extends Controller
             });
         }
 
-        $students = ExchangeStudent::findAll()->byUniqueSemester(Settings::get('currentSemester'))
-            ->withoutBuddy()->wantBuddy()->whereNotNull('about');
+        $students = ExchangeStudent::findAll()
+                ->byUniqueSemester(Settings::get('currentSemester'))
+                ->withoutBuddy()
+                ->wantBuddy()
+                ->whereNotNull('about');
 
         if (is_array($request->filters)) {
             foreach ($request->filters as $filter => $values) {
@@ -40,11 +43,11 @@ class ApiController extends Controller
             }
         }
 
-        ExchangeStudent::setStaticVisible(['accommodation', 'arrival', 'country', 'faculty', 'person', 'school']);
-        Accommodation::setStaticVisible(['id_accommodation', 'full_name']);
+        ExchangeStudent::setStaticVisible(['id_user', 'accommodation', 'arrival', 'country', 'faculty', 'person', 'school']);
+        Accommodation::setStaticVisible(['full_name']);
         Arrival::setStaticVisible(['arrival']);
-        Country::setStaticVisible(['id_country', 'full_name']);
-        Faculty::setStaticVisible(['id_faculty', 'abbreviation']);
+        Country::setStaticVisible(['full_name']);
+        Faculty::setStaticVisible(['abbreviation']);
         Person::setStaticVisible(['first_name', 'last_name']);
 
         return response()->json(

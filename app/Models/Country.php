@@ -18,6 +18,22 @@ class Country extends Model
         return $this->belongsTo('\App\Models\ExchangeStudent', 'id_country', 'id_country');
     }
 
+    public function exchangeStudents()
+    {
+        return $this->hasMany('\App\Models\ExchangeStudent', 'id_country', 'id_country');
+    }
+
+    public function scopeWithStudents($query, $semester = null)
+    {
+        if (!$semester) {
+            return $query->whereHas('exchangeStudents');
+        }
+
+        return $query->whereHas('exchangeStudents', function ($query) use ($semester) {
+            $query->byUniqueSemester($semester)->wantBuddy()->withoutBuddy()->whereNotNull('about');
+        });
+    }
+
     public static function getOptions()
     {
         $countries = [];
@@ -30,10 +46,10 @@ class Country extends Model
     public static function allWithStudents($semester = null)
     {
         if (!$semester) {
-            return Country::whereHas('exchangeStudent')->get();
+            return Country::whereHas('exchangeStudents')->get();
         }
 
-        return Country::whereHas('exchangeStudent', function($query) use ($semester) {
+        return Country::whereHas('exchangeStudents', function($query) use ($semester) {
             return $query->whereHas('semesters', function($query) use ($semester) {
                 $query->where('semester', $semester);
             });
