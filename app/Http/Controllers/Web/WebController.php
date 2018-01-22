@@ -124,7 +124,7 @@ class WebController extends Controller
                         'name' => 'Zuzana Havlíčková',
                         'position' => 'inteGREAT Coordinator',
                         'email' => 'integreat@isc.cvut.cz',
-                        'phone' => '',// '+420 606 267 536',
+                        'phone' => '+420 606 267 536',
                         'avatar' => asset('img/web/contacts/female-silhouette-150.jpg')),
                 array (
                         'name' => 'Petr Fiedler',

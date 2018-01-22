@@ -3,12 +3,12 @@
     <div class="container subpage">
         <ul class="row list-unstyled contacts">
             <li class="col-md-4 col-sm-6 col-md-offset-4">
-                <img src="{{ asset('img/web/contacts/2017spring/Languages_Verca.jpg') }}"class="img-circle">
+                <img src="{{ asset('img/web/contacts/female-silhouette-150.jpg') }}"class="img-circle">
                 <div class="contact-details">
-                    <h4>Verča Paštyková</h4><br>
+                    <h4>Kateřina Čermáková</h4><br>
                     <strong>Languages Coordinator</strong><br>
                     Email: <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a><br>
-                    Phone: (+420) 775 478 059<br>
+                    Phone: <a href="tel:+420 775 381 406">+420 775 381 406</a><br>
                 </div>
                 <span class="clearfix"></span>
             </li>

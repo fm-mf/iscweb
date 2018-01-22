@@ -3,12 +3,12 @@
     <div class="container subpage">
         <ul class="row list-unstyled contacts">
             <li class="col-md-4 col-sm-6 col-md-offset-4">
-                <img src="{{ asset('img/web/contacts/2017spring/inteGREAT_Eliska.jpg') }}" class="img-circle">
+                <img src="{{ asset('img/web/contacts/female-silhouette-150.jpg') }}" class="img-circle">
                 <div class="contact-details">
-                    <h4>Eliška Beránková</h4><br>
+                    <h4>Zuzana Havlíčková</h4><br>
                     <strong>inteGREAT Coordinator</strong><br>
                     Email: <a href="mailto:integreat@isc.cvut.cz">integreat@isc.cvut.cz</a><br>
-                    Phone: (+420) 602 157 159<br>
+                    Phone: <a href="tel:+420 606 267 536">+420 606 267 536</a><br>
                 </div>
                 <span class="clearfix"></span>
             </li>

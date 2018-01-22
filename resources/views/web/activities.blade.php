@@ -4,12 +4,12 @@
     <div class="container">
     <ul class="row list-unstyled contacts">
         <li class="col-md-4 col-sm-6 col-md-offset-4">
-            <img src="{{ asset('img/web/contacts/2017spring/Activities_Misa.jpg') }}" class="img-circle">
+            <img src="{{ asset('img/web/contacts/male-silhouette-150.jpg') }}" class="img-circle">
             <div class="contact-details">
-                <h4>Míša Petříková</h4><br>
+                <h4>Václav David</h4><br>
                 <strong>Activities Coordinator</strong><br>
                 Email: <a href="mailto:activities@isc.cvut.cz">activities@isc.cvut.cz</a><br>
-                Phone: (+420) 777 888 704<br>
+                Phone: <a href="tel:+420 731 858 146">+420 731 858 146</a><br>
             </div>
             <span class="clearfix"></span>
         </li>
