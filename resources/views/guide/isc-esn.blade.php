@@ -29,7 +29,7 @@
         <dt>Tandem program</dt>
             <dd>you can sign up for the Tandem language programme by signing up at <a href="https://isc.cvut.cz/tandem/" target="_blank">https://isc.cvut.cz/tandem/</a></dd>
     </dl>
-    
+
     <h3>Sports</h3>
     <ul>
         <li>We organise regular sports activities for you - football, floorball, tennis, basketball, volleyball and much more</li>
@@ -93,6 +93,22 @@
             and free SMS to Vodafone. Then you get a 50% discount, so it's just 174 CZK (about &euro; 7).</p>
         <p><a href="https://www.esn-cz.cz/partners/vodafone" target="_blank">www.esn-cz.cz/partners/vodafone</a></p>
 
+        <h3>Ryanair</h3>
+        <img src="{{ asset('img/guide/partners/logo-ryanair.jpg') }}" />
+        <p><a href="https://esn.org/ryanair-faq" target="_blank">https://esn.org/ryanair-faq</a></p>
+        <p>An exclusive partnership was launched in 2017 between the largest European airline, Ryanair, and the Erasmus Student Network.</p>
+        <p>What are the benefits offered?</p>
+        <ul>
+            <li>For your discount to be valid you need to <strong>fill all fields in your profile</strong> at
+                <a href="https://www.esncard.org" target="_blank">ESNcard.org</a> and have
+                a <strong>registered and valid ESNcard!</strong></li>
+            <li>This discount does not work with vouchers or promotional codes.</li>
+            <li>For booking, use the <a href="https://www.ryanair.com/ie/en/plan-trip/explore/erasmus" target="_blank">dedicated portal</a>.</li>
+            <li>15% discount on 8 single flights (or 4 return flights)</li>
+            <li>Free check in luggage of 15 kg</li>
+            <li>This is only applicable for flights booked at least <strong>28 days in advance</strong> and for travelling dates between <strong>1 September to 15 June</strong></li>
+        </ul>
+
         <h3>Eurolines</h3>
         <img src="{{ asset('img/guide/partners/logo-eurolines-cz.png') }}" />
         <p>A coach company that offers a 20% discount on coach tickets, use promo code
@@ -113,20 +129,14 @@
             15-20% discount promo code &quot;SleepwithESN&quot;. Check out the website for more information.</p>
         <p><a href="https://www.esn-cz.cz/partners/bohemian-hostels-and-hotels" target="_blank">www.esn-cz.cz/partners/bohemian-hostels-and-hotels</a></p>
 
-        <h3>Ryanair</h3>
-        <img src="{{ asset('img/guide/partners/logo-ryanair.jpg') }}" />
-        <p><a href="https://esn.org/ryanair-faq" target="_blank">https://esn.org/ryanair-faq</a></p>
-        <p>An exclusive partnership was launched in 2017 between the largest European airline, Ryanair, and the Erasmus Student Network.</p>
-        <p>What are the benefits offered?</p>
-        <ul>
-            <li>For your discount to be valid you need to <strong>fill all fields in your profile</strong> at
-                <a href="https://www.esncard.org" target="_blank">ESNcard.org</a> and have
-                a <strong>registered and valid ESNcard!</strong></li>
-            <li>This discount does not work with vouchers or promotional codes.</li>
-            <li>For booking, use the <a href="https://www.ryanair.com/ie/en/plan-trip/explore/erasmus" target="_blank">dedicated portal</a>.</li>
-            <li>15% discount on 8 single flights (or 4 return flights)</li>
-            <li>Free check in luggage of 15 kg</li>
-            <li>This is only applicable for flights booked at least <strong>28 days in advance</strong> and for travelling dates between <strong>1 September to 15 June</strong></li>
-        </ul>
+        <h3>Horror Escape Game &amp; Virtual Reality</h3>
+        <img src="{{ asset('img/guide/partners/logo-thrill-park.jpg') }}" />
+        <p>THRILL PARK is Prague’s horror theme park. It offers several fun and adrenaline-filled
+            experiences that you will remember. Will you dare to enter Dungeon of Horror which is
+            a thrilling haunted house? Will you and your friends solve a mysterious virtual
+            reality escape game? Will you manage to survive a zombie apocalypse in virtual reality?
+            Gather your friends come get your adrenaline shot at Žitná 44.
+            With the ESN card, you get 20% off any experience!</p>
+        <p><a href="https://esncard.org/discount/horror-escape-game-virtual-reality" target="_blank">esncard.org/discount/horror-escape-game-virtual-reality</a></p>
     </section>
 @stop
