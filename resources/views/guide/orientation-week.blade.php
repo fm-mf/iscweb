@@ -45,8 +45,8 @@
                 <li>Where: <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>The Bethlehem Chapel</strong> (Betlémské náměstí 255/4, Praha 1)</a></li>
                 <li>Meeting points:
                     <ul>
-                        <li>At Strahov (bus stop Koleje Strahov)</li>
-                        <li>In the lobby of the Masarykova dormitory</li>
+                        <li>9:00 at Strahov (bus stop Koleje Strahov)</li>
+                        <li>9:30 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
                 <li>Topics:
@@ -69,18 +69,18 @@
             <h3>Tandem Evening</h3>
             <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
             <ul class="list-unstyled">
-                <li>When: TBA (in the evening)</li>
-                <li>Where: TBA{{-- TODO <a href="https://goo.gl/maps/qgZJ57LcLtM2" target="_blank">Storm Club (Tachovské náměstí 290/5, Prague 3)</a>--}}</li>
+                <li>When: 20:00</li>
+                <li>Where: <a href="https://goo.gl/maps/qgZJ57LcLtM2" target="_blank">Storm Club (Tachovské náměstí 290/5, Prague 3)</a></li>
                 <li>Meeting points:
                     <ul>
-                        <li>At bus stop Koleje Strahov</li>
-                        <li>In the lobby of the Masarykova dormitory</li>
+                        <li>19:15 at bus stop Koleje Strahov</li>
+                        <li>19:00 on the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
                 <li>See: <a href="{{ url('activities/language-programs') }}" target="_blank">{{ url('activities/language-programs') }}</a></li>
             </ul>
         </div>
-    </div>
+    </div>{{--
     <div class="row">
         <div class="col-lg-12">
             <h3>OW presentation Monday</h3>
@@ -92,20 +92,20 @@
                 <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}">KOS manual</a></li>
             </ul>
         </div>
-    </div>
+    </div>--}}
 
     <div class="row">
         <h2>DAY 2 – Tuesday (13 February)</h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h3>Registation at faculties</h3>
+            <h3>Registration at some faculties</h3>
             <p class="bg-info">
                 Note: <strong>This is only for Erasmus students and Exchange students</strong>. Self-funding students who are studying for a CTU degree, and also Erasmus Mundus students, please contact Faculty coordinators at your study department.
             </p>
             <p class="bg-warning">Please attend this registration event at your faculty. Do not treat it as optional.</p>
             <ul class="list-unstyled">
-                <li>When: TBA{{-- TODO
+                <li>When: TBA (more information in the presentations on the first day){{-- TODO
                     <ul>
                         <li>9:00 &ndash; <abbr title="Faculty of Civil Engineering">FCE</abbr>, <abbr title="Faculty of Biomedical Engineering">FBME</abbr>, <abbr title="Masaryk Institute of Advanced Studies">MIAS</abbr></li>
                         <li>9:30 &ndash; <abbr title="Faculty of Architecture">FA</abbr></li>
@@ -124,7 +124,7 @@
                         <li>FIT &ndash; 10:15 in front of the faculty</li>
                     </ul>
                 </li>--}}
-                <li class="bg-danger"><strong>You will need</strong>
+                <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
                         <li>The green <strong>study record book</strong> from the Welcome Pack</li>
                         <li>A passport photo</li>
@@ -145,11 +145,10 @@
         <div class="col-lg-12">
             <h3>Second information meeting</h3>
             <ul class="list-unstyled">
-                <li>When: TBA {{-- TODO --<strong>14:00</strong> - 18:00--}}</li>
+                <li>When: <strong>15:30</strong></li>
                 <li>Where: Faculty of Electrical Engineering, room 256 and 358</li>
                 <li>Topics:
                     <ul>
-                        <li>ISC presentation</li>
                         <li>Presentation of ISC trips</li>
                         <li>Registrations for trips organized for days 4&ndash;7 (<strong>ESNcard + cash needed</strong>)</li>
                     </ul>
@@ -180,9 +179,9 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h3>Registation at faculties</h3>
+            <h3>Registration at some faculties</h3>
             <ul class="list-unstyled">
-                <li>When: TBA {{-- TODO
+                <li>When: TBA (more information in the presentations on the first day) {{-- TODO
                     <ul>
                         <li>9:00 &ndash; <abbr title="Faculty of Mechanical Engineering">FME</abbr>, <abbr title="Faculty of Electrical Engineering">FEE</abbr>, <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
                     </ul>--}}
@@ -195,7 +194,7 @@
                         <li>FTS &ndash; 8:50 in front of the <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>Bethlehem Chapel</strong></a></li>
                     </ul>--}}
                 </li>
-                <li class="bg-danger"><strong>You will need</strong>
+                <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
                         <li>The green <strong>study record book</strong> from the Welcome Pack</li>
                         <li>A passport photo</li>
@@ -214,11 +213,23 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
+            <h3>Czech Language Course</h3>
+            <p>The Rectorate teacher of Czech, Eva dos Reis, will give you 90 minutes of exposure to the elementary stuff you better know NOW!</p>
+            <ul class="list-unstyled">
+                <li>When: <strong>9:00&ndash;10:30 or <strong>11:00</strong>&ndash;12:30</strong></li>
+                <li class="bg-warning">Choose only one time, both of the lectures will be the same.</li>
+                <li>Where: CTU Rectorate (Jugoslávských partyzánů 3, Prague 6), building B, 6th floor, room 671</li>
+                <li>How do I ask for beer in Czech? How do I pronounce &quot;ř&quot; and other strange letters? And if I want to say &quot;hi, bye, thanks, please&quot;, and more in Czech, what are the proper words?</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
             <h3>Prague Discovery Game</h3>
             <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
             <ul class="list-unstyled">
                 <li>When: <strong>13:00</strong></li>
-                <li>Where: Faculty of Mechanical Engineering, room 256</li>
+                <li>Where: Faculty of Electrical Engineering, room 256 and 358</li>
             </ul>
         </div>
     </div>
@@ -227,14 +238,14 @@
             <h3>inteGREATion party</h3>
             <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
             <ul class="list-unstyled">
-                <li>When: TBA {{-- TODO 21:00 --}}</li>
+                <li>When: 21:00</li>
                 {{--<li>Where: <a href="https://goo.gl/maps/NYAwpVKPeyJ2" target="_blank">P.M. Club (Trojická 10, Praha 2)</a></li>--}}
                 <li>Where: <a href="https://goo.gl/maps/QHss48kzDon" target="_blank">Rock Café (Národní 116/20, Praha 1)</a></li>
-                <li>Meeting points: TBA{{-- TODO
+                <li>Meeting points:
                     <ul>
                         <li>20:30 at bus stop Koleje Strahov</li>
                         <li>20:30 in the lobby of the Masarykova dormitory</li>
-                    </ul>--}}
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -243,13 +254,48 @@
     <div class="row">
         <h2>DAY 4–7 – Thursday to Sunday (15–18 February) </h2>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Registration at some faculties (on Thursday)</h3>
+            <ul class="list-unstyled">
+                <li>When: TBA (more information in the presentations on the first day) {{-- TODO
+                    <ul>
+                        <li>9:00 &ndash; <abbr title="Faculty of Mechanical Engineering">FME</abbr>, <abbr title="Faculty of Electrical Engineering">FEE</abbr>, <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
+                    </ul>--}}
+                </li>
+                <li>Where: At your faculty (more information in the presentations on the first day)</li>
+                <li>Meeting points: {{-- TODO
+                    <ul>
+                        <li>FME &ndash; 8:45 in front of the faculty</li>
+                        <li>FEE &ndash; 8:50 in front of the faculty</li>
+                        <li>FTS &ndash; 8:50 in front of the <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>Bethlehem Chapel</strong></a></li>
+                    </ul>--}}
+                </li>
+                <li class="bg-danger"><strong>You will need:</strong>
+                    <ul>
+                        <li>The green <strong>study record book</strong> from the Welcome Pack</li>
+                        <li>A passport photo</li>
+                        <li>A pen</li>
+                    </ul>
+                </li>
+                <li>You will get:
+                    <ul>
+                        <li>The list of your classes</li>
+                        <li>Your schedule</li>
+                        <li>Your email account</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>Trips around the Czech Republic</h3>
             <p>One-day or two-day events introducing you to a lot of interesting places</p>
             <ul class="list-unstyled">
                 <li>When/Where: different times and places for each trip, further information on DAY 2 during the second information meeting</li>
-                <li class="bg-danger">You will need:
+                <li class="bg-danger">Do not forget:
                     <ul>
                         <li>Cash</li>
                         <li>Small snacks and beverages</li>
