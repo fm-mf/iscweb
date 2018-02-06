@@ -4,7 +4,7 @@
     <div class="container">
     <ul class="row list-unstyled contacts">
         <li class="col-md-4 col-sm-6 col-md-offset-4">
-            <img src="{{ asset('img/web/contacts/male-silhouette-150.jpg') }}" class="img-circle">
+            <img src="{{ asset('img/web/contacts/2018-spring/activities-vasek.jpg') }}" class="img-circle">
             <div class="contact-details">
                 <h4>Václav David</h4><br>
                 <strong>Activities Coordinator</strong><br>

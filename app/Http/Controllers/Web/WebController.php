@@ -83,43 +83,43 @@ class WebController extends Controller
                         'position' => 'President',
                         'email' => 'president@isc.cvut.cz',
                         'phone' => '+420 777 085 390',
-                        'avatar' => asset('img/web/contacts/2017fall/buddy-faltysova.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/president-terka.jpg')),
                 array (
                         'name' => 'Michaela Šímová',
                         'position' => 'Vicepresident',
                         'email' => 'vicepresident@isc.cvut.cz',
                         'phone' => '+420 722 588 477',
-                        'avatar' => asset('img/web/contacts/2017spring/Care_Misa.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/vicepresident-misa.jpg')),
                 array (
                         'name' => 'Tomáš Hanousek',
                         'position' => 'Human Resources',
                         'email' => 'hr@isc.cvut.cz',
                         'phone' => '+420 605 982 464',
-                        'avatar' => asset('img/web/contacts/2017fall/hr-kebab.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/hr-tomas.jpg')),
                 array (
                         'name' => 'Martin "Speedy" Průcha',
                         'position' => 'Treasurer',
                         'email' => 'treasurer@isc.cvut.cz',
                         'phone' => '+420 736 683 644',
-                        'avatar' => asset('img/web/contacts/2017fall/vicepresident-speedy.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/treasurer-speedy.jpg')),
                 array (
                         'name' => 'Jan Jarkovský',
                         'position' => 'Public Relations',
                         'email' => 'pr@isc.cvut.cz',
                         'phone' => '+420 721 767 340',
-                        'avatar' => asset('img/web/contacts/2017fall/pr-janek.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/pr-janek.jpg')),
                 array (
                         'name' => 'Matěj Mysliveček',
                         'position' => 'Local Representative',
                         'email' => 'lr@isc.cvut.cz',
                         'phone' => '+420 777 669 787',
-                        'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/lr-matej.jpg')),
                 array (
                         'name' => 'Eva Machová',
                         'position' => 'Quality and Knowledge Manager',
                         'email' => 'knowledge@isc.cvut.cz',
                         'phone' => '+420 736 724 862',
-                        'avatar' => asset('img/web/contacts/2017spring/PR_Evca.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/qak-evca.jpg')),
                 array (
                         'name' => 'Zuzana Havlíčková',
                         'position' => 'inteGREAT Coordinator',
@@ -131,80 +131,55 @@ class WebController extends Controller
                         'position' => 'Point Coordinator',
                         'email' => 'point@isc.cvut.cz',
                         'phone' => '+420 608 990 369',
-                        'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/point-fida.jpg')),
                 array (
                         'name' => 'Václav David',
                         'position' => 'Activities Coordinator',
                         'email' => 'activities@isc.cvut.cz',
                         'phone' => '+420 731 858 146',
-                        'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/activities-vasek.jpg')),
                 array (
                         'name' => 'Kateřina Čermáková',
                         'position' => 'Languages Coordinator',
                         'email' => 'languages@isc.cvut.cz',
                         'phone' => '+420 775 381 406',
-                        'avatar' => asset('img/web/contacts/female-silhouette-150.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/languages-kacka.jpg')),
                 array (
                         'name' => 'Martin Petráček',
                         'position' => 'Buddy Coordinator',
                         'email' => 'buddy@isc.cvut.cz',
                         'phone' => '+420 736 234 990',
-                        'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/buddy-martin.jpg')),
                 array (
                         'name' => 'Filip Marek',
                         'position' => 'IT Coordinator',
                         'email' => 'it@isc.cvut.cz',
                         'phone' => '+420 732 227 056',
-                        'avatar' => asset('img/web/contacts/2017fall/it-filip.jpg')),
+                        'avatar' => asset('img/web/contacts/2018-spring/it-filip.jpg')),
                 array (
                         'name' => 'Michal Štádler',
                         'position' => 'Alumni Coordinator',
                         'email' => 'alumni@isc.cvut.cz',
                         'phone' => '', //'+420 607 100 631',
-                        'avatar' => asset('img/web/contacts/2017spring/Video_Misa.jpg')),/*
+                        'avatar' => asset('img/web/contacts/2018-spring/alumni-michal.jpg')),
                 array (
-                        'name' => 'Petr Šlajs',
+                        'name' => 'Vojta Kubica',
                         'position' => 'Sports Coordinator',
                         'email' => 'sports@isc.cvut.cz',
-                        'phone' => '+420 724 537 680',
-                        'avatar' => asset('img/web/contacts/2017spring/Sports_Petr.jpg')),*/
+                        'phone' => '',
+                        'avatar' => asset('img/web/contacts/2018-spring/sports-vojta.jpg')),
                 array (
                         'name' => 'Michal Cihlář',
                         'position' => 'ISC Care Coordinator',
                         'email' => 'care@isc.cvut.cz',
                         'phone' => '+420 734 897 378',
-                          'avatar' => asset('img/web/contacts/male-silhouette-150.jpg')),
+                          'avatar' => asset('img/web/contacts/2018-spring/care-michal.jpg')),
                 array (
                         'name' => 'Jakub Švehla',
                         'position' => 'Visa Coordinator',
                         'email' => 'visa@isc.cvut.cz',
                         'phone' => '+420 603 831 593',
-                        'avatar' => asset('img/web/contacts/2017fall/visa-kuba.jpg')),
-            /*
-                array (
-                        'name' => 'Vojtěch Zacharda',
-                        'position' => 'Photo Coordinator',
-                        'email' => 'photo@isc.cvut.cz',
-                        'phone' => '+420 776 690 976',
-                        'avatar' => asset('img/web/contacts/2017spring/Photo_Vojta.jpg')),
-                array (
-                        'name' => 'Michal Štádler',
-                        'position' => 'Video Coordinator',
-                        'email' => 'video@isc.cvut.cz',
-                        'phone' => '+420 607 100 631',
-                        'avatar' => asset('img/web/contacts/2017spring/Video_Misa.jpg')),
-                array (
-                        'name' => 'Nicol Minichová',
-                        'position' => 'Promo Coordinator',
-                        'email' => 'promo@isc.cvut.cz',
-                        'phone' => '+420 ',
-                        'avatar' => asset('img/web/contacts/2017spring/Promo_Nicol.jpg')),
-                array (
-                        'name' => 'Pavel Hošek',
-                        'position' => 'Press Coordinator',
-                        'email' => 'press@isc.cvut.cz',
-                        'phone' => '+420 728 356 682',
-                        'avatar' => asset('img/web/contacts/2017spring/Press_Pavel.jpg')),*/
+                        'avatar' => asset('img/web/contacts/2018-spring/interel-visa-kuba.jpg')),
         );
     }
 }

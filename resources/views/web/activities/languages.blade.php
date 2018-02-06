@@ -3,7 +3,7 @@
     <div class="container subpage">
         <ul class="row list-unstyled contacts">
             <li class="col-md-4 col-sm-6 col-md-offset-4">
-                <img src="{{ asset('img/web/contacts/female-silhouette-150.jpg') }}"class="img-circle">
+                <img src="{{ asset('img/web/contacts/2018-spring/languages-kacka.jpg') }}" class="img-circle">
                 <div class="contact-details">
                     <h4>Kateřina Čermáková</h4><br>
                     <strong>Languages Coordinator</strong><br>
