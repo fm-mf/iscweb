@@ -8,13 +8,14 @@
         <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
         <link rel="stylesheet" href="{{ asset('css/guide_subpage.css') }}" />
 
+{{--We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
         <script type="text/javascript" src="https://use.typekit.net/aav2ndi.js"></script>
         <script type="text/javascript">
             try {
                 Typekit.load();
             } catch (e) {
             }
-        </script>
+        </script>--}}
     </head>
     <body>
         <div id="primaryContainer" class="primaryContainer">

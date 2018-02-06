@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\View;
 
 class PageController extends Controller
 {
+    private $firstStepsSubpages = ['introduction', 'welcome-pack', 'orientation-week', 'cards', 'kos', 'eduroam'];
+    private $aboutCtuSubpages = ['academic-year', 'campus', 'dormitories', 'isc-esn'];
+    private $czechItOutSubpages = ['visa', 'visa-example-pictures', 'health-care', 'living-in-prague', 'transportation', 'money-exchange', 'post-office', 'phone', 'culture-shock', 'czech-phrases', 'funny-facts'];
 
     public function showPage($page = "")
     {
@@ -29,8 +32,8 @@ class PageController extends Controller
                 break;
             case "first-steps":
                 $with += ['wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
-                            'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
-                            'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
+                        'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
+                        'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
                 ];
                 break;
             case "orientation-week":
@@ -52,6 +55,14 @@ class PageController extends Controller
         if (!View::exists($viewName)) {
             abort(404);
         }
+        if (in_array($page, $this->firstStepsSubpages)) {
+            $with += ['firstSteps' => ''];
+        } else if (in_array($page, $this->aboutCtuSubpages)) {
+            $with += ['aboutCtu' => ''];
+        } else if (in_array($page, $this->czechItOutSubpages)) {
+            $with += ['czechItOut' => ''];
+        }
+        $with += ['active' => $page];
         return view($viewName)->with($with);
     }
 

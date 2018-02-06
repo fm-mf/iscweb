@@ -10,13 +10,12 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
     @section('stylesheets')
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="{{ URL::asset('css/user.css') }}" rel="stylesheet" type="text/css">
     @show
 
-
+{{-- We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>
+    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>--}}
 </head>
 <body>
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPBKF8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

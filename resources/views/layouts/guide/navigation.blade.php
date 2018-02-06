@@ -14,7 +14,7 @@
     <div id="left-column" class="container">
         <div id="sg-title-bg"></div>
         <div id="sg-title" class="row">
-            <a href="{{ url('guide') }}">
+            <a href="{{ action('Guide\PageController@showPage', ['page' => '']) }}">
                 <h1>Survival Guide<br>
                     <small>will guide you through your stay at ctu</small>
                 </h1>
@@ -22,36 +22,36 @@
         </div>
         <div class="row menu">
             <ul class="nav nav-stacked">
-                <li class="blue"><a href="{{ url ('guide/first-steps') }}">First steps</a>
-                    <ul class="nav nav-stacked">
-                        <li><a href="{{ url('guide/introduction') }}">Introduction</a></li>
-                        <li><a href="{{ url('guide/welcome-pack') }}">Welcome pack</a></li>
-                        <li><a href="{{ url('guide/orientation-week') }}">Orientation week</a></li>
-                        <li><a href="{{ url('guide/cards') }}">Cards</a></li>
-                        <li><a href="{{ url('guide/kos') }}">KOS &amp; Classes registration</a></li>
-                        <li><a href="{{ url('guide/eduroam') }}">Eduroam</a></li>
+                <li class="blue"><a data-toggle="collapse" data-target="#first-steps" @if(isset($firstSteps)) class="expanded" @endif>First steps</a>
+                    <ul id="first-steps" class="nav nav-stacked collapse @if(isset($firstSteps)) in @endif">
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'introduction']) }}"{!! $active == 'introduction' ? 'class="active"' : '' !!}>Introduction</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'welcome-pack']) }}"{!! $active == 'welcome-pack' ? 'class="active"' : '' !!}>Welcome pack</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'orientation-week']) }}"{!! $active == 'orientation-week' ? 'class="active"' : '' !!}>Orientation week</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'cards']) }}"{!! $active == 'cards' ? 'class="active"' : '' !!}>Cards</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'kos']) }}"{!! $active == 'kos' ? 'class="active"' : '' !!}>KOS &amp; Classes registration</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'eduroam']) }}"{!! $active == 'eduroam' ? 'class="active"' : '' !!}>Eduroam</a></li>
                     </ul>
                 </li>
-                <li class="purple"><a href="{{url('guide/about-ctu')}}">CTU &amp; Useful information</a>
-                    <ul class="nav nav-stacked">
-                        <li><a href="{{ url('guide/academic-year') }}">Academic year calendar</a></li>
-                        <li><a href="{{ url('guide/campus') }}">Campus</a></li>
-                        <li><a href="{{ url('guide/dormitories') }}">Dormitories</a></li>
-                        <li><a href="{{ url('guide/isc-esn') }}">ISC &amp; ESN</a></li>
+                <li class="purple"><a data-toggle="collapse" data-target="#about-ctu" @if(isset($aboutCtu)) class="expanded" @endif>CTU &amp; Useful information</a>
+                    <ul id="about-ctu" class="nav nav-stacked collapse @if(isset($aboutCtu)) in @endif">
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'academic-year']) }}"{!! $active == 'academic-year' ? 'class="active"' : '' !!}>Academic year calendar</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'campus']) }}"{!! $active == 'campus' ? 'class="active"' : '' !!}>Campus</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'dormitories']) }}"{!! $active == 'dormitories' ? 'class="active"' : '' !!}>Dormitories</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'isc-esn']) }}"{!! $active == 'isc-esn' ? 'class="active"' : '' !!}>ISC &amp; ESN</a></li>
                     </ul>
                 </li>
-                <li class="green"><a href="{{ url('guide/czech-it-out') }}">Czech it out!</a>
-                    <ul class="nav nav-stacked">
-                        <li><a href="{{ url('guide/visa') }}">Visa</a></li>
-                        <li><a href="{{ url('guide/health-care') }}">Health care</a></li>
-                        <li><a href="{{ url('guide/living-in-prague') }}">Living in Prague</a></li>
-                        <li><a href="{{ url('guide/transportation') }}">Transportation</a></li>
-                        <li><a href="{{ url('guide/money-exchange') }}">Money exchange</a></li>
-                        <li><a href="{{ url('guide/post-office') }}">Post office</a></li>
-                        <li><a href="{{ url('guide/phone') }}">Phone</a></li>
-                        <li><a href="{{ url('guide/culture-shock') }}">Culture shock</a></li>
-                        <li><a href="{{ url('guide/czech-phrases') }}">Czech phrases</a></li>
-                        <li><a href="{{ url('guide/funny-facts') }}">Funny facts</a></li>
+                <li class="green"><a data-toggle="collapse" data-target="#czech-it-out" @if(isset($czechItOut)) class="expanded" @endif>Czech it out!</a>
+                    <ul id="czech-it-out" class="nav nav-stacked collapse @if(isset($czechItOut)) in @endif">
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa']) }}"{!! $active == 'visa' ? 'class="active"' : '' !!}>Visa</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'health-care']) }}"{!! $active == 'health-care' ? 'class="active"' : '' !!}>Health care</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'living-in-prague']) }}"{!! $active == 'living-in-prague' ? 'class="active"' : '' !!}>Living in Prague</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'transportation']) }}"{!! $active == 'transportation' ? 'class="active"' : '' !!}>Transportation</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'money-exchange']) }}"{!! $active == 'money-exchange' ? 'class="active"' : '' !!}>Money exchange</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'post-office']) }}"{!! $active == 'post-office' ? 'class="active"' : '' !!}>Post office</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'phone']) }}"{!! $active == 'phone' ? 'class="active"' : '' !!}>Phone</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'culture-shock']) }}"{!! $active == 'culture-shock' ? 'class="active"' : '' !!}>Culture shock</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'czech-phrases']) }}"{!! $active == 'czech-phrases' ? 'class="active"' : '' !!}>Czech phrases</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'funny-facts']) }}"{!! $active == 'funny-facts' ? 'class="active"' : '' !!}>Funny facts</a></li>
                     </ul>
                 </li>
             </ul>

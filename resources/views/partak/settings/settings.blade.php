@@ -20,8 +20,13 @@
                     {{ Form::bsSelect('isDatabaseOpen', 'Buddy database is', ['true' => 'Open', 'false' => 'Close'], $settings['isDatabaseOpen'] ? 'true' : 'false')  }}
                     {{ Form::bsText('rector', 'Rector') }}
 
+                    <div class="form-group">
                     {{ Form::label('limitPerDay', 'Buddy database limit per day', ['class' => 'control-label']) }}
+                    @if ($errors->has('limitPerDay'))
+                        <p class="error-block alert-danger">{{ $errors->first($name) }}</p>
+                    @endif
                     {{ Form::number('limitPerDay',$settings['limitPerDay'], ['class' => 'form-control']) }}
+                    </div>
 
                     {{ Form::bsSelect('currentSemester', 'Current Semester', $semesters, $settings['currentSemester']) }}
 

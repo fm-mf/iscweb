@@ -29,17 +29,20 @@
                         {{ Form::label('esn_registered', 'ESN registered', ['class' => 'control-label']) }}
                         {{ Form::checkbox('esn_registered', 'y', $exStudent->esn_registered == 'y') }}
                         {{ Form::bsText('esn_card_number', 'ESN card number') }}
-                        {{ Form::bsSelect('id_faculty', 'Faculty', $faculties, $exStudent->id_faculty, ['placeholder' => 'Choose faculty...']) }}
-                        {{ Form::bsSelect('id_accommodation', 'Accommodation', $accommodations, $exStudent->id_accommodation, ['placeholder' => 'Choose accommodation...']) }}
+                        {{ Form::bsSelect('id_faculty', 'Faculty', $faculties, $exStudent->id_faculty, ['placeholder' => 'Choose faculty...', 'required' =>'required']) }}
+                        {{ Form::bsSelect('id_accommodation', 'Accommodation', $accommodations, $exStudent->id_accommodation, ['placeholder' => 'Choose accommodation...', 'required' =>'required']) }}
+                        {{ Form::bsSelect('id_country', 'County', $countries, $exStudent->id_country, ['placeholder' => 'Choose country...', 'required' =>'required']) }}
 
+                        {{ Form::label('fullTime', 'Full-time student', ['class' => 'control-label']) }}
+                        {{ Form::checkbox('fullTime', 'y') }}
 
                         <div class="form-group row" style="overflow: hidden;">
                             <div class="col-sm-6 left">
-                                {{ Form::label('sex', 'Sex', ['class' => 'control-label']) }}
+                                {{ Form::label('sex', 'Sex', ['class' => 'control-label required']) }}
                                 @if ($errors->has('sex'))
                                     <p class="error-block alert-danger">{{ $errors->first('sex') }}</p>
                                 @endif
-                                {{ Form::select('sex', ['M' => 'Male', 'F' => 'Female'], $exStudent->person->sex, ['placeholder' => 'Choose sex...', 'class' => 'form-control']) }}
+                                {{ Form::select('sex', ['M' => 'Male', 'F' => 'Female'], $exStudent->person->sex, ['placeholder' => 'Choose sex...', 'class' => 'form-control', 'required' =>'required']) }}
                             </div>
                             <div class="col-sm-6 right">
                                 {{ Form::label('age', 'Year of birth', ['class' => 'control-label']) }}

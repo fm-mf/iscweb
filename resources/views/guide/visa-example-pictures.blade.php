@@ -4,7 +4,7 @@
 
 @section('content')
     <h1>Visa example pictures</h1>
-    <dl>
+    <dl id="visa-pictures">
         <dt>&quot;C&quot; &ndash; Short-term visa</dt>
             <dd>Max 90 day-duration, can be extended</dd>
             <dd>Visit the Ministry of the Interior’s office, contact our <a href="mailto:visa@isc.cvut.cz">Visa Coordinator</a></dd>

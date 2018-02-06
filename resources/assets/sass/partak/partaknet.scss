@@ -1,5 +1,5 @@
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&subset=latin-ext');
 
 // Variables
 @import "variables";
@@ -15,7 +15,7 @@
 html, body {
   width: 100%;
   height: 100%;
-  font-family: open-sans, myriad-pro, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Wrapper for page content to push down footer */

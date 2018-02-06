@@ -18,7 +18,7 @@
                 text-transform: uppercase;
             }
         </style>
-
+{{-- We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
         <script>var __adobewebfontsappname__ = "reflow"</script>
         <script src="https://use.edgefonts.net/gudea:n4,i4,n7:all.js"></script>
         <script src="https://use.typekit.net/oub8umj.js"></script>
@@ -27,7 +27,7 @@
                 Typekit.load();
             } catch (e) {
             }
-        </script>
+        </script>--}}
     </head>
 
     <body>
@@ -45,9 +45,9 @@
                 </div>
                 <div class="navigation">
                     <ul class="list-unstyled row">
-                        <li class="col-sm-4"><a href="{{ url ('guide/first-steps') }}" id="link-aya">First steps</a></li>
-                        <li class="col-sm-4"><a href="{{ url('guide/about-ctu') }}" id="link-sac">CTU &amp; Useful information</a></li>
-                        <li class="col-sm-4"><a href="{{ url('guide/czech-it-out') }}" id="link-lip">Czech it out!</a></li>
+                        <li class="col-sm-4"><a href="{{ action('Guide\PageController@showPage', ['page' => 'introduction']) }}" id="link-aya">First steps</a></li>
+                        <li class="col-sm-4"><a href="{{ action('Guide\PageController@showPage', ['page' => 'academic-year']) }}" id="link-sac">CTU &amp; Useful information</a></li>
+                        <li class="col-sm-4"><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa']) }}" id="link-lip">Czech it out!</a></li>
                     </ul>
                 </div>
             </div>

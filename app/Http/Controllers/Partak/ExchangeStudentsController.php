@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Partak;
 
 use App\Exceptions\UserDoesntExist;
 use App\Models\Buddy;
+use App\Models\Country;
 use App\Models\ExchangeStudent;
 use App\Models\Accommodation;
 use App\Models\Person;
@@ -58,6 +59,7 @@ class ExchangeStudentsController extends Controller
             'exStudent' => $exStudent,
             'faculties' => Faculty::getOptions(),
             'accommodations' => Accommodation::getOptions(),
+            'countries' => Country::getOptions(),
             'diets' => Person::getAllDiets(),
         ]);
     }

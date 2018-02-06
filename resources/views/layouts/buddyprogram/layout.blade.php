@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta id="token" name="csrf-token" content="{{csrf_token()}}">
 
-    <title>Buddy Program</title>
+    <title>Buddy Program | ISC CTU in Prague</title>
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
     @section('stylesheets')
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="{{ asset('css/buddyprogram.css') }}" rel="stylesheet" type="text/css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     @show
 
-{{--
+{{-- We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
     <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>--}}
 </head>

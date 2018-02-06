@@ -8,12 +8,11 @@
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href="{{ URL::asset('css/login.css') }}" rel="stylesheet" type="text/css">
 
-
+{{-- We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>
+    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>--}}
 </head>
 <body>
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPBKF8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -24,7 +23,12 @@
 <div class="login-wrapper">
     <div class="center">
         <blockquote><p>"We can't help everyone, but everyone can help someone."</p><p><small>Ronald Raegan</small></p></blockquote>
-        <h1>PŘIHLÁŠENÍ DO BUDDY PROGRAMU</h1>
+        @if(str_contains(Session::get('url.intended', action('Buddyprogram\ListingController@listExchangeStudents')), action('Partak\DashboardController@index')))
+            <h1>Přihlášení na ParťákNET</h1>
+        @else
+            <h1>PŘIHLÁŠENÍ DO BUDDY PROGRAMU</h1>
+        @endif
+
 
         @if(count($errors))
         <div class="err-msgs">
@@ -36,9 +40,9 @@
 
         {{ Form::open(['url' => '/user']) }}
 
-            {{ Form::bsText('email', 'Email', '', null, ['placeholder' => 'Email']) }}
+            {{ Form::bsText('email', 'E-mail', '', null, ['placeholder' => 'E-mail']) }}
             {{ Form::bsPassword('password', 'Heslo', ['placeholder' => 'Heslo']) }}
-            {{ Form::bsSubmit('Prihlasit') }}
+            {{ Form::bsSubmit('Přihlásit') }}
 
         {{ Form::close() }}
 
