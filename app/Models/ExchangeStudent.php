@@ -192,6 +192,27 @@ class ExchangeStudent extends Model
         return $query->where('want_buddy', 'y');
     }
 
+    public function scopeWithAll($query) {
+        $query->with(['person.user', 'country', 'faculty', 'accommodation', 'arrival']);
+    }
+
+    public function scopeWithFilledProfile($query, $semester) {
+        $query->byUniqueSemester($semester)
+                ->wantBuddy()
+                ->where(function ($query) {
+                    $query->whereNotNull('about')
+                            ->orWhereHas('arrival')
+                            ->orWhereHas('person', function ($query) {
+                                $query->whereNotNull('avatar');
+                            });
+                });
+    }
+
+    public function scopeAvailableToPick($query, $semester) {
+        $query->withFilledProfile($semester)
+                ->withoutBuddy();
+    }
+
     public static function filterToArray($values, $key)
     {
         $filters = array();

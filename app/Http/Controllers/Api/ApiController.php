@@ -29,11 +29,7 @@ class ApiController extends Controller
             });
         }
 
-        $students = ExchangeStudent::findAll()
-                ->byUniqueSemester(Settings::get('currentSemester'))
-                ->withoutBuddy()
-                ->wantBuddy()
-                ->whereNotNull('about');
+        $students = ExchangeStudent::withAll()->availableToPick(Settings::get('currentSemester'));
 
         if (is_array($request->filters)) {
             foreach ($request->filters as $filter => $values) {

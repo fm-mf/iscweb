@@ -24,9 +24,9 @@ class StatsController extends Controller
             ->orderBy('exchange_student_count', 'desc')->get();
         return view('stats.stats')->with([
             'students' => ExchangeStudent::byUniqueSemester($currentSemester)->count(),
-            'studentsWithFilledProfile' => ExchangeStudent::byUniqueSemester($currentSemester)->whereNotNull('about')->wantBuddy()->count(),
-            'studentsWithBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->has('buddy')->whereNotNull('about')->count(),
-            'studentsWithFilledProfileWithoutBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->wantBuddy()->doesntHave('buddy')->whereNotNull('about')->count(),
+            'studentsWithFilledProfile' => ExchangeStudent::withFilledProfile($currentSemester)->count(),
+            'studentsWithBuddy' => ExchangeStudent::byUniqueSemester($currentSemester)->whereHas('buddy')->count(),
+            'studentsWithFilledProfileWithoutBuddy' => ExchangeStudent::availableToPick($currentSemester)->count(),
             'countriesStats' => $countriesStates,
             'countriesCount' => $countriesStates->count(),
         ]);

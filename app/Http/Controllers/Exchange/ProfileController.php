@@ -66,7 +66,7 @@ class ProfileController extends Controller
     {
         $this->profileValidator($request->all())->validate();
         $user = User::findByHash($request->hash);
-        
+
         if ($user === null) {
             return redirect('/');
         }

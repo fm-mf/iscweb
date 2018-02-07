@@ -4,8 +4,6 @@ namespace App\Listeners;
 
 use App\Events\ExchangeStudentPicked;
 use App\Mail\InformAboutPick;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 
 class NotifyExchangeStudent
@@ -28,6 +26,6 @@ class NotifyExchangeStudent
      */
     public function handle(ExchangeStudentPicked $event)
     {
-        Mail::to($event->exchangeStudent->person->user->email)->send(new InformAboutPick($event->buddy));
+        Mail::send(new InformAboutPick($event->buddy, $event->exchangeStudent));
     }
 }
