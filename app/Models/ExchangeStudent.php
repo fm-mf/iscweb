@@ -213,6 +213,14 @@ class ExchangeStudent extends Model
                 ->withoutBuddy();
     }
 
+    public function isAvailableToPick() {
+        return $this->hasSemester(Semester::getCurrentSemester())
+                && !$this->hasSemester(Semester::getCurrentSemester()->previousSemester())
+                && ($this->about != null || $this->arrival != null || $this->person->avatar != null)
+                && $this->wantBuddy()
+                && !$this->hasBuddy();
+    }
+
     public static function filterToArray($values, $key)
     {
         $filters = array();

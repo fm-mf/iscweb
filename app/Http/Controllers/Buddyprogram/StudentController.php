@@ -20,7 +20,7 @@ class StudentController extends Controller
     public function showProfile($exchangeStudentId)
     {
         $me = Buddy::find(Auth::id());
-        $exchangeStudent = ExchangeStudent::eagerFind($exchangeStudentId);
+        $exchangeStudent = ExchangeStudent::withAll()->find($exchangeStudentId);
 
         if (!Settings::get('isDatabaseOpen') && $exchangeStudent->id_buddy != Auth::id()) {
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
@@ -30,7 +30,7 @@ class StudentController extends Controller
             $errors['accessDenied'] = 'Nemáte oprávnění k prohlížení zvoleného záznamu.';
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'))->withErrors($errors);
         }
-        if ($exchangeStudent->id_buddy != Auth::id() && (!$exchangeStudent->hasSemester(Semester::getCurrentSemester()) || $exchangeStudent->about == null || $exchangeStudent->hasBuddy() || !$exchangeStudent->wantBuddy())) {
+        if ($exchangeStudent->id_buddy != Auth::id() && !$exchangeStudent->isAvailableToPick()) {
             $errors['accessDenied'] = 'Nemáte oprávnění k prohlížení zvoleného záznamu.';
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'))->withErrors($errors);
         }
