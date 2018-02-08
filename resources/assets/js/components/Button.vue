@@ -26,6 +26,10 @@
             buttonStyle: {
                 type: String,
                 default: ""
+            },
+            ids: {
+                type: String,
+                default: ''
             }
         },
 
@@ -35,7 +39,8 @@
 
         data () {
             return {
-                showModal: false
+                showModal: false,
+                urlAddition: ''
             }
         },
 
@@ -45,11 +50,20 @@
         methods: {
             onClick(event) {
                 event.preventDefault();
+                if (this.ids.length > 0) {
+                    var split = this.ids.split(' ');
+                    this.urlAddition = '';
+                    var addition = '';
+                    split.forEach(function (name) {
+                        addition += '/' + document.getElementsByName(name)[0].value;
+                    });
+                    this.urlAddition = addition;
+                }
                 this.showModal = true;
             },
 
             onSubmit() {
-                window.location.href = this.url;
+                window.location.href = this.url + this.urlAddition;
             }
 
 

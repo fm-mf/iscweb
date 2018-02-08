@@ -41,11 +41,14 @@ class OfficeRegistrationController extends Controller
         ]);
     }
 
-    public function esnRegistration($id)
+    public function esnRegistration($id, $phone, $esnCard)
     {
         $this->authorize('acl', 'exchangeStudents.register');
+        $this->registrationValidator(['phone' => $phone, 'esn_card_number' => $esnCard])->validate();
         $exStudent = ExchangeStudent::find($id);
         $exStudent->esn_registered = 'y';
+        $exStudent->esn_card_number = $esnCard;
+        $exStudent->phone = $phone;
         $exStudent->save();
         return back();
     }
@@ -96,11 +99,20 @@ class OfficeRegistrationController extends Controller
             'id_country' => 'required',
             'id_faculty' => 'required',
             'id_accommodation' => 'required',
-            'phone' => 'max:15',
+            'phone' => 'max:16',
             'age' => 'digits:4',
             'email' => 'required|max:255|email|unique:users,email',
             'esn_card_number' => 'max:12',
             'medical_issues' => 'max:255'
+        ]);
+        return $validator;
+    }
+
+    protected function registrationValidator(array $data)
+    {
+        $validator = Validator::make($data, [
+            'phone' => ['required', 'max:16',],
+            'esn_card_number' => ['required', 'max:12',],
         ]);
         return $validator;
     }
