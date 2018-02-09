@@ -59,8 +59,8 @@
 
     Route::get('/users/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard');
     Route::get('/users/office-registration/registration/{id}', 'OfficeRegistrationController@showExchangeStudent');
-    Route::get('/users/office-registration/register/{id}/{phone}/{esnCard}', 'OfficeRegistrationController@esnRegistration');
-    // Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationController@esnRegistration');
+    Route::get('/users/office-registration/register/{id}/{phone}/{esnCard}', 'OfficeRegistrationController@esnRegistrationNotPreregistered');
+    Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationController@esnRegistration');
     Route::get('/users/office-registration/create', 'OfficeRegistrationController@showCreateExStudent');
     Route::patch('/users/office-registration/create', 'OfficeRegistrationController@createExStudent');
 

@@ -25,10 +25,14 @@ class Arrival extends Model
         return $this->hasOne('\App\Models\Transportation', 'id_transportation', 'id_transportation');
     }
 
-    public function scopeWithStudents($query, $semester)
+    public function scopeWithStudents($query, $semester = null)
     {
+        if (!$semester) {
+            return $query->whereHas('exchangeStudent');
+        }
+
         return $query->whereHas('exchangeStudent', function ($query) use ($semester) {
-            $query->byUniqueSemester($semester)->wantBuddy()->withoutBuddy()->whereNotNull('about');
+            $query->availableToPick($semester);
         })->orderBy('arrival');
     }
 }

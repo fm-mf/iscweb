@@ -41,7 +41,17 @@ class OfficeRegistrationController extends Controller
         ]);
     }
 
-    public function esnRegistration($id, $phone, $esnCard)
+    public function esnRegistration($id)
+    {
+        $this->authorize('acl', 'exchangeStudents.register');
+        $exStudent = ExchangeStudent::find($id);
+        $this->registrationValidator(['phone' => $exStudent->phone, 'esn_card_number' => $exStudent->esn_card_number])->validate();
+        $exStudent->esn_registered = 'y';
+        $exStudent->save();
+        return back();
+    }
+
+    public function esnRegistrationNotPreregistered($id, $phone, $esnCard)
     {
         $this->authorize('acl', 'exchangeStudents.register');
         $this->registrationValidator(['phone' => $phone, 'esn_card_number' => $esnCard])->validate();

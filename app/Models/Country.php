@@ -30,7 +30,7 @@ class Country extends Model
         }
 
         return $query->whereHas('exchangeStudents', function ($query) use ($semester) {
-            $query->byUniqueSemester($semester)->wantBuddy()->withoutBuddy()->whereNotNull('about');
+            $query->availableToPick($semester);
         });
     }
 
