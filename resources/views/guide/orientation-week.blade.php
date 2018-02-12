@@ -80,19 +80,19 @@
                 <li>See: <a href="{{ url('activities/language-programs') }}" target="_blank">{{ url('activities/language-programs') }}</a></li>
             </ul>
         </div>
-    </div>{{--
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>OW presentation Monday</h3>
             <ul class="list-unstyled">
-                <li><a href="{{ asset('/files/ow-presentations-fall-2017/meeting-points-registrations-at-faculties-fall-2017.pdf') }}">Registrations at faculties</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-spring-2018/registrations-at-faculties-meeting-points-spring-2018.pdf') }}">Registrations at faculties</a></li>{{--
                 <li><a href="{{ asset('/files/ow-presentations-fall-2017/sports-at-ctu-fall-2017.pdf') }}">Sport at CTU</a></li>
                 <li><a href="{{ asset('/files/ow-presentations-fall-2017/visa-fall-2017.pdf') }}">Visa</a></li>
-                <li><a href="{{ asset('/files/ow-presentations-fall-2017/czech-course-fall-2017.pdf') }}">Czech courses</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-fall-2017/czech-course-fall-2017.pdf') }}">Czech courses</a></li>--}}
                 <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}">KOS manual</a></li>
             </ul>
         </div>
-    </div>--}}
+    </div>
 
     <div class="row">
         <h2>DAY 2 – Tuesday (13 February)</h2>
@@ -105,25 +105,31 @@
             </p>
             <p class="bg-warning">Please attend this registration event at your faculty. Do not treat it as optional.</p>
             <ul class="list-unstyled">
-                <li>When: TBA (more information in the presentations on the first day){{-- TODO
+                <li>When:
                     <ul>
-                        <li>9:00 &ndash; <abbr title="Faculty of Civil Engineering">FCE</abbr>, <abbr title="Faculty of Biomedical Engineering">FBME</abbr>, <abbr title="Masaryk Institute of Advanced Studies">MIAS</abbr></li>
+                        <li>9:00 &ndash; <abbr title="Faculty of Mechanical Engineering">FME</abbr>,
+                            <abbr title="Faculty of Electrical Engineering">FEE</abbr>,
+                            <abbr title="Faculty of Nuclear Sciences and Physical Engineering">FNSPE</abbr>,
+                            <abbr title="Faculty of Biomedical Engineering">FBME</abbr>,
+                            <abbr title="Masaryk Institute of Advanced Studies">MIAS</abbr></li>
                         <li>9:30 &ndash; <abbr title="Faculty of Architecture">FA</abbr></li>
-                        <li>10:00 &ndash; <abbr title="Faculty of Nuclear Sciences and Physical Engineering">FNSPE</abbr></li>
                         <li>10:30 &ndash; <abbr title="Faculty of Information Technology">FIT</abbr></li>
-                    </ul>--}}
+                        <li>11:30 &ndash; <abbr title="Faculty of Civil Engineering">FCE</abbr></li>
+                    </ul>
                 </li>
-                <li>Where: At your faculty (more information in the presentations on the first day)</li>{{--
-                <li>Meeting points: TODO
+                <li>Where: At your faculty (more information in the presentations on the first day)</li>
+                <li>Meeting points:
                     <ul>
-                        <li>FCE &ndash; 8:50 in front of the faculty</li>
+                        <li>FME &ndash; 8:45 in front of the faculty</li>
+                        <li>FEE &ndash; 8:45 in front of the faculty</li>
+                        <li>FNSPE &ndash; 8:30 in the lobby of the Masarykova dormitory</li>
                         <li>FBME &ndash; 8:00 in the lobby of the Masarykova dormitory</li>
                         <li>MIAS &ndash; 8:45 in the lobby of the Masarykova dormitory</li>
                         <li>FA &ndash; 9:15 in front of the faculty</li>
-                        <li>FNSPE &ndash; 9:20 in the lobby of the Masarykova dormitory</li>
                         <li>FIT &ndash; 10:15 in front of the faculty</li>
+                        <li>FCE &ndash; 11:15 in front of the faculty</li>
                     </ul>
-                </li>--}}
+                </li>
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
                         <li>The green <strong>study record book</strong> from the Welcome Pack</li>
@@ -176,23 +182,23 @@
 
     <div class="row">
         <h2>DAY 3 – Wednesday (14 February)</h2>
-    </div>
+    </div>{{--
     <div class="row">
         <div class="col-lg-12">
             <h3>Registration at some faculties</h3>
             <ul class="list-unstyled">
-                <li>When: TBA (more information in the presentations on the first day) {{-- TODO
+                <li>When: TBA (more information in the presentations on the first day)
                     <ul>
                         <li>9:00 &ndash; <abbr title="Faculty of Mechanical Engineering">FME</abbr>, <abbr title="Faculty of Electrical Engineering">FEE</abbr>, <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
-                    </ul>--}}
+                    </ul>
                 </li>
                 <li>Where: At your faculty (more information in the presentations on the first day)</li>
-                <li>Meeting points: {{-- TODO
+                <li>Meeting points:
                     <ul>
                         <li>FME &ndash; 8:45 in front of the faculty</li>
                         <li>FEE &ndash; 8:50 in front of the faculty</li>
                         <li>FTS &ndash; 8:50 in front of the <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>Bethlehem Chapel</strong></a></li>
-                    </ul>--}}
+                    </ul>
                 </li>
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
@@ -210,7 +216,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div>--}}
     <div class="row">
         <div class="col-lg-12">
             <h3>Czech Language Course</h3>
@@ -257,20 +263,18 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h3>Registration at some faculties (on Thursday)</h3>
+            <h3>Registration at some faculties (on Thursday, 15 February)</h3>
             <ul class="list-unstyled">
-                <li>When: TBA (more information in the presentations on the first day) {{-- TODO
+                <li>When:
                     <ul>
-                        <li>9:00 &ndash; <abbr title="Faculty of Mechanical Engineering">FME</abbr>, <abbr title="Faculty of Electrical Engineering">FEE</abbr>, <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
-                    </ul>--}}
+                        <li>13:30 &ndash; <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
+                    </ul>
                 </li>
                 <li>Where: At your faculty (more information in the presentations on the first day)</li>
-                <li>Meeting points: {{-- TODO
+                <li>Meeting points:
                     <ul>
-                        <li>FME &ndash; 8:45 in front of the faculty</li>
-                        <li>FEE &ndash; 8:50 in front of the faculty</li>
-                        <li>FTS &ndash; 8:50 in front of the <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>Bethlehem Chapel</strong></a></li>
-                    </ul>--}}
+                        <li>FTS &ndash; 13:00 in the lobby of the Masarykova dormitory</li>
+                    </ul>
                 </li>
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
