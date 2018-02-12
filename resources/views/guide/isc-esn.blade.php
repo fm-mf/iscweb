@@ -92,6 +92,15 @@
             Erasmus student tariff together with an ISC membership! First month free with 3 GB data
             and free SMS to Vodafone. Then you get a 50% discount, so it's just 174 CZK (about &euro; 7).</p>
         <p><a href="https://www.esn-cz.cz/partners/vodafone" target="_blank">www.esn-cz.cz/partners/vodafone</a></p>
+        <p>Don't forget that you should have enough balance on your account. Otherwise you will
+            not be able to pay 174 CZK after each 30 days and the discount will be lost.</p>
+        <p>How to top up your account? You have several options:</p>
+        <ul>
+            <li>Tobacco shops (with Sazka terminal)</li>
+            <li>ATM machines (works with foreign debit card)</li>
+            <li>Online (works with Czech debit card)</li>
+            <li>Vodafone shops</li>
+        </ul>
 
         <h3>Ryanair</h3>
         <img src="{{ asset('img/guide/partners/logo-ryanair.jpg') }}" />
@@ -119,18 +128,18 @@
         <h3>Flatio</h3>
         <img src="{{ asset('img/guide/partners/logo-flatio.png') }}" />
         <p>Choose the best flat from Flatio's offer of medium-term rents. View it with their virtual tour,
-            view photos, reviews and the landlord's profile. For a discount, use promo code &quot;RentwithESN&quot;.</p>
+            view photos, reviews and the landlord's profile. For 50% off the booking fee, use the promo code &quot;ESNCZ&quot;.</p>
         <p><a href="https://www.esn-cz.cz/partners/flatio" target="_blank">www.esn-cz.cz/partners/flatio</a></p>
         <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
 
         <h3>Bohemian Hostels</h3>
         <img src="{{ asset('img/guide/partners/logo-bohemian-hostels.png') }}" />
         <p>Hostels in Prague. Great atmosphere, friendly staff, all in English. Price from &euro; 10 per night.
-            15-20% discount promo code &quot;SleepwithESN&quot;. Check out the website for more information.</p>
+            15% discount promo code &quot;ESNCZ&quot;. Check out the website for more information.</p>
         <p><a href="https://www.esn-cz.cz/partners/bohemian-hostels-and-hotels" target="_blank">www.esn-cz.cz/partners/bohemian-hostels-and-hotels</a></p>
 
         <h3>Horror Escape Game &amp; Virtual Reality</h3>
-        <img src="{{ asset('img/guide/partners/logo-thrill-park.jpg') }}" />
+        <img src="{{ asset('img/guide/partners/logo-thrillpark.png') }}" />
         <p>THRILL PARK is Prague’s horror theme park. It offers several fun and adrenaline-filled
             experiences that you will remember. Will you dare to enter Dungeon of Horror which is
             a thrilling haunted house? Will you and your friends solve a mysterious virtual
