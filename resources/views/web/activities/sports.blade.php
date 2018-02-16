@@ -17,26 +17,22 @@
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
                 <p>Do you like playing football, basketball, volleyball or even floorball?
-                    If yes, and you want to practice some of those sports also in Prague,
-                    we organize them every week mostly on Juliska &ndash; just check current
-                    situation (activities/sports on this website), come and play.
-                </p>
+                    If you want to practice such sports even in Prague, you can do so every week
+                    mostly at Juliska sport center &ndash; all you need is to check the current
+                    situation (activities/sports on this website), come, and play.</p>
                 <p>There are several sports organized throughout the semester for international
                     and Czech students. The level of sport events depends a lot on your
                     participation and propositions.</p>
                 <p>To enroll to any sport, follow partial instructions or just contact
-                    supervising person (instructor). Some of the sports are for free, some are
-                    payed for.</p>
-                <p>Also, you can contact ISC Sports coordinator Petr Šlajs
+                    the supervising person (instructor).
+                    Some of the sports are for free, some are payed.</p>
+                <p>ou can as well contact the Sports coordinator, <strong>Vojtěch Kubica</strong>
                     (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>).
-                    If you don't receive an answer, just write once again, please.
-                </p>
-                <p>You can also start to <strong>practice your own sport</strong> you know or
-                    you would like to try. In this case please contact sports coordinator.
-                </p>
-                <p>Please join your sport group on Facebook so we can find out how many people
-                    are interested.
-                </p>
+                    If you don't receive an answer, just write once again, please.</p>
+                <p>If are missing a sport in the list of available sports,
+                    please contact the sport coordinator.</p>
+                <p>In order to assess the interest in a sport,
+                    please join the group of the chosen sport on Facebook.</p>
 
                 <p><strong>All sports are starting during the 1st and 2nd week of the semester.</strong></p>
 
@@ -50,8 +46,9 @@
                 -->
 
                 <!-- ------------------------ SPORTS detailed info ------------------------------------------------- -->
-                <!-- <h2 class="align-center">Schedule for Fall 2017 comming soon…</h2> <br> -->
 --}}
+                <h2 class="align-center">Schedule for Spring 2018 comming soon…</h2>
+{{--
                 <h2 class="align-center">Schedule for Fall 2017</h2>
 
                 <div class="container sports-list">
@@ -119,8 +116,7 @@
 
                         </li>
                     </ul>
-                </div>
-                </ul>
+                </div>--}}
             </div>
             <ul class="gallery-row list-unstyled row">
                 <li class="col-sm-4 col-lg-3">
