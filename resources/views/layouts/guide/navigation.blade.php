@@ -43,6 +43,7 @@
                 <li class="green"><a data-toggle="collapse" data-target="#czech-it-out" @if(isset($czechItOut)) class="expanded" @endif>Czech it out!</a>
                     <ul id="czech-it-out" class="nav nav-stacked collapse @if(isset($czechItOut)) in @endif">
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa']) }}"{!! $active == 'visa' ? 'class="active"' : '' !!}>Visa</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa-example-pictures']) }}"{!! $active == 'visa-example-pictures' ? 'class="active"' : '' !!}>Visa examples</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'health-care']) }}"{!! $active == 'health-care' ? 'class="active"' : '' !!}>Health care</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'living-in-prague']) }}"{!! $active == 'living-in-prague' ? 'class="active"' : '' !!}>Living in Prague</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'transportation']) }}"{!! $active == 'transportation' ? 'class="active"' : '' !!}>Transportation</a></li>

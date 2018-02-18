@@ -85,11 +85,13 @@
         <div class="col-lg-12">
             <h3>OW presentation Monday</h3>
             <ul class="list-unstyled">
-                <li><a href="{{ asset('/files/ow-presentations-spring-2018/registrations-at-faculties-meeting-points-spring-2018.pdf') }}">Registrations at faculties</a></li>{{--
-                <li><a href="{{ asset('/files/ow-presentations-fall-2017/sports-at-ctu-fall-2017.pdf') }}">Sport at CTU</a></li>
-                <li><a href="{{ asset('/files/ow-presentations-fall-2017/visa-fall-2017.pdf') }}">Visa</a></li>
-                <li><a href="{{ asset('/files/ow-presentations-fall-2017/czech-course-fall-2017.pdf') }}">Czech courses</a></li>--}}
-                <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}">KOS manual</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-spring-2018/ctu-czech-courses-spring-2018.pdf') }}" target="_blank">CTU &amp; Czech courses</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-spring-2018/ctu-sports-spring-2018.pdf') }}" target="_blank">Sport at CTU</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}" target="_blank">KOS manual</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-spring-2018/visa-spring-2018.pdf') }}" target="_blank">Visa</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-spring-2018/isc-spring-2018.pdf') }}" target="_blank">ISC</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-spring-2018/esn-spring-2018.pdf') }}" target="_blank">ESN</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-spring-2018/registrations-at-faculties-meeting-points-spring-2018.pdf') }}" target="_blank">Registrations at faculties</a></li>
             </ul>
         </div>
     </div>
