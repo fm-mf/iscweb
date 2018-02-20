@@ -26,10 +26,10 @@
                 <p>To enroll to any sport, follow partial instructions or just contact
                     the supervising person (instructor).
                     Some of the sports are for free, some are payed.</p>
-                <p>ou can as well contact the Sports coordinator, <strong>Vojtěch Kubica</strong>
+                <p>You can as well contact the Sports coordinator, <strong>Vojtěch Kubica</strong>
                     (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>).
                     If you don't receive an answer, just write once again, please.</p>
-                <p>If are missing a sport in the list of available sports,
+                <p>If you are missing a sport in the list of available sports,
                     please contact the sport coordinator.</p>
                 <p>In order to assess the interest in a sport,
                     please join the group of the chosen sport on Facebook.</p>
@@ -46,10 +46,10 @@
                 -->
 
                 <!-- ------------------------ SPORTS detailed info ------------------------------------------------- -->
---}}
+
                 <h2 class="align-center">Schedule for Spring 2018 comming soon…</h2>
-{{--
-                <h2 class="align-center">Schedule for Fall 2017</h2>
+--}}
+                <h2 class="align-center">Schedule for Spring 2018</h2>
 
                 <div class="container sports-list">
                     <ul class="row list-unstyled contacts">
@@ -83,7 +83,7 @@
                             <b>Price:</b> CZK 40, for ISC members CZK 20<br>
                             <b>Contact person:</b> Tereza Kadlecová<br>
                             <b>What to bring:</b> indoor shoes and sport clothes<br>
-                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/573672776173969/" target="_blank">join our group</a>
+                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/104953563666355/" target="_blank">join our group</a>
                         </li>
 
                         <li class="col-md-5 col-sm-6">
@@ -116,7 +116,7 @@
 
                         </li>
                     </ul>
-                </div>--}}
+                </div>
             </div>
             <ul class="gallery-row list-unstyled row">
                 <li class="col-sm-4 col-lg-3">
