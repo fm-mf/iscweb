@@ -58,8 +58,8 @@
                             <b>When:</b> Sunday 21:00 &ndash; 23:00<br>
                             <b>Where:</b> <a href="https://goo.gl/maps/teK4WH75a2p" target="_blank">&quot;Pod Juliskou&quot; Sports Center</a> (Pod Juliskou 4, Prague 6)<br>
                             <b>Meeting point:</b> at 20:40 in the lobby of the <a href="https://goo.gl/maps/cV8kVJogz1F2" target="_blank">Masarykova dormitory</a><br>
-                            <b>Price:</b> CZK 50, for ISC members CZK 30<br>
-                            <b>Contact person:</b> Felix Richardson<br>
+                            <b>Price:</b> CZK 50, for ISC members CZK 30<br>{{--
+                            <b>Contact person:</b> Felix Richardson<br>--}}
                             <b>What to bring:</b> indoor shoes and sport clothes<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/1494986440518838/" target="_blank">join our group</a>
                         </li>

@@ -26,13 +26,13 @@
 
                 <!-- We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
                 Fixed opening hours will be from Monday 20th. -->
---}}
+
                 <h3><strong>Registrations</strong></h3>
-                <table>{{--
+                <table>
                     <tr>
                         <th>Wed 7 Feb</th>
                         <td>12:00 - 20:00</td>
-                    </tr>--}}
+                    </tr>
                     <tr>
                         <th>Thu 8 Feb &ndash; Sun 11 Feb</th>
                         <td>10:00 - 20:00</td>
@@ -40,27 +40,27 @@
                 </table>
                 <h3><strong>Orientation Week</strong></h3>
                 <p>Between Mon 12 Feb and Sun 18 Feb there are no regular hours.</p>
-
-{{--                <table>
+--}}
+                <table>
                      <tr>
                          <th>Monday</th>
-                         <td>14:00 &ndash; 20:00</td>
+                         <td>16:00 &ndash; 22:00</td>
                      </tr>
                      <tr>
                          <th>Tuesday</th>
-                         <td>14:00 &ndash; 20:00</td>
-                     </tr>
-                     <tr>
-                         <th>Wednesday</th>
-                         <td>14:00 &ndash; 20:00</td>
-                     </tr>
-                     <tr>
-                         <th>Thursday</th>
                          <td>14:00 &ndash; 22:00</td>
                      </tr>
                      <tr>
+                         <th>Wednesday</th>
+                         <td>16:00 &ndash; 20:00</td>
+                     </tr>
+                     <tr>
+                         <th>Thursday</th>
+                         <td>14:00 &ndash; 20:00</td>
+                     </tr>
+                     <tr>
                          <th>Friday</th>
-                         <td>14:00 &ndash; 16:00</td>
+                         <td>Closed</td>
                      </tr>
                      <tr>
                          <th>Saturday</th>
@@ -70,7 +70,7 @@
                          <th>Sunday</th>
                          <td>Closed</td>
                      </tr>
-                 </table>      --}}
+                 </table>
 
             </div>
         </div>
