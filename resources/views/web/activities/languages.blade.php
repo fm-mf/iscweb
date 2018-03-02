@@ -13,7 +13,8 @@
                 <span class="clearfix"></span>
             </li>
         </ul>
-        <blockquote><p>One language sets you in a corridor for life. Two languages open every door along the way.</p><p><small>Frank Smith</small></p></blockquote>
+        <blockquote><p>One language sets you in a corridor for life. Two languages open every
+                door along the way.</p><p><small>Frank Smith</small></p></blockquote>
 
         <div class="row">
             <div class="col-sm-8">
@@ -23,16 +24,13 @@
                 <p>Take advantage of our free language courses! The courses are taught by you -
                     Erasmus and exchange students, Czech students and foreigners living in Prague.
                     They are <strong>free of charge</strong>, fun, and no registration is needed.
-                    Language courses for Fall semester 2017 start on Monday, 16 October.
-                    The schedule will be updated on Tuesday, 10 October. The courses take place in the
+                    Language courses for Spring semester 2018 start on Monday, 5 March.
+                    The schedule will be updated on Friday, 2 March. The courses take place in the
                     Masarykova dormitory and at Strahov, block 8.
-
-
-
                     <br><br>
-
-                                    <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">Have a look at the <b>Fall 2017 schedule</b></a>
-                                </p>
+                    <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">
+                        Have a look at the <b>Spring 2018 schedule</b></a>
+                </p>
                 <!-- <h2>Languages courses are over for this semester</h2> -->
                 <br><br>
                 <p>
@@ -53,8 +51,8 @@
                 <p>The main advantage of Tandem is that it will be just you two who will set the time and the intensity
                     of the courses! You can form as many couples as you wish. </p>
                 <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> and find your Tandem partner!</p>
-                <p>Come to the Tandem evening on Monday 25th September to the Storm club!
-                    See the <a href="https://www.facebook.com/events/1495117237210389/" target="_blank">facebook event</a>.</p>
+                <p>Come to the Tandem evening on Monday 12 February to the Storm club!
+                    See the <a href="https://www.facebook.com/events/2028061524116356/" target="_blank">facebook event</a>.</p>
 
                 <h2>CAFÉ LINGEA</h2>
                 <p>Café Lingea is a conversational meeting where we informally chat in different languages
@@ -102,11 +100,14 @@
 
 
 
-                <p>You can have a look at the <a href="http://www.isc.cvut.cz/files/languages-schedule.php" target="_blank">Fall 2017 schedule</a>.</p>
+                <p>You can have a look at the <a href="{{ asset('/files/languages-schedule.php') }}" target="_blank">Spring 2018 schedule</a>.</p>
                 <!-- <p>Schedule for upcoming semester will be available in first week of the semester</p> -->
-                <p>Language courses for Fall semester 2017 start on <strong>Monday, 16 October</strong>. The schedule will be updated on Tuesday, 10 October.</p>
-                <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><a href="http://www.isc.cvut.cz/files/languages-schedule.php" ><img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
-                <p>Sometimes the classes have to be cancelled for various reasons. The following table shows the updated list of cancelled and rescheduled classes.</p>
+                <p>Language courses for Spring semester 2018 start on <strong>Monday, 5 March</strong>.
+                    The schedule will be updated on Friday, 2 March.</p>
+                <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><a href="http://www.isc.cvut.cz/files/languages-schedule.php" >
+                        <img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
+                <p>Sometimes the classes have to be cancelled for various reasons.
+                    The following table shows the updated list of cancelled and rescheduled classes.</p>
                 <iframe width="370" height="400" frameborder="0" src="https://docs.google.com/spreadsheet/pub?key=0AoZEq64G2cV4dHZtcHdlVlpOV3F0WHNtVHlXS0tOTHc&single=true&gid=0&output=html&widget=true"></iframe>
 
             </div>
@@ -126,49 +127,84 @@
             <ul id="questions" class="list-unstyled">
                 <li><h2>LANGUAGE COURSES</h2></li>
                 <li id="parent1">
-                    <a data-toggle="collapse" data-parent="parent2" href="#collapse1">For whom are the language courses? Can I join the course even if I am not a student of CTU of Prague?</a>
-                    <p id="collapse1" class="panel-collapse collapse">The courses are for everyone who has an interest or a desire to learn a foreign language. The courses attendance is practically in no way restricted. The courses are open to everyone - both the students of CTU and the students of other universities and high schools. And those who do no study anymore are welcome as well.</p>
+                    <a data-toggle="collapse" data-parent="parent2" href="#collapse1">
+                        For whom are the language courses? Can I join the course even if I am not a student of CTU of Prague?</a>
+                    <p id="collapse1" class="panel-collapse collapse">
+                        The courses are for everyone who has an interest or a desire to learn
+                        a foreign language. The courses attendance is practically in no way
+                        restricted. The courses are open to everyone - both the students of CTU
+                        and the students of other universities and high schools. And those who
+                        do no study anymore are welcome as well.</p>
                 </li>
-                <li id="parent2"><a data-toggle="collapse" data-parent="parent1" href="#collapse2">Do I have to register?</a>
-                    <p id="collapse2" class="panel-collapse collapse">NO registration is necessary, you just need to pick a course and come. :)</p>
-                </li>
-
-                <li id="parent3"><a data-toggle="collapse" data-parent="parent3" href="#collapse3">Are the courses really for free?</a>
-                    <p id="collapse3" class="panel-collapse collapse">Yes, of course! (All teachers are volunteers.)</p>
-                </li>
-
-                <li id="parent4"><a data-toggle="collapse" data-parent="parent4" href="#collapse4">Where are the courses held? How can I find a classroom?</a>
-                    <p id="collapse4" class="panel-collapse collapse">The courses are held in two classrooms at the Masarykova dormitory in Dejvice (J 390 a H 339) and in one classroom at Strahov, block 8.
-                        H339 - <a href="http://www.youtube.com/watch?v=Fnl4UN8JqU0">See how to get there</a>.</p>
-                </li>
-
-                <li id="parent5"><a data-toggle="collapse" data-parent="parent5" href="#collapse5">Can I become a teacher even if I have never taught before? How can I sign in?</a>
-                    <p id="collapse5" class="panel-collapse collapse">YES. Everyone who has a desire to teach their native language can become a teacher. If you are interested, sign in at <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a></p>
+                <li id="parent2"><a data-toggle="collapse" data-parent="parent1" href="#collapse2">
+                        Do I have to register?</a>
+                    <p id="collapse2" class="panel-collapse collapse">
+                        NO registration is necessary, you just need to pick a course and come. :)</p>
                 </li>
 
-                <li id="parent6"><a data-toggle="collapse" data-parent="parent6" href="#collapse6">Are the courses really for free?</a>
-                    <p id="collapse6" class="panel-collapse collapse">Yes, of course! (All teachers are volunteers.)</p>
+                <li id="parent3"><a data-toggle="collapse" data-parent="parent3" href="#collapse3">
+                        Are the courses really for free?</a>
+                    <p id="collapse3" class="panel-collapse collapse">
+                        Yes, of course! (All teachers are volunteers.)</p>
+                </li>
+
+                <li id="parent4"><a data-toggle="collapse" data-parent="parent4" href="#collapse4">
+                        Where are the courses held? How can I find a classroom?</a>
+                    <p id="collapse4" class="panel-collapse collapse">
+                        The courses are held in two classrooms at the Masarykova dormitory
+                        in Dejvice (B305 and R404) and in one classroom at Strahov, block 8.{{--
+                        H339 - <a href="http://www.youtube.com/watch?v=Fnl4UN8JqU0">See how to get there</a>.--}}</p>
+                </li>
+
+                <li id="parent5"><a data-toggle="collapse" data-parent="parent5" href="#collapse5">
+                        Can I become a teacher even if I have never taught before? How can I sign in?</a>
+                    <p id="collapse5" class="panel-collapse collapse">
+                        YES. Everyone who has a desire to teach their native language can become
+                        a teacher. If you are interested, sign in at
+                        <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a></p>
+                </li>
+
+                <li id="parent6"><a data-toggle="collapse" data-parent="parent6" href="#collapse6">
+                        Are the courses really for free?</a>
+                    <p id="collapse6" class="panel-collapse collapse">
+                        Yes, of course! (All teachers are volunteers.)</p>
                 </li>
 
                 <li><h2>TANDEM</h2></li>
 
-                <li id="parent7"><a data-toggle="collapse" data-parent="parent7" href="#collapse7">How can I join Tandem?</a>
-                    <p id="collapse7" class="panel-collapse collapse">Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a>, find your tandem partner and contact him/her by e-mail.</p>
+                <li id="parent7"><a data-toggle="collapse" data-parent="parent7" href="#collapse7">
+                        How can I join Tandem?</a>
+                    <p id="collapse7" class="panel-collapse collapse">
+                        Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a>,
+                        find your tandem partner and contact him/her by email.</p>
                 </li>
 
 
-                <li id="parent8"><a data-toggle="collapse" data-parent="parent8" href="#collapse8">What is the advantage of the Tandem program?</a>
-                    <p id="collapse8" class="panel-collapse collapse">The advantage is certainly a more personal and individual approach to the language teaching. Mainly, thanks to the fact that the pace of learning, conversation topics and a teaching schedule are all chosen by you and your partner only.</p>
+                <li id="parent8"><a data-toggle="collapse" data-parent="parent8" href="#collapse8">
+                        What is the advantage of the Tandem program?</a>
+                    <p id="collapse8" class="panel-collapse collapse">
+                        The advantage is certainly a more personal and individual approach to
+                        the language teaching. Mainly, thanks to the fact that the pace of
+                        learning, conversation topics and a teaching schedule are all chosen by
+                        you and your partner only.</p>
                 </li>
 
                 <li><h2>CAFÉ LINGEA</h2></li>
 
-                <li id="parent9"><a data-toggle="collapse" data-parent="parent9" href="#collapse9">What languages do we speak?</a>
-                    <p id="collapse9" class="panel-collapse collapse">Usually we speak English and one other language (Spanish, German, French, Russian and also Finnish for instance.) What language we will speak next time can be found on our website or in the fb group (ISC Café Lingea).</p>
+                <li id="parent9"><a data-toggle="collapse" data-parent="parent9" href="#collapse9">
+                        What languages do we speak?</a>
+                    <p id="collapse9" class="panel-collapse collapse">
+                        Usually we speak English and one other language (Spanish, German,
+                        French, Russian and also Finnish for instance.) What language we will
+                        speak next time can be found on our website or in the FB group (ISC Café Lingea).</p>
                 </li>
 
-                <li id="parent10"><a data-toggle="collapse" data-parent="parent10" href="#collapse10">Can I come if I am not fluent in the spoken language (or if I am beginner)?</a>
-                    <p id="collapse10" class="panel-collapse collapse">YES, for sure. Café Lingea is here because we want to meet not only to talk but also to learn few phrases, vocabulary and also something about the other culture. So you surely do not need to be afraid to come.</p>
+                <li id="parent10"><a data-toggle="collapse" data-parent="parent10" href="#collapse10">
+                        Can I come if I am not fluent in the spoken language (or if I am beginner)?</a>
+                    <p id="collapse10" class="panel-collapse collapse">
+                        YES, for sure. Café Lingea is here because we want to meet not only to
+                        talk but also to learn few phrases, vocabulary and also something about
+                        the other culture. So you surely do not need to be afraid to come.</p>
                 </li>
 
             </ul>

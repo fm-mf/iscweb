@@ -14,7 +14,7 @@
                         <img src="{{ URL::asset('img/web/logo-circle.png') }}" alt="ISC Logos">
                         <h2>DOWNLOAD OUR LOGOS</h2>
                         <p>Zip file packed with our logo in PDF and PNG format.</p>
-                        <a href="http://isc.cvut.cz/files/isc-logos.zip"> <button type="button" class="btn btn-primary btn-logo">DOWNLOAD LOGOS</button></a>
+                        <a href="{{ asset('/files/isc-logos.zip') }}"><button type="button" class="btn btn-primary btn-logo">DOWNLOAD LOGOS</button></a>
                     </div>
                 </div>
             </div>

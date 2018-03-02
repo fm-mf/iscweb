@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row subtitle">
-            <p class="col-sm-8 col-sm-offset-2 align-center">Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="/wiki">wiki</a>. Pro přihlášení použij uživatelské jméno <strong>User</strong> a heslo <strong>Vzdy*VIS*viC</strong>.</p>
+            <p class="col-sm-8 col-sm-offset-2 align-center">Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="{{ url('/wiki') }}">wiki</a>. Pro přihlášení použij uživatelské jméno <strong>User</strong> a heslo <strong>Vzdy*VIS*viC</strong>.</p>
         </div>
 
         <div class="row">
@@ -35,12 +35,12 @@
                     </li>
                     @endif
                     <li>
-                        <p>Podívejte se, co se událo v ISC: <a href="https://blog.isc.cvut.cz">ISC blog</a></p>
+                        <p>Podívejte se, co se událo v ISC: <a href="{{ url('/blog') }}">ISC blog</a></p>
                     </li>
 
                     <li>
                         <p><h3><strong>Plníme ISC DokuWiki!</strong></h3></p>
-                        <p>Naše DokuWiki pomalu začíná ožívat. Podívej se na <a href="/wiki">https://isc.cvut.cz/wiki</a> a připiš co tam ještě není. Heslo je Vzdy*VIS*viC</p>
+                        <p>Naše DokuWiki pomalu začíná ožívat. Podívej se na <a href="{{ url('/wiki') }}">{{ url('/wiki') }}</a> a připiš co tam ještě není. Heslo je Vzdy*VIS*viC</p>
                     </li>
 
                 </ul>
@@ -109,7 +109,7 @@
             <div class="col-sm-4">
                 <h2>Důležité odkazy</h2>
                 <ul class="list-unstyled list-colored">
-                    <li><a href="/wiki">DokuWiki</a>
+                    <li><a href="{{ url('/wiki') }}">DokuWiki</a>
                         <p>Studnice všech vědomostí o projektech a aktivitách.</p><p><strong>Login: User</strong></p><p><strong>Heslo: Vzdy*VIS*viC</strong></p>
                     </li>
                     <li><a href="https://www.google.com/calendar/embed?src=bnn2dkobab8l6p4n6jtot9gmd8%40group.calendar.google.com&ctz=Europe/Prague">Vnitřní kalendář</a>
@@ -128,11 +128,11 @@
                         <p>Zde nejdete všechna čísla ISC zpravodaje a Diary of ISC (DISC)</p>
                     </li>--}}
                     <li>
-                        <a href="http://www.isc.cvut.cz/files/iscCtuSpiritBook.pdf" alt="Download PDF version of ISC Spirit Book">ISC Spirit Book [PDF]</a>
+                        <a href="{{ asset('/files/iscCtuSpiritBook.pdf') }}" alt="Download PDF version of ISC Spirit Book">ISC Spirit Book [PDF]</a>
                         <p>Elektronická verze ISC Spirit Book</p>
                     </li>
                     <li>
-                        <a href="{{ url('/nas') }}">Fotogalerie (NAS) momentálně mimo provoz</a>
+                        <a href="{{ route('nas') }}">Fotogalerie (NAS)</a>
                         <p>Naleznete zde spoustu nových i starých fotek z akcí ISC</p>
                         <p><strong>Login: partak</strong></p><p><strong>Heslo: Quentinamakazdyrad</strong></p>
                     </li>
