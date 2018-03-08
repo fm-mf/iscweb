@@ -87,7 +87,7 @@
         <h2>ESN Partners</h2>
 
         <h3>Vodafone</h3>
-        <img src="{{ asset('img/guide/partners/logo-vodafone.png') }}" />
+        <img src="{{ asset('img/guide/partners/logo-vodafone-2.png') }}" />
         <p>Stay in touch with your Erasmus friends and obtain a SIMcard with a favorable
             Erasmus student tariff together with an ISC membership! First month free with 3 GB data
             and free SMS to Vodafone. Then you get a 50% discount, so it's just 174 CZK (about &euro; 7).</p>
