@@ -118,13 +118,7 @@
             <li>This is only applicable for flights booked at least <strong>28 days in advance</strong> and for travelling dates between <strong>1 September to 15 June</strong></li>
         </ul>
 
-        <h3>Eurolines</h3>
-        <img src="{{ asset('img/guide/partners/logo-eurolines-cz.png') }}" />
-        <p>A coach company that offers a 20% discount on coach tickets, use promo code
-            &quot;TourwithESN&quot;. 25% discount for group bookings. Now you can travel across
-            Europe for less money! Check out the website for more information.</p>
-        <p><a href="https://www.esn-cz.cz/partners/eurolines" target="_blank">www.esn-cz.cz/partners/eurolines</a></p>
-
+      
         <h3>Flatio</h3>
         <img src="{{ asset('img/guide/partners/logo-flatio.png') }}" />
         <p>Choose the best flat from Flatio's offer of medium-term rents. View it with their virtual tour,
@@ -132,11 +126,6 @@
         <p><a href="https://www.esn-cz.cz/partners/flatio" target="_blank">www.esn-cz.cz/partners/flatio</a></p>
         <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
 
-        <h3>Bohemian Hostels</h3>
-        <img src="{{ asset('img/guide/partners/logo-bohemian-hostels.png') }}" />
-        <p>Hostels in Prague. Great atmosphere, friendly staff, all in English. Price from &euro; 10 per night.
-            15% discount promo code &quot;ESNCZ&quot;. Check out the website for more information.</p>
-        <p><a href="https://www.esn-cz.cz/partners/bohemian-hostels-and-hotels" target="_blank">www.esn-cz.cz/partners/bohemian-hostels-and-hotels</a></p>
 
         <h3>Horror Escape Game &amp; Virtual Reality</h3>
         <img src="{{ asset('img/guide/partners/logo-thrillpark.png') }}" />
