@@ -102,8 +102,9 @@
 
                 <p>You can have a look at the <a href="{{ asset('/files/languages-schedule.php') }}" target="_blank">Spring 2018 schedule</a>.</p>
                 <!-- <p>Schedule for upcoming semester will be available in first week of the semester</p> -->
-                <p>Language courses for Spring semester 2018 start on <strong>Monday, 5 March</strong>.
-                    The schedule will be updated on Friday, 2 March.</p>
+                <p>Our currently offered courses will end according to every teachers' wish or latest at the end of June.
+                    Schedule for the autumn courses shall be published in October 2018.
+                    Please note that during summer holidays there are no language classes provided by ISC.</p>
                 <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><a href="http://www.isc.cvut.cz/files/languages-schedule.php" >
                         <img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
                 <p>Sometimes the classes have to be cancelled for various reasons.
