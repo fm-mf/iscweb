@@ -2,7 +2,7 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 @import "columns";
 
@@ -560,4 +560,3 @@ h2.date strong
   vertical-align:top;
   padding-right: 20px;
 }
-

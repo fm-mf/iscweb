@@ -6,7 +6,7 @@
  * Prefix: user
  */
 
-    Route::get('/', 'LoginController@showLoginForm');
+    Route::get('/', 'LoginController@showLoginForm')->name('login');
     Route::post('/', 'LoginController@login');
     Route::get('/logout', 'LoginController@logout');
 

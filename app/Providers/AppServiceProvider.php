@@ -23,11 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (\App::environment('local')) {
-            \App::register('Barryvdh\Debugbar\ServiceProvider');
-            \App::register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
-            \App::register('Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider');
-        }
-        
+        //
     }
 }

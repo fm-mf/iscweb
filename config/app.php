@@ -10,6 +10,7 @@ return [
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
+    |
     */
 
     'name' => env('APP_NAME', 'ISC CTU in Prague'),
@@ -163,22 +164,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-
         /*
          * Package Service Providers...
          */
-        Laravel\Tinker\TinkerServiceProvider::class,
-
-        Collective\Html\HtmlServiceProvider::class,
-        Sichikawa\LaravelSendgridDriver\SendgridTransportServiceProvider::class,
-        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
-        Torann\LaravelAsana\ServiceProvider::class,
-
-        Orangehill\Iseed\IseedServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-
 
         /*
          * Application Service Providers...
@@ -242,15 +230,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
-        'Settings' => \App\Settings\Facade::class,
-        'Asana' => \Torann\LaravelAsana\Facade\Asana::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+		'Input' => Illuminate\Support\Facades\Input::class,
+
+        'Settings' => App\Settings\Facade::class,
 
     ],
 

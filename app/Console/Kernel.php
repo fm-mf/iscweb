@@ -2,15 +2,6 @@
 
 namespace App\Console;
 
-use App\Console\Commands\ImportExchangeStudents;
-use App\Console\Commands\ImportFullTimeStudents;
-use App\Console\Commands\SendEmailNoBuddy;
-use App\Console\Commands\SendRegistrationMailToExchangeStudents;
-use App\Console\Commands\SendRegistrationReminder;
-use App\Console\Commands\SendVotingMail_PartakFix;
-use App\Console\Commands\TestExchangeRegistrationEmail;
-use App\Console\Commands\VerificationFix;
-use App\Console\Commands\SendVotingMail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -22,16 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        SendRegistrationMailToExchangeStudents::class,
-        SendRegistrationReminder::class,
-        VerificationFix::class,
-        SendVotingMail::class,
-        SendVotingMail_PartakFix::class,
-        ImportExchangeStudents::class,
-        ImportFullTimeStudents::class,
-        SendEmailNoBuddy::class,
-
-        TestExchangeRegistrationEmail::class,
+        //
     ];
 
     /**
@@ -47,12 +29,14 @@ class Kernel extends ConsoleKernel
     }
 
     /**
-     * Register the Closure based commands for the application.
+     * Register the commands for the application.
      *
      * @return void
      */
     protected function commands()
     {
+        $this->load(__DIR__.'/Commands');
+
         require base_path('routes/console.php');
     }
 }

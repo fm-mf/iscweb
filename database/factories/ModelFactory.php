@@ -1,5 +1,7 @@
 <?php
 
+use Faker\Generator as Faker;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -11,8 +13,7 @@
 |
 */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     static $password;
 
     return [
@@ -23,7 +24,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Models\Person::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Person::class, function (Faker $faker) {
     return [
         'id_user' => function() {
             return factory(App\Models\User::class)->create()->id_user;
@@ -34,7 +35,7 @@ $factory->define(App\Models\Person::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Models\ExchangeStudent::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\ExchangeStudent::class, function (Faker $faker) {
     return [
         'id_user' => function() {
             return factory(App\Models\Person::class)->create()->id_user;
@@ -46,11 +47,10 @@ $factory->define(App\Models\ExchangeStudent::class, function (Faker\Generator $f
     ];
 });
 
-$factory->define(\App\Models\Buddy::class, function (Faker\Generator $faker) {
+$factory->define(\App\Models\Buddy::class, function (Faker $faker) {
    return [
        'id_user' => function() {
             return factory(App\Models\Person::class)->create()->id_user;
         },
    ];
 });
-
