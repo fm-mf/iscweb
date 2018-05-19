@@ -123,6 +123,7 @@ class Buddy extends Model
 
             $buddy = new Buddy;
             $buddy->id_user = $user->id_user;
+            $buddy->agreement = $data['agreement'];
             $buddy->save();
 
             return $buddy;

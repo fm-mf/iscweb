@@ -61,7 +61,14 @@
             {{ Form::checkbox('kodex') }} Slibuji, že se budu držet Buddy kodexu.
         </label>
     </div>
-
+    <div class="checkbox">
+        @if ($errors->has('agreement'))
+            <p class="error-block alert-danger">{{ $errors->first('agreement') }}</p>
+        @endif
+        <label class="col-sm-12">
+            {{ Form::checkbox('agreement') }} Souhlasím s <a href="{{ url('privacy/agreements-cs') }}" target="_blank">podmínkami zpracování osobních údajů.</a>
+        </label>
+    </div>
         {{ Form::bsSubmit('Registrovat') }}
     {!! Form::close() !!}
 

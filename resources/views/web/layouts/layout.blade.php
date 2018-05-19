@@ -63,6 +63,7 @@
                 </ul>
             </div>
             <div class="col-sm-6">
+                <p><a href="{{ url('/privacy') }}">Privacy policies</a></p>
                 <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z.s.</p>
             </div>
         </div><!-- /row -->
