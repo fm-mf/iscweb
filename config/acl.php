@@ -108,6 +108,7 @@ return [
             'id' => 1,
             'resources' => [
                 'trips' => ['remove'],
+                'events' => ['remove'],
                 'roles' => ['view', 'all'],
             ],
             'inheritsFrom' => ['admin']

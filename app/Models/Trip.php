@@ -39,7 +39,7 @@ class Trip extends Model
     {
         return $this->belongsToMany('\App\Models\Person', 'trips_participants', 'id_trip', 'id_user')
             ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id')
-            ->wherePivot('deleted_by', '!=', null);
+            ->wherePivot('deleted_at', '!=', null);
     }
 
     public function event()

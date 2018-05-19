@@ -21,7 +21,7 @@
                 <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a>
                 @can('acl', 'trips.remove')
                     <protectedbutton  url="{{ url('partak/trips/delete/'. $trip->id_trip) }}"
-                                      protection-text="Delete {{ $trip->name }} trip?"
+                                      protection-text="Delete trip &quot;{{ $trip->event->name }}&quot;?"
                                       button-style="btn-danger btn-xs"><span class="glyphicon glyphicon-remove up"></span> Delete</protectedbutton></td>
                 @endcan
         </tr>

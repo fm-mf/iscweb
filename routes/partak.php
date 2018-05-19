@@ -56,6 +56,7 @@
     Route::get('/events/create/integreat', 'EventController@showCreateForm');
     Route::get('/events/create/languages', 'EventController@showCreateForm');
     Route::patch('/events/create', 'EventController@submitCreateForm');
+    Route::get('/events/delete/{id_event}', 'EventController@deleteEvent');
 
     Route::get('/users/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard');
     Route::get('/users/office-registration/registration/{id}', 'OfficeRegistrationController@showExchangeStudent');
@@ -69,4 +70,3 @@
 
     Route::get('/settings', 'SettingsController@showSettings');
     Route::patch('/settings', 'SettingsController@submitSettings');
-

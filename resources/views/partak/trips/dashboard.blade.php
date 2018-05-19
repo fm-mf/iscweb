@@ -1,6 +1,16 @@
 @extends('partak.trips.layout')
 @section('inner-content')
 
+    @if(session('tripDeleted'))
+    <div class="row">
+        <div class="row-inner">
+            <div class="success">
+                <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> {{ session('tripDeleted') }}
+            </div>
+        </div>
+    </div>
+    @endif
+
     <div class="row-grey">
         <div class="container">
             <div class="row row-inner">

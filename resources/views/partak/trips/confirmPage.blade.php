@@ -12,7 +12,7 @@
 
     <div class="container">
         <div class="row-inner buddy-detail">
-            <h2 >Participant detail</h2>
+            <h2>&quot;{{ $trip->event->name }}&quot; participant detail</h2>
             <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($part->avatar()) }}">
             <h3>{{ $part->getFullName()}}</h3>
             <span class="glyphicon glyphicon-envelope up buddy-detail-icon"></span> {{ $part->user->email }} <br>

@@ -164,9 +164,11 @@ class EventController extends Controller
     {
         $this->authorize('acl', 'events.remove');
         $event = Event::find($id_event);
-        $event->participants()->detach();
+        $name = $event->name;
+        $event->Integreat_party()->delete();
+        $event->Languages_event()->delete();
         $event->delete();
-        return back();
+        return back()->with(['eventDeleted' => "Event \"$name\" has been deleted."]);
     }
 
 }

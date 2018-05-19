@@ -297,15 +297,16 @@ class TripController extends Controller
     public function deleteTrip($id_trip)
     {
         $this->authorize('acl', 'trips.remove');
-        $trip = Trip::with('evetn')->find($id_trip);
+        $trip = Trip::with('event')->find($id_trip);
+        $event = $trip->event;
+        $name = $event->name;
+
         $trip->organizers()->detach();
         $trip->participants()->detach();
         $trip->deletedParticipants()->detach();
-        $trip->event->delete();
         $trip->delete();
-        return back();
+        $event->delete();
+        return back()->with(['tripDeleted' => "Trip \"$name\" has been deleted."]);
     }
-
-
 
 }
