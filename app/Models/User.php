@@ -54,6 +54,11 @@ class User extends Authenticatable
         return ExchangeStudent::where('id_user', $this->id_user)->exists();
     }
 
+    public function buddy()
+    {
+        return Buddy::with('person.user')->where('id_user', $this->id_user)->first();
+    }
+
     public function isBuddy()
     {
         return Buddy::with('person.user')->where('id_user', $this->id_user)

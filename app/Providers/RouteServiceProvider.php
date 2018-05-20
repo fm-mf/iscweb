@@ -47,6 +47,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapSafRoutes();
 
+        $this->mapPrivacyRoutes();
         //
     }
 
@@ -121,6 +122,17 @@ class RouteServiceProvider extends ServiceProvider
                 'prefix' => 'scvutdosveta'
         ], function ($router) {
             require base_path('routes/saf.php');
+        });
+    }
+
+    protected function mapPrivacyRoutes()
+    {
+        Route::group([
+                'namespace' => $this->namespace . '\Privacy',
+                'middleware' => 'web',
+                'prefix' => 'privacy'
+        ], function ($router) {
+            require  base_path('routes/privacy.php');
         });
     }
 

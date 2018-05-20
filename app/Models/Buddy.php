@@ -161,4 +161,14 @@ class Buddy extends Model
         });
 
     }
+
+    public function agreedPrivacyPartak()
+    {
+        return $this->privacy_partak;
+    }
+
+    public function setAgreedPrivacyPartak() {
+        $this->privacy_partak = 1;
+        $this->save();
+    }
 }

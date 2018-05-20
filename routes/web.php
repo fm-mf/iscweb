@@ -68,19 +68,6 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/volba-presidenta', function() {
         return redirect(url('/volba'), 301);
     });
-
-    Route::get('/privacy', function (){
-        return view('web.privacy.tree');
-    });
-    Route::get('/privacy/notice', function (){
-        return view('web.privacy.privacy-notice');
-    });
-    Route::get('/privacy/policy', function (){
-        return view('web.privacy.privacy-policy');
-    });
-    Route::get('/privacy/agreements-cs', function (){
-        return view('web.privacy.agreement-cs');
-    });
 });
 
 // Survival Guide

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class CheckPartak
@@ -22,6 +23,11 @@ class CheckPartak
 
         if (!$request->user()->isPartak()) {
             return redirect('/');
+        }
+
+        if (!$request->user()->buddy()->agreedPrivacyPartak()) {
+            //return redirect('/privacy/partak');
+            return new Response(view('web.privacy.privacy-partak'));
         }
 
         return $next($request);
