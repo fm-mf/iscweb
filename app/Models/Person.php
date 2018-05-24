@@ -62,6 +62,8 @@ class Person extends Model
     {
         if ($age) {
             $this->attributes['age'] = Carbon::create($age)->year;
+        } else {
+            $this->attributes['age'] = null;
         }
     }
 

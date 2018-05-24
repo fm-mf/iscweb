@@ -36,12 +36,21 @@ class PrivacyController extends Controller
         return view('web.privacy.agreement-cs');
     }
 
+    public function privacyBuddy(Request $request)
+    {
+        $redirect = $this->notBuddyRedirect($request);
+        if ($redirect) return $redirect;
+
+        $request->user()->buddy->setAgreedPrivacyBuddy();
+        return redirect($request->headers->get('referer'));
+    }
+
     public function privacyPartak(Request $request)
     {
         $redirect = $this->notPartakRedirect($request);
         if ($redirect) return $redirect;
 
-        $request->user()->buddy()->setAgreedPrivacyPartak();
+        $request->user()->buddy->setAgreedPrivacyPartak();
         return redirect($request->headers->get('referer'));
     }
 
@@ -55,8 +64,23 @@ class PrivacyController extends Controller
             return redirect('/');
         }
 
-        if ($request->user()->buddy()->agreedPrivacyPartak()) {
+        if ($request->user()->buddy->agreedPrivacyPartak()) {
             return redirect('/partak');
+        }
+    }
+
+    protected function notBuddyRedirect(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
+        }
+
+        if (!$request->user()->isBuddy()) {
+            return redirect(action('Web\WebController@showHomePage'));
+        }
+
+        if ($request->user()->buddy->agreedPrivacyBuddy()) {
+            return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
         }
     }
 }

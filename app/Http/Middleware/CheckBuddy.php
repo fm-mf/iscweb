@@ -27,6 +27,10 @@ class CheckBuddy
             }
         }
 
+        if (!$request->user()->buddy->agreedPrivacyBuddy()) {
+            return response(view('web.privacy.privacy-buddy'));
+        }
+
         return $next($request);
     }
 }

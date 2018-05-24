@@ -119,7 +119,9 @@ return [
         'last_name' => 'Příjmení',
         'email' => 'E-mail',
         'password' => 'Heslo',
-        'kodex' => 'Buddy kodex'
+        'kodex' => 'Buddy kodex',
+        'age' => 'Rok narození',
+        'agreement' => 'Zpracování'
     ],
 
 ];

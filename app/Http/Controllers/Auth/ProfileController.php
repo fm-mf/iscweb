@@ -118,11 +118,9 @@ class ProfileController extends Controller
         $user = Auth::user();
         $buddy = Buddy::with('person')->find(Auth::id());
 
-        $data = [];
+        $data = ['subscribed' => false];
         foreach ($request->all() as $key => $value) {
-            if ($value) {
-                $data[$key] = $value;
-            }
+            $data[$key] = $value;
         }
 
         $buddy->person->update($data);

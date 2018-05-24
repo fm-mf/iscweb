@@ -22,7 +22,7 @@
     {{-- TODO fix avatar upload --}}
     {{-- @include('profile.avatar') --}}
 
-    {{ Form::model($buddy, ['url' => 'user/profile', 'method' => 'patch']) }}
+    {{ Form::model($buddy, ['action' => 'Auth\ProfileController@updateProfile', 'method' => 'patch']) }}
 
         {{ Form::bsText('phone', 'Telefon') }}
         {{ Form::bsSelect('id_faculty', 'Fakulta', $faculties, $buddy->id_faculty, ['placeholder' => 'Vyber fakultu...']) }}
@@ -46,6 +46,17 @@
         </div>
 
         {{ Form::bsTextarea('about', 'O Tobě') }}
+
+        <div class="checkbox">
+            @if ($errors->has('subscribed'))
+                <p class="error-block alert-danger">{{ $errors->first('subscribed') }}</p>
+            @endif
+            <label class="col-sm-12">
+                {{ Form::checkbox('subscribed') }} Souhlasím s občasným zasíláním informací o dění v ISC
+                (např. informace o otevření databáze či o nadcházejících akcích).
+            </label>
+        </div>
+
         {{ Form::bsSubmit('Aktualizovat profil') }}
 
     {{ Form::close() }}
@@ -53,8 +64,8 @@
 
     <div class="footer row">
         <div class="col-sm-12">
-            <p>V případě technických potíží nás kontaktuj na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
-            <p>&copy; {{ \Carbon\Carbon::now()->year }} | International Student Club CTU in Prague, z.s.</p>
+            <p>V případě technických potíží nás kontaktuj na <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a></p>
+            <p>&copy; {{ \Carbon\Carbon::now()->year }} | International Student Club CTU in Prague, z.&nbsp;s.</p>
         </div>
     </div>
 @stop

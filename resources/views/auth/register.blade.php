@@ -26,12 +26,12 @@
             </p>
             <p class="description">
                 V&nbsp;případě, že ses již registroval(a), pokračuj na
-                <a href="https://www.isc.cvut.cz/muj-buddy/">přihlašovací stránku</a>.
+                <a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}">přihlašovací stránku</a>.
             </p>
         </div>
     </div>
 
-    {!! Form::open(['url' => '/user/register']) !!}
+    {!! Form::open(['action' => 'Auth\RegisterController@register']) !!}
         @include('auth.partials.user')
 
     <div class="row">
@@ -63,10 +63,10 @@
     </div>
     <div class="checkbox">
         @if ($errors->has('agreement'))
-            <p class="error-block alert-danger">{{ $errors->first('agreement') }}</p>
+            <p class="error-block alert-danger">Souhlas se zpracováním musí být udělen.</p>
         @endif
         <label class="col-sm-12">
-            {{ Form::checkbox('agreement') }} Souhlasím s <a href="{{ url('privacy/agreements-cs') }}" target="_blank">podmínkami zpracování osobních údajů.</a>
+            {{ Form::checkbox('agreement') }} Souhlasím se <a href="{{ url('privacy/agreements-cs') }}" target="_blank", title="Souhlas se zpracováním osobních údajů">zpracováním osobních údajů.</a>
         </label>
     </div>
         {{ Form::bsSubmit('Registrovat') }}
@@ -74,8 +74,8 @@
 
     <div class="footer row">
         <div class="col-sm-12">
-            <p>V&nbsp;případě technických potíží nás kontaktuj na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
-            <p>&copy;&nbsp;2018 | International Student Club CTU in Prague, z.s.</p>
+            <p>V&nbsp;případě technických potíží nás kontaktuj na <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a></p>
+            <p>&copy;&nbsp;2018 | International Student Club CTU in Prague, z.&nbsp;s.</p>
         </div>
     </div>
 @endsection

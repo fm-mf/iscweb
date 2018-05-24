@@ -25,7 +25,7 @@ class CheckPartak
             return redirect('/');
         }
 
-        if (!$request->user()->buddy()->agreedPrivacyPartak()) {
+        if (!$request->user()->buddy->agreedPrivacyPartak()) {
             //return redirect('/privacy/partak');
             return new Response(view('web.privacy.privacy-partak'));
         }

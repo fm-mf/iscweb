@@ -16,7 +16,7 @@ class Buddy extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        'id_faculty', 'about', 'phone'
+        'id_faculty', 'about', 'phone', 'subscribed'
     ];
 
     public function person()
@@ -169,6 +169,19 @@ class Buddy extends Model
 
     public function setAgreedPrivacyPartak() {
         $this->privacy_partak = 1;
+        $this->save();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function agreedPrivacyBuddy()
+    {
+        return $this->privacy_buddy;
+    }
+
+    public function setAgreedPrivacyBuddy() {
+        $this->privacy_buddy = true;
         $this->save();
     }
 }

@@ -39,6 +39,10 @@ class User extends Authenticatable
         return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
     }
 
+    public function buddy() {
+        return $this->belongsTo('\App\Models\Buddy', 'id_user', 'id_user');
+    }
+
     static function findByHash($hash)
     {
         return User::where('hash', $hash)->first();
@@ -52,11 +56,6 @@ class User extends Authenticatable
     public function isExchangeStudent()
     {
         return ExchangeStudent::where('id_user', $this->id_user)->exists();
-    }
-
-    public function buddy()
-    {
-        return Buddy::with('person.user')->where('id_user', $this->id_user)->first();
     }
 
     public function isBuddy()
