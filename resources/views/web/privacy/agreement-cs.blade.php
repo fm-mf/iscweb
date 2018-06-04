@@ -33,7 +33,7 @@
                 </p>
                 <p>
                     Využíváme služeb třetích stran, za účely usnadnění práce s našimi službami a jejich zpřístupnění;
-                    může to být například poskytování webového hostingu nebo mailovací systémy.
+                    může to být například poskytování webového hostingu nebo e-mailové systémy.
                 </p>
                 <p>
                     Vynakládáme maximální úsilí, abychom vaše data uchovali v bezpečí a zabránili jejich neoprávněnému použití.

@@ -15,11 +15,11 @@
     <div class="container subpage">
         <div class="row vision">
             <div class="col-sm-6">
-                <p><a href="{{ url('privacy/notice') }}">Privacy notice</a></p>
-                <p><a href="{{ url('privacy/policy') }}">Privacy policy</a></p>
+                <p><a href="{{ url('privacy/notice') }}">Privacy notice</a> for all incoming students</p>
+                <p><a href="{{ url('privacy/policy') }}">Privacy policy</a> for registered members</p>
             </div>
             <div class="col-sm-6">
-                <p><a href="{{ url('privacy/agreements-cs') }}">Souhlas se zpracováním osobních údajů</a></p>
+                <p><a href="{{ url('privacy/agreements-cs') }}">Souhlas se zpracováním osobních údajů</a> pro české Buddíky</p>
             </div>
         </div>
     </div>
