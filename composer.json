@@ -15,7 +15,7 @@
         "laravelcollective/html": "^5.5",
         "maatwebsite/excel": "^2.1",
         "orangehill/iseed": "^2.3",
-        "s-ichikawa/laravel-sendgrid-driver": "^1.1",
+        "s-ichikawa/laravel-sendgrid-driver": "^2.0.2",
         "torann/laravel-asana": "^0.4.0",
         "zendframework/zend-permissions-acl": "^2.6"
     },
