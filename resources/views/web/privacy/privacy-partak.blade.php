@@ -22,7 +22,7 @@
                     <li>je potřeba zabránit neoprávněným osobám přistupovat k osobním údajům a k prostředkům pro jejich zpracování, tedy ParťákNETu,</li>
                     <li>je potřeba zabránit neoprávněnému čtení, vytváření, kopírování, přenosu, úpravě či vymazání záznamů obsahujících osobní údaje z ParťákNETu,</li>
                     <li>je potřeba zabránit zneužití záznamů obsahujících osobní údaje z ParťákNETu,</li>
-                    <li>je potřeba zabránit použití záznamů obsahujících osobní údaje k jiným účelům, než který je uveden v ParťákNETu.</li>
+                    <li>je potřeba zabránit použití záznamů obsahujících osobní údaje k jiným účelům, než které jsou uvedeny v ParťákNETu.</li>
                 </ul>
                 <p>
                     Tato pravidla se vztahují i na všechny údaje získané z ParťákNETu, jako jsou vyexportované tabulky,
