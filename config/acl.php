@@ -79,6 +79,7 @@ return [
             'id' => 5,
             'resources' => [
                 'users' => ['edit'],
+                'roles' => ['team']
             ],
             'inheritsFrom' => ['buddyManager', 'team']
         ],
@@ -96,7 +97,7 @@ return [
         'admin' => [
             'id' => 7,
             'resources' => [
-                'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'team', 'integreatCoordinator'],
+                'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'integreatCoordinator'],
                 'settings' => ['edit'],
                 'details' => ['view'],
                 'votingResults' => ['view'],
