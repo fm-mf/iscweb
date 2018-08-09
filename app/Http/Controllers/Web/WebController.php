@@ -19,6 +19,10 @@ use Hamcrest\Core\Set;
 
 class WebController extends Controller
 {
+
+    private $maleSilhouette = 'img/web/contacts/male-silhouette-150.jpg';
+    private $femaleSilhouette = 'img/web/contacts/female-silhouette-150.jpg';
+
     public function showHomePage()
     {
         $events = Event::findAllVisible();
@@ -91,11 +95,11 @@ class WebController extends Controller
                         'phone' => '+420 722 588 477',
                         'avatar' => asset('img/web/contacts/2018-spring/vicepresident-misa.jpg')),
                 array (
-                        'name' => 'Tomáš Hanousek',
+                        'name' => 'Michaela Petříková',
                         'position' => 'Human Resources',
                         'email' => 'hr@isc.cvut.cz',
-                        'phone' => '+420 605 982 464',
-                        'avatar' => asset('img/web/contacts/2018-spring/hr-tomas.jpg')),
+                        'phone' => '',
+                        'avatar' => asset('img/web/contacts/2017fall/activities-misa.jpg')),
                 array (
                         'name' => 'Martin "Speedy" Průcha',
                         'position' => 'Treasurer',
@@ -103,11 +107,11 @@ class WebController extends Controller
                         'phone' => '+420 736 683 644',
                         'avatar' => asset('img/web/contacts/2018-spring/treasurer-speedy.jpg')),
                 array (
-                        'name' => 'Jan Jarkovský',
+                        'name' => 'Jakub Nový',
                         'position' => 'Public Relations',
                         'email' => 'pr@isc.cvut.cz',
-                        'phone' => '+420 721 767 340',
-                        'avatar' => asset('img/web/contacts/2018-spring/pr-janek.jpg')),
+                        'phone' => '',
+                        'avatar' => asset($this->maleSilhouette)),
                 array (
                         'name' => 'Matěj Mysliveček',
                         'position' => 'Local Representative',
@@ -125,7 +129,7 @@ class WebController extends Controller
                         'position' => 'inteGREAT Coordinator',
                         'email' => 'integreat@isc.cvut.cz',
                         'phone' => '+420 606 267 536',
-                        'avatar' => asset('img/web/contacts/female-silhouette-150.jpg')),
+                        'avatar' => asset($this->femaleSilhouette)),
                 array (
                         'name' => 'Petr Fiedler',
                         'position' => 'Point Coordinator',
@@ -139,11 +143,11 @@ class WebController extends Controller
                         'phone' => '+420 731 858 146',
                         'avatar' => asset('img/web/contacts/2018-spring/activities-vasek.jpg')),
                 array (
-                        'name' => 'Kateřina Čermáková',
+                        'name' => 'Marek Stehlík',
                         'position' => 'Languages Coordinator',
                         'email' => 'languages@isc.cvut.cz',
-                        'phone' => '+420 775 381 406',
-                        'avatar' => asset('img/web/contacts/2018-spring/languages-kacka.jpg')),
+                        'phone' => '',
+                        'avatar' => asset($this->maleSilhouette)),
                 array (
                         'name' => 'Martin Petráček',
                         'position' => 'Buddy Coordinator',
@@ -151,11 +155,11 @@ class WebController extends Controller
                         'phone' => '+420 736 234 990',
                         'avatar' => asset('img/web/contacts/2018-spring/buddy-martin.jpg')),
                 array (
-                        'name' => 'Filip Marek',
+                        'name' => 'Petr Fiedler',
                         'position' => 'IT Coordinator',
                         'email' => 'it@isc.cvut.cz',
-                        'phone' => '+420 732 227 056',
-                        'avatar' => asset('img/web/contacts/2018-spring/it-filip.jpg')),
+                        'phone' => '+420 608 990 369',
+                        'avatar' => asset('img/web/contacts/2018-spring/point-fida.jpg')),
                 array (
                         'name' => 'Michal Štádler',
                         'position' => 'Alumni Coordinator',

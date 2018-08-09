@@ -20,23 +20,23 @@
         However, once you occupy a place at a dormitory, note that your dormitory accommodation agreement
         includes a considerable penalty if you decide to move out without giving the required notice. </p>
     <img src="{{ asset('img/guide/map-ctu-dormitories.png') }}" alt="Map of CTU dormitories" title="Maf of CTU dormitories" />
-    <p><a href="https://www.suz.cvut.cz/files/su_2017_2018_en.pdf" target="_blank">How the application for a place in a dorm works, important dates.</a></p>
-    <p><a href="https://www.suz.cvut.cz/files/hu_2017_2018_en.pdf">Schedule of Accommodation at CTU Dorms, important dates.</a></p>
+    <p><a href="https://www.suz.cvut.cz/files/su_2018_2019_en.pdf" target="_blank">How the application for a place in a dorm works, important dates.</a></p>
+    <p><a href="https://www.suz.cvut.cz/files/hu_2018_2019_en.pdf">Schedule of Accommodation at CTU Dorms, important dates.</a></p>
 
-    <h2>Important dates summary for Winter term 2017/2018</h2>
+    <h2>Important dates summary for Winter term 2018/2019</h2>
     <dl>
         <dt>Application possible</dt>
-            <dd>1 March &ndash; 14 August 2017</dd>
-        <dt>Booking</dt>
-            <dd>9 May &ndash; 20 June 2017</dd>
-        <dt>Deadline for payment of the deposit (5.000 CZK) to confirm your reservation</dt>
-            <dd><strong>25 August 2017</strong></dd>
+            <dd>1 March &ndash; 13 August 2018</dd>{{--
+        <dt>Booking</dt> {{-- Filip: podle mě se týká jen současných studentů
+            <dd>9 May &ndash; 20 June 2018</dd>--}}
         <dt>Results of the application (room allocation)</dt>
-            <dd>18 August 2017</dd>
+            <dd>17 August 2018</dd>
+        <dt>Deadline for payment of the deposit (5.000 CZK) to confirm your reservation</dt>
+            <dd><strong>24 August 2018</strong></dd>
         <dt>Application cancellation possible</dt>
-            <dd>26 August &ndash; 27 September 2017</dd>
+            <dd>25 August &ndash; 27 September 2018</dd>
         <dt>Regular arrival period</dt>
-            <dd>18 &ndash; 27 September 2017</dd>
+            <dd>17 &ndash; 27 September 2018</dd>
             <dd>Till 27 September you can send a request to <a href="mailto:ubytovani@suz.cvut.cz">ubytovani@suz.cvut.cz</a>
                 to move in before/after the regular arrival period. The email must include your name,
                 date of birth, contact information and the date when you wanna move in.</dd>

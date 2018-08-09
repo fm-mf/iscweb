@@ -8,41 +8,41 @@
     <p>The academic calendar may vary from faculty to faculty.</p>
     <p>If there is a Dean's Day announced for your faculty, it means a day off.</p>
 
-    <h2>Winter Semester 2017/2018</h2>
+    <h2>Winter Semester 2018/2019</h2>
     <dl>
-        <dt>21 September 2017</dt>
+        <dt>20 September 2018</dt>
             <dd>Suggested date of arrival</dd>
-        <dt>25 September &ndash; 1 October 2017</dt>
+        <dt>24 – 30 September 2018</dt>
             <dd>Orientation week</dd>
-        <dt>2 October 2017 &ndash; 14 January 2018</dt>
+        <dt>1 October 2018 &ndash; 13 January 2019</dt>
             <dd>Classes</dd>
-        <dt>23 December 2017 &ndash; 1 January 2018</dt>
+        <dt>22 December 2018 &ndash; 1 January 2019</dt>
             <dd>Winter Holiday</dd>
-        <dt>15 January &ndash; 7 February 2018</dt>
+        <dt>14 January &ndash; 6 February 2019</dt>
             <dd>Examination period</dd>
     </dl>
 
-    <h2>Spring Semester 2017/2018</h2>
+    <h2>Spring Semester 2018/2019</h2>
     <dl>
-        <dt>9 February 2018</dt>
+        <dt>8 February 2019</dt>
             <dd>Suggested date of arrival</dd>
-        <dt>12 &ndash; 18 February 2018</dt>
+        <dt>11 &ndash; 17 February 2019</dt>
             <dd>Orientation week</dd>
-        <dt>19 February &ndash; 27 May 2018</dt>
+        <dt>18 February &ndash; 26 May 2019</dt>
             <dd>Classes</dd>
-        <dt>28 May &ndash; 29 June 2018</dt>
+        <dt>27 May &ndash; 28 June 2018</dt>
             <dd>Examination period</dd>
     </dl>
 
     <h2>Faculty specific calendars</h2>
     <ul class="list-unstyled">
-        <li><a href="http://www.fsv.cvut.cz/studente/cal1718.pdf" target="_blank">Faculty of Civil Engineering</a> (PDF)</li>
+        <li><a href="http://www.fsv.cvut.cz/studente/cal1819.pdf" target="_blank">Faculty of Civil Engineering</a> (PDF)</li>
         <li><a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/schedule-of-academic-year/" target="_blank">Faculty of Mechanical Engineering</a></li>
         <li><a href="https://www.fel.cvut.cz/en/education/calendar.html" target="_blank">Faculty of Electronical Engineering</a></li>
         <li><a href="https://www.fa.cvut.cz/En" target="_blank">Faculty of Architecture</a></li>
         <li><a href="http://www.its.fd.cvut.cz/ms-en/for-students/copy_of_academic-year-schedule" target="_blank">Faculty of Transportation Sciences</a></li>
-        <li><a href="https://www.fit.cvut.cz/en/student/office-of-study/schedule/2017" target="_blank">Faculty of Information Technologies</a></li>
-        <li><a href="http://en.fbmi.cvut.cz/files/nodes/10081/public/Schedule%20of%20the%20academic%20year%202017_18.pdf" target="_blank">Faculty of Biomedical Engineering</a> (PDF)</li>
+        <li><a href="https://www.fit.cvut.cz/en/student/office-of-study/schedule/2018" target="_blank">Faculty of Information Technologies</a></li>
+        <li><a href="http://en.fbmi.cvut.cz/files/nodes/10081/public/Schedule%20of%20the%20academic%20year%202018_19.pdf" target="_blank">Faculty of Biomedical Engineering</a> (PDF)</li>
         <li><a href="https://www.fjfi.cvut.cz/en/education/study-programmes-and-regulations" target="_blank">Faculty of Nuclear Sciences and Physical Engineering</a></li>
     </ul>
 
@@ -62,9 +62,9 @@
             <dd>St. Stephen's Day</dd>
         <dt>1 January</dt>
             <dd>Restoration Day of the Independent Czech State, New Year's Day</dd>
-        <dt>30 March</dt>
+        <dt>19 April</dt>
             <dd>Great Friday</dd>
-        <dt>2 April</dt>
+        <dt>22 April</dt>
             <dd>Easter Monday</dd>
         <dt>1 May</dt>
             <dd>International Worker's Day</dd>
