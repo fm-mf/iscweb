@@ -101,6 +101,7 @@
             <li>Online (works with Czech debit card)</li>
             <li>Vodafone shops</li>
         </ul>
+        <p></p>
 
         <h3>Ryanair</h3>
         <img src="{{ asset('img/guide/partners/logo-ryanair.jpg') }}" />
@@ -117,6 +118,8 @@
             <li>Free check in luggage of 15 kg</li>
             <li>This is only applicable for flights booked at least <strong>28 days in advance</strong> and for travelling dates between <strong>1 September to 15 June</strong></li>
         </ul>
+        <p></p>
+
 
         <h3>Leo Express</h3>
         <img src="{{ asset('img/guide/partners/leo.jpg') }}" />
@@ -128,7 +131,7 @@
         <p>In order to book a ticket visit the page <a href="https://www.leoexpress.com" target="_blank">www.leoexpress.com</a>, select the date and time of your journey and make a reservation.
           To benefit from this exclusive discount, select "Adult” and add a Student discount in the reservation system to apply.
           Please, have your ESNcard with you when boarding Leo Express connections to prove your discount to the steward/driver.</p>
-
+        <p></p>
 
         <h3>Grammarly</h3>
         <img src="{{ asset('img/guide/partners/grammarly.jpg') }}" />
@@ -136,7 +139,7 @@
            Millions of users rely on Grammarly every day to make their messages, documents, and social media posts clear, mistake-free, and impactful.</p>
         <p> With ESN Czech Republic you have a special 50 % discount for the Premium account.
            Just use this <a href="https://irbis.grammarly.com/api/discounts/CeYPkK" target="_blank">link</a> and enjoy Grammarly Premium for one year. </p>
-
+        <p></p>
 
          <h3>Eurosender</h3>
          <img src="{{ asset('img/guide/partners/eurosender.png') }}" />
@@ -145,7 +148,7 @@
           <p> All students in Czech Republic are now exclusively entitled to a special <strong>10% discount </strong>
              by entering the promo code <strong>ESNCZ</strong> when booking their Eurosender order </p>
           <p><a href="https://www.eurosender.com" target="_blank">Book now here.</a></p>
-
+          <p></p>
 
 
         <h3>Flatio</h3>
@@ -154,7 +157,7 @@
             view photos, reviews and the landlord's profile. For 50% off the booking fee, use the promo code &quot;ESNCZ&quot;.</p>
         <p><a href="https://www.esncz.org/partners/flatio" target="_blank">www.esncz.org/partners/flatio</a></p>
         <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
-
+        <p></p>
 
         <h3>Horror Escape Game &amp; Virtual Reality</h3>
         <img src="{{ asset('img/guide/partners/logo-thrillpark.png') }}" />
@@ -165,5 +168,7 @@
             Gather your friends come get your adrenaline shot at Žitná 44.
             With the ESN card, you get 20% off any experience!</p>
         <p><a href="https://esncard.org/discount/horror-escape-game-virtual-reality" target="_blank">esncard.org/discount/horror-escape-game-virtual-reality</a></p>
+        <p></p>
     </section>
+
 @stop
