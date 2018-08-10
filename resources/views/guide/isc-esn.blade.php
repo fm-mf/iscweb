@@ -84,14 +84,14 @@
     </ul>
 
     <section id="partners">
-        <h2>ESN Partners</h2>
+        <h2>ESN partnership</h2>
 
         <h3>Vodafone</h3>
         <img src="{{ asset('img/guide/partners/logo-vodafone-2.png') }}" />
         <p>Stay in touch with your Erasmus friends and obtain a SIMcard with a favorable
             Erasmus student tariff together with an ISC membership! First month free with 3 GB data
             and free SMS to Vodafone. Then you get a 50% discount, so it's just 174 CZK (about &euro; 7).</p>
-        <p><a href="https://www.esn-cz.cz/partners/vodafone" target="_blank">www.esn-cz.cz/partners/vodafone</a></p>
+        <p><a href="https://www.esncz.org/partners/vodafone" target="_blank">www.esncz.org/partners/vodafone</a></p>
         <p>Don't forget that you should have enough balance on your account. Otherwise you will
             not be able to pay 174 CZK after each 30 days and the discount will be lost.</p>
         <p>How to top up your account? You have several options:</p>
@@ -118,12 +118,41 @@
             <li>This is only applicable for flights booked at least <strong>28 days in advance</strong> and for travelling dates between <strong>1 September to 15 June</strong></li>
         </ul>
 
-      
+        <h3>Leo Express</h3>
+        <img src="{{ asset('img/guide/partners/leo.jpg') }}" />
+        <p>Take the advantage of travelling on-board Leo Express connections with up to 15 % discount for all students with valid ESNcard.
+           Enjoy comfortable and fast connections with outstanding services on all lines!</p>
+        <p> Leo Express operates trains, buses and minibuses
+           in 7 European countries such as Czech Republic, Slovakia, Germany, Austria, Poland, Ukraine and Ukraine. </p>
+        <p><a href="https://www.esncz.org/partners/leo-express" target="_blank">www.esncz.org/partners/leo-express</a></p>
+        <p>In order to book a ticket visit the page <a href="https://www.leoexpress.com" target="_blank">www.leoexpress.com</a>, select the date and time of your journey and make a reservation.
+          To benefit from this exclusive discount, select "Adult” and add a Student discount in the reservation system to apply.
+          Please, have your ESNcard with you when boarding Leo Express connections to prove your discount to the steward/driver.</p>
+
+
+        <h3>Grammarly</h3>
+        <img src="{{ asset('img/guide/partners/grammarly.jpg') }}" />
+        <p>Grammarly’s AI-powered products help people communicate more effectively.
+           Millions of users rely on Grammarly every day to make their messages, documents, and social media posts clear, mistake-free, and impactful.</p>
+        <p> With ESN Czech Republic you have a special 50 % discount for the Premium account.
+           Just use this <a href="https://irbis.grammarly.com/api/discounts/CeYPkK" target="_blank">link</a> and enjoy Grammarly Premium for one year. </p>
+
+
+         <h3>Eurosender</h3>
+         <img src="{{ asset('img/guide/partners/eurosender.png') }}" />
+         <p>Travelling with only four T-Shirts, two pairs of Jeans and one pair of shoes. Sounds unrealistic? It is not,
+           ESN Czech Republic and Eurosender can offer you the solution: Simply send your baggage home.</p>
+          <p> All students in Czech Republic are now exclusively entitled to a special <strong>10% discount </strong>
+             by entering the promo code <strong>ESNCZ</strong> when booking their Eurosender order </p>
+          <p><a href="https://www.eurosender.com" target="_blank">Book now here.</a></p>
+
+
+
         <h3>Flatio</h3>
         <img src="{{ asset('img/guide/partners/logo-flatio.png') }}" />
         <p>Choose the best flat from Flatio's offer of medium-term rents. View it with their virtual tour,
             view photos, reviews and the landlord's profile. For 50% off the booking fee, use the promo code &quot;ESNCZ&quot;.</p>
-        <p><a href="https://www.esn-cz.cz/partners/flatio" target="_blank">www.esn-cz.cz/partners/flatio</a></p>
+        <p><a href="https://www.esncz.org/partners/flatio" target="_blank">www.esncz.org/partners/flatio</a></p>
         <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
 
 
