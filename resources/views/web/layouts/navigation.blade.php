@@ -28,6 +28,9 @@
                         <a href="{{ url('/about-us') }}" class="{{ Request::is('about-us')? 'current' : '' }}">ABOUT US</a>
                     </li>
                     <li>
+                        <a href="{{ url('/guide') }}" class="{{ Request::is('guide')? 'current' : '' }}">SURVIVAL GUIDE</a>
+                    </li>
+                    <li>
                         <a href="{{ url('/buddy-program/') }}" class="{{ Request::is('buddy-program')? 'current' : '' }}">BUDDY PROGRAM</a>
                     </li>
                     <li>
