@@ -48,8 +48,8 @@
                             </div>
                         </div>
 
-                        {{ Form::bsText('medical_issues', 'Medical issues') }}
-                        {{ Form::bsSelect('diet', 'Diet', $diets, null, ['placeholder' => 'No diet'])  }}
+                        <!-- {{ Form::bsText('medical_issues', 'Medical issues') }} -->
+                        {{ Form::bsSelect('diet', 'Food preference', $diets, null, ['placeholder' => 'No preference'])  }}
                         {{ Form::bsTextarea('about', 'About') }}
 
                         {{ Form::bsSubmit('Create exchange student') }}

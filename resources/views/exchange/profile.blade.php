@@ -66,8 +66,8 @@
     <h3 class="col-sm-12"><span>ABOUT YOURSELF</span></h3>
     {{ Form::bsTextarea('about', null) }}
 
-    {{ Form::bsText('medical_issues', 'Medical issues','', $student->person->medical_issues) }}
-    {{ Form::bsSelect('diet', 'Diet', $diets, $student->person->diet, ['placeholder' => 'No diet'])  }}
+    <!-- {{ Form::bsText('medical_issues', 'Medical issues','', $student->person->medical_issues) }} -->
+    {{ Form::bsSelect('diet', 'Food preference', $diets, $student->person->diet, ['placeholder' => 'No preference'])  }}
 
     <h3 class="col-sm-12"><span>COUNTRY PRESENTATION</span></h3>
     <div class="col-sm-12 form-group">
