@@ -90,8 +90,9 @@
 
     <div class="footer row">
         <div class="col-sm-12">
-            <p>In case of technical issues, please, contact us at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
-            <p>&copy; {{ \Carbon\Carbon::now()->year }} | International Student Club CTU in Prague, z.s.</p>
+            <p>In case of technical issues, please, contact us at <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a></p>
+            <p>If you have any questions, contact us at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
+            <p>&copy; {{ \Carbon\Carbon::now()->year }} | International Student Club CTU in Prague, z. s.</p>
         </div>
     </div>
 @stop
