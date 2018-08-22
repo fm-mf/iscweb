@@ -35,7 +35,9 @@
             <div class="container">
                 <div class="header row">
                     <div class="logo col-sm-3">
-                        <img src="{{ asset('img/guide/logo.png') }}">
+                        <a href="/">
+                            <img src="{{ asset('img/guide/logo.png') }}">
+                        </a>
                     </div>
                 </div>
                 <div class="title">

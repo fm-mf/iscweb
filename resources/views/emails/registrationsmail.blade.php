@@ -47,7 +47,7 @@
 
 <p><a href="{{ url('/') }}">Web</a>: {{ url('/') }}<br>
     <a href="https://www.facebook.com/isc.ctu.prague/">FB page</a>: https://www.facebook.com/isc.ctu.prague/<br>
-    <a href="https://www.facebook.com/groups/ISC2018Spring/">FB group</a>: https://www.facebook.com/groups/ISC2018Spring/</p>
+    <a href="https://www.facebook.com/groups/ISCCTUfall2018/">FB group</a>: https://www.facebook.com/groups/ISCCTUfall2018/</p>
 
 <p>This <a href="{{ url('privacy/notice') }}">Privacy notice</a> is to let you know how we promise to look after your personal information.<br>
     <small>{{ url('privacy/notice') }}</small>

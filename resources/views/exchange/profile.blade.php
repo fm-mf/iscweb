@@ -66,8 +66,8 @@
     <h3 class="col-sm-12"><span>ABOUT YOURSELF</span></h3>
     {{ Form::bsTextarea('about', null) }}
 
-    {{ Form::bsText('medical_issues', 'Medical issues','', $student->person->medical_issues) }}
-    {{ Form::bsSelect('diet', 'Diet', $diets, $student->person->diet, ['placeholder' => 'No diet'])  }}
+    <!-- {{ Form::bsText('medical_issues', 'Medical issues','', $student->person->medical_issues) }} -->
+    {{ Form::bsSelect('diet', 'Food preference', $diets, $student->person->diet, ['placeholder' => 'No preference'])  }}
 
     <h3 class="col-sm-12"><span>COUNTRY PRESENTATION</span></h3>
     <div class="col-sm-12 form-group">
@@ -90,8 +90,9 @@
 
     <div class="footer row">
         <div class="col-sm-12">
-            <p>In case of technical issues, please, contact us at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
-            <p>&copy; {{ \Carbon\Carbon::now()->year }} | International Student Club CTU in Prague, z.s.</p>
+            <p>In case of technical issues, please, contact us at <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a></p>
+            <p>If you have any questions, contact us at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
+            <p>&copy; {{ \Carbon\Carbon::now()->year }} | International Student Club CTU in Prague, z. s.</p>
         </div>
     </div>
 @stop
