@@ -123,10 +123,10 @@
 
         <h3>Leo Express</h3>
         <img src="{{ asset('img/guide/partners/leo.jpg') }}" />
-        <p>Take the advantage of travelling on-board Leo Express connections with up to 15 % discount for all students with valid ESNcard.
+        <p>Take the advantage of travelling on-board Leo Express connections with up to <strong>15 % discount</strong> for all students with valid ESNcard.
            Enjoy comfortable and fast connections with outstanding services on all lines!</p>
         <p> Leo Express operates trains, buses and minibuses
-           in 7 European countries such as Czech Republic, Slovakia, Germany, Austria, Poland, Ukraine and Ukraine. </p>
+           in 7 European countries such as Czech Republic, Slovakia, Germany, Austria, Poland, Ukraine. </p>
         <p><a href="https://www.esncz.org/partners/leo-express" target="_blank">www.esncz.org/partners/leo-express</a></p>
         <p>In order to book a ticket visit the page <a href="https://www.leoexpress.com" target="_blank">www.leoexpress.com</a>, select the date and time of your journey and make a reservation.
           To benefit from this exclusive discount, select "Adult” and add a Student discount in the reservation system to apply.
@@ -137,7 +137,7 @@
         <img src="{{ asset('img/guide/partners/grammarly.jpg') }}" />
         <p>Grammarly’s AI-powered products help people communicate more effectively.
            Millions of users rely on Grammarly every day to make their messages, documents, and social media posts clear, mistake-free, and impactful.</p>
-        <p> With ESN Czech Republic you have a special 50 % discount for the Premium account.
+        <p> With ESN Czech Republic you have a special <strong>50 % discount on the Premium account</strong>.
            Just use this <a href="https://irbis.grammarly.com/api/discounts/CeYPkK" target="_blank">link</a> and enjoy Grammarly Premium for one year. </p>
         <p></p>
 
@@ -150,11 +150,18 @@
           <p><a href="https://www.eurosender.com" target="_blank">Book now here.</a></p>
           <p></p>
 
+          <h3>The Economist</h3>
+          <img src="{{ asset('img/guide/partners/economist.png') }}" />
+          <p>As an ESN member, you can take advantage of this offer and save 20% on the
+            annual student subscription rate of The Economist. You will also receive one copy of Intelligent Life,
+            the bi-monthly lifestyle magazine from The Economist as a gift.</p>
+           <p><a href="https://subscription.economist.com/OA/partners/ESN/12420offer" target="_blank">Subscribe here.</a></p>
+           <p></p>
 
         <h3>Flatio</h3>
         <img src="{{ asset('img/guide/partners/logo-flatio.png') }}" />
         <p>Choose the best flat from Flatio's offer of medium-term rents. View it with their virtual tour,
-            view photos, reviews and the landlord's profile. For 50% off the booking fee, use the promo code &quot;ESNCZ&quot;.</p>
+            view photos, reviews and the landlord's profile. For <strong> 50% off the booking fee</strong>, use the promo code &quot;ESNCZ&quot;.</p>
         <p><a href="https://www.esncz.org/partners/flatio" target="_blank">www.esncz.org/partners/flatio</a></p>
         <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
         <p></p>
@@ -166,7 +173,7 @@
             a thrilling haunted house? Will you and your friends solve a mysterious virtual
             reality escape game? Will you manage to survive a zombie apocalypse in virtual reality?
             Gather your friends come get your adrenaline shot at Žitná 44.
-            With the ESN card, you get 20% off any experience!</p>
+            With the ESN card, you get <strong>20% off</strong> any experience!</p>
         <p><a href="https://esncard.org/discount/horror-escape-game-virtual-reality" target="_blank">esncard.org/discount/horror-escape-game-virtual-reality</a></p>
         <p></p>
     </section>
