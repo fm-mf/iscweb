@@ -151,7 +151,7 @@
           <p></p>
 
           <h3>The Economist</h3>
-          <img src="{{ asset('img/guide/partners/economist.png') }}" />
+          <img src="{{ asset('img/guide/partners/Economist.png') }}" />
           <p>As an ESN member, you can take advantage of this offer and save 20% on the
             annual student subscription rate of The Economist. You will also receive one copy of Intelligent Life,
             the bi-monthly lifestyle magazine from The Economist as a gift.</p>
@@ -166,7 +166,7 @@
         <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
         <p></p>
 
-    
+
     </section>
 
 @stop
