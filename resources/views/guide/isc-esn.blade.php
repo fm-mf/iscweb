@@ -127,7 +127,7 @@
            Enjoy comfortable and fast connections with outstanding services on all lines!</p>
         <p> Leo Express operates trains, buses and minibuses
            in 7 European countries such as Czech Republic, Slovakia, Germany, Austria, Poland, Ukraine. </p>
-        <p><a href="https://www.esncz.org/partners/leo-express" target="_blank">www.esncz.org/partners/leo-express</a></p>
+        <p><a href="https://esncard.org/discount/leo-express-1" target="_blank">https://esncard.org/discount/leo-express-1</a></p>
         <p>In order to book a ticket visit the page <a href="https://www.leoexpress.com" target="_blank">www.leoexpress.com</a>, select the date and time of your journey and make a reservation.
           To benefit from this exclusive discount, select "Adult” and add a Student discount in the reservation system to apply.
           Please, have your ESNcard with you when boarding Leo Express connections to prove your discount to the steward/driver.</p>
@@ -166,16 +166,7 @@
         <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
         <p></p>
 
-        <h3>Horror Escape Game &amp; Virtual Reality</h3>
-        <img src="{{ asset('img/guide/partners/logo-thrillpark.png') }}" />
-        <p>THRILL PARK is Prague’s horror theme park. It offers several fun and adrenaline-filled
-            experiences that you will remember. Will you dare to enter Dungeon of Horror which is
-            a thrilling haunted house? Will you and your friends solve a mysterious virtual
-            reality escape game? Will you manage to survive a zombie apocalypse in virtual reality?
-            Gather your friends come get your adrenaline shot at Žitná 44.
-            With the ESN card, you get <strong>20% off</strong> any experience!</p>
-        <p><a href="https://esncard.org/discount/horror-escape-game-virtual-reality" target="_blank">esncard.org/discount/horror-escape-game-virtual-reality</a></p>
-        <p></p>
+    
     </section>
 
 @stop
