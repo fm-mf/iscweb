@@ -124,7 +124,7 @@
             {{--<p>Od 11. do 25. října budou probíhat na fakultách cestovatelské přednášky od studentů,
                 kteří již vyjeli.</p>--}}
             <p>Program a další informace naleznete na stránce <a href="{{ action('Saf\SafController@showIndex') }}">S ČVUT do světa.</a></p>
-            <p>Sledujte také naši <a href="https://www.facebook.com/isc.saf/" target="_blank"><span class="glyphicon glyphicon-thumbs-up"></span> Facebookovou stránku</a>.</p>
+            <p>Sledujte také naši <a href="https://www.facebook.com/isc.saf" target="_blank" rel="noopener"><span class="glyphicon glyphicon-thumbs-up"></span> Facebookovou stránku</a>.</p>
         </div>
         <div class="col-lg-5 col-md-7 col-sm-12">
             <a href="{{ action('Saf\SafController@showIndex') }}">
@@ -172,24 +172,29 @@
     </div>
 </div>--}}
 
-@if (\Carbon\Carbon::now('Europe/Prague')->lt(\Carbon\Carbon::create(2018, 1, 25, 18, 30, 00, 'Europe/Prague')->addHours(2)))
+@if (\Carbon\Carbon::now('Europe/Prague')->lt(\Carbon\Carbon::create(2018, 9, 12, 18, 00, 00, 'Europe/Prague')->addHours(2)))
 <h2 id="info">Jak se stát Buddym</h2>
 
 <div class="container events">
     <div class="container container-ow container-sm-height">
         <span class="vspace"></span>
         <div class="row row-ow row-sm-height">
-            <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url(https://www.isc.cvut.cz/events/covers/58.jpeg)">
-                <span class="day">Čtvrtek<br><strong>25.</strong><br>ledna<br>18:30</span>
-                <h2>Buddy Session</h2>
+            <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ asset('events/covers/163.jpeg') }})">
+                <span class="day">Středa<br><strong>12.</strong><br>září<br>18:00</span>
+                <h2>Buddy session</h2>
             </div>
             <div class="col-sm-6 ow-detail col-sm-height col-top">
 
                 <p>Staň se Buddym!</p>
-                <p>Co to obnáší? Vybereš si zahraničního studenta dle svého uvážení a trochu mu píchneš v začátcích. Neboj, není to nic náročného.</p>
-                <p>Informační schůzka, kde se dozvíš víc, bude ve vzdělávacím centru NTK (u vstupu NTK3 naproti noční studovně, od recepce po schodech do 2. patra).</p>
+                <p>Co obnáší být Buddym? Vybereš si zahraničního studenta dle svého uvážení
+                    a pomůžeš mu s jeho prvními kroky v Česku. Není to nic náročného.</p>
+                <p>Na Buddy Session vysvětlíme, co je třeba se zahraňákem zařídit.
+                    Také představíme aktivity, které v průběhu semestru ISC organizuje
+                    a jak se do nich případně můžeš zapojit i ty.</p>
+                <p>Akce proběhne ve vzdělávacím centru NTK od 18:00
+                    (u vstupu NTK3 naproti noční studovně, od recepce po schodech do 2. patra).</p>
                 <p>
-                    ► <a href="https://www.facebook.com/events/386611458450417/"><strong>Facebook event!</strong></a>
+                    ► <a href="https://www.facebook.com/events/526558587785646/" target="_blank" rel="noopener"><strong>Facebook event!</strong></a>
                 </p>
             </div>
         </div>
@@ -227,17 +232,25 @@
         <div class="col-sm-4 col-info">
             <img src="{{ asset('img/buddy/laptop.jpg') }}">
             <h3>Výběr zahraničního studenta</h3>
-            <p class="text-align-left">Rád by ses v budoucnu podíval do Francie? Zajímá tě, jakou povahu mají Kanaďané? Nebo chceš lépe poznat naše německé sousedy? Rozhodnutí je jen na Tobě. V databázi najdeš více než 400 studentů z různých zemí a kultur, mezi kterými můžeš vybírat.</p>
+            <p class="text-align-left">Rád by ses v budoucnu podíval do Francie? Zajímá tě, jakou povahu mají Kanaďané?
+                Nebo chceš lépe poznat naše německé sousedy? Rozhodnutí je jen na Tobě.
+                V databázi najdeš více než 400 studentů z různých zemí a kultur, mezi kterými můžeš vybírat.</p>
         </div>
         <div class="col-sm-4 col-info">
             <img src="{{ asset('img/buddy/airport.jpg') }}">
             <h3>Vyzvednutí na letišti</h3>
-            <p class="text-align-left">Letiště je zpravidla to první místo v Čechách, na které se zahraniční student dostane. Máš tak jedinečnou šanci udělat nejlepší první dojem. Vyzvedni studenta hned po příjezdu, pomoz mu s kufry a během dlouhé cesty z Ruzyně už vyprávěj, co všechno může zažít. Máš originální nápad, jak ho u nás přivítat? Kreativitě se meze nekladou.</p>
+            <p class="text-align-left">Letiště je zpravidla to první místo v Čechách, na které se zahraniční student dostane.
+                Máš tak jedinečnou šanci udělat nejlepší první dojem. Vyzvedni studenta hned po příjezdu,
+                pomoz mu s kufry a během dlouhé cesty z Ruzyně už vyprávěj, co všechno může zažít.
+                Máš originální nápad, jak ho u nás přivítat? Kreativitě se meze nekladou.</p>
         </div>
         <div class="col-sm-4 col-info">
             <img src="{{ asset('img/buddy/campus.jpg') }}">
             <h3>Ubytování a "Tour de Campus"</h3>
-            <p class="text-align-left">Na řadu přichází ubytování. Většina studentů má kolej nebo podnájem už zařízené, stačí jen najít správnou adresu mezi spletitými pražskými uličkami. A ukázka kampusu? Zaveď ho k Rektorátu, navštivte knihovnu a projděte si fakultu, najděte nejbližší obchod a procházku zakončete pravým českým pivem v té nejlevnější hospodě. Bude nadšen. </p>
+            <p class="text-align-left">Na řadu přichází ubytování. Většina studentů má kolej nebo podnájem už zařízené,
+                stačí jen najít správnou adresu mezi spletitými pražskými uličkami. A ukázka kampusu?
+                Zaveď ho k Rektorátu, navštivte knihovnu a projděte si fakultu, najděte nejbližší obchod
+                a procházku zakončete pravým českým pivem v té nejlevnější hospodě. Bude nadšen. </p>
         </div>
     </div>
 </div>
@@ -264,7 +277,7 @@
                 správným Buddym, a aktuální informace do nového semestru. Většinou se koná zruba
                 v&nbsp;polovině záři (ZS) a ledna (LS). Po tom, co se do Buddy programu
                 zaregistruješ, tě o ní budeme informovat emailem nebo na FB stránce
-                <a href="https://www.facebook.com/isc.ctu.prague/" target="_blank">ISC CTU in Prague</a>.
+                <a href="https://www.facebook.com/isc.ctu.prague" target="_blank" rel="noopener">ISC CTU in Prague</a>.
                 Pokud bys měl jakékoliv dotazy ještě před Buddy Session nebo jsi něco nenašel
                 v&nbsp;Buddy příručce, neváhej se zeptat našeho Buddy coordinátora na
                 <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>.</p>
@@ -304,11 +317,17 @@
     <div class="container">
         <div class="row vision">
             <div class="col-sm-10 col-sm-offset-1 grey">
-                <p><strong>International Student Club</strong> je skupinou mladých a aktivních lidí, kteří ve svém volném čase chtějí dělat něco smysluplného a při tom se rádi baví. Každý semestr integrujeme zahraniční studenty do života a dění na naší univerzitě i v celé ČR. Zároveň se od nich sami učíme a zjišťujeme, jak to chodí v ostatních koutech světa.</p>
+                <p><strong>International Student Club</strong> je skupinou mladých a aktivních lidí,
+                    kteří ve svém volném čase chtějí dělat něco smysluplného a při tom se rádi baví.
+                    Každý semestr integrujeme zahraniční studenty do života a dění na naší univerzitě i v celé ČR.
+                    Zároveň se od nich sami učíme a zjišťujeme, jak to chodí v ostatních koutech světa.</p>
 
-                <p>Zábavným způsobem tak poznáváme jiné kultury a získáváme spoustu skvělých příležitostí <strong>seberealizace</strong>, podporujeme <strong>aktivní zapojení</strong> našich členů a jejich <strong>osobní rozvoj</strong>.</p>
+                <p>Zábavným způsobem tak poznáváme jiné kultury a získáváme spoustu skvělých příležitostí
+                    <strong>seberealizace</strong>, podporujeme <strong>aktivní zapojení</strong> našich členů
+                    a jejich <strong>osobní rozvoj</strong>.</p>
 
-                <p>A jak je možné, že nám to tak dobře klape? Protože otevřená a přátelská atmosféra, spolupráce v teamu a poznávání národů v rámci Evropy i celého světa, to vše nás neustále žene dopředu. Už od roku 1999. </p>
+                <p>A jak je možné, že nám to tak dobře klape? Protože otevřená a přátelská atmosféra, spolupráce v teamu
+                    a poznávání národů v rámci Evropy i celého světa, to vše nás neustále žene dopředu. Už od roku 1999.</p>
             </div>
         </div>
     </div>
@@ -321,10 +340,13 @@
             <div class="col-sm-4">
                 <h3>PRŮVODCE SVĚTEM ISC</h3>
                 <p class="text-align-center">
-                    Chceš mít přehled o aktuálním dění v ISC? Vědět o každé akci, která se chystá, a přečíst si o těch, které už proběhly? Dozvědět se další zajímavosti z historie a fungování ISC a zkrátit si dlouhou chvíli rozhovorem se zajímavými lidmi? To a ještě víc najdeš v našem časopisu Průvodce světem ISC.
+                    Chceš mít přehled o aktuálním dění v ISC? Vědět o každé akci, která se chystá, a přečíst si o těch,
+                    které už proběhly? Dozvědět se další zajímavosti z historie a fungování ISC
+                    a zkrátit si dlouhou chvíli rozhovorem se zajímavými lidmi?
+                    To a ještě víc najdeš v našem časopisu Průvodce světem ISC.
                 </p>
                 <p class="text-align-center">
-                    <a href="https://drive.google.com/drive/folders/0B6FVYAfC-ldzOU9vUC1ZS050cTA?usp=sharing">
+                    <a href="https://drive.google.com/drive/folders/0B6FVYAfC-ldzOU9vUC1ZS050cTA?usp=sharing" target="_blank" rel="noopener">
                         <button type="button" class="btn btn-default">ISC tiskoviny</button>
                     </a>
                 </p>
@@ -334,13 +356,15 @@
                 <p class="text-align-center"><strong>International Student Club CTU in Prague</strong><br>
                     Thákurova 1, Praha 6 (Dejvice)<br>
                     <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a><br>
-                    Facebook: <a href="https://www.facebook.com/isc.ctu.prague">isc.ctu.prague</a></p>
-                <p class="text-align-center"><a href="https://www.google.com/maps/place/International+Student+Club+CTU+in+Prague/@50.084071,14.4119155,14z/data=!4m5!1m2!2m1!1sinternational+student+club+ctu+in+prague!3m1!1s0x470b953c0f37a36f:0x6d538d168df03b66"> <button type="button" class="btn btn-primary">Najdi nás na mapě</button></a></p>
+                    Facebook: <a href="https://www.facebook.com/isc.ctu.prague" target="_blank" rel="noopener">isc.ctu.prague</a></p>
+                <p class="text-align-center"><a href="https://www.google.com/maps/place/International+Student+Club+CTU+in+Prague/@50.084071,14.4119155,14z/data=!4m5!1m2!2m1!1sinternational+student+club+ctu+in+prague!3m1!1s0x470b953c0f37a36f:0x6d538d168df03b66" target="_blank" rel="noopener"> <button type="button" class="btn btn-primary">Najdi nás na mapě</button></a></p>
             </div>
             <div class="col-sm-4">
                 <h3>CHCEŠ TO ZAŽÍT TAKY?</h3>
                 <p class="text-align-center">
-                    Dozvědět se o nás víc? Napiš nám nebo se v ISC rovnou stav! Můžeš také nakouknout do ISC Spirit Booku, kde zjistíš víc o tom, v čem je ISC výjimečné. Naše kultura totiž stojí na jistých hodnotách, které všichni sdílíme a ty odrážejí to jak mezi sebou komunikujeme, jak se k sobě chováme a jak spolupracujeme.
+                    Dozvědět se o nás víc? Napiš nám nebo se v ISC rovnou stav! Můžeš také nakouknout do ISC Spirit Booku,
+                    kde zjistíš víc o tom, v čem je ISC výjimečné. Naše kultura totiž stojí na jistých hodnotách,
+                    které všichni sdílíme a ty odrážejí to jak mezi sebou komunikujeme, jak se k sobě chováme a jak spolupracujeme.
                 </p>
                 <p class="text-align-center">
                     <a href="{{ asset('files/iscCtuSpiritBook.pdf') }}">
@@ -373,7 +397,7 @@
                 <li id="q3"><a data-toggle="collapse" data-parent="q3" href="#collapseQ3">Kolik si můžu vybrat zahraničních studentů?</a>
                     <p id="collapseQ3" class="panel-collapse collapse">Každý den si můžeš vybrat 1 zahraňáka.</p>
                 </li>
-                <li id="q4"><a data-toggle="collapse" data-parent="q4" href="#collapseQ4">Jak bude probíhat orientation week?</a>
+                <li id="q4"><a data-toggle="collapse" data-parent="q4" href="#collapseQ4">Jak bude probíhat Orientation week?</a>
                     <p id="collapseQ4" class="panel-collapse collapse">Podrobný program orientation week najdou zahraňáci na našem webu v sekci
                         <a href="{{ action('Guide\PageController@showPage', ['page' => 'orientation-week']) }}"><button type="button" class="btn btn-primary btn-xs">Survival Guide</button></a><br>
                         Registrace na fakultách budou organizované ISC, nemusíš tedy zahraňáka doprovázet, jen se ujisti, že už má svůj Welcome pack.</p>
@@ -385,7 +409,7 @@
                 </li>
                 <li id="q6"><a data-toggle="collapse" data-parent="q6" href="#collapseQ6">Kde a kdy můžu Welcome pack vyzvednout a musí u toho být i zahraňák?</a>
                     <p id="collapseQ6" class="panel-collapse collapse">Welcome packy je možné vyzvednout v
-                        <a href="{{ action('Web\WebController@showContacts') }}"><button type="button" class="btn btn-primary btn-xs">ISC Point</button></a> od čtvrtka 22.9.2016 denně mezi 12 a 22 hod.
+                        <a href="{{ action('Web\WebController@showContacts') }}"><button type="button" class="btn btn-primary btn-xs">ISC Pointu</button></a> od středy 19. 9. 2018 denně mezi 12 a 22 hod.
                         Nejlepší je, když přijedete oba společně rovnou z letiště.</p>
                 </li>
 
@@ -411,7 +435,7 @@
                 <li id="q7"><a data-toggle="collapse" data-parent="q7" href="#collapseQ7">Jak se mohu více zapojit do ISC?</a>
                     <p id="collapseQ7" class="panel-collapse collapse">
                         Napiš nám na <a href="mailto:hr@isc.cvut.cz">hr@isc.cvut.cz</a> nebo se rovnou stav do našeho
-                        <a href="https://www.google.com/maps/place/International+Student+Club+CTU+in+Prague/@50.084071,14.4119155,14z/data=!4m5!1m2!2m1!1sinternational+student+club+ctu+in+prague!3m1!1s0x470b953c0f37a36f:0x6d538d168df03b66"> <button type="button" class="btn btn-primary btn-xs">officu</button></a>
+                        <a href="https://www.google.com/maps/place/International+Student+Club+CTU+in+Prague/@50.084071,14.4119155,14z/data=!4m5!1m2!2m1!1sinternational+student+club+ctu+in+prague!3m1!1s0x470b953c0f37a36f:0x6d538d168df03b66" target="_blank" rel="noopener"> <button type="button" class="btn btn-primary btn-xs">ISC Pointu</button></a>
                         Každého aktivního studenta uvítáme a možností zapojení je celá řada. Jen zajdi na
                         <a href="{{ action('Web\WebController@showHomePage') }}"> <button type="button" class="btn btn-primary btn-xs">naše stránky</button></a>
                         a uvidíš co vše děláme. </p>
@@ -439,9 +463,10 @@
                 <h3>Najdeš nás na</h3>
                 <span class="bar"></span>
                 <ul class="list-unstyled">
-                    <li><a href="https://www.facebook.com/isc.ctu.prague"><img src="{{ asset('img/buddy/fb.png') }}" width="17px"> Facebook</a></li>
-                    <li><a href="https://www.linkedin.com/company/1201189"><img src="{{ asset('img/buddy/in.png') }}" width="17px"> LinkedIn</a></li>
-                    <li><a href="http://www.youtube.com/user/ISCCTUPrague"><img src="{{ asset('img/buddy/youtube.png') }}" width="17px"> YouTube</a></li>
+                    <li><a href="https://www.facebook.com/isc.ctu.prague" target="_blank" rel="noopener"><img src="{{ asset('img/buddy/fb.png') }}" width="17px"> Facebook</a></li>
+                    <li><a href="https://www.instagram.com/isc.cvut/" target="_blank" rel="noopener"><img src="{{ asset('img/web/instagram.png') }}" width="17"> Instagram</a></li>
+                    <li><a href="https://www.youtube.com/user/ISCCTUPrague" target="_blank" rel="noopener"><img src="{{ asset('img/buddy/youtube.png') }}" width="17px"> YouTube</a></li>
+                    <li><a href="https://www.linkedin.com/company/1201189" target="_blank" rel="noopener"><img src="{{ asset('img/buddy/in.png') }}" width="17px"> LinkedIn</a></li>
                     <!-- <li><a href="http://www.flickr.com/groups/iscctu/">Flickr</a></li> -->
                 </ul>
             </div>
@@ -453,7 +478,7 @@
                 </ul>
             </div>
             <div class="col-sm-6">
-                <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z.s.</p>
+                <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z. s.</p>
             </div>
 
         </div><!-- /row -->
