@@ -33,9 +33,9 @@ Route::get('/visa', function() {
 });
 
 
-Route::get('buddy-prirucka', function () { return response()->file('files/buddy-prirucka-spring-2018.pdf'); });
+Route::get('buddy-prirucka', function () { return response()->file('files/buddy_prirucka_fall2018_pro_web.pdf'); });
 //redirect from old web
-Route::get('/buddy/files/buddyPriruckaSpring2017.pdf', function () { return redirect(url('buddy-prirucka')); });
+Route::get('/buddy/files/buddy_prirucka_fall2018_pro_web.pdf', function () { return redirect(url('buddy-prirucka')); });
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
