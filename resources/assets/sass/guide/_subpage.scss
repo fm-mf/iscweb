@@ -148,6 +148,15 @@ address {
   background: rgb(208, 25, 123) !important;
 }
 
+.orange {
+  border-left-color:rgb(244, 123, 32);
+}
+.orange a { color: rgb(244, 123, 32);}
+.orange > a:hover,
+.orange > a.expanded {
+  background: rgb(244, 123, 32) !important;
+}
+
 #page {
   margin-left:360px;
   margin-right:100px;
@@ -272,7 +281,7 @@ address {
   margin-bottom: 20px;
 }
 
-#isc-esn > img {
+#isc-intro > img {
   width: 24rem;
   display: block;
   float: left;
@@ -288,7 +297,7 @@ h1, h2, h3 {
   clear: both;
 }
 
-#isc-esn > img {
+#isc-intro > img {
   width: 24rem;
   display: block;
   float: left;

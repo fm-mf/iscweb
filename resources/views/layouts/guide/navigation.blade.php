@@ -37,7 +37,6 @@
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'academic-year']) }}"{!! $active == 'academic-year' ? 'class="active"' : '' !!}>Academic year calendar</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'campus']) }}"{!! $active == 'campus' ? 'class="active"' : '' !!}>Campus</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'dormitories']) }}"{!! $active == 'dormitories' ? 'class="active"' : '' !!}>Dormitories</a></li>
-                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'isc-esn']) }}"{!! $active == 'isc-esn' ? 'class="active"' : '' !!}>ISC &amp; ESN</a></li>
                     </ul>
                 </li>
                 <li class="green"><a data-toggle="collapse" data-target="#czech-it-out" @if(isset($czechItOut)) class="expanded" @endif>Czech it out!</a>
@@ -53,6 +52,13 @@
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'culture-shock']) }}"{!! $active == 'culture-shock' ? 'class="active"' : '' !!}>Culture shock</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'czech-phrases']) }}"{!! $active == 'czech-phrases' ? 'class="active"' : '' !!}>Czech phrases</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'funny-facts']) }}"{!! $active == 'funny-facts' ? 'class="active"' : '' !!}>Funny facts</a></li>
+                    </ul>
+                </li>
+                <li class="orange"><a data-toggle="collapse" data-target="#isc-esn" @if(isset($iscEsn)) class="expanded" @endif>ISC & ESN</a>
+                    <ul id="isc-esn" class="nav nav-stacked collapse @if(isset($iscEsn)) in @endif">
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'isc-intro']) }}"{!! $active == 'isc-intro' ? 'class="active"' : '' !!}>ISC</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'esn-intro']) }}"{!! $active == 'esn-intro' ? 'class="active"' : '' !!}>ESN</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'esn-partners']) }}"{!! $active == 'esn-partners' ? 'class="active"' : '' !!}>Our Partners</a></li>
                     </ul>
                 </li>
             </ul>

@@ -47,9 +47,10 @@
                 </div>
                 <div class="navigation">
                     <ul class="list-unstyled row">
-                        <li class="col-sm-4"><a href="{{ action('Guide\PageController@showPage', ['page' => 'introduction']) }}" id="link-aya">First steps</a></li>
-                        <li class="col-sm-4"><a href="{{ action('Guide\PageController@showPage', ['page' => 'academic-year']) }}" id="link-sac">CTU &amp; Useful information</a></li>
-                        <li class="col-sm-4"><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa']) }}" id="link-lip">Czech it out!</a></li>
+                        <li class="col-sm-3"><a href="{{ action('Guide\PageController@showPage', ['page' => 'introduction']) }}" id="link-aya">First steps</a></li>
+                        <li class="col-sm-3"><a href="{{ action('Guide\PageController@showPage', ['page' => 'academic-year']) }}" id="link-sac">CTU &amp; Useful information</a></li>
+                        <li class="col-sm-3"><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa']) }}" id="link-lip">Czech it out!</a></li>
+                        <li class="col-sm-3"><a href="{{ action('Guide\PageController@showPage', ['page' => 'isc-intro']) }}" id="link-esn">ISC &amp; ESN</a></li>
                     </ul>
                 </div>
             </div>

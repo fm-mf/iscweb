@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\View;
 class PageController extends Controller
 {
     private $firstStepsSubpages = ['introduction', 'welcome-pack', 'orientation-week', 'cards', 'kos', 'eduroam'];
-    private $aboutCtuSubpages = ['academic-year', 'campus', 'dormitories', 'isc-esn'];
+    private $aboutCtuSubpages = ['academic-year', 'campus', 'dormitories'];
     private $czechItOutSubpages = ['visa', 'visa-example-pictures', 'health-care', 'living-in-prague', 'transportation', 'money-exchange', 'post-office', 'phone', 'culture-shock', 'czech-phrases', 'funny-facts'];
+    private $iscEsnSubpages = ['isc-intro', 'esn-intro', 'esn-partners'];
 
     public function showPage($page = "")
     {
@@ -61,6 +62,8 @@ class PageController extends Controller
             $with += ['aboutCtu' => ''];
         } else if (in_array($page, $this->czechItOutSubpages)) {
             $with += ['czechItOut' => ''];
+        } else if (in_array($page, $this->iscEsnSubpages)) {
+            $with += ['iscEsn' => ''];
         }
         $with += ['active' => $page];
         return view($viewName)->with($with);
