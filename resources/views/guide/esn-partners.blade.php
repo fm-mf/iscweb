@@ -4,8 +4,12 @@
 
 @section('content')
     <section id="partners">
-        <h1>ESN partnership</h1>
-
+        <h1>ESN & ISC partners</h1>
+        <p> Use your ESNcard and take advantage of these offers.
+          For more discounts all over Europe check the <a href="https://esncard.org" target="_blank">ESNcard.org</a>.
+          Register your ESNcard there! (Especially useful if you want to travel with Ryanair.)</p>
+        <p>You do not have your ESNcard yet? Become an <a href="https://isc.cvut.cz/guide/isc-intro" target="_blank">ISC member</a>!
+        </p>
         <h2>Vodafone</h2>
         <img src="{{ asset('img/guide/partners/logo-vodafone-2.png') }}" />
         <p>Stay in touch with your Erasmus friends and obtain a SIMcard with a favorable
