@@ -13,6 +13,8 @@
             in the 21st century, thereby contributing to a better quality of education world-wide
             through creating a unique partnership among university students
             and sustaining the mutual understanding of our cultural differences.</p>
+
+            <p>Since 2003, International Student Club CTU in Prague is a proud member of ESN Czech Republic</p>
         <img src="{{ asset('img/saf/logo-isc-vertikalni-barevne.svg') }}" alt="Logo ISC CTU in Prague" title="Logo ISC CTU in Prague" />
 
     </section>

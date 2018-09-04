@@ -20,6 +20,6 @@
           Our mission is to foster student mobility in Higher Education under the principle of Students Helping Students.
           All together sections of ESN CZ (18 sections in total) help roughly 10 000 international students every academic year.
           ESN CZ represents international students, thus provide opportunities for cultural understanding and self-development.</p>
-
+          <p>Since 2003, International Student Club CTU in Prague is a proud member of ESN Czech Republic</p>
           <img src="{{ asset('img/saf/logo-esn.png') }}" alt="Logo ESN" title="Logo ESN" />
 @stop
