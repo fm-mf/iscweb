@@ -14,7 +14,7 @@
             through creating a unique partnership among university students
             and sustaining the mutual understanding of our cultural differences.</p>
         <img src="{{ asset('img/saf/logo-isc-vertikalni-barevne.svg') }}" alt="Logo ISC CTU in Prague" title="Logo ISC CTU in Prague" />
-        <img src="{{ asset('img/saf/logo-esn.png') }}" alt="Logo ESN" title="Logo ESN" />
+
     </section>
 
     <h2>Activities and events you can participate in with ISC</h2>
