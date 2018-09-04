@@ -12,12 +12,14 @@
         We have around 15,000 active members that are in many sections (ISC CTU in Prague is one of them)
         supported by so called buddies taking care of international students.
         Thus, ESN involves around 40,000 young people offering its services to around 220,000 international students every year.</p>
-        <img src="{{ asset('img/saf/logo-esn.png') }}" alt="Logo ESN" title="Logo ESN" />
 
-      <h2>Erasmus Student Network</h2>
+
+      <h2>Erasmus Student Network Czech Republic</h2>
         <p>Erasmus Student Network Czech Republic (ESN CZ) is a non-for-profit student organisation representing
           local ESN sections on the national level.
           Our mission is to foster student mobility in Higher Education under the principle of Students Helping Students.
           All together sections of ESN CZ (18 sections in total) help roughly 10 000 international students every academic year.
           ESN CZ represents international students, thus provide opportunities for cultural understanding and self-development.</p>
+
+          <img src="{{ asset('img/saf/logo-esn.png') }}" alt="Logo ESN" title="Logo ESN" />
 @stop
