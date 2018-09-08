@@ -47,8 +47,10 @@
 
         <h2>Leo Express</h2>
         <img src="{{ asset('img/guide/partners/leo.jpg') }}" />
-        <p>Take the advantage of travelling on-board Leo Express connections with up to <strong>15 % discount</strong> for all students with valid ESNcard.
+        <p>If you are a student, take the advantage of travelling on-board Leo Express with <strong>75 % discount</strong>. (You will need to prove your student status.)
+          As a non-student, use your ESNcard to obtain a <strong> 25 % cash-back from the bought ticket.</strong>
            Enjoy comfortable and fast connections with outstanding services on all lines!</p>
+
         <p> Leo Express operates trains, buses and minibuses
            in 7 European countries such as Czech Republic, Slovakia, Germany, Austria, Poland, Ukraine. </p>
         <p><a href="https://esncard.org/discount/leo-express-1" target="_blank">https://esncard.org/discount/leo-express-1</a></p>
