@@ -13,7 +13,7 @@
                     This privacy Policy summarise how we, International Student Club CTU in Prague, z. s.,
                     Thákurova 550/1, 160 00 Praha 6, IČO: 22841032, uses the information that you provide us during
                     the registration to the Buddy database in combination with information we obtained from
-                    České vysoké učení technické v Praze, Zikova 1903/4, 166 36 Praha 6, IČO 68407700.
+                    České vysoké učení technické v Praze, Jugoslávských partyzánů 1580/3, 160 00 Praha 6 - Dejvice, IČO 68407700.
                 </p>
 
                 <p>We collect the following information about you:</p>
