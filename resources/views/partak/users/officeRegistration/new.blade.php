@@ -25,7 +25,7 @@
                         {{ Form::bsText('esn_card_number', 'ESN card number') }}
                         {{ Form::bsSelect('id_faculty', 'Faculty', $faculties,null, ['placeholder' => 'Choose faculty...', 'required' =>'required']) }}
                         {{ Form::bsSelect('id_accommodation', 'Accommodation', $accommodations, null, ['placeholder' => 'Choose accommodation...', 'required' =>'required']) }}
-                        {{ Form::bsSelect('id_country', 'County', $countries, null, ['placeholder' => 'Choose country...', 'required' =>'required']) }}
+                        {{ Form::bsSelect('id_country', 'Country', $countries, null, ['placeholder' => 'Choose country...', 'required' =>'required']) }}
 
                         {{ Form::label('fullTime', 'Full-time student', ['class' => 'control-label']) }}
                         {{ Form::checkbox('fullTime', 'y') }}
