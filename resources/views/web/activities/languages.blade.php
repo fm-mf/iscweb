@@ -3,12 +3,12 @@
     <div class="container subpage">
         <ul class="row list-unstyled contacts">
             <li class="col-md-4 col-sm-6 col-md-offset-4">
-                <img src="{{ asset('img/web/contacts/2018-spring/languages-kacka.jpg') }}" class="img-circle">
+                <img src="{{ asset('img/web/contacts/male-silhouette-150.jpg') }}" class="img-circle">
                 <div class="contact-details">
-                    <h4>Kateřina Čermáková</h4><br>
+                    <h4>Marek Stehlík</h4><br>
                     <strong>Languages Coordinator</strong><br>
                     Email: <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a><br>
-                    Phone: <a href="tel:+420 775 381 406">+420 775 381 406</a><br>
+                    {{--Phone: <a href="tel:+420 775 381 406">+420 775 381 406</a><br>--}}
                 </div>
                 <span class="clearfix"></span>
             </li>
@@ -24,12 +24,13 @@
                 <p>Take advantage of our free language courses! The courses are taught by you -
                     Erasmus and exchange students, Czech students and foreigners living in Prague.
                     They are <strong>free of charge</strong>, fun, and no registration is needed.
-                    Language courses for Spring semester 2018 start on Monday, 5 March.
-                    The schedule will be updated on Friday, 2 March. The courses take place in the
+                    Language courses for Fall semester 2018 start on Monday, 15 October.
+                    The schedule will be updated on Saturday, 13 October. The courses take place in the
                     Masarykova dormitory and at Strahov, block 8.
                     <br><br>
                     <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">
-                        Have a look at the <b>Spring 2018 schedule</b></a>
+                        Have a look at the <b>Fall 2018 schedule</b>
+                    </a>
                 </p>
                 <!-- <h2>Languages courses are over for this semester</h2> -->
                 <br><br>
@@ -51,8 +52,8 @@
                 <p>The main advantage of Tandem is that it will be just you two who will set the time and the intensity
                     of the courses! You can form as many couples as you wish. </p>
                 <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> and find your Tandem partner!</p>
-                <p>Come to the Tandem evening on Monday 12 February to the Storm club!
-                    See the <a href="https://www.facebook.com/events/2028061524116356/" target="_blank">facebook event</a>.</p>
+                <p>Come to the Tandem evening on Monday 24 September to the Storm club!
+                    {{--See the <a href="https://www.facebook.com/events/2028061524116356/" target="_blank">facebook event</a>.--}}</p>
 
                 <h2>CAFÉ LINGEA</h2>
                 <p>Café Lingea is a conversational meeting where we informally chat in different languages
@@ -63,11 +64,9 @@
 
                 <br>
 
-                <!--
-                <h2 class="align-center">OVERVIEW OF THE SPRING 2016 EVENTS</h2>
-    -->
+                {{--<h2 class="align-center">OVERVIEW OF THE SPRING 2016 EVENTS</h2>--}}
 
-                <!-- -------------- rozvrh languages eventů ---------------------->
+                {{---------------- rozvrh languages eventů ----------------}}
                 @if(isset($langEvents) && $langEvents->count() > 0)
                     <table class="presentations-list">
                         <thead>
@@ -100,7 +99,7 @@
 
 
 
-                <p>You can have a look at the <a href="{{ asset('/files/languages-schedule.php') }}" target="_blank">Spring 2018 schedule</a>.</p>
+                <p>You can have a look at the <a href="{{ asset('/files/languages-schedule.php') }}" target="_blank">Fall 2018 schedule</a>.</p>
                 <!-- <p>Schedule for upcoming semester will be available in first week of the semester</p> -->
                 <p>Our currently offered courses will end according to every teachers' wish or latest at the end of June.
                     Schedule for the autumn courses shall be published in October 2018.

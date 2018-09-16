@@ -17,7 +17,7 @@ header("Pragma: no-cache");
 <body>
 
 <h3>ISC Language Courses</h3>
-<p>International Student Club CTU in Prague offers, among many other activities, language courses. The courses are taught by native speakers - Erasmus and exchange students, Czech students and foreigners living in Prague. They are free of charge, fun, and no registration is needed. For more information visit the <a href="https://www.isc.cvut.cz/activities/language-programs#content">ISC Languages homepage</a>.</p>
+<p>International Student Club CTU in Prague offers, among many other activities, language courses. The courses are taught by native speakers - Erasmus and exchange students, Czech students and foreigners living in Prague. They are free of charge, fun, and no registration is needed. The courses usually begin in the 3rd week of semester. For more information visit the <a href="https://www.isc.cvut.cz/activities/language-programs#content">ISC Languages homepage</a>.</p>
 <h4>Where can you find our rooms?</h4>
 <ul>
 <li><b>B305</b> is located on the 3rd floor of the <a href="https://goo.gl/maps/1h6dDpSfseR2" target="_blank">Masarykova dormitory</a> near ISC Point.
