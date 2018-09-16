@@ -78,7 +78,7 @@
 
     <p class="bg-info">Note : If you are studying for a degree awarded by CTU, your contact person is always your Faculty coordinator.</p>
 
-    <h3>Faculties, Institutes &amp; Contact persons</h3>
+   {{-- <h3>Faculties, Institutes &amp; Contact persons</h3>
     <dl>
         <dt>Faculty of Civil Engineering</dt>
             <dd><a href="http://stuk.fsv.cvut.cz/wp-content/uploads/2016/03/plánek-fakulty-se-studijními-prostory.jpg" target="_blank">Map of the faculty</a></dd>
@@ -117,11 +117,11 @@
         <dt>Faculty of Transportation Sciences</dt>
             <dd><a href="https://www.fd.cvut.cz/english/faculty/contacts.html" target="_blank">Contacts &amp; buildings</a></dd>
             <dd>Konviktska 20, Prague 1, 110 00</dd>
-            <dd>{{-- TODO --}}, office: 204</dd>
-            <dd>Study Department</dd>
+            <dd>{{-- TODO --}},{{-- office: 204</dd> --}
+           {{-- <dd>Study Department</dd>
             <dd>Phone: <a href="tel:+420 224 359 540">+420 224 359 540</a></dd>
-            <dd>Email: <a href="mailto:{{-- TODO --}}">{{-- TODO --}}</a></dd>
-        <dt>Faculty of Biomedical Engineering</dt>
+            <dd>Email: <a href="mailto:{{-- TODO --}}{{--">--}}{{-- TODO --}}{{--</a></dd>--}}
+        {{--<dt>Faculty of Biomedical Engineering</dt>
             <dd><a href="http://en.fbmi.cvut.cz/information-for-students/prospective-full-time-students/rooms-and-classrooms" target="_blank">Classrooms location</a></dd>
             <dd>Náměstí Sítná 3105, Kladno 2, 272 01</dd>
             <dd>Lucie Kulhankova, office: B-506</dd>
@@ -141,7 +141,7 @@
             <dd>Department for International Cooperation</dd>
             <dd>Phone: <a href="tel:+420 224 353 153">+420 224 353 153</a></dd>
             <dd>Email: <a href="mailto:katerina.zelenkova@cvut.cz">katerina.zelenkova@cvut.cz</a></dd>
-    </dl>
+    </dl> --}}
 
     <dl>
         <dt>For private (self-paying) students, seeking a CTU degree</dt>
