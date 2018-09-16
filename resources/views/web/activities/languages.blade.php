@@ -53,7 +53,7 @@
                     of the courses! You can form as many couples as you wish. </p>
                 <p>Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a> and find your Tandem partner!</p>
                 <p>Come to the Tandem evening on Monday 24 September to the Storm club!
-                    {{--See the <a href="https://www.facebook.com/events/2028061524116356/" target="_blank">facebook event</a>.--}}</p>
+                    See the <a href="https://www.facebook.com/events/250884968948876/" target="_blank">facebook event</a>.</p>
 
                 <h2>CAFÉ LINGEA</h2>
                 <p>Café Lingea is a conversational meeting where we informally chat in different languages
