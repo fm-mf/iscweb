@@ -50,12 +50,49 @@
 
     <h2 id="transportation-card">Public transportation card</h2>
     <p>You can buy a PID pass with a season paper ticket, buy a season paper ticket with your University ID card or buy a Lítačka electronic card.</p>
-
+    <p><b>There will be a change in prices of long-term tickets. We recommend you to buy a one-month ticket now and then the one for a longer period. See the comparison table bellow for more information.</b></p>
+    <h3>Single tickets</h3>
+    <p>Before you get the card, a single tickets can be obtained at vending machines, at newsagents and tobacconists (<b>before</b> you get in the bus/tram/metro, also do not forget to <b>stamp it</b>)</p>
     <h3>PID pass + season paper ticket</h3>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/pid-pass-vs.jpg') }}" alt="PID pass" title="PID pass" /> + <img src="{{ asset('img/guide/season-paper-ticket-30-days.jpg') }}" alt="PID season ticket" title="PID season ticket" /></li>
         <li><strong>Price: CZK 20</strong> (for a PID pass) + <strong><a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></strong></li>
     </ul>
+
+    <table>
+        <thead>
+            <td>TICKET TYPE<br>ELECTRONIC/PAPER</td>
+            <td>Fares until<br>1st of October</td>
+            <td>Fares after<br>1st of October</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>monthly/30-days</td>
+                <td>260 CZK</td>
+                <td>130 CZK</td>
+            </tr>
+            <tr>
+                <td>quarterly/90-days</td>
+                <td>720 CZK</td>
+                <td>360 CZK</td>
+            </tr>
+            <tr>
+                <td>5-monthly/150-days</td>
+                <td>1200 CZK</td>
+                <td>canceled</td>
+            </tr>
+            <tr>
+                <td>10-monthly/300-days</td>
+                <td>2400 CZK</td>
+                <td>canceled</td>
+            </tr>
+            <tr>
+                <td>1-year/365-days</td>
+                <td>-</td>
+                <td>1280 CZK</td>
+            </tr>
+        </tbody>
+    </table>
 
     <h3>Season paper ticket with your University ID card</h3>
     <p class="bg-info">Note: Only for students under the age of 26</p>

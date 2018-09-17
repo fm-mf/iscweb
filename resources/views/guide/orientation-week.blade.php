@@ -45,14 +45,14 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h3>Initial information meeting</h3>{{--
+            <h3>Initial information meeting</h3>
             <ul class="list-unstyled">
-                <li>When: <strong>10:30</strong> - 15:00</li>
+                <li>When: <strong>11:00</strong> - 14:30</li>
                 <li>Where: <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>The Bethlehem Chapel</strong> (Betlémské náměstí 255/4, Praha 1)</a></li>
                 <li>Meeting points:
                     <ul>
-                        <li>9:00 at Strahov (bus stop Koleje Strahov)</li>
-                        <li>9:30 in the lobby of the Masarykova dormitory</li>
+                        <li>9:30 at Strahov (bus stop Koleje Strahov)</li>
+                        <li>10:00 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
                 <li>Topics:
@@ -67,13 +67,13 @@
                         <li>Visa regulations</li>
                     </ul>
                 </li>
-            </ul>--}}
+            </ul>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>Tandem Evening</h3>
-            <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>{{--
+            <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
             <ul class="list-unstyled">
                 <li>When: 20:00</li>
                 <li>Where: <a href="https://goo.gl/maps/qgZJ57LcLtM2" target="_blank">Storm Club (Tachovské náměstí 290/5, Prague 3)</a></li>
@@ -84,7 +84,7 @@
                     </ul>
                 </li>
                 <li>See: <a href="{{ url('activities/language-programs') }}" target="_blank">{{ url('activities/language-programs') }}</a></li>
-            </ul>--}}
+            </ul>
         </div>
     </div>{{--
     <div class="row">
@@ -140,9 +140,9 @@
                 </li>--}}
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
-                        <li>The green <strong>study record book</strong> from the Welcome Pack</li>
                         <li>A passport photo</li>
                         <li>A pen</li>
+                        <li>Check the meeting points</li>
                     </ul>
                 </li>
                 <li>You will get:
@@ -157,17 +157,17 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h3>Second information meeting</h3>{{--
+            <h3>Second information meeting</h3>
             <ul class="list-unstyled">
-                <li>When: <strong>15:30</strong></li>
-                <li>Where: Faculty of Electrical Engineering, room 256 and 358</li>
+                <li>When: <strong>14:30</strong></li>
+                <li>Where: at Congress Hall of the Masarykova Dormitory</li>
                 <li>Topics:
                     <ul>
                         <li>Presentation of ISC trips</li>
                         <li>Registrations for trips organized for days 4&ndash;7 (<strong>ESNcard + cash needed</strong>)</li>
                     </ul>
                 </li>
-            </ul>--}}
+            </ul>
         </div>
     </div>{{--
     <div class="row">
@@ -190,12 +190,12 @@
 
     <div class="row">
         <h2>DAY 3 – Wednesday (26 September)</h2>
-    </div>{{--
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>Registration at some faculties</h3>
             <ul class="list-unstyled">
-                <li>When: TBA (more information in the presentations on the first day)
+                <li>When: TBA (more information in the presentations on the first day){{--
                     <ul>
                         <li>9:00 &ndash; <abbr title="Faculty of Mechanical Engineering">FME</abbr>, <abbr title="Faculty of Electrical Engineering">FEE</abbr>, <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
                     </ul>
@@ -221,7 +221,7 @@
                         <li>Your schedule</li>
                         <li>Your email account</li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
@@ -236,42 +236,43 @@
                 <li>How do I ask for beer in Czech? How do I pronounce &quot;ř&quot; and other strange letters? And if I want to say &quot;hi, bye, thanks, please&quot;, and more in Czech, what are the proper words?</li>
             </ul>
         </div>
-    </div>--}}
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>Prague Discovery Game</h3>
-            <p>A great treasure hunt across Prague organized by the ISC Activities team</p>{{--
+            <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
             <ul class="list-unstyled">
                 <li>When: <strong>13:00</strong></li>
-                <li>Where: Faculty of Electrical Engineering, room 256 and 358</li>
-            </ul>--}}
+                <li>Where: Faculty of Mechanical Engineering, room T4:D2-256 and 358</li>
+            </ul>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>inteGREATion party</h3>
-            <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>{{--
+            <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
             <ul class="list-unstyled">
                 <li>When: 21:00</li>
-                <li>Where: <a href="https://goo.gl/maps/QHss48kzDon" target="_blank">Rock Café (Národní 116/20, Praha 1)</a></li>
+                <li>Where: <a href="https://goo.gl/maps/LANoqspoi362" target="_blank">PM Club (Trojická 1907/10)</a></li>
                 <li>Meeting points:
                     <ul>
                         <li>20:30 at bus stop Koleje Strahov</li>
                         <li>20:30 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
-            </ul>--}}
+                <li>Topics: get to know each other at the very first ISC inteGREAT party and have fun</li>
+            </ul>
         </div>
     </div>
 
     <div class="row">
         <h2>DAY 4–7 – Thursday to Sunday (27–30 September) </h2>
     </div>
-{{--
+
     <div class="row">
         <div class="col-lg-12">
             <h3>Registration at some faculties (on Thursday, 15 February)</h3>
-            <ul class="list-unstyled">
+            {{-- <ul class="list-unstyled">
                 <li>When:
                     <ul>
                         <li>13:30 &ndash; <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
@@ -300,6 +301,8 @@
             </ul>
         </div>
     </div>--}}
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>Trips around the Czech Republic</h3>

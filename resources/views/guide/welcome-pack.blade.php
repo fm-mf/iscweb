@@ -14,8 +14,7 @@
             Materials from CTU
             <ul>
                 <li>Dorm regulations</li>
-                <li>Public transportation pass forms</li>
-                <li>Study record book</li>
+                <li>Public transportation pass form</li>
                 <li>How to connect to EDUROAM</li>
                 <li>Health and safety regulations</li>
                 <li>New map of the CTU campuses</li>
@@ -29,7 +28,7 @@
                 <li>ISC activities booklet including a list of trips</li>
             </ul>
         </li>
-        <li>small gifts</li>
+        <li>Small gifts</li>
         <li>USE-IT map of Prague</li>
     </ul>
     <h2>How to get to the ISC Point</h2>
