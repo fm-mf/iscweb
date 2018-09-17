@@ -6,12 +6,12 @@
                 <h3><span>{{ student.person.last_name }}</span>, {{ student.person.first_name }} ({{student.id_user}})</h3>
                 <small>{{ student.person.user.email }}</small>
                 <div class="form-goup">
-                    <label for="esn">ESN Card Number</label>
-                    <input type="text" name="esn" id="esn" v-model="esn" class="form-control">
-                </div>
-                <div class="form-goup">
                     <label for="phone">Phone</label>
                     <input type="text" name="phone" id="phone" v-model="phone" class="form-control">
+                </div>
+                <div class="form-goup">
+                    <label for="esn">ESN Card Number</label>
+                    <input type="text" name="esn" id="esn" v-model="esn" class="form-control">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-warning" @click="save">Save</button>
