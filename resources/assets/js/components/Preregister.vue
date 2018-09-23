@@ -17,7 +17,7 @@
             this.update();
         }
 
-        update($limit = 5)
+        update($limit = 30)
         {
             var _this = this;
             $.ajaxSetup({
