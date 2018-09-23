@@ -6,10 +6,10 @@
  * Time: 20:10
  */
 
-namespace App\Settings;
+namespace App\Facades;
 
 
-class Facade extends \Illuminate\Support\Facades\Facade
+class Settings extends \Illuminate\Support\Facades\Facade
 {
     /**
      * {@inheritDoc}

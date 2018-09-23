@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Stats;
 use App\Models\Country;
 use App\Models\ExchangeStudent;
 use App\Models\Trip;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class StatsController extends Controller
     public function showStatistics()
     {
         App::setLocale('cs');
-        $currentSemester = Settings::get('currentSemester');
+            $currentSemester = Settings::get('currentSemester');
         $countriesStates = Country::withCount(['exchangeStudent' => function($query) use ($currentSemester) {
             $query->byUniqueSemester($currentSemester);
         }])->having('exchange_student_count', '>', 0)

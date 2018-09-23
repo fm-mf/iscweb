@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Buddyprogram;
 
 use App\Models\Arrival;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use App\Models\Accommodation;
 use App\Models\Buddy;
 use App\Models\Country;

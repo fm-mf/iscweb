@@ -15,7 +15,7 @@ use App\Models\Languages_event;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;

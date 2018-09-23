@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Mail\NoBuddyEmail;
 use App\Models\ExchangeStudent;
 use Illuminate\Console\Command;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use Illuminate\Support\Facades\Mail;
 
 class SendEmailNoBuddy extends Command

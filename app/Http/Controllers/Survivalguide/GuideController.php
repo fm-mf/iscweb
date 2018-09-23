@@ -7,7 +7,7 @@
  */
 namespace App\Http\Controllers\Survivalguide;
 
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

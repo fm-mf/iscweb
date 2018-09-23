@@ -12,10 +12,9 @@ use App\Models\Event;
 use App\Models\Integreat_party;
 use App\Models\Languages_event;
 use App\Models\Semester;
-use App\Settings\Facade as Settings;
-use App\Models\ExchangeStudent;
+use App\Facades\Settings;
+use App\Facades\Contacts;
 use Carbon\Carbon;
-use Hamcrest\Core\Set;
 
 class WebController extends Controller
 {
@@ -74,10 +73,7 @@ class WebController extends Controller
     public function redirectToElectionStream()
     {
         $streamUrl = Settings::get('electionStreamUrl');
-        if ($streamUrl != "") {
-            return redirect($streamUrl);
-        }
-        return redirect(url('/'));
+        return redirect($streamUrl == "" ? url('/') : $streamUrl);
     }
 
     private function getContactsArray()

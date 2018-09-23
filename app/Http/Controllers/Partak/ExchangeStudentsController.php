@@ -10,7 +10,7 @@ use App\Models\Accommodation;
 use App\Models\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;

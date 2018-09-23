@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;

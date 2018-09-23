@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Settings;
+namespace App\Helpers;
 
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 use Illuminate\Support\Facades\Cache;

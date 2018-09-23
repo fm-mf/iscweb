@@ -10,7 +10,7 @@ use App\Models\ExchangeStudent;
 use App\Models\Country;
 use App\Models\Vote;
 
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 
 class VotingController extends Controller
 {

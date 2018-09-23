@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use App\Mail\VotingMail;
 use App\Mail\VotingMailPartak;
 use App\Models\ExchangeStudent;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Guide;
 
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 use App\Models\ExchangeStudent;
 use Illuminate\Support\Facades\View;
 

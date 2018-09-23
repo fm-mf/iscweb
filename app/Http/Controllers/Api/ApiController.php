@@ -12,7 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
-use App\Settings\Facade as Settings;
+use App\Facades\Settings ;
 
 class ApiController extends Controller
 {
