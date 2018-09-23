@@ -29,7 +29,7 @@ Route::get('/owstats', 'Stats\StatsController@showOwTripsStatistics');
 
 Route::get('/visa', function() {
    //return redirect('https://goo.gl/forms/4VyVa30v0estkh293');
-    return redirect('https://docs.google.com/forms/d/e/1FAIpQLSclswh6diMKN0O5TuCQiuqR8kdkXqdhkntKdv5e-f0znyx-bg/viewform');
+    return redirect('https://goo.gl/forms/BW8h8dEB58xdcqk03');
 });
 
 
