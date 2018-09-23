@@ -180,6 +180,7 @@ return [
         App\Providers\FormServiceProvider::class,
         App\Providers\SettingsProvider::class,
         //App\Providers\AclServiceProvider::class,
+        App\Providers\ContactsProvider::class,
 
     ],
 
@@ -232,7 +233,9 @@ return [
 
 		'Input' => Illuminate\Support\Facades\Input::class,
 
-        'Settings' => App\Settings\Facade::class,
+        'Settings' => App\Facades\Settings::class,
+
+        'Contacts' => App\Facades\Contacts::class,
 
     ],
 

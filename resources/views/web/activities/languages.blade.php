@@ -3,12 +3,14 @@
     <div class="container subpage">
         <ul class="row list-unstyled contacts">
             <li class="col-md-4 col-sm-6 col-md-offset-4">
-                <img src="{{ asset('img/web/contacts/male-silhouette-150.jpg') }}" class="img-circle">
+                <img src="{{ $contact['avatar'] }}" class="img-circle">
                 <div class="contact-details">
-                    <h4>Marek Stehlík</h4><br>
-                    <strong>Languages Coordinator</strong><br>
-                    Email: <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a><br>
-                    {{--Phone: <a href="tel:+420 775 381 406">+420 775 381 406</a><br>--}}
+                    <h4>{{ $contact['name'] }}</h4><br>
+                    <strong>{{ $contact['position'] }}</strong><br>
+                    Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
+                    @if(mb_strlen($contact['phone']) === 16)
+                        Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
+                    @endif
                 </div>
                 <span class="clearfix"></span>
             </li>
