@@ -11,8 +11,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
+/**
+ * To use this script, the client must always provide following fields in the body of the request:
+ * - username
+ * - password
+ * - action
+ *
+ * Failing to provide any of the fields will result into an error response.
+ * Furthermore, the [username] and [password] must match the values below and
+ * [action] must be one of 'load', 'register', 'unregister' or 'refresh'
+ */
 class TripsAppController extends Controller
 {
+
+    // PHP credentials, used by client app (such as the android app) to authenticate itself to use this script
     const APP_USERNAME = 'isc';
     const APP_PASSWORD = 'trips999';
 
@@ -23,6 +35,9 @@ class TripsAppController extends Controller
     const USER_ID_KEY = 'user_id';
     const TRIP_ID_KEY = 'trip_id';
 
+    // Query actions
+    const ACTION_PING = 'ping';
+    const ACTION_TRIPS = 'trips';
     const ACTION_LOAD = 'load';
     const ACTION_REGISTER = 'register';
     const ACTION_UNREGISTER = 'unregister';
@@ -35,25 +50,25 @@ class TripsAppController extends Controller
     const STATUS_SUCCESS = 'success';
     const STATUS_ERROR = 'error';
 
-    const ERR_AUTHENTICATION = 'AUTH';
-    const ERR_DATABASE = 'DB';
-    const ERR_INTERNAL = 'INTERNAL';
-    const ERR_CARD = 'CARD';
-
     public function index(Request $request)
     {
-
-
         if (!$this->authenticate($request)) {
-            return $this->generateErrror(self::ERR_AUTHENTICATION);
+            return $this->generateErrror(401 /* Unauthorized */, "Invalid credentials.");
         }
 
         if (!$request->has(self::ACTION_KEY)) {
-            return $this->generateErrror(self::ERR_INTERNAL);
+            return $this->generateErrror(400 /* Bad request */, "Missing action.");
         }
 
-        switch ($request->get(self::ACTION_KEY)) {
-            case self::ACTION_LOAD :
+        $action = $request->get(self::ACTION_KEY);
+        switch ($action) {
+            case self::ACTION_PING:
+                return response()->make();
+                break;
+            case self::ACTION_TRIPS:
+                return $this->trips($request);
+                break;
+            case self::ACTION_LOAD:
                 return $this->load($request);
                 break;
             case self::ACTION_REGISTER:
@@ -66,22 +81,38 @@ class TripsAppController extends Controller
                 return $this->refresh($request);
                 break;
             default:
-                return $this->generateErrror(self::ERR_INTERNAL);
+                return $this->generateErrror(400 /* Bad request */, "Invalid action '" . $action ."'.");
         }
+    }
+
+    public function trips(Request $request)
+    {
+        // TODO: actually implement full trips request
+        return $this->refresh($request);
     }
 
     public function load(Request $request)
     {
         if (!$request->has(self::CARD_NUMBER_KEY)) {
-            return $this->generateErrror(sefl::ERR_CARD);
+            return $this->generateErrror(400 /* Bad request */, "Missing card number.");
         }
 
         $cardNumber = $request->get(self::CARD_NUMBER_KEY);
+        $exStudents = ExchangeStudent::where('esn_card_number', $cardNumber);
+
+        if ($exStudents->count() > 1) {
+            return $this->generateErrror(500 /* Internal error */, "Card number not unique.");
+        }
+
+        if ($exStudents->count() < 1) {
+            return $this->generateErrror(400 /* Bad request */, "Card number not registered.");
+        }
+
         $exStudent = ExchangeStudent::where('esn_card_number', $cardNumber)->first();
 
-        if (!$exStudent) {
-            return $this->generateErrror(self::ERR_CARD);
-        }
+//        if (!$exStudent) {
+//            return $this->generateErrror(self::ERR_CARD);
+//        }
 
         return response()->json([
             self::FIELD_STATUS => self::STATUS_SUCCESS,
@@ -99,28 +130,29 @@ class TripsAppController extends Controller
     public function register(Request $request)
     {
         if (!$request->has(self::USER_ID_KEY) || !$request->has(self::TRIP_ID_KEY)) {
-            return $this->generateErrror(self::ERR_INTERNAL);
+            return $this->generateErrror(400 /* Bad request */, "Missing user ID or trip ID.");
         }
 
         $userId = $request->get(self::USER_ID_KEY);
         $tripId = $request->get(self::TRIP_ID_KEY);
 
-        $trip = Trip::find($tripId);
-        if ($trip->addParticipant($userId, false /*allowStandIn*/) == Trip::REGULAR_PARTICIPANT) {
+        $dbResult = Trip::find($tripId)->addParticipant($userId, false /*allowStandIn*/);
+        if ($dbResult == Trip::REGULAR_PARTICIPANT) {
             return response()->json([
                 self::FIELD_STATUS => self::STATUS_SUCCESS,
                 self::FIELD_DATA => [],
                 self::FIELD_TRIPS => $this->loadTrips($userId)
             ]);
         } else {
-            return $this->generateErrror(self::ERR_INTERNAL);
+            // TODO: handle all possible dbResult values
+            return $this->generateErrror(500 /* Internal error */, "Internal SQL error.");
         }
     }
 
     public function unregister(Request $request)
     {
         if (!$request->has(self::USER_ID_KEY) || !$request->has(self::TRIP_ID_KEY)) {
-            return $this->generateErrror(self::ERR_INTERNAL);
+            return $this->generateErrror(400 /* Bad request */, "Missing user ID or trip ID.");
         }
 
         $userId = $request->get(self::USER_ID_KEY);
@@ -139,7 +171,7 @@ class TripsAppController extends Controller
     public function refresh(Request $request)
     {
         if (!$request->has(self::USER_ID_KEY)) {
-            return $this->generateErrror(self::ERR_INTERNAL);
+            return $this->generateErrror(400 /* Bad request */, "Missing user ID.");
         }
         $userId = $request->get(self::USER_ID_KEY);
 
@@ -189,14 +221,14 @@ class TripsAppController extends Controller
         }
 
         $tripsNotRegistered = Trip::with('organizers.person', 'event')
-                ->whereHas('event', function ($query) {
-                    $query->where('datetime_from', '>', Carbon::now('Europe/Prague'))
-                            ->where('registration_from', '<=', Carbon::now('Europe/Prague'))
-                            ->whereIn('type', array('exchange', 'ex+buddy'));
-                })
-                ->whereDoesntHave('participants', function($query) use($userId) {
-                    $query->where('people.id_user', $userId);
-                })->get();
+            ->whereHas('event', function ($query) {
+                $query->where('datetime_from', '>', Carbon::now('Europe/Prague'))
+                    ->where('registration_from', '<=', Carbon::now('Europe/Prague'))
+                    ->whereIn('type', array('exchange', 'ex+buddy'));
+            })
+            ->whereDoesntHave('participants', function($query) use($userId) {
+                $query->where('people.id_user', $userId);
+            })->get();
 
         foreach ($tripsNotRegistered as $trip) {
             $insertTrip($trip, 'n');
@@ -206,11 +238,12 @@ class TripsAppController extends Controller
     }
 
 
-    private function generateErrror($type)
+    private function generateErrror($code, $message)
     {
+        http_response_code($code);
         $result = [];
-        $result[self::FIELD_STATUS] = self::STATUS_ERROR;
-        $result[self::FIELD_TYPE] = $type;
+        $result["status_code"] = $code;
+        $result["message"] = $message;
         return response()->json($result);
     }
 
