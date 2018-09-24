@@ -115,6 +115,11 @@
                 Note: <strong>This is only for Erasmus students and Exchange students</strong>. Self-funding students who are studying for a CTU degree, and also Erasmus Mundus students, please contact Faculty coordinators at your study department.
             </p>
             <p class="bg-warning">Please attend this registration event at your faculty. Do not treat it as optional.</p>
+	    <div class="row">
+		<div class="col-lg-12">
+		    <a href="{{ asset('/files/ow-presentations-fall-2018/registrations-at-faculties-meeting-points-fall-2018.pdf') }}">Meeting points - Tuesday</a>
+		</div>
+	    </div>
             <ul class="list-unstyled">{{--
                 <li>When:
                     <ul>
