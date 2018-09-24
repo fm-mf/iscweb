@@ -86,21 +86,24 @@
                 <li>See: <a href="{{ url('activities/language-programs') }}" target="_blank">{{ url('activities/language-programs') }}</a></li>
             </ul>
         </div>
-    </div>{{--
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>OW presentation Monday</h3>
             <ul class="list-unstyled">
-                <li><a href="{{ asset('/files/ow-presentations-spring-2018/ctu-czech-courses-spring-2018.pdf') }}" target="_blank">CTU &amp; Czech courses</a></li>
-                <li><a href="{{ asset('/files/ow-presentations-spring-2018/ctu-sports-spring-2018.pdf') }}" target="_blank">Sport at CTU</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-fall-2018/registrations-at-faculties-meeting-points-fall-2018.pdf') }}" target="_blank">Registrations at faculties</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-fall-2018/ctu-czech-courses-fall-2018.pdf') }}" target="_blank">CTU &amp; Czech courses</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-fall-2018/ctu-sports-fall-2018.pdf') }}" target="_blank">Sport at CTU</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-fall-2018/visa-fall-2018.pdf') }}" target="_blank">Visa</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-fall-2018/isc-fall-2018.pdf') }}" target="_blank">ISC &amp; ESN</a></li>
+                <li><a href="{{ asset('/files/ow-presentations-fall-2018/culture-fatigue-fall-2018.pdf') }}" target="_blank">Culture Shock</a></li>
+{{--
+                <li><a href="{{ asset('/files/ow-presentations-fall-2018/esn-fall-2018.pdf') }}" target="_blank">ESN</a></li>
+--}}
                 <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}" target="_blank">KOS manual</a></li>
-                <li><a href="{{ asset('/files/ow-presentations-spring-2018/visa-spring-2018.pdf') }}" target="_blank">Visa</a></li>
-                <li><a href="{{ asset('/files/ow-presentations-spring-2018/isc-spring-2018.pdf') }}" target="_blank">ISC</a></li>
-                <li><a href="{{ asset('/files/ow-presentations-spring-2018/esn-spring-2018.pdf') }}" target="_blank">ESN</a></li>
-                <li><a href="{{ asset('/files/ow-presentations-spring-2018/registrations-at-faculties-meeting-points-spring-2018.pdf') }}" target="_blank">Registrations at faculties</a></li>
             </ul>
         </div>
-    </div>--}}
+    </div>
 
     <div class="row">
         <h2>DAY 2 – Tuesday (25 September)</h2>
