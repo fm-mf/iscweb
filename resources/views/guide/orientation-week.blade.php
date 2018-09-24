@@ -230,7 +230,7 @@
             <h3>Czech Language Course</h3>
             <p>The Rectorate teacher of Czech, Eva dos Reis, will give you 90 minutes of exposure to the elementary stuff you better know NOW!</p>
             <ul class="list-unstyled">
-                <li>When: <strong>9:00&ndash;10:30 or <strong>11:00</strong>&ndash;12:30</strong></li>
+                <li>When: <strong>8:30&ndash;10:00 or <strong>10:30</strong>&ndash;12:00</strong></li>
                 <li class="bg-warning">Choose only one time, both of the lectures will be the same.</li>
                 <li>Where: CTU Rectorate (Jugoslávských partyzánů 3, Prague 6), building B, 6th floor, room 671</li>
                 <li>How do I ask for beer in Czech? How do I pronounce &quot;ř&quot; and other strange letters? And if I want to say &quot;hi, bye, thanks, please&quot;, and more in Czech, what are the proper words?</li>
