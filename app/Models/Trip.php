@@ -92,7 +92,7 @@ class Trip extends Model
         return $this->participants()->wherePivot('stand_in','y');
     }
 
-    public function addParticipant($idPart, $data, $allowStandIn = false)
+    public function addParticipant($userId, $data, $allowStandIn = false)
     {
         $standIn = $this->isFull() ? 'y' : 'n';
         if ($standIn == 'y' && !$allowStandIn) {
@@ -105,10 +105,10 @@ class Trip extends Model
             $registeredBy = 464;
         }
 
-        $part = $this->participants()->find($idPart);
-        $deletePart = $this->deletedParticipants()->find($idPart);
+        $part = $this->participants()->find($userId);
+        $deletePart = $this->deletedParticipants()->find($userId);
         if(isset($deletePart)) {    //if softDeleted, only update row
-            $this->deletedParticipants()->updateExistingPivot($idPart, [
+            $this->deletedParticipants()->updateExistingPivot($userId, [
                 'deleted_at' => null,
                 'deleted_by' => null,
                 'stand_in' => $standIn,
@@ -117,7 +117,7 @@ class Trip extends Model
                 'comment' => $data['comment'] ?? null,
             ]);
         } elseif(! isset($part)) {  //new participant
-            $this->participants()->attach($idPart, [
+            $this->participants()->attach($userId, [
                 'stand_in' => $standIn,
                 'registered_by' => $registeredBy,
                 'paid' => $data['paid'],
@@ -152,7 +152,6 @@ class Trip extends Model
 
     public function update(array $attributes = [], array $options = [])
     {
-
         $toSync = [];
         if (array_key_exists('organizers', $attributes))
         {
@@ -170,8 +169,6 @@ class Trip extends Model
         if(! array_key_exists('capacity', $attributes)) $attributes['capacity'] = 0;
         //dd($attributes);
         return parent::update(self::updateDatetimes($attributes), $options);
-
-
     }
 
     public function isOrganizer($id_user)
