@@ -19,7 +19,7 @@ use App\Http\Controllers\Controller;
  *
  * Failing to provide any of the fields will result into an error response.
  * Furthermore, the [username] and [password] must match the values below and
- * [action] must be one of 'load', 'register', 'unregister' or 'refresh'
+ * [action] must be one of 'ping', 'trips', 'load', 'register', 'unregister' or 'refresh'
  */
 class TripsAppController extends Controller
 {
@@ -308,7 +308,6 @@ class TripsAppController extends Controller
      */
     private function generateError($code, $message)
     {
-//        http_response_code($code);
         $result = [];
         $result["status_code"] = $code;
         $result["message"] = $message;
