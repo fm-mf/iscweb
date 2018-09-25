@@ -124,6 +124,7 @@ class TripsAppController extends Controller
             'first_name' => $exStudent->person->first_name,
             'last_name' => $exStudent->person->last_name,
             'sex' => $exStudent->person->sex,
+            'esn_card_number' => $cardNumber,
             'faculty' => $exStudent->faculty->faculty
         ];
 
@@ -144,7 +145,7 @@ class TripsAppController extends Controller
 
         $dbResult = Trip::find($tripId)->addParticipant($userId, false /*allowStandIn*/);
         if ($dbResult == Trip::REGULAR_PARTICIPANT) {
-            return $this->generateResponse([], $userId);
+            return $this->generateResponse(null, $userId);
         } else {
             // TODO: handle all possible dbResult values
             return $this->generateError(500 /* Internal error */, "Internal SQL error.");
@@ -166,7 +167,7 @@ class TripsAppController extends Controller
         $trip = Trip::find($tripId);
         $trip->removeParticipant($userId);
 
-        return $this->generateResponse([], $userId);
+        return $this->generateResponse(null, $userId);
     }
 
     /**
@@ -179,7 +180,7 @@ class TripsAppController extends Controller
         }
         $userId = $request->get(self::USER_ID_KEY);
 
-        return $this->generateResponse([], $userId);
+        return $this->generateResponse(null, $userId);
     }
 
     /**
@@ -213,7 +214,14 @@ class TripsAppController extends Controller
             ];
         };
 
-        $trips = Trip::with('organizers')->get();
+        // Display only trips that has not passed yet and registrations are opened.
+        $trips = Trip::with('organizers.person', 'event')
+            ->whereHas('event', function ($query) {
+                $query->where('datetime_from', '>', Carbon::now('Europe/Prague'))
+                    ->where('registration_from', '<=', Carbon::now('Europe/Prague'))
+                    ->whereIn('type', array('exchange', 'ex+buddy'));
+            })->get();
+
 
         foreach ($trips as $trip) {
             $appendTrip($trip);
@@ -253,17 +261,19 @@ class TripsAppController extends Controller
                 'trip_participants' => $trip->howIsFill(),
                 'registered' => $registered,
             ];
-
         };
 
-        $tripsRegistered = Trip::with('organizers')->whereHas('participants', function($query) use($userId) {
-            $query->where('people.id_user', $userId);
-        })->get();
+        // Display all the trips that the student has registered to, even if the events already passed.
+        $tripsRegistered = Trip::with('organizers')
+            ->whereHas('participants', function($query) use($userId) {
+                $query->where('people.id_user', $userId);
+            })->get();
 
         foreach ($tripsRegistered as $trip) {
             $insertTrip($trip, 'y');
         }
 
+        // Display only trips that has not passed yet and registrations are opened.
         $tripsNotRegistered = Trip::with('organizers.person', 'event')
             ->whereHas('event', function ($query) {
                 $query->where('datetime_from', '>', Carbon::now('Europe/Prague'))
