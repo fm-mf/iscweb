@@ -18,7 +18,7 @@
         <blockquote><p>Just play. Have fun. Enjoy the game.</p><p><small>Michael Jordan</small></p></blockquote>
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
-                <p>Do you like playing football, basketball, volleyball or even floorball?
+                <p>Do you like playing football, volleyball, floorball or even practicing yoga?
                     If you want to practice such sports even in Prague, you can do so every week
                     mostly at Juliska sport center &ndash; all you need is to check the current
                     situation (activities/sports on this website), come, and play.</p>
@@ -51,7 +51,7 @@
 
                 <h2 class="align-center">Schedule for Spring 2018 comming soon…</h2>
 --}}
-                <h2 class="align-center">Schedule for Spring 2018</h2>
+                <h2 class="align-center">Schedule for Fall 2018</h2>
 
                 <div class="container sports-list">
                     <ul class="row list-unstyled contacts">
