@@ -101,7 +101,7 @@ class Contacts
                 'avatar' => asset("{$contactImageFolder}/buddy-martin.jpg")
             ],
             [
-                'name' => 'Petr Fiedler',
+                'name' => 'Petr "Fíďa" Fiedler',
                 'position' => 'IT Coordinator',
                 'email' => 'it@isc.cvut.cz',
                 'phone' => '+420 608 990 369',
@@ -115,7 +115,7 @@ class Contacts
                 'avatar' => asset("{$contactImageFolder}/alumni-strudlic.jpg")
             ],
             [
-                'name' => '',
+                'name' => 'Branislav "Braňo" Benčík',
                 'position' => 'Sports Coordinator',
                 'email' => 'sports@isc.cvut.cz',
                 'phone' => '',
@@ -134,6 +134,13 @@ class Contacts
                 'email' => 'visa@isc.cvut.cz',
                 'phone' => '',
                 'avatar' => asset("{$contactImageFolder}/visa-lukas.jpg")
+            ],
+            [
+                'name' => 'Michal Kubina',
+                'position' => 'Trips Coordinator',
+                'email' => 'trips@isc.cvut.cz',
+                'phone' => '',
+                'avatar' => asset($maleSilhouette) 
             ]
         ]);
 
@@ -145,11 +152,9 @@ class Contacts
 
     public function getWebContacts()
     {
-        $contacts = $this->contacts->filter(function ($value, $key) {
+        return $this->contacts->filter(function ($value, $key) {
             return in_array($value['position'], $this->positions_to_display_in_contacts);
         });
-
-        return $contacts->shuffle();
     }
 
     public function getContactByPosition(string $position)
