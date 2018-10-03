@@ -28,7 +28,7 @@
                 <p>To enroll to any sport, follow partial instructions or just contact
                     the supervising person (instructor).
                     Some of the sports are for free, some are payed.</p>
-                <p>You can as well contact the Sports coordinator, <strong>Vojtěch Kubica</strong>
+                <p>You can as well contact the Sports coordinator, <strong>{{ $contact['name'] }}</strong>
                     (<a href="mailto:sports@isc.cvut.cz">sports@isc.cvut.cz</a>).
                     If you don't receive an answer, just write once again, please.</p>
                 <p>If you are missing a sport in the list of available sports,
@@ -57,25 +57,51 @@
                     <ul class="row list-unstyled contacts">
                         <li class="col-md-5 col-sm-6">
                             <h3>Football</h3>
-                            <b>When:</b> Sunday 21:00 &ndash; 23:00<br>
+                            <b>When:</b> Every week on Sunday 21:00 – 22:30<br>
+                            <b>Starting day:</b> 7. 10. 2018<br>
                             <b>Where:</b> <a href="https://goo.gl/maps/teK4WH75a2p" target="_blank">&quot;Pod Juliskou&quot; Sports Center</a> (Pod Juliskou 4, Prague 6)<br>
                             <b>Meeting point:</b> at 20:40 in the lobby of the <a href="https://goo.gl/maps/cV8kVJogz1F2" target="_blank">Masarykova dormitory</a><br>
                             <b>Price:</b> CZK 50, for ISC members CZK 30<br>{{--
                             <b>Contact person:</b> Felix Richardson<br>--}}
-                            <b>What to bring:</b> indoor shoes and sport clothes<br>
+                            <b>What to bring:</b> indoor shoes and sportswear<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/1494986440518838/" target="_blank">join our group</a>
                         </li>
 
                         <li class="col-md-5 col-sm-6">
-                            <h3>Tennis</h3>
-                            <b>When:</b> Sunday 18:00 &ndash; 19:00<br>
-                            <b>Where:</b> <a href="https://goo.gl/maps/qgU164AewvM2" target="_blank">Kotlářka Sport center</a> (Na Kotlářce 7, Prague 6)<br>
-                            <b>Price:</b> CZK 70, for ISC members CZK 50<br>
-                            <b>Contact person:</b> Lucie Marcalíková<br>
-                            <b>What to bring:</b> Tennis shoes and sport clothes. Racket and balls can be borrowed.<br>
-                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/316398321879089/" target="_blank">join our group</a>
+                            <h3>Floorball</h3>
+                            <b>When:</b> Every week on Thursday 21:00 – 22:30<br>
+                            <b>Starting day:</b> 4. 10. 2018<br>
+                            <b>Where:</b> <a href="https://goo.gl/maps/teK4WH75a2p" target="_blank">&quot;Pod Juliskou&quot; Sports Center</a> (Pod Juliskou 4, Prague 6)<br>
+                            <b>Meeting point:</b> at 20:40 in the lobby of the <a href="https://goo.gl/maps/cV8kVJogz1F2">Masarykova dormitory</a>
+                            <b>Price:</b> CZK 50, for ISC members CZK 30<br>
+                            <b>Contact person:</b> Matěj Kamenický<br>
+                            <b>What to bring:</b> indoor shoes a sportswear<br>
+                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/isc.floorball/" target="_blank">join our group</a><br><br>
                         </li>
                     </ul>
+                    <ul class="row list-unstyled contacts">
+                        <li class="col-md-5 col-sm-6">
+                            <h3>Volleyball</h3>
+                            <b>When:</b> Every week on Monday 20:30 – 22:00<br>
+                            <b>Starting day:</b> 1. 10. 2018<br>
+                            <b>Where:</b> <a href="https://goo.gl/maps/teK4WH75a2p" target="_blank">&quot;Pod Juliskou&quot; Sports Center</a> (Pod Juliskou 4, Prague 6)<br>
+                            <b>Price:</b> CZK 40, for ISC members CZK 20<br>
+                            <b>Contact person:</b> Miroslav Bursa<br>
+                            <b>What to bring:</b> indoor shoes and sportswear<br>
+                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/426942574167221/" target="_blank">join our group</a>
+                        </li>
+                        <li class="col-md-5 col-sm-6">
+                            <h3>Yoga</h3>
+                            <b>When:</b> Every week on Thursday 18:00 - 19:00<br>
+                            <b>Starting day:</b> 11. 10. 2018<br>
+                            <b>Where:</b> <a href="https://goo.gl/maps/cV8kVJogz1F2">Masarykova dormitory</a> room R404<br>
+                            <b>Price:</b> free<br>
+                            <b>Contact person:</b> Michaela Šímová<br>
+                            <b>What to bring:</b> sport clothes and yoga mat<br>
+                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/1197231977084333/" target="_blank">join our group</a>
+                        </li>
+                    </ul>
+                    {{--
                     <ul class="row list-unstyled contacts">
                         <li class="col-md-5 col-sm-6">
                             <h3>Basketball</h3>
@@ -89,13 +115,13 @@
                         </li>
 
                         <li class="col-md-5 col-sm-6">
-                            <h3>Floorball</h3>
-                            <b>When:</b> Thursday 21:00 &ndash; 22:30<br>
-                            <b>Where:</b> <a href="https://goo.gl/maps/teK4WH75a2p" target="_blank">&quot;Pod Juliskou&quot; Sports Center</a> (Pod Juliskou 4, Prague 6)<br>
-                            <b>Price:</b> CZK 50, for ISC members CZK 30<br>
-                            <b>Contact person:</b> Matěj Kamenický<br>
-                            <b>What to bring:</b> indoor shoes a sport clothes <br>
-                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/isc.floorball/" target="_blank">join our group</a><br><br>
+                            <h3>Tennis</h3>
+                            <b>When:</b> Sunday 18:00 &ndash; 19:00<br>
+                            <b>Where:</b> <a href="https://goo.gl/maps/qgU164AewvM2" target="_blank">Kotlářka Sport center</a> (Na Kotlářce 7, Prague 6)<br>
+                            <b>Price:</b> CZK 70, for ISC members CZK 50<br>
+                            <b>Contact person:</b> Lucie Marcalíková<br>
+                            <b>What to bring:</b> Tennis shoes and sport clothes. Racket and balls can be borrowed.<br>
+                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/316398321879089/" target="_blank">join our group</a>
                         </li>
                     </ul>
                     <ul class="row list-unstyled contacts">
@@ -115,9 +141,9 @@
                             <b>Contact person:</b> David Mládek<br>
                             <b>What to bring:</b> indoor shoes and sport clothes<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/426942574167221/" target="_blank">join our group</a>
-
                         </li>
                     </ul>
+                    --}}
                 </div>
             </div>
             <ul class="gallery-row list-unstyled row">
