@@ -72,7 +72,6 @@
     <ul>
         <li>The possibility to join all ISC activities prepared for international students (for free or at a favourable price)</li>
         <li>The possibility to join ISC trips (in Orientation Week and throughout the year)</li>
-        <li>weekly info about upcoming activities</li>
         <li>access to the ISC Point and its facilities (e.g. computers, internet, etc.)</li>
         <li>discount for printing and copying in the ISC Point</li>
         <li>insurance for ISC activities</li>
