@@ -69,6 +69,13 @@ class WebController extends Controller
         ]);
     }
 
+    public function showTripsPage()
+    {
+        return view('web.activities.trips')->with([
+            'contact' => Contacts::getContactByPosition('Trips Coordinator')
+        ]);
+    }
+
     public function showLanguagesPage()
     {
         $fromDate = Carbon::createFromFormat('d/m/Y' , Settings::get('wcFrom'));

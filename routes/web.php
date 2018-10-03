@@ -11,6 +11,8 @@
 |
 */
 
+use App\Facades\Contacts;
+
 if (Request::segment(1) == "user") {
     App::setLocale('cs');
 }
@@ -46,7 +48,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
         Route::get('/activities/language-programs', 'WebController@showLanguagesPage');
         Route::get('/activities/sports', 'WebController@showSportsPage');
         Route::get('/activities/integreat', 'WebController@showInteGreatPage');
-        Route::get('/activities/trips', function() { return view('web.activities.trips'); });
+        Route::get('/activities/trips', 'WebController@showTripsPage');
     Route::get('/contact', 'WebController@showContacts');
     Route::get('/calendar', 'WebController@showCalendar');
     Route::get('/buddy', function () { return view('web.buddy'); });
