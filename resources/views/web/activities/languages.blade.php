@@ -26,7 +26,7 @@
                 <p>Take advantage of our free language courses! The courses are taught by you -
                     Erasmus and exchange students, Czech students and foreigners living in Prague.
                     They are <strong>free of charge</strong>, fun, and no registration is needed.
-                    Language courses for Fall semester 2018 start on Monday, 15 October.
+                    Language courses for Fall semester 2018 start on Monday, 22 October.
                     The schedule will be updated on Saturday, 13 October. The courses take place in the
                     Masarykova dormitory and at Strahov, block 8.
                     <br><br>
