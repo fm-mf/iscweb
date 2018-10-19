@@ -101,19 +101,18 @@
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/1197231977084333/" target="_blank">join our group</a>
                         </li>
                     </ul>
-                    {{--
                     <ul class="row list-unstyled contacts">
                         <li class="col-md-5 col-sm-6">
-                            <h3>Basketball</h3>
-                            <b>When:</b> Wednesday 20:30 &ndash; 22:00<br>
-                            <b>Where:</b> <a href="https://goo.gl/maps/NirGfLFhER32" target="_blank">Primary School &ndash; ZŠ Bílá</a> (Bílá 1, Prague 6)<br>
-                            <b>Meeting point:</b> at 20:15 in the lobby of the <a href="https://goo.gl/maps/cV8kVJogz1F2" target="_blank">Masarykova dormitory</a><br>
-                            <b>Price:</b> CZK 40, for ISC members CZK 20<br>
-                            <b>Contact person:</b> Tereza Kadlecová<br>
-                            <b>What to bring:</b> indoor shoes and sport clothes<br>
-                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/104953563666355/" target="_blank">join our group</a>
+                            <h3>Forró (Brazilian dance)</h3>
+                            <b>When:</b> Tuesdays 19:30 &ndash; 22:00<br>
+                            <b>Starting day:</b> 23. 10. 2018<br>
+                            <b>Where:</b> <a href="https://goo.gl/maps/cV8kVJogz1F2" target="_blank">Masarykova dormitory &ndash; room R404</a><br>
+                            <b>Price:</b> free<br>
+                            <b>Contact person:</b> Valeria Iegorova<br>
+                            <b>What to bring:</b> No need to bring anything, NO need for the partner<br>
+                            <b>Facebook:</b> <a href="https://www.facebook.com/groups/1437593069708585/" target="_blank">join our group</a>
                         </li>
-
+                        {{--
                         <li class="col-md-5 col-sm-6">
                             <h3>Tennis</h3>
                             <b>When:</b> Sunday 18:00 &ndash; 19:00<br>
@@ -123,7 +122,9 @@
                             <b>What to bring:</b> Tennis shoes and sport clothes. Racket and balls can be borrowed.<br>
                             <b>Facebook:</b> <a href="https://www.facebook.com/groups/316398321879089/" target="_blank">join our group</a>
                         </li>
+                        --}}
                     </ul>
+                    {{--
                     <ul class="row list-unstyled contacts">
                         <li class="col-md-5 col-sm-6">
                             <h3>Salsa</h3>
