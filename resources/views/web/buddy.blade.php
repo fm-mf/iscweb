@@ -114,6 +114,7 @@
 </div>
 
 {{-- S ČVUT do světa --}}
+{{--
 <h2>S ČVUT do světa</h2>
 <div class="container info">
     <div class="row">
@@ -121,8 +122,8 @@
             <p>Na ČVUT je možnost vyjet do zahraničí pro více než 1000 studentů každý rok. V loňském roce se
                 přitom obsadila méně než polovina volných míst. Šance dostat se na Erasmus nebo Mimoevropské
                 bilaterální dohody je obrovská.</p>
-            {{--<p>Od 11. do 25. října budou probíhat na fakultách cestovatelské přednášky od studentů,
-                kteří již vyjeli.</p>--}}
+            <p>Od 11. do 25. října budou probíhat na fakultách cestovatelské přednášky od studentů,
+                kteří již vyjeli.</p>
             <p>Program a další informace naleznete na stránce <a href="{{ action('Saf\SafController@showIndex') }}">S ČVUT do světa.</a></p>
             <p>Sledujte také naši <a href="https://www.facebook.com/isc.saf" target="_blank" rel="noopener"><span class="glyphicon glyphicon-thumbs-up"></span> Facebookovou stránku</a>.</p>
         </div>
@@ -133,7 +134,7 @@
         </div>
     </div>
 </div>
-
+--}}
 <!-- ============================= Kalendář ====================================== -->
 {{--
 <h2 id="info">Kalendář mezinárodních událostí</h2>
@@ -172,8 +173,9 @@
     </div>
 </div>--}}
 
+<div id="info"></div>
 @if (\Carbon\Carbon::now('Europe/Prague')->lt(\Carbon\Carbon::create(2018, 9, 12, 18, 00, 00, 'Europe/Prague')->addHours(2)))
-<h2 id="info">Jak se stát Buddym</h2>
+<h2>Jak se stát Buddym</h2>
 
 <div class="container events">
     <div class="container container-ow container-sm-height">
@@ -269,7 +271,7 @@
 
 --}}
 
-<div class="container info" id="info">
+<div class="container info">
     <div class="row" id="buddy-session">
         <div class="col-sm-10 col-sm-offset-1 text-align-center">
             <h2>Buddy Session</h2>
@@ -285,7 +287,7 @@
     </div>
 </div>
 
-<div class="container info" id="info">
+<div class="container info">
     <div class="row" id="buddy-prirucka">
         <div class="col-sm-10 col-sm-offset-1 text-align-center">
             <h2>Buddy příručka</h2>
