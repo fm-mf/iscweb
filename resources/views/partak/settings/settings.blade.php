@@ -17,7 +17,7 @@
             <div class="row-inner">
                 <div class="col-md-7">
                     {{ Form::model($settings, ['url' => 'partak/settings', 'method' => 'patch']) }}
-                    {{ Form::bsSelect('isDatabaseOpen', 'Buddy database is', ['true' => 'Open', 'false' => 'Close'], $settings['isDatabaseOpen'] ? 'true' : 'false')  }}
+                    {{ Form::bsSelect('isDatabaseOpen', 'Buddy database is', ['true' => 'Open', 'false' => 'Closed'], $settings['isDatabaseOpen'] ? 'true' : 'false')  }}
                     {{ Form::bsText('rector', 'Rector') }}
 
                     <div class="form-group">
