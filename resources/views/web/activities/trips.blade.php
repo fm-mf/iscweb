@@ -1,21 +1,7 @@
 @extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
-        <ul class="row list-unstyled contacts">
-            <li class="col-md-4 col-sm-6 col-md-offset-4">
-                <img src="{{ $contact['avatar'] }}" class="img-circle">
-                <div class="contact-details">
-                    <h4>{{ $contact['name'] }}</h4><br>
-                    <strong>{{ $contact['position'] }}</strong><br>
-                    Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
-                    @if(mb_strlen($contact['phone']) === 16)
-                        Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
-                    @endif
-                </div>
-                <span class="clearfix"></span>
-            </li>
-        </ul>
-        <blockquote><p>Wherever you go becomes a part of you somehow.</p><p><small>Anita Desai</small></p></blockquote>
+    	<blockquote><p>Wherever you go becomes a part of you somehow.</p><p><small>Anita Desai</small></p></blockquote>
         <div class="row">
             <div class="col-sm-7">
                 <h2>TRIPS</h2>
@@ -44,6 +30,7 @@
                 For fresh news about ISC events subscribe: <a href="https://www.facebook.com/isc.ctu.prague/events/">Facebook ISC CTU in Prague!</a>
             </p>
         </center>
+        {{--
         <div class="container events" id="events">
             <!--	<div class="row row-ow row-sm-height">
                         <div class="col-sm-6 ow-day col-sm-height" style="background-image:url(../img/activities/trips/budapest.jpg);">
@@ -205,5 +192,22 @@
         -->
 
         </div>
+        --}}
     </div>
+    <div>
+			<ul class="row list-unstyled contacts activities-contacts">
+				<li class="col-md-4 col-sm-6 col-md-offset-4">
+					<img src="{{ $contact['avatar'] }}" class="img-circle">
+						<div class="contact-details">
+							<h4>{{ $contact['name'] }}</h4><br>
+							<strong>{{ $contact['position'] }}</strong><br>
+							Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
+							@if(mb_strlen($contact['phone']) === 16)
+								Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
+							@endif
+						</div>
+					<span class="clearfix"></span>
+	        	</li>
+	    	</ul>
+		</div>
 @endsection

@@ -1,23 +1,8 @@
 @extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
-        <ul class="row list-unstyled contacts">
-            <li class="col-md-4 col-sm-6 col-md-offset-4">
-                <img src="{{ $contact['avatar'] }}" class="img-circle">
-                <div class="contact-details">
-                    <h4>{{ $contact['name'] }}</h4><br>
-                    <strong>{{ $contact['position'] }}</strong><br>
-                    Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
-                    @if(mb_strlen($contact['phone']) === 16)
-                        Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
-                    @endif
-                </div>
-                <span class="clearfix"></span>
-            </li>
-        </ul>
-        <blockquote><p>One language sets you in a corridor for life. Two languages open every
+    	<blockquote><p>One language sets you in a corridor for life. Two languages open every
                 door along the way.</p><p><small>Frank Smith</small></p></blockquote>
-
         <div class="row">
             <div class="col-sm-8">
                 <h2>LANGUAGE COURSES</h2>
@@ -123,7 +108,24 @@
         </div>
     </div>
 
-    <div class="container-fluid faq" id="faq">
+    <div>
+	    <ul class="row list-unstyled contacts activities-contacts">
+	        <li class="col-md-4 col-sm-6 col-md-offset-4">
+	            <img src="{{ $contact['avatar'] }}" class="img-circle">
+	            <div class="contact-details">
+	                <h4>{{ $contact['name'] }}</h4><br>
+	                <strong>{{ $contact['position'] }}</strong><br>
+	                Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
+	                @if(mb_strlen($contact['phone']) === 16)
+	                    Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
+	                @endif
+	            </div>
+	            <span class="clearfix"></span>
+	        </li>
+	    </ul>
+	</div>
+
+    <div class="container-fluid faq" id="faq" style="margin-top: ">
         <div class="row">
             <h1>FAQ</h1>
             <ul id="questions" class="list-unstyled">

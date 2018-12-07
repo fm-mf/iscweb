@@ -1,21 +1,7 @@
 @extends('web.layouts.activities')
 @section('content')
     <div class="container subpage">
-        <ul class="row list-unstyled contacts">
-            <li class="col-md-4 col-sm-6 col-md-offset-4">
-                <img src="{{ $contact['avatar'] }}" class="img-circle">
-                <div class="contact-details">
-                    <h4>{{ $contact['name'] }}</h4><br>
-                    <strong>{{ $contact['position'] }}</strong><br>
-                    Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
-                    @if(mb_strlen($contact['phone']) === 16)
-                        Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
-                    @endif
-                </div>
-                <span class="clearfix"></span>
-            </li>
-        </ul>
-        <blockquote><p>Just play. Have fun. Enjoy the game.</p><p><small>Michael Jordan</small></p></blockquote>
+    	<blockquote><p>Just play. Have fun. Enjoy the game.</p><p><small>Michael Jordan</small></p></blockquote>
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
                 <p>Do you like playing football, volleyball, floorball or even practicing yoga?
@@ -175,4 +161,21 @@
             </ul>
         </div>
     </div>
+
+    <div>
+	    <ul class="row list-unstyled contacts activities-contacts">
+	        <li class="col-md-4 col-sm-6 col-md-offset-4">
+	            <img src="{{ $contact['avatar'] }}" class="img-circle">
+	            <div class="contact-details">
+	                <h4>{{ $contact['name'] }}</h4><br>
+	                <strong>{{ $contact['position'] }}</strong><br>
+	                Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
+	                @if(mb_strlen($contact['phone']) === 16)
+	                    Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
+	                @endif
+	            </div>
+	            <span class="clearfix"></span>
+	        </li>
+	    </ul>
+	</div>
 @endsection
