@@ -1,7 +1,7 @@
 <div class="menu-wrapper">
     <div class="container">
         <div class="row">
-            <div class="collapse navbar-collapse navbar-main-collapse col-sm-9">
+            <div class="navbar-collapse navbar-main-collapse col-sm-9">
                 <ul class="nav navbar-nav admin-nav">
                     <li><a href="{{ url('partak/') }}" @if(Request::is('partak')) class="active" @endif>Dashboard</a></li>
                     <li><a href="{{ url('iscproisc') }}">ISC pro ISC</a> </li>
