@@ -375,7 +375,8 @@ a.disabled {
   .table>thead>tr>td,
   .table>thead>tr>th {
   	padding-left: 0;
-  	padding-right: 0;
+  	padding-right: 1px;
+  	word-break: break-word;
   }
 }
 
