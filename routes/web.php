@@ -96,3 +96,8 @@ Route::group(['namespace' => 'Exchange', 'prefix' => 'FlagParade'], function()
     Route::post('/{hash}/delete', 'ProfileController@deleteFlagParade');
 });
 
+Route::group(['namespace' => 'Czech', 'prefix' => 'czech'], function()
+{
+    Route::get('/', 'WebController@showHomePage');
+}
+);
