@@ -70,3 +70,4 @@
 
     Route::get('/settings', 'SettingsController@showSettings');
     Route::patch('/settings', 'SettingsController@submitSettings');
+	Route::get('/openinghours', 'SettingsController@getOpeningHours');

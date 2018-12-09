@@ -21,58 +21,10 @@
             <div class="contact-info col-md-4 col-sm-6 opening-hours">
                 <h2>See when we're in the ISC Point:<!--<br><i>Subject to be extended later</i>--></h2>
 
-                <p>There are no regular opening hours during the exam period and during holidays.</p>
-{{--
-                There are no regular opening hours during the exam period. The ISC Point will be open from  {{  $wcFrom }}.
+                <p>{!! $openingHoursText !!}</p>
 
-                <!-- We can´t assure you the fixed opening hours during the OW but you can have the chance and find us in ISC Point.
-                Fixed opening hours will be from Monday 20th. -->
+                {!! $openingHoursTable !!}
 
-                <h3><strong>Registrations</strong></h3>
-                <table>
-                    <tr>
-                        <th>Wed 7 Feb</th>
-                        <td>12:00 - 20:00</td>
-                    </tr>
-                    <tr>
-                        <th>Thu 8 Feb &ndash; Sun 11 Feb</th>
-                        <td>10:00 - 20:00</td>
-                    </tr>
-                </table>
-                <h3><strong>Orientation Week</strong></h3>
-                <p>Between Mon 12 Feb and Sun 18 Feb there are no regular hours.</p>
-
-                <table>
-                     <tr>
-                         <th>Monday</th>
-                         <td>16:00 &ndash; 22:00</td>
-                     </tr>
-                     <tr>
-                         <th>Tuesday</th>
-                         <td>14:00 &ndash; 22:00</td>
-                     </tr>
-                     <tr>
-                         <th>Wednesday</th>
-                         <td>16:00 &ndash; 20:00</td>
-                     </tr>
-                     <tr>
-                         <th>Thursday</th>
-                         <td>14:00 &ndash; 20:00</td>
-                     </tr>
-                     <tr>
-                         <th>Friday</th>
-                         <td>Closed</td>
-                     </tr>
-                     <tr>
-                         <th>Saturday</th>
-                         <td>Closed</td>
-                     </tr>
-                     <tr>
-                         <th>Sunday</th>
-                         <td>Closed</td>
-                     </tr>
-                 </table>
---}}
             </div>
         </div>
 
