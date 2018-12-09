@@ -16,7 +16,7 @@
         <div class="row">
             <div class="row-inner">
                 <div class="col-md-7">
-                    {{ Form::model($settings, ['url' => 'partak/settings', 'method' => 'patch']) }}
+                    {{ Form::model($settings, ['id' => 'mainForm', 'url' => 'partak/settings', 'method' => 'patch']) }}
                     {{ Form::bsSelect('isDatabaseOpen', 'Buddy database is', ['true' => 'Open', 'false' => 'Closed'], $settings['isDatabaseOpen'] ? 'true' : 'false')  }}
                     {{ Form::bsText('rector', 'Rector') }}
 
@@ -54,13 +54,56 @@
                     @endif
                     {{ Form::url('electionStreamUrl', $settings['electionStreamUrl'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
-                    {{ Form::bsSubmit('Update settings') }}
+                    <div style="margin-bottom: 15px;">
+                   		<button type="button" id="editOpeningHoursButton" class="btn btn-warning">Edit opening hours</button>
+                   	</div>
+                   	<div style="margin-bottom: 15px;">
+                   		<input type="submit" value="Update settings" class="btn btn-primary btn-submit">
+                   	</div>
 
-                    {{ Form::close() }}
+                    {{ Form::close() }}	
                 </div>
             </div>
         </div>
         <div style="min-height: 250px"></div>
+
+
+
+		<div id="editOpeningHoursDialog" title="Edit opening hours">
+			{{ Form::model($settings, ['url' => 'partak/settings', 'method' => 'patch']) }}
+				<fieldset>
+					{{ Form::bsSelect('openingHoursMode', 'Opening hours mode', $openingHoursModes, $settings['openingHoursMode'], ['id' => 'openingHoursMode', 'style' => 'margin-bottom: 20px;', 'class' => 'ui-widget-content ui-corner-all']) }}
+
+			 		{{ Form::label('openingHoursText', 'Opening hours text', ['class' => 'control-label']) }}<br>
+			 		{{ Form::textarea('openingHoursText', $openingHoursText, ['class' => 'ui-widget-content ui-corner-all form-control']) }}<br>
+
+		 			{{ Form::label('showOpeningHours', 'Show daily hours', ['class' => 'control-label']) }}
+		 			{{ Form::checkbox( 'showOpeningHours', 'on', $showOpeningHours, ['id' => 'showOpeningHours', 'class' => 'ui-widget-content ui-corner-all', 'style' => 'margin-bottom: 20px;'] ) }}
+
+					<div id="openingHoursData" class="collapse">
+					<table id="openingHoursTable" style="width: 100%;">
+					@foreach ( $openingHoursData as $day => $value )
+						<tr>
+							<th>
+								<label for="openingHoursData-{{$day}}">{{$day}}</label>
+							</th>
+							<td class="pull-right" style="padding: 0 0 5px 0">
+								<input type="text" name="openingHoursData-{{ $day }}" id="openingHoursData-{{ $day }}" value="{{ $openingHoursData[ $day ] }}" class="form-control text ui-widget-content ui-corner-all">
+							</td>
+						</tr>
+					@endforeach
+					</table>
+					</div>
+
+					<div id="editOpeningHoursSubmitButton" style="margin-top: 10px; margin-bottom: 0;">
+						<input type="submit" value="Save changes" class="btn btn-primary btn-submit pull-left">
+						<button type="button" value="Cancel" id="dialogCancelButton" class="btn btn-danger btn-submit pull-right">Cancel</button>
+
+					</div>
+					{{ Form::close() }}
+				</fieldset>
+		</div>
+
     </div>
 @stop
 
@@ -75,12 +118,59 @@
     <script src="{{ URL::asset('/js/picker.js') }}"></script>
     <script src="{{ URL::asset('/js/picker.date.js') }}"></script>
 
-    <script  type="text/javascript">
+	<script  type="text/javascript">
+		$( document ).ready( function() {
+			var $inputDate = $( ".date" ).pickadate( { editable: true,
+			                                         firstDay: 1,
+			                                         format: "dd mmm yyyy" } );
 
-        var $inputDate = $('.date').pickadate({
-            editable: true,
-            firstDay: 1,
-            format: 'dd mmm yyyy'
-        });
+			function updateOpeningHours() {
+				form.submit();
+			}
+
+			var dialog, form, allFields = $( [] ).add( openingHoursMode ).add( openingHoursText ).add( showOpeningHours ).add( openingHoursData );
+
+			dialog = $( "#editOpeningHoursDialog" ).dialog( {
+				autoOpen: false,
+				minWidth: 375,
+				modal: true,
+				autoResize: true,
+				buttons: {},
+				close: function() {
+					form[ 0 ].reset();
+					allFields.removeClass( "ui-state-error" );
+				}
+			} ).css( "padding-bottom", "15px" );
+ 
+			form = dialog.find( "form" );
+ 
+			$( "#editOpeningHoursButton" ).button().on( "click", function() {
+				dialog.dialog( "open" );
+    		} );
+
+    		$( "#openingHoursMode" ).on( "change", function() {
+    			$.get( "/partak/openinghours?mode=" + $( this ).val(), function ( d ) {
+    				o = JSON.parse( d );
+    				console.log( o );
+    				$( "#openingHoursText" ).val( o.text );
+    				dow = [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ];
+    				for ( var i = 0; i < 7; ++i ) {
+    					$( "#openingHoursData-" + dow[ i ] ).val( o.hours[ dow[ i ] ] );
+    				}
+
+    				if ( ! o.show_hours ) {
+    					$( "#showOpeningHours" ).prop( "checked", false );
+    				} else {
+    					$( "#showOpeningHours" ).prop( "checked", true );
+    				}
+    			} );
+    		} );
+
+    		$( "#dialogCancelButton" ).on( "click", function() {
+    			dialog.dialog( "close" );
+    		} );
+
+    		$( ".ui-dialog-titlebar-close" ).hide()
+    	} );
     </script>
     @stop

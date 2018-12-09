@@ -17,11 +17,15 @@
     @section('stylesheets')
         <link href="{{ URL::asset('/css/partaknet.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     @show
 
-{{-- We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
+{{--
+	We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
+
     <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script> --}}
+    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>
+--}}
 </head>
 
 <body>
@@ -78,6 +82,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 @show
 
 

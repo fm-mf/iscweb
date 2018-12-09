@@ -12,6 +12,7 @@ use App\Models\Event;
 use App\Models\Integreat_party;
 use App\Models\Languages_event;
 use App\Models\Semester;
+use App\Models\OpeningHoursMode;
 use App\Facades\Settings;
 use App\Facades\Contacts;
 use Carbon\Carbon;
@@ -33,7 +34,10 @@ class WebController extends Controller
     public function showContacts() {
         $dateFrom = Carbon::createFromFormat('d/m/Y' ,Settings::get('wcFrom'));
         $contacts = Contacts::getWebContacts();
-        return view('web.contact') -> with(['wcFrom' => $dateFrom->format('l F jS'), 'contacts' => $contacts]);
+        return view('web.contact') -> with(['wcFrom' => $dateFrom->format('l F jS'),
+                                            'contacts' => $contacts,
+                                            'openingHoursText' => OpeningHoursMode::getCurrentText(),
+                                            'openingHoursTable' => OpeningHoursMode::buildHoursTable()]);
     }
 
     public function showCalendar()
