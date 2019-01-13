@@ -99,5 +99,9 @@ Route::group(['namespace' => 'Exchange', 'prefix' => 'FlagParade'], function()
 Route::group(['namespace' => 'Czech', 'prefix' => 'czech'], function()
 {
     Route::get('/', 'WebController@showHomePage');
+    Route::get('/about-us', 'WebController@showAboutUsPage');
+    Route::get('/calendar', 'WebController@showCalendarPage');
+    Route::get('/activities', 'WebController@showActivitiesPage');
+    Route::get('/contacts', 'WebController@showContactsPage');
 }
 );

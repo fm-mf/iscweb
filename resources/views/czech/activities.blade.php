@@ -3,15 +3,13 @@
     <div class="container section">
         <div class="row">
             <h1 class="introduction clearfix">Kdo jsme?</h1>
-            <p>
-                International Student Club je skupinou mladých a aktivních lidí, kteří ve svém volném čase chtějí dělat něco smysluplného a při tom se rádi baví. Každý semestr integrujeme zahraniční studenty do života a dění na naší univerzitě i v celé ČR. Zároveň se od nich sami učíme a zjišťujeme, jak to chodí v ostatních koutech světa.
-                Zábavným způsobem tak poznáváme jiné kultury a získáváme spoustu skvělých příležitostí seberealizace, podporujeme aktivní zapojení našich členů a jejich osobní rozvoj.
-            </p>
+            Create surroundings where different cultures meet and foreign and Czech students get to know each other
+            <br>
             Chce&scaron; v&ecaron;d&ecaron;t v&iacute;ce?
             <a href="{{ url('/czech/about-us/') }}" class="embed-nav">O N&Aacute;S</a>
             <br>
-            <a href="http://www.esn.org" class="logo"><img src="{{ URL::asset('img/web/logo-esn.png') }}"></a>
-            <a href="http://www.cvut.cz" class="logo"><img src="{{ URL::asset('img/web/logo-ctu.png') }}"></a>
+            <a href="http://www.esn.org"><img src="{{ URL::asset('img/web/logo-esn.png') }}"></a>
+            <a href="http://www.cvut.cz"><img src="{{ URL::asset('img/web/logo-ctu.png') }}"></a>
         </div>
     </div>
     <div class="container section">
@@ -120,7 +118,7 @@
             <a href="{{ url('/czech/calendar/') }}" class="embed-nav">KALEND&Aacute;&Rcaron;</a>
         </div>
     </div>
-    <div id="instafeed-container" class="container section">
+    <div class="container section">
         <div class="row">
             <h1 class="introduction clearfix">INSTAFEED</h1>
             <div id="instafeed"></div>
@@ -136,9 +134,7 @@
                 </ul>
                 <ul>
                     <li>Co kdy&zcaron; m&aacute;m dal&scaron;&iacute; dotazy?</li>
-                    <li>Napi&scaron;te n&aacute;m na
-                        <a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a> nebo n&ecaron;kter&eacute;mu z na&scaron;ich koordin&aacute;tor&uring;
-                        <a href="{{ url('/czech/contacts/') }}" class="embed-nav">KONTAKTY</a></li>
+                    <li>Napi&scaron;te n&aacute;m na <a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a> nebo n&ecaron;kter&eacute;mu z na&scaron;ich koordin&aacute;tor&uring; <a href="{{ url('/czech/contacts/') }}" class="embed-nav">KONTAKTY</a></li>
                 </ul>
             </div>
         </div>

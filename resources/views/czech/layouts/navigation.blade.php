@@ -22,27 +22,27 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="{{ url('/') }}" class="{{Request::is('/')? 'current' : '' }}">DOM&Uring;</a>
+                        <a href="{{ url('/czech/') }}" class="{{Request::is('czech')? 'current' : '' }}">DOM&Uring;</a>
                     </li>
                     <li>
-                        <a href="{{ url('czech/about-us') }}" class="{{ Request::is('about-us')? 'current' : '' }}">O N&Aacute;S</a>
+                        <a href="{{ url('/czech/about-us/') }}" class="{{ Request::is('czech/about-us')? 'current' : '' }}">O N&Aacute;S</a>
                     </li>
                     <li>
-                        <a href="{{ url('czech/activities/') }}" class="{{ (Request::is('activities/*') || Request::is('activities'))? 'current' : '' }}">CO D&Ecaron;L&Aacute;ME</a>
+                        <a href="{{ url('/czech/activities/') }}" class="{{ (Request::is('czech/activities/*') || Request::is('czech/activities'))? 'current' : '' }}">CO D&Ecaron;L&Aacute;ME</a>
                     </li>
                     <li>
-                        <a href="{{ url('czech/buddy-program/') }}" class="{{ Request::is('buddy-program')? 'current' : '' }}">BUDDY PROGRAM</a>
+                        <a href="{{ url('/buddy/') }}" class="{{ Request::is('buddy')? 'current' : '' }}">BUDDY PROGRAM</a>
                     </li>
                     <li>
-                        <a href="{{ url('czech/calendar') }}" class="{{ Request::is('guide')? 'current' : '' }}">KALEND&Aacute;&Rcaron;</a>
+                        <a href="{{ url('/czech/calendar/') }}" class="{{ Request::is('czech/calendar')? 'current' : '' }}">KALEND&Aacute;&Rcaron;</a>
                     </li>
                     <li>
-                        <a href="{{ url('czech/contact/') }}" class="{{ Request::is('contact')? 'current' : '' }}">KONTAKTY</a>
+                        <a href="{{ url('/czech/contact/') }}" class="{{ Request::is('czech/contact')? 'current' : '' }}">KONTAKTY</a>
                     </li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.row -->
-              <!-- Language selection (uncomment after the Czech version is available)
+            </div>{{-- /.navbar-collapse --}}
+        </div>{{-- /.row --}}
+              {{-- Language selection (uncomment after the Czech version is available)
               <div class="row">
                   <div class="col-xs-12">
                           <ul class="list-inline" style="text-align:right;">
@@ -51,6 +51,6 @@
                       </ul>
                   </div>
               </div>
-              -->
-    </div><!-- /.container -->
+              --}}
+    </div>{{-- /.container --}}
 </nav>
