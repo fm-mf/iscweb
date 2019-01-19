@@ -11,8 +11,8 @@
                 <p>Take advantage of our free language courses! The courses are taught by you -
                     Erasmus and exchange students, Czech students and foreigners living in Prague.
                     They are <strong>free of charge</strong>, fun, and no registration is needed.
-                    Language courses for Fall semester 2018 start on Monday, 22 October.
-                    The schedule will be updated on Saturday, 13 October. The courses take place in the
+                    Language courses for the Spring semester 2019 will start on Monday, the 4th of March. The schedule
+                    will be updated as soon as possible at the end of February 2019. The courses will take place in the
                     Masarykova dormitory and at Strahov, block 8.
                     <br><br>
                     <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">
@@ -84,13 +84,12 @@
                 <h2>See the schedule</h2>
                 <!--<p>You can have a look at <a href="#" data-toggle="modal" data-target=".schedule-detail">the actual schedule</a> NOW! See the variety of our languages!</p> -->
 
-
-
                 <p>You can have a look at the <a href="{{ asset('/files/languages-schedule.php') }}" target="_blank">Fall 2018 schedule</a>.</p>
+                <p>The only language course running during the exam period is the Czech course on Wednesday. The schedule for the spring courses will be published at the end of February 2019.</p>
                 <!-- <p>Schedule for upcoming semester will be available in first week of the semester</p> -->
-                <p>Our currently offered courses will end according to every teachers' wish or latest at the end of June.
+               <!--      <p>Our currently offered courses will end according to every teachers' wish or latest at the end of June.
                     Schedule for the autumn courses shall be published in October 2018.
-                    Please note that during summer holidays there are no language classes provided by ISC.</p>
+                    Please note that during summer holidays there are no language classes provided by ISC.</p> -->
                 <p style="height:250px;width:250px;margin-left:auto;margin-right:auto;text-align:center;"><a href="http://www.isc.cvut.cz/files/languages-schedule.php" >
                         <img src="{{ asset('/img/web/lang-schedule-icon.jpg') }}"></a></p>
                 <p>Sometimes the classes have to be cancelled for various reasons.
