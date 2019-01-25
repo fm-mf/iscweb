@@ -2,8 +2,8 @@
 @section('page')
 <div class="statistics">
     <h1>Statistika Buddy Programu</h1>
-    <h2>Zimní semestr 2018/2019</h2>
-    <p>V září 2018 přijede studovat na ČVUT <strong>{{ $students }}</strong> {{ trans_choice('stats.exchange_student', $students) }} z <strong>{{ $countriesCount }}</strong> zemí.</p>
+    <h2>Letní semestr 2018/2019</h2>
+    <p>V únoru 2019 přijede studovat na ČVUT <strong>{{ $students }}</strong> {{ trans_choice('stats.exchange_student', $students) }} z <strong>{{ $countriesCount }}</strong> zemí.</p>
     <p><strong>{{  $studentsWithFilledProfile }}</strong> z nich již vyplnilo registrační formulář do Buddy programu a projevilo tak zájem o buddíka.</p>
     <p><strong>{{ $studentsWithBuddy }}</strong> {{ trans_choice('stats.exchange_student', $studentsWithBuddy) }} už má svého Buddíka.</p>
     <p>Ovšem, i přesto že projevili zájem, <strong>{{ $studentsWithFilledProfileWithoutBuddy }}</strong> {{ trans_choice('stats.exchange_student', $studentsWithFilledProfileWithoutBuddy) }} na Buddíka stále čeká!</p>
