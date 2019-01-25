@@ -48,7 +48,7 @@ return [
         'buddyManager' => [
             'id' => 10,
             'resources' => [
-                'buddy' => ['view', 'edit', 'remove'],
+                'buddy' => ['view', 'edit', 'remove', 'verify'],
                 'users' => ['view'],
                 'exchangeStudents' => ['view'],
                 'roles' => ['view', 'partak', 'samoplatce']
