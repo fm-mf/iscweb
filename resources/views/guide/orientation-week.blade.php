@@ -41,21 +41,21 @@
     </div>
 --}}
     <div class="row">
-        <h2>DAY 1 – Monday <strong>(24 September)</strong></h2>
+        <h2>DAY 1 – Monday <strong>(11 February)</strong></h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <h3>Initial information meeting</h3>
             <ul class="list-unstyled">
-                <li>When: <strong>11:00</strong> - 14:30</li>
-                <li>Where: <a href="https://goo.gl/maps/pHLFL6ZP8uP2" target="_blank"><strong>The Bethlehem Chapel</strong> (Betlémské náměstí 255/4, Praha 1)</a></li>
+                <li>When: <strong>10:30</strong> - 14:00</li>
+                <li>Where: <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank"><strong>Faculty of Mechanical Engineering, room T4: D2-256 and 358</strong></a></li>
                 <li>Meeting points:
                     <ul>
-                        <li>9:30 at Strahov (bus stop Koleje Strahov)</li>
-                        <li>10:00 in the lobby of the Masarykova dormitory</li>
+                        <li>9:45 at Strahov (bus stop Koleje Strahov)</li>
+                        <li>10:15 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
-                <li>Topics:
+                {{--<li>Topics:
                     <ul>
                         <li>Official welcome</li>
                         <li>How to enroll in courses and sports at CTU</li>
@@ -66,7 +66,7 @@
                         <li>Health and property insurance</li>
                         <li>Visa regulations</li>
                     </ul>
-                </li>
+                </li>--}}
             </ul>
         </div>
     </div>
@@ -87,7 +87,7 @@
             </ul>
         </div>
     </div>
-    <div class="row">
+    {{--<div class="row">
         <div class="col-lg-12">
             <h3>OW presentation Monday</h3>
             <ul class="list-unstyled">
@@ -97,16 +97,16 @@
                 <li><a href="{{ asset('/files/ow-presentations-fall-2018/visa-fall-2018.pdf') }}" target="_blank">Visa</a></li>
                 <li><a href="{{ asset('/files/ow-presentations-fall-2018/isc-fall-2018.pdf') }}" target="_blank">ISC &amp; ESN</a></li>
                 <li><a href="{{ asset('/files/ow-presentations-fall-2018/culture-fatigue-fall-2018.pdf') }}" target="_blank">Culture Shock</a></li>
-{{--
+--}}{{--
                 <li><a href="{{ asset('/files/ow-presentations-fall-2018/esn-fall-2018.pdf') }}" target="_blank">ESN</a></li>
---}}
+--}}{{--
                 <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}" target="_blank">KOS manual</a></li>
             </ul>
         </div>
-    </div>
+    </div>--}}
 
     <div class="row">
-        <h2>DAY 2 – Tuesday (25 September)</h2>
+        <h2>DAY 2 – Tuesday (12 February)</h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -116,9 +116,9 @@
             </p>
             <p class="bg-warning">Please attend this registration event at your faculty. Do not treat it as optional.</p>
 	    <div class="row">
-		<div class="col-lg-12">
+		{{--<div class="col-lg-12">
 		    <a href="{{ asset('/files/ow-presentations-fall-2018/registrations-at-faculties-meeting-points-fall-2018.pdf') }}">Meeting points - Tuesday</a>
-		</div>
+		</div>--}}
 	    </div>
             <ul class="list-unstyled">{{--
                 <li>When:
@@ -167,7 +167,7 @@
         <div class="col-lg-12">
             <h3>Second information meeting</h3>
             <ul class="list-unstyled">
-                <li>When: <strong>14:30</strong></li>
+                <li>When: <strong>13:15</strong></li>
                 <li>Where: at Congress Hall of the Masarykova Dormitory</li>
                 <li>Topics:
                     <ul>
@@ -197,7 +197,7 @@
     --}}
 
     <div class="row">
-        <h2>DAY 3 – Wednesday (26 September)</h2>
+        <h2>DAY 3 – Wednesday (13 February)</h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -233,7 +233,7 @@
             </ul>
         </div>
     </div>
-    <div class="row">
+    {{--<div class="row">
         <div class="col-lg-12">
             <h3>Czech Language Course</h3>
             <p>The Rectorate teacher of Czech, Eva dos Reis, will give you 90 minutes of exposure to the elementary stuff you better know NOW!</p>
@@ -244,14 +244,14 @@
                 <li>How do I ask for beer in Czech? How do I pronounce &quot;ř&quot; and other strange letters? And if I want to say &quot;hi, bye, thanks, please&quot;, and more in Czech, what are the proper words?</li>
             </ul>
         </div>
-    </div>
+    </div>--}}
     <div class="row">
         <div class="col-lg-12">
             <h3>Prague Discovery Game</h3>
             <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
             <ul class="list-unstyled">
-                <li>When: <strong>13:00</strong></li>
-                <li>Where: Faculty of Mechanical Engineering, room T4:D2-256 and 358</li>
+                <li>When: <strong>13:30</strong></li>
+                <li>Where: <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256 and 358</li>
             </ul>
         </div>
     </div>
@@ -274,13 +274,13 @@
     </div>
 
     <div class="row">
-        <h2>DAY 4–7 – Thursday to Sunday (27–30 September) </h2>
+        <h2>DAY 4–7 – Thursday to Sunday (14–17 February) </h2>
     </div>
 
-    <div class="row">
+{{--    <div class="row">
         <div class="col-lg-12">
             <h3>Registration at some faculties (on Thursday, 15 February)</h3>
-            {{-- <ul class="list-unstyled">
+            --}}{{-- <ul class="list-unstyled">
                 <li>When:
                     <ul>
                         <li>13:30 &ndash; <abbr title="Faculty of Transportation Sciences">FTS</abbr></li>
@@ -308,9 +308,9 @@
                 </li>
             </ul>
         </div>
-    </div>--}}
+    </div>--}}{{--
         </div>
-    </div>
+    </div>--}}
     <div class="row">
         <div class="col-lg-12">
             <h3>Trips around the Czech Republic</h3>

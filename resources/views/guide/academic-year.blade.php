@@ -8,7 +8,7 @@
     <p>The academic calendar may vary from faculty to faculty.</p>
     <p>If there is a Dean's Day announced for your faculty, it means a day off.</p>
 
-    <h2>Winter Semester 2018/2019</h2>
+{{--    <h2>Winter Semester 2018/2019</h2>
     <dl>
         <dt>20 September 2018</dt>
             <dd>Suggested date of arrival</dd>
@@ -20,7 +20,7 @@
             <dd>Winter Holiday</dd>
         <dt>14 January &ndash; 6 February 2019</dt>
             <dd>Examination period</dd>
-    </dl>
+    </dl>--}}
 
     <h2>Spring Semester 2018/2019</h2>
     <dl>
@@ -48,7 +48,7 @@
 
     <h2>Public and university holidays</h2>
     <dl>
-        <dt>28 September</dt>
+        {{--<dt>28 September</dt>
             <dd>St. Wenceslas' Day (Czech Statehood Day)</dd>
         <dt>28 October</dt>
             <dd>Independent Czechoslovak State Day</dd>
@@ -59,7 +59,7 @@
         <dt>25 December</dt>
             <dd>Christmas Day</dd>
         <dt>26 December</dt>
-            <dd>St. Stephen's Day</dd>
+            <dd>St. Stephen's Day</dd>--}}
         <dt>1 January</dt>
             <dd>Restoration Day of the Independent Czech State, New Year's Day</dd>
         <dt>19 April</dt>
