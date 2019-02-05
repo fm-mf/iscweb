@@ -1,6 +1,6 @@
 @extends('layouts.guide.layout')
 
-@section('title', 'ESN Partners &ndash; ')
+@section('title', 'ESN & ISC Partners &ndash; ')
 
 @section('content')
     <section id="partners">
@@ -25,6 +25,15 @@
             <li>Online (works with Czech debit card)</li>
             <li>Vodafone shops</li>
         </ul>
+        <p></p>
+
+        <h2>SmartGuide</h2>
+        <img src="{{ asset('img/guide/partners/SmartG.png') }}" />
+        <p>Discover Prague in a interactive and fun way! SmartGuide turns your smart phone into a private guide.
+           Tours around highlights and hidden gems. Integrated maps and GPS. Photos, audio and text descriptions work together.</p>
+        <p> Download the app via this<a href="https://getgui.de/CVUTVIP" target="_blank">link</a> and activate the
+          <strong>premium account for free with the CVUTVIP promo code!</strong>
+        </p>
         <p></p>
 
         <h2>Ryanair</h2>
@@ -84,13 +93,6 @@
            <p><a href="https://subscription.economist.com/OA/partners/ESN/12420offer" target="_blank">Subscribe here.</a></p>
            <p></p>
 
-        <h2>Flatio</h2>
-        <img src="{{ asset('img/guide/partners/logo-flatio.png') }}" />
-        <p>Choose the best flat from Flatio's offer of medium-term rents. View it with their virtual tour,
-            view photos, reviews and the landlord's profile. For <strong> 50% off the booking fee</strong>, use the promo code &quot;ESNCZ&quot;.</p>
-        <p><a href="https://www.esncz.org/partners/flatio" target="_blank">www.esncz.org/partners/flatio</a></p>
-        <p><a href="https://bit.ly/2xKf51Y" target="_blank">Flatio offer in Prague</a></p>
-        <p></p>
 
 
     </section>
