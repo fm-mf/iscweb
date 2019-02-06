@@ -78,15 +78,15 @@
 
     <p class="bg-info">Note : If you are studying for a degree awarded by CTU, your contact person is always your Faculty coordinator.</p>
 
-   {{-- <h3>Faculties, Institutes &amp; Contact persons</h3>
+   <h3>Faculties, Institutes &amp; Contact persons</h3>
     <dl>
         <dt>Faculty of Civil Engineering</dt>
             <dd><a href="http://stuk.fsv.cvut.cz/wp-content/uploads/2016/03/plánek-fakulty-se-studijními-prostory.jpg" target="_blank">Map of the faculty</a></dd>
             <dd>Thákurova 7, Prague 6, 166 29</dd>
-            <dd>RNDr. Eva Sejbalova, office: C-115</dd>
+            <dd>Ing. Richard Novák, office: C-115</dd>
             <dd>Study Department</dd>
             <dd>Phone: <a href="tel:+420 224 358 757">+420 224 358 757</a></dd>
-            <dd>Email: <a href="mailto:sejbal@fsv.cvut.cz">sejbal@fsv.cvut.cz</a></dd>
+            <dd>Email: <a href="mailto:richard.novak@fsv.cvut.cz">richard.novak@fsv.cvut.cz</a></dd>
         <dt>Faculty of Mechanical Engineering</dt>
             <dd><a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">Map of the faculty</a></dd>
             <dd>Technicka 4, Prague 6, 166 07</dd>

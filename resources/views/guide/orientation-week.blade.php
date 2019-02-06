@@ -251,7 +251,7 @@
             <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
             <ul class="list-unstyled">
                 <li>When: <strong>13:30</strong></li>
-                <li>Where: <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256 and 358</li>
+                <li>Where: <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</li>
             </ul>
         </div>
     </div>
