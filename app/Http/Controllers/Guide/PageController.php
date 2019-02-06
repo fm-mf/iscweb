@@ -31,8 +31,6 @@ class PageController extends Controller
             case "":
                 $with += [
                     'president' => Contacts::getContactByPosition('President'),
-                    'presidentPicture' => Settings::get('presidentPicture'),
-                    'studentsCount' => ExchangeStudent::byUniqueSemester(Settings::get('currentSemester'))->count(),
                     'fullName' => Settings::get('fullName'),
                 ];
                 $page = "home";

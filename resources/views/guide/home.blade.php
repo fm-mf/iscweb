@@ -60,7 +60,13 @@
                 <div class="col-sm-12">
                     <img src="{{ $president['avatar'] }}" class="img-circle" alt="">
                     <p id="text4">
-                        Dear international students,<br />welcome to the Czech Republic and to the Czech Technical University&#x21;<br /><br />Whether you are an Erasmus student, an Exchange student, an Erasmus Mundus student or a self-paying &#x28;private&#x29; student, we hope you will have a great time&#x21;<br /><br />Maybe you are not aware of it yet, but you are the luckiest people in the world. Your study stay is just starting, and you can explore a brand new world&#x21; Try to get the best from your stay here&#x21; Let me introduce the International Student Club. ISC is a bunch of volunteers who do not hesitate to help other students. We do this in our leisure time – we want to meet international people, make friends, we want to learn foreign languages, we want to grow personally and much more. We strive to be the best in our field.<br /><br />There are over {{ $studentsCount }} incoming international students this semester! Please, keep in mind that the buddy program is a voluntary service. If you need help or advice, ask your Czech Buddy or come to the ISC centre, and we will try to help&#x21; I can assure you that ISC is doing everything to improve the care for international students. We organize events, parties, trips and much more. So start looking forward to your new adventure!<br /><br />Together we conquer the world&#x21;</p>
+                        Dear international students,<br />welcome to the Czech Republic and to the Czech Technical University&#x21;<br /><br />
+                        Whether you are an Erasmus student, an Exchange student, an Erasmus Mundus student or a self-paying &#x28;private&#x29; student, we hope you will have a great time&#x21;<br /><br />
+                        Maybe you are not aware of it yet, but you are the luckiest people in the world. Your study stay is just starting, and you can explore a brand new world&#x21; Try to get the best from your stay here&#x21; Let me introduce the International Student Club. ISC is a bunch of volunteers who do not hesitate to help other students. We do this in our leisure time – we want to meet international people, make friends, we want to learn foreign languages, we want to grow personally and much more. We strive to be the best in our field.<br /><br />
+                        There are hundreds of incoming international students this semester. Please, keep in mind that the buddy program is a voluntary service. If you need help or advice, ask your Czech Buddy or come to the ISC point, and we will try to help.
+                        <br /><br />
+                        Together we conquer the world&#x21;
+                    </p>
                     <p>{{ $president['name'] }}<br>
                         President of the {{ $fullName }}
                     </p>
