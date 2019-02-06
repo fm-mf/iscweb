@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Facades\Settings ;
 use App\Models\ExchangeStudent;
 use Illuminate\Support\Facades\View;
+use App\Facades\Contacts;
 
 class PageController extends Controller
 {
@@ -17,18 +18,23 @@ class PageController extends Controller
 
     public function showPage($page = "")
     {
-        $with = ['shortName' => Settings::get('shortName'),
-                'officialName' => Settings::get('officialName'),
-                'year' => Carbon::now()->year,];
+        // dd(Contacts::getContactByPosition('President'));
+        $with = [
+            'shortName' => Settings::get('shortName'),
+            'officialName' => Settings::get('officialName'),
+            'year' => Carbon::now()->year,
+        ];
         switch ($page){
             case "about-ctu":
                 $with += ['rector' => Settings::get('rector')];
                 break;
             case "":
-                $with += ['president' => Settings::get('president'),
-                        'presidentPicture' => Settings::get('presidentPicture'),
-                        'studentsCount' => ExchangeStudent::byUniqueSemester(Settings::get('currentSemester'))->count(),
-                        'fullName' => Settings::get('fullName'),];
+                $with += [
+                    'president' => Contacts::getContactByPosition('President'),
+                    'presidentPicture' => Settings::get('presidentPicture'),
+                    'studentsCount' => ExchangeStudent::byUniqueSemester(Settings::get('currentSemester'))->count(),
+                    'fullName' => Settings::get('fullName'),
+                ];
                 $page = "home";
                 break;
             case "first-steps":
