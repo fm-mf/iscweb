@@ -29,9 +29,9 @@
 
         <h2>SmartGuide</h2>
         <img src="{{ asset('img/guide/partners/SmartG.png') }}" />
-        <p>Discover Prague in a interactive and fun way! SmartGuide turns your smart phone into a private guide.
+        <p>Discover Prague in an interactive and fun way! SmartGuide turns your smart phone into a private guide.
            Tours around highlights and hidden gems. Integrated maps and GPS. Photos, audio and text descriptions work together.</p>
-        <p> Download the app via this<a href="https://getgui.de/CVUTVIP" target="_blank">link</a> and activate the
+        <p> Download the app via this <a href="https://getgui.de/CVUTVIP" target="_blank">link</a> and activate the
           <strong>premium account for free with the CVUTVIP promo code!</strong>
         </p>
         <p></p>
