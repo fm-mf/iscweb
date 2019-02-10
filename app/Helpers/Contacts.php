@@ -33,21 +33,21 @@ class Contacts
                 'name' => 'Michaela Petříková',
                 'position' => 'Human Resources',
                 'email' => 'hr@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 777 888 704',
                 'avatar' => asset("{$contactImageFolder}/misa-hr.jpg")
             ],
             [
                 'name' => 'David Mládek',
                 'position' => 'Treasurer',
                 'email' => 'treasurer@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 721 155 737',
                 'avatar' => asset("{$contactImageFolder}/david-treasurer.jpg")
             ],
             [
                 'name' => 'Kateřina Vrbová',
                 'position' => 'Public Relations',
                 'email' => 'pr@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 778 092 326',
                 'avatar' => asset("{$contactImageFolder}/katka-pr.jpg")
             ],
             [
@@ -61,14 +61,14 @@ class Contacts
                 'name' => 'Jan Vůjtěch',
                 'position' => 'Quality and Knowledge Manager',
                 'email' => 'knowledge@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 728 559 713',
                 'avatar' => asset("{$contactImageFolder}/david-treasurer.jpg")
             ],
             [
                 'name' => 'Petra Schůtová',
                 'position' => 'inteGREAT Coordinator',
                 'email' => 'integreat@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 773 874 769',
                 'avatar' => asset("{$contactImageFolder}/peta-integreat.jpg")
             ],
             [
@@ -82,21 +82,21 @@ class Contacts
                 'name' => 'Michal Kubina',
                 'position' => 'Activities Coordinator',
                 'email' => 'activities@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 725 888 723',
                 'avatar' => asset("{$contactImageFolder}/kubina-activities.jpg")
             ],
             [
                 'name' => 'Rajmund Hruška',
                 'position' => 'Languages Coordinator',
                 'email' => 'languages@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+421 902 833 731',
                 'avatar' => asset("{$contactImageFolder}/rajmund-languages.jpg")
             ],
             [
                 'name' => 'Jiří Hájek',
                 'position' => 'Buddy Coordinator',
                 'email' => 'buddy@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 773 094 006',
                 'avatar' => asset("{$contactImageFolder}/jiri-buddy.jpg")
             ],
             [
@@ -117,14 +117,14 @@ class Contacts
                 'name' => 'Antonín Ženíšek',
                 'position' => 'Sports Coordinator',
                 'email' => 'sports@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 725 483 392',
                 'avatar' => asset("{$contactImageFolder}/tonda-sports.jpg")
             ],
             [
                 'name' => 'Kristýna Švandová',
                 'position' => 'ISC Care Coordinator',
                 'email' => 'care@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 774 004 806',
                 'avatar' => asset("{$contactImageFolder}/tyna-care.jpg")
             ],
             [
@@ -138,7 +138,7 @@ class Contacts
                 'name' => 'Kryštof Šimána',
                 'position' => 'Trips Coordinator',
                 'email' => 'trips@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 607 881 408',
                 'avatar' => asset($maleSilhouette) 
             ]
         ]);
