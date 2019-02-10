@@ -25,7 +25,6 @@
             if (binding.modifiers.click) t.push('click');
             trigger = t.join(' ');
         }
-		console.log('TCL: bsTooltip -> binding', binding)
         $(el).tooltip({
             title: binding.value,
             placement: binding.arg,
@@ -50,7 +49,6 @@
             url: {
                 type: String
             },
-
         },
 
         data () {

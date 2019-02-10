@@ -8,8 +8,8 @@
 
     <meta property="og:title" content="International Student Club CTU in Prague">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://isc.cvut.cz">
-    <meta property="og:image" content="http://isc.cvut.cz/img/isc-web.jpg">
+    <meta property="og:url" content="{{ url('') }}">
+    <meta property="og:image" content="{{ asset('img/isc-web.jpg') }}">
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
@@ -19,7 +19,7 @@
 
 
     <script type="text/javascript" src="https://use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>
+    <script type="text/javascript">try{ Typekit.load(); }catch(e){}</script>
 </head>
 
 <body id="page-top">

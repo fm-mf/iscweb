@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand partaknet-logo" href="https://isc.cvut.cz">
+                <a class="navbar-brand partaknet-logo" href="{{ url('') }}">
                     <img src="{{ asset('img/web/logo.png') }}" style="margin-top: 5px !important;" width="150" id="logo" alt="International Student Club">
                     <!--PartákNET-->
                 </a>
