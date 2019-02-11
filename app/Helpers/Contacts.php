@@ -131,7 +131,7 @@ class Contacts
                 'name' => 'Jan Batysta',
                 'position' => 'Visa Coordinator',
                 'email' => 'visa@isc.cvut.cz',
-                'phone' => '',
+                'phone' => '+420 777 048 852',
                 'avatar' => asset("{$contactImageFolder}/bautysta-visa.jpg")
             ],
             [
