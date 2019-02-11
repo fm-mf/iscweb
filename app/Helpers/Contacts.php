@@ -62,7 +62,7 @@ class Contacts
                 'position' => 'Quality and Knowledge Manager',
                 'email' => 'knowledge@isc.cvut.cz',
                 'phone' => '+420 728 559 713',
-                'avatar' => asset("{$contactImageFolder}/david-treasurer.jpg")
+                'avatar' => asset("{$contactImageFolder}/honza-qak.jpg")
             ],
             [
                 'name' => 'Petra Schůtová',
@@ -76,7 +76,7 @@ class Contacts
                 'position' => 'Point Coordinator',
                 'email' => 'point@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => asset($maleSilhouette)
+                'avatar' => asset("{$contactImageFolder}/point-tomas.jpg")
             ],
             [
                 'name' => 'Michal Kubina',
@@ -132,7 +132,7 @@ class Contacts
                 'position' => 'Visa Coordinator',
                 'email' => 'visa@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => asset($maleSilhouette)
+                'avatar' => asset("{$contactImageFolder}/bautysta-visa.jpg")
             ],
             [
                 'name' => 'Kryštof Šimána',
