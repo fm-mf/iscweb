@@ -11,7 +11,6 @@
         <li>A visit to the study department at your faculty will be organized by ISC</li>
         <li>You will get to know your classes and your schedule</li>
         <li>It might take longer than you expect. Reserve the whole morning in your calendar for this.</li>
-        <li>Bring your green Study record book (from the Welcome Pack), a passport photo and a pen with you</li>
         <li>There is no electronic registration, because you are a non-standard student with an individual study program, and you are not going to graduate from CTU</li>
     </ul>
 
@@ -32,7 +31,7 @@
         <li>More information in presentation on the first day of Orientation Week</li>
     </ul>
     {{--<h3>OW presentation form Monday</h3>--}}
-    {{--<ul class="list-unstyled">--}}
-        {{--<li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}">KOS manual</a></li>--}}
-    {{--</ul>--}}
+    <ul class="list-unstyled">
+        <li><a href="{{ url('/kos-manual') }}">KOS manual</a></li>
+    </ul>
 @stop
