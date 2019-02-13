@@ -67,6 +67,7 @@
                         <li>Visa regulations</li>
                     </ul>
                 </li>--}}
+		<li><a href="{{ asset('/files/Spring_2019_verze pro web.pdf') }}">Download presentation</a></li>
             </ul>
         </div>
     </div>
