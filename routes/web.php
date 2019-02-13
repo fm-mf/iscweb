@@ -35,6 +35,7 @@ Route::get('/visa', function() {
 });
 
 
+Route::get('kos-manual', function () { return response()->file('files/KOS_manual_2017.pdf'); });
 Route::get('buddy-prirucka', function () { return response()->file('files/buddy_prirucka_spring2019_pro_web.pdf'); });
 //redirect from old web
 Route::get('/buddy/files/buddy_prirucka_fall2018_pro_web.pdf', function () { return redirect(url('buddy-prirucka')); });
