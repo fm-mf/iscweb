@@ -56,10 +56,20 @@
             <dd>Room: A-811</dd>
             <dd>Phone: <a href="tel:+420 224 353 465">+420 224 353 465</a></dd>
             <dd>Email: <a href="mailto:volfgang.melecky@cvut.cz">volfgang.melecky@cvut.cz</a></dd>
-        <dt>Mgr. Kateřina Bošková</dt>
+        <dt>Ms. Alexandra Spurná</dt>
             <dd>Room: A-801a</dd>
             <dd>Phone: <a href="tel:+420 224 353 466">+420 224 353 466</a></dd>
-            <dd>Email: <a href="mailto:katerina.boskova@cvut.cz">katerina.boskova@cvut.cz</a></dd>
+            <dd>Email: <a href="mailto:alexandra.spurna@cvut.cz">alexandra.spurna@cvut.cz</a></dd>
+            @if ( date("Y-m-d") < "2019-04-04" )
+            <dd>Will be back on 4th April</dd>
+            <dd>Feel free to contact her anyway 🙂</dd>
+            @endif
+        @if ( date("Y-m-d") < "2019-03-31" )
+        <dt>Tereza Kadlecová</dt>
+            <dd>Room: A-803</dd>
+            <dd>Email: <a href="mailto:tereza.kadlecova@cvut.cz">tereza.kadlecova@cvut.cz</a></dd>
+            <dd>Replacement for Sasha until 31st March</dd>
+        @endif
         <dt>Ms. Lucie Bílová</dt>
             <dd>Room: A-802a</dd>
             <dd>Phone: <a href="tel:+420 224 353 467">+420 224 353 467</a></dd>
