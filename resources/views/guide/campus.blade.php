@@ -24,7 +24,7 @@
     </ul>
 
     <h3>Locations</h3>
-    <dl>
+    <dl class="contactsList">
         <dt>Faculty of Mechanical Engineering</dt>
             <dd>Charles' square (Karlovo naměstí) & Horská</dd>
         <dt>Faculty of Electrical Engineering</dt>
@@ -51,7 +51,7 @@
         For further information visit <a href="https://international.cvut.cz" target="_blank">CTU International Office website</a></p>
 
     <h4>Contacts</h4>
-    <dl>
+    <dl class="contactsList">
         <dt>Ing. Volfgang Melecký, Ph.D.</dt>
             <dd>Room: A-811</dd>
             <dd>Phone: <a href="tel:+420 224 353 465">+420 224 353 465</a></dd>
@@ -77,7 +77,7 @@
     </dl>
 
     <h4>Lucie Bílová's office hours</h4>
-    <dl>
+    <dl class="contactsList">
         <dt>Monday &ndash; Thursday</dt>
             <dd>8:00 &ndash; 11:00</dd>
             <dd>13:00 &ndash; 15:30</dd>
@@ -89,7 +89,7 @@
     <p class="bg-info">Note : If you are studying for a degree awarded by CTU, your contact person is always your Faculty coordinator.</p>
 
    <h3>Faculties, Institutes &amp; Contact persons</h3>
-    <dl>
+    <dl class="contactsList">
         <dt>Faculty of Civil Engineering</dt>
             <dd><a href="http://stuk.fsv.cvut.cz/wp-content/uploads/2016/03/plánek-fakulty-se-studijními-prostory.jpg" target="_blank">Map of the faculty</a></dd>
             <dd>Thákurova 7, Prague 6, 166 29</dd>
@@ -127,11 +127,11 @@
         <dt>Faculty of Transportation Sciences</dt>
             <dd><a href="https://www.fd.cvut.cz/english/faculty/contacts.html" target="_blank">Contacts &amp; buildings</a></dd>
             <dd>Konviktska 20, Prague 1, 110 00</dd>
-            <dd>{{-- TODO --}},{{-- office: 204</dd> --}
-           {{-- <dd>Study Department</dd>
+            <dd>Lýdie Tetíková, office: 204</dd>
+            <dd>Study Department</dd>
             <dd>Phone: <a href="tel:+420 224 359 540">+420 224 359 540</a></dd>
-            <dd>Email: <a href="mailto:{{-- TODO --}}{{--">--}}{{-- TODO --}}{{--</a></dd>--}}
-        {{--<dt>Faculty of Biomedical Engineering</dt>
+            <dd>Email: <a href="mailto:tetiklyd@fd.cvut.cz">tetiklyd@fd.cvut.cz</a></dd>
+        <dt>Faculty of Biomedical Engineering</dt>
             <dd><a href="http://en.fbmi.cvut.cz/information-for-students/prospective-full-time-students/rooms-and-classrooms" target="_blank">Classrooms location</a></dd>
             <dd>Náměstí Sítná 3105, Kladno 2, 272 01</dd>
             <dd>Lucie Kulhankova, office: B-506</dd>
@@ -139,7 +139,7 @@
             <dd>Phone: <a href="tel:+420 224 358 493">+420 224 358 493</a></dd>
             <dd>Email: <a href="mailto:kulhankova@fbmi.cvut.cz">kulhankova@fbmi.cvut.cz</a></dd>
         <dt>Faculty of Information Technology</dt>
-            <dd><a href="https://www.fit.cvut.cz/en/student/novacek/ucebny" target="_blank">Classrooms location (in Czech)</a></dd>
+            <dd><a href="https://www.fit.cvut.cz/en/student/classrooms" target="_blank">Classrooms location</a></dd>
             <dd>Thákurova 9, Prague 6, 160 00</dd>
             <dd>Hana Křižova, office: T9:312d</dd>
             <dd>Office of External Affairs</dd>
@@ -147,13 +147,13 @@
             <dd>Email: <a href="mailto:hana.krizova@fit.cvut.cz">hana.krizova@fit.cvut.cz</a></dd>
         <dt>Masaryk Institute of Advanced Studies</dt>
             <dd>Kolejní 2637/2a, Prague 6, 160 00</dd>
-            <dd>Kateřina Zelenková, office: m133</dd>
+            <dd>Bc. Kateřina Zelenková, office: m133</dd>
             <dd>Department for International Cooperation</dd>
             <dd>Phone: <a href="tel:+420 224 353 153">+420 224 353 153</a></dd>
             <dd>Email: <a href="mailto:katerina.zelenkova@cvut.cz">katerina.zelenkova@cvut.cz</a></dd>
-    </dl> --}}
+        </dl>
 
-    <dl>
+    <dl class="contactsList">
         <dt>For private (self-paying) students, seeking a CTU degree</dt>
             <dd>Contact your <a href="http://www.studyatctu.com/study-advisor-service/facultuy-coordinators/" target="_blank">faculty coordinator</a>, please</dd>
             <dd>For further information, contact the study advisors: Jakub Marek and Adela Bimova</dd>
