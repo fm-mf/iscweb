@@ -16,7 +16,7 @@
                     Masarykova dormitory and at Strahov, block 8.
                     <br><br>
                     <a class="btn btn-primary" href="http://www.isc.cvut.cz/files/languages-schedule.php">
-                        Have a look at the <b>Fall 2018 schedule</b>
+                        Have a look at the <b>Spring 2019 schedule</b>
                     </a>
                 </p>
                 <!-- <h2>Languages courses are over for this semester</h2> -->
@@ -84,7 +84,7 @@
                 <h2>See the schedule</h2>
                 <!--<p>You can have a look at <a href="#" data-toggle="modal" data-target=".schedule-detail">the actual schedule</a> NOW! See the variety of our languages!</p> -->
 
-                <p>You can have a look at the <a href="{{ asset('/files/languages-schedule.php') }}" target="_blank">Fall 2018 schedule</a>.</p>
+                <p>You can have a look at the <a href="{{ asset('/files/languages-schedule.php') }}" target="_blank">Spring 2019 schedule</a>.</p>
                 <p>The only language course running during the exam period is the Czech course on Wednesday. The schedule for the spring courses will be published at the end of February 2019.</p>
                 <!-- <p>Schedule for upcoming semester will be available in first week of the semester</p> -->
                <!--      <p>Our currently offered courses will end according to every teachers' wish or latest at the end of June.
