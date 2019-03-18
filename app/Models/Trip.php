@@ -245,15 +245,15 @@ class Trip extends Model
     {
         return Trip::with('event')
             ->whereHas('event', function ($query) {
-                $query->whereDate('datetime_from', '>=', Carbon::today());
+                $query->whereDate('trip_date_to', '>=', Carbon::today());
             })->get();
     }
     public static function findMaxYearOld()
     {
         return Trip::with('event')
             ->whereHas('event', function ($query) {
-                $query->whereDate('datetime_from', '<', Carbon::today())
-                    ->whereDate('datetime_from', '>', Carbon::today()->subYear());
+                $query->whereDate('trip_date_to', '<', Carbon::today())
+                    ->whereDate('trip_date_to', '>', Carbon::today()->subYear());
             })->get();
     }
 
