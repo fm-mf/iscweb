@@ -53,8 +53,12 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/contact', 'WebController@showContacts');
     Route::get('/calendar', 'WebController@showCalendar');
     Route::get('/buddy', function () { return view('web.buddy'); });
+    // Global IP when it is plugged in its public port -- not working now
     //Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); })->name('nas');
-    Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas');
+    // Local IP when it is plugged in the router -- works only in ISC Point
+    //Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas'); 
+    // Proxy using DDNS (and VPN?) -- should work always
+    Route::get('/nas', function () { return redirect('http://quickconnect.to/ISCCTU'); })->name('nas');
     
     Route::post('/voting/process', 'VotingController@processVoting');
     Route::get('/voting/results', 'VotingController@showResults')->middleware(['checkpartak', 'auth']);
