@@ -1,6 +1,6 @@
 <template>
     <div>
-        <exchange-student v-for="item in model.items" v-bind:student="item" :url="url" @saved="onSaved(item.id_user)"></exchange-student>
+        <exchange-student v-for="item in model.items" :key="item.id_user" :student="item" :url="url" @saved="onSaved(item.id_user)"></exchange-student>
     </div>
 </template>
 
