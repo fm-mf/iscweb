@@ -15,11 +15,11 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('autocomplete', require('./components/Autocomplete.vue'))
-Vue.component('multiselectinput', require('./components/MultiSelectInput.vue'))
-Vue.component('protectedbutton', require('./components/Button.vue'))
-Vue.component('preregister', require('./components/Preregister.vue'))
-Vue.component('unique-url', require('./components/UniqueUrlCopy.vue'))
+Vue.component('autocomplete', require('./components/Autocomplete.vue').default)
+Vue.component('multiselectinput', require('./components/MultiSelectInput.vue').default)
+Vue.component('protectedbutton', require('./components/Button.vue').default)
+Vue.component('preregister', require('./components/Preregister.vue').default)
+Vue.component('unique-url', require('./components/UniqueUrlCopy.vue').default)
 
 if (typeof jsoptions === 'undefined') {
     jsoptions = [];
