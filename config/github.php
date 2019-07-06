@@ -1,5 +1,5 @@
 <?php
 
 return [
-	'webhook-secret-token' => 'bVyzsUnMsyFL3J2W',
+	'webhook-secret-token' => env('GITHUB_SECRET'),
 ];
