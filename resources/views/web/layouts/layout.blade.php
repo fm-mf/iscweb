@@ -31,19 +31,19 @@
 <!------------ FOOTER ---------------- -->
 <div class="footer-wrap">
     <div class="container footer">
-        <div class="row">
-            <div class="col-sm-2">
+        <div class="row" >
+            <!--<div class="col-sm-2">
                 <h3>Our projects</h3>
                 <span class="bar"></span>
                 <ul class="list-unstyled">
                     <li><a href="https://www.facebook.com/inteGREATParty/" target="_blank">
                             <img src="{{ URL::asset('img/web/integreat_svetle_60x60.png') }}" width="17"> inteGREAT</a></li>
-                    <!-- <li><a href="http://isc.cvut.cz/survivalguide">SURVIVAL GUIDE</a></li> -->
+                    <li><a href="http://isc.cvut.cz/survivalguide">SURVIVAL GUIDE</a></li>
                     <li><a href="{{ action('Saf\SafController@showIndex') }}" target="_blank">S ČVUT do světa</a></li>
                     <li>ISC Care</li>
                 </ul>
-            </div>
-            <div class="col-sm-2">
+            </div>-->
+            <div class="col-sm-2 col-sm-offset-4">
                 <h3>Our channels</h3>
                 <span class="bar"></span>
                 <ul class="list-unstyled">
@@ -62,7 +62,7 @@
                     <li><a href="{{ url('blog') }}">ISC Blog</a></li>
                 </ul>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center">
                 <p><a href="{{ url('/privacy') }}">Privacy policies</a></p>
                 <p>&copy; {{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z.s.</p>
             </div>
