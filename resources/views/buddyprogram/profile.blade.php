@@ -7,7 +7,7 @@
             <h1 class="text-center card-title">Profil zahraničního studenta</h1>
 
             <div class="row">
-                <div class="col-sm-8 col-lg-9">
+                <div class="col-12 col-md-9 order-md-first order-last">
                     <h2>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</h2>
                     <div class="row">
                         <div class="col">
@@ -33,11 +33,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 col-lg-3">
+                <div class="col-12 col-md-3 ">
                     @if ($avatar)
                         <div class="avatar-view" title="Profile picture">
                             <i class="fas fa-user-circle" id="avatar"></i>
-                        <!--<img src="{{ asset($avatar) }}" alt="Avatar" id="avatar">-->
+                            <!--<img src="{{ asset($avatar) }}" alt="Avatar" id="avatar" style="max-width:100%">-->
                         </div>
                     @endif
                 </div>
