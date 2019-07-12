@@ -43,7 +43,6 @@
                     <td>@{{ student.faculty.abbreviation }}</td>
                     <td><span v-if="student.arrival">@{{ student.arrival['arrival'] }}</span></td>
                     <td>@{{ student.accommodation.full_name }}</td>
-
                 </tr>
             </tbody>
         </table>
