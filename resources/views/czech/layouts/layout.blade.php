@@ -19,7 +19,7 @@
             } catch (e) {
             }</script>
     </head>
-    <body id="page-top" class="page-background">
+    <body id="page-top" class="page-background buddy-program">
         <noscript>
             <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPBKF8" height="0" width="0" style="display:none;visibility:hidden"></iframe>
         </noscript>

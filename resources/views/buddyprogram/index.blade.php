@@ -1,47 +1,52 @@
 @extends('layouts.buddyprogram.layout')
 
 @section('content')
-<div id="app" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-    <table>
-        <thead>
-            <tr>
-                <th>Jméno</th>
-                <th>
-                    <multiselect :options="countries" :show-labels="false" label="full_name" track-by="id_country" placeholder="Země"
-                                 v-model="exchangeStudents.filters.countries" :multiple="true" v-on:input="update"></multiselect>
-                </th>
-                <th>
-                    Škola
-                </th>
-                <th>
-                    <multiselect :options="faculties" :show-labels="false" label="abbreviation" track-by="id_faculty" placeholder="Fakulta"
-                                 v-model="exchangeStudents.filters.faculties" :multiple="true" v-on:input="update"></multiselect>
+<div class="container page">
+    <div id="app" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+        <h4>Filtrovat studenty:</h4>
+        <div class="filter row">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <multiselect :options="countries" :show-labels="false" label="full_name" track-by="id_country" placeholder="Země"
+                             v-model="exchangeStudents.filters.countries" :multiple="true" v-on:input="update"></multiselect>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <multiselect :options="faculties" :show-labels="false" label="abbreviation" track-by="id_faculty" placeholder="Fakulta"
+                             v-model="exchangeStudents.filters.faculties" :multiple="true" v-on:input="update"></multiselect>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <multiselect :options="arrivals" :show-labels="false" v-model="exchangeStudents.filters.arrivals" placeholder="Příjezd"
+                             :multiple="true" v-on:input="update"></multiselect>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <multiselect :options="accommodation" :show-labels="false" label="full_name" placeholder="Bydlení"
+                             track-by="id_accommodation" v-model="exchangeStudents.filters.accommodation" :multiple="true" v-on:input="update"></multiselect>
+            </div>
+        </div>
 
-                </th>
-                <th>
-                    <multiselect :options="arrivals" :show-labels="false" v-model="exchangeStudents.filters.arrivals" placeholder="Příjezd"
-                                 :multiple="true" v-on:input="update"></multiselect>
-
-                </th>
-                <th>
-                    <multiselect :options="accommodation" :show-labels="false" label="full_name" placeholder="Bydlení"
-                                 track-by="id_accommodation" v-model="exchangeStudents.filters.accommodation" :multiple="true" v-on:input="update"></multiselect>
-
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="student in exchangeStudents.all()">
-                <td>@{{ student.person.first_name }} @{{ student.person.last_name }}</td>
-                <td>@{{ student.country.full_name }}</td>
-                <td>@{{ student.school }}</td>
-                <td>@{{ student.faculty.abbreviation }}</td>
-                <td><span v-if="student.arrival">@{{ student.arrival['arrival'] }}</span></td>
-                <td>@{{ student.accommodation.full_name }}</td>
-
-            </tr>
-        </tbody>
-    </table>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Jméno</th>
+                    <th>Země</th>
+                    <th>Škola</th>
+                    <th>Fakulta</th>
+                    <th>Příjed</th>
+                    <th>Bydlení</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="student in exchangeStudents.all()">
+                    <td>@{{ student.person.first_name }} @{{ student.person.last_name }}</td>
+                    <td>@{{ student.country.full_name }}</td>
+                    <td>@{{ student.school }}</td>
+                    <td>@{{ student.faculty.abbreviation }}</td>
+                    <td><span v-if="student.arrival">@{{ student.arrival['arrival'] }}</span></td>
+                    <td>@{{ student.accommodation.full_name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <nav aria-label="Page navigation">
         <ul class="pagination">
@@ -58,6 +63,7 @@
             </li>
         </ul>
     </nav>
+</div>
 </div>
 @stop
 
