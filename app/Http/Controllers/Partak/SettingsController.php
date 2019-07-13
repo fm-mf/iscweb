@@ -124,8 +124,8 @@ class SettingsController extends Controller
             'wcFrom' => 'required|date_format:d M Y',
             'owFrom' => 'date_format:d M Y',
             'owTo' => 'required|date_format:d M Y',
-            'electionStreamUrl' => 'nullable|url',       
-
+            'electionStreamUrl' => 'nullable|url',
+            'fbGroupLink' => 'nullable|url'
         ]);
     }
 

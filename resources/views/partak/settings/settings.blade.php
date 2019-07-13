@@ -54,6 +54,12 @@
                     @endif
                     {{ Form::url('electionStreamUrl', $settings['electionStreamUrl'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
+                    {{ Form::label('fbGroupLink', 'Link to current semester\'s FB group', ['class' => 'control-label']) }}
+                    @if ($errors->has('fbGroupLink'))
+                        <p class="error-block alert-danger">{{ $errors->first('fbGroupLink') }}</p>
+                    @endif
+                    {{ Form::url('fbGroupLink', $settings['fbGroupLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
+
                     <div style="margin-bottom: 15px;">
                    		<button type="button" id="editOpeningHoursButton" class="btn btn-warning">Edit opening hours</button>
                    	</div>

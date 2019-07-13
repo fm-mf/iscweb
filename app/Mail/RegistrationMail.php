@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\DB;
 
 class RegistrationMail extends Mailable
 {
@@ -34,6 +35,7 @@ class RegistrationMail extends Mailable
         return $this->view('emails.registrationsmail')
                 ->from('buddy@isc.cvut.cz', 'ISC CTU in Prague')
                 ->subject('Buddy Program ISC CTU in Prague')
-                ->with('hash', $this->exchangeStudent->person->user->hash);
+                ->with('hash', $this->exchangeStudent->person->user->hash)
+                ->with('fbGroupLink', DB::table('settings')->select('value')->where('key', 'fbGroupLink')->first()->value);
     }
 }
