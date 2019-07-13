@@ -384,6 +384,10 @@ a.disabled {
 	display: block;
 }
 
+#showOpeningHours:not(:checked) ~ #openingHoursData {
+	display: none;
+}
+
 #openingHoursTable th {
 	text-align: right;
 	padding-right: 10px;

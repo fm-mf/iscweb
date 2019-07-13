@@ -80,7 +80,7 @@
 		 			{{ Form::label('showOpeningHours', 'Show daily hours', ['class' => 'control-label']) }}
 		 			{{ Form::checkbox( 'showOpeningHours', 'on', $showOpeningHours, ['id' => 'showOpeningHours', 'class' => 'ui-widget-content ui-corner-all', 'style' => 'margin-bottom: 20px;'] ) }}
 
-					<div id="openingHoursData" class="collapse">
+					<div id="openingHoursData">
 					<table id="openingHoursTable" style="width: 100%;">
 					@foreach ( $openingHoursData as $day => $value )
 						<tr>
