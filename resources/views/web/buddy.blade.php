@@ -32,7 +32,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand link" href="#page-top">
-                        <img src="{{ asset('img/buddy/logo.png') }}" alt="International Student Club">
+                        <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="International Student Club">
                     </a>
                 </div>
 

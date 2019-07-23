@@ -1,6 +1,6 @@
 @extends('web.layouts.subpage')
 @section('wrapper-class', 'about-wrapper')
-@section('navClass', 'navbar-light')
+@section('navClass', 'navbar-dark')
 @section('title', 'About Us')
 
 @section('content')

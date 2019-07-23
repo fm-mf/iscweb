@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ URL::asset('/img/web/logo.png') }}" id="logo" alt="International Student Club">
+                    <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" id="logo" alt="International Student Club">
                 </a>
             </div><!-- /.navbar-header -->
 

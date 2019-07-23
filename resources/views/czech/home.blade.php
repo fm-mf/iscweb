@@ -26,14 +26,14 @@
                                 <small>asdasda</small>
                             </li>
                         </ul>
-                        <img src="{{ URL::asset('/img/web/logo-circle.png') }}">
+                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
                     </td>
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <img src="{{ URL::asset('/img/web/logo-circle.png') }}">
+                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
                         <ul>
                             <li>Buddy program</li>
                             <li>
@@ -50,14 +50,14 @@
                                 <small>asdasda</small>
                             </li>
                         </ul>
-                        <img src="{{ URL::asset('/img/web/logo-circle.png') }}">
+                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
                     </td>
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <img src="{{ URL::asset('/img/web/logo-circle.png') }}">
+                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
                         <ul>
                             <li>Organizuj men&scaron;&iacute; akce</li>
                             <li>
@@ -74,14 +74,14 @@
                                 <small>asdasda</small>
                             </li>
                         </ul>
-                        <img src="{{ URL::asset('/img/web/logo-circle.png') }}">
+                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
                     </td>
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <img src="{{ URL::asset('/img/web/logo-circle.png') }}">
+                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
                         <ul>
                             <li>Workshopy</li>
                             <li>
@@ -98,14 +98,14 @@
                                 <small>Tvorba webov&yacute;ch str&aacute;nek a LAN p&aacute;rty</small>
                             </li>
                         </ul>
-                        <img src="{{ URL::asset('/img/web/logo-circle.png') }}">
+                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
                     </td>
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <img src="{{ URL::asset('/img/web/logo-circle.png') }}">
+                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
                         <ul>
                             <li>Sportuj</li>
                             <li>

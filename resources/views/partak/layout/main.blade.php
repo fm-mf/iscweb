@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand partaknet-logo" href="{{ url('') }}">
-                    <img src="{{ asset('img/web/logo.png') }}" style="margin-top: 5px !important;" width="150" id="logo" alt="International Student Club">
+                    <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" id="logo" alt="International Student Club">
                     <!--PartákNET-->
                 </a>
             </div><!-- /.navbar-header -->

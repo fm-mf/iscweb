@@ -41,9 +41,14 @@
     align-self: end;
   }
 
-  .navbar-brand img {
-    height: auto;
-    max-width: 100%;
+  .navbar-brand {
+    display: block;
+    & > img {
+      display: block;
+      height: 3.5rem;
+      margin-top: -0.3125rem;
+      margin-bottom: -0.3125rem;
+    }
   }
 
   i {
@@ -55,7 +60,7 @@
 
 main {
   .page {
-    margin-top: 5rem;
+    margin-top: 6rem;
     h1 {
       margin-bottom: 2rem;
       margin-top: 1rem;

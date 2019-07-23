@@ -1,4 +1,5 @@
 @extends('czech.layouts.layout')
+@section('navClass', 'navbar-dark')
 @section('page')
     <div class="about-wrapper">
         <h1 class="title "><strong>O N&Aacute;S</strong></h1>

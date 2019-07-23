@@ -11,10 +11,10 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <img src="{{ URL::asset('img/web/logo-circle.png') }}" alt="ISC Logos">
+                        <img src="{{ asset('img/logos/isc-logo-watermark-color.svg') }}" alt="ISC Logos">
                         <h2>DOWNLOAD OUR LOGOS</h2>
-                        <p>Zip file packed with our logo in PDF and PNG format.</p>
-                        <a href="{{ asset('/files/isc-logos.zip') }}"><button type="button" class="btn btn-primary btn-logo">DOWNLOAD LOGOS</button></a>
+                        <p>Zip file packed with our logo in SVG and PNG format.</p>
+                        <a href="{{ asset('files/isc-logos-2019.zip') }}"><button type="button" class="btn btn-primary btn-logo">DOWNLOAD LOGOS</button></a>
                     </div>
                 </div>
             </div>

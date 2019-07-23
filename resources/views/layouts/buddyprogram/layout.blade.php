@@ -29,7 +29,7 @@
     <div class="d-flex flex-grow-1">
         <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
         <a class="navbar-brand" href="{{route('buddy-home')}}">
-            <img src="{{ URL::asset('/img/web/logo.png') }}"  alt="International Student Club">
+            <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}"  alt="International Student Club">
         </a>
         <div class="w-100 text-right">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">

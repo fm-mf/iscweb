@@ -3,7 +3,7 @@
 <div class="register-wrapper">
     <div class="left-column"></div>
     <div class="form-wrapper container container-form">
-        <img src="{{ URL::asset('img/web/logo.png') }}" alt="International Student Club" class="logo">
+        <img src="{{ URL::asset('img/logos/isc-logo-color-horizontal.svg') }}" alt="International Student Club" class="logo">
         @yield('content')
     </div>
 </div>

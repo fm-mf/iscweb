@@ -65,16 +65,16 @@ a.current { font-weight: 700; }
 .navbar-nav {padding-left:10px; padding-right:10px;}
 
 
-.navbar-dark > div > div > div > ul {
-  background:#3D3D3D;
+.navbar-dark {
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .navbar-dark > div > div > div > button > span {
-  background-color: #000 !important;
+  background-color: #fff !important;
 }
 
-.navbar-light > div > div > div > ul {
-  background: #fff;
+.navbar-light {
+  background: rgba(255, 255, 255, 0.9);
 }
 .navbar-light > div > div > div > ul a {
   color:#000;
@@ -109,7 +109,8 @@ a.current { font-weight: 700; }
 .navbar-brand img {
   max-width:250px;
   width:100%;
-  margin-top: -20px;
+  margin-top: -26px;
+  height: 64px;
 }
 
 .navbar-toggle .icon-bar {
