@@ -79,7 +79,15 @@
                 <ul class="row list-unstyled contacts">
                     @foreach($contacts as $contact)
                         <li class="col-md-4 col-sm-6">
-                            <img src="{{ $contact['avatar'] }}" class="img-circle">
+                            @if(isset($contact['avatar']) && $contact["avatar"] != "")
+                                <img src="{{ $contact['avatar'] }}" class="img-circle">
+                            @else
+                                <i class="fas fa-user img-circle" style="font-size: 90px;
+                                    float: left;
+                                    text-align: center;
+                                    width: 104px;
+                                    height: 104px;"></i>
+                            @endif
                             <div class="contact-details">
                                 <h4>{{ $contact['name'] }}</h4><br>
                                 <strong>{{ $contact['position'] }}</strong><br>

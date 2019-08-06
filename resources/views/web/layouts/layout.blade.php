@@ -19,6 +19,7 @@
 
 
     <script type="text/javascript" src="https://use.typekit.net/aav2ndi.js"></script>
+    <script src="https://kit.fontawesome.com/ff34153e60.js"></script>
     <script type="text/javascript">try{ Typekit.load(); }catch(e){}</script>
 </head>
 

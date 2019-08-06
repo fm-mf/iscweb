@@ -30,13 +30,6 @@ class Contacts
                 'avatar' => asset("{$contactImageFolder}/neci-vice.jpg")
             ],
             [
-                'name' => 'Michaela Petříková',
-                'position' => 'Human Resources',
-                'email' => 'hr@isc.cvut.cz',
-                'phone' => '+420 777 888 704',
-                'avatar' => asset("{$contactImageFolder}/misa-hr.jpg")
-            ],
-            [
                 'name' => 'David Mládek',
                 'position' => 'Treasurer',
                 'email' => 'treasurer@isc.cvut.cz',
@@ -44,18 +37,25 @@ class Contacts
                 'avatar' => asset("{$contactImageFolder}/david-treasurer.jpg")
             ],
             [
-                'name' => 'Kateřina Vrbová',
+                'name' => 'Eva Eöllősová',
                 'position' => 'Public Relations',
                 'email' => 'pr@isc.cvut.cz',
-                'phone' => '+420 778 092 326',
-                'avatar' => asset("{$contactImageFolder}/katka-pr.jpg")
+                'phone' => '',
+                'avatar' => ''
             ],
             [
-                'name' => 'Matěj Mysliveček',
+                'name' => 'Jakub Doupal',
                 'position' => 'Local Representative',
                 'email' => 'lr@isc.cvut.cz',
-                'phone' => '+420 777 669 787',
-                'avatar' => asset("{$contactImageFolder}/matej-lr.jpg")
+                'phone' => '',
+                'avatar' => ''
+            ],
+            [
+                'name' => 'Michal Cihlář',
+                'position' => 'Human Resources',
+                'email' => 'hr@isc.cvut.cz',
+                'phone' => '',
+                'avatar' => ''
             ],
             [
                 'name' => 'Jan Vůjtěch',
@@ -65,27 +65,33 @@ class Contacts
                 'avatar' => asset("{$contactImageFolder}/honza-qak.jpg")
             ],
             [
-                'name' => 'Petra Schůtová',
-                'position' => 'inteGREAT Coordinator',
-                'email' => 'integreat@isc.cvut.cz',
-                'phone' => '+420 773 874 769',
-                'avatar' => asset("{$contactImageFolder}/peta-integreat.jpg")
+                'name' => 'Kryštof Šimána',
+                'position' => 'Activities Coordinator',
+                'email' => 'activities@isc.cvut.cz',
+                'phone' => '',
+                'avatar' => ''
             ],
             [
-                'name' => 'Tomáš Hrdlovics',
+                'name' => 'Jakub Trhlík',
+                'position' => 'inteGREAT Coordinator',
+                'email' => 'integreat@isc.cvut.cz',
+                'phone' => '',
+                'avatar' => ''
+            ],
+            [
+                'name' => 'Jan Páleník',
+                'position' => 'IT Coordinator',
+                'email' => 'it@isc.cvut.cz',
+                'phone' => '',
+                'avatar' => ''
+            ],
+            [
+                'name' => 'Filip Marek',
                 'position' => 'Point Coordinator',
                 'email' => 'point@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => asset("{$contactImageFolder}/point-tomas.jpg")
-            ],
-            [
-                'name' => 'Michal Kubina',
-                'position' => 'Activities Coordinator',
-                'email' => 'activities@isc.cvut.cz',
-                'phone' => '+420 725 888 723',
-                'avatar' => asset("{$contactImageFolder}/kubina-activities.jpg")
-            ],
-            [
+                'avatar' => '',
+            ],[
                 'name' => 'Rajmund Hruška',
                 'position' => 'Languages Coordinator',
                 'email' => 'languages@isc.cvut.cz',
@@ -93,18 +99,11 @@ class Contacts
                 'avatar' => asset("{$contactImageFolder}/rajmund-languages.jpg")
             ],
             [
-                'name' => 'Jiří Hájek',
+                'name' => 'Jan Zípek',
                 'position' => 'Buddy Coordinator',
                 'email' => 'buddy@isc.cvut.cz',
-                'phone' => '+420 773 094 006',
-                'avatar' => asset("{$contactImageFolder}/jiri-buddy.jpg")
-            ],
-            [
-                'name' => 'Petr "Fíďa" Fiedler',
-                'position' => 'IT Coordinator',
-                'email' => 'it@isc.cvut.cz',
-                'phone' => '+420 608 990 369',
-                'avatar' => asset("{$contactImageFolder}/fida-it.jpg")
+                'phone' => '',
+                'avatar' => ''
             ],
             [
                 'name' => 'Dominik Bureš',
