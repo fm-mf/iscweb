@@ -129,7 +129,7 @@ class ImportExchangeStudents extends Command
             $person->id_user = $user->id_user;
             $person->first_name = $data[$this->firstNameKey];
             $person->last_name = $data[$this->lastNameKey];
-            $person->age = $data[$this->birthDayKey]->year;
+            $person->age = $this->getAge($data);
             $person->sex = $this->getSex($data);
             $person->save();
         } catch (QueryException $e) {
@@ -141,6 +141,14 @@ class ImportExchangeStudents extends Command
             }
         }
         return $user;
+    }
+
+    private function getAge($data) {
+        if($data[$this->birthDayKey]){
+            return date("Y", strtotime($data[$this->birthDayKey]));
+        } else {
+            return 0;
+        }
     }
 
     private function getSex($data): string
