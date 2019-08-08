@@ -83,6 +83,16 @@
         </label>
     </div>
 
+    <h3 class="col-sm-12"><span>PRIVACY POLICY</span></h3>
+    <div class="col-sm-12 form-group">
+        @if ($errors->has('privacy_policy'))
+            <p class="error-block alert-danger">You have to agree with our <a href="{{ action('Privacy\PrivacyController@showPrivacyPolicy') }}" target="_blank">Privacy policy</a>.</p>
+        @endif
+        <label>
+            {{ Form::checkbox('privacy_policy', true, $student->privacy_policy) }} I agree with the <a href="{{ action('Privacy\PrivacyController@showPrivacyPolicy') }}" target="_blank" title="Agreement with the Privacy policy">Privacy policy.</a>
+        </label>
+    </div>
+
     {{ Form::bsSubmit('Update your profile') }}
 
     {{ Form::close() }}

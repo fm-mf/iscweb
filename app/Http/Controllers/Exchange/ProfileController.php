@@ -102,6 +102,8 @@ class ProfileController extends Controller
             $student->want_buddy = 'y';
         }
 
+        $student->privacy_policy = $request->privacy_policy;
+
         $student->save();
         $student->person->updateWithIssuesAndDiet([
             'medical_issues' => $request->medical_issues,
@@ -159,6 +161,7 @@ class ProfileController extends Controller
             'date' => 'required_without_all:arrival_skipped,opt_out|date_format:d M Y',
             'time' => 'date_format:g:i A',
             'transportation' => 'required_without_all:arrival_skipped,opt_out',
+            'privacy_policy' => 'accepted',
         ]);
     }
 }

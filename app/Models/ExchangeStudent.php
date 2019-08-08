@@ -16,6 +16,10 @@ class ExchangeStudent extends Model
     protected $dates = ['buddy_timestamp'];
     public $incrementing = false;
 
+    protected $casts = [
+        'privacy_policy' => 'boolean',
+    ];
+
     protected $fillable = [
         'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation'
     ];
