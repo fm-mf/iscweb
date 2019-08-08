@@ -6,7 +6,7 @@
 </head>
 <body>
 <p>Hi there!<br>
-    It's few weeks until your arrival and we are doing our best to set up the Buddy Program for you!<br>
+    It's a few weeks until your arrival and we are doing our best to set up the Buddy Program for you!<br>
     But we need your input now!
 </p>
 
@@ -17,20 +17,20 @@
 
 <p><strong>That link is unique, just for you - please keep it for eventual future updates.</strong></p>
 
-<p>Please note that it’s <strong>very important</strong> to complete the form in order to
+<p>Please note that it's <strong>very important</strong> to complete the form in order to
     <strong>get a Buddy</strong>. The information you include will be later shared with Czech
     buddies, and they will choose based on the <strong>time of your arrival</strong> (their time
     constraints) and the things you might have in common. You can write something about your
     <strong>hobbies</strong>, about your <strong>field of study</strong> or what do you expect
-    from your stay in Prague :). If you’re coming together with some friends, please mention
+    from your stay in Prague :). If you're coming together with some friends, please mention
     that too - that makes the planning much easier for us.</p>
 
-<p>Also please note that we’re not able to guarantee that everyone gets their Czech Buddy
-    (we’re all volunteers after all), but by filling out that form properly you have a pretty
+<p>Also please note that we're not able to guarantee that everyone gets their Czech Buddy
+    (we're all volunteers after all), but by filling out that form properly you have a pretty
     high chance to get one. After being paired with your Buddy, he or she will contact you by
-    an email. Please be patient, this might take a few days/weeks.</p>
+    email. Please be patient; this might take a few days/weeks.</p>
 
-<p><small>If, for any reason, you don't wish to have a Czech buddy, you can take your name out of the
+<p><small>If (for any reason) you don't wish to have a Czech buddy, you can take your name out of the
     program by checking the "I don't wish to have a buddy" option in the form.<br>
     But remember that taking part in the Buddy Program is the best way to meet Czech people,
     learn something about us and our culture and, above all, it can make your first days
