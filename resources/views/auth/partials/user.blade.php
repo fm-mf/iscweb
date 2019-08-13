@@ -21,3 +21,4 @@
 
 {{ Form::bsPassword('password', 'Heslo', [], 'Heslo musí obsahovat alespoň 8 znaků.') }}
 {{ Form::bsPassword('password_confirmation', 'Potvrzení hesla', []) }}
+{{ Form::bsSelect('id_country', 'Země původu', $countries, ['placeholder' => 'Vyber zemi...', 'default' => $id_cz]) }}

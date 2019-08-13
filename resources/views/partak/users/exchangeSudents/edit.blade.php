@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="row-inner">
-                <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($exStudent->person->avatar()) }}">
+                <img class="img-circle pull-left buddy-detail-img"  width="125" src="{{ asset($exStudent->person->avatar()) }}">
                 <h3>{{ $exStudent->person->first_name .' '. $exStudent->person->last_name}}</h3>
 
             </div>
