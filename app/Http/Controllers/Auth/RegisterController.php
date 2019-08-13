@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Models\Buddy;
+use App\Models\Country;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -83,5 +84,10 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
         //
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register')->with(['countries' => Country::getOptions(), 'id_cz' => Country::getCountryIdFromTwoLetter('CZ')]);
     }
 }
