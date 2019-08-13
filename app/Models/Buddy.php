@@ -16,7 +16,7 @@ class Buddy extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        'id_faculty', 'about', 'phone', 'subscribed'
+        'id_faculty', 'about', 'phone', 'subscribed', 'id_country'
     ];
 
     public function person()
@@ -32,6 +32,11 @@ class Buddy extends Model
     public function organizedTrips()
     {
         return $this->belongsToMany('\App\Models\Trip', 'trips_organizers', 'id_user', 'id_trip');
+    }
+
+    public function country()
+    {
+    	return $this->hasOne('\App\Models\Country', 'id_country', 'id_country');
     }
 
     public function trips()
@@ -99,7 +104,7 @@ class Buddy extends Model
 
     public static function findBuddy($id_user)
     {
-        return Buddy::with('person.user')->find($id_user);
+        return Buddy::with(['person.user', 'country'])->find($id_user);
     }
 
     public static function findAll()
@@ -124,6 +129,7 @@ class Buddy extends Model
             $buddy = new Buddy;
             $buddy->id_user = $user->id_user;
             $buddy->agreement = $data['agreement'];
+            $buddy->id_country = $data['id_country'];
             $buddy->save();
 
             return $buddy;

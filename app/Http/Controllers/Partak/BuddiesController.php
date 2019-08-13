@@ -10,6 +10,7 @@ use App\Models\Role;
 use App\Models\Semester;
 use App\Models\User;
 use App\Models\Person;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Faculty;
@@ -31,7 +32,7 @@ class BuddiesController extends Controller
                 'email',
                 Rule::unique('users')->ignore($id, 'id_user'),
             ],
-
+            'id_country' => 'required',
         ]);
 
         $validator->after(function ($validator) use ($data, $id) {
@@ -115,6 +116,7 @@ class BuddiesController extends Controller
             'buddy' => $buddy,
             'faculties' => Faculty::getOptions(),
             'diets' => Person::getAllDiets(),
+            'countries' => Country::getOptions(),
         ]);
     }
 
