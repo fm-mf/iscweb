@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -256,5 +257,24 @@ class ExchangeStudent extends Model
             $exStudent->save();
             return $exStudent;
         });
+    }
+
+    public function scopeFindByEmail(Builder $query, string $email)
+    {
+        return $query->with('person.user')->whereHas('person.user', function (Builder $query) use ($email) {
+            $query->where('email', $email);
+        })->first();
+    }
+
+    public function scopeByEmails(Builder $query, array $emails)
+    {
+        return $query->with('person.user')->whereHas('person.user', function (Builder $query) use ($emails) {
+            $query->whereIn('email', $emails);
+        });
+    }
+
+    public function scopeGetByEmails(Builder $query, array $emails)
+    {
+        return $query->byEmails($emails)->get();
     }
 }

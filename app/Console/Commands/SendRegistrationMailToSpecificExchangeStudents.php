@@ -42,8 +42,9 @@ class SendRegistrationMailToSpecificExchangeStudents extends Command
     {
         $emails = $this->argument('email');
         $count = 0;
-        foreach ($emails as $email) {
-            $student = ExchangeStudent::with('person.user')->byEmail($email)->get();
+        $students = ExchangeStudent::getByEmails($emails);
+        foreach ($students as $student) {
+            $email = $student->person->user->email;
             Mail::to($email)->send(new RegistrationMail($student));
             $this->info("Sending email to " . $email);
             $count++;
