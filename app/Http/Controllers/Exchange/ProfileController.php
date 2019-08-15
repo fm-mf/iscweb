@@ -162,6 +162,7 @@ class ProfileController extends Controller
             'time' => 'date_format:g:i A',
             'transportation' => 'required_without_all:arrival_skipped,opt_out',
             'privacy_policy' => 'accepted',
+            'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
         ]);
     }
 }
