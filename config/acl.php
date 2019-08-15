@@ -74,7 +74,7 @@ return [
             ],
             'inheritsFrom' => ['team']
         ],
-        
+
         'board' => [
             'id' => 5,
             'resources' => [
@@ -111,6 +111,7 @@ return [
                 'trips' => ['remove'],
                 'events' => ['remove'],
                 'roles' => ['view', 'all'],
+                'logs',
             ],
             'inheritsFrom' => ['admin']
         ],
