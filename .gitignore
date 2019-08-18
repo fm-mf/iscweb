@@ -13,9 +13,8 @@ yarn-error.log
 
 /public/avatars
 /public/css/
-/public/js/partak.js
-/public/js/echangestudentslist.js
-/public/js/saf/
+/public/fonts/
+/public/js/
 /public/languages
 /public/mix-manifest.json
 _ide_helper.php

@@ -1,0 +1,13 @@
+.header-wrapper.about-us {
+  background: url(/img/web/map-with-pins.jpg) 0 25% / cover no-repeat;
+}
+
+blockquote {
+  font-style: italic;
+  &::before {
+    content: "„";
+  }
+  &::after {
+    content: "“";
+  }
+}

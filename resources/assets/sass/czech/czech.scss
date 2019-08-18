@@ -1,148 +1,20 @@
-a:focus,
-a:hover {
-  color: #05A0DB;
-  text-decoration: none;
-  outline: none;
-  border-color: #05A0DB;
-}
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
 
-.footer-wrap a:focus,
-.footer-wrap a:hover {
-  color: white;
-  text-decoration: underline;
-  border-color: white;
-}
+$fa-font-path: "/fonts/font-awesome";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
 
-a.logo:hover img,
-a.logo:focus img {
-  filter: invert(50%) opacity(0.5) drop-shadow(0 0 0 #05A0DB) contrast(300%);
-}
+@import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
 
-h1.introduction {
-  font-size: 34px;
-}
+@import "header";
+@import "main";
+@import "footer";
 
-.nav > li > a:hover,
-.nav > li > a:focus {
-  color: #05A0DB !important;
-  background: initial;
-}
-
-.navbar-custom {
-  transition: background-color 300ms ease-in-out, border 300ms ease-in-out;
-}
-
-.top-nav-collapse {
-  margin-top: 0;
-}
-
-.header-wrapper {
-  min-height: 102.4px!important;
-  height: 102.4px;
-  background: none;
-}
-
-.page-background {
-  background: url("/img/web/background.jpg");
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-}
-
-.section {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.embed-nav {
-  color: white;
-  border: 1px solid white;
-  padding: 0.4em 0.5em;
-  margin: 0.4em 0.5em;
-  line-height: 44px;
-}
-
-table.zig-zag {
-  width: 100%;
-}
-
-table.zig-zag img {
-  max-heigth: 5em;
-  max-width: 5em;
-}
-
-table.zig-zag td {
-  width: 50%;
-}
-
-table.zig-zag td:first-child {
-  text-align: right;
-}
-
-table.zig-zag td:last-child {
-  text-align: left;
-}
-
-table.zig-zag td:first-child img {
-  margin-left: 1em;
-}
-
-table.zig-zag td:last-child img {
-  margin-right: 1em;
-}
-
-table.zig-zag ul {
-  display: inline-block;
-  vertical-align: middle;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#instafeed a {
-  margin: 6px;
-  height: 150px;
-  display: inline-block;
-  border: 2px ridge white;
-  box-sizing: content-box;
-  box-shadow: #0c0c0c 0px 3px 3px;
-}
-
-#instafeed a:focus,
-#instafeed a:hover {
-  border-color: #05A0DB;
-}
-
-.faq {
-  background: initial;
-  color: inherit;
-  text-align: left;
-  max-width: 500px;
-  width: fit-content;
-  margin: auto;
-}
-
-.faq ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 35px;
-}
-
-.faq ul:last-child {
-  margin: 0;
-}
-
-.faq li:first-child:before {
-  content: "Q: ";
-}
-
-.faq li:last-child:before {
-  content: "A: ";
-}
-
-.about-wrapper {
-  margin-top: -102.4px;
-  padding-top: 82px;
-}
+@import "home";
+@import "about-us";
+@import "buddy-program";
+@import "zig-zag";
+@import "faq";

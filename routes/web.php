@@ -36,7 +36,7 @@ Route::get('/visa', function() {
 
 
 Route::get('kos-manual', function () { return response()->file('files/KOS_manual_2017.pdf'); });
-Route::get('buddy-prirucka', function () { return response()->file('files/buddy_prirucka_spring2019_pro_web.pdf'); });
+Route::get('buddy-prirucka', function () { return response()->file('files/buddy_prirucka_spring2019_pro_web.pdf'); })->name('buddy-handbook-cs');
 //redirect from old web
 Route::get('/buddy/files/buddy_prirucka_fall2018_pro_web.pdf', function () { return redirect(url('buddy-prirucka')); });
 
@@ -56,10 +56,10 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     // Global IP when it is plugged in its public port -- not working now
     //Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); })->name('nas');
     // Local IP when it is plugged in the router -- works only in ISC Point
-    //Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas'); 
+    //Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas');
     // Proxy using DDNS (and VPN?) -- should work always
     Route::get('/nas', function () { return redirect('http://quickconnect.to/ISCCTU'); })->name('nas');
-    
+
     Route::post('/voting/process', 'VotingController@processVoting');
     Route::get('/voting/results', 'VotingController@showResults')->middleware(['checkpartak', 'auth']);
     Route::get('/voting/thank-you', 'VotingController@showThankYou');
@@ -102,12 +102,12 @@ Route::group(['namespace' => 'Exchange', 'prefix' => 'FlagParade'], function()
     Route::post('/{hash}/delete', 'ProfileController@deleteFlagParade');
 });
 
-Route::group(['namespace' => 'Czech', 'prefix' => 'czech'], function()
-{
-    Route::get('/', 'WebController@showHomePage');
-    Route::get('/about-us', 'WebController@showAboutUsPage');
-    Route::get('/calendar', 'WebController@showCalendarPage');
-    Route::get('/activities', 'WebController@showActivitiesPage');
-    Route::get('/contacts', 'WebController@showContactsPage');
-}
-);
+Route::prefix('czech')->namespace('Czech')->name('czech.')->group(function() {
+    Route::get('/', 'WebController@showHomePage')->name('index');
+    Route::get('/about-us', 'WebController@showAboutUsPage')->name('about');
+    Route::get('/calendar', 'WebController@showCalendarPage')->name('calendar');
+    Route::get('/activities', 'WebController@showActivitiesPage')->name('activities');
+    Route::get('/buddy-program', 'WebController@showBuddyProgramPage')->name('buddy-program');
+    Route::get('/faq', 'WebController@showFaqPage')->name('faq');
+    Route::get('/contacts', 'WebController@showContactsPage')->name('contacts');
+});

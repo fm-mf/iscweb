@@ -8,9 +8,9 @@
 
     Route::get('/', 'LoginController@showLoginForm')->name('login');
     Route::post('/', 'LoginController@login');
-    Route::get('/logout', 'LoginController@logout');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
 
-    Route::get('/register', 'RegisterController@showRegistrationForm');
+    Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'RegisterController@register');
 
     Route::get('/profile', 'ProfileController@showProfileForm');

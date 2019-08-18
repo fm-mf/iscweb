@@ -1,0 +1,18 @@
+.contact {
+  margin-bottom: 2rem;
+  img,
+  span.fas {
+    display: block;
+    width: 7.5rem;
+    height: 7.5rem;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 1px solid #f4f4f4;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  .contact-details {
+    text-align: left;
+  }
+}

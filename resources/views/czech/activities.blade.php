@@ -1,142 +1,53 @@
 @extends('czech.layouts.layout')
+@section('title', 'Co děláme')
 @section('page')
-    <div class="container section">
+    <section class="container">
         <div class="row">
-            <h1 class="introduction clearfix">Kdo jsme?</h1>
-            Create surroundings where different cultures meet and foreign and Czech students get to know each other
-            <br>
-            Chce&scaron; v&ecaron;d&ecaron;t v&iacute;ce?
-            <a href="{{ url('/czech/about-us/') }}" class="embed-nav">O N&Aacute;S</a>
-            <br>
-            <a href="http://www.esn.org"><img src="{{ URL::asset('img/web/logo-esn.png') }}"></a>
-            <a href="http://www.cvut.cz"><img src="{{ URL::asset('img/web/logo-ctu.png') }}"></a>
-        </div>
-    </div>
-    <div class="container section">
-        <div class="row">
-            <h1 class="introduction clearfix">Za&zcaron;ij v&iacute;ce!</h1>
-            <table class="zig-zag">
-                <tr>
-                    <td>
-                        <ul>
-                            <li>Zlep&scaron;i si jazyky</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                        <ul>
-                            <li>Buddy program</li>
-                            <li>
-                                <small>Sd&iacute;len&iacute; &ccaron;esk&eacute; kultury &amp; mezin&aacute;rodn&iacute; p&rcaron;&aacute;telstv&iacute;</small>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>Cestuj s n&aacute;mi</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                        <ul>
-                            <li>Organizuj men&scaron;&iacute; akce</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>P&aacute;rty</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                        <ul>
-                            <li>Workshopy</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>Programuj a hraj</li>
-                            <li>
-                                <small>Tvorba webov&yacute;ch str&aacute;nek a LAN p&aacute;rty</small>
-                            </li>
-                        </ul>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                        <ul>
-                            <li>Sportuj</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-            <br>
-            Pod&iacute;vej se, co pr&aacute;v&ecaron; chyst&aacute;me
-            <a href="{{ url('/czech/calendar/') }}" class="embed-nav">KALEND&Aacute;&Rcaron;</a>
-        </div>
-    </div>
-    <div class="container section">
-        <div class="row">
-            <h1 class="introduction clearfix">INSTAFEED</h1>
-            <div id="instafeed"></div>
-        </div>
-    </div>
-    <div class="container section">
-        <div class="row">
-            <h1 class="introduction clearfix">FAQ</h1>
-            <div class="faq">
-                <ul>
-                    <li>Jsem debil?</li>
-                    <li>Ano, jsi</li>
-                </ul>
-                <ul>
-                    <li>Co kdy&zcaron; m&aacute;m dal&scaron;&iacute; dotazy?</li>
-                    <li>Napi&scaron;te n&aacute;m na <a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a> nebo n&ecaron;kter&eacute;mu z na&scaron;ich koordin&aacute;tor&uring; <a href="{{ url('/czech/contacts/') }}" class="embed-nav">KONTAKTY</a></li>
-                </ul>
+            <div class="col">
+                <h2>Zažij více!</h2>
+                <div class="zig-zag">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <ul class="list-unstyled">
+                                        <li><strong>Zlepši si jazyky</strong></li>
+                                        <li>
+                                            Vyber si z řady jazykových lekcí vedených rodilými mluvčími zdarma
+                                            nebo se přihlaš do intenzivního Tandem programu
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="{{ asset('img/logos/isc-logo-watermark-color.svg') }}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-6">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <img src="{{ asset('img/logos/isc-logo-watermark-color.svg') }}" />
+                                </div>
+                                <div class="col">
+                                    <ul class="list-unstyled">
+                                        <li><strong>Buddy program</strong></li>
+                                        <li>
+                                            Pomoz přijíždějícímu studentovi s jeho prvními dny v Česku
+                                            a nauč se na oplátku něco o jeho kultuře
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Podívej se, co právě chystáme
+                    <a href="{{ url('czech/calendar') }}" class="embed-nav">Kalendář</a>
+                </p>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

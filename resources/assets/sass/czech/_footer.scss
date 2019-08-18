@@ -1,0 +1,34 @@
+.footer-wrap {
+  background: #0079c1;
+  color: #ffffff;
+
+  a {
+    color: #ffffff;
+  }
+}
+
+footer {
+  padding-top:1.5rem;
+  padding-bottom:1.5rem;
+
+  @include media-breakpoint-up(md) {
+    padding-top:2.5rem;
+    padding-bottom:2.5rem;
+  }
+
+  h3 {
+
+    &::after {
+      display: block;
+      content: '';
+      width: 4rem;
+      background-color: #ffffff;
+      height: 1px;
+    }
+  }
+
+  .social-media-links .fab {
+    width: 1.125rem;
+    text-align: center;
+  }
+}

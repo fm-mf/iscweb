@@ -138,7 +138,7 @@ class Contacts
                 'position' => 'Trips Coordinator',
                 'email' => 'trips@isc.cvut.cz',
                 'phone' => '+420 607 881 408',
-                'avatar' => asset($maleSilhouette) 
+                'avatar' => asset($maleSilhouette)
             ]
         ]);
 
@@ -157,8 +157,13 @@ class Contacts
 
     public function getContactByPosition(string $position)
     {
-        return $this->contacts->first(function ($value) use($position) {
-           return $value['position'] == $position;
+        return $this->contacts->firstWhere('position', $position);
+    }
+
+    public function getContactsByPosition(array $positions)
+    {
+        return $this->contacts->filter(function ($value) use ($positions) {
+            return in_array($value['position'], $positions);
         });
     }
 

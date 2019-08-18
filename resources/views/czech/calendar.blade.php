@@ -1,4 +1,5 @@
 @extends('czech.layouts.layout')
+@section('title', 'Kalenář akcí')
 @section('page')
     @if(isset($events) && $events->count() > 0)
         <span class="vspace"></span>

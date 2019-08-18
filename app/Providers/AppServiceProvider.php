@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Facades\Settings;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::share('shortName', Settings::get('shortName'));
+        View::share('fullName', Settings::get('fullName'));
+        View::share('officialName', Settings::get('officialName'));
     }
 
     /**

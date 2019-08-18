@@ -1,4 +1,5 @@
 @extends('czech.layouts.layout')
+@section('title', 'Kontakty')
 @section('page')
     <div class="container section">
         <div class="row">
