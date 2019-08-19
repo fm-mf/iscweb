@@ -29,10 +29,29 @@ nav {
 
         &::after {
           visibility: visible;
-          transition: all 0.2s ease-out;
+          transition: all 0.3s ease-out;
           transform: scaleX(1);
         }
       }
+    }
+  }
+
+  .lang-switcher {
+    margin-top: 1rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 0;
+      margin-left: 1rem;
+    }
+
+    .nav-link.btn {
+      padding: 0;
+      outline: none;
+      border: none;
+    }
+
+    img {
+      height: 2.5rem;
     }
   }
 

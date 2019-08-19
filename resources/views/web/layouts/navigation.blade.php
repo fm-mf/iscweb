@@ -48,6 +48,13 @@
                     </li>
                     -->
                 </ul>
+                <ul class="nav navbar-nav lang-switcher">
+                    <li>
+                        <a href="{{ route('czech.index') }}" class="btn {{ Request::is('contact')? 'current' : '' }}">
+                            <img src="{{ asset('img/flags/flag-cze.svg') }}" alt="Switch to Czech page">
+                        </a>
+                    </li>
+                </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.row -->
         <!-- Language selection (uncomment after the Czech version is available)

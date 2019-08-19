@@ -37,6 +37,13 @@
                     </a>
                 </li>
             </ul>
+            <ul class="navbar-nav lang-switcher">
+                <li class="nav-item">
+                    <a class="nav-link btn" href="{{ route('index') }}">
+                        <img src="{{ asset('img/flags/flag-gbr.svg') }}" alt="Switch to English page" />
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
