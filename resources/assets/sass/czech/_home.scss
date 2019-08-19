@@ -48,6 +48,8 @@
       margin-top: 7rem;
       margin-left: initial;
       margin-right: initial;
+      margin-bottom: 2rem;
+      padding: 0;
       border: none;
       background: none;
 
@@ -136,14 +138,6 @@ section .social-media-links {
     width: 2rem;
     margin-right: 0.5rem;
   }
-}
-
-main > section:nth-child(2n + 1) {
-  background-color: white;
-}
-
-main > section:nth-child(2n) {
-  background-color: #e4e4e4;
 }
 
 #instafeed-container {

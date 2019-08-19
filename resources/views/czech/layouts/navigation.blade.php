@@ -16,8 +16,8 @@
                 <li class="nav-item{{ request()->routeIs("czech.about") ? " active" : "" }}">
                     <a class="nav-link" href="{{ route('czech.about') }}">O nás</a>
                 </li>
-                <li class="nav-item{{ request()->routeIs("czech.activities") ? " active" : "" }}">
-                    <a class="nav-link" href="{{ route('czech.activities') }}">Co děláme</a>
+                <li class="nav-item{{ request()->routeIs("czech.activities.index") ? " active" : "" }}">
+                    <a class="nav-link" href="{{ route('czech.activities.index') }}">Co děláme</a>
                 </li>
                 <li class="nav-item{{ request()->routeIs("czech.buddy-program") ? " active" : "" }}">
                     <a class="nav-link" href="{{ route('czech.buddy-program') }}">Buddy program</a>

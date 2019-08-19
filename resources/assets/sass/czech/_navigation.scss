@@ -1,8 +1,8 @@
-nav {
-  margin-bottom: 1rem;
-}
-
 .navbar {
+  .nav-item.active {
+    font-weight: bold;
+  }
+
   .nav-link {
     color: white !important;
     transition: 0.2s all;

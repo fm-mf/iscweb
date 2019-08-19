@@ -106,7 +106,12 @@ Route::prefix('czech')->namespace('Czech')->name('czech.')->group(function() {
     Route::get('/', 'WebController@showHomePage')->name('index');
     Route::get('/about-us', 'WebController@showAboutUsPage')->name('about');
     Route::get('/calendar', 'WebController@showCalendarPage')->name('calendar');
-    Route::get('/activities', 'WebController@showActivitiesPage')->name('activities');
+    Route::prefix('activities')->name('activities.')->group(function() {
+        Route::get('/', 'WebController@showActivitiesIndexPage')->name('index');
+        Route::get('/languages', 'WebController@showActivitiesLanguagesPage')->name('languages');
+        Route::get('/trips', 'WebController@showActivitiesTripsPage')->name('trips');
+        Route::get('/inteGREAT', 'WebController@showActivitiesInteGreatPage')->name('inteGREAT');
+    });
     Route::get('/buddy-program', 'WebController@showBuddyProgramPage')->name('buddy-program');
     Route::get('/faq', 'WebController@showFaqPage')->name('faq');
     Route::get('/contacts', 'WebController@showContactsPage')->name('contacts');

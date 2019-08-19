@@ -26,8 +26,25 @@ class WebController extends Controller
         return view('czech.about-us');
     }
 
-    function showActivitiesPage() {
-        return view('czech.activities');
+    function showActivitiesIndexPage() {
+        $contactHr = Contacts::getContactByPosition('Human Resources');
+        return view('czech.activities', compact('contactHr'));
+    }
+
+    function showActivitiesLanguagesPage() {
+        $contactLanguages = Contacts::getContactByPosition('Languages Coordinator');
+        return view('czech.activities-languages', compact('contactLanguages'));
+    }
+
+    function showActivitiesTripsPage() {
+        $contactTrips = Contacts::getContactByPosition('Trips Coordinator');
+        $contactActivities = Contacts::getContactByPosition('Activities Coordinator');
+        return view('czech.activities-trips', compact('contactTrips', 'contactActivities'));
+    }
+
+    function showActivitiesInteGreatPage() {
+        $contactInteGreat = Contacts::getContactByPosition('inteGREAT Coordinator');
+        return view('czech.activities-inteGREAT', compact('contactInteGreat'));
     }
 
     function showCalendarPage() {

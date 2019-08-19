@@ -1,6 +1,7 @@
 :root {
   --color-blue: #05a0db;
   --logo-height: 4rem;
+  --color-light-gray: #e4e4e4;
 }
 
 .logo-cvut {
@@ -19,6 +20,14 @@ main {
       text-align-last: center;
       hyphens: auto;
     }
+  }
+
+  & > section:nth-child(2n + 1) {
+    background-color: white;
+  }
+
+  & > section:nth-child(2n) {
+    background-color: var(--color-light-gray);
   }
 }
 

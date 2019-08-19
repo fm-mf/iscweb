@@ -8,7 +8,7 @@
     </div>
 
     <ol class="col contact-details list-unstyled">
-        <li><h4>{{ $contact['name'] }}</h4></li>
+        <li><h5>{{ $contact['name'] }}</h5></li>
         <li><strong>{{ $contact['position'] }}</strong></li>
         <li>@lang('web.Email'): <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a></li>
         @if(mb_strlen($contact['phone']) === 16)
