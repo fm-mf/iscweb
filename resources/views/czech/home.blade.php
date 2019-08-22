@@ -62,12 +62,12 @@
                     <h2>Chceš se zapojit?</h2>
                     <p>
                         Každý rok se postaráme o zhruba 1 000 přijíždějících studentů!
-                        A to samozřejmě nedokážeme bez pomoci dibrovolníků, jako jsi třeba práve Ty.
+                        A to samozřejmě nedokážeme bez pomoci dobrovolníků, jako jsi třeba práve Ty.
                         Můžeš se pro začátek zapojit například do Buddy programu,
                         přijít se s námi seznámit na některou z našich akcí,
                         a nebo se stavit rovnou u nás v klubu na Masarykově koleji (R304 – jednoduše sleduj šipky).
                     </p>
-                    <p>Taky nás můžeš kontaktovat skrz kterékoliv znašich online médií.</p>
+                    <p>Taky nás můžeš kontaktovat skrz kterékoliv z našich online médií.</p>
                     <div class="row justify-content-center text-left">
                         <ul class="col-auto list-unstyled social-media-links">
                             <li>

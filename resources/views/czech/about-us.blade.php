@@ -48,8 +48,8 @@
             <div class="row">
                 <div class="col-sm-6 col-md-7 col-lg-8">
                     <p>
-                        Aby byl ve věcech trochu pořádek, konkrétní aktivity majína starosti
-                        jednotlivé teamy (nebo spíš teamky). Každý team má Coordinátora,
+                        Aby byl ve věcech trochu pořádek, konkrétní aktivity mají na starosti
+                        jednotlivé teamy (nebo spíš teamky). Každý team má Koordinátora,
                         který za něj zodpovídá. Kdokoliv se může zapojit do jakéhokoliv teamu,
                         nebo je třeba vyzkoušet všechny.
                     </p>
@@ -57,12 +57,12 @@
                         ISC je také členem <strong>Erasmus Student Network</strong> (ESN),
                         což je organizace sdružující zhruba 530 studentských kubů po celé Evropě,
                         do jejichž činnosti se zapojuje přes 40 000 dobrovolníků,
-                        kteří každoročně pomáhajízhruba 350 000 zahraničních studentů.
+                        kteří každoročně pomáhají zhruba 350 000 zahraničních studentů.
                     </p>
                     <p>
                         Kromě této mezinárodní sítě jsme také externím klubem
                         <strong>Studentské unie ČVUT</strong>. Studentskou unii tvoří
-                        spousta různých klubů, teré organizují nespočet pravidelnýcj
+                        spousta různých klubů, které organizují nespočet pravidelných
                         a ještě více nepravidelných aktivit od sportovních klání, přednášek,
                         hudebních festivalů, promítání po nejrůznější kurzy.
                     </p>
@@ -70,7 +70,7 @@
                 <div class="col-sm-6 col-md-5 col-lg-4 d-flex flex-column justify-content-around">
                     <div class="row">
                         <div class="col-4 col-sm-8 ml-auto mr-auto">
-                            <a href="https://www.esncz.org">
+                            <a href="{{ url('/') }}">
                                 <img src="/img/logos/isc-logo-color-horizontal.svg" alt="Logo ISC CTU in Prague" />
                             </a>
                         </div>
@@ -99,17 +99,17 @@
                 <div class="col">
                     <h2>Naše vize</h2>
                     <p>
-                        ISC vize je myšlěnka, která stojí za vším, co děláme. Vyjadřuje naše odhodlání
+                        ISC vize je myšlenka, která stojí za vším, co děláme. Vyjadřuje naše odhodlání
                         a proč děláme věci takovým způsobem, jakým je děláme. Zní následovně:
                     </p>
                     <blockquote>
                         Vizí ISC je vytváření mezinárodní komunity na ČVUT v Praze.
                         Chceme integrovat zahraniční studenty do života v České republice
                         a dění na naší univerzitě. Vytváříme prostředí, kde se setkávají různé kultury
-                        a poznávají čeští a zahrniční studenti. Podporujeme aktivní zapojení
+                        a poznávají čeští a zahraniční studenti. Podporujeme aktivní zapojení
                         našich členů, jejich seberealizaci a osobní rozvoj v kreativním prostředí,
                         kde panuje otevřená a přátelská atmosféra. Tím přispíváme k porozumění,
-                        přátelství a polupráci mezi jednotlivými národy v rámci Evropy i celého světa.
+                        přátelství a spolupráci mezi jednotlivými národy v rámci Evropy i celého světa.
                     </blockquote>
                 </div>
             </div>
@@ -124,8 +124,8 @@
                         Sídlem našeho klubu tzv. ISC Point na Masarykově koleji v místnosti R304,
                         ve třetím patře v červené části. Masarykova kolej je trochu bludiště,
                         a proto je nejlepší sledovat od schodů naproti vchodu směrovky s naším logem.
-                        ISC Point je místo, kam se po příjezdu podívá téměř každý zahraňák a vyzvedne so svůj Welcome pack.
-                        Navíc, pokud bude mít v budoucnu nějaké problémy, rádi mu ta poradíme a pomůžeme.
+                        ISC Point je místo, kam se po příjezdu podívá téměř každý zahraňák a vyzvedne si svůj Welcome pack.
+                        Navíc, pokud bude mít v budoucnu nějaké problémy, rádi mu tam poradíme a pomůžeme.
                     </p>
                     <p>
                         Kromě ISC Pointu spravujeme ještě dvě učebny – B305 a R404,
