@@ -8,14 +8,17 @@
 namespace App\Http\Controllers\Czech;
 
 use App\Facades\Contacts;
+use App\Facades\Settings;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\OpeningHoursMode;
 
 class WebController extends Controller
 {
     public function __construct()
     {
         app()->setLocale('cs');
+        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
     }
 
     function showHomePage() {
@@ -54,7 +57,9 @@ class WebController extends Controller
 
     function showFaqPage()
     {
-        return view('czech.faq');
+        $linkOwFbEvent = Settings::get('owFbEventLink');
+        $linkExchangeGroup = Settings::get('fbGroupLink');
+        return view('czech.faq', compact('linkOwFbEvent', 'linkExchangeGroup'));
     }
 
     function showBuddyProgramPage()
@@ -67,6 +72,9 @@ class WebController extends Controller
     }
 
     function showContactsPage() {
-        return view('czech.contacts');
+        $contacts = Contacts::getWebContacts();
+        $openingHoursText = OpeningHoursMode::getCurrentText();
+        $openingHoursTable = OpeningHoursMode::buildHoursTable();
+        return view('czech.contacts', compact('contacts', 'openingHoursText', 'openingHoursTable'));
     }
 }

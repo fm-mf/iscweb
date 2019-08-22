@@ -9,6 +9,8 @@ $fa-font-path: "/fonts/font-awesome";
 
 @import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
 
+@import "variables";
+
 @import "header";
 @import "main";
 @import "footer";
@@ -19,3 +21,4 @@ $fa-font-path: "/fonts/font-awesome";
 @import "activities";
 @import "zig-zag";
 @import "faq";
+@import "contacts";

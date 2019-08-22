@@ -60,6 +60,12 @@
                     @endif
                     {{ Form::url('fbGroupLink', $settings['fbGroupLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
+					{{ Form::label('owFbEventLink', 'Link to currnet OW FB event', ['class' => 'control-label']) }}
+					@if ($errors->has('owFbEventLink'))
+						<p class="error-block alert-danger">{{ $errors->first('owFbEventLink') }}</p>
+					@endif
+					{{ Form::url('owFbEventLink', $settings['owFbEventLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
+
                     <div style="margin-bottom: 15px;">
                    		<button type="button" id="editOpeningHoursButton" class="btn btn-warning">Edit opening hours</button>
                    	</div>
@@ -67,7 +73,7 @@
                    		<input type="submit" value="Update settings" class="btn btn-primary btn-submit">
                    	</div>
 
-                    {{ Form::close() }}	
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
@@ -147,9 +153,9 @@
 					allFields.removeClass( "ui-state-error" );
 				}
 			} ).css( "padding-bottom", "15px" );
- 
+
 			form = dialog.find( "form" );
- 
+
 			$( "#editOpeningHoursButton" ).button().on( "click", function() {
 				dialog.dialog( "open" );
     		} );

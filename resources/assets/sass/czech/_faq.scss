@@ -1,5 +1,14 @@
 .faq {
-  a {
-    color: #ffffff;
+  dl {
+    text-align: left;
+    text-align-last: left;
+  }
+
+  dt {
+    font-size: 1.2rem;
+  }
+
+  dd {
+    margin-left: 2rem;
   }
 }

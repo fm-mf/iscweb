@@ -1,6 +1,5 @@
 import $ from "jquery";
 import jQuery from "jquery";
-import Popper from "popper.js";
 import "bootstrap";
 import Instafeed from "instafeed.js";
 
@@ -16,6 +15,7 @@ $(document).ready(() => {
             // tpl: '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" allowfullscreen allow="autoplay; fullscreen" src=""></iframe>',
         },
     });
+    initGMapsPreview();
 });
 
 const feed = new Instafeed({
@@ -35,3 +35,25 @@ const feed = new Instafeed({
 });
 feed.run();
 
+function initGMapsPreview() {
+    if (typeof google === 'undefined' || google == null) {
+        return;
+    }
+
+    const myLatlng = new google.maps.LatLng(50.100640, 14.386913);
+    const mapOptions = {
+        center: new google.maps.LatLng(50.100640, 14.426913),
+        zoom: 13,
+        scrollwheel: false,
+        disableDefaultUI: true,
+        zoomControl: true,
+    };
+    const map = new google.maps.Map(document.getElementById("map-preview"), mapOptions);
+    const image = '/img/web/marker.png';
+    const marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        icon: image,
+        title: 'ISC Point'
+    });
+}

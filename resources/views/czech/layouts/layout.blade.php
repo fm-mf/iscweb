@@ -36,7 +36,7 @@
             @include('czech.layouts.footer')
         </div>
         @section('javascript')
-            <script src="{{ mix('js/czech.js') }}"></script>
+            <script src="{{ mix('js/czech.js') }}" defer="defer"></script>
         @show
     </body>
 </html>

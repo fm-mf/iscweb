@@ -1,10 +1,11 @@
 .contact {
   margin-bottom: 2rem;
+
   img,
   span.fas {
     display: block;
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 6rem;
+    height: 6rem;
     text-align: center;
     vertical-align: middle;
     border-radius: 50%;
@@ -12,7 +13,13 @@
     overflow: hidden;
     background-color: #ffffff;
   }
+
+  .avatar {
+    padding-right: 0;
+  }
+
   .contact-details {
     text-align: left;
+    padding-right: 0;
   }
 }

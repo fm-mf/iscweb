@@ -1,5 +1,5 @@
 <div class="row contact">
-    <div class="col-auto">
+    <div class="col-auto avatar">
         @empty($contact['avatar'])
             <span class="fas fa-user fa-6x"></span>
         @else
