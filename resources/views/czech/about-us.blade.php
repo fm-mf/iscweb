@@ -69,21 +69,21 @@
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 d-flex flex-column justify-content-around">
                     <div class="row">
-                        <div class="col-4 col-sm-8 ml-auto mr-auto">
+                        <div class="col-8 col-sm-10 col-xl-8 ml-auto mr-auto">
                             <a href="{{ url('/') }}">
                                 <img src="/img/logos/isc-logo-color-horizontal.svg" alt="Logo ISC CTU in Prague" />
                             </a>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-4 col-sm-8 ml-auto mr-auto">
+                        <div class="col-8 col-sm-10 col-xl-8 ml-auto mr-auto">
                             <a href="https://www.esncz.org">
                                 <img src="/img/logos/esn-cz/esn-cz-logo-colour.svg" alt="Logo ESN CZ" />
                             </a>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-5 col-sm-10 ml-auto mr-auto">
+                        <div class="col-10 col-sm-12 col-xl-10 ml-auto mr-auto">
                             <a href="https://su.cvut.cz">
                                 <img src="/img/logos/su/su-logo-side-col.svg" alt="Logo Studentské unie ČVUT" />
                             </a>

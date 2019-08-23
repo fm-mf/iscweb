@@ -4,17 +4,17 @@
     <div class="header-wrapper home">
         <header>
             @include('czech.layouts.navigation')
+            <div class="container header">
+                <h1>Chceš potkat nové kamarády z celého světa, zlepšit si cizí jazyk a podílet se na vytváření mezinárodní komunity na ČVUT?</h1>
+                <p class="p-btn">
+                    <a class="btn btn-primary" href="{{ route('register') }}">Staň se Buddym!</a>
+                </p>
+            </div>
             <div class="play">
                 {{-- Buddy video: --}}
                 <a class="fancybox-media" href="https://player.vimeo.com/video/104401781"><span class="fas fa-play-circle fa-5x"></span></a>
                 {{-- ID video: --}}
                 {{--<a class="fancybox-media" href="https://player.vimeo.com/video/163983964"><span class="fas fa-play-circle fa-5x"></span></a>--}}
-            </div>
-            <div class="container header">
-                <h1>Chceš potkat nové kamarády <br> z celého světa, zlepšit si cizí jazyk a podílet se na vytváření mezinárodní komunity na ČVUT?</h1>
-                <p class="p-btn">
-                    <a class="btn btn-primary" href="{{ route('register') }}">Staň se Buddym!</a>
-                </p>
             </div>
             <p class="scroll-down"><a href="#info" class="link link-more" id="scroll">Co je to ISC a jak se zapojit? <br> <span class="fas fa-chevron-down fa-lg"></span></a></p>
             <div class="row justify-content-center align-items-stretch align-content-center logos">
@@ -32,24 +32,24 @@
 @endsection
 
 @section('page')
-    <section>
+    <section id="info">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <h2>Kdo jsme?</h2>
                     <p>
-                        International Student Club je skupinou mladých a aktivních lidí, kteří ve svém
-                        volném čase chtějí dělat něco smysluplného a při tom se rádi baví.
-                        Každý semestr integrujeme zahraniční studenty do života a dění na naší univerzitě i v celé ČR.
-                        Zároveň se od nich sami učíme a zjišťujeme, jak to chodí v ostatních koutech světa.
-                        Zábavným způsobem tak poznáváme jiné kultury a získáváme spoustu skvělých příležitostí seberealizace,
-                        podporujeme aktivní zapojení našich členů a jejich osobní rozvoj.
+                        International Student Club je skupinou mladých a aktivních lidí, kteří ve svém
+                        volném čase chtějí dělat něco smysluplného a při tom se rádi baví.
+                        Každý semestr integrujeme zahraniční studenty do života a dění na naší univerzitě i v celé ČR.
+                        Zároveň se od nich sami učíme a zjišťujeme, jak to chodí v ostatních koutech světa.
+                        Zábavným způsobem tak poznáváme jiné kultury a získáváme spoustu skvělých příležitostí seberealizace,
+                        podporujeme aktivní zapojení našich členů a jejich osobní rozvoj.
                     </p>
                     <p>
                         Chceš vědět více?
                     </p>
                     <p>
-                        <a href="{{ url('czech/about-us') }}" class="btn btn-outline-dark">O nás</a>
+                        <a href="{{ url('czech/about-us') }}" class="btn btn-outline-dark">O nás</a>
                     </p>
                 </div>
             </div>
@@ -61,11 +61,11 @@
                 <div class="col">
                     <h2>Chceš se zapojit?</h2>
                     <p>
-                        Každý rok se postaráme o zhruba 1 000 přijíždějících studentů!
-                        A to samozřejmě nedokážeme bez pomoci dobrovolníků, jako jsi třeba práve Ty.
+                        Každý rok se postaráme o zhruba 1 000 přijíždějících studentů!
+                        A to samozřejmě nedokážeme bez pomoci dobrovolníků, jako jsi třeba právě Ty.
                         Můžeš se pro začátek zapojit například do Buddy programu,
-                        přijít se s námi seznámit na některou z našich akcí,
-                        a nebo se stavit rovnou u nás v klubu na Masarykově koleji (R304 – jednoduše sleduj šipky).
+                        přijít se s námi seznámit na některou z našich akcí,
+                        a nebo se stavit rovnou u nás v klubu na Masarykově koleji (R304 – jednoduše sleduj šipky).
                     </p>
                     <p>Taky nás můžeš kontaktovat skrz kterékoliv z našich online médií.</p>
                     <div class="row justify-content-center text-left">
@@ -91,7 +91,7 @@
             </div>
         </div>
     </section>
-    <section id="instafeed-container">
+    <section id="instafeed-container" class="d-none">
         <div class="container">
             <div class="row">
                 <div class="col">
