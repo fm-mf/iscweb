@@ -300,7 +300,7 @@
             </p>
 
             <p>
-                <a href="{{ url('buddy-prirucka') }}">
+                <a href="{{ route('buddy-prirucka') }}">
                     <button type="button" class="btn btn-default">Stáhnout Buddy Příručku (PDF)</button>
                 </a>
             </p>

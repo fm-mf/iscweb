@@ -36,9 +36,15 @@ Route::get('/visa', function() {
 
 
 Route::get('kos-manual', function () { return response()->file('files/KOS_manual_2017.pdf'); });
-Route::get('buddy-prirucka', function () { return response()->file('files/buddy_prirucka_spring2019_pro_web.pdf'); });
-//redirect from old web
-Route::get('/buddy/files/buddy_prirucka_fall2018_pro_web.pdf', function () { return redirect(url('buddy-prirucka')); });
+
+Route::get('buddy-prirucka', function () {
+    $fileName = 'buddy-prirucka-zs-19-20.pdf';
+    return response()
+        ->file("files/${fileName}", [
+            'Content-Disposition' => "inline; filename=\"${fileName}\"",
+        ]);
+})
+->name('buddy-prirucka');
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
@@ -56,10 +62,10 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     // Global IP when it is plugged in its public port -- not working now
     //Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); })->name('nas');
     // Local IP when it is plugged in the router -- works only in ISC Point
-    //Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas'); 
+    //Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas');
     // Proxy using DDNS (and VPN?) -- should work always
     Route::get('/nas', function () { return redirect('http://quickconnect.to/ISCCTU'); })->name('nas');
-    
+
     Route::post('/voting/process', 'VotingController@processVoting');
     Route::get('/voting/results', 'VotingController@showResults')->middleware(['checkpartak', 'auth']);
     Route::get('/voting/thank-you', 'VotingController@showThankYou');
