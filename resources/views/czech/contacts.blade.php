@@ -1,142 +1,101 @@
 @extends('czech.layouts.layout')
+@section('title', 'Kontakty')
+
+@section('header')
+    <div class="header-wrapper contacts-header">
+        <header>
+            @include('czech.layouts.navigation')
+            <div id="map-preview-wrapper">
+                <div id="map-preview"></div>
+                <div class="container">
+                    <div class="row d-sm-none">
+                        <div class="col-auto mx-auto mt-4">
+                            <a href="https://goo.gl/maps/XbXLrMvPw62JSuzH6" target="_blank" rel="noopener" class="btn btn-primary">Najděte nás na Mapách Google</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-sm-auto ml-auto">
+                            <div class="row">
+                                <div class="col opening-hours">
+                                    <h2>Otvírací hodiny</h2>
+                                    <p>{{ $openingHoursText }}</p>
+                                    {{ $openingHoursTable }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col address">
+                                    <h2>Kde nás najdete?</h2>
+                                    <ol class="list-unstyled">
+                                        <li class="font-weight-bold">{{ $fullName }}</li>
+                                        <li>Masarykova kolej, místnost 304 (červená)</li>
+                                        <li><address>Thákurova 550/1, Praha 6 – Dejvice</address></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+@endsection
+
 @section('page')
-    <div class="container section">
-        <div class="row">
-            <h1 class="introduction clearfix">Kdo jsme?</h1>
-            Create surroundings where different cultures meet and foreign and Czech students get to know each other
-            <br>
-            Chce&scaron; v&ecaron;d&ecaron;t v&iacute;ce?
-            <a href="{{ url('/czech/about-us/') }}" class="embed-nav">O N&Aacute;S</a>
-            <br>
-            <a href="http://www.esn.org"><img src="{{ URL::asset('img/web/logo-esn.png') }}"></a>
-            <a href="http://www.cvut.cz"><img src="{{ URL::asset('img/web/logo-ctu.png') }}"></a>
-        </div>
-    </div>
-    <div class="container section">
-        <div class="row">
-            <h1 class="introduction clearfix">Za&zcaron;ij v&iacute;ce!</h1>
-            <table class="zig-zag">
-                <tr>
-                    <td>
-                        <ul>
-                            <li>Zlep&scaron;i si jazyky</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                        <ul>
-                            <li>Buddy program</li>
-                            <li>
-                                <small>Sd&iacute;len&iacute; &ccaron;esk&eacute; kultury &amp; mezin&aacute;rodn&iacute; p&rcaron;&aacute;telstv&iacute;</small>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>Cestuj s n&aacute;mi</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                        <ul>
-                            <li>Organizuj men&scaron;&iacute; akce</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>P&aacute;rty</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                        <ul>
-                            <li>Workshopy</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>Programuj a hraj</li>
-                            <li>
-                                <small>Tvorba webov&yacute;ch str&aacute;nek a LAN p&aacute;rty</small>
-                            </li>
-                        </ul>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <img src="{{ URL::asset('/img/logos/isc-logo-watermark-color.svg') }}">
-                        <ul>
-                            <li>Sportuj</li>
-                            <li>
-                                <small>asdasda</small>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-            <br>
-            Pod&iacute;vej se, co pr&aacute;v&ecaron; chyst&aacute;me
-            <a href="{{ url('/czech/calendar/') }}" class="embed-nav">KALEND&Aacute;&Rcaron;</a>
-        </div>
-    </div>
-    <div class="container section">
-        <div class="row">
-            <h1 class="introduction clearfix">INSTAFEED</h1>
-            <div id="instafeed"></div>
-        </div>
-    </div>
-    <div class="container section">
-        <div class="row">
-            <h1 class="introduction clearfix">FAQ</h1>
-            <div class="faq">
-                <ul>
-                    <li>Jsem debil?</li>
-                    <li>Ano, jsi</li>
-                </ul>
-                <ul>
-                    <li>Co kdy&zcaron; m&aacute;m dal&scaron;&iacute; dotazy?</li>
-                    <li>Napi&scaron;te n&aacute;m na <a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a> nebo n&ecaron;kter&eacute;mu z na&scaron;ich koordin&aacute;tor&uring; <a href="{{ url('/czech/contacts/') }}" class="embed-nav">KONTAKTY</a></li>
-                </ul>
+    <section class="p-0"></section>
+    <section class="our-contacts">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Kontaktní údaje</h2>
+                </div>
+            </div>
+            <div class="row">
+                <dl class="col">
+                    <dt><span class="fas fa-phone-alt"></span> Telefon</dt>
+                    <dd><a href="tel:+420775198605">+420 775 198 605</a></dd>
+                    <dt><span class="fas fa-envelope"></span> E-mail</dt>
+                    <dd><a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a></dd>
+                    <dt><span class="far fa-thumbs-up"></span> Facebook</dt>
+                    <dd><a href="https://www.facebook.com/isc.ctu.prague" target="_blank" rel="noopener">isc.ctu.prague</a></dd>
+                </dl>
             </div>
         </div>
-    </div>
+    </section>
+    <section class="coordinators">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Naši koordinátoři</h2>
+                </div>
+            </div>
+            <ul class="row contacts list-unstyled">
+                @foreach($contacts as $contact)
+                    <li class="col-sm-9 mx-auto col-md-6 col-xl-4">
+                        @include('partials.contact', compact('contact'))
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Fakturační adresa</h2>
+                </div>
+            </div>
+            <div class="row">
+                <ol class="col-auto mx-auto list-unstyled billing-info">
+                    <li class="font-weight-bold">{{ $officialName }}</li>
+                    <li><address>Thákurova 550/1, 160 00, Praha 6 – Dejvice</address></li>
+                    <li>IČO: 22 841 032</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9ZNFKyW2aiHfQNqt0mv79uHOvUt92gxU" defer="defer"></script>
+    @parent
 @endsection

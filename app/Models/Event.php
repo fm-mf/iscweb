@@ -86,6 +86,15 @@ class Event extends Model
         return isset($this->cover) ? '/events/covers/' . $this->cover : '';
     }
 
+    public function getCoverUrlAttribute()
+    {
+        if (empty($this->cover)) {
+            return '';
+        }
+
+        return asset("events/covers/{$this->cover}");
+    }
+
     public function calendarDateTimeFrom()
     {
         $time = $this->datetime_from->format('l') . '<br>'; //get name of the day in week eg. Mondey

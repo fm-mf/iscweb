@@ -1,0 +1,86 @@
+.lang-select {
+  min-height: 100vh;
+  background: $dark url(/img/web/background.jpg) center / cover no-repeat;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+
+  nav {
+    margin-top: 2rem;
+  }
+
+  h1 + p {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+  }
+
+  ul {
+    margin-top: 2rem;
+  }
+
+  li {
+    margin-bottom: 2rem;
+
+    a {
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      color: #ffffff;
+      text-transform: uppercase;
+
+      span {
+        display: block;
+        width: fit-content;
+        border-radius: 50%;
+        border: 0.125rem dotted #ffffff;
+        margin-bottom: 1rem;
+      }
+
+      img {
+        display: block;
+        width: 12rem;
+        height: 12rem;
+        object-fit: cover;
+        border: 0.5rem solid #d1d1d1;
+        border-radius: 50%;
+        margin: 0.75rem;
+
+        @include media-breakpoint-up(md) {
+          width: 16rem;
+          height: 16rem;
+        }
+      }
+    }
+  }
+
+  .logos {
+    margin-left: 0;
+    margin-right: 0;
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      right: $grid-gutter-width / 2;
+      bottom: 0;
+    }
+
+    & > div {
+      text-align: center;
+      .logo-cvut {
+        @include media-breakpoint-only(md) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  a.logo {
+    display: inline-block;
+    text-align: center;
+
+    img {
+      height: var(--logo-height);
+    }
+  }
+}

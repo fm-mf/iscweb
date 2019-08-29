@@ -165,6 +165,25 @@ a.current { font-weight: 700; }
   background: none !important;
 }
 
+.lang-switcher {
+  margin-top: 1rem;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+
+  a.btn {
+    padding: 0;
+    text-align: left;
+    outline: none;
+    border: none;
+  }
+
+  img {
+    height: 2.5rem;
+  }
+}
+
 /* ----------------------------- FOOTER ---------------------------------------- */
 .footer {
   @media (min-width: 768px) {

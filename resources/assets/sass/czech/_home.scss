@@ -1,0 +1,163 @@
+.header-wrapper.home {
+  background: #262626 url(/img/buddy/background.jpg) no-repeat 90% top / cover;
+  color: #ffffff;
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    height: 100vh;
+    background-position: right top;
+  }
+
+  .scroll-down {
+    text-align: center;
+    font-weight: bold;
+
+    $text-shadow: 0 0 0.125em black;
+    @for $i from 1 through 4 {
+      $text-shadow: $text-shadow, $text-shadow;
+    }
+    text-shadow: $text-shadow;
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    & > a {
+      color: #ffffff;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.25em;
+      }
+    }
+  }
+
+  .container.header {
+    position: relative;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      height: 32rem;
+      position: absolute;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: left;
+    }
+
+    h1 {
+      text-align: left;
+      font-size: 2rem;
+      margin-top: 7rem;
+      margin-left: initial;
+      margin-right: initial;
+      margin-bottom: 2rem;
+      padding: 0;
+      border: none;
+      background: none;
+      font-weight: bold;
+
+      $text-shadow: 0 0 0.125em black;
+      @for $i from 1 through 4 {
+        $text-shadow: $text-shadow, $text-shadow;
+      }
+      text-shadow: $text-shadow;
+
+      @include media-breakpoint-up(md) {
+        width: 40%;
+        margin-top: 12.5rem;
+      }
+    }
+  }
+
+  .logos {
+    margin-left: 0;
+    margin-right: 0;
+
+    @include media-breakpoint-down(sm) {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      right: $grid-gutter-width / 2;
+      bottom: 0;
+    }
+
+    & > div {
+      text-align: center;
+      .logo-cvut {
+        @include media-breakpoint-only(md) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  a.logo {
+    display: inline-block;
+    text-align: center;
+
+    @include media-breakpoint-only(md) {
+      display: block;
+    }
+
+    img {
+      height: var(--logo-height);
+    }
+  }
+}
+
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include media-breakpoint-down(sm){
+    display: none;
+  }
+
+  a {
+    display: inline-block;
+    opacity: 0.5;
+    position: relative;
+    z-index: 1000;
+    color: #ffffff !important;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+section .social-media-links {
+  margin-bottom: 0;
+  li:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    display: block;
+    color: #000000;
+  }
+
+  .fab, .fas {
+    text-align: center;
+    vertical-align: middle;
+    width: 2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+#instafeed-container {
+  background: url(/img/web/background.jpg);
+  color: #ffffff;
+  h2 {
+    text-transform: uppercase;
+  }
+}

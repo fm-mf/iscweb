@@ -1,0 +1,77 @@
+.events {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.event {
+  color: #ffffff;
+  position: relative;
+
+  .header {
+    background: none center / cover no-repeat;
+    display: flex;
+
+    & > .row {
+      flex-grow: 1;
+    }
+  }
+
+  &:not(:first-child) {
+    border-top: 0.125rem solid white;
+  }
+
+  .start-date {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    min-width: 7rem;
+
+    @include media-breakpoint-down(xs) {
+      line-height: 1;
+    }
+
+    .day-of-month {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .time {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem
+    }
+  }
+  .name {
+    text-align: left;
+    text-align-last: left;
+    padding-top: 1rem;
+    $text-shadow: 0 0 0.25rem black;
+    @for $i from 1 through 4 {
+      $text-shadow: $text-shadow, $text-shadow;
+    }
+    text-shadow: $text-shadow;
+    font-weight: bold;
+  }
+  .description {
+    padding-top: 1rem;
+    background-color: var(--color-blue-bg);
+
+    @include media-breakpoint-up(sm) {
+      border-left: 0.125rem solid white;
+    }
+
+    * {
+      text-align: left;
+      text-align-last: left;
+    }
+
+    a {
+      color: #ffffff;
+    }
+  }
+}

@@ -112,4 +112,10 @@ class Settings implements ConfigContract
         $this->items[$key] = $value;
     }
 
+    public function delete($key)
+    {
+        Cache::forget(self::CACHE_KEY);
+        DB::table(self::TABLE)->where('key', $key)->delete();
+    }
+
 }

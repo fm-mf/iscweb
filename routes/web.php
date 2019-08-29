@@ -44,11 +44,12 @@ Route::get('buddy-prirucka', function () {
             'Content-Disposition' => "inline; filename=\"${fileName}\"",
         ]);
 })
-->name('buddy-prirucka');
+->name('buddy-handbook-cs');
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
-    Route::get('/', 'WebController@showHomePage');
+    Route::get('/', 'WebController@showLangSelection')->name('web.lang-select');
+    Route::get('/home', 'WebController@showHomePage')->name('web.index');
     Route::get('/about-us', function() { return view('web.about'); });
     Route::get('/buddy-program', function() { return view('web.buddy-program'); });
     Route::get('/activities', 'WebController@showActivitesPage');
@@ -58,7 +59,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
         Route::get('/activities/trips', 'WebController@showTripsPage');
     Route::get('/contact', 'WebController@showContacts');
     Route::get('/calendar', 'WebController@showCalendar');
-    Route::get('/buddy', function () { return view('web.buddy'); });
+    Route::get('/buddy', function() { return redirect(route('czech.index'), 301); });
     // Global IP when it is plugged in its public port -- not working now
     //Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); })->name('nas');
     // Local IP when it is plugged in the router -- works only in ISC Point
@@ -108,12 +109,17 @@ Route::group(['namespace' => 'Exchange', 'prefix' => 'FlagParade'], function()
     Route::post('/{hash}/delete', 'ProfileController@deleteFlagParade');
 });
 
-Route::group(['namespace' => 'Czech', 'prefix' => 'czech'], function()
-{
-    Route::get('/', 'WebController@showHomePage');
-    Route::get('/about-us', 'WebController@showAboutUsPage');
-    Route::get('/calendar', 'WebController@showCalendarPage');
-    Route::get('/activities', 'WebController@showActivitiesPage');
-    Route::get('/contacts', 'WebController@showContactsPage');
-}
-);
+Route::prefix('czech')->namespace('Czech')->name('czech.')->group(function() {
+    Route::get('/', 'WebController@showHomePage')->name('index');
+    Route::get('/about-us', 'WebController@showAboutUsPage')->name('about');
+    Route::get('/calendar', 'WebController@showCalendarPage')->name('calendar');
+    Route::prefix('activities')->name('activities.')->group(function() {
+        Route::get('/', 'WebController@showActivitiesIndexPage')->name('index');
+        Route::get('/languages', 'WebController@showActivitiesLanguagesPage')->name('languages');
+        Route::get('/trips', 'WebController@showActivitiesTripsPage')->name('trips');
+        Route::get('/inteGREAT', 'WebController@showActivitiesInteGreatPage')->name('inteGREAT');
+    });
+    Route::get('/buddy-program', 'WebController@showBuddyProgramPage')->name('buddy-program');
+    Route::get('/faq', 'WebController@showFaqPage')->name('faq');
+    Route::get('/contacts', 'WebController@showContactsPage')->name('contacts');
+});

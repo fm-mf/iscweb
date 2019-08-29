@@ -1,56 +1,49 @@
-<!------------------------------ Logo and navigation ----------------------------------->
-<nav class="navbar navbar-custom navbar-main @yield('navClass')" role="navigation">
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
     <div class="container">
-        <div class="row">
-            <div class="navbar-header col-sm-3">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+        <div class="d-flex flex-grow-1 align-items-center">
+            <span class="w-100 d-lg-none"></span>
+            <a class="navbar-brand" href="{{ route('czech.index') }}">
+                <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
+            </a>
+            <span class="w-100 text-right">
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" id="logo" alt="International Student Club">
-                </a>
-            </div><!-- /.navbar-header -->
-
-                  <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse col-sm-9">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/czech/') }}" class="{{Request::is('czech')? 'current' : '' }}">DOM&Uring;</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/czech/about-us/') }}" class="{{ Request::is('czech/about-us')? 'current' : '' }}">O N&Aacute;S</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/czech/activities/') }}" class="{{ (Request::is('czech/activities/*') || Request::is('czech/activities'))? 'current' : '' }}">CO D&Ecaron;L&Aacute;ME</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/buddy/') }}" class="{{ Request::is('buddy')? 'current' : '' }}">BUDDY PROGRAM</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/czech/calendar/') }}" class="{{ Request::is('czech/calendar')? 'current' : '' }}">KALEND&Aacute;&Rcaron;</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/czech/contact/') }}" class="{{ Request::is('czech/contact')? 'current' : '' }}">KONTAKTY</a>
-                    </li>
-                </ul>
-            </div>{{-- /.navbar-collapse --}}
-        </div>{{-- /.row --}}
-              {{-- Language selection (uncomment after the Czech version is available)
-              <div class="row">
-                  <div class="col-xs-12">
-                          <ul class="list-inline" style="text-align:right;">
-                          <li><a href="#"><img src="/img/cz.png"></a></li>
-                          <li><a href="#"><img src="/img/en.png"></a></li>
-                      </ul>
-                  </div>
-              </div>
-              --}}
-    </div>{{-- /.container --}}
+            </span>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item{{ request()->routeIs("czech.about") ? " active" : "" }}">
+                    <a class="nav-link" href="{{ route('czech.about') }}">O nás</a>
+                </li>
+                <li class="nav-item{{ request()->routeIs("czech.activities.index") ? " active" : "" }}">
+                    <a class="nav-link" href="{{ route('czech.activities.index') }}">Co děláme</a>
+                </li>
+                <li class="nav-item{{ request()->routeIs("czech.buddy-program") ? " active" : "" }}">
+                    <a class="nav-link" href="{{ route('czech.buddy-program') }}">Buddy program</a>
+                </li>
+                <li class="nav-item{{ request()->routeIs("czech.calendar") ? " active" : "" }}">
+                    <a class="nav-link" href="{{ route('czech.calendar') }}">Kalendář</a>
+                </li>
+                <li class="nav-item{{ request()->routeIs("czech.faq") ? " active" : "" }}">
+                    <a class="nav-link" href="{{ route('czech.faq') }}">FAQ</a>
+                </li>
+                <li class="nav-item{{ request()->routeIs("czech.contacts") ? " active" : "" }}">
+                    <a class="nav-link" href="{{ route('czech.contacts') }}">Kontakty</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{{ route('buddy-home') }}">
+                        <span class="fas fa-sign-in-alt"></span>Buddy program
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav lang-switcher">
+                <li class="nav-item">
+                    <a class="nav-link btn" href="{{ route('web.index') }}">
+                        <img src="{{ asset('img/flags/flag-gbr.svg') }}" alt="Switch to English page" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
