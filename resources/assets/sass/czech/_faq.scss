@@ -5,7 +5,12 @@
   }
 
   dt {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  dd + dt {
+    margin-top: 1.5rem;
   }
 
   dd {

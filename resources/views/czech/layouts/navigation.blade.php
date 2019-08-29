@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
     <div class="container">
         <div class="d-flex flex-grow-1 align-items-center">
-            <span class="w-100 d-xl-none"></span>
+            <span class="w-100 d-lg-none"></span>
             <a class="navbar-brand" href="{{ route('czech.index') }}">
                 <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
             </a>
@@ -39,7 +39,7 @@
             </ul>
             <ul class="navbar-nav lang-switcher">
                 <li class="nav-item">
-                    <a class="nav-link btn" href="{{ route('index') }}">
+                    <a class="nav-link btn" href="{{ route('web.index') }}">
                         <img src="{{ asset('img/flags/flag-gbr.svg') }}" alt="Switch to English page" />
                     </a>
                 </li>

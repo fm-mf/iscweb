@@ -55,18 +55,19 @@
     }
   }
 
-  .navbar-brand {
-    display: block;
-    & > img {
-      display: block;
-      height: 3.5rem;
-      margin-top: -0.3125rem;
-      margin-bottom: -0.3125rem;
-    }
-  }
-
   .fas {
     width: 1.5rem;
     text-align: initial;
+  }
+}
+
+.navbar-brand {
+  display: block;
+
+  & > img {
+    display: block;
+    height: 3.5rem;
+    margin-top: -0.3125rem;
+    margin-bottom: -0.3125rem;
   }
 }

@@ -19,6 +19,10 @@ use Carbon\Carbon;
 
 class WebController extends Controller
 {
+    public function showLangSelection()
+    {
+        return view('web.language-selection');
+    }
 
     public function showHomePage()
     {

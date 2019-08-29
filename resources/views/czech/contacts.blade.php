@@ -78,22 +78,24 @@
         </div>
     </section>
     <section>
-        <div class="row">
-            <div class="col-12">
-                <h2>Fakturační adresa</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Fakturační adresa</h2>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <ol class="col-auto mx-auto list-unstyled billing-info">
-                <li class="font-weight-bold">{{ $officialName }}</li>
-                <li><address>Thákurova 550/1, 160 00, Praha 6 – Dejvice</address></li>
-                <li>IČO: 22 841 032</li>
-            </ol>
+            <div class="row">
+                <ol class="col-auto mx-auto list-unstyled billing-info">
+                    <li class="font-weight-bold">{{ $officialName }}</li>
+                    <li><address>Thákurova 550/1, 160 00, Praha 6 – Dejvice</address></li>
+                    <li>IČO: 22 841 032</li>
+                </ol>
+            </div>
         </div>
     </section>
 @endsection
 
-@section('javascript')
+@section('scripts')
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9ZNFKyW2aiHfQNqt0mv79uHOvUt92gxU" defer="defer"></script>
     @parent
 @endsection

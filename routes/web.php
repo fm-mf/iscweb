@@ -42,7 +42,8 @@ Route::get('/buddy/files/buddy_prirucka_fall2018_pro_web.pdf', function () { ret
 
 Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
-    Route::get('/', 'WebController@showHomePage')->name('index');
+    Route::get('/', 'WebController@showLangSelection')->name('web.lang-select');
+    Route::get('/home', 'WebController@showHomePage')->name('web.index');
     Route::get('/about-us', function() { return view('web.about'); });
     Route::get('/buddy-program', function() { return view('web.buddy-program'); });
     Route::get('/activities', 'WebController@showActivitesPage');

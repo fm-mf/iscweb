@@ -121,10 +121,11 @@
                 <div class="col">
                     <h2>Kde nás najdeš?</h2>
                     <p>
-                        Sídlem našeho klubu tzv. ISC Point na Masarykově koleji v místnosti R304,
-                        ve třetím patře v červené části. Masarykova kolej je trochu bludiště,
-                        a proto je nejlepší sledovat od schodů naproti vchodu směrovky s naším logem.
-                        ISC Point je místo, kam se po příjezdu podívá téměř každý zahraňák a vyzvedne si svůj Welcome pack.
+                        Sídlem našeho klubu tzv. <strong>ISC Point</strong> na Masarykově koleji
+                        v místnosti <strong>R304</strong>, ve třetím patře v červené části.
+                        Masarykova kolej je trochu bludiště, a proto je nejlepší sledovat
+                        od schodů naproti vchodu směrovky s naším logem. ISC Point je místo,
+                        kam se po příjezdu podívá téměř každý zahraňák a vyzvedne si svůj Welcome pack.
                         Navíc, pokud bude mít v budoucnu nějaké problémy, rádi mu tam poradíme a pomůžeme.
                     </p>
                     <p>

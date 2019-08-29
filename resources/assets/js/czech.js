@@ -3,7 +3,7 @@ import jQuery from "jquery";
 import "bootstrap";
 
 import "./czech/_instafeed"
-import initGMapsPreview from "./czech/_gMapsPreview";"./czech/_gMapsPreview"
+import initGMapsPreview from "./czech/_gMapsPreview";
 
 window.jQuery = jQuery;
 require("@fancyapps/fancybox");
