@@ -48,7 +48,7 @@
                                 <td>@{{ student.country.full_name }}</td>
                                 <td>@{{ student.school }}</td>
                                 <td>@{{ student.faculty.abbreviation }}</td>
-                                <td><span v-if="student.arrival">@{{ student.arrival['arrival'] }}</span></td>
+                                <td><span v-if="student.arrival">@{{ student.arrival['arrivalFormatted'] }}</span></td>
                                 <td>@{{ student.accommodation.full_name }}</td>
                             </tr>
                             </tbody>

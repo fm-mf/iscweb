@@ -41,7 +41,7 @@ class ApiController extends Controller
 
         ExchangeStudent::setStaticVisible(['id_user', 'accommodation', 'arrival', 'country', 'faculty', 'person', 'school']);
         Accommodation::setStaticVisible(['full_name']);
-        Arrival::setStaticVisible(['arrival']);
+        Arrival::setStaticVisible(['arrivalFormatted']);
         Country::setStaticVisible(['full_name']);
         Faculty::setStaticVisible(['abbreviation']);
         Person::setStaticVisible(['first_name', 'last_name']);

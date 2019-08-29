@@ -15,6 +15,8 @@ class Arrival extends Model
 
     protected $dates = ['arrival'];
 
+    protected $appends = ['arrivalFormatted'];
+
     public function exchangeStudent()
     {
         return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
@@ -23,6 +25,10 @@ class Arrival extends Model
     public function transportation()
     {
         return $this->hasOne('\App\Models\Transportation', 'id_transportation', 'id_transportation');
+    }
+
+    public function getArrivalFormattedAttribute() {
+        return $this->arrival->format('j. n. Y G:i');
     }
 
     public function scopeWithStudents($query, $semester = null)
