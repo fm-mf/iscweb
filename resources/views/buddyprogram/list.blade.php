@@ -38,7 +38,7 @@
                                 <th>Země</th>
                                 <th>Škola</th>
                                 <th>Fakulta</th>
-                                <th>Příjed</th>
+                                <th>Příjezd</th>
                                 <th>Bydlení</th>
                             </tr>
                             </thead>
