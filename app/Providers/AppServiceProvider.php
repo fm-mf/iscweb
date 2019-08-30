@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('shortName', Settings::get('shortName'));
         View::share('fullName', Settings::get('fullName'));
         View::share('officialName', Settings::get('officialName'));
+        View::share('linkOwFbEvent', Settings::get('owFbEventLink'));
     }
 
     /**

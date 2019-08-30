@@ -276,7 +276,9 @@ address {
 
 }
 
-.bg-danger {
+.bg-danger,
+.bg-warning,
+.bg-info {
   padding:20px;
   margin-bottom: 20px;
 }

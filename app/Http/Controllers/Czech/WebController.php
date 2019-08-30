@@ -57,9 +57,8 @@ class WebController extends Controller
 
     function showFaqPage()
     {
-        $linkOwFbEvent = Settings::get('owFbEventLink');
         $linkExchangeGroup = Settings::get('fbGroupLink');
-        return view('czech.faq', compact('linkOwFbEvent', 'linkExchangeGroup'));
+        return view('czech.faq', compact('linkExchangeGroup'));
     }
 
     function showBuddyProgramPage()
