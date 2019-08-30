@@ -41,21 +41,21 @@ class Contacts
                 'position' => 'Public Relations',
                 'email' => 'pr@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => ''
+                'avatar' => asset($femaleSilhouette)
             ],
             [
                 'name' => 'Jakub Doupal',
                 'position' => 'Local Representative',
                 'email' => 'lr@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => ''
+                'avatar' => asset($maleSilhouette)
             ],
             [
                 'name' => 'Michal Cihlář',
                 'position' => 'Human Resources',
                 'email' => 'hr@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => ''
+                'avatar' => asset($maleSilhouette)
             ],
             [
                 'name' => 'Jan Vůjtěch',
@@ -65,32 +65,32 @@ class Contacts
                 'avatar' => asset("{$contactImageFolder}/honza-qak.jpg")
             ],
             [
-                'name' => 'Kryštof Šimána',
+                'name' => 'Victoria Usan',
                 'position' => 'Activities Coordinator',
                 'email' => 'activities@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => ''
+                'avatar' => asset($femaleSilhouette)
             ],
             [
                 'name' => 'Jakub Trhlík',
                 'position' => 'inteGREAT Coordinator',
                 'email' => 'integreat@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => ''
+                'avatar' => asset($maleSilhouette)
             ],
             [
                 'name' => 'Jan Páleník',
                 'position' => 'IT Coordinator',
                 'email' => 'it@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => ''
+                'avatar' => asset($maleSilhouette)
             ],
             [
                 'name' => 'Filip Marek',
                 'position' => 'Point Coordinator',
                 'email' => 'point@isc.cvut.cz',
-                'phone' => '',
-                'avatar' => '',
+                'phone' => '+420 732 227 056',
+                'avatar' => asset('img/web/contacts/2017fall/it-filip.jpg'),
             ],[
                 'name' => 'Rajmund Hruška',
                 'position' => 'Languages Coordinator',
@@ -103,7 +103,7 @@ class Contacts
                 'position' => 'Buddy Coordinator',
                 'email' => 'buddy@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => ''
+                'avatar' => asset($maleSilhouette)
             ],
             [
                 'name' => 'Dominik Bureš',
@@ -134,10 +134,10 @@ class Contacts
                 'avatar' => asset("{$contactImageFolder}/bautysta-visa.jpg")
             ],
             [
-                'name' => 'Kryštof Šimána',
+                'name' => 'Martin Vlk',
                 'position' => 'Trips Coordinator',
                 'email' => 'trips@isc.cvut.cz',
-                'phone' => '+420 607 881 408',
+                'phone' => '',
                 'avatar' => asset($maleSilhouette)
             ]
         ]);
