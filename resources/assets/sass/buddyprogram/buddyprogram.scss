@@ -73,8 +73,32 @@ main {
     margin-bottom: 1rem;
   }
 
+  .avatar-view {
+    margin-bottom: 2rem;
+  }
+
   #avatar {
-    font-size: 9rem;
+    border-radius: 50%;
+    max-width: 80%;
+  }
+
+  .flash,
+  .show-email {
+    background: var(--backgroud-color);
+    padding: 1rem;
+    width: auto;
+    border-left: 0.25rem solid var(--border-color);
+  }
+
+  .flash {
+    --backgroud-color: #f9bfbf;
+    --border-color: #f27979;
+    color: #650a0a;
+  }
+
+  .show-email {
+    --backgroud-color: #dcebbe;
+    --border-color: #adcf65;
   }
 }
 

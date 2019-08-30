@@ -37,10 +37,13 @@ class StudentController extends Controller
 
         $canChoose = $me->pickedStudentsToday() < Settings::get('limitPerDay', 1);
 
+        $dailyLimit = Settings::get('limitPerDay');
+
         return view('buddyprogram.profile')->with([
             'exchangeStudent' => $exchangeStudent,
             'avatar' => $exchangeStudent->person->avatar(),
-            'casChoose' => $canChoose
+            'canChoose' => $canChoose,
+            'limit' => $dailyLimit,
         ]);
     }
 
