@@ -39,6 +39,10 @@ function parseQuery(qs) {
 
     return qs.split('&')
         .reduce(function (acc, item) {
+            if (item.indexOf('=') < 0) {
+                return
+            }
+
             var key = decodeURIComponent(item.substr(0, item.indexOf('=')))
             var value = decodeURIComponent(item.substr(item.indexOf('=') + 1))
 
@@ -59,6 +63,7 @@ function loadFilter(values, def, preset, keyfield) {
     if (keyfield) {
         if (preset) {
             return preset.map(function (p) { return values.find(i => i[keyfield] == p) })
+                .filter(function (p) { return !!p })
         }
         return def
     } else {
@@ -85,8 +90,6 @@ class ExchangeStudents {
         this.page = 1;
         this.pagesCount = 1;
         this.lastPage = 1;
-
-        this.updateFromQuery()
     }
 
     onPopState() {
@@ -196,7 +199,7 @@ var exchangeStudentsApp = new Vue({
         },
     },
     created: function() {
-        this.exchangeStudents.update();
+        this.exchangeStudents.updateFromQuery();
     }
 
 });
