@@ -40,7 +40,7 @@ function parseQuery(qs) {
     return qs.split('&')
         .reduce(function (acc, item) {
             if (item.indexOf('=') < 0) {
-                return
+                return acc
             }
 
             var key = decodeURIComponent(item.substr(0, item.indexOf('=')))
