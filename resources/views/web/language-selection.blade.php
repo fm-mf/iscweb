@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="d-flex flex-grow-1 align-items-center">
                     <span class="w-100 d-lg-none"></span>
-                    <a class="navbar-brand" href="{{ route('czech.index') }}">
+                    <a class="navbar-brand" href="{{ route('web.lang-select') }}">
                         <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
                     </a>
                     <span class="w-100 text-right"></span>
