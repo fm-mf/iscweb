@@ -157,8 +157,7 @@ const exchangeStudentsApp = new Vue({
     },
 
     filterChanged() {
-      this.update();
-      this.updateQuery();
+      this.goToPage(1);
     },
 
     update() {
