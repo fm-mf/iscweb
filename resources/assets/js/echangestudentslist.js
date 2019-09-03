@@ -19,7 +19,7 @@ Vue.component('multiselect', VueMultiselect.default);
 //Vue.component('exchangestudentstable', require('./components/ExchangeStudentsTable.vue'));
 
 /** Which keys are used to identify selected option in filters list */
-var filterToKey = {
+const filterToKey = {
   countries: 'id_country',
   faculties: 'id_faculty',
   accommodation: 'id_accommodation'
@@ -41,8 +41,8 @@ function parseQuery(qs) {
       return acc;
     }
 
-    var key = decodeURIComponent(item.substr(0, item.indexOf('=')));
-    var value = decodeURIComponent(item.substr(item.indexOf('=') + 1));
+    const key = decodeURIComponent(item.substr(0, item.indexOf('=')));
+    const value = decodeURIComponent(item.substr(item.indexOf('=') + 1));
 
     acc[key] = value.split(',');
     return acc;
@@ -132,13 +132,9 @@ const exchangeStudentsApp = new Vue({
       const query = Object.keys(this.filters)
         .filter(key => this.filters[key] && this.filters[key].length > 0)
         .map(key => {
-          var values = this.filters[key].map(v => {
-            if (filterToKey[key] === undefined) {
-              return v;
-            }
-
-            return v[filterToKey[key]];
-          });
+          const values = this.filters[key].map(v =>
+            filterToKey[key] === undefined ? v : v[filterToKey[key]]
+          );
 
           return (
             encodeURIComponent(key) + '=' + encodeURIComponent(values.join(','))
