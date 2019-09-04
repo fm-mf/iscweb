@@ -16,6 +16,15 @@ use App\Facades\Settings ;
 
 class ApiController extends Controller
 {
+    const ORDER_ALIAS = [
+        'name' => 'people.first_name',
+        'country' => 'countries.full_name',
+        'arrival' => 'arrivals.arrival',
+        'faculty' => 'faculties.abbreviation',
+        'school' => 'school',
+        'accomodation' => 'accommodation.full_name'
+    ];
+
     public function load(Request $request)
     {
         if (!Settings::get('isDatabaseOpen')) {
@@ -29,7 +38,23 @@ class ApiController extends Controller
             });
         }
 
-        $students = ExchangeStudent::withAll()->availableToPick(Settings::get('currentSemester'));
+        $students = ExchangeStudent::withAll()
+            ->joinAll()
+            ->availableToPick(Settings::get('currentSemester'));
+
+        $sort = $request->sortBy;
+        if ($sort && $sort['field'] && $sort['order']) {
+            $field = $sort['field'];
+            $order = $sort['order'];
+            
+            if ($order !== 'desc') {
+                $order = 'asc';
+            }
+
+            if (in_array($field, array_keys(self::ORDER_ALIAS))) {
+                $students->orderBy(self::ORDER_ALIAS[$field], $order);
+            }
+        }
 
         if (is_array($request->filters)) {
             foreach ($request->filters as $filter => $values) {
