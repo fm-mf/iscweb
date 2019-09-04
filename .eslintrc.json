@@ -4,9 +4,19 @@
     "ecmaVersion": 2017,
     "sourceType": "module"
   },
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "$": "readonly"
+  },
+  "plugins": ["prettier"],
   "extends": [
-    "plugin:vue/recommended",
-    "prettier/vue",
-    "plugin:prettier/recommended"
-  ]
+    "eslint:recommended",
+    "prettier",
+    "prettier/vue"
+  ],
+  "rules": {
+    "prettier/prettier": "warn"
+  }
 }
