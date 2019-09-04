@@ -44,7 +44,7 @@
                 <div class="col-sm-12">
                     <ul class="list-unstyled">
                         <li id="t1"><a data-toggle="collapse" data-parent="t3" href="#collapseT3"><h3>Languages events</h3></a>
-                            @if($integreatEvents->count() > 0)
+                            @if($languagesEvents->count() > 0)
                                 <div class="panel panel-collapse collapse" id="collapseT3">
                                     @include('partak.events.evetsTable', ['Events' => $languagesEvents])
                                 </div>
