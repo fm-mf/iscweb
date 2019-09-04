@@ -103,6 +103,8 @@ return [
         ],
     ],
 
+    'phone' => 'Zadané telefonní číslo není platné',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

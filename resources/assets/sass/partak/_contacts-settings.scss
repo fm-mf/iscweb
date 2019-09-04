@@ -1,0 +1,45 @@
+@import "~cropperjs/src/css/cropper";
+
+.contact {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+
+    .contact-details {
+        flex-grow: 1;
+        margin-left: 1em;
+    }
+
+    .actions {
+        margin-left: 1em;
+
+        a, button {
+            width: 100%;
+        }
+    }
+
+    .position {
+        font-weight: bold;
+    }
+
+    picture img {
+        width: 100%;
+        max-width: 80px;
+        border-radius: 40px;
+    }
+}
+
+.contacts {
+    margin-top: 20px;
+}
+
+#photo-preview-wrapper canvas {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#photo-preview-wrapper img {
+    border-radius: 50%;
+    width: 360px;
+    height: 360px;
+}

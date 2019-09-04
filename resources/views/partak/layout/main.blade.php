@@ -15,9 +15,9 @@
 
 
     @section('stylesheets')
-        <link href="{{ URL::asset('/css/partaknet.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+        <link href="{{ mix('css/partaknet.css') }}" rel="stylesheet" type="text/css">
     @show
 
 {{--

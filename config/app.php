@@ -182,7 +182,6 @@ return [
         App\Providers\FormServiceProvider::class,
         App\Providers\SettingsProvider::class,
         //App\Providers\AclServiceProvider::class,
-        App\Providers\ContactsProvider::class,
 
     ],
 

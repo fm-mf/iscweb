@@ -105,6 +105,8 @@ return [
         ],
     ],
 
+    'phone' => 'Entered phone number is invalid',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

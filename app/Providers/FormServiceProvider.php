@@ -23,6 +23,9 @@ class FormServiceProvider extends ServiceProvider
         Form::component('bsFile','components.bsform.file', ['name', 'label', 'attributes' => [], 'info' => null]);
         Form::component('bsUrl', 'components.bsform.url', ['name', 'label', 'required' => '', 'value' => null, 'attributes' => [], 'info' => null]);
         Form::component('bsSubmit', 'components.bsform.submit', ['text']);
+        Form::component('bsEmail', 'components.bsform.email', ['name', 'label', 'required' => '', 'value' => null, 'attributes' => [], 'info' => null]);
+        Form::component('bsTel', 'components.bsform.tel', ['name', 'label', 'required' => '', 'value' => null, 'attributes' => [], 'info' => null]);
+        Form::component('bsCheckbox', 'components.bsform.checkbox', ['name', 'label', 'required' => '', 'value', 'checked', 'attributes' => [], 'info' => null]);
     }
 
     /**

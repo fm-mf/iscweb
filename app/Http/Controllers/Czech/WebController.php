@@ -7,9 +7,9 @@
  */
 namespace App\Http\Controllers\Czech;
 
-use App\Facades\Contacts;
 use App\Facades\Settings;
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Event;
 use App\Models\OpeningHoursMode;
 
@@ -30,23 +30,23 @@ class WebController extends Controller
     }
 
     function showActivitiesIndexPage() {
-        $contactHr = Contacts::getContactByPosition('Human Resources');
+        $contactHr = Contact::byPosition('Human Resources')->first();
         return view('czech.activities', compact('contactHr'));
     }
 
     function showActivitiesLanguagesPage() {
-        $contactLanguages = Contacts::getContactByPosition('Languages Coordinator');
+        $contactLanguages = Contact::byPosition('Languages Coordinator')->first();
         return view('czech.activities-languages', compact('contactLanguages'));
     }
 
     function showActivitiesTripsPage() {
-        $contactTrips = Contacts::getContactByPosition('Trips Coordinator');
-        $contactActivities = Contacts::getContactByPosition('Activities Coordinator');
+        $contactTrips = Contact::byPosition('Trips Coordinator')->first();
+        $contactActivities = Contact::byPosition('Activities Coordinator')->first();
         return view('czech.activities-trips', compact('contactTrips', 'contactActivities'));
     }
 
     function showActivitiesInteGreatPage() {
-        $contactInteGreat = Contacts::getContactByPosition('inteGREAT Coordinator');
+        $contactInteGreat = Contact::byPosition('inteGREAT Coordinator')->first();
         return view('czech.activities-inteGREAT', compact('contactInteGreat'));
     }
 
@@ -63,15 +63,13 @@ class WebController extends Controller
 
     function showBuddyProgramPage()
     {
-        $contacts[] = Contacts::getContactByPosition('Buddy Coordinator');
-        $contacts[] = Contacts::getContactByPosition('Human Resources');
-        return view('czech.buddy-program')->with([
-            'contacts' => $contacts,
-        ]);
+        $contactBuddy = Contact::byPosition('Buddy Coordinator')->first();
+        $contactHr = Contact::byPosition('Human Resources')->first();
+        return view('czech.buddy-program', compact('contactBuddy', 'contactHr'));
     }
 
     function showContactsPage() {
-        $contacts = Contacts::getWebContacts();
+        $contacts = Contact::visibleOnWeb()->get();
         $openingHoursText = OpeningHoursMode::getCurrentText();
         $openingHoursTable = OpeningHoursMode::buildHoursTable();
         return view('czech.contacts', compact('contacts', 'openingHoursText', 'openingHoursTable'));

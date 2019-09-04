@@ -72,3 +72,17 @@
     Route::patch('/settings', 'SettingsController@submitSettings');
 	Route::get('/openinghours', 'SettingsController@getOpeningHours');
 	Route::get('/logs', 'LogsController@index');
+
+Route::prefix('/settings/contacts')
+    ->name('partak.settings.contacts.')
+    ->group(function () {
+        Route::get('/', 'ContactsSettingsController@index')->name('index');
+        Route::get('/data', 'ContactsSettingsController@data')->name('data');
+        Route::get('/create', 'ContactsSettingsController@create')->name('create');
+        Route::post('/', 'ContactsSettingsController@store')->name('store');
+        Route::get('/{contact}/edit', 'ContactsSettingsController@edit')->name('edit');
+        Route::patch('/{contact}', 'ContactsSettingsController@update')->name('update');
+        Route::put('/{contact}', 'ContactsSettingsController@update')->name('update');
+        Route::post('/{contact}/move', 'ContactsSettingsController@move')->name('move');
+        Route::delete('/{contact}', 'ContactsSettingsController@destroy')->name('destroy');
+});

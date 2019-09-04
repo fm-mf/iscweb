@@ -15,11 +15,13 @@
                     </p>
                 </div>
             </div>
-            <div class="row contacts">
-                <div class="col-auto mx-auto">
-                    @include('partials.contact', ['contact' => $contactHr])
+            @isset($contactHr)
+                <div class="row contacts">
+                    <div class="col-auto mx-auto">
+                        @include('partials.contact', ['contact' => $contactHr])
+                    </div>
                 </div>
-            </div>
+            @endif
             <div class="row">
                 <div class="col">
                     <p>

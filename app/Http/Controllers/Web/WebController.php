@@ -8,13 +8,13 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Event;
 use App\Models\Integreat_party;
 use App\Models\Languages_event;
 use App\Models\Semester;
 use App\Models\OpeningHoursMode;
 use App\Facades\Settings;
-use App\Facades\Contacts;
 use Carbon\Carbon;
 
 class WebController extends Controller
@@ -37,7 +37,7 @@ class WebController extends Controller
 
     public function showContacts() {
         $dateFrom = Carbon::createFromFormat('d/m/Y' ,Settings::get('wcFrom'));
-        $contacts = Contacts::getWebContacts();
+        $contacts = Contact::visibleOnWeb()->get();
         return view('web.contact') -> with(['wcFrom' => $dateFrom->format('l F jS'),
                                             'contacts' => $contacts,
                                             'openingHoursText' => OpeningHoursMode::getCurrentText(),
@@ -53,14 +53,14 @@ class WebController extends Controller
     public function showActivitesPage()
     {
         return view('web.activities')->with([
-            'contact' => Contacts::getContactByPosition('Activities Coordinator'),
+            'contact' => Contact::byPosition('Activities Coordinator')->first(),
         ]);
     }
 
     public function showSportsPage()
     {
         return view('web.activities.sports')->with([
-            'contact' => Contacts::getContactByPosition('Sports Coordinator'),
+            'contact' => Contact::byPosition('Sports Coordinator')->first(),
         ]);
     }
 
@@ -73,14 +73,14 @@ class WebController extends Controller
         return view('web.activities.integreat')->with([
             'events' => $integreatEv,
             'currentSemester' => $currentSemester,
-            'contact' => Contacts::getContactByPosition('inteGREAT Coordinator'),
+            'contact' => Contact::byPosition('inteGREAT Coordinator')->first(),
         ]);
     }
 
     public function showTripsPage()
     {
         return view('web.activities.trips')->with([
-            'contact' => Contacts::getContactByPosition('Trips Coordinator')
+            'contact' => Contact::byPosition('Trips Coordinator')->first(),
         ]);
     }
 
@@ -90,7 +90,7 @@ class WebController extends Controller
         $langEvents = Languages_event::getLangEventsFrom($fromDate);
         return view('web.activities.languages')->with([
             'langEvents' => $langEvents,
-            'contact' => Contacts::getContactByPosition('Languages Coordinator'),
+            'contact' => Contact::byPosition('Languages Coordinator')->first(),
         ]);
     }
 
