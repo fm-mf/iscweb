@@ -25,6 +25,12 @@ class ApiController extends Controller
         'accomodation' => 'accommodation.full_name'
     ];
 
+    const FILTER_ALIAS = [
+        'countries' => 'exchange_students.id_country',
+        'accommodation' => 'exchange_students.id_accommodation',
+        'faculties' => 'exchange_students.id_faculty'
+    ];
+
     public function load(Request $request)
     {
         if (!Settings::get('isDatabaseOpen')) {
@@ -51,15 +57,26 @@ class ApiController extends Controller
                 $order = 'asc';
             }
 
-            if (in_array($field, array_keys(self::ORDER_ALIAS))) {
+            if (isset(self::ORDER_ALIAS[$field])) {
                 $students->orderBy(self::ORDER_ALIAS[$field], $order);
             }
         }
 
+        // If you can do better, please rewrite this
         if (is_array($request->filters)) {
             foreach ($request->filters as $filter => $values) {
-                if ($values) {
-                    $students->filter($filter, $values);
+                if ($values && is_array($values)) {
+                    if ($filter === 'arrivals') {
+                        $students->where(function($q) use ($values) {
+                            foreach ($values as $value) {
+                                if (preg_match("/^[1-9][0-9]{3}-[0-9]{2}-[0-9]{2}$/", $value)) {
+                                    $q->orWhere('arrivals.arrival', 'LIKE', "$value%");
+                                }
+                            }
+                        });
+                    } elseif (isset(self::FILTER_ALIAS[$filter])) {
+                        $students->whereIn(self::FILTER_ALIAS[$filter], $values);
+                    }
                 }
             }
         }

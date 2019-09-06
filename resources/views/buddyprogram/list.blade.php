@@ -15,19 +15,19 @@
                     <div class="filter row">
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <multiselect :options="countries" :show-labels="false" label="full_name" track-by="id_country" placeholder="Země"
-                                         v-model="filters.countries" :multiple="true" v-on:input="filterChanged"></multiselect>
+                                v-model="filters.countries" :multiple="true" v-on:input="filterChanged"></multiselect>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <multiselect :options="faculties" :show-labels="false" label="abbreviation" track-by="id_faculty" placeholder="Fakulta"
-                                         v-model="filters.faculties" :multiple="true" v-on:input="filterChanged"></multiselect>
+                                v-model="filters.faculties" :multiple="true" v-on:input="filterChanged"></multiselect>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
-                            <multiselect :options="arrivals" :show-labels="false" v-model="filters.arrivals" placeholder="Příjezd"
-                                         :multiple="true" v-on:input="filterChanged"></multiselect>
+                            <multiselect :options="arrivals" :show-labels="false" label="formatted" track-by="date" placeholder="Příjezd"
+                                v-model="filters.arrivals" :multiple="true" v-on:input="filterChanged"></multiselect>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <multiselect :options="accommodation" :show-labels="false" label="full_name" placeholder="Bydlení"
-                                         track-by="id_accommodation" v-model="filters.accommodation" :multiple="true" v-on:input="filterChanged"></multiselect>
+                                track-by="id_accommodation" v-model="filters.accommodation" :multiple="true" v-on:input="filterChanged"></multiselect>
                         </div>
                     </div>
                     <div class="table-loader-container">

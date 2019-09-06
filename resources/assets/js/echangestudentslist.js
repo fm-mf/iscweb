@@ -14,7 +14,8 @@ Vue.component('multiselect', VueMultiselect);
 const filterToKey = {
   countries: 'id_country',
   faculties: 'id_faculty',
-  accommodation: 'id_accommodation'
+  accommodation: 'id_accommodation',
+  arrivals: 'date'
 };
 
 /**
@@ -44,23 +45,39 @@ function parseQuery(qs) {
 /**
  * Loads filter value from preset and tries to map it values using keyfield (if provided).
  * @param {any[]} values
- * @param {any[]} def
  * @param {any[]} preset
  * @param {string} keyfield
  * @returns {any[]}
  */
-function loadFilter(values, def, preset, keyfield) {
+function loadFilter(values, preset, keyfield) {
   if (keyfield) {
     if (preset) {
       return preset
         .map(p => values.find(i => i[keyfield] == p))
         .filter(p => !!p);
     }
-    return def;
+    return [];
   } else {
-    return preset || def;
+    return preset || [];
   }
 }
+
+/**
+ * Maps filters to its unique identifiers and removes empty filters
+ * @param {{ [filter: string]: any[] }} filters
+ * @returns {{ [filter: string]: (string | number)[] }}
+ */
+const simplifyFilters = filters =>
+  Object.keys(filters)
+    .filter(key => filters[key] && filters[key].length > 0)
+    .reduce((acc, key) => {
+      if (filterToKey[key]) {
+        acc[key] = filters[key].map(f => f[filterToKey[key]]);
+      } else {
+        acc[key] = filters[key];
+      }
+      return acc;
+    }, {});
 
 new Vue({
   el: '#app',
@@ -100,23 +117,24 @@ new Vue({
       this.filters = {
         countries: loadFilter(
           this.countries,
-          [],
           query.countries,
           filterToKey.countries
         ),
         faculties: loadFilter(
           this.faculties,
-          [],
           query.faculties,
           filterToKey.faculties
         ),
         accommodation: loadFilter(
           this.accommodation,
-          [],
           query.accommodation,
           filterToKey.accommodation
         ),
-        arrivals: loadFilter(null, [], query.arrivals)
+        arrivals: loadFilter(
+          this.arrivals,
+          query.arrivals,
+          filterToKey.arrivals
+        )
       };
 
       this.page = parseInt(query.page || '1', 10);
@@ -133,17 +151,13 @@ new Vue({
     },
 
     updateQuery() {
-      const query = Object.keys(this.filters)
-        .filter(key => this.filters[key] && this.filters[key].length > 0)
-        .map(key => {
-          const values = this.filters[key].map(v =>
-            filterToKey[key] === undefined ? v : v[filterToKey[key]]
-          );
-
-          return (
-            encodeURIComponent(key) + '=' + encodeURIComponent(values.join(','))
-          );
-        });
+      const filters = simplifyFilters(this.filters);
+      const query = Object.keys(filters).map(
+        key =>
+          encodeURIComponent(key) +
+          '=' +
+          encodeURIComponent(filters[key].join(','))
+      );
 
       query.push('page=' + this.page);
       query.push('sort=' + this.sortBy.field + ',' + this.sortBy.order);
@@ -163,12 +177,11 @@ new Vue({
 
     update() {
       this.loading = true;
-
       axios
         .post(
           '/api/liststudents',
           {
-            filters: this.filters,
+            filters: simplifyFilters(this.filters),
             page: this.page,
             sortBy: this.sortBy
           },
