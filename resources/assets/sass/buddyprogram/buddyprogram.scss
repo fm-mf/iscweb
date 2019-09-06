@@ -102,10 +102,17 @@ main {
   }
 
   .pagination {
+    padding-bottom: 0.5rem;
+    justify-content: center;
+
     li > a {
       display: block;
-      margin: 5px;
-      padding: 5px;
+      margin: 0.2rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    li.active {
+      font-weight: bold;
     }
   }
 }
