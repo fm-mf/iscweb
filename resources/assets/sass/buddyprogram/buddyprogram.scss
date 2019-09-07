@@ -100,6 +100,21 @@ main {
     --backgroud-color: #dcebbe;
     --border-color: #adcf65;
   }
+
+  .pagination {
+    padding-bottom: 0.5rem;
+    justify-content: center;
+
+    li > a {
+      display: block;
+      margin: 0.2rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    li.active {
+      font-weight: bold;
+    }
+  }
 }
 
 .table-loader {
