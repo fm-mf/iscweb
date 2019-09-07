@@ -1,28 +1,21 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+/* global jscountries:readonly, jsfaculties:readonly, jsdays:readonly, jsaccommodation:readonly */
 
-require('./bootstrap');
+// Bad practice but whatever
+import './bootstrap';
 
-window.Vue = require('vue');
+import Vue from 'vue';
+import axios from 'axios';
+import OrderableColumn from './components/OrderableColumn';
+import VueMultiselect from 'vue-multiselect';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('multiselect', VueMultiselect.default);
-//Vue.component('vmultiselect', require('./components/Multiselect.vue'));
-//Vue.component('exchangestudentstable', require('./components/ExchangeStudentsTable.vue'));
+Vue.component('multiselect', VueMultiselect);
 
 /** Which keys are used to identify selected option in filters list */
 const filterToKey = {
   countries: 'id_country',
   faculties: 'id_faculty',
-  accommodation: 'id_accommodation'
+  accommodation: 'id_accommodation',
+  arrivals: 'date'
 };
 
 /**
@@ -52,34 +45,53 @@ function parseQuery(qs) {
 /**
  * Loads filter value from preset and tries to map it values using keyfield (if provided).
  * @param {any[]} values
- * @param {any[]} def
  * @param {any[]} preset
  * @param {string} keyfield
  * @returns {any[]}
  */
-function loadFilter(values, def, preset, keyfield) {
+function loadFilter(values, preset, keyfield) {
   if (keyfield) {
     if (preset) {
       return preset
         .map(p => values.find(i => i[keyfield] == p))
         .filter(p => !!p);
     }
-    return def;
+    return [];
   } else {
-    return preset || def;
+    return preset || [];
   }
 }
 
-const exchangeStudentsApp = new Vue({
+/**
+ * Maps filters to its unique identifiers and removes empty filters
+ * @param {{ [filter: string]: any[] }} filters
+ * @returns {{ [filter: string]: (string | number)[] }}
+ */
+const simplifyFilters = filters =>
+  Object.keys(filters)
+    .filter(key => filters[key] && filters[key].length > 0)
+    .reduce((acc, key) => {
+      if (filterToKey[key]) {
+        acc[key] = filters[key].map(f => f[filterToKey[key]]);
+      } else {
+        acc[key] = filters[key];
+      }
+      return acc;
+    }, {});
+
+new Vue({
   el: '#app',
-  data: {
+  components: { OrderableColumn },
+
+  data: () => ({
     countries: jscountries,
     faculties: jsfaculties,
     arrivals: jsdays,
     accommodation: jsaccommodation,
 
+    loading: true,
     page: 1,
-    sortBy: 'arrival',
+    sortBy: { field: 'arrival', order: 'asc' },
     filters: {
       countries: [],
       faculties: [],
@@ -89,7 +101,7 @@ const exchangeStudentsApp = new Vue({
 
     data: [],
     pagesCount: 1
-  },
+  }),
 
   created() {
     // Called when user moves between history entries
@@ -104,44 +116,51 @@ const exchangeStudentsApp = new Vue({
 
       this.filters = {
         countries: loadFilter(
-          jscountries,
-          [],
+          this.countries,
           query.countries,
           filterToKey.countries
         ),
         faculties: loadFilter(
-          jsfaculties,
-          [],
+          this.faculties,
           query.faculties,
           filterToKey.faculties
         ),
         accommodation: loadFilter(
-          jsaccommodation,
-          [],
+          this.accommodation,
           query.accommodation,
           filterToKey.accommodation
         ),
-        arrivals: loadFilter(null, [], query.arrivals)
+        arrivals: loadFilter(
+          this.arrivals,
+          query.arrivals,
+          filterToKey.arrivals
+        )
       };
 
       this.page = parseInt(query.page || '1', 10);
+
+      if (query.sort && Array.isArray(query.sort)) {
+        const [field, order] = query.sort;
+        this.sortBy = {
+          field,
+          order: order !== 'desc' ? 'asc' : 'desc'
+        };
+      }
+
       this.update();
     },
 
     updateQuery() {
-      const query = Object.keys(this.filters)
-        .filter(key => this.filters[key] && this.filters[key].length > 0)
-        .map(key => {
-          const values = this.filters[key].map(v =>
-            filterToKey[key] === undefined ? v : v[filterToKey[key]]
-          );
-
-          return (
-            encodeURIComponent(key) + '=' + encodeURIComponent(values.join(','))
-          );
-        });
+      const filters = simplifyFilters(this.filters);
+      const query = Object.keys(filters).map(
+        key =>
+          encodeURIComponent(key) +
+          '=' +
+          encodeURIComponent(filters[key].join(','))
+      );
 
       query.push('page=' + this.page);
+      query.push('sort=' + this.sortBy.field + ',' + this.sortBy.order);
 
       history.pushState(null, '', '?' + query.join('&'));
     },
@@ -157,29 +176,35 @@ const exchangeStudentsApp = new Vue({
     },
 
     update() {
-      $.ajaxSetup({
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
+      this.loading = true;
+      axios
+        .post(
+          '/api/liststudents',
+          {
+            filters: simplifyFilters(this.filters),
+            page: this.page,
+            sortBy: this.sortBy
+          },
+          {
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          }
+        )
+        .then(res => {
+          const data = res.data;
 
-      $.ajax({
-        url: '/api/liststudents',
-        method: 'post',
-        dataType: 'json',
-        data: {
-          filters: this.filters,
-          page: this.page,
-          sortBy: this.sortBy
-        }
-      })
-        .done(newData => {
-          this.data = newData.data;
-          this.page = newData.current_page;
-          this.pagesCount = newData.last_page;
+          this.data = data.data;
+          this.page = data.current_page;
+          this.pagesCount = data.last_page;
+
+          this.loading = false;
         })
-        .fail(error => {
-          alert('Unable to fetch students - ' + error);
+        .catch(err => {
+          console.error(err);
+          alert('Failed to load list of students: ' + err);
+
+          this.loading = false;
         });
     }
   }

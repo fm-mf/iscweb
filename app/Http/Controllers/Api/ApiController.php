@@ -16,6 +16,21 @@ use App\Facades\Settings ;
 
 class ApiController extends Controller
 {
+    const ORDER_ALIAS = [
+        'name' => 'people.first_name',
+        'country' => 'countries.full_name',
+        'arrival' => 'arrivals.arrival',
+        'faculty' => 'faculties.abbreviation',
+        'school' => 'school',
+        'accomodation' => 'accommodation.full_name'
+    ];
+
+    const FILTER_ALIAS = [
+        'countries' => 'exchange_students.id_country',
+        'accommodation' => 'exchange_students.id_accommodation',
+        'faculties' => 'exchange_students.id_faculty'
+    ];
+
     public function load(Request $request)
     {
         if (!Settings::get('isDatabaseOpen')) {
@@ -29,12 +44,39 @@ class ApiController extends Controller
             });
         }
 
-        $students = ExchangeStudent::withAll()->availableToPick(Settings::get('currentSemester'));
+        $students = ExchangeStudent::withAll()
+            ->joinAll()
+            ->availableToPick(Settings::get('currentSemester'));
 
+        $sort = $request->sortBy;
+        if ($sort && $sort['field'] && $sort['order']) {
+            $field = $sort['field'];
+            $order = $sort['order'];
+            
+            if ($order !== 'desc') {
+                $order = 'asc';
+            }
+
+            if (isset(self::ORDER_ALIAS[$field])) {
+                $students->orderBy(self::ORDER_ALIAS[$field], $order);
+            }
+        }
+
+        // If you can do better, please rewrite this
         if (is_array($request->filters)) {
             foreach ($request->filters as $filter => $values) {
-                if ($values) {
-                    $students->filter($filter, $values);
+                if ($values && is_array($values)) {
+                    if ($filter === 'arrivals') {
+                        $students->where(function($q) use ($values) {
+                            foreach ($values as $value) {
+                                if (preg_match("/^[1-9][0-9]{3}-[0-9]{2}-[0-9]{2}$/", $value)) {
+                                    $q->orWhere('arrivals.arrival', 'LIKE', "$value%");
+                                }
+                            }
+                        });
+                    } elseif (isset(self::FILTER_ALIAS[$filter])) {
+                        $students->whereIn(self::FILTER_ALIAS[$filter], $values);
+                    }
                 }
             }
         }

@@ -33,7 +33,10 @@ class ListingController extends Controller
         $arrivalDates = Arrival::withStudents($currentSemester)->select(DB::raw('DATE(`arrival`) AS `arrival`'))->distinct()->pluck('arrival');
         $arrivalDatesFormated = array();
         for($i = 0; $i < count($arrivalDates); $i++) {
-            $arrivalDatesFormated[] = Carbon::parse($arrivalDates[$i])->format('j. n. Y');
+            $arrivalDatesFormated[] = [
+                'formatted' => Carbon::parse($arrivalDates[$i])->format('j. n. Y'),
+                'date' => Carbon::parse($arrivalDates[$i])->format('Y-m-d')
+            ];
         }
 
         JavaScript::put([
