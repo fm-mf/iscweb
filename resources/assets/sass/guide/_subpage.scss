@@ -283,26 +283,10 @@ address {
   margin-bottom: 20px;
 }
 
-#isc-intro > img {
+#isc-intro > img,
+#esn-cz-intro > img{
   width: 24rem;
   display: block;
-  float: left;
-  margin: 1rem;
-}
-
-#partners > img {
-  float: right;
-  width: 24rem;
-}
-
-h1, h2, h3 {
-  clear: both;
-}
-
-#isc-intro > img {
-  width: 24rem;
-  display: block;
-  float: left;
   margin: 1rem;
 }
 
