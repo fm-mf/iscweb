@@ -48,7 +48,7 @@
                             </thead>
                             <tbody>
                             <tr v-for="student in data">
-                                <td><a href="{{url('/muj-buddy/profile/')}}" v-bind:href="'{{url('/muj-buddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} @{{ student.person.last_name }}</a></td>
+                                <td><a href="{{url('/muj-buddy/profile/')}}" v-bind:href="'{{url('/muj-buddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} <span class="last-name">@{{ student.person.last_name }}</span></a></td>
                                 <td>@{{ student.country.full_name }}</td>
                                 <td>@{{ student.school }}</td>
                                 <td>@{{ student.faculty.abbreviation }}</td>

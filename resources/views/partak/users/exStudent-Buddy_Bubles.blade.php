@@ -6,7 +6,7 @@
         <div class="col-sm-6">
             <h3 class="hline"><span>Details</span></h3>
             <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($exStudent->person->avatar()) }}">
-            <h3>{{ $exStudent->person->getFullName() }}</h3>
+            <h3>{{ $exStudent->person->first_name }} <span class="last-name">{{ $exStudent->person->last_name }}</span></h3>
             @can('acl', 'exchangeStudents.edit')<a href="{{ url('partak/users/exchange-students/edit/' . $exStudent->id_user) }}" class="btn btn-xs btn-success edit-button"><span class="glyphicon glyphicon-pencil up"></span> Edit</a> <br>@endcan
             <span class="glyphicon glyphicon-envelope up buddy-detail-icon"></span> {{ $exStudent->person->user->email }} <br>
             <span class="glyphicon glyphicon-phone-alt buddy-detail-icon"></span> {{ $exStudent->phone ?? 'No Phone' }}<br>

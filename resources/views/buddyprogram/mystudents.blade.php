@@ -19,7 +19,7 @@
                 @if($myStudents)
                     @foreach($myStudents as $exchangeStudent)
                         <tr>
-                            <td><a href="{{url('/muj-buddy/profile/' . $exchangeStudent->id_user)}}">{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</a></td>
+                            <td><a href="{{url('/muj-buddy/profile/' . $exchangeStudent->id_user)}}">{{ $exchangeStudent->person->first_name }} <span class="last-name">{{ $exchangeStudent->person->last_name }}</span></a></td>
                             <td>{{ $exchangeStudent->country->full_name }}</td>
                             <td>{{ $exchangeStudent->faculty->faculty }}</td>
                             <td>{{ $exchangeStudent->accommodation->full_name }}</td>
