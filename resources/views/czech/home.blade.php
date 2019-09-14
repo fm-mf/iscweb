@@ -91,6 +91,7 @@
             </div>
         </div>
     </section>
+    @include('czech.partials.buddy-handbook-section')
     <section id="instafeed-container" class="d-none">
         <div class="container">
             <div class="row">

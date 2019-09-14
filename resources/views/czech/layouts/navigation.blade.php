@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{ route('czech.activities.index') }}">Co děláme</a>
                 </li>
                 <li class="nav-item{{ request()->routeIs("czech.buddy-program") ? " active" : "" }}">
-                    <a class="nav-link" href="{{ route('czech.buddy-program') }}">Buddy program</a>
+                    <a class="nav-link" href="{{ route('czech.buddy-program') }}">O Buddy programu</a>
                 </li>
                 <li class="nav-item{{ request()->routeIs("czech.calendar") ? " active" : "" }}">
                     <a class="nav-link" href="{{ route('czech.calendar') }}">Kalendář</a>
