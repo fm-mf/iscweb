@@ -84,7 +84,7 @@ class Contacts
                 'position' => 'IT Coordinator',
                 'email' => 'it@isc.cvut.cz',
                 'phone' => '',
-                'avatar' => asset($maleSilhouette)
+                'avatar' => asset("{$contactImageFolder}/it-Johno.jpg")
             ],
             [
                 'name' => 'Filip Marek',
