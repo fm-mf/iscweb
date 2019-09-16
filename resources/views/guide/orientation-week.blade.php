@@ -119,7 +119,7 @@
             <p class="bg-warning">Please attend this registration event at your faculty. Do not treat it as optional.</p>
 	    <div class="row">
 		<div class="col-lg-12">
-		    <a href="{{ asset('/files/ow-presentations-fall-2019/registrations-at-faculties.pdf') }}">Meeting points - Tuesday</a>
+		    <a href="{{ asset('/files/ow-fall-2019/registrations-at-faculties.pdf') }}">Meeting points - Tuesday</a>
 		</div>
 	    </div>
             <ul class="list-unstyled">
