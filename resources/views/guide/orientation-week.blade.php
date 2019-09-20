@@ -68,7 +68,11 @@
                         <li>Visa regulations</li>
                     </ul>
                 </li>
-{{--		        <li><a href="{{ asset('/files/Spring_2019_verze pro web.pdf') }}">Download presentation</a></li>--}}
+		        <li>
+                    <a class="btn btn-primary" href="{{ asset('files/ow-fall-2019/ow-fall-2019-complete.pdf') }}">
+                        <span class="glyphicon glyphicon-file"></span> Download presentation
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
