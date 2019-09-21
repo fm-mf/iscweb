@@ -169,7 +169,7 @@ main {
     }
 
     &.faculty {
-      $width: 90px;
+      $width: 120px;
       flex: 0;
       min-width: $width;
       max-width: $width;
@@ -191,7 +191,7 @@ main {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 990px) {
   .div-tr {
     flex-wrap: wrap;
 
