@@ -70,34 +70,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--<div class="table-responsive">
-                        <table class="table table-hover table-striped">
-                            <thead>
-                            <tr>
-                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="name">Jméno</orderable-column></th>
-                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="country">Země</orderable-column></th>
-                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="school">Škola</orderable-column></th>
-                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="faculty">Fakulta</orderable-column></th>
-                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="arrival">Příjezd</orderable-column></th>
-                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="accomodation">Bydlení</orderable-column></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="student in data">
-                                <td><a href="{{url('/muj-buddy/profile/')}}" v-bind:href="'{{url('/muj-buddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} <span class="last-name">@{{ student.person.last_name }}</span></a></td>
-                                <td>@{{ student.country.full_name }}</td>
-                                <td>@{{ student.school }}</td>
-                                <td>@{{ student.faculty.abbreviation }}</td>
-                                <td><span v-if="student.arrival">@{{ student.arrival['arrivalFormatted'] }}</span></td>
-                                <td>@{{ student.accommodation.full_name }}</td>
-                            </tr>
-                            <tr v-if="!loading && data.length === 0" class="table-empty">
-                                <td colspan="100">Nenalezen žádný student</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>-->
                     </div>
 
                     <nav aria-label="Page navigation" v-if="data && data.length > 0 && pagesCount > 1">
