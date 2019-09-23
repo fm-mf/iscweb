@@ -22,33 +22,33 @@
             <dd>Examination period</dd>
     </dl>--}}
 
-    <h2>Spring Semester 2018/2019</h2>
-    <dl>
-        <dt>8 February 2019</dt>
-            <dd>Suggested date of arrival</dd>
-        <dt>11 &ndash; 17 February 2019</dt>
-            <dd>Orientation week</dd>
-        <dt>18 February &ndash; 26 May 2019</dt>
-            <dd>Classes</dd>
-        <dt>27 May &ndash; 28 June 2018</dt>
-            <dd>Examination period</dd>
-    </dl>
+    {{--<h2>Spring Semester 2018/2019</h2>--}}
+    {{--<dl>--}}
+    {{--    <dt>8 February 2019</dt>--}}
+    {{--        <dd>Suggested date of arrival</dd>--}}
+    {{--    <dt>11 &ndash; 17 February 2019</dt>--}}
+    {{--        <dd>Orientation week</dd>--}}
+    {{--    <dt>18 February &ndash; 26 May 2019</dt>--}}
+    {{--        <dd>Classes</dd>--}}
+    {{--    <dt>27 May &ndash; 28 June 2018</dt>--}}
+    {{--        <dd>Examination period</dd>--}}
+    {{--</dl>--}}
 
     <h2>Faculty specific calendars</h2>
     <ul class="list-unstyled">
-        <li><a href="http://www.fsv.cvut.cz/studente/cal1819.pdf" target="_blank">Faculty of Civil Engineering</a> (PDF)</li>
+        <li><a href="https://www.fsv.cvut.cz/studente/cal1920.pdf" target="_blank">Faculty of Civil Engineering</a> (PDF)</li>
         <li><a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/schedule-of-academic-year/" target="_blank">Faculty of Mechanical Engineering</a></li>
         <li><a href="https://www.fel.cvut.cz/en/education/calendar.html" target="_blank">Faculty of Electronical Engineering</a></li>
         <li><a href="https://www.fa.cvut.cz/En" target="_blank">Faculty of Architecture</a></li>
         <li><a href="http://www.its.fd.cvut.cz/ms-en/for-students/copy_of_academic-year-schedule" target="_blank">Faculty of Transportation Sciences</a></li>
-        <li><a href="https://www.fit.cvut.cz/en/student/office-of-study/schedule/2018" target="_blank">Faculty of Information Technologies</a></li>
-        <li><a href="http://en.fbmi.cvut.cz/files/nodes/10081/public/Schedule%20of%20the%20academic%20year%202018_19.pdf" target="_blank">Faculty of Biomedical Engineering</a> (PDF)</li>
+        <li><a href="https://www.fit.cvut.cz/en/student/office-of-study/schedule/2019" target="_blank">Faculty of Information Technologies</a></li>
+        <li><a href="https://www.fbmi.cvut.cz/sites/default/files/2019-09/Schedule%20of%20academic%20year%202019_20.pdf" target="_blank">Faculty of Biomedical Engineering</a> (PDF)</li>
         <li><a href="https://www.fjfi.cvut.cz/en/education/study-programmes-and-regulations" target="_blank">Faculty of Nuclear Sciences and Physical Engineering</a></li>
     </ul>
 
     <h2>Public and university holidays</h2>
     <dl>
-        {{--<dt>28 September</dt>
+        <dt>28 September</dt>
             <dd>St. Wenceslas' Day (Czech Statehood Day)</dd>
         <dt>28 October</dt>
             <dd>Independent Czechoslovak State Day</dd>
@@ -59,7 +59,7 @@
         <dt>25 December</dt>
             <dd>Christmas Day</dd>
         <dt>26 December</dt>
-            <dd>St. Stephen's Day</dd>--}}
+            <dd>St. Stephen's Day</dd>
         <dt>1 January</dt>
             <dd>Restoration Day of the Independent Czech State, New Year's Day</dd>
         <dt>19 April</dt>
