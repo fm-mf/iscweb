@@ -1,0 +1,18 @@
+{
+  "plugins": ["vue", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "prettier/vue",
+    "plugin:vue/recommended"
+  ],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "$": "readonly"
+  },
+  "rules": {
+    "prettier/prettier": "warn"
+  }
+}
