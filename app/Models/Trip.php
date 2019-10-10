@@ -220,6 +220,7 @@ class Trip extends Model
             $trip->trip_date_to = $data['trip_date_to'];
             $trip->capacity = $data['capacity'] ?? 0;
             $trip->price = $data['price'] ?? 0;
+            $trip->type = $data['type'];
             $trip->save();
 
             foreach($organizers as $organizer) {
