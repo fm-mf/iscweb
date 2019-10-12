@@ -69,6 +69,16 @@
     <!-- {{ Form::bsText('medical_issues', 'Medical issues','', $student->person->medical_issues) }} -->
     {{ Form::bsSelect('diet', 'Food preference', $diets, $student->person->diet, ['placeholder' => 'No preference'])  }}
 
+    <h3 class="col-sm-12"><span>ADDITIONAL CONTACTS</span></h3>
+
+    <p class="help-block col-sm-12">Enter additional contact information, if you want to use something else than e-mail. These will be only visible to your buddy.</p>
+
+    {{ Form::label('whatsapp', 'Whatsapp', ['class' => 'control-label']) }}
+    {{ Form::text('whatsapp', '', ['class' => 'form-control']) }}
+
+    {{ Form::label('facebook', 'Facebook', ['class' => 'control-label']) }}
+    {{ Form::text('facebook', '', ['class' => 'form-control']) }}
+
     <h3 class="col-sm-12"><span>COUNTRY PRESENTATION</span></h3>
     <div class="col-sm-12 form-group">
         <label>

@@ -19,6 +19,8 @@ if (Request::segment(1) == "user") {
 
 
 
+Route::get('/registration', 'Exchange\RegistrationController@showForm');
+
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
 {
     Route::get('/{hash}', 'ProfileController@showProfileForm');

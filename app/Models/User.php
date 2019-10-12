@@ -169,4 +169,9 @@ class User extends Authenticatable
     {
         $this->notify(new PasswordReset($token));
     }
+
+    public static function encryptPassword($email, $password)
+    {
+        return hash("sha512", $email . '@' . $password);
+    }
 }
