@@ -280,7 +280,7 @@ class ExchangeStudent extends Model
             ->where('esn_card_number', $esnCardNumber)
             ->whereHas('person.user', function (Builder $query) use ($email) {
                 $query->where('email', $email);
-            })->first();
+            });
     }
 
     public function scopeByEmails(Builder $query, array $emails)

@@ -41,4 +41,5 @@ use Illuminate\Http\Request;
     Route::get('/github', ['middleware' => 'github.secret.token', 'uses' => 'GithubController@githubUpdate']);
 
     Route::post('/events/getExchangeStudent', 'EventsController@getExchangeStudent');
-    Route::post('/events/getBuddy', 'EventsController@getBuddy');
+    Route::post('/events/getBuddy', 'EventsController@login');
+    Route::post('/events/register', 'EventsController@register');

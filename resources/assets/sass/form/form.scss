@@ -16,6 +16,14 @@ main {
   margin-bottom: 5rem;
   border-bottom: 3px solid #ccc;
 
+  button {
+    border-radius: 3px;
+    border: none;
+    background: #5146C0;
+    color: #fff;
+    padding: 0.5rem;
+  }
+
   .header {
     img {
       width: 100%;
@@ -95,28 +103,38 @@ main {
         border: 1px solid #ddd;
         border-radius: 3px;
         padding: 8px;
-        min-width: 200px;
+        min-width: 250px;
         box-sizing: border-box;
       }
 
-      button {
-        border-radius: 3px;
-        border: none;
-        background: #5146C0;
-        color: #fff;
-        padding: 0.5rem;
+      textarea {
+        height: 200px;
       }
     }
 
-    .done-message {
-      background: #29BC68;
+    .auth-error-body {
       display: flex;
       align-items: center;
+      margin: 1rem;
+
+      background: $error-bg;
       color: #fff;
 
       .icon {
         padding: 0.5rem 1rem;
-        border-left: 3px solid darken(#29BC68, 10%);
+        border-left: 3px solid darken($error-bg, 10%);
+      }
+    }
+
+    .done-message {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background: $success-bg;
+
+      .icon {
+        padding: 0.5rem 1rem;
+        border-left: 3px solid darken($success-bg, 10%);
       }
     }
 

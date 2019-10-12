@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Settings\Settings;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -55,6 +56,13 @@ class Event extends Model
         return Trip::where('id_event', $this->id_event)->exists();
     }
 
+    public function scopeFindByHash(Builder $query, string $hash)
+    {
+        return $query
+            ->where('preregistration_hash', $hash)
+            ->where('preregistration', '1');
+    }
+
     /**
      * @param array $attributes
      * @param array $options
@@ -100,6 +108,16 @@ class Event extends Model
         $time = $this->datetime_from->format('l') . '<br>'; //get name of the day in week eg. Mondey
         $time .= $this->datetime_from->format('F') . '<br>'; // get name of the month eg. March
         $time .= '<strong>' . $this->datetime_from->format('jS') . '</strong><br>'; //get day in month eg 30th
+        $time .= $this->getTimeFormatted();
+
+        return $time;
+    }
+
+    public function eventsDateTimeFrom()
+    {
+        $time = $this->datetime_from->format('l') . ' '; //get name of the day in week eg. Mondey
+        $time .= $this->datetime_from->format('F') . ' '; // get name of the month eg. March
+        $time .= $this->datetime_from->format('jS') . ' - '; //get day in month eg 30th
         $time .= $this->getTimeFormatted();
 
         return $time;

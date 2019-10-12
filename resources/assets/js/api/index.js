@@ -7,3 +7,12 @@ export const getExchangeStudent = (email, esn) =>
 
 export const getBuddy = (email, password) =>
   axios.post('/api/events/getBuddy', { email, password }).then(res => res.data);
+
+export const saveResponse = (event, id_user, diet, medicalIssues, notes) =>
+  axios.post('/api/events/register', {
+    event,
+    id_user,
+    diet,
+    medicalIssues,
+    notes
+  });
