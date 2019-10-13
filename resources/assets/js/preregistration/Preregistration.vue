@@ -20,6 +20,8 @@
     <questions
       v-if="step === STEPS.QUESTIONS"
       :user="userData"
+      :show-medical-issues="showMedicalIssues"
+      :show-diet="showDiet"
       @submit="handleFinish"
     />
 
@@ -53,7 +55,9 @@ export default {
     eventHash: {
       type: String,
       required: true
-    }
+    },
+    showMedicalIssues: Boolean,
+    showDiet: Boolean
   },
   data: () => ({
     STEPS,

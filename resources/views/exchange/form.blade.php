@@ -21,7 +21,12 @@
     <div class="registration" v-if="showRegistration">
       <div class="title">Registration</div>
 
-      <preregistration event-hash="{{ $event->preregistration_hash }}" v-on:cancel="toggleRegistration(false)"></preregistration>
+      <preregistration
+        event-hash="{{ $event->preregistration_hash }}"  
+        :show-medical-issues="!!{{ $event->preregistration_medical ?: '0' }}"
+        :show-diet="!!{{ $event->preregistration_diet ?: '0' }}"
+        v-on:cancel="toggleRegistration(false)"
+      ></preregistration>
     </div>
   </div>
 @stop
