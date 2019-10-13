@@ -14,7 +14,7 @@ class CreatePreregistrationResponsesTable extends Migration
     public function up()
     {
         Schema::create('preregistration_responses', function (Blueprint $table) {
-            $table->integer('id_event')->unsigned()->primary();
+            $table->integer('id_event')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->timestamps();
             $table->softDeletes();
@@ -23,6 +23,7 @@ class CreatePreregistrationResponsesTable extends Migration
             $table->enum('diet', ['Vegetarian','Vegan','Fish only'])->nullable();
             $table->text('notes')->nullable();
 
+            $table->primary(['id_event', 'id_user']);
             $table->foreign('id_event')->references('id_event')->on('events')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             $table->foreign('deleted_by')->references('id_user')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
