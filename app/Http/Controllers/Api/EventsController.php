@@ -56,9 +56,9 @@ class EventsController extends Controller
     {
         return Validator::make($data, [
             'id_user' => 'int|required',
-            'diet' => 'in:Vegetarian,Vegan,Fish only',
-            'medical_issues' => 'string|max:1024',
-            'notes' => 'string|max:1024'
+            'diet' => 'in:Vegetarian,Vegan,Fish only|nullable',
+            'medical_issues' => 'string|max:1024|nullable',
+            'notes' => 'string|max:1024|nullable'
         ]);
     }
 
