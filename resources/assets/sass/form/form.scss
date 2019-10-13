@@ -21,7 +21,28 @@ main {
     border: none;
     background: #5146C0;
     color: #fff;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    .fas {
+      margin-right: 0.1rem;
+    }
+
+    &.cancel {
+      background: transparent;
+      color: #9F0000;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &.register {
+      display: block;
+      margin: auto;
+      width: 200px;
+      padding: 0.85rem;
+    }
   }
 
   .header {

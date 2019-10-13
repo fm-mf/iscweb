@@ -14,13 +14,11 @@
       <div class="description" v-if="!showRegistration">
         {!! $event->description !!}
 
-        <button v-on:click="toggleRegistration(true)"><i class="fas fa-arrow-right"></i> Register</button>
+        <button class="register" v-on:click="toggleRegistration(true)"><i class="fas fa-arrow-right"></i> Register</button>
       </div>
     </div>
 
     <div class="registration" v-if="showRegistration">
-      <div class="title">Registration</div>
-
       <preregistration
         event-hash="{{ $event->preregistration_hash }}"  
         :show-medical-issues="!!{{ $event->preregistration_medical ?: '0' }}"

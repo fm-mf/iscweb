@@ -30,12 +30,18 @@
       </div>
 
       <button><i class="fas fa-check" /> Confirm registration</button>
+      <cancel @click="$emit('cancel')" />
     </form>
   </div>
 </template>
 
 <script>
+import Cancel from './Cancel';
+
 export default {
+  components: {
+    Cancel
+  },
   props: {
     user: {
       type: Object,

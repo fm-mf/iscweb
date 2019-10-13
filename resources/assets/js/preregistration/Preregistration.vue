@@ -1,31 +1,36 @@
 <template>
-  <div class="loader-container">
-    <loader :loaded="loaded" />
+  <div>
+    <div class="title">Registration</div>
+    <div class="loader-container">
+      <loader :loaded="loaded" />
 
-    <auth
-      v-if="!userData && step === STEPS.AUTH"
-      :loaded="loaded"
-      @loaded="handleLoaded"
-      @auth="handleAuth"
-    />
+      <auth
+        v-if="!userData && step === STEPS.AUTH"
+        :loaded="loaded"
+        @loaded="handleLoaded"
+        @auth="handleAuth"
+        @cancel="$emit('cancel')"
+      />
 
-    <user-info
-      v-if="userData && step !== STEPS.DONE"
-      :user="userData"
-      @logout="handleLogout"
-    />
+      <user-info
+        v-if="userData && step !== STEPS.DONE"
+        :user="userData"
+        @logout="handleLogout"
+      />
 
-    <error :error="error" />
+      <error :error="error" />
 
-    <questions
-      v-if="step === STEPS.QUESTIONS"
-      :user="userData"
-      :show-medical-issues="showMedicalIssues"
-      :show-diet="showDiet"
-      @submit="handleFinish"
-    />
+      <questions
+        v-if="step === STEPS.QUESTIONS"
+        :user="userData"
+        :show-medical-issues="showMedicalIssues"
+        :show-diet="showDiet"
+        @submit="handleFinish"
+        @cancel="handleLogout"
+      />
 
-    <finish v-if="step >= STEPS.DONE" @back="$emit('cancel')" />
+      <finish v-if="step >= STEPS.DONE" @back="$emit('cancel')" />
+    </div>
   </div>
 </template>
 
@@ -96,10 +101,13 @@ export default {
         data.notes
       ).then(
         () => {
+          this.loaded = true;
           this.userData = null;
           this.nextStep();
         },
         e => {
+          this.loaded = true;
+
           this.error =
             (e.response &&
               e.response.data &&
@@ -107,7 +115,6 @@ export default {
                 ? flattenErrors(e.response.data.errors)
                 : e.response.data.message)) ||
             'Unknown error occured, when trying to save your response. Please contact administrators.';
-          this.loaded = true;
         }
       );
     },

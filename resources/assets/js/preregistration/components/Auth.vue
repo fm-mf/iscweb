@@ -11,7 +11,8 @@
           <label>ESN Card Number</label>
           <input v-model="esn" type="text" name="esn" />
         </div>
-        <button>Continue</button>
+        <button><i class="fas fa-arrow-right"></i> Continue</button>
+        <cancel @click="$emit('cancel')" />
       </form>
     </tab>
     <tab id="buddy" title="Buddy">
@@ -25,7 +26,8 @@
           <label>Password</label>
           <input v-model="password" name="password" type="password" />
         </div>
-        <button>Continue</button>
+        <button><i class="fas fa-arrow-right"></i> Continue</button>
+        <cancel @click="$emit('cancel')" />
       </form>
     </tab>
     <tab id="other" title="Other">
@@ -46,12 +48,14 @@ import { getExchangeStudent, getBuddy } from '../../api';
 import Tabs from '../../components/Tabs/Tabs';
 import Tab from '../../components/Tabs/Tab';
 import Error from './Error';
+import Cancel from './Cancel';
 
 export default {
   components: {
     Tabs,
     Tab,
-    Error
+    Error,
+    Cancel
   },
   props: {
     loaded: Boolean
