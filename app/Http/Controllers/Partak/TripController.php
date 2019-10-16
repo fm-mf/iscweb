@@ -43,15 +43,17 @@ class TripController extends Controller
 
     public function showDetail($id)
     {
-        $trip = Trip::withParticipants('organizers.person.user', 'event')->find($id);
+        $trip = Trip::withParticipants('preregistered.user', 'preregistered.exchangeStudent', 'preregistered.buddy', 'organizers.person.user', 'event')->find($id);
         $this->authorize('view', $trip);
         $particip = $trip->participants;
         $organizers = $trip->organizers;
+        $preregistered = $trip->preregistered;
 
         return view('partak.trips.detail')->with([
             'trip' => $trip,
             'particip' => $particip,
             'organizers' => $organizers,
+            'preregistered' => $preregistered
         ]);
     }
 

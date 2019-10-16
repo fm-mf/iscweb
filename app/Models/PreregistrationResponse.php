@@ -27,7 +27,7 @@ class PreregistrationResponse extends Model
         return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
     }
 
-    public static function hasUser(int $id) {
-        return PreregistrationResponse::where('id_user', $id)->exists();
+    public static function hasUser(int $id_event, int $id) {
+        return PreregistrationResponse::where('id_user', $id)->where('id_event', $id_event)->exists();
     }
 }

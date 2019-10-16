@@ -32,8 +32,9 @@ class EventsController extends Controller
         $this->responseValidator($request->all())->validate();
 
         $id_user = (int)$request->input('id_user');
+        $id_event = Event::findByHash($request->input('event'))->firstOrFail()->id_event;
 
-        if (PreregistrationResponse::hasUser($id_user)) {
+        if (PreregistrationResponse::hasUser($id_event, $id_user)) {
             return response()->json([
                 'message' => 'User is already registered for this event'
             ], 400);
@@ -42,7 +43,7 @@ class EventsController extends Controller
         // TODO: Validate if event is open for registrations
 
         $response = new PreregistrationResponse();
-        $response->id_event = Event::findByHash($request->input('event'))->firstOrFail()->id_event;
+        $response->id_event = $id_event;
         $response->id_user = $id_user;
         $response->medical_issues = $request->input('medical_issues');
         $response->diet = $request->input('diet');

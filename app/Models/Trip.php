@@ -20,7 +20,10 @@ class Trip extends Model
 
     protected $dates = ['registration_from', 'trip_date_to', 'registration_to'];
 
-    protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'capacity', 'price', 'type'];
+    protected $fillable = [
+        'registration_from', 'trip_date_to', 'registration_to',
+        'capacity', 'price', 'type'
+    ];
 
 
     public function organizers()
@@ -32,6 +35,13 @@ class Trip extends Model
     {
         return $this->belongsToMany('\App\Models\Person', 'trips_participants', 'id_trip', 'id_user')
             ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id')
+            ->wherePivot('deleted_at', null);
+    }
+
+    public function preregistered()
+    {
+        return $this->belongsToMany('\App\Models\Person', 'preregistration_responses', 'id_event', 'id_user', 'id_event')
+            ->withTimestamps()->withPivot('medical_issues', 'diet', 'notes', 'created_at')
             ->wherePivot('deleted_at', null);
     }
 
@@ -220,6 +230,7 @@ class Trip extends Model
             $trip->trip_date_to = $data['trip_date_to'];
             $trip->capacity = $data['capacity'] ?? 0;
             $trip->price = $data['price'] ?? 0;
+
             $trip->save();
 
             foreach($organizers as $organizer) {

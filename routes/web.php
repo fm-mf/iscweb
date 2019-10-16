@@ -19,7 +19,7 @@ if (Request::segment(1) == "user") {
 
 
 
-Route::get('/registration/{id}', 'Exchange\RegistrationController@showForm');
+Route::get('/event/{id}', 'Exchange\RegistrationController@showForm');
 
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
 {

@@ -40,6 +40,14 @@
                                 <td></td>
                                 <td></td>
                             </tr>
+                            @if ($trip->event->preregistration)
+                            <tr>
+                                <th>Preregistration</th>
+                                <td colspan="3">
+                                    <input style="width: 100%" type="text" disabled value="{{ url("/event/{$trip->event->preregistration_hash}") }}" />
+                                </td>
+                            </tr>
+                            @endif
                             <tr>
                             </tr>
                         </table>
@@ -110,6 +118,50 @@
                 @endif
             @endcan
         @endif
+
+        @if ($trip->event->preregistration)
+        <div style="min-height: 300px">
+            <div class="container">
+                <div class="row row-inner">
+                    <div class="col-sm-12">
+                        <h3>Pre-registrations</h3>
+
+                        <div class="panel panel-default">
+                        <table class="table">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Sex</th>
+                                <th>Phone</th>
+                                <th>ESN card number</th>
+                                <th>Detail</th>
+                            </tr>
+                            @foreach($preregistered as $item)
+                                <tr>
+                                    <td>{{ $item->getFullName(true)}}</td>
+                                    <td>{{ $item->user->email }}</td>
+                                    <td>{{ $item->getSex() }}</td>
+                                    <td>{{ $item->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
+                                    <td>{{ $item->exchangeStudent->esn_card_number ?? '-' }}</td>
+                                    <td>
+                                        @can('addParticipant', $trip)
+                                            <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-xs">Register</a>
+                                        @endcan
+                                        @if((isset($item->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
+                                                (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
+                                            <a href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        
         <div style="min-height: 300px">
             <div class="container">
                 <div class="row row-inner">

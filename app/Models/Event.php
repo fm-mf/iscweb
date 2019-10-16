@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Hashids\Hashids;
 
 class Event extends Model
 {
@@ -18,7 +19,9 @@ class Event extends Model
     protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
 
     protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at',
-        'visible_from', 'cover', 'created_by', 'modified_by', 'event_type'];
+        'visible_from', 'cover', 'created_by', 'modified_by', 'event_type', 'location', 'location_url',
+        'preregistration', 'preregistration_medical', 'preregistration_diet',
+        'preregistration_removal_limit', 'preregistration_hash'];
 
     public function createdBy()
     {
@@ -173,7 +176,7 @@ class Event extends Model
             ->where('event_type', 'normal')
             ->whereDoesntHave('trip')
             ->whereDate('datetime_from', '>=', Carbon::today())
-            ->get()->sortby('datetime_from');;
+            ->get()->sortby('datetime_from');
     }
 
     public static function findAllInteGreatInFromDate($fromDate)
@@ -182,7 +185,7 @@ class Event extends Model
             ->where('event_type', 'integreat')
             ->whereHas('integreat_party')
             ->whereDate('datetime_from', '>=', $fromDate)
-            ->get()->sortby('datetime_from');;
+            ->get()->sortby('datetime_from');
     }
 
     public static function findAllLanguagesFromDate($fromDate)
@@ -191,7 +194,7 @@ class Event extends Model
             ->where('event_type', 'languages')
             ->whereHas('Languages_event')
             ->whereDate('datetime_from', '>=', $fromDate)
-            ->get()->sortby('datetime_from');;
+            ->get()->sortby('datetime_from');
     }
 
     public static function findAll()
@@ -203,11 +206,20 @@ class Event extends Model
     {
         $data = self::updateDatetimes($data);
         $id_user = Auth::id();
-        return DB::transaction(function () use ($data, $id_user) {
+        $hashId = new Hashids("events");
+
+        return DB::transaction(function () use ($data, $id_user, $hashId) {
             $event = new Event();
             $event->visible_from = $data['visible_from'];
             $event->datetime_from = $data['datetime_from'];
             $event->name = $data['name'];
+            
+            $event->location = $data['location'] ?? '';
+            $event->location_url = $data['location_url'] ?? '';
+            $event->preregistration = $data['preregistration'] ?? 0;
+            $event->preregistration_medical = $data['preregistratoin_medical'] ?? null;
+            $event->preregistration_diet = $data['preregistration_diet'] ?? null;
+            $event->preregistration_removal_limit = $data['preregistration_removal_limit'] ?? null;
 
             $event->description = $data['description'];
             $event->facebook_url = array_key_exists('facebook_url', $data) ? $data['facebook_url'] : NULL;
@@ -215,6 +227,10 @@ class Event extends Model
             $event->created_by = $id_user;
             if(array_key_exists('event_type', $data)) $event->event_type = $data['event_type'];
             $event->save();
+
+            $event->preregistration_hash = $hashId->encode($event->id_event);
+            $event->save();
+
             return $event;
         });
     }
