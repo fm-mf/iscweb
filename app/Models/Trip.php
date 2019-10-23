@@ -7,6 +7,16 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @property int $id_trip
+ * @property int $id_event
+ * @property Carbon $trip_date_to
+ * @property Carbon $registration_from
+ * @property Carbon $registration_to
+ * @property int $capacity
+ * @property string $type
+ * @property \App\Models\Event $event
+ */
 class Trip extends Model
 {
     const REGULAR_PARTICIPANT = 1;
@@ -96,6 +106,19 @@ class Trip extends Model
 
     public function isFull() {
         return $this->freeSpots() == 0;
+    }
+
+    public function canRegister()
+    {
+        if ($this->registration_from && $this->registration_from->isAfter(Carbon::now())) {
+            return 'Registrations didn\'t start yet';
+        }
+
+        if ($this->registration_to && $this->registration_to->isBefore(Carbon::now())) {
+            return 'Registrations already ended';
+        }
+
+        return true;
     }
 
     public function standInParticipants()
@@ -313,6 +336,5 @@ class Trip extends Model
     {
         return $this->participants()->where('trips_participants.id_user', $id_user)->count() > 0
             || $this->preregistered()->where('preregistration_responses.id_user', $id_user)->count() > 0;
-
     }
 }

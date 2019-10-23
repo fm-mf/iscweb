@@ -10,6 +10,29 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Hashids\Hashids;
 
+/**
+ * @property number $id_event
+ * @property Carbon $datetime_from
+ * @property Carbon $visible_from
+ * @property string $name
+ * @property string $location
+ * @property string $location_url
+ * @property string $facebook_url
+ * @property string $description
+ * @property Carbon $created_at
+ * @property \App\Models\Buddy $created_by
+ * @property Carbon $updated_at
+ * @property \App\Models\Buddy $modified_by
+ * @property string $cover
+ * @property string $event_type
+ * @property boolean $ow
+ * @property boolean $preregistration
+ * @property string $preregistration_hash
+ * @property number $preregistration_removal_limit
+ * @property boolean $preregistration_diet
+ * @property boolean $preregistration_medical
+ * @property \App\Models\Trip $trip
+*/
 class Event extends Model
 {
     public $timestamps = true;

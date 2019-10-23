@@ -43,8 +43,6 @@ class EventsController extends Controller
 
         $this->checkEventUser($event, $this->guard()->user()->id_user);
 
-        // TODO: Validate if event is open for registrations
-
         $response = new PreregistrationResponse();
         $response->id_event = $event->id_event;
         $response->id_user = $id_user;
@@ -65,10 +63,19 @@ class EventsController extends Controller
         }
     }
 
-    private function checkEventUser(Event $event, $id_user)
+    private function checkEventUser(Event $event, int $id_user)
     {
         if ($event->trip->hasUser($id_user)) {
-            throw new HttpException(400, 'User is already registered for this event');
+            throw new HttpException(400, 'You are already registered for this event');
+        }
+
+        if ($event->trip->isFull()) {
+            throw new HttpException(400, 'Event is already full, sorry :(');
+        }
+
+        $error = $event->trip->canRegister();
+        if ($error !== true) {
+            throw new HttpException(400, $error);
         }
     }
 
