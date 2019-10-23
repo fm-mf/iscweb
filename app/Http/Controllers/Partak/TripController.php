@@ -192,6 +192,7 @@ class TripController extends Controller
                 }
             }
             $data['modified_by'] = Auth::id();
+
             if ($request->hasFile('cover')) {
                 $file = $request->file('cover');
                 $image_name = $trip->event->id_event . '.' . $file->extension();
@@ -199,8 +200,15 @@ class TripController extends Controller
                 Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
                 $data['cover'] = $image_name;
             }
+
+
+            $data['preregistration'] = $request->input('preregistration') === '1' ? true : false;
+            $data['preregistration_diet'] = $request->input('preregistration_diet') === '1' ? 1 : 0;
+            $data['preregistration_medical'] = $request->input('preregistration_medical') === '1' ? 1 : 0;
+
             $trip->update($data);
             $trip->event->update($data);
+
             return back()->with(['success' => 'Trip was successfully updated']);
         } else {
             return back()->with(['!success' => 'Trip wasn\'t updated']);
