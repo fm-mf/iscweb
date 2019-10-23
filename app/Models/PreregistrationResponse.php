@@ -30,4 +30,8 @@ class PreregistrationResponse extends Model
     public static function hasUser(int $id_event, int $id) {
         return PreregistrationResponse::where('id_user', $id)->where('id_event', $id_event)->exists();
     }
+
+    public static function findByUserAndEvent(int $id_user, int $id_event) {
+        return PreregistrationResponse::where('id_user', $id_user)->where('id_user', $id_user);
+    }
 }

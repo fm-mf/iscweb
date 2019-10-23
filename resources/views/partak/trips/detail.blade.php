@@ -125,7 +125,8 @@
                 <div class="row row-inner">
                     <div class="col-sm-12">
                         <h3>Pre-registrations</h3>
-
+                        
+                        @if($preregistered->count() > 0)
                         <div class="panel panel-default">
                         <table class="table">
                             <tr>
@@ -156,6 +157,9 @@
                             @endforeach
                         </table>
                         </div>
+                        @else
+                            No preregistrations
+                        @endif
                     </div>
                 </div>
             </div>

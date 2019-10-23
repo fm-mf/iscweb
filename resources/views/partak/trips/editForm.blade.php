@@ -120,26 +120,13 @@
 @endif
 
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
-<div class="form-group">
-    {{ Form::checkbox('preregistration', '1', $event->preregistration, ['id' => 'preregistration']) }}
-    {{ Form::label('preregistration', 'Preregistrations', ['class' => 'control-label' ]) }}
-</div>
 
-<fieldset>
-    <legend>Preregistration</legend>
-
-    {{ Form::bsText('preregistration_removal_limit', 'Reservation expires after (days)', 'required', '5', [], 'Preregistration will be automatically removed after X days') }}
-
-    <div class="form-group">
-        {{ Form::checkbox('preregistration_medical', '1', $event->preregistration, ['id' => 'preregistration_medical']) }}
-        {{ Form::label('preregistration_medical', 'Show medical issues', ['class' => 'control-label' ]) }}
-    </div>
-    <div class="form-group">
-        {{ Form::checkbox('preregistration_diet', '1', $event->preregistration, ['id' => 'preregistration_diet']) }}
-        {{ Form::label('preregistration_diet', 'Show diet', ['class' => 'control-label' ]) }}
-    </div>
-
-</fieldset>
+<preregistration
+    :p-enabled="{{$event->preregistration ? '1' : '0'}}"
+    :p-expiration="{{$event->preregistration_removal_limit ?: 5}}"
+    :p-medical="{{$event->preregistration_medical ? '1' : '0'}}"
+    :p-diet="{{$event->preregistration_diet ? '1' : '0'}}"
+></preregistration>
 
 {{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
 

@@ -64,8 +64,8 @@ export default {
     error: null,
 
     tab: 'exchange',
-    esn: '1437664GEEJ0',
-    esnEmail: 'martinezsanchezjaime@gmail.com',
+    esn: '646026PGW90',
+    esnEmail: 'prescotw@union.edu',
     buddyEmail: 'testuser@test.cz',
     password: 'testuser'
   }),

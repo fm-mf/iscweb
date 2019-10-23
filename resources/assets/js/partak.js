@@ -1,13 +1,18 @@
-
+/* global jsoptions:readonly */
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
-window.Vue = require('vue');
+import './bootstrap';
+import Vue from 'vue';
+import Autocomplete from './components/Autocomplete';
+import MultiSelectInput from './components/MultiSelectInput';
+import Button from './components/Button';
+import PreRegister from './components/Preregister';
+import UniqueUrlCopy from './components/UniqueUrlCopy';
+import Preregistration from './partak/preregistration';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,21 +20,20 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('autocomplete', require('./components/Autocomplete.vue').default)
-Vue.component('multiselectinput', require('./components/MultiSelectInput.vue').default)
-Vue.component('protectedbutton', require('./components/Button.vue').default)
-Vue.component('preregister', require('./components/Preregister.vue').default)
-Vue.component('unique-url', require('./components/UniqueUrlCopy.vue').default)
+Vue.component('autocomplete', Autocomplete);
+Vue.component('multiselectinput', MultiSelectInput);
+Vue.component('protectedbutton', Button);
+Vue.component('preregister', PreRegister);
+Vue.component('unique-url', UniqueUrlCopy);
 
-if (typeof jsoptions === 'undefined') {
-    jsoptions = [];
-}
-
-const partak = new Vue({
-    el: '#partakApp',
-    data: {
-        options: jsoptions,
-    },
-    methods: {
-    },
+new Vue({
+  el: '#partakApp',
+  components: {
+    Preregistration
+  },
+  data: {
+    options: typeof jsoptions !== 'undefined' ? jsoptions : [],
+    preregistration: false
+  },
+  methods: {}
 });
