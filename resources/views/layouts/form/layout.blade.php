@@ -22,11 +22,15 @@
   @yield('content')
 </main>
 
+<div class="footer">
+© 2019 | International Student Club CTU in Prague, z.s.
+</div>
+
+
 @section('scripts')
   <script src="{{ asset('js/form.js') }}"></script>
 @show
 
 @include ('footer')
-
 </body>
 </html>
