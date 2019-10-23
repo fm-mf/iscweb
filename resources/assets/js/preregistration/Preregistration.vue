@@ -7,6 +7,7 @@
       <auth
         v-if="!userData && step === STEPS.AUTH"
         :loaded="loaded"
+        :event="eventHash"
         @loaded="handleLoaded"
         @auth="handleAuth"
         @cancel="$emit('cancel')"

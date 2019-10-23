@@ -308,4 +308,11 @@ class Trip extends Model
                 return $partName . ' is already in ' . $this->event->name;
         }
     }
+
+    public function hasUser($id_user)
+    {
+        return $this->participants()->where('trips_participants.id_user', $id_user)->count() > 0
+            || $this->preregistered()->where('preregistration_responses.id_user', $id_user)->count() > 0;
+
+    }
 }

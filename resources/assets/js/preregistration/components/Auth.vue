@@ -58,7 +58,8 @@ export default {
     Cancel
   },
   props: {
-    loaded: Boolean
+    loaded: Boolean,
+    event: String
   },
   data: () => ({
     error: null,
@@ -75,7 +76,7 @@ export default {
 
       this.$emit('loaded', false);
 
-      getExchangeStudent(this.esnEmail, this.esn)
+      getExchangeStudent(this.event, this.esnEmail, this.esn)
         .then(data => {
           this.step++;
           return data;
@@ -88,7 +89,7 @@ export default {
 
       this.$emit('loaded', false);
 
-      getBuddy(this.buddyEmail, this.password).then(
+      getBuddy(this.event, this.buddyEmail, this.password).then(
         this.loadUser,
         this.handleAuthError
       );

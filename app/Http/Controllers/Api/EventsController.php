@@ -11,6 +11,7 @@ use App\Models\PreregistrationResponse;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class EventsController extends Controller
@@ -19,12 +20,18 @@ class EventsController extends Controller
 
     public function getExchangeStudent(Request $request)
     {
+        $event = $this->getEvent($request->input('event'));
+        $student = null;
+
         try {
             $student = ExchangeStudent::findByEmailAndEsn($request->input('email'), $request->input('esn'))->firstOrFail();
-            return response()->json($student);
         } catch (\Exception $e) {
-            throw new NotFoundHttpException('Invalid e-mail and ESN carn number combination');
+            throw new NotFoundHttpException('Invalid e-mail and ESN card number combination');
         }
+
+        $this->checkEventUser($event, $student->id_user);
+
+        return response()->json($student);
     }
 
     public function register(Request $request)
@@ -32,18 +39,14 @@ class EventsController extends Controller
         $this->responseValidator($request->all())->validate();
 
         $id_user = (int)$request->input('id_user');
-        $id_event = Event::findByHash($request->input('event'))->firstOrFail()->id_event;
+        $event = $this->getEvent($request->input('event'));
 
-        if (PreregistrationResponse::hasUser($id_event, $id_user)) {
-            return response()->json([
-                'message' => 'User is already registered for this event'
-            ], 400);
-        }
+        $this->checkEventUser($event, $this->guard()->user()->id_user);
 
         // TODO: Validate if event is open for registrations
 
         $response = new PreregistrationResponse();
-        $response->id_event = $id_event;
+        $response->id_event = $event->id_event;
         $response->id_user = $id_user;
         $response->medical_issues = $request->input('medical_issues');
         $response->diet = $request->input('diet');
@@ -51,6 +54,22 @@ class EventsController extends Controller
         $response->save();
         
         return response()->json($response);
+    }
+
+    private function getEvent(string $hash)
+    {
+        try {
+            return Event::findByHash($hash)->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $ex) {
+            throw new NotFoundHttpException('Uknown trip');
+        }
+    }
+
+    private function checkEventUser(Event $event, $id_user)
+    {
+        if ($event->trip->hasUser($id_user)) {
+            throw new HttpException(400, 'User is already registered for this event');
+        }
     }
 
     private function responseValidator(array $data)
@@ -67,7 +86,10 @@ class EventsController extends Controller
     {
         $this->clearLoginAttempts($request);
 
+        $event = $this->getEvent($request->input('event'));
         $details = User::with('person')->where('id_user', $this->guard()->user()->id_user)->first();
+
+        $this->checkEventUser($event, $this->guard()->user()->id_user);
 
         return response()->json($details);
     }
