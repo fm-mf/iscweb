@@ -13,7 +13,8 @@ class RegistrationController extends Controller
         $event = Event::findByHash($id)->firstOrFail();
 
         JavaScript::put([
-            'EVENT_HASH' => $id
+            'EVENT_HASH' => $id,
+            'EVENT_QUESTIONS' => $event->questions()->get()
         ]);
 
         return view('exchange.form', [

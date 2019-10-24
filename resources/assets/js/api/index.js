@@ -10,11 +10,19 @@ export const getBuddy = (event, email, password) =>
     .post('/api/events/getBuddy', { event, email, password })
     .then(res => res.data);
 
-export const saveResponse = (event, id_user, diet, medical_issues, notes) =>
+export const saveResponse = (
+  event,
+  id_user,
+  diet,
+  medical_issues,
+  notes,
+  custom
+) =>
   axios.post('/api/events/register', {
     event,
     id_user,
     diet,
     medical_issues,
-    notes
+    notes,
+    custom
   });

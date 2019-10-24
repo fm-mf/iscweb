@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\PreregistrationResponse;
+use App\Models\PreregistrationResponseQuestion;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
@@ -41,7 +42,7 @@ class EventsController extends Controller
         $id_user = (int)$request->input('id_user');
         $event = $this->getEvent($request->input('event'));
 
-        $this->checkEventUser($event, $this->guard()->user()->id_user);
+        $this->checkEventUser($event, $id_user);
 
         $response = new PreregistrationResponse();
         $response->id_event = $event->id_event;
@@ -50,7 +51,20 @@ class EventsController extends Controller
         $response->diet = $request->input('diet');
         $response->notes = $request->input('notes');
         $response->save();
-        
+
+        $custom = $request->input('custom');
+        foreach ($event->questions()->get() as $question) {
+            if (isset($custom[$question->id_question])) {
+                $value = new PreregistrationResponseQuestion([
+                    'id_event' => $event->id_event,
+                    'id_user' => $id_user,
+                    'id_question' => $question->id_question,
+                    'value' => json_encode($custom[$question->id_question])
+                ]);
+                $value->save();
+            }
+        }
+
         return response()->json($response);
     }
 

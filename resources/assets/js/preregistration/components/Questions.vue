@@ -1,6 +1,13 @@
 <template>
   <div class="questions-step">
     <form class="form" @submit.prevent="handleSubmit">
+      <question
+        v-for="question in questions"
+        :key="question.id_question"
+        v-model="customValues[question.id_question]"
+        :question="question"
+      />
+
       <div v-if="showDiet" class="form-group">
         <label>Food preference</label>
         <select v-model="foodPreference">
@@ -37,10 +44,12 @@
 
 <script>
 import Cancel from './Cancel';
+import Question from './Question';
 
 export default {
   components: {
-    Cancel
+    Cancel,
+    Question
   },
   props: {
     user: {
@@ -48,13 +57,18 @@ export default {
       required: true
     },
     showMedicalIssues: Boolean,
-    showDiet: Boolean
+    showDiet: Boolean,
+    questions: Array
   },
   data() {
     return {
       medicalIssues: this.user.medical_issues,
       foodPreference: this.user.diet,
-      notes: null
+      notes: null,
+      customValues: this.questions.reduce((acc, q) => {
+        acc[q.id_question] = null;
+        return acc;
+      }, {})
     };
   },
   methods: {
@@ -62,7 +76,8 @@ export default {
       this.$emit('submit', {
         medicalIssues: this.medicalIssues,
         foodPreference: this.foodPreference,
-        notes: this.notes
+        notes: this.notes,
+        custom: this.customValues
       });
     }
   }

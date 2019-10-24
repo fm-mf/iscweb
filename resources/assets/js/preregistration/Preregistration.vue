@@ -26,6 +26,7 @@
         :user="userData"
         :show-medical-issues="showMedicalIssues"
         :show-diet="showDiet"
+        :questions="questions"
         @submit="handleFinish"
         @cancel="handleLogout"
       />
@@ -36,6 +37,8 @@
 </template>
 
 <script>
+/* global EVENT_QUESTIONS:readonly */
+
 import { saveResponse } from '../api';
 import Loader from '../components/Loader';
 import Auth from './components/Auth';
@@ -71,7 +74,8 @@ export default {
     step: STEPS.AUTH,
     loaded: true,
     userData: null,
-    error: null
+    error: null,
+    questions: EVENT_QUESTIONS
   }),
   methods: {
     handleLoaded(loaded) {
@@ -99,7 +103,8 @@ export default {
         this.userData.id_user,
         data.foodPreference,
         data.medicalIssues,
-        data.notes
+        data.notes,
+        data.custom
       ).then(
         () => {
           this.loaded = true;

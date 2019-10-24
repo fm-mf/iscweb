@@ -32,6 +32,7 @@ use Hashids\Hashids;
  * @property boolean $preregistration_diet
  * @property boolean $preregistration_medical
  * @property \App\Models\Trip $trip
+ * @property \App\Models\PreregistrationQuestion[] $questions
 */
 class Event extends Model
 {
@@ -45,6 +46,12 @@ class Event extends Model
         'visible_from', 'cover', 'created_by', 'modified_by', 'event_type', 'location', 'location_url',
         'preregistration', 'preregistration_medical', 'preregistration_diet',
         'preregistration_removal_limit', 'preregistration_hash'];
+
+    public function questions()
+    {
+        return $this->hasMany('\App\Models\PreregistrationQuestion', 'id_event');
+    }
+    
 
     public function createdBy()
     {
