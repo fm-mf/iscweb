@@ -30,9 +30,12 @@
         <div class="p-change">
           <input type="file" @change="handleChange" />
           <div v-if="file" class="btn btn-primary" @click="handleOk">
+            <span class="glyphicon glyphicon-send" />
             Change
           </div>
-          <div class="btn btn-default" @click="$emit('cancel')">Cancel</div>
+          <div class="btn btn-default" @click="$emit('cancel')">
+            <span class="glyphicon glyphicon-remove-sign" /> Cancel
+          </div>
         </div>
       </div>
     </div>
@@ -255,6 +258,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    .btn {
+      margin-left: 1rem;
+    }
   }
 }
 
