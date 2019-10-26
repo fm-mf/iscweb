@@ -34,6 +34,7 @@
     //Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
 
     Route::get('/trips', 'DashboardController@trips');
+    Route::post('/trips/upload-option', 'TripController@uploadOptionImage');
     Route::get('/trips/upcoming', 'TripController@showUpcoming');
     Route::get('/trips/mytrips', 'TripController@showMyTrips');
     Route::get('/trips/detail/{id}', 'TripController@showDetail');

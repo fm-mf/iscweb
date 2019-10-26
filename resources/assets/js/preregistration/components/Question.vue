@@ -28,7 +28,7 @@
         @click="toggleSelected(option)"
       >
         <div v-if="option.image" class="image">
-          <img :src="option.image" :alt="option.label" />
+          <img :src="`/events/${option.image}`" :alt="option.label" />
         </div>
         <div class="selector"><div class="inner" /></div>
         <div class="label">{{ option.label }}</div>

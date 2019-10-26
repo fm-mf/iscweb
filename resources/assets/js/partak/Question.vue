@@ -37,6 +37,10 @@
         class="option"
       >
         <input v-model="option.label" type="text" class="form-control" />
+        <div class="action" @click="changeImage(option.value)">
+          <span v-if="option.image" class="has-image">Has image</span>
+          <span class="glyphicon glyphicon-picture" />
+        </div>
         <div
           :class="{ action: true, disabled: index === 0 }"
           @click="moveOptionUp(option.value)"
@@ -78,6 +82,14 @@
       </div>
     </div>
 
+    <image-picker
+      :show="!!pickerOption"
+      :image="pickerOption && pickerOption.image"
+      base-path="/events"
+      @cancel="pickerOption = null"
+      @change="handleImageChange(pickerOption.value, $event)"
+    />
+
     <input
       type="hidden"
       :name="`questions[${question.id}][type]`"
@@ -107,13 +119,19 @@
 </template>
 
 <script>
+import ImagePicker from './ImagePicker';
+
 export default {
+  components: {
+    ImagePicker
+  },
   props: {
     question: Object
   },
   data() {
     return {
-      options: [...((this.question.data && this.question.data.options) || [])]
+      options: [...((this.question.data && this.question.data.options) || [])],
+      pickerOption: null
     };
   },
   watch: {
@@ -154,6 +172,17 @@ export default {
     },
     removeOption(value) {
       this.options = this.options.filter(o => o.value !== value);
+    },
+    changeImage(value) {
+      this.pickerOption = this.options.find(o => o.value === value);
+    },
+    handleImageChange(value, file) {
+      const option = this.options.find(o => o.value === value);
+      if (option) {
+        option.image = file;
+        this.options = [...this.options];
+      }
+      this.pickerOption = null;
     }
   }
 };
@@ -177,6 +206,13 @@ export default {
   .action {
     padding: 0 0.5rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .has-image {
+      white-space: nowrap;
+      margin-right: 0.5rem;
+    }
 
     &.disabled {
       opacity: 0.1;

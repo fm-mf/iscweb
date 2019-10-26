@@ -380,4 +380,15 @@ class TripController extends Controller
         return back()->with(['tripDeleted' => "Trip \"$name\" has been deleted."]);
     }
 
+    public function uploadOptionImage(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $image_name = \uniqid('q-') . '.' . $file->extension();
+            Image::make($file)->save(storage_path() . '/app/events/' . $image_name);
+            return response()->json(['path' => $image_name], 200);
+        } else {
+            return response()->json(['error' => 'file parameter is missing'], 400);
+        }
+    }
 }
