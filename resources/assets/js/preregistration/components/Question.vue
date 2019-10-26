@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group">
+  <div :class="{ 'form-group': true, required: question.required }">
     <label>{{ question.label }}</label>
     <div class="description">{{ question.description }}</div>
     <input
@@ -8,11 +8,13 @@
       "
       :type="question.type"
       :value="value"
+      :required="question.required"
       @input="handleInput"
     />
     <textarea
       v-if="question.type === 'text' && data.multi"
       :value="value"
+      :required="question.required"
       @input="handleInput"
     >
     </textarea>
@@ -85,6 +87,11 @@ export default {
   color: #999;
   margin-bottom: 0.5rem;
   font-size: 85%;
+}
+
+.required label::after {
+  content: '*';
+  color: #990000;
 }
 
 .option {
