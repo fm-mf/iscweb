@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>ISC Events</title>
+    <title>{{ $event->name }} - ISC Events</title>
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
-    <script src="https://kit.fontawesome.com/ff34153e60.js"></script>
+    <link href="{{ asset('css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
 
     @section('stylesheets')
-        <link href="{{ mix('css/form.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ mix('css/form.css') }}" rel="stylesheet" type="text/css">
     @show
 </head>
 <body>
