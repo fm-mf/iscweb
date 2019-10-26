@@ -4,15 +4,14 @@
     <div class="description">{{ question.description }}</div>
     <input
       v-if="
-        (question.type === 'text' && !data.multiline) ||
-          question.type === 'number'
+        (question.type === 'text' && !data.multi) || question.type === 'number'
       "
       :type="question.type"
       :value="value"
       @input="handleInput"
     />
     <textarea
-      v-if="question.type === 'text' && data.multiline"
+      v-if="question.type === 'text' && data.multi"
       :value="value"
       @input="handleInput"
     >

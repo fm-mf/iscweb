@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/ff34153e60.js"></script>
 
     @section('stylesheets')
-        <link href="{{ URL::asset('css/form.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ mix('css/form.css') }}" rel="stylesheet" type="text/css">
     @show
 </head>
 <body>
