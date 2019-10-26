@@ -3,6 +3,7 @@
     <form class="form" @submit.prevent="handleSubmit">
       <question
         v-for="question in questions"
+        :ref="`question-${question.id_question}`"
         :key="question.id_question"
         v-model="customValues[question.id_question]"
         :question="question"
@@ -73,12 +74,23 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$emit('submit', {
-        medicalIssues: this.medicalIssues,
-        foodPreference: this.foodPreference,
-        notes: this.notes,
-        custom: this.customValues
-      });
+      const invalid = this.questions
+        .map(q => this.$refs[`question-${q.id_question}`][0])
+        .filter(q => !q.validate());
+
+      if (invalid.length === 0) {
+        this.$emit('submit', {
+          medicalIssues: this.medicalIssues,
+          foodPreference: this.foodPreference,
+          notes: this.notes,
+          custom: this.customValues
+        });
+      } else {
+        document.documentElement.scrollTop =
+          document.documentElement.scrollTop +
+          invalid[0].$el.getBoundingClientRect().top -
+          100;
+      }
     }
   }
 };

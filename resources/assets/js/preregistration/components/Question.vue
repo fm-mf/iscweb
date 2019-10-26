@@ -1,7 +1,17 @@
 <template>
-  <div :class="{ 'form-group': true, required: question.required }">
+  <div
+    :class="{
+      question: true,
+      'form-group': true,
+      required: question.required,
+      invalid: errors.length > 0
+    }"
+  >
     <label>{{ question.label }}</label>
     <div class="description">{{ question.description }}</div>
+    <div v-for="(error, index) in errors" :key="index" class="error">
+      {{ error }}
+    </div>
     <input
       v-if="
         (question.type === 'text' && !data.multi) || question.type === 'number'
@@ -25,7 +35,8 @@
         :class="{
           option: true,
           selected: isSelected(option),
-          multi: !!data.multi
+          multi: !!data.multi,
+          'has-image': !!option.image
         }"
         @click="toggleSelected(option)"
       >
@@ -43,16 +54,22 @@
 export default {
   props: {
     question: Object,
-    value: [String, Array, Object, Boolean]
+    value: [String, Array, Number, Object, Boolean]
   },
   data() {
     return {
-      data: this.question.data ? JSON.parse(this.question.data) : {}
+      data: this.question.data ? JSON.parse(this.question.data) : {},
+      errors: []
     };
   },
   computed: {
     selectedValues() {
       return Array.isArray(this.value) ? this.value : [];
+    }
+  },
+  watch: {
+    value() {
+      this.validate();
     }
   },
   methods: {
@@ -62,7 +79,7 @@ export default {
     isSelected(option) {
       return this.data.multi
         ? this.selectedValues.includes(option.value)
-        : option.value === this.selected;
+        : option.value === this.value;
     },
     toggleSelected(option) {
       if (this.data.multi) {
@@ -77,6 +94,40 @@ export default {
       } else {
         this.$emit('input', option.value);
       }
+    },
+    validate() {
+      const errors = [];
+      if (!this.isFilled()) {
+        errors.push('Please answer this question');
+      }
+
+      this.errors = errors;
+
+      return errors.length === 0;
+    },
+    isFilled() {
+      switch (this.question.type) {
+        case 'text': {
+          return this.value && this.value.replace(/\s/g, '').length > 0;
+        }
+        case 'number': {
+          return (
+            this.value !== undefined &&
+            this.value !== null &&
+            this.value.length > 0
+          );
+        }
+        case 'select': {
+          return (
+            this.value !== null &&
+            this.value !== undefined &&
+            (!this.data.multi || this.value.length > 0)
+          );
+        }
+        default: {
+          return !!this.value;
+        }
+      }
     }
   }
 };
@@ -89,9 +140,22 @@ export default {
   font-size: 85%;
 }
 
-.required label::after {
-  content: '*';
+.error {
   color: #990000;
+}
+
+.question {
+  padding-right: 10px;
+
+  &.required label::after {
+    content: '*';
+    color: #990000;
+  }
+
+  &.invalid {
+    border-right: 4px solid #990000;
+    padding-right: 6px;
+  }
 }
 
 .option {
@@ -101,6 +165,10 @@ export default {
   margin: 0.5rem 0;
   cursor: pointer;
 
+  &.has-image {
+    margin-bottom: 1rem;
+  }
+
   .selector {
     width: 1rem;
     height: 1rem;
@@ -108,11 +176,18 @@ export default {
     border-radius: 50%;
     background: #eee;
     box-sizing: border-box;
+
+    .inner {
+      margin: 0.2rem;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+    }
   }
 
   .image {
     width: 100%;
-    margin: 1rem 0 0.5rem 0;
+    margin: 0.5rem 0;
     display: flex;
 
     > img {
@@ -127,9 +202,7 @@ export default {
       border-radius: 0;
 
       .inner {
-        margin: 0.2rem;
-        width: 0.6rem;
-        height: 0.6rem;
+        border-radius: 0;
       }
     }
 
@@ -141,16 +214,20 @@ export default {
           background: #0f87e2;
         }
       }
-
-      .image > img {
-        box-shadow: 0 0 0 2px #0f87e2;
-      }
     }
   }
 
   &.selected {
+    color: #095288;
+
     .selector {
-      background: #0f87e2;
+      .inner {
+        background: #0f87e2;
+      }
+    }
+
+    .image > img {
+      box-shadow: 0 0 0 2px #0f87e2;
     }
   }
 }
