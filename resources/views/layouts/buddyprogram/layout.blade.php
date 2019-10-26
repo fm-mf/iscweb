@@ -9,7 +9,8 @@
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
-    <script src="https://kit.fontawesome.com/ff34153e60.js"></script>
+    <link href="{{ asset('css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
+    
     @section('stylesheets')
         <link href="{{ asset('css/buddyprogram.css') }}" rel="stylesheet" type="text/css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
