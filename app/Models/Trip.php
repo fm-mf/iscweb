@@ -288,6 +288,21 @@ class Trip extends Model
         return $data;
     }
 
+    
+    public function eventsDateTimeTo()
+    {
+        $time = $this->trip_date_to->format('l') . ' ';
+        $time .= $this->trip_date_to->format('F') . ' ';
+        $time .= $this->trip_date_to->format('jS') . ' - ';
+        $time .= $this->trip_date_to->format('g');
+        if($this->trip_date_to->minute == 0) {
+            $time .= $this->trip_date_to->format('a');
+        } else {
+            $time .= $this->trip_date_to->format(':ia');
+        }
+
+        return $time;
+    }
 
     public static function findAllUpcoming()
     {
