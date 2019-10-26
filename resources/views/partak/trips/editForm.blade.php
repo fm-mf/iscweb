@@ -98,7 +98,7 @@
     </div>
     @if ($trips)
     <div class="form-group col-sm-6">
-        {{ Form::label('date', 'Event end', ['class' => 'control-label required']) }}
+        {{ Form::label('date', 'Event ends', ['class' => 'control-label required']) }}
         @if ($errors->has('date'))
             <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
         @endif
@@ -122,10 +122,10 @@
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
 
 <preregistration
-    :p-enabled="{{$event->preregistration ? '1' : '0'}}"
+    :p-enabled="{{$event->preregistration ? 'true' : 'false'}}"
     :p-expiration="{{$event->preregistration_removal_limit ?: 5}}"
-    :p-medical="{{$event->preregistration_medical ? '1' : '0'}}"
-    :p-diet="{{$event->preregistration_diet ? '1' : '0'}}"
+    :p-medical="{{$event->preregistration_medical ? 'true' : 'false'}}"
+    :p-diet="{{$event->preregistration_diet ? 'true' : 'false'}}"
 ></preregistration>
 
 {{ Form::bsTextarea('description', 'Description (in English)', 'required') }}

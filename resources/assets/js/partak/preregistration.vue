@@ -30,7 +30,7 @@
             class="form-control"
           />
           <div class="info">
-            Preregistration will be automatically removed after X days
+            Preregistration will be automatically cancelled after X days
           </div>
         </div>
         <div class="form-group">
@@ -57,13 +57,29 @@
             Show diet
           </label>
         </div>
+
+        <questions :list="questions" />
       </fieldset>
     </div>
   </div>
 </template>
 
 <script>
+/* global jsoptions:readonly */
+import Questions from './Questions';
+
+const maybeParse = data => {
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    return undefined;
+  }
+};
+
 export default {
+  components: {
+    Questions
+  },
   props: {
     pEnabled: Boolean,
     pExpiration: { type: Number, required: true },
@@ -75,7 +91,12 @@ export default {
       enabled: this.pEnabled,
       expiration: this.pExpiration,
       diet: this.pDiet,
-      medical: this.pMedical
+      medical: this.pMedical,
+      questions: jsoptions.questions.map(q => ({
+        ...q,
+        id: q.id_question,
+        data: maybeParse(q.data) || {}
+      }))
     };
   }
 };

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_question
  * @property int $id_event
  * @property int $order
+ * @property bool $required
  * @property string $label
  * @property string $description
  * @property string $data
@@ -19,7 +20,7 @@ class PreregistrationQuestion extends Model
     protected $primaryKey = 'id_question';
 
     protected $fillable = [
-        'id_event', 'order', 'label', 'description', 'data'
+        'id_event', 'order', 'label', 'description', 'required', 'data'
     ];
 
     public function event()

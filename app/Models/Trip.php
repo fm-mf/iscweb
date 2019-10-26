@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
  * @property int $capacity
  * @property string $type
  * @property \App\Models\Event $event
+ * @property \App\Models\PreregistrationQuestion $questions[]
  */
 class Trip extends Model
 {
@@ -39,6 +40,11 @@ class Trip extends Model
     public function organizers()
     {
         return $this->belongsToMany('\App\Models\Buddy', 'trips_organizers', 'id_trip', 'id_user')->withTimestamps();
+    }
+
+    public function questions()
+    {
+        return $this->hasMany('\App\Models\PreregistrationQuestion', 'id_event', 'id_event')->orderBy('order');
     }
 
     public function participants()
@@ -257,6 +263,7 @@ class Trip extends Model
             $trip = new Trip();
             $trip->id_event = $event->id_event;
             $trip->registration_from = $data['registration_from'];
+            $trip->registration_to = $data['registration_to'];
             $trip->trip_date_to = $data['trip_date_to'];
             $trip->capacity = $data['capacity'] ?? 0;
             $trip->price = $data['price'] ?? 0;

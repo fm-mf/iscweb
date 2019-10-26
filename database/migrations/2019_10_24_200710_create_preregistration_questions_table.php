@@ -17,10 +17,10 @@ class CreatePreregistrationQuestionsTable extends Migration
             $table->increments('id_question');
             $table->integer('id_event')->unsigned();
             $table->integer('order');
-            $table->boolean('required');
+            $table->boolean('required')->default('0');
             $table->enum('type', ['number', 'text', 'select']);
             $table->string('label', 255);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('data')->nullable();
 
             $table->foreign('id_event')

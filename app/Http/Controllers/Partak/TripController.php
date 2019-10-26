@@ -15,6 +15,7 @@ use App\Models\Person;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\PreregistrationQuestion;
 use App\Models\Trip;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
@@ -170,8 +171,13 @@ class TripController extends Controller
         }
 
         JavaScript::put([
-            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => $organizers]
+            'jsoptions' => [
+                'organizers' => $buddies,
+                'sorganizers' => $organizers,
+                'questions' => $trip->questions()->get()
+            ]
         ]);
+
         return view('partak.trips.edit')->with([
             'trip' => $trip,
             'event' => $trip->event,
@@ -209,6 +215,8 @@ class TripController extends Controller
             $trip->update($data);
             $trip->event->update($data);
 
+            $this->saveQuestions($trip, $request->input('questions'));
+
             return back()->with(['success' => 'Trip was successfully updated']);
         } else {
             return back()->with(['!success' => 'Trip wasn\'t updated']);
@@ -226,7 +234,7 @@ class TripController extends Controller
 
 
         JavaScript::put([
-            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => []]
+            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => [], 'questions' => []]
         ]);
 
         $trip = new Trip();
@@ -258,15 +266,68 @@ class TripController extends Controller
 
         $trip = Trip::createTrip($data);
         $trip = Trip::with('event')->find($trip->id_trip);
+
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $image_name = $trip->event->id_event . '.' . $file->extension();
             Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
             $trip->event->cover = $image_name;
         }
+
         $trip->event->save();
+
+        $this->saveQuestions($trip, $request->input('questions'));
+
         return \Redirect::route('trips.edit',['id_trip' => $trip->id_trip])
             ->with(['success' => 'Trip was successfully created.']);
+    }
+
+    protected function saveQuestions(Trip $trip, array $questions)
+    {
+        $previous = $trip->questions()->get();
+        $removed = [];
+        $order = 0;
+        foreach($previous as $q) {
+            $removed[(string)$q->id_question] = true;
+        }
+
+        foreach ($questions as $id => $data) {
+            if (preg_match("/^new-.*/", $id)) {
+                $created = new PreregistrationQuestion([
+                    'id_event' => $trip->id_event,
+                    'order' => $order++,
+                    'type' => $data['type'],
+                    'label' => $data['label'],
+                    'description' => $data['description'],
+                    'required' => $data['required'],
+                    'data' => $data['data']
+                ]);
+                $created->save();
+            } else {
+                /** @var PreregistrationQuestion $existing */
+                $existing = PreregistrationQuestion::find($id);
+                if ($existing) {
+                    $existing->update([
+                        'order' => $order++,
+                        'type' => $data['type'],
+                        'label' => $data['label'],
+                        'description' => $data['description'],
+                        'required' => $data['required'],
+                        'data' => $data['data']
+                    ]);
+                }
+
+                $removed[(string)$id] = false;
+            }
+        }
+
+        foreach($removed as $id => $remove) {
+            if ($remove) {
+                /** @var PreregistrationQuestion $existing */
+                $existing = PreregistrationQuestion::find($id);
+                $existing->delete();
+            }
+        }
     }
 
     protected function tripValidator(array $data)

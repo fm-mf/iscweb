@@ -49,7 +49,7 @@ class Event extends Model
 
     public function questions()
     {
-        return $this->hasMany('\App\Models\PreregistrationQuestion', 'id_event');
+        return $this->hasMany('\App\Models\PreregistrationQuestion', 'id_event')->orderBy('order');
     }
     
 

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="form-group col-sm-6">
-        {{ Form::label('registration_date', 'Registration start', ['class' => 'control-label required']) }}
+        {{ Form::label('registration_date', 'Registration starts', ['class' => 'control-label required']) }}
         @if ($errors->has('registration_date'))
             <p class="error-block alert-danger">{{ $errors->first('registration_date') }}</p>
         @endif
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="form-group col-sm-6">
-        {{ Form::label('registration_date', 'Registration end', ['class' => 'control-label required']) }}
+        {{ Form::label('registration_date', 'Registration ends', ['class' => 'control-label required']) }}
         @if ($errors->has('registration_end_date'))
             <p class="error-block alert-danger">{{ $errors->first('registration_end_date') }}</p>
         @endif

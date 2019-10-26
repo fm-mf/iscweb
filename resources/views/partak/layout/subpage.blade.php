@@ -11,5 +11,5 @@
 @stop
 @section('scripts')
     @parent
-    <script src="{{ asset('js/partak.js') }}"></script>
+    <script src="{{ mix('js/partak.js') }}"></script>
 @stop
