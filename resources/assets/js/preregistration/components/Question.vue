@@ -104,13 +104,14 @@ export default {
   }
 
   .image {
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-      0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
     margin: 1rem 0 0.5rem 0;
     display: flex;
 
     > img {
       max-width: 100%;
+      box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.14),
+        0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -134,7 +135,7 @@ export default {
         }
       }
 
-      .image {
+      .image > img {
         box-shadow: 0 0 0 2px #0f87e2;
       }
     }
