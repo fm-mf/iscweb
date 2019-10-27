@@ -44,7 +44,7 @@
                             <tr>
                                 <th>Preregistration</th>
                                 <td colspan="3">
-                                    <input style="width: 100%" type="text" disabled value="{{ url("/event/{$trip->event->preregistration_hash}") }}" />
+                                    <unique-url style="width: 100%" url="{{ url("/event/{$trip->event->preregistration_hash}") }}"></unique-url>
                                 </td>
                             </tr>
                             @endif
