@@ -27,6 +27,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\ExchangeStudentPicked' => [
             'App\Listeners\NotifyExchangeStudent'
         ],
+        'App\Events\StudentPreregistered' => [
+            'App\Listeners\Preregistered'
+        ],
         'Illuminate\Auth\Events\Login' => [
                 'App\Listeners\BuddyLoggedIn'
         ]

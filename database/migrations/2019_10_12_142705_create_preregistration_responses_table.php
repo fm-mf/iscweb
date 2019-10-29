@@ -22,6 +22,7 @@ class CreatePreregistrationResponsesTable extends Migration
             $table->text('medical_issues')->nullable();
             $table->enum('diet', ['Vegetarian','Vegan','Fish only'])->nullable();
             $table->text('notes')->nullable();
+            $table->string('hash', 32);
 
             $table->primary(['id_event', 'id_user']);
             $table->foreign('id_event')->references('id_event')->on('events')->onUpdate('RESTRICT')->onDelete('RESTRICT');

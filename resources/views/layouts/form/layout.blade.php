@@ -9,7 +9,7 @@
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
-    <link href="{{ asset('css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('fa/css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
 
     @section('stylesheets')
       <link href="{{ mix('css/form.css') }}" rel="stylesheet" type="text/css">

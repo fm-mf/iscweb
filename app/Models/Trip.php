@@ -288,17 +288,44 @@ class Trip extends Model
         return $data;
     }
 
-    
-    public function eventsDateTimeTo()
+    public function eventDateInterval($style = true)
     {
-        $time = $this->trip_date_to->format('l') . ' ';
-        $time .= $this->trip_date_to->format('F') . ' ';
-        $time .= $this->trip_date_to->format('jS') . ' - ';
-        $time .= $this->trip_date_to->format('g');
-        if($this->trip_date_to->minute == 0) {
-            $time .= $this->trip_date_to->format('a');
+        $from = $this->event->datetime_from;
+        $to = $this->trip_date_to;
+        $same = $from->isSameDay($to);
+
+        $result = $this->formatDateTime($from);
+
+        if ($same) {
+            $result .= ' - ' . $this->formatTime($to);
         } else {
-            $time .= $this->trip_date_to->format(':ia');
+            $result .= ($style ? ' <span class="to">to</span> ' : ' to ') . $this->formatDateTime($to);
+        }
+
+        return $result;
+    }
+
+    private function formatDateTime(Carbon $datetime)
+    {
+        return $this->formatDate($datetime) . ', ' . $this->formatTime($datetime);
+    }
+    
+    private function formatDate(Carbon $datetime)
+    {
+        $time = $datetime->format('l') . ', ';
+        $time .= $datetime->format('F') . ' ';
+        $time .= $datetime->format('jS');
+        return $time;
+    }
+
+    private function formatTime(Carbon $datetime)
+    {
+        $time = $datetime->format('g');
+
+        if ($datetime->minute == 0) {
+            $time .= $datetime->format('a');
+        } else {
+            $time .= $datetime->format(':ia');
         }
 
         return $time;

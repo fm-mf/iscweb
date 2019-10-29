@@ -2,10 +2,8 @@
 
 namespace App\Models;
 
-use App\Traits\DynamicHiddenVisible;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Support\Str;
 
 class PreregistrationResponse extends Model
 {
@@ -27,7 +25,31 @@ class PreregistrationResponse extends Model
         return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
     }
 
-    public static function findByUserAndEvent(int $id_user, int $id_event) {
+    public function save(array $options = [])
+    {
+        if (!$this->exists && (!isset($this->hash) || $this->hash == null)) {
+            $this->hash = $this->generateHash();
+        }
+        parent::save($options);
+    }
+
+    protected function generateHash()
+    {
+        $hash = Str::random(32);
+        if (PreregistrationResponse::findByHash($hash)) {
+            return $this->generateHash();
+        } else {
+            return $hash;
+        }
+    }
+
+    public static function findByHash($hash)
+    {
+        return PreregistrationResponse::where('hash', $hash)->first();
+    }
+
+    public static function findByUserAndEvent(int $id_user, int $id_event)
+    {
         return PreregistrationResponse::where('id_user', $id_user)->where('id_user', $id_user);
     }
 }

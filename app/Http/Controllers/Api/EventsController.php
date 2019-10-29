@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\StudentPreregistered;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use Illuminate\Http\Request;
@@ -40,6 +41,7 @@ class EventsController extends Controller
         $this->responseValidator($request->all())->validate();
 
         $id_user = (int)$request->input('id_user');
+        $user = User::find($id_user)->firstOrFail();
         $event = $this->getEvent($request->input('event'));
 
         $this->checkEventUser($event, $id_user);
@@ -64,6 +66,8 @@ class EventsController extends Controller
                 $value->save();
             }
         }
+
+        event(new StudentPreregistered($response));
 
         return response()->json($response);
     }
