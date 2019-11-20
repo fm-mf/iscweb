@@ -8,8 +8,8 @@ use App\Models\ExchangeStudent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
-use App\Models\PreregistrationResponse;
-use App\Models\PreregistrationResponseQuestion;
+use App\Models\EventReservation;
+use App\Models\EventReservationData;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
@@ -36,7 +36,7 @@ class EventsController extends Controller
         return response()->json($student);
     }
 
-    public function register(Request $request)
+    public function reserve(Request $request)
     {
         $this->responseValidator($request->all())->validate();
 
@@ -46,7 +46,7 @@ class EventsController extends Controller
 
         $this->checkEventUser($event, $id_user);
 
-        $response = new PreregistrationResponse();
+        $response = new EventReservation();
         $response->id_event = $event->id_event;
         $response->id_user = $id_user;
         $response->medical_issues = $request->input('medical_issues');
@@ -57,7 +57,7 @@ class EventsController extends Controller
         $custom = $request->input('custom');
         foreach ($event->questions()->get() as $question) {
             if (isset($custom[$question->id_question])) {
-                $value = new PreregistrationResponseQuestion([
+                $value = new EventReservationData([
                     'id_event' => $event->id_event,
                     'id_user' => $id_user,
                     'id_question' => $question->id_question,

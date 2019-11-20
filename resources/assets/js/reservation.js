@@ -1,10 +1,10 @@
 import Vue from 'vue';
-import Preregistration from './preregistration/Preregistration';
+import Reservation from './reservation/Reservation';
 
 new Vue({
   el: '#form-app',
   components: {
-    Preregistration
+    Reservation
   },
   data: () => ({
     showRegistration: false

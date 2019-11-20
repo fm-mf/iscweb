@@ -1,19 +1,20 @@
 <?php
+
 namespace App\Events;
 
 use App\Models\Event;
-use App\Models\PreregistrationResponse;
+use App\Models\EventReservation;
 use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Queue\SerializesModels;
 
-class StudentPreregistered
+class StudentReservedSpot
 {
     use InteractsWithSockets, SerializesModels;
 
-    /** @var PreregistrationResponse */
+    /** @var EventReservation */
     public $response;
 
     /**
@@ -21,7 +22,7 @@ class StudentPreregistered
      *
      * @return void
      */
-    public function __construct(PreregistrationResponse $response)
+    public function __construct(EventReservation $response)
     {
         $this->response = $response;
     }

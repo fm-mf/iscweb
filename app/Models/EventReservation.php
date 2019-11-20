@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class PreregistrationResponse extends Model
+class EventReservation extends Model
 {
     public $timestamps = true;
     public $incrementing = false;
@@ -36,7 +36,7 @@ class PreregistrationResponse extends Model
     protected function generateHash()
     {
         $hash = Str::random(32);
-        if (PreregistrationResponse::findByHash($hash)) {
+        if (EventReservation::findByHash($hash)) {
             return $this->generateHash();
         } else {
             return $hash;
@@ -45,11 +45,11 @@ class PreregistrationResponse extends Model
 
     public static function findByHash($hash)
     {
-        return PreregistrationResponse::where('hash', $hash)->first();
+        return EventReservation::where('hash', $hash)->first();
     }
 
     public static function findByUserAndEvent(int $id_user, int $id_event)
     {
-        return PreregistrationResponse::where('id_user', $id_user)->where('id_user', $id_user);
+        return EventReservation::where('id_user', $id_user)->where('id_user', $id_user);
     }
 }

@@ -3,19 +3,19 @@
 namespace App\Mail;
 
 use App\Models\Event;
-use App\Models\PreregistrationResponse;
+use App\Models\EventReservation;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PreregistrationMail extends Mailable
+class ReservationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /** @var PreregistrationResponse */
+    /** @var EventReservation */
     public $response;
 
-    public function __construct(PreregistrationResponse $response)
+    public function __construct(EventReservation $response)
     {
         $this->response = $response;
     }

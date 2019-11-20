@@ -42,4 +42,4 @@ use Illuminate\Http\Request;
 
     Route::post('/events/getExchangeStudent', 'EventsController@getExchangeStudent');
     Route::post('/events/getBuddy', 'EventsController@login');
-    Route::post('/events/register', 'EventsController@register');
+    Route::post('/events/reserve', 'EventsController@reserve');

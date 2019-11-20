@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePreregistrationResponseQuestionTable extends Migration
+class CreateEventReservationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,21 @@ class CreatePreregistrationResponseQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('preregistration_response_questions', function (Blueprint $table) {
+        Schema::create('event_reservations', function (Blueprint $table) {
             $table->integer('id_event')->unsigned();
             $table->integer('id_user')->unsigned();
-            $table->integer('id_question')->unsigned();
-            $table->text('value');
+            $table->timestamps();
+            $table->softDeletes();
+            $table->integer('deleted_by')->unsigned()->nullable();
+            $table->text('medical_issues')->nullable();
+            $table->enum('diet', ['Vegetarian','Vegan','Fish only'])->nullable();
+            $table->text('notes')->nullable();
+            $table->string('hash', 32);
 
-            $table->primary(['id_event', 'id_user', 'id_question'], 'pk_preregistration_response_question');
+            $table->primary(['id_event', 'id_user']);
             $table->foreign('id_event')->references('id_event')->on('events')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('id_question')->references('id_question')->on('preregistration_questions')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('deleted_by')->references('id_user')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
@@ -33,6 +38,6 @@ class CreatePreregistrationResponseQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preregistration_response_questions');
+        Schema::dropIfExists('event_reservations');
     }
 }

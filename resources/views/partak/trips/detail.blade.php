@@ -119,14 +119,14 @@
             @endcan
         @endif
 
-        @if ($trip->event->preregistration)
+        @if ($trip->event->reservations_enabled)
         <div style="min-height: 300px">
             <div class="container">
                 <div class="row row-inner">
                     <div class="col-sm-12">
-                        <h3>Pre-registrations</h3>
+                        <h3>Reservations</h3>
                         
-                        @if($preregistered->count() > 0)
+                        @if($reservations->count() > 0)
                         <div class="panel panel-default">
                         <table class="table">
                             <tr>
@@ -137,7 +137,7 @@
                                 <th>ESN card number</th>
                                 <th>Detail</th>
                             </tr>
-                            @foreach($preregistered as $item)
+                            @foreach($reservations as $item)
                                 <tr>
                                     <td>{{ $item->getFullName(true)}}</td>
                                     <td>{{ $item->user->email }}</td>

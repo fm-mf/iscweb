@@ -1,4 +1,4 @@
-@extends('layouts.form.layout')
+@extends('layouts.reservation.layout')
 
 @section('content')
   <div id="form-app">
@@ -14,17 +14,17 @@
       <div class="description" v-if="!showRegistration">
         {!! $event->description !!}
 
-        <button class="register" v-on:click="toggleRegistration(true)"><i class="fas fa-arrow-right"></i> Register</button>
+        <button class="register" v-on:click="toggleRegistration(true)"><i class="fas fa-arrow-right"></i> Reserve</button>
       </div>
     </div>
 
     <div class="registration" v-if="showRegistration">
-      <preregistration
-        event-hash="{{ $event->preregistration_hash }}"  
-        :show-medical-issues="!!{{ $event->preregistration_medical ?: '0' }}"
-        :show-diet="!!{{ $event->preregistration_diet ?: '0' }}"
+      <reservation
+        event-hash="{{ $event->reservations_hash }}"  
+        :show-medical-issues="!!{{ $event->reservations_medical ?: '0' }}"
+        :show-diet="!!{{ $event->reservations_diet ?: '0' }}"
         v-on:cancel="toggleRegistration(false)"
-      ></preregistration>
+      ></reservation>
     </div>
   </div>
 @stop

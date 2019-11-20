@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $value
  * @property \App\Models\Event $event
  * @property \App\Models\User $user
- * @property \App\Models\PreregistrationQuestion $question
+ * @property \App\Models\EventReservationQuestion $question
  */
-class PreregistrationResponseQuestion extends Model
+class EventReservationData extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'id_event';
@@ -34,6 +34,6 @@ class PreregistrationResponseQuestion extends Model
 
     public function question()
     {
-        return $this->hasOne('\App\Models\PreregistrationQuestion', 'id_question', 'id_question');
+        return $this->hasOne('\App\Models\EventReservationQuestion', 'id_question', 'id_question');
     }
 }

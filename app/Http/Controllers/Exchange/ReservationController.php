@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
-class RegistrationController extends Controller
+class ReservationController extends Controller
 {
     public function showForm(string $id)
     {
@@ -17,7 +17,7 @@ class RegistrationController extends Controller
             'EVENT_QUESTIONS' => $event->questions()->get()
         ]);
 
-        return view('exchange.form', [
+        return view('exchange.reservation', [
             'event' => $event
         ]);
     }

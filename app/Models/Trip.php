@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
  * @property int $capacity
  * @property string $type
  * @property \App\Models\Event $event
- * @property \App\Models\PreregistrationQuestion $questions[]
+ * @property \App\Models\EventReservationQuestion $questions[]
  */
 class Trip extends Model
 {
@@ -44,7 +44,7 @@ class Trip extends Model
 
     public function questions()
     {
-        return $this->hasMany('\App\Models\PreregistrationQuestion', 'id_event', 'id_event')->orderBy('order');
+        return $this->hasMany('\App\Models\EventReservationQuestion', 'id_event', 'id_event')->orderBy('order');
     }
 
     public function participants()
@@ -54,9 +54,9 @@ class Trip extends Model
             ->wherePivot('deleted_at', null);
     }
 
-    public function preregistered()
+    public function reservations()
     {
-        return $this->belongsToMany('\App\Models\Person', 'preregistration_responses', 'id_event', 'id_user', 'id_event')
+        return $this->belongsToMany('\App\Models\Person', 'event_reservations', 'id_event', 'id_user', 'id_event')
             ->withTimestamps()->withPivot('medical_issues', 'diet', 'notes', 'created_at')
             ->wherePivot('deleted_at', null);
     }
@@ -76,7 +76,7 @@ class Trip extends Model
     public function howIsFill()
     {
         return $this->participants()->wherePivot('stand_in', 'n')->count()
-            + $this->preregistered()->count();
+            + $this->reservations()->count();
     }
 
     public function howIsFillSimple()
@@ -147,7 +147,7 @@ class Trip extends Model
 
         $part = $this->participants()->find($userId);
         $deletePart = $this->deletedParticipants()->find($userId);
-        $prereg = PreregistrationResponse::findByUserAndEvent($userId, $this->id_event);
+        $prereg = EventReservation::findByUserAndEvent($userId, $this->id_event);
 
         if ($prereg) {
             $prereg->delete();
@@ -384,6 +384,6 @@ class Trip extends Model
     public function hasUser($id_user)
     {
         return $this->participants()->where('trips_participants.id_user', $id_user)->count() > 0
-            || $this->preregistered()->where('preregistration_responses.id_user', $id_user)->count() > 0;
+            || $this->reservations()->where('event_reservations.id_user', $id_user)->count() > 0;
     }
 }

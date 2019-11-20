@@ -15,7 +15,7 @@ use App\Models\Person;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\PreregistrationQuestion;
+use App\Models\EventReservationQuestion;
 use App\Models\Trip;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
@@ -44,17 +44,25 @@ class TripController extends Controller
 
     public function showDetail($id)
     {
-        $trip = Trip::withParticipants('preregistered.user', 'preregistered.exchangeStudent', 'preregistered.buddy', 'organizers.person.user', 'event')->find($id);
+        $trip = Trip::withParticipants(
+            'reservations.user',
+            'reservations.exchangeStudent',
+            'reservations.buddy',
+            'reservations.person.user',
+            'event'
+        )->find($id);
+
         $this->authorize('view', $trip);
+        
         $particip = $trip->participants;
         $organizers = $trip->organizers;
-        $preregistered = $trip->preregistered;
+        $reservations = $trip->reservations;
 
         return view('partak.trips.detail')->with([
             'trip' => $trip,
             'particip' => $particip,
             'organizers' => $organizers,
-            'preregistered' => $preregistered
+            'reservations' => $reservations
         ]);
     }
 
@@ -293,7 +301,7 @@ class TripController extends Controller
 
         foreach ($questions as $id => $data) {
             if (preg_match("/^new-.*/", $id)) {
-                $created = new PreregistrationQuestion([
+                $created = new EventReservationQuestion([
                     'id_event' => $trip->id_event,
                     'order' => $order++,
                     'type' => $data['type'],
@@ -304,8 +312,8 @@ class TripController extends Controller
                 ]);
                 $created->save();
             } else {
-                /** @var PreregistrationQuestion $existing */
-                $existing = PreregistrationQuestion::find($id);
+                /** @var EventReservationQuestion $existing */
+                $existing = EventReservationQuestion::find($id);
                 if ($existing) {
                     $existing->update([
                         'order' => $order++,
@@ -323,8 +331,8 @@ class TripController extends Controller
 
         foreach($removed as $id => $remove) {
             if ($remove) {
-                /** @var PreregistrationQuestion $existing */
-                $existing = PreregistrationQuestion::find($id);
+                /** @var EventReservationQuestion $existing */
+                $existing = EventReservationQuestion::find($id);
                 $existing->delete();
             }
         }

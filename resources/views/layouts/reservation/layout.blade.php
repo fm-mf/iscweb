@@ -28,7 +28,7 @@
 
 
 @section('scripts')
-  <script src="{{ mix('js/form.js') }}"></script>
+  <script src="{{ mix('js/reservation.js') }}"></script>
 @show
 
 @include ('footer')

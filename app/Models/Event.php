@@ -32,7 +32,7 @@ use Hashids\Hashids;
  * @property boolean $preregistration_diet
  * @property boolean $preregistration_medical
  * @property \App\Models\Trip $trip
- * @property \App\Models\PreregistrationQuestion[] $questions
+ * @property \App\Models\EventReservationQuestion[] $questions
 */
 class Event extends Model
 {
@@ -49,7 +49,7 @@ class Event extends Model
 
     public function questions()
     {
-        return $this->hasMany('\App\Models\PreregistrationQuestion', 'id_event')->orderBy('order');
+        return $this->hasMany('\App\Models\EventReservationQuestion', 'id_event')->orderBy('order');
     }
     
 

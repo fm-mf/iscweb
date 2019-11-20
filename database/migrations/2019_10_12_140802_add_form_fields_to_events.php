@@ -15,11 +15,11 @@ class AddFormFieldsToEvents extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->boolean('ow')->default('0');
-            $table->boolean('preregistration')->default('0');
-            $table->char('preregistration_hash', 100)->nullable();
-            $table->integer('preregistration_removal_limit')->nullable();
-            $table->boolean('preregistration_diet')->nullable();
-            $table->boolean('preregistration_medical')->nullable();
+            $table->boolean('reservations_enabled')->default('0');
+            $table->char('reservations_hash', 100)->nullable();
+            $table->integer('reservations_removal_limit')->nullable();
+            $table->boolean('reservations_diet')->nullable();
+            $table->boolean('reservations_medical')->nullable();
         });
     }
 
@@ -32,11 +32,11 @@ class AddFormFieldsToEvents extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->dropColumn('ow');
-            $table->dropColumn('preregistration');
-            $table->dropColumn('preregistration_hash');
-            $table->dropColumn('preregistration_removal_limit');
-            $table->dropColumn('preregistration_diet');
-            $table->dropColumn('preregistration_medical');
+            $table->dropColumn('reservations_enabled');
+            $table->dropColumn('reservations_hash');
+            $table->dropColumn('reservations_removal_limit');
+            $table->dropColumn('reservations_diet');
+            $table->dropColumn('reservations_medical');
         });
     }
 }

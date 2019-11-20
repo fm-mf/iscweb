@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $data
  * @property \App\Models\Event $event
  */
-class PreregistrationQuestion extends Model
+class EventReservationQuestion extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'id_question';
