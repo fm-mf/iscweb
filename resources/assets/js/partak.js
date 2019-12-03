@@ -12,7 +12,7 @@ import MultiSelectInput from './components/MultiSelectInput';
 import Button from './components/Button';
 import PreRegister from './components/Preregister';
 import UniqueUrlCopy from './components/UniqueUrlCopy';
-import Preregistration from './partak/preregistration';
+import Reservation from './partak/Reservation';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,11 +29,10 @@ Vue.component('unique-url', UniqueUrlCopy);
 new Vue({
   el: '#partakApp',
   components: {
-    Preregistration
+    Reservation
   },
   data: {
-    options: typeof jsoptions !== 'undefined' ? jsoptions : [],
-    preregistration: false
+    options: typeof jsoptions !== 'undefined' ? jsoptions : []
   },
   methods: {}
 });

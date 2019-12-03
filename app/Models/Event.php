@@ -26,11 +26,11 @@ use Hashids\Hashids;
  * @property string $cover
  * @property string $event_type
  * @property boolean $ow
- * @property boolean $preregistration
- * @property string $preregistration_hash
- * @property number $preregistration_removal_limit
- * @property boolean $preregistration_diet
- * @property boolean $preregistration_medical
+ * @property boolean $reservations_enabled
+ * @property string $reservations_hash
+ * @property number $reservations_removal_limit
+ * @property boolean $reservations_diet
+ * @property boolean $reservations_medical
  * @property \App\Models\Trip $trip
  * @property \App\Models\EventReservationQuestion[] $questions
 */
@@ -44,8 +44,8 @@ class Event extends Model
 
     protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at',
         'visible_from', 'cover', 'created_by', 'modified_by', 'event_type', 'location', 'location_url',
-        'preregistration', 'preregistration_medical', 'preregistration_diet',
-        'preregistration_removal_limit', 'preregistration_hash'];
+        'reservations_enabled', 'reservations_medical', 'reservations_diet',
+        'reservations_removal_limit', 'reservations_hash'];
 
     public function questions()
     {
@@ -92,8 +92,8 @@ class Event extends Model
     public function scopeFindByHash(Builder $query, string $hash)
     {
         return $query
-            ->where('preregistration_hash', $hash)
-            ->where('preregistration', '1');
+            ->where('reservations_hash', $hash)
+            ->where('reservations_enabled', '1');
     }
 
     /**
@@ -103,8 +103,16 @@ class Event extends Model
      */
     public function update(array $attributes = [], array $options = [])
     {
+        // Set fb url to null if not present (why?)
+        if (!array_key_exists('facebook_url', $attributes)) {
+            $attributes['facebook_url'] = null;
+        }
 
-        if(! array_key_exists('facebook_url', $attributes)) $attributes['facebook_url'] = NULL;
+        // Generate new hash if not present
+        if ((!isset($attributes['reservations_hash']) || !$attributes['reservations_hash']) && !$this->reservations_hash) {
+            $attributes['reservations_hash'] = $this->getHashIds()->encode($this->id_event);
+        }
+
         //dd($attributes);
         return parent::update(self::updateDatetimes($attributes), $options);
     }
@@ -236,7 +244,7 @@ class Event extends Model
     {
         $data = self::updateDatetimes($data);
         $id_user = Auth::id();
-        $hashId = new Hashids("events");
+        $hashId = $this->getHashIds();
 
         return DB::transaction(function () use ($data, $id_user, $hashId) {
             $event = new Event();
@@ -246,10 +254,10 @@ class Event extends Model
             
             $event->location = $data['location'] ?? '';
             $event->location_url = $data['location_url'] ?? '';
-            $event->preregistration = $data['preregistration'] ?? 0;
-            $event->preregistration_medical = $data['preregistratoin_medical'] ?? null;
-            $event->preregistration_diet = $data['preregistration_diet'] ?? null;
-            $event->preregistration_removal_limit = $data['preregistration_removal_limit'] ?? null;
+            $event->reservations_enabled = $data['reservations_enabled'] ?? 0;
+            $event->reservations_medical = $data['reservations_medical'] ?? null;
+            $event->reservations_diet = $data['reservations_diet'] ?? null;
+            $event->reservations_removal_limit = $data['reservations_removal_limit'] ?? null;
 
             $event->description = $data['description'];
             $event->facebook_url = array_key_exists('facebook_url', $data) ? $data['facebook_url'] : NULL;
@@ -258,7 +266,7 @@ class Event extends Model
             if(array_key_exists('event_type', $data)) $event->event_type = $data['event_type'];
             $event->save();
 
-            $event->preregistration_hash = $hashId->encode($event->id_event);
+            $event->reservations_hash = $hashId->encode($event->id_event);
             $event->save();
 
             return $event;
@@ -299,5 +307,10 @@ class Event extends Model
             ->whereDate('visible_from','>=', $fromDate)
             ->orderBy('datetime_from','asc')
             ->get();
+    }
+
+    private function getHashIds()
+    {
+        return new Hashids("events");
     }
 }

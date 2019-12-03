@@ -223,7 +223,8 @@ class TripController extends Controller
             $trip->update($data);
             $trip->event->update($data);
 
-            $this->saveQuestions($trip, $request->input('questions'));
+            $questions = $request->input('questions');
+            $this->saveQuestions($trip, is_array($questions) ? $questions : []);
 
             return back()->with(['success' => 'Trip was successfully updated']);
         } else {

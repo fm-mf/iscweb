@@ -2,58 +2,58 @@
   <div>
     <div class="form-group">
       <input
-        id="preregistration"
+        id="reservations_enabled"
         v-model="enabled"
-        name="preregistration"
+        name="reservations_enabled"
         type="checkbox"
         value="1"
       />
-      <label for="preregistration" class="control-label">
-        Preregistrations
+      <label for="reservations_enabled" class="control-label">
+        Enable reservations
       </label>
 
       <fieldset v-show="enabled">
-        <legend>Preregistration</legend>
+        <legend>Reservations</legend>
         <div class="form-group">
           <label
-            for="preregistration_removal_limit"
+            for="reservations_removal_limit"
             class="control-label required"
           >
             Reservation expires after (days)
           </label>
           <input
-            id="preregistration_removal_limit"
+            id="reservations_removal_limit"
             v-model="expiration"
             required="required"
-            name="preregistration_removal_limit"
+            name="reservations_removal_limit"
             type="text"
             class="form-control"
           />
           <div class="info">
-            Preregistration will be automatically cancelled after X days
+            reservations will be automatically cancelled after X days
           </div>
         </div>
         <div class="form-group">
           <input
-            id="preregistration_medical"
+            id="reservations_medical"
             v-model="medical"
-            name="preregistration_medical"
+            name="reservations_medical"
             type="checkbox"
             value="1"
           />
-          <label for="preregistration_medical" class="control-label">
+          <label for="reservations_medical" class="control-label">
             Show medical issues
           </label>
         </div>
         <div class="form-group">
           <input
-            id="preregistration_diet"
+            id="reservations_diet"
             v-model="diet"
-            name="preregistration_diet"
+            name="reservations_diet"
             type="checkbox"
             value="1"
           />
-          <label for="preregistration_diet" class="control-label">
+          <label for="reservations_diet" class="control-label">
             Show diet
           </label>
         </div>

@@ -121,12 +121,12 @@
 
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
 
-<preregistration
-    :p-enabled="{{$event->preregistration ? 'true' : 'false'}}"
-    :p-expiration="{{$event->preregistration_removal_limit ?: 5}}"
-    :p-medical="{{$event->preregistration_medical ? 'true' : 'false'}}"
-    :p-diet="{{$event->preregistration_diet ? 'true' : 'false'}}"
-></preregistration>
+<reservation
+    :p-enabled="{{$event->reservations_enabled ? 'true' : 'false'}}"
+    :p-expiration="{{$event->reservations_removal_limit ?: 5}}"
+    :p-medical="{{$event->reservations_medical ? 'true' : 'false'}}"
+    :p-diet="{{$event->reservations_diet ? 'true' : 'false'}}"
+></reservation>
 
 {{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
 

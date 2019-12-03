@@ -40,11 +40,11 @@
                                 <td></td>
                                 <td></td>
                             </tr>
-                            @if ($trip->event->preregistration)
+                            @if ($trip->event->reservations_enabled)
                             <tr>
-                                <th>Preregistration</th>
+                                <th>Reservation</th>
                                 <td colspan="3">
-                                    <unique-url style="width: 100%" url="{{ url("/event/{$trip->event->preregistration_hash}") }}"></unique-url>
+                                    <unique-url style="width: 100%" url="{{ url("/event/{$trip->event->reservations_hash}") }}"></unique-url>
                                 </td>
                             </tr>
                             @endif
@@ -158,7 +158,7 @@
                         </table>
                         </div>
                         @else
-                            No preregistrations
+                            No reservationss
                         @endif
                     </div>
                 </div>
