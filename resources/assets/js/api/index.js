@@ -18,7 +18,7 @@ export const saveResponse = (
   notes,
   custom
 ) =>
-  axios.post('/api/events/register', {
+  axios.post('/api/events/reserve', {
     event,
     id_user,
     diet,

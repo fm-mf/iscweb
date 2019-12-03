@@ -214,6 +214,7 @@ class Trip extends Model
         if(! array_key_exists('price', $attributes)) $attributes['price'] = 0;
         if(! array_key_exists('capacity', $attributes)) $attributes['capacity'] = 0;
         //dd($attributes);
+
         return parent::update(self::updateDatetimes($attributes), $options);
     }
 
@@ -281,8 +282,9 @@ class Trip extends Model
     protected static function updateDatetimes($data)
     {
         $time = $data['registration_time'] ?? "00:00 AM";
-        //dd($data['registration_date']);
         $data['registration_from'] = Carbon::createFromFormat('d M Y g:i A', $data['registration_date'] . ' ' . $time);
+        $time = $data['registration_end_time'] ?? "00:00 AM";
+        $data['registration_to'] = Carbon::createFromFormat('d M Y g:i A', $data['registration_end_date'] . ' ' . $time);
         $time = $data['end_time'] ?? "00:00 AM";
         $data['trip_date_to'] = Carbon::createFromFormat('d M Y g:i A', $data['end_date'] . ' ' . $time);
         return $data;

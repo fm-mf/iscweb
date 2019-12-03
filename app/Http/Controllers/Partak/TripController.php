@@ -216,9 +216,9 @@ class TripController extends Controller
             }
 
 
-            $data['preregistration'] = $request->input('preregistration') === '1' ? true : false;
-            $data['preregistration_diet'] = $request->input('preregistration_diet') === '1' ? 1 : 0;
-            $data['preregistration_medical'] = $request->input('preregistration_medical') === '1' ? 1 : 0;
+            $data['reservations_enabled'] = $request->input('reservations_enabled') === '1' ? true : false;
+            $data['reservations_diet'] = $request->input('reservations_diet') === '1' ? 1 : 0;
+            $data['reservations_medical'] = $request->input('reservations_medical') === '1' ? 1 : 0;
 
             $trip->update($data);
             $trip->event->update($data);

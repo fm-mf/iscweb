@@ -21,8 +21,8 @@
             <p class="error-block alert-danger">{{ $errors->first('registration_end_time') }}</p>
         @endif
         <div class="row date-row">
-            <div class="col-sm-6">{{ Form::text('registration_end_date', $trip->registration_from->format('d M Y'), ['id' => 'registration_end_date', 'class' => 'form-control arrival date']) }}</div>
-            <div class="col-sm-6">{{ Form::text('registration_end_time', $trip->registration_from->format('g:i A'), ['id' => 'registration_end_time', 'class' => 'form-control arrival time']) }}</div>
+            <div class="col-sm-6">{{ Form::text('registration_end_date', $trip->registration_to->format('d M Y'), ['id' => 'registration_end_date', 'class' => 'form-control arrival date']) }}</div>
+            <div class="col-sm-6">{{ Form::text('registration_end_time', $trip->registration_to->format('g:i A'), ['id' => 'registration_end_time', 'class' => 'form-control arrival time']) }}</div>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Events\StudentPreregistered;
+use App\Events\StudentReservedSpot;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use Illuminate\Http\Request;
@@ -67,7 +67,7 @@ class EventsController extends Controller
             }
         }
 
-        event(new StudentPreregistered($response));
+        event(new StudentReservedSpot($response));
 
         return response()->json($response);
     }
