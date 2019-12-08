@@ -16,6 +16,8 @@ use Illuminate\Support\Carbon;
  * @property string $notes
  * @property string $hash
  * @property Carbon $expires_at
+ * @property \App\Models\User $user
+ * @property \App\Models\Event $event
  */
 class EventReservation extends Model
 {
@@ -61,10 +63,7 @@ class EventReservation extends Model
 
     public function expirationDate()
     {
-        $time = $this->expires_at->format('l') . ', ';
-        $time .= $this->expires_at->format('F') . ' ';
-        $time .= $this->expires_at->format('jS');
-        return $time;
+        return $this->expires_at->format('l, F jS H:i');
     }
 
     public static function findByHash($hash)
@@ -75,5 +74,10 @@ class EventReservation extends Model
     public static function findByUserAndEvent(int $id_user, int $id_event)
     {
         return EventReservation::where('id_user', $id_user)->where('id_user', $id_user);
+    }
+
+    public static function findExpired()
+    {
+        return EventReservation::where('expires_at', '<=', Carbon::now());
     }
 }
