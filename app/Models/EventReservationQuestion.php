@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_event
  * @property int $order
  * @property bool $required
+ * @property string $type
  * @property string $label
  * @property string $description
  * @property string $data
@@ -20,7 +21,7 @@ class EventReservationQuestion extends Model
     protected $primaryKey = 'id_question';
 
     protected $fillable = [
-        'id_event', 'order', 'label', 'description', 'required', 'data'
+        'id_event', 'order', 'label', 'description', 'required', 'type', 'data'
     ];
 
     public function event()

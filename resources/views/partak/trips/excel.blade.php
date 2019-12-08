@@ -23,6 +23,9 @@
                     <th>Comment to payment</th>
                     <th>Paid</th>
                     <th>Register By</th>
+                    @foreach($trip->questions as $question)
+                        <th>{{ $question->label }}</th>
+                    @endforeach
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +45,14 @@
                         <td>{{ $participant->pivot->comment }}</td>
                         <td>{{ $participant->pivot->paid }}</td>
                         <td>{{ \App\Models\Person::find($participant->pivot->registered_by)->getFullName() }}</td>
+                        @foreach(
+                            \App\Models\EventReservation::findByUserAndEvent($participant->id_user, $trip->id_event)
+                                ->withTrashed()
+                                ->first()
+                                ->answers as $data
+                        )
+                            <td>{{ $data->getDisplayValue() }}</td>
+                        @endforeach
                     </tr>
                 @endforeach
             </tbody>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Awobaz\Compoships\Compoships;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
@@ -22,6 +23,7 @@ use Illuminate\Support\Carbon;
 class EventReservation extends Model
 {
     use SoftDeletes;
+    use Compoships;
 
     public $timestamps = true;
     public $incrementing = false;
@@ -41,6 +43,11 @@ class EventReservation extends Model
     public function user()
     {
         return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
+    }
+
+    public function answers()
+    {
+        return $this->hasMany('\App\Models\EventReservationAnswer', ['id_event', 'id_user'], ['id_event', 'id_user']);
     }
 
     public function save(array $options = [])

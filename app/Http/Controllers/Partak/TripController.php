@@ -48,7 +48,7 @@ class TripController extends Controller
             'reservations.user',
             'reservations.exchangeStudent',
             'reservations.buddy',
-            'reservations.person.user',
+            'reservations.user.person',
             'event'
         )->find($id);
 

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\EventReservation;
-use App\Models\EventReservationData;
+use App\Models\EventReservationAnswer;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Carbon;
@@ -76,7 +76,7 @@ class EventsController extends Controller
         $custom = $request->input('custom');
         foreach ($event->questions()->get() as $question) {
             if (isset($custom[$question->id_question])) {
-                $value = new EventReservationData([
+                $value = new EventReservationAnswer([
                     'id_event' => $event->id_event,
                     'id_user' => $id_user,
                     'id_question' => $question->id_question,

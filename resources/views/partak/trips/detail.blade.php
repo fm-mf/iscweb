@@ -152,6 +152,15 @@
                                                 (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
                                             <a href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
                                         @endif
+                                        @can('removeParticipant', $trip)
+                                            <protectedbutton
+                                                url="{{ '/partak/trips/detail/'. $trip->id_trip .'/cancel/' . $item->user->id_user }}"
+                                                protection-text="Remove {{ $item->getFullName() }} from event {{ $trip->event->name }}?"
+                                                button-style="btn btn-danger btn-xs"
+                                            >
+                                                Remove
+                                            </protectedbutton>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

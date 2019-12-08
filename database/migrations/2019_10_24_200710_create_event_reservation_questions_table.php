@@ -24,7 +24,8 @@ class CreateEventReservationQuestionsTable extends Migration
             $table->text('data')->nullable();
 
             $table->foreign('id_event')
-                ->references('id_event')->on('events')
+                ->references('id_event')
+                ->on('events')
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
         });
