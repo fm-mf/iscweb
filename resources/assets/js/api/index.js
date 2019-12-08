@@ -10,7 +10,7 @@ export const getBuddy = (event, email, password) =>
     .post('/api/events/getBuddy', { event, email, password })
     .then(res => res.data);
 
-export const saveResponse = (
+export const postReservation = (
   event,
   id_user,
   diet,
@@ -18,7 +18,7 @@ export const saveResponse = (
   notes,
   custom
 ) =>
-  axios.post('/api/events/reserve', {
+  axios.post('/api/events/reservation', {
     event,
     id_user,
     diet,
@@ -26,3 +26,6 @@ export const saveResponse = (
     notes,
     custom
   });
+
+export const cancelReservation = hash =>
+  axios.delete(`/api/events/reservation/${hash}`);

@@ -39,7 +39,7 @@
 <script>
 /* global EVENT_QUESTIONS:readonly */
 
-import { saveResponse } from '../api';
+import { postReservation } from '../api';
 import Loader from '../components/Loader';
 import Auth from './components/Auth';
 import UserInfo from './components/UserInfo';
@@ -98,7 +98,7 @@ export default {
 
       this.loaded = false;
 
-      saveResponse(
+      postReservation(
         this.eventHash,
         this.userData.id_user,
         data.foodPreference,

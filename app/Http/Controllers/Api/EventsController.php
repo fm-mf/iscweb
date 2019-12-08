@@ -12,6 +12,7 @@ use App\Models\EventReservation;
 use App\Models\EventReservationData;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -22,11 +23,14 @@ class EventsController extends Controller
 
     public function getExchangeStudent(Request $request)
     {
-        $event = $this->getEvent($request->input('event'));
+        $event = $this->getEvent((string)$request->input('event'));
         $student = null;
 
         try {
-            $student = ExchangeStudent::findByEmailAndEsn($request->input('email'), $request->input('esn'))->firstOrFail();
+            $student = ExchangeStudent::findByEmailAndEsn(
+                $request->input('email'),
+                $request->input('esn')
+            )->firstOrFail();
         } catch (\Exception $e) {
             throw new NotFoundHttpException('Invalid e-mail and ESN card number combination');
         }
@@ -36,22 +40,37 @@ class EventsController extends Controller
         return response()->json($student);
     }
 
-    public function reserve(Request $request)
+    public function createReservation(Request $request)
     {
         $this->responseValidator($request->all())->validate();
 
         $id_user = (int)$request->input('id_user');
         $user = User::find($id_user)->firstOrFail();
-        $event = $this->getEvent($request->input('event'));
+        $event = $this->getEvent((string)$request->input('event'));
 
         $this->checkEventUser($event, $id_user);
 
+        // Remove soft deleted reservation if exists
+        /** @var EventReservation|null */
+        $softDeletedResponse = EventReservation::findByUserAndEvent($id_user, $event->id_event)
+            ->withTrashed()
+            ->first();
+        
+        if ($softDeletedResponse) {
+            $softDeletedResponse->forceDelete();
+        }
+
+        // Build new reservation
         $response = new EventReservation();
         $response->id_event = $event->id_event;
         $response->id_user = $id_user;
         $response->medical_issues = $request->input('medical_issues');
         $response->diet = $request->input('diet');
         $response->notes = $request->input('notes');
+        $response->expires_at = (new Carbon())
+            ->now()
+            ->addDays($event->reservations_removal_limit)
+            ->setTime(0, 0);
         $response->save();
 
         $custom = $request->input('custom');
@@ -72,6 +91,27 @@ class EventsController extends Controller
         return response()->json($response);
     }
 
+    public function deleteReservation(Request $request)
+    {
+        /** @var EventReservation */
+        $reservation = EventReservation::findByHash($request->route('hash'));
+
+        if (!$reservation) {
+            throw new NotFoundHttpException("Reservation not found");
+        }
+
+        $reservation->update([
+            "deleted_by" => $reservation->id_user
+        ]);
+        $reservation->save();
+        $reservation->delete();
+
+        return response()->make();
+    }
+
+    /**
+     * @return Event
+     */
     private function getEvent(string $hash)
     {
         try {
@@ -111,7 +151,7 @@ class EventsController extends Controller
     {
         $this->clearLoginAttempts($request);
 
-        $event = $this->getEvent($request->input('event'));
+        $event = $this->getEvent((string)$request->input('event'));
         $details = User::with('person')->where('id_user', $this->guard()->user()->id_user)->first();
 
         $this->checkEventUser($event, $this->guard()->user()->id_user);

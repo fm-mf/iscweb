@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Hashids\Hashids;
 
 /**
- * @property number $id_event
+ * @property int $id_event
  * @property Carbon $datetime_from
  * @property Carbon $visible_from
  * @property string $name
@@ -28,7 +28,7 @@ use Hashids\Hashids;
  * @property boolean $ow
  * @property boolean $reservations_enabled
  * @property string $reservations_hash
- * @property number $reservations_removal_limit
+ * @property int $reservations_removal_limit
  * @property boolean $reservations_diet
  * @property boolean $reservations_medical
  * @property \App\Models\Trip $trip

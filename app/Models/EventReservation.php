@@ -3,16 +3,32 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
+/**
+ * @property int $id_user
+ * @property int $id_event
+ * @property int $deleted_by
+ * @property string $diet
+ * @property string $medical_issues
+ * @property string $notes
+ * @property string $hash
+ * @property Carbon $expires_at
+ */
 class EventReservation extends Model
 {
+    use SoftDeletes;
+
     public $timestamps = true;
     public $incrementing = false;
     protected $primaryKey = 'id_event';
 
+    protected $dates = ['expires_at'];
+
     protected $fillable = [
-        'id_user', 'medical_issues', 'diet', 'notes'
+        'deleted_by'
     ];
 
     public function event()
@@ -41,6 +57,14 @@ class EventReservation extends Model
         } else {
             return $hash;
         }
+    }
+
+    public function expirationDate()
+    {
+        $time = $this->expires_at->format('l') . ', ';
+        $time .= $this->expires_at->format('F') . ' ';
+        $time .= $this->expires_at->format('jS');
+        return $time;
     }
 
     public static function findByHash($hash)

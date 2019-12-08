@@ -27,7 +27,7 @@ class ReservationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.preregistration', [
+        return $this->view('emails.reservationConfirmation', [
                 'event' => $this->response->event,
                 'response' => $this->response
             ])

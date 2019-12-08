@@ -19,15 +19,31 @@ class CreateEventReservationsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->integer('deleted_by')->unsigned()->nullable();
+            $table->dateTime('expires_at');
             $table->text('medical_issues')->nullable();
-            $table->enum('diet', ['Vegetarian','Vegan','Fish only'])->nullable();
+            $table->enum('diet', ['Vegetarian', 'Vegan', 'Fish only'])->nullable();
             $table->text('notes')->nullable();
             $table->string('hash', 32);
 
             $table->primary(['id_event', 'id_user']);
-            $table->foreign('id_event')->references('id_event')->on('events')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('deleted_by')->references('id_user')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table
+                ->foreign('id_event')
+                ->references('id_event')
+                ->on('events')
+                ->onUpdate('RESTRICT')
+                ->onDelete('RESTRICT');
+            $table
+                ->foreign('id_user')
+                ->references('id_user')
+                ->on('users')
+                ->onUpdate('RESTRICT')
+                ->onDelete('RESTRICT');
+            $table
+                ->foreign('deleted_by')
+                ->references('id_user')
+                ->on('users')
+                ->onUpdate('RESTRICT')
+                ->onDelete('RESTRICT');
         });
     }
 

@@ -36,6 +36,10 @@ main {
       }
     }
 
+    &.danger {
+      background: rgb(211, 35, 35);
+    }
+
     &.register {
       display: block;
       margin: auto;
@@ -156,18 +160,6 @@ main {
       }
     }
 
-    .done-message {
-      display: flex;
-      align-items: center;
-      color: #fff;
-      background: $success-bg;
-
-      .icon {
-        padding: 0.5rem 1rem;
-        border-left: 3px solid darken($success-bg, 10%);
-      }
-    }
-
     .user-data {
       display: flex;
       align-items: center;
@@ -191,6 +183,28 @@ main {
         }
       }
     }
+  }
+}
+
+.done-message {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background: $success-bg;
+
+  .icon {
+    padding: 0.5rem 1rem;
+    border-left: 3px solid darken($success-bg, 10%);
+  }
+}
+
+.reservations-ended {
+  padding: 1rem;
+  text-align: center;
+
+  .fas {
+    color: #ccc;
+    margin-right: 0.5rem;
   }
 }
 
