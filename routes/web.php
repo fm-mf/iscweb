@@ -123,3 +123,7 @@ Route::prefix('czech')->namespace('Czech')->name('czech.')->group(function() {
     Route::get('/faq', 'WebController@showFaqPage')->name('faq');
     Route::get('/contacts', 'WebController@showContactsPage')->name('contacts');
 });
+
+Route::prefix('alumni')->namespace('Alumni')->name('alumni.')->group(function() {
+   Route::get('/', 'AlumniController@index')->name('index');
+});
