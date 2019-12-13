@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class AlumniNewsletter extends Model
+{
+    use SoftDeletes;
+
+    protected $guarded = [];
+
+    protected $dates = ['date_sent', 'deleted_at'];
+
+    public function createdBy()
+    {
+        return $this->belongsTo('App\Models\User', 'created_by', 'id_user');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo('App\Models\User', 'updated_by', 'id_user');
+    }
+
+    public function deletedBy()
+    {
+        return $this->belongsTo('App\Models\User', 'deleted_by', 'id_user');
+    }
+
+    public function getDateSentFormattedAttribute()
+    {
+        return $this->date_sent->formatLocalized(__('formatting.full-date'));
+    }
+}

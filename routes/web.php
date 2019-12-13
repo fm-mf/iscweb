@@ -126,4 +126,5 @@ Route::prefix('czech')->namespace('Czech')->name('czech.')->group(function() {
 
 Route::prefix('alumni')->namespace('Alumni')->name('alumni.')->group(function() {
    Route::get('/', 'AlumniController@index')->name('index');
+   Route::resource('/newsletters', 'AlumniNewsletterController');
 });
