@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Partak;
 
-use App\Facades\Settings;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Http\Resources\ContactCollection;
@@ -10,7 +9,6 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
 
 class ContactsSettingsController extends Controller
 {
