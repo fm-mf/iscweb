@@ -30,7 +30,7 @@ class WebController extends Controller
     }
 
     function showActivitiesIndexPage() {
-        $contactHr = Contact::byPosition('Human Resources')->first();
+        $contactHr = Contact::byPosition('Human Relations')->first();
         return view('czech.activities', compact('contactHr'));
     }
 
@@ -64,7 +64,7 @@ class WebController extends Controller
     function showBuddyProgramPage()
     {
         $contactBuddy = Contact::byPosition('Buddy Coordinator')->first();
-        $contactHr = Contact::byPosition('Human Resources')->first();
+        $contactHr = Contact::byPosition('Human Relations')->first();
         return view('czech.buddy-program', compact('contactBuddy', 'contactHr'));
     }
 
