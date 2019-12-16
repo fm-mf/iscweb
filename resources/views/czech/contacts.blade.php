@@ -19,7 +19,7 @@
                                 <div class="col opening-hours">
                                     <h2>Otvírací hodiny</h2>
                                     <p>{{ $openingHoursText }}</p>
-                                    {{ $openingHoursTable }}
+                                    {!! $openingHoursTable !!}
                                 </div>
                             </div>
                             <div class="row">

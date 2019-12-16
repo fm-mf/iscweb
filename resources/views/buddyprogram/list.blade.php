@@ -15,56 +15,64 @@
                     <div class="filter row">
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <multiselect :options="countries" :show-labels="false" label="full_name" track-by="id_country" placeholder="Země"
-                                         v-model="exchangeStudents.filters.countries" :multiple="true" v-on:input="update"></multiselect>
+                                v-model="filters.countries" :multiple="true" v-on:input="filterChanged"></multiselect>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <multiselect :options="faculties" :show-labels="false" label="abbreviation" track-by="id_faculty" placeholder="Fakulta"
-                                         v-model="exchangeStudents.filters.faculties" :multiple="true" v-on:input="update"></multiselect>
+                                v-model="filters.faculties" :multiple="true" v-on:input="filterChanged"></multiselect>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
-                            <multiselect :options="arrivals" :show-labels="false" v-model="exchangeStudents.filters.arrivals" placeholder="Příjezd"
-                                         :multiple="true" v-on:input="update"></multiselect>
+                            <multiselect :options="arrivals" :show-labels="false" label="formatted" track-by="date" placeholder="Příjezd"
+                                v-model="filters.arrivals" :multiple="true" v-on:input="filterChanged"></multiselect>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <multiselect :options="accommodation" :show-labels="false" label="full_name" placeholder="Bydlení"
-                                         track-by="id_accommodation" v-model="exchangeStudents.filters.accommodation" :multiple="true" v-on:input="update"></multiselect>
+                                track-by="id_accommodation" v-model="filters.accommodation" :multiple="true" v-on:input="filterChanged"></multiselect>
                         </div>
+                    </div>
+                    <div class="table-loader-container">
+                    <div v-show="loading" class="table-loader">
+                        <i class="fas fa-circle-notch fa-spin"></i>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover table-striped">
                             <thead>
                             <tr>
-                                <th>Jméno</th>
-                                <th>Země</th>
-                                <th>Škola</th>
-                                <th>Fakulta</th>
-                                <th>Příjezd</th>
-                                <th>Bydlení</th>
+                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="name">Jméno</orderable-column></th>
+                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="country">Země</orderable-column></th>
+                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="school">Škola</orderable-column></th>
+                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="faculty">Fakulta</orderable-column></th>
+                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="arrival">Příjezd</orderable-column></th>
+                                <th><orderable-column v-model="sortBy" v-on:input="filterChanged" field="accomodation">Bydlení</orderable-column></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="student in exchangeStudents.all()">
-                                <td><a href="{{url('/muj-buddy/profile/')}}" v-bind:href="'{{url('/muj-buddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} @{{ student.person.last_name }}</a></td>
+                            <tr v-for="student in data">
+                                <td><a href="{{url('/muj-buddy/profile/')}}" v-bind:href="'{{url('/muj-buddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} <span class="last-name">@{{ student.person.last_name }}</span></a></td>
                                 <td>@{{ student.country.full_name }}</td>
                                 <td>@{{ student.school }}</td>
                                 <td>@{{ student.faculty.abbreviation }}</td>
                                 <td><span v-if="student.arrival">@{{ student.arrival['arrivalFormatted'] }}</span></td>
                                 <td>@{{ student.accommodation.full_name }}</td>
                             </tr>
+                            <tr v-if="!loading && data.length === 0" class="table-empty">
+                                <td colspan="100">Nenalezen žádný student</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
+                    </div>
 
-                    <nav aria-label="Page navigation">
+                    <nav aria-label="Page navigation" v-if="data && data.length > 0 && pagesCount > 1">
                         <ul class="pagination">
                             <li>
-                                <a href="#" v-show="exchangeStudents.page > 1" aria-label="Previous" v-on:click="page(exchangeStudents.page - 1)">
+                                <a href="#" v-show="page > 1" aria-label="Previous" v-on:click="goToPage(page - 1)">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
-                            <li v-for="n in exchangeStudents.pagesCount" v-bind:class="{active: exchangeStudents.page == n}"><a href="#" v-on:click="page(n)">@{{ n }}</a></li>
+                            <li v-for="n in pagesCount" v-bind:class="{active: page == n}"><a href="#" v-on:click="goToPage(n)">@{{ n }}</a></li>
                             <li>
-                                <a href="#" v-show="exchangeStudents.page < exchangeStudents.pagesCount" aria-label="Next" v-on:click="page(exchangeStudents.page + 1)">
+                                <a href="#" v-show="page < pagesCount" aria-label="Next" v-on:click="goToPage(page + 1)">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>

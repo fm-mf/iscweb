@@ -14,8 +14,8 @@
         <li>Regarding the right to move and reside freely, there is no visa required for students
             from the following countries: the European Union, Norway, Switzerland, Liechtenstein and Iceland.
             See <a href="http://www.mzv.cz/jnp/en/information_for_aliens/short_stay_visa/list_of_states_whose_citizens_are_exempt/index.html" target="_blank">Ministry of Foreign Affairs website</a> </li>
-        <li>Not your case? Make sure you have a short-term visa.</li>
-        <li>Staying for more than one semester? Make sure you have long-term visa or a long-term residence permit granted before you arrive!</li>
+        <li>Not your case? Make sure you have a long-term visa.</li>
+        <li>Short-term visa is for 90 days only</li>
         <li>If you don't have a visa granted in your passport before you arrive, there is no way you can extend or change it. To do so, you would need to travel to another country to apply at a Czech Embassy. Save trouble in advance and make sure your visa is stamped in your passport.</li>
         <li>After your arrival, make sure that you have done everything and your visa is valid.</li>
         <li>If you are in any doubt, or if anything is not clear to you, please contact our <a href="mailto:visa@isc.cvut.cz">Visa Coordinator (visa@isc.cvut.cz)</a>.</li>
@@ -59,7 +59,7 @@
     <h3 id="reporting">Reporting duty at the Foreign Police Office</h3>
     <ul>
         <li>Obligation to register <strong>within 3 working days</strong>! (after arrival in the Czech Republic) for non-EU students</li>
-        <li>Within 30 working days for EU students</li>
+        <li>Within 30 working days for EU students, but as exchange student, you don't need residence permit</li>
         <li>Your dormitory does this for you. In private accommodation talk to your landlord about it. If he hasn't done it, do it yourself (within 3 working days).</li>
         <li>Address: <address><a href="https://goo.gl/maps/4KSYHxT1Jo52" target="_blank">Olšanská 2176/2, Praha 3, 130 00</a></address></li>
         <li>Phone: <a href="tel:+420 974 820 317">+420 974 820 317</a> (speaking Czech only)</li>
@@ -69,15 +69,11 @@
 
     <h2 id="moi">Ministry of the Interior’s office (MOI/OAMP)</h2>
     <ul>
-        <li>All foreign students arriving on a short-term visa (check &quot;day duration&quot; in your visa) to receive the long-term residence permit (you can find code &quot;<strong>C</strong>&quot; &ndash; short term visa, or &quot;<strong>DV/R</strong>&quot; &ndash; entering visa; <a href="{{ url('guide/visa-example-pictures') }}" target="_blank">see visa example pictures</a></li>
+        <li>All foreign students arriving on a Visa for collection of residence permit or &quot;<strong>DV/R</strong>&quot; &ndash; entering visa; <a href="{{ url('guide/visa-example-pictures') }}" target="_blank">see visa example pictures</a></li>
         <li><strong>Within 3 working days!</strong> (after arrival in the Czech Republic)</li>
-        <li>Obligated to issue a biometric residence card (cca CZK 2500)
-            <ul>
-                <li>Paid by revenue stamps, available at any post office (<a href="https://www.ceskaposta.cz/en/sluzby/prodej-a-eshop/kolky" target="_blank">https://www.ceskaposta.cz/en/sluzby/prodej-a-eshop/kolky</a>)</li>
-            </ul>
-        </li>
         <li>Come back to collect it within the specified limit (but not later than within 60 days!)</li>
         <li>For every visit you have to <strong>book an appointment</strong>: <a href="tel:+420 974 820 680">+420 974 820 680</a>. Ask your Buddy to call there and make you an appointment, he will need your name, passport number and date of birth. If your Buddy is not available ask our <a href="mailto:visa@isc.cvut.cz">Visa Coordinator (visa@isc.cvut.cz)</a>.</li>
+        <li>Be sure to make the appointment at leas a week before you arrive, they tend to have only few free spots</li>
     </ul>
     <dl>
         <dt>Address</dt>
@@ -114,9 +110,4 @@
 
     <h2>Other obligations</h2>
     <p>To report a change of address or a change of travel document, visit the <a href="http://www.mvcr.cz/mvcren/article/contacts-alien-police-alien-police.aspx" target="_blank">Foreign Police</a>.</p>
-
-    <h2>OW presentation Monday</h2>
-    <ul class="list-unstyled">
-        <li><a href="{{ asset('/files/ow-presentations-fall-2017/visa-fall-2017.pdf') }}">Visa</a></li>
-    </ul>
 @stop

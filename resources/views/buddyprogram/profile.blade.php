@@ -8,7 +8,7 @@
 
             <div class="row">
                 <div class="col-12 col-md-9 order-md-first order-last">
-                    <h2>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</h2>
+                    <h2>{{ $exchangeStudent->person->first_name }} <span class="last-name">{{ $exchangeStudent->person->last_name }}</span></h2>
                     <div class="row">
                         <div class="col">
                             @if($exchangeStudent->country) <strong>Země</strong>: {{ $exchangeStudent->country->full_name }}<br> @endif

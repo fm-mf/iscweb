@@ -1,117 +1,211 @@
+/* global jscountries:readonly, jsfaculties:readonly, jsdays:readonly, jsaccommodation:readonly */
+
+// Bad practice but whatever
+import './bootstrap';
+
+import Vue from 'vue';
+import axios from 'axios';
+import OrderableColumn from './components/OrderableColumn';
+import VueMultiselect from 'vue-multiselect';
+
+Vue.component('multiselect', VueMultiselect);
+
+/** Which keys are used to identify selected option in filters list */
+const filterToKey = {
+  countries: 'id_country',
+  faculties: 'id_faculty',
+  accommodation: 'id_accommodation',
+  arrivals: 'date'
+};
 
 /**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
+ * Naive function that parses querystring input.
+ * Anything separated by comma will be considered array.
+ * @param {string} qs
+ * @returns {{ [key: string]: string | string[] }}
  */
+function parseQuery(qs) {
+  if (qs.charAt(0) === '?') {
+    qs = qs.substr(1);
+  }
 
-require('./bootstrap');
-
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('multiselect', VueMultiselect.default)
-//Vue.component('vmultiselect', require('./components/Multiselect.vue'));
-//Vue.component('exchangestudentstable', require('./components/ExchangeStudentsTable.vue'));
-
-
-class ExchangeStudents {
-    constructor (url = null) {
-
-        this.data = [];
-
-        this.filters = {
-            countries: [],
-            faculties: [],
-            accommodation: [],
-            arrivals: [],
-            sex: []
-        };
-
-        this.sortBy = 'first_name';
-        this.page = 1;
-        this.pagesCount = 1;
-        this.lastPage = 1;
+  return qs.split('&').reduce((acc, item) => {
+    if (item.indexOf('=') < 0) {
+      return acc;
     }
 
-    update() {
-        var _this = this;
+    const key = decodeURIComponent(item.substr(0, item.indexOf('=')));
+    const value = decodeURIComponent(item.substr(item.indexOf('=') + 1));
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $.ajax({
-            url: ('/api/liststudents'),
-            method: 'post',
-            dataType: 'json',
-            data: {
-                filters: this.filters,
-                page: this.page,
-                sortBy: this.sortBy
-            },
-        }).done(function(newData) {
-            console.log(newData);
-            _this.data = newData.data;
-            _this.page = newData.current_page;
-            _this.pagesCount = newData.last_page;
-        }).fail(function(error) {
-            alert('error');
-        });
-    }
-
-    onFilterChanged() {
-        this.page = 1;
-        this.update();
-    }
-
-    goToPage(page) {
-        this.page = page;
-        this.update();
-    }
-
-    all() {
-        return this.data;
-    }
-
-
+    acc[key] = value.split(',');
+    return acc;
+  }, {});
 }
 
-const exchangeStudentsApp = new Vue({
-    el: '#app',
-    data: {
-        columns: [
-            { key: 'first_name', title: 'Jméno' },
-            { key: 'last_name', title: 'Příjmení' }
-        ],
-        exchangeStudents : new ExchangeStudents(),
-        selected: null,
-        countries: jscountries,
-        faculties: jsfaculties,
-        arrivals: jsdays,
-        accommodation: jsaccommodation
-    },
-    ready: function() {
-        alert('ready');
-    },
-    methods: {
-        page: function (num) {
-            this.exchangeStudents.goToPage(num)
-        },
-        update: function() {
-            this.exchangeStudents.onFilterChanged();
-        },
-    },
-    created: function() {
-        console.log(jscountries);
-      this.exchangeStudents.update();
+/**
+ * Loads filter value from preset and tries to map it values using keyfield (if provided).
+ * @param {any[]} values
+ * @param {any[]} preset
+ * @param {string} keyfield
+ * @returns {any[]}
+ */
+function loadFilter(values, preset, keyfield) {
+  if (keyfield) {
+    if (preset) {
+      return preset
+        .map(p => values.find(i => i[keyfield] == p))
+        .filter(p => !!p);
     }
+    return [];
+  } else {
+    return preset || [];
+  }
+}
 
+/**
+ * Maps filters to its unique identifiers and removes empty filters
+ * @param {{ [filter: string]: any[] }} filters
+ * @returns {{ [filter: string]: (string | number)[] }}
+ */
+const simplifyFilters = filters =>
+  Object.keys(filters)
+    .filter(key => filters[key] && filters[key].length > 0)
+    .reduce((acc, key) => {
+      if (filterToKey[key]) {
+        acc[key] = filters[key].map(f => f[filterToKey[key]]);
+      } else {
+        acc[key] = filters[key];
+      }
+      return acc;
+    }, {});
+
+new Vue({
+  el: '#app',
+  components: { OrderableColumn },
+
+  data: () => ({
+    countries: jscountries,
+    faculties: jsfaculties,
+    arrivals: jsdays,
+    accommodation: jsaccommodation,
+
+    loading: true,
+    page: 1,
+    sortBy: { field: 'arrival', order: 'asc' },
+    filters: {
+      countries: [],
+      faculties: [],
+      accommodation: [],
+      arrivals: []
+    },
+
+    data: [],
+    pagesCount: 1
+  }),
+
+  created() {
+    // Called when user moves between history entries
+    window.addEventListener('popstate', this.updateFromQuery);
+
+    this.updateFromQuery();
+  },
+
+  methods: {
+    updateFromQuery() {
+      const query = parseQuery(location.search);
+
+      this.filters = {
+        countries: loadFilter(
+          this.countries,
+          query.countries,
+          filterToKey.countries
+        ),
+        faculties: loadFilter(
+          this.faculties,
+          query.faculties,
+          filterToKey.faculties
+        ),
+        accommodation: loadFilter(
+          this.accommodation,
+          query.accommodation,
+          filterToKey.accommodation
+        ),
+        arrivals: loadFilter(
+          this.arrivals,
+          query.arrivals,
+          filterToKey.arrivals
+        )
+      };
+
+      this.page = parseInt(query.page || '1', 10);
+
+      if (query.sort && Array.isArray(query.sort)) {
+        const [field, order] = query.sort;
+        this.sortBy = {
+          field,
+          order: order !== 'desc' ? 'asc' : 'desc'
+        };
+      }
+
+      this.update();
+    },
+
+    updateQuery() {
+      const filters = simplifyFilters(this.filters);
+      const query = Object.keys(filters).map(
+        key =>
+          encodeURIComponent(key) +
+          '=' +
+          encodeURIComponent(filters[key].join(','))
+      );
+
+      query.push('page=' + this.page);
+      query.push('sort=' + this.sortBy.field + ',' + this.sortBy.order);
+
+      history.pushState(null, '', '?' + query.join('&'));
+    },
+
+    goToPage(num) {
+      this.page = num;
+      this.update();
+      this.updateQuery();
+    },
+
+    filterChanged() {
+      this.goToPage(1);
+    },
+
+    update() {
+      this.loading = true;
+      axios
+        .post(
+          '/api/liststudents',
+          {
+            filters: simplifyFilters(this.filters),
+            page: this.page,
+            sortBy: this.sortBy
+          },
+          {
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          }
+        )
+        .then(res => {
+          const data = res.data;
+
+          this.data = data.data;
+          this.page = data.current_page;
+          this.pagesCount = data.last_page;
+
+          this.loading = false;
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Failed to load list of students: ' + err);
+
+          this.loading = false;
+        });
+    }
+  }
 });

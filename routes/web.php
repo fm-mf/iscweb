@@ -123,3 +123,10 @@ Route::prefix('czech')->namespace('Czech')->name('czech.')->group(function() {
     Route::get('/faq', 'WebController@showFaqPage')->name('faq');
     Route::get('/contacts', 'WebController@showContactsPage')->name('contacts');
 });
+
+Route::prefix('alumni')->namespace('Alumni')->name('alumni.')->group(function() {
+    Route::get('/', 'AlumniController@index')->name('index');
+    Route::resource('/newsletters', 'AlumniNewsletterController', ['except' => ['show']]);
+    Route::get('/newsletters/deleted', 'AlumniNewsletterController@showDeleted')->name('newsletters.deleted');
+    Route::patch('/newsletters/{id}/restore', 'AlumniNewsletterController@restore')->name('newsletters.restore');
+});

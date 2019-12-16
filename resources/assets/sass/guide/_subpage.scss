@@ -26,8 +26,8 @@ address {
 .container-fluid {
   height:100%;
 }
+
 #left-column {
-  position:absolute;
   top:0;
   left:100px;
   width:260px;
@@ -35,6 +35,8 @@ address {
   height:100%;
   padding: 0;
   margin:0;
+  display: flex;
+  flex-direction: column;
 }
 
 #sg-title h1 {
@@ -57,6 +59,7 @@ address {
   position:relative;
   width:100%;
   border-left:1px solid #eee;
+  flex-grow: 0;
 }
 #sg-title-bg {
   position:absolute;
@@ -92,9 +95,11 @@ address {
 }
 .menu {
   margin:0;
-  height:100%;
   background:#eee;
   padding-top: 1px;
+  flex-grow: 1;
+  min-width: 0px;
+  overflow: auto;
 }
 .menu > ul > li {
   border-left-width:10px;
@@ -283,26 +288,10 @@ address {
   margin-bottom: 20px;
 }
 
-#isc-intro > img {
+#isc-intro > img,
+#esn-cz-intro > img{
   width: 24rem;
   display: block;
-  float: left;
-  margin: 1rem;
-}
-
-#partners > img {
-  float: right;
-  width: 24rem;
-}
-
-h1, h2, h3 {
-  clear: both;
-}
-
-#isc-intro > img {
-  width: 24rem;
-  display: block;
-  float: left;
   margin: 1rem;
 }
 

@@ -101,6 +101,7 @@ return [
                 'settings' => ['edit'],
                 'details' => ['view'],
                 'votingResults' => ['view'],
+                'alumniNewsletter' => ['create', 'update', 'delete'],
             ],
             'inheritsFrom' => ['hr']
         ],
