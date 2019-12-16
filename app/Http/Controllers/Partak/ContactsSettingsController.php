@@ -51,6 +51,8 @@ class ContactsSettingsController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
+        $this->authorize('acl', 'settings.edit');
+
         $contact = Contact::create($request->all());
 
         return redirect(route('partak.settings.contacts.index'))->with([
@@ -105,6 +107,8 @@ class ContactsSettingsController extends Controller
      */
     public function update(UpdateContactRequest $request, Contact $contact)
     {
+        $this->authorize('acl', 'settings.edit');
+
         $contact->update($request->all());
 
         if ($request->ajax()) {
