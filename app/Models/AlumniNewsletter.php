@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -31,5 +32,14 @@ class AlumniNewsletter extends Model
     public function getDateSentFormattedAttribute()
     {
         return $this->date_sent->formatLocalized(__('formatting.full-date'));
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::addGlobalScope('defaultOrder', function (Builder $query) {
+            $query->orderByDesc('date_sent')->orderByDesc('id');
+        });
     }
 }
