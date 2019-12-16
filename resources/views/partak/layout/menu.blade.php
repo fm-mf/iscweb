@@ -16,6 +16,9 @@
                     @can('acl', 'settings.edit')
                         <li><a href="{{ url('partak/settings') }}" @if(Request::is('partak/settings') || Request::is('partak/settings/*')) class="active"@endif>Settings</a></li>
                     @endcan
+                    @if(Gate::check('acl', 'alumniNewsletter.create') || Gate::check('acl', 'alumniNewsletter.update') || Gate::check('acl', 'alumniNewsletter.delete'))
+                        <li><a href="{{ route('alumni.newsletters.index') }}">Alumni Newsletters</a></li>
+                    @endcan
                     @can('acl', 'logs')
                         <li><a href="{{ url('partak/logs') }}" @if(Request::is('partak/logs') || Request::is('partak/logs/*')) class="active"@endif>Logs</a></li>
                     @endcan
