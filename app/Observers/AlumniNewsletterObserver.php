@@ -21,4 +21,9 @@ class AlumniNewsletterObserver
     {
         $alumniNewsletter->deletedBy()->associate(auth()->user());
     }
+
+    public function restoring(AlumniNewsletter $alumniNewsletter)
+    {
+        $alumniNewsletter->deletedBy()->dissociate();
+    }
 }

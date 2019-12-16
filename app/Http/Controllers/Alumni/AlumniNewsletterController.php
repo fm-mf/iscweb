@@ -9,11 +9,18 @@ use Illuminate\Http\Request;
 class AlumniNewsletterController extends Controller
 {
 
+    private $newsletterValidationRules = [
+        'title' => ['required', 'string'],
+        'perex' => ['string', 'nullable'],
+        'date_sent' => ['required', 'date'],
+        'link' => ['required', 'active_url'],
+    ];
+
     public function __construct()
     {
         app()->setLocale('cs');
         setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index']);
     }
 
     /**
@@ -50,12 +57,7 @@ class AlumniNewsletterController extends Controller
     {
         $this->authorize('acl', 'alumniNewsletter.create');
 
-        $data = $request->validate([
-            'title' => ['required', 'string'],
-            'perex' => ['string', 'nullable'],
-            'date_sent' => ['required', 'date'],
-            'link' => ['required', 'active_url'],
-        ]);
+        $data = $request->validate($this->newsletterValidationRules);
 
         AlumniNewsletter::create($data);
 
@@ -63,51 +65,83 @@ class AlumniNewsletterController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the soft-deleted resources.
      *
-     * @param  \App\Models\AlumniNewsletter  $alumniNewsletter
      * @return \Illuminate\Http\Response
      */
-    public function show(AlumniNewsletter $alumniNewsletter)
+    public function showDeleted()
     {
-        //
+        $this->authorize('acl', 'alumniNewsletter.create');
+        $this->authorize('acl', 'alumniNewsletter.delete');
+
+        $deletedNewsletters = AlumniNewsletter::onlyTrashed()->paginate(10);
+
+        return view('alumni.newsletters.deleted')->with('deletedNewsletters', $deletedNewsletters);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AlumniNewsletter  $alumniNewsletter
+     * @param  \App\Models\AlumniNewsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function edit(AlumniNewsletter $alumniNewsletter)
+    public function edit(AlumniNewsletter $newsletter)
     {
         $this->authorize('acl', 'alumniNewsletter.update');
+
+        return view('alumni.newsletters.edit')->with('newsletter', $newsletter);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AlumniNewsletter  $alumniNewsletter
+     * @param  \App\Models\AlumniNewsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AlumniNewsletter $alumniNewsletter)
+    public function update(Request $request, AlumniNewsletter $newsletter)
     {
         $this->authorize('acl', 'alumniNewsletter.update');
+
+        $data = $request->validate($this->newsletterValidationRules);
+
+        $newsletter->update($data);
+
+        return redirect()->route('alumni.newsletters.index')->withSuccess("Newsletter byl úspěšně aktualizován.");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AlumniNewsletter  $alumniNewsletter
+     * @param  \App\Models\AlumniNewsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AlumniNewsletter $alumniNewsletter)
+    public function destroy(AlumniNewsletter $newsletter)
     {
         $this->authorize('acl', 'alumniNewsletter.delete');
-        if (!$alumniNewsletter->delete()) {
+        if (!$newsletter->delete()) {
             return redirect()->route('alumni.newsletters.index')->withErrors("Newsletter se nepodařilo odstranit!");
         }
         return redirect()->route('alumni.newsletters.index')->withSuccess("Newsletter byl úspěšně odstraněn!");
+    }
+
+    /**
+     * Restores the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($id)
+    {
+        $this->authorize('acl', 'alumniNewsletter.delete');
+        $this->authorize('acl', 'alumniNewsletter.create');
+
+        $newsletter = AlumniNewsletter::onlyTrashed()->findOrFail($id);
+
+        if (!$newsletter->restore()) {
+            return redirect()->route('alumni.newsletters.deleted')->withErrors("Newsletter se nepodařilo obnovit!");
+        }
+
+        return redirect()->route('alumni.newsletters.deleted')->withSuccess("Newsletter byl úspěšně obnoven!");
     }
 }

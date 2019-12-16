@@ -125,6 +125,8 @@ Route::prefix('czech')->namespace('Czech')->name('czech.')->group(function() {
 });
 
 Route::prefix('alumni')->namespace('Alumni')->name('alumni.')->group(function() {
-   Route::get('/', 'AlumniController@index')->name('index');
-   Route::resource('/newsletters', 'AlumniNewsletterController');
+    Route::get('/', 'AlumniController@index')->name('index');
+    Route::resource('/newsletters', 'AlumniNewsletterController', ['except' => ['show']]);
+    Route::get('/newsletters/deleted', 'AlumniNewsletterController@showDeleted')->name('newsletters.deleted');
+    Route::patch('/newsletters/{id}/restore', 'AlumniNewsletterController@restore')->name('newsletters.restore');
 });
