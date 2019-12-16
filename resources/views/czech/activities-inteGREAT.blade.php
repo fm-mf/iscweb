@@ -42,13 +42,15 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="container">
-            <div class="row contacts">
-                <div class="col-auto mx-auto">
-                    @include('partials.contact', ['contact' => $contactInteGreat])
+    @isset($contactInteGreat)
+        <section>
+            <div class="container">
+                <div class="row contacts">
+                    <div class="col-auto mx-auto">
+                        @include('partials.contact', ['contact' => $contactInteGreat])
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 @endsection

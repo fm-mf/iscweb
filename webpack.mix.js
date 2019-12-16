@@ -31,7 +31,6 @@ mix.js('resources/assets/js/echangestudentslist.js', 'public/js')
     .sass('resources/assets/sass/saf/saf.scss', 'public/css')
     .sass('resources/assets/sass/saf/saf-partner.scss', 'public/css')
     .copy('node_modules/@fortawesome/fontawesome-free/webfonts/*', 'public/fonts/font-awesome')
-    .copy('node_modules/@fortawesome/fontawesome-free/webfonts/*', 'public/fonts/font-awesome')
     .options({
         processCssUrls: false
      });

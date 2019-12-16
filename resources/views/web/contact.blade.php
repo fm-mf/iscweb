@@ -92,8 +92,8 @@
                                 <h4>{{ $contact['name'] }}</h4><br>
                                 <strong>{{ $contact['position'] }}</strong><br>
                                 Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
-                                @if(mb_strlen($contact['phone']) === 16)
-                                    Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
+                                @if($contact->phone_visible)
+                                    Phone: <a href="tel:{{ $contact['phone'] }}">{{ $contact['phoneWithSpaces'] }}</a><br>
                                 @endif
                             </div>
                             <span class="clearfix"></span>

@@ -73,13 +73,15 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="container">
-            <div class="row contacts">
-                <div class="col-auto mx-auto">
-                    @include('partials.contact', ['contact' => $contactLanguages])
+    @isset($contactLanguages)
+        <section>
+            <div class="container">
+                <div class="row contacts">
+                    <div class="col-auto mx-auto">
+                        @include('partials.contact', ['contact' => $contactLanguages])
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 @endsection

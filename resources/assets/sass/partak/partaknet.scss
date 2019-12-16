@@ -7,6 +7,11 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Font Awesome
+$fa-font-path: "/fonts/font-awesome";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
 @import "../common/columns";
 
 * {
@@ -407,3 +412,5 @@ a.disabled {
 }
 
 @import "users";
+
+@import "contacts-settings";
