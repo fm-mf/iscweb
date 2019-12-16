@@ -144,9 +144,9 @@ class Contact extends Model
         return $query->whereIn('position', $positions);
     }
 
-    public function scopeNextOrder(Builder $query)
+    public function scopeGetNextOrder(Builder $query)
     {
-        return $query->max('order') + 1;
+        return $this->max('order') + 1;
     }
 
     public function scopeAllWithSubsequentOrder(Builder $query, $startOrder)
