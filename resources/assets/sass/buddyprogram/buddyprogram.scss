@@ -147,185 +147,121 @@ main {
   text-transform: uppercase;
 }
 
-/*
-html, body {
-  width: 100%;
-  height: 100%;
-  font-family: 'Roboto', sans-serif;
-}
-
-* {
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  border-radius: 0 !important;
-}
-
-
-.errors {
-  color: #ca0f0f !important;
-}
-
-.statistics {
-  padding-top:30px;
-  text-align: center;
-}
-
-.statistics strong {
-  font-size: 200%;
-}
-
-.nav li {
-  text-transform: uppercase;
-}
-
-.site-wrapper {
-  h1 {
-    font-size: 25px;
-    margin:0; margin-bottom:40px;
+.list-table {
+  .div-tr {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #dee2e6;
   }
 
-  h2 {
-    font-size: 20px;
-    margin-top: 10px;
-  }
-
-  h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
-
-  button {
-    margin-top: 20px;
-  }
-
-  .menu a {
-    color:#fff;
-  }
-
-  .menu {
-    position:fixed;
-    top:0;
-    left:0;
-    height:100%;
-    padding-top:40px;
-    width: $menu-width;
-    text-align:center;
-    background:#2F2F2F;
-    border-right:5px solid  #4B4B4B;
-  }
-  .menu > ul > li > a {
-    font-size:11px;
-    font-variant:normal;
-    color:#989898;
-    border-top:1px solid #585858;
-    border-bottom:1px solid #111111;
-    padding-top:10px;
-    padding-bottom:10px;
-    padding-left:0;
-    padding-right:0;
-  }
-
-  .menu > ul > li > a:hover {
-    color:#1B677E;
-  }
-
-  .info {
-    position:fixed;
-    top:0;
-    left:$menu-width;
-    height:100%;
-    padding-top:40px;
-    width: 280px;
-    text-align:center;
-    background:#4a9ec5;
-    border-right:5px solid #4084a4;
-    line-height:22px;
-  }
-
-  .info h1 {
-    text-align:left;
-    padding-left:40px;
-    margin-bottom:20px;
-  }
-
-  .info h1 span {
-    color:#fff;
-    font-size:40px;
-  }
-
-  .info p {
-    padding:40px;
-    padding-top:0;
-    color:#fff;
-    text-align:left;
-  }
-
-
-  li.logout {
-    padding-top:40px;
-  }
-
-  .page {
-    margin-left: 100px;
-    background:#fff;
-
-    min-height:100%;
-    padding:80px;
-  }
-
-  table td, table th {
-    padding-top:8px;
-    padding-bottom:8px;
-    padding-left:10px;
-    padding-right:40px;
-    border-bottom:1px solid #A6A6A6;
-  }
-
-  .btn-xs {
-    padding: 0px 5px;
-    line-height: 1.45;
-  }
-
-  .avatar-view {
-    display: block;
-    width: 100%;
-    border: 3px solid #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,.15);
+  .div-cell {
+    flex: 1;
     overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.5rem;
+
+    &.name {
+      flex: 2;
+    }
+
+    &.country {
+      flex: 1.2;
+    }
+
+    &.faculty {
+      $width: 120px;
+      flex: 0;
+      min-width: $width;
+      max-width: $width;
+      width: $width;
+    }
   }
 
-  .avatar-edit {
-    cursor: pointer;
+  .div-header {
+    border-bottom: 2px solid #dee2e6;
+    font-weight: bold;
   }
-  .avatar-view img {
-    width: 100%;
+
+  .div-body {
+    .div-tr {
+      &:nth-child(odd) {
+        background-color: rgba(0,0,0,.05);
+      }
+    }
   }
 }
 
-select {
-  min-width: 100px;
+@media screen and (max-width: 990px) {
+  .div-tr {
+    flex-wrap: wrap;
+
+    .div-cell {
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 0.2rem 0.5rem;
+
+      &.name {
+        min-width: 70%;
+      }
+
+      &.country {
+        min-width: 30%;
+      }
+
+      &.school {
+        min-width: 25%;
+      }
+
+      &.faculty {
+        $width: 15%;
+        min-width: $width;
+        max-width: $width;
+        width: $width;
+      }
+
+
+      &.arrival,
+      &.accomodation {
+        min-width: 30%;
+      }
+    }
+  }
 }
 
-.buddy-actions {
-  margin-top: 20px;
-}
+@media screen and (max-width: 600px) {
+  .div-tr {
+    flex-wrap: wrap;
+    padding: 0.2rem 0;
 
-.show-email, .flash {
-  background: #dcebbe;
-  padding: 20px;
-  width: auto;
-  border-left: 5px solid #adcf65;
-}
+    .div-cell {
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 0.15rem 0.5rem;
 
-.flash {
-  background: #f9bfbf;
-  border-left: 5px solid #f27979;
-  color: #650a0a;
-}
+      &.name {
+        min-width: 100%;
+      }
 
-.show-info {
-  margin-top: 15px;
-}
-*/
+      &.country {
+        min-width: 100%;
+      }
 
+      &.school {
+        min-width: 50%;
+      }
+
+      &.faculty {
+        $width: 50%;
+        min-width: $width;
+        max-width: $width;
+        width: $width;
+      }
+
+
+      &.arrival,
+      &.accomodation {
+        min-width: 100%;
+      }
+    }
+  }
+}
