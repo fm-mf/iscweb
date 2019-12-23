@@ -71,8 +71,8 @@
 
     <h3 class="col-sm-12"><span>ADDITIONAL CONTACTS</span></h3>
     <p class="help-block col-sm-12">Your buddy will receive your e-mail as a primary contact. If you want to provide more ways to contact you, you can enter them here.</p>
-    {{ Form::bsText('whatsapp', 'WhatsApp', '', $student->whatsapp) }}
-    {{ Form::bsText('facebook', 'Facebook', '', $student->facebook) }}
+    {{ Form::bsTel('whatsapp', 'WhatsApp', null, $student->whatsapp, [], 'Full number, with your country prefix') }}
+    {{ Form::bsText('facebook', 'Facebook', '', $student->facebook, [], 'Full link to your facebook profile') }}
 
     <h3 class="col-sm-12"><span>COUNTRY PRESENTATION</span></h3>
     <div class="col-sm-12 form-group">
