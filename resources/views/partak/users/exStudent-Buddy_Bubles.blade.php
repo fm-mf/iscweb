@@ -10,6 +10,8 @@
             @can('acl', 'exchangeStudents.edit')<a href="{{ url('partak/users/exchange-students/edit/' . $exStudent->id_user) }}" class="btn btn-xs btn-success edit-button"><span class="glyphicon glyphicon-pencil up"></span> Edit</a> <br>@endcan
             <span class="glyphicon glyphicon-envelope up buddy-detail-icon"></span> {{ $exStudent->person->user->email }} <br>
             <span class="glyphicon glyphicon-phone-alt buddy-detail-icon"></span> {{ $exStudent->phone ?? 'No Phone' }}<br>
+            <i class="fab fa-whatsapp fa-fw buddy-detail-icon"></i> {{ $exStudent->whatsapp ?? 'No WhatsApp' }}<br>
+            <i class="fab fa-facebook fa-fw buddy-detail-icon"></i> {{ $exStudent->facebook ?? 'No Facebook' }}<br>
             @if($exStudent->esn_registered === 'y') <span class="glyphicon glyphicon-ok buddy-detail-icon"  style="color: #449D44"></span> ESN Registered
             @else <span class="glyphicon glyphicon-remove buddy-detail-icon" style="color: #C9302C"></span> Not ESN Registered
             @endif

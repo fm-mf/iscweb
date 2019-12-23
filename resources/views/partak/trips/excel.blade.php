@@ -18,6 +18,7 @@
                     <th>Sex</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>WhatsApp</th>
                     <th>ESN cart number</th>
                     <th>Accommodation</th>
                     <th>Comment to payment</th>
@@ -37,6 +38,7 @@
                         <td>{{ $participant->getSex() }}</td>
                         <td>{{ $participant->user->email }}</td>
                         <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? ''}}</td>
+                        <td>{{ $participant->exchangeStudent->whatsapp ?? ''}}</td>
                         <td>{{ $participant->exchangeStudent->esn_card_number ?? '' }}</td>
                         <td>{{ $participant->exchangeStudent->accommodation->full_name ?? ''}}</td>
                         <td>{{ $participant->pivot->comment }}</td>

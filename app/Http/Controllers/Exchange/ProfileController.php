@@ -28,7 +28,7 @@ class ProfileController extends Controller
         }
 
         $transportations = [];
-        foreach(Transportation::all() as $transportation) {
+        foreach (Transportation::all() as $transportation) {
             $transportations[$transportation->id_transportation] = $transportation->eng;
         }
 
@@ -74,6 +74,8 @@ class ProfileController extends Controller
         $student = ExchangeStudent::find($user->id_user);
         $student->about = $request->about;
         $student->id_accommodation = $request->accommodation;
+        $student->whatsapp = $request->whatsapp;
+        $student->facebook = $request->facebook;
 
         if (!$request->arrival_skipped && $request->date && $request->transportation) {
             $arrival = $student->arrival;
@@ -86,7 +88,7 @@ class ProfileController extends Controller
             $arrival->arrival = Carbon::createFromFormat('d M Y g:i A', $request->date . ' ' . $time);
 
             $arrival->save();
-        } else if ($student->arrival) {
+        } elseif ($student->arrival) {
             $student->arrival->delete();
         }
 
@@ -111,7 +113,6 @@ class ProfileController extends Controller
         ]);
 
         return redirect('/exchange/'.$request->hash)->with('success', true);
-
     }
 
     public function showFlagParade($hash)
@@ -121,8 +122,8 @@ class ProfileController extends Controller
             $signIn = Trip::wherehas('event', function ($query) {
                 $query->where('name', 'Flag Parade');
             })->whereHas('participants.user', function ($query) use ($hash) {
-                    $query->where('hash', $hash);
-                })->exists();
+                $query->where('hash', $hash);
+            })->exists();
             return view('exchange.FlagParadeRegistration')->with([
                 'hash' => $hash,
                 'signIn' => $signIn,

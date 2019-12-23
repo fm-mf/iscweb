@@ -13,6 +13,7 @@
     <meta property="og:url" content="">
     <meta property="og:image" content="">
 
+    <link href="{{ asset('fa/css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
 
     @section('stylesheets')
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">

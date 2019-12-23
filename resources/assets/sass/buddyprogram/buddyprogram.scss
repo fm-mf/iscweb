@@ -101,6 +101,21 @@ main {
     --border-color: #adcf65;
   }
 
+  .show-email {
+    ul.contacts-list {
+      list-style-type: none;
+      padding-left: 1rem;
+      
+      .fa-whatsapp {
+        color: #139B2F;
+      }
+
+      .fa-facebook {
+        color: #4267B2;
+      }
+    }
+  }
+
   .pagination {
     padding-bottom: 0.5rem;
     justify-content: center;
