@@ -22,6 +22,7 @@
                     <th>Medical issues</th>
                     <th>Sex</th>
                     <th>Phone</th>
+                    <th>WhatsApp</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@
                         <td>{{ $participant->medical_issues }}</td>
                         <td>{{ $participant->getSex() }}</td>
                         <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '' }}</td>
+                        <td>{{ $participant->exchangeStudent->whatsapp ?? '' }}</td>
                     </tr>
                 @endforeach
             </tbody>

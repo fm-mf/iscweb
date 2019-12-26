@@ -26,6 +26,8 @@
                     {{ Form::model($exStudent, ['url' => 'partak/users/exchange-students/edit/'. $exStudent->id_user, 'method' => 'patch']) }}
                         {{ Form::bsText('email', 'Email','required', $exStudent->person->user->email) }}
                         {{ Form::bsText('phone', 'Phone') }}
+                        {{ Form::bsTel('whatsapp', 'WhatsApp', '', null, [], 'Full number including the country prefix') }}
+                        {{ Form::bsUrl('facebook', 'Facebook', '', null, [], 'Full link to the Facebook profile') }}
                         {{ Form::label('esn_registered', 'ESN registered', ['class' => 'control-label']) }}
                         {{ Form::checkbox('esn_registered', 'y', $exStudent->esn_registered == 'y') }}
                         {{ Form::bsText('esn_card_number', 'ESN card number') }}

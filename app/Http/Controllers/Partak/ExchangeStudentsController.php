@@ -18,6 +18,8 @@ class ExchangeStudentsController extends Controller
 {
     protected function profileValidator(array $data,$id)
     {
+        $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
+
         $validator = Validator::make($data, [
             'phone' => 'max:15',
             'age' => 'digits:4',
@@ -29,6 +31,8 @@ class ExchangeStudentsController extends Controller
             ],
             'esn_card_number' => 'max:12',
             'medical_issues' => 'max:255',
+            'whatsapp' => ['phone:AUTO', 'nullable'],
+            'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
         ]);
         return $validator;
     }

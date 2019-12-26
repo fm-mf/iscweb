@@ -65,7 +65,16 @@
             @elseif ($exchangeStudent->id_buddy === Auth::id())
                 <div class="show-email">
                     <p><strong>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</strong> je tvým Buddym!</p>
-                    <p>Teď mu můžeš napsat na <a href="mailto:{{ $exchangeStudent->person->user->email }}">{{ $exchangeStudent->person->user->email }}</a></p>
+                    <p>Teď mu můžeš napsat! Dostupné kontakty:</p>
+                    <ul class="contacts-list">
+                        <li><i class="fas fa-envelope fa-fw" alt="E-mail" title="E-mail"></i> <a href="mailto:{{ $exchangeStudent->person->user->email }}">{{ $exchangeStudent->person->user->email }}</a></li>
+                        @if ($exchangeStudent->whatsapp)
+                        <li><i class="fab fa-whatsapp fa-fw" alt="WhatsApp" title="WhatsApp"></i> {{ $exchangeStudent->whatsapp }}</li>
+                        @endif
+                        @if ($exchangeStudent->facebook)
+                        <li><i class="fab fa-facebook fa-fw" alt="Facebook" title="Facebook"></i> <a href="{{ $exchangeStudent->facebook }}">{{ $exchangeStudent->facebook }}</a></li>
+                        @endif
+                    </ul>
                 </div>
             @else
                 <div class="show-email">
