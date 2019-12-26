@@ -14,10 +14,9 @@
             Materials from CTU
             <ul>
                 <li>Dorm regulations</li>
-                <li>Public transportation pass form</li>
+                <li>Confirmation of study</li>
                 <li>How to connect to EDUROAM</li>
                 <li>Health and safety regulations</li>
-                <li>New map of the CTU campuses</li>
                 <li>and much more</li>
             </ul>
         </li>
@@ -25,11 +24,10 @@
             Materials from ISC
             <ul>
                 <li>Printed Survival Guide</li>
-                <li>ISC activities booklet including a list of trips</li>
+                <li>List of trips</li>
             </ul>
         </li>
         <li>Small gifts</li>
-        <li>USE-IT map of Prague</li>
     </ul>
     <h2>How to get to the ISC Point</h2>
     <ul>
@@ -50,7 +48,8 @@
             </ol>
         </li>
     </ul>
-    <div class="bg-info">
+
+    <div class="bg-info" style="margin-top: 4rem">
         <p>Note: If you don't buy a public transport card immediately after your arrival, you need to buy and validate a <strong>24&nbsp;CZK</strong> single ticket (you can buy a ticket from an orange ticket machine or from a stand operated by DPP = the Prague Public Transport Company).</p>
         <p>For further information, visit <a href="https://pid.cz/en/" target="_blank">pid.cz/en</a></p>
     </div>

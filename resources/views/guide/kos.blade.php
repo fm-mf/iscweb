@@ -17,9 +17,11 @@
     <h2>KOS (Study Information System)</h2>
     <ul class="list-unstyled">
         <li>First you have to get your <strong>login information</strong> in the VIC centre (Student House, <a href="https://goo.gl/maps/PcZMkQ6UZRn" target="_blank">Bechyňova 2571/3, Praha 6</a>, the same place where you get your University ID card)
+            <!--
             <ul>
                 <li>This can be done from February 9th 2019</li>
             </ul>
+            -->
         </li>
         <li>Then visit <a href="https://kos.cvut.cz">KOS page</a>, switch to English (first) and log in</li>
         <li>In &quot;Subjects&quot; and &quot;Timetable&quot; you can see enrolled courses and your schedule</li>
