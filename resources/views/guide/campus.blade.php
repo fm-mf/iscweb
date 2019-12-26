@@ -150,10 +150,10 @@
         <dt>Faculty of Information Technology</dt>
             <dd><a href="https://www.fit.cvut.cz/en/student/classrooms" target="_blank">Classrooms location</a></dd>
             <dd>Thákurova 9, Prague 6, 160 00</dd>
-            <dd>Hana Křížová, office: T9:312d</dd>
-            <dd>Office of External Affairs</dd>
-            <dd>Phone: <a href="tel:+420 224 359 826">+420 224 359 826</a></dd>
-            <dd>Email: <a href="mailto:hana.krizova@fit.cvut.cz">hana.krizova@fit.cvut.cz</a></dd>
+            <dd>Ludmila Facer, office: T9:312d</dd>
+            <dd>Office of Study Affairs</dd>
+            <dd>Phone: <a href="tel:+420 224 359 837">+420 224 359 837</a></dd>
+            <dd>Email: <a href="mailto:ludmila.facer@fit.cvut.cz">ludmila.facer@fit.cvut.cz</a></dd>
         <dt>Masaryk Institute of Advanced Studies</dt>
             <dd>Kolejní 2637/2a, Prague 6, 160 00</dd>
             <dd>Mgr. Gabriela Dohnalová, office: m111</dd>
