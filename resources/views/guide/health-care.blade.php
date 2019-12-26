@@ -4,24 +4,44 @@
 
 @section('content')
     <h1>Health care</h1>
+
+    @component('guide.section-nav', ['items' => [
+        'ehic' => 'EHIC card',
+        'urgent-care' => 'Urgent medical treatment',
+        'standard-care' => 'Standard medical care',
+        'pharmacies' => 'Pharmacies near the main campus',
+        'prescriptions' => 'Prescriptions',
+        'english-care' => [
+            'title' => 'English speaking medical care',
+            'items' => [
+                'motol' => 'Motol University Hospital',
+                'military' => 'Military University Hospital Prague &ndash; Střešovice',
+                'polyclinic' => 'Městská poliklinika Praha',
+                'student-center' => 'Student Health Centre'
+            ]
+        ],
+        'vocab' => 'Helpful vocab'
+    ]])
+    @endcomponent
+
     <ul>
         <li>International students normally have quite good experience with the ordinary public Czech health care services.</li>
         <li>Usually there is no need to visit a private practice and pay extra for it</li>
-        <li>Please inform the International Office (or your faculty contact person) about any health condition that should be notified (e.g. diabetes).</li>
+        <li>Please inform the <a href="{{ url('guide/campus#ctu-international-office') }}">International Office</a> (or your <a href="{{ url('guide/campus#faculty-contacts') }}">faculty contact person</a>) about any health condition that should be notified (e.g. diabetes).</li>
     </ul>
 
-    <h2>EHIC card</h2>
+    <h2 id="ehic">EHIC card</h2>
     <img src="{{ asset('img/guide/ehic.jpg') }}" />
     <p>For students from the EU it is necessary to have a European Health Insurance Card (EHIC) with confirmation from VZP (public health insurance system in CR).</p>
     <p>See &quot;<a href="{{ url('guide/cards#ehic') }}">Cards</a>&quot; to find how to get this confirmation.</p>
 
-    <h2>Urgent medical treatment</h2>
+    <h2 id="urgent-care">Urgent medical treatment</h2>
     <ul>
         <li>CZK 90 extra fee</li>
         <li>when you go to the hospital in &quot;ambulance hours&quot; (&quot;Pohotovost/Ambulance&quot;) (different for each hospital) </li>
     </ul>
 
-    <h2>Standard medical care</h2>
+    <h2 id="standard-care">Standard medical care</h2>
     <ul>
         <li>must be paid on the spot</li>
         <li>bring cash with you (especially dentists’ treatments are really expensive)</li>
@@ -39,7 +59,7 @@
         </li>
     </ul>
 
-    <h2>Pharmacies near the main campus</h2>
+    <h2 id="pharmacies">Pharmacies near the main campus</h2>
     <dl>
         <dt>Dr. Max</dt>
         <dd>Vítězné nám. 13, Praha 6</dd>
@@ -60,7 +80,7 @@
         <dd>Mon - Fri: 8:00 - 18:30</dd>
     </dl>
 
-    <h2>Prescriptions</h2>
+    <h2 id="prescriptions">Prescriptions</h2>
     <ul>
         <li>Issued through the doctor</li>
         <li>Dispensed by any pharmacy</li>
@@ -68,10 +88,10 @@
         <li>Some medicines that you can get over-the-counter in your country may be sold only on prescription here</li>
     </ul>
 
-    <h2>English speaking medical care</h2>
+    <h2 id="english-care">English speaking medical care</h2>
     <p>In case of emergency call <strong><a href="tel:112">112</a></strong></p>
 
-    <h3>Motol University Hospital</h3>
+    <h3 id="motol">Motol University Hospital</h3>
     <ul>
         <li><strong>Ambulance</strong></li>
         <li>English speaking centre for foreigners (&quot;Cizinecká ambulance&quot;)</li>
@@ -91,7 +111,7 @@
         <li><a href="https://www.fnmotol.cz/en/samoplatci/health-care-services-for-foreigners/" target="_blank">www.fnmotol.cz/en/samoplatci/health-care-services-for-foreigners/</a></li>
     </ul>
 
-    <h3>Military University Hospital Prague &ndash; Střešovice</h3>
+    <h3 id="military">Military University Hospital Prague &ndash; Střešovice</h3>
     <ul>
         <li>Information desk (24/7, English speaking): <a href="tel:+420 973 208 333">+420 973 208 333</a> (they will direct you to the right person)</li>
         <li><address>U Vojenské nemocnice 1200, Praha 6</address></li>
@@ -99,7 +119,7 @@
         <li><a href="https://www.uvn.cz/index.php?option=com_content&view=article&id=5082&Itemid=2032&lang=en" target="_blank">Military University Hospital Prague website</a></li>
     </ul>
 
-    <h3>Městská poliklinika Praha</h3>
+    <h3 id="polyclinic">Městská poliklinika Praha</h3>
     <ul>
         <li><address>Spálená 12, Praha 1</address></li>
         <li><a href="tel:+420 222 924 211">+420 222 924 211</a></li>
@@ -107,7 +127,7 @@
         <li>Most of the doctors are English-speaking. For contacts and office hours see <a hre="http://www.prahamp.cz/index.php?oid=1262545" target="_blank">their website (only in CZ -> ask your buddy to help you with translation)</a></li>
     </ul>
 
-    <h3>Student Health Centre</h3>
+    <h3 id='student-center'>Student Health Centre</h3>
     <ul>
         <li>Bechyňova 3, Praha 6, 2nd floor</li>
         <li>
@@ -132,7 +152,7 @@
         </li>
     </ul>
 
-    <h2>Helpful vocab</h2>
+    <h2 id="vocab">Helpful vocab</h2>
     <dl>
         <dt>Ache/pain</dt>
         <dd>Bolest</dd>

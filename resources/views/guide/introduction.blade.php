@@ -8,7 +8,7 @@
         We are the <strong>International Student Club at the Czech Technical University
         in Prague</strong> (ISC CTU in Prague) and our history dates to 1999, when ISC was
         established just by two students. Our members are mostly Czech students and
-        we all are volunteers. We want to help international students especially at the
+        we are all volunteers. We want to help international students especially at the
         beginning of the semester by the Buddy Program. We also want to make your exchange
         in Prague the most exciting. That’s why we organize activities such as trips,
         languages courses and much more. We have prepared this Survival Guide where you can find

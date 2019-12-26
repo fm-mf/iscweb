@@ -48,7 +48,7 @@
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'transportation']) }}"{!! $active == 'transportation' ? 'class="active"' : '' !!}>Transportation</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'money-exchange']) }}"{!! $active == 'money-exchange' ? 'class="active"' : '' !!}>Money exchange</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'post-office']) }}"{!! $active == 'post-office' ? 'class="active"' : '' !!}>Post office</a></li>
-                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'phone']) }}"{!! $active == 'phone' ? 'class="active"' : '' !!}>Phone</a></li>
+                        <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'phone']) }}"{!! $active == 'phone' ? 'class="active"' : '' !!}>Important numbers</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'culture-shock']) }}"{!! $active == 'culture-shock' ? 'class="active"' : '' !!}>Culture shock</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'czech-phrases']) }}"{!! $active == 'czech-phrases' ? 'class="active"' : '' !!}>Czech phrases</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'funny-facts']) }}"{!! $active == 'funny-facts' ? 'class="active"' : '' !!}>Funny facts</a></li>

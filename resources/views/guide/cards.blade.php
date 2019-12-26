@@ -4,13 +4,70 @@
 
 @section('content')
     <h1>Cards</h1>
-    <p>Without delay, obtain your University ID card purchase a Prague City public transportation card,
-        and (for EU citizens) register for health care on the basis of your EHIC card</p>
 
-    <h2>University ID card</h2>
-    <p>There are two options, you can make your own choice.</p>
+    @component('guide.section-nav', ['items' => [
+        'university-id' => [
+            'title' => 'University ID card',
+            'items' => [
+                'ctu-id' => 'CTU Student Identity Card',
+                'ctu-isic-id' => 'International Student Identity Card with the CTU logo',
+                'where-to-get-ctu-id' => 'Where to get it'
+            ]
+        ],
+        'transportation-card' => [
+            'title' => 'Public transportation card',
+            'items' => [
+                'pid-paper-pass' => 'PID pass + season paper ticket',
+                'student-pid-paper-pass' => 'Season paper ticket with your University ID card',
+                'litacka' => 'Lítačka electronic card',
+                'pid-student-discount' => 'Student discount'
+            ]
+        ],
+        'ehic' => 'Health insurance card'
+    ]])
+    @endcomponent
 
-    <h3>CTU Student Identity Card</h3>
+    <p>
+        Once you arrive, you should obtain following cards:
+        <ul>
+            <li><a href="#university-id">University ID</a>
+                <ul>
+                    <li>Allows access to university buildings, library, cafiteria and more</li>
+                </ul>
+            </li>
+            <li><a href="#transportation-card">Prague City public transportation card</a>
+                <ul>
+                    <li>Public transport is essential in Prague and you get a big discount as a student</li>
+                </ul>
+            </li>
+            <li><a href="#ehic">(for EU citizens) Register for health care on the basis of your EHIC card</a>
+                <ul>
+                    <li>Required if you want to use your european insurance</li>
+                </ul>
+            </li>
+        </ul>
+    </p>
+
+    <h2 id="university-id">University ID card</h2>
+    <p>For your University ID card, you can choose from two options:</p>
+
+    <ul>
+        <li><a href="#ctu-id">CTU Student Identity Card</a>
+        <ul>
+            <li>Basic CTU card, works for anything CTU related</li>
+            <li>Free, but not universally accepted</li>
+        </ul>
+        </li>
+        <li><a href="#ctu-isic-id">International Student Identity Card with the CTU logo</a>
+        <ul>
+            <li>Works same as CTU Student Identity Card</li>
+            <li>Costs CZK 380, but is more widely accepted</li>
+            <li>Easier to identify as <a href="{{ url('guide/transportation#student-discount') }}">student in trains</a>
+        </ul>
+        </li>
+    </ul>
+
+    <h3 id="ctu-id">CTU Student Identity Card</h3>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/cvut-student.jpg') }}" alt="CTU Student Identity Card" title="CTU Student Identity Card" /></li>
         <li><strong>Price: for free</strong>, in  the case of loss, a fee of CZK 200 is charged for a duplicate</li>
@@ -25,7 +82,7 @@
         </li>
     </ul>
 
-    <h3>International Student Identity Card with the CTU logo</h3>
+    <h3 id="ctu-isic-id">International Student Identity Card with the CTU logo</h3>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/isic.jpg') }}" alt="International Student Identity Card with the CTU logo" title="International Student Identity Card with the CTU logo" /></li>
         <li><strong>Price: CZK 380</strong>, in  the case of loss, a fee of CZK 200 is charged for a duplicate</li>
@@ -33,7 +90,7 @@
         <li>In addition, serves as the only accepted international student identity card in 116 countries and offers many discounts (for further information visit <a href="https://www.isic.org" target="_blank">www.isic.org</a></li>
     </ul>
 
-    <h3>Where to get it</h3>
+    <h3 id="where-to-get-ctu-id">Where to get it</h3>
     <p>Identity Card Publishing House</p>
     <dl>
         <dt>Address</dt>
@@ -49,29 +106,74 @@
     <p>To avoid long queues you can register yourself for specific date and time via <a href="http://ke.customer.decent.cz/a021/obj/index.php?lang=en" target="_blank">the electronic reservation system</a>.</p>
 
     <h2 id="transportation-card">Public transportation card</h2>
-    <p>You can buy a PID pass with a season paper ticket, buy a season paper ticket with your University ID card or buy a Lítačka electronic card.</p>
+    <p>When you're buying seasonal Prague public transport ticket, you have multiple choices how to do it:</p>
 
-    <h3>PID pass + season paper ticket</h3>
+    <ul>
+        <li><a href="#pid-paper">Paper version</a>
+            <ul>
+                <li>Can be done at the airport, you don't need to have czech ISIC card</li>
+            </ul>
+        </li>
+        <li><a href="#pid-electro">Electronic version</a>
+            <ul>
+                <li>Easier if you already have your czech ISIC card</li>
+            </ul>
+        </li>
+        <li><a href="#litacka">Lítačka card</a></li>
+    </ul>
+
+    <h3 id="pid-paper">Paper version</h3>
+
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/pid-pass-vs.jpg') }}" alt="PID pass" title="PID pass" /> + <img src="{{ asset('img/guide/season-paper-ticket-30-days.jpg') }}" alt="PID season ticket" title="PID season ticket" /></li>
         <li><strong>Price: CZK 20</strong> (for a PID pass) + <strong><a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></strong></li>
     </ul>
 
-    <h3>Season paper ticket with your University ID card</h3>
-    <p class="bg-info">Note: Only for students under the age of 26</p>
-    <ul class="list-unstyled">
-        <li><img src="{{ asset('img/guide/season-paper-ticket-30-days.jpg') }}" alt="PID season ticket" title="PID season ticket" /> + University ID card</li>
-        <li><strong>Price: <a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></strong> + University ID card price</li>
+    <p>This is the easiest version, because you can do it right at the airport with the Confirmation of study which is part of your Welcome Pack. It costs CZK 20 (for the ID) and you'll need:</p>
+    <ul>
+        <li>Passport photo</li>
+        <li>Confirmation of study (part of <a href="/guide/welcome-pack">Welcome Pack</a>) <strong>OR</strong> student ID card (both types are valid for this case)
+            <ul>
+                <li>If you're 26 or older, you're no longer eglible for student discount, so this is not needed</li>
+            </ul>
+        </li>
     </ul>
-    <p>You can get Season paper ticket to your University ID card</p>
+    <p>Then you can just come to any <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a> and ask them for student seasonal ticket. </p>
 
-    <h3>Lítačka electronic card</h3>
+    <h3 id="pid-electro">Electronic version</h3>
+    <p><strong>Price:</strong> only <a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></p>
+
+    <p>You can also obtain electronic seasonal ticket on the web.</p>
+    <ol>
+        <li>Create an account at <a href="https://www.pidlitacka.cz/home">www.pidlitacka.cz</a></li>
+        <li>Upload your photo
+            <ul>
+                <li>If you don't do this, your account will be marked as "shared" and the ticket will be more expensive</li>
+            </ul>
+        </li>
+        <li>Add an identifier - it can be your phone, debit/credit card or <a href="#litacka">Lítačka</a></li>
+        <li>Add your ISIC card
+            <ul>
+                <li>If you only have CTU card or confirmation of study, you can't use the online store to buy the ticket, you have to go to <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a></li>
+                <li>If you're 26 or older, you're no longer eglible for student discount, so this is not needed</li>
+            </ul>
+        </li>
+        <li>Buy student season ticket
+            <ul>
+                <li>If you can't find student seasonal ticket in the store, you may need to go to <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a> and buy it there (while presenting your ISIC card and identifier from previous step)</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3 id="litacka">Lítačka card</h3>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/litacka.jpg') }}" alt="Lítačka" title="Lítačka" /></li>
         <li><strong>Price: CZK 200</strong> (for &quot;Lítačka&quot;) + <strong><a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></strong></li>
     </ul>
 
-    <h3>Student discount</h3>
+    <p>You can also obtain Lítačka card, which takes around 2 weeks to be made and costs CZK 200. Once you have this card,  you can either buy the seasonal ticket online, or go to any <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a> and but it there.</p>
+
+    <h3 id="pid-student-discount">Student discount</h3>
     <p>To obtain a student discount you have to bring, and keep all the time with you, the Confirmation of your student status (the little orange-coloured confirmation document from your Welcome Pack), or your University ID card.</p>
 
     <h2 id="ehic">Health insurance card (<abbr title="European Health Insurance Card">EHIC</abbr>)</h2>
