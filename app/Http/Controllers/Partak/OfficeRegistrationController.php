@@ -103,6 +103,8 @@ class OfficeRegistrationController extends Controller
 
     protected function profileValidator(array $data)
     {
+        $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
+
         $validator = Validator::make($data, [
             'first_name' => 'required',
             'last_name' => 'required',
@@ -113,7 +115,9 @@ class OfficeRegistrationController extends Controller
             'age' => 'digits:4',
             'email' => 'required|max:255|email|unique:users,email',
             'esn_card_number' => 'max:12',
-            'medical_issues' => 'max:255'
+            'medical_issues' => 'max:255',
+            'whatsapp' => ['phone:AUTO', 'nullable'],
+            'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
         ]);
         return $validator;
     }
