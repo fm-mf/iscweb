@@ -158,12 +158,16 @@ class ProfileController extends Controller
 
     protected function profileValidator(array $data)
     {
+        $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
+
         return Validator::make($data, [
             'date' => 'required_without_all:arrival_skipped,opt_out|date_format:d M Y',
             'time' => 'date_format:g:i A',
             'transportation' => 'required_without_all:arrival_skipped,opt_out',
             'privacy_policy' => 'accepted',
             'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
+            'whatsapp' => ['phone:AUTO', 'nullable'],
+            'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
         ]);
     }
 }
