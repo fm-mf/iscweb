@@ -56,7 +56,9 @@ export default {
         id: `new-${(this.questions.length > 0
           ? Math.max(
               ...this.questions.map(q =>
-                q.id.match(/^new-*/) ? parseInt(q.id.substr(4), 10) : q.id
+                q.id.toString().match(/^new-*/)
+                  ? parseInt(q.id.substr(4), 10)
+                  : q.id
               )
             )
           : 0) + 1}`,
