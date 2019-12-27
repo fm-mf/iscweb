@@ -35,7 +35,8 @@
     @if (!$isCancellation)
     <div class="registration" v-if="showRegistration">
       <reservation
-        event-hash="{{ $event->reservations_hash }}"  
+        event-hash="{{ $event->reservations_hash }}"
+        :is-ow="!!{{ $event->ow }}"
         :show-medical-issues="!!{{ $event->reservations_medical ?: '0' }}"
         :show-diet="!!{{ $event->reservations_diet ?: '0' }}"
         v-on:cancel="toggleRegistration(false)"

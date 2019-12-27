@@ -31,7 +31,7 @@
         @cancel="handleLogout"
       />
 
-      <finish v-if="step >= STEPS.DONE" @back="$emit('cancel')" />
+      <finish v-if="step >= STEPS.DONE" :is-ow="isOw" @back="$emit('cancel')" />
     </div>
   </div>
 </template>
@@ -65,6 +65,7 @@ export default {
       type: String,
       required: true
     },
+    isOw: Boolean,
     showMedicalIssues: Boolean,
     showDiet: Boolean
   },

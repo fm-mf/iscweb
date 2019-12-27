@@ -4,11 +4,16 @@
       <div class="icon">
         <i class="fas fa-check" />
       </div>
-      <span>You have been registered</span>
+      <span>You have reserved your spot at the trip</span>
     </div>
 
-    <p>
-      Thank you for registering. You can now go to
+    <p v-if="isOw">
+      Than you for reserving your spot. You can now go to trip stand and pay the
+      fee to get your spot. If you don't do this, your reservation will be
+      cancelled.
+    </p>
+    <p v-else>
+      Thank you for reserving your spot. You can now go to the
       <a href="/contact" target="blank">ISC Point</a> and pay the fee to get
       your spot.
     </p>
@@ -25,7 +30,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    isOw: Boolean
+  }
+};
 </script>
 
 <style></style>
