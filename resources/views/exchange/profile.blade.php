@@ -70,14 +70,9 @@
     {{ Form::bsSelect('diet', 'Food preference', $diets, $student->person->diet, ['placeholder' => 'No preference'])  }}
 
     <h3 class="col-sm-12"><span>ADDITIONAL CONTACTS</span></h3>
-
-    <p class="help-block col-sm-12">Enter additional contact information, if you want to use something else than e-mail. These will be only visible to your buddy.</p>
-
-    {{ Form::label('whatsapp', 'Whatsapp', ['class' => 'control-label']) }}
-    {{ Form::text('whatsapp', '', ['class' => 'form-control']) }}
-
-    {{ Form::label('facebook', 'Facebook', ['class' => 'control-label']) }}
-    {{ Form::text('facebook', '', ['class' => 'form-control']) }}
+    <p class="help-block col-sm-12">Your buddy will receive your e-mail as a primary contact. If you want to provide more ways to contact you, you can enter them here.</p>
+    {{ Form::bsTel('whatsapp', 'WhatsApp', null, $student->whatsapp, [], 'Full number, with your country prefix') }}
+    {{ Form::bsText('facebook', 'Facebook', '', $student->facebook, [], 'Full link to your facebook profile') }}
 
     <h3 class="col-sm-12"><span>COUNTRY PRESENTATION</span></h3>
     <div class="col-sm-12 form-group">

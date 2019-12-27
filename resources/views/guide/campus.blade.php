@@ -4,11 +4,30 @@
 
 @section('content')
     <h1>Campus</h1>
+
+     @component('guide.section-nav', ['items' => [
+        'main-campus' => 'The main Campus',
+        'satellite-campuses' => [
+            'title' => 'The satellite Campuses',
+            'items' => [
+                'locations' => 'Locations'
+            ]
+        ],
+        'important-contacts' => [
+            'title' => 'Important contacts &amp; addresses',
+            'items' => [
+                'ctu-international-office' => 'CTU International Office',
+                'faculty-contacts' => 'Faculties, Institutes &amp; Contact persons'
+            ]
+        ]
+    ]])
+    @endcomponent
+
     <p>The Czech Technical University has several sites around Prague. The main Campus is in Dejvice,
         where the Student administration and most of the faculties are located,
         there are some smaller buildings dotted around Prague and Kladno.</p>
 
-    <h2>The main Campus</h2>
+    <h2 id="main-campus">The main Campus</h2>
     <ul class="list-unstyled">
         <li>Located in the north western suburbs of Prague, next to Dejvická metro station, see the area on the map below</li>
         <li>The offices of the CTU rectorate (including the International Office) as well as the faculties of Civil, Mechanical and Electrical Engineering, the Faculty of Information Technology, the Faculty of Architecture and Masaryk Institute of Advanced Studies</li>
@@ -16,14 +35,14 @@
         <li><a href="{{ asset('img/guide/map-ctu-campus-dejvice-2017.png') }}" target="_blank"><img src="{{ asset('img/guide/map-ctu-campus-dejvice-2017.png') }}" alt="Map of the CTU main campus in Dejvice" title="Map of the CTU main campus in Dejvice" /></a></li>
     </ul>
 
-    <h2>The satellite Campuses</h2>
+    <h2 id="satellite-campuses">The satellite Campuses</h2>
     <ul>
         <li>Finding your classroom can be difficult when everything is not on one spot</li>
         <li>See the <a href="#important-contacts">Important contacts</a> - faculty contacts, <strong>links</strong> to pages with maps of satellite campuses as well as an explanation of the room numbering</li>
         <li>You can also find the map in the Welcome Pack or at the <a href="https://www.cvut.cz/en/ctu-map" target="_blank">CTU website</a></li>
     </ul>
 
-    <h3>Locations</h3>
+    <h3 id="locations">Locations</h3>
     <dl class="contactsList">
         <dt>Faculty of Mechanical Engineering</dt>
             <dd>Charles' square (Karlovo naměstí) & Horská</dd>
@@ -39,7 +58,7 @@
 
     <h2 id="important-contacts">Important contacts &amp; addresses</h2>
 
-    <h3>CTU International Office</h3>
+    <h3 id="ctu-international-office">CTU International Office</h3>
     <p>The International Office of CTU is located on the 8th floor of the Rectorate building
         (Address: <a href="https://goo.gl/maps/pGbmkgxfb772" target="_blank">Jugoslávských partyzánů 1580/3, Praha 6, 160 00</a>)
         (The entrance with the water fountain)</p>
@@ -50,33 +69,23 @@
         you can contact <strong>Mgr. Kateřina Bošková</strong>. These lessons are offered by CTU for ECTS credits.
         For further information visit <a href="https://international.cvut.cz" target="_blank">CTU International Office website</a></p>
 
-    <h4>Contacts</h4>
+    <h4 id="ctu-international-office-contacts">Contacts</h4>
     <dl class="contactsList">
         <dt>Ing. Volfgang Melecký, Ph.D.</dt>
             <dd>Room: A-811</dd>
             <dd>Phone: <a href="tel:+420 224 353 465">+420 224 353 465</a></dd>
             <dd>Email: <a href="mailto:volfgang.melecky@cvut.cz">volfgang.melecky@cvut.cz</a></dd>
-        <dt>Ms. Alexandra Spurná</dt>
+        <dt>MSc. Jaroslav Krpec</dt>
             <dd>Room: A-801a</dd>
             <dd>Phone: <a href="tel:+420 224 353 466">+420 224 353 466</a></dd>
-            <dd>Email: <a href="mailto:alexandra.spurna@cvut.cz">alexandra.spurna@cvut.cz</a></dd>
-            @if ( date("Y-m-d") < "2019-04-04" )
-            <dd>Will be back on 4th April</dd>
-            <dd>Feel free to contact her anyway 🙂</dd>
-            @endif
-        @if ( date("Y-m-d") < "2019-03-31" )
-        <dt>Tereza Kadlecová</dt>
-            <dd>Room: A-803</dd>
-            <dd>Email: <a href="mailto:tereza.kadlecova@cvut.cz">tereza.kadlecova@cvut.cz</a></dd>
-            <dd>Replacement for Sasha until 31st March</dd>
-        @endif
+            <dd>Email: <a href="mailto:jaroslav.krpec@cvut.cz">jaroslav.krpec@cvut.cz</a></dd>
         <dt>Ms. Lucie Bílová</dt>
             <dd>Room: A-802a</dd>
             <dd>Phone: <a href="tel:+420 224 353 467">+420 224 353 467</a></dd>
             <dd>Email: <a href="mailto:lucie.bilova@cvut.cz">lucie.bilova@cvut.cz</a></dd>
     </dl>
 
-    <h4>Lucie Bílová's office hours</h4>
+    <h4 id="lucie-bilova-office-hours">Lucie Bílová's office hours</h4>
     <dl class="contactsList">
         <dt>Monday &ndash; Thursday</dt>
             <dd>8:00 &ndash; 11:00</dd>
@@ -88,15 +97,15 @@
 
     <p class="bg-info">Note : If you are studying for a degree awarded by CTU, your contact person is always your Faculty coordinator.</p>
 
-   <h3>Faculties, Institutes &amp; Contact persons</h3>
+   <h3 id="faculty-contacts">Faculties, Institutes &amp; Contact persons</h3>
     <dl class="contactsList">
         <dt>Faculty of Civil Engineering</dt>
             <dd><a href="http://stuk.fsv.cvut.cz/wp-content/uploads/2016/03/plánek-fakulty-se-studijními-prostory.jpg" target="_blank">Map of the faculty</a></dd>
             <dd>Thákurova 7, Prague 6, 166 29</dd>
-            <dd>Ing. Richard Novák, office: C-115</dd>
+            <dd>Ing. Ditta Saláková, office: C-114</dd>
             <dd>Study Department</dd>
-            <dd>Phone: <a href="tel:+420 224 358 757">+420 224 358 757</a></dd>
-            <dd>Email: <a href="mailto:richard.novak@fsv.cvut.cz">richard.novak@fsv.cvut.cz</a></dd>
+            <dd>Phone: <a href="tel:+420 224 358 757">+420 224 358 756</a></dd>
+            <dd>Email: <a href="mailto:salakova@fsv.cvut.cz">salakova@fsv.cvut.cz</a></dd>
         <dt>Faculty of Mechanical Engineering</dt>
             <dd><a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">Map of the faculty</a></dd>
             <dd>Technicka 4, Prague 6, 166 07</dd>
@@ -114,16 +123,16 @@
         <dt>Faculty of Nuclear Sciences and Physical Engineering</dt>
             <dd><a href="https://www.fjfi.cvut.cz/en/faculty/contact" target="_blank">Map of the faculty</a></dd>
             <dd>Břehova 7, Prague 1, 115 19</dd>
-            <dd>Klara Soukupova, room No. B1 (ground floor)</dd>
+            <dd>Lucie Novotná, room No. B1 (ground floor)</dd>
             <dd>Dean's Office</dd>
             <dd>Phone: <a href="tel:+420 224 358 284">+420 224 358 284</a></dd>
-            <dd>Email: <a href="mailto:klara.soukupova@fjfi.cvut.cz">klara.soukupova@fjfi.cvut.cz</a></dd>
+            <dd>Email: <a href="mailto:lucie.novotna@fjfi.cvut.cz">lucie.novotna@fjfi.cvut.cz</a></dd>
         <dt>Faculty of Architecture</dt>
             <dd>Thákurova 9, Prague 6, 166 34</dd>
-            <dd>Ing. Hana Novotna, office: 147</dd>
+            <dd>Bc. Jarmila Vokounová Ransdorfová, office: 147</dd>
             <dd>Department for International Relations</dd>
             <dd>Phone: <a href="tel:+420 224 356 224">+420 224 356 224</a></dd>
-            <dd>Email: <a href="mailto:novotna@fa.cvut.cz">novotna@fa.cvut.cz</a></dd>
+            <dd>Email: <a href="mailto:jarmila.vokounova@fa.cvut.cz">jarmila.vokounova@fa.cvut.cz</a></dd>
         <dt>Faculty of Transportation Sciences</dt>
             <dd><a href="https://www.fd.cvut.cz/english/faculty/contacts.html" target="_blank">Contacts &amp; buildings</a></dd>
             <dd>Konviktska 20, Prague 1, 110 00</dd>
@@ -134,23 +143,23 @@
         <dt>Faculty of Biomedical Engineering</dt>
             <dd><a href="http://en.fbmi.cvut.cz/information-for-students/prospective-full-time-students/rooms-and-classrooms" target="_blank">Classrooms location</a></dd>
             <dd>Náměstí Sítná 3105, Kladno 2, 272 01</dd>
-            <dd>Lucie Kulhankova, office: B-506</dd>
+            <dd>Lucie Kulhánková, office: B-506</dd>
             <dd>Department of Biomedical Informatics</dd>
             <dd>Phone: <a href="tel:+420 224 358 493">+420 224 358 493</a></dd>
             <dd>Email: <a href="mailto:kulhankova@fbmi.cvut.cz">kulhankova@fbmi.cvut.cz</a></dd>
         <dt>Faculty of Information Technology</dt>
             <dd><a href="https://www.fit.cvut.cz/en/student/classrooms" target="_blank">Classrooms location</a></dd>
             <dd>Thákurova 9, Prague 6, 160 00</dd>
-            <dd>Hana Křižova, office: T9:312d</dd>
-            <dd>Office of External Affairs</dd>
-            <dd>Phone: <a href="tel:+420 224 359 826">+420 224 359 826</a></dd>
-            <dd>Email: <a href="mailto:hana.krizova@fit.cvut.cz">hana.krizova@fit.cvut.cz</a></dd>
+            <dd>Ludmila Facer, office: T9:312d</dd>
+            <dd>Office of Study Affairs</dd>
+            <dd>Phone: <a href="tel:+420 224 359 837">+420 224 359 837</a></dd>
+            <dd>Email: <a href="mailto:ludmila.facer@fit.cvut.cz">ludmila.facer@fit.cvut.cz</a></dd>
         <dt>Masaryk Institute of Advanced Studies</dt>
             <dd>Kolejní 2637/2a, Prague 6, 160 00</dd>
-            <dd>Bc. Kateřina Zelenková, office: m133</dd>
+            <dd>Mgr. Gabriela Dohnalová, office: m111</dd>
             <dd>Department for International Cooperation</dd>
             <dd>Phone: <a href="tel:+420 224 353 153">+420 224 353 153</a></dd>
-            <dd>Email: <a href="mailto:katerina.zelenkova@cvut.cz">katerina.zelenkova@cvut.cz</a></dd>
+            <dd>Email: <a href="mailto:gabriela.dohnalova@cvut.cz">gabriela.dohnalova@cvut.cz</a></dd>
         </dl>
 
     <dl class="contactsList">
@@ -161,6 +170,9 @@
             <dd>Department of External Affairs</dd>
             <dd>Skype: studyatCTU</dd>
             <dd>Email: <a href="mailto:advisor@studyatctu.com">advisor@studyatctu.com</a></dd>
+    </dl>
+
+    <dl class="contactsList">
         <dt>The ISC Point</dt>
             <dd>The Masarykova dormitory</dd>
             <dd>3rd floor, follow the arrows</dd>

@@ -76,11 +76,16 @@
                 </div>
             </div>
             <ul class="row list-unstyled contacts">
-                @foreach($contacts as $contact)
+                @isset($contactBuddy)
                     <li class="col-10 col-md-8 col-lg-6 ml-auto mr-auto">
-                        @include('partials.contact', ['contact' => $contact])
+                        @include('partials.contact', ['contact' => $contactBuddy])
                     </li>
-                @endforeach
+                @endif
+                @isset($contactHr)
+                    <li class="col-10 col-md-8 col-lg-6 ml-auto mr-auto">
+                        @include('partials.contact', ['contact' => $contactHr])
+                    </li>
+                @endif
             </ul>
         </div>
     </section>

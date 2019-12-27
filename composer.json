@@ -17,6 +17,7 @@
         "laravelcollective/html": "^5.5",
         "maatwebsite/excel": "^2.1",
         "orangehill/iseed": "^2.3",
+        "propaganistas/laravel-phone": "^4.1",
         "rap2hpoutre/laravel-log-viewer": "^1.2",
         "s-ichikawa/laravel-sendgrid-driver": "^2.0.2",
         "torann/laravel-asana": "^0.4.0",

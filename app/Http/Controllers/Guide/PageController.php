@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Guide;
 
+use App\Models\Contact;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Facades\Settings ;
 use App\Models\ExchangeStudent;
 use Illuminate\Support\Facades\View;
-use App\Facades\Contacts;
 
 class PageController extends Controller
 {
@@ -30,7 +30,7 @@ class PageController extends Controller
                 break;
             case "":
                 $with += [
-                    'president' => Contacts::getContactByPosition('President'),
+                    'president' => Contact::byPosition('President')->first(),
                     'fullName' => Settings::get('fullName'),
                 ];
                 $page = "home";

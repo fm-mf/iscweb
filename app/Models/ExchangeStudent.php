@@ -22,7 +22,8 @@ class ExchangeStudent extends Model
     ];
 
     protected $fillable = [
-        'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation'
+        'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation',
+        'whatsapp', 'facebook'
     ];
 
     public function person()

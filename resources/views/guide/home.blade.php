@@ -36,7 +36,7 @@
                 <div class="header row">
                     <div class="logo col-sm-3">
                         <a href="/">
-                            <img src="{{ asset('img/guide/logo.png') }}">
+                            <img src="{{ asset('img/logos/isc-logo-white-horizontal.svg') }}">
                         </a>
                     </div>
                 </div>

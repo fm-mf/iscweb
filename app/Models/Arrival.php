@@ -28,7 +28,7 @@ class Arrival extends Model
     }
 
     public function getArrivalFormattedAttribute() {
-        return $this->arrival->format('j. n. Y G:i');
+        return $this->arrival->format('d. m. Y H:i');
     }
 
     public function scopeWithStudents($query, $semester = null)

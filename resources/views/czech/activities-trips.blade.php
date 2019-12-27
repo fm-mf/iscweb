@@ -52,14 +52,18 @@
     </section>
     <section>
         <div class="container">
-            <div class="row contacts">
-                <div class="col-10 col-md-8 col-lg-6 mx-auto">
-                    @include('partials.contact', ['contact' => $contactTrips])
-                </div>
-                <div class="col-10 col-md-8 col-lg-6 mx-auto">
-                    @include('partials.contact', ['contact' => $contactActivities])
-                </div>
-            </div>
+            <ul class="row contacts list-unstyled">
+                @isset($contactTrips)
+                    <li class="col-10 col-md-8 col-lg-6 mx-auto">
+                        @include('partials.contact', ['contact' => $contactTrips])
+                    </li>
+                @endif
+                @isset($contactActivities)
+                    <li class="col-10 col-md-8 col-lg-6 mx-auto">
+                        @include('partials.contact', ['contact' => $contactActivities])
+                    </li>
+                @endif
+            </ul>
         </div>
     </section>
 @endsection

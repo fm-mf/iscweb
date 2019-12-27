@@ -1,10 +1,9 @@
 @extends('layouts.guide.layout')
 
-@section('title', 'Phone &ndash; ')
+@section('title', 'Important numbers &ndash; ')
 
 @section('content')
-    <h1>Phone</h1>
-    <p>Important numbers:</p>
+    <h1>Important numbers</h1>
     <ul>
         <li><strong>European Emergency Number: 112</strong></li>
         <li>Ambulance (Emergency): 155</li>
