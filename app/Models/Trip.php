@@ -152,8 +152,9 @@ class Trip extends Model
                 $query->where('ow', 1)
                     ->where('id_semester', $semesterId);
             }])
-            ->join('trips_participants', 'trips_participants.id_event', '=', 'id_event')
-            ->where('trips_participants.id_user', $id_user);
+            ->join('trips_participants', 'trips_participants.id_trip', '=', 'trips.id_trip')
+            ->where('trips_participants.id_user', $id_user)
+            ->first();
 
         return $reservation !== null || $registration !== null;
     }

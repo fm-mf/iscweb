@@ -137,17 +137,19 @@ class EventsController extends Controller
 
     private function checkEventUser(Event $event, int $id_user)
     {
-        if ($event->ow && $event->trip->hasOwReservation($id_user)) {
-            throw new HttpException(400, 'You are already registered to different Orientation Week trip');
-        }
-
         if ($event->trip->hasUser($id_user)) {
             throw new HttpException(400, 'You are already registered for this event');
+        }
+        
+        if ($event->ow && $event->trip->hasOwReservation($id_user)) {
+            throw new HttpException(400, 'You are already registered to different Orientation Week trip');
         }
 
         if ($event->trip->isFull()) {
             throw new HttpException(400, 'Event is already full, sorry :(');
         }
+        
+        
 
         $error = $event->trip->canRegister();
         if ($error !== true) {
