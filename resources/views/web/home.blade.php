@@ -36,11 +36,14 @@
 
                                 {!! $event->description !!}
 
+                                <p>
                                 @if(isset($event->facebook_url) && $event->facebook_url != NULL)
-                                    <p>
-                                        ► <a href="{{ $event->facebook_url }}"><strong>Facebook event!</strong></a>
-                                    </p>
+                                    ► <a href="{{ $event->facebook_url }}"><strong>Facebook event!</strong></a>
                                 @endif
+                                @if ($event->reservations_enabled)
+                                    ► <a href="{{ url("/event/{$event->reservations_hash}") }}"><strong>Online reservation!</strong></a>
+                                @endif
+                                </p>
                             </div>
                         </div>
                     @endforeach
