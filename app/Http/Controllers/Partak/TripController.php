@@ -16,6 +16,7 @@ use App\Models\Person;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EventReservation;
 use App\Models\EventReservationAnswer;
 use App\Models\EventReservationQuestion;
 use App\Models\Trip;
@@ -129,10 +130,12 @@ class TripController extends Controller
         $trip = Trip::find($id_trip);
         $this->authorize('addParticipant', $trip);
         $part = Person::with('user', 'exchangeStudent', 'buddy')->find($id_part);
+        $reservation = EventReservation::findByUserAndEvent($id_part, $id_trip)->first();
 
         return view('partak.trips.confirmPage')->with([
             'trip' => $trip,
             'part' => $part,
+            'reservation' => $reservation,
             'diets' => Person::getAllDiets(),
         ]);
     }

@@ -15,9 +15,7 @@
                 {{ Form::open() }}
                 {{ Form::bsText('paid', 'Paid','', $part->pivot->paid, ['readonly' => '']) }}
 
-                @foreach($trip->answers($part->id_user)->get() as $data)
-                    {{ Form::bsText("custom[{$data->id_question}]", $data->question->label, '', $data->getDisplayValue(), ['readonly' => '']) }}
-                @endforeach
+                @include('partak.trips.custom-questions', ['id_user' => $part->id_user, 'readonly' => true])
 
                 <div class="form-group row">
                     <div class="col-sm-5 left">
