@@ -28,4 +28,14 @@ class EventReservationQuestion extends Model
     {
         return $this->hasOne('\App\Models\Event', 'id_event', 'id_event');
     }
+
+    public function getDecodedData()
+    {
+        return json_decode($this->data);
+    }
+
+    public function getOptions()
+    {
+        return $this->getDecodedData()->options;
+    }
 }

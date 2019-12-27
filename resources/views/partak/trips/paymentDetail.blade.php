@@ -15,6 +15,10 @@
                 {{ Form::open() }}
                 {{ Form::bsText('paid', 'Paid','', $part->pivot->paid, ['readonly' => '']) }}
 
+                @foreach($trip->answers($part->id_user)->get() as $data)
+                    {{ Form::bsText("custom[{$data->id_question}]", $data->question->label, '', $data->getDisplayValue(), ['readonly' => '']) }}
+                @endforeach
+
                 <div class="form-group row">
                     <div class="col-sm-5 left">
                         {{ Form::bsText('registered_by', 'Register by', '', $registerby->person->getFullName(), ['readonly' => '']) }}

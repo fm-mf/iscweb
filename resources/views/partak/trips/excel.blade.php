@@ -47,12 +47,7 @@
                         <td>{{ $participant->pivot->comment }}</td>
                         <td>{{ $participant->pivot->paid }}</td>
                         <td>{{ \App\Models\Person::find($participant->pivot->registered_by)->getFullName() }}</td>
-                        @foreach(
-                            \App\Models\EventReservation::findByUserAndEvent($participant->id_user, $trip->id_event)
-                                ->withTrashed()
-                                ->first()
-                                ->answers as $data
-                        )
+                        @foreach($trip->answers($participant->id_user)->get() as $data)
                             <td>{{ $data->getDisplayValue() }}</td>
                         @endforeach
                     </tr>
