@@ -80,7 +80,8 @@ class EventReservation extends Model
 
     public static function findByUserAndEvent(int $id_user, int $id_event)
     {
-        return EventReservation::where('id_user', $id_user)->where('id_user', $id_user);
+        return EventReservation::where('id_user', $id_user)
+            ->where('id_event', $id_event);
     }
 
     public static function findExpired()
