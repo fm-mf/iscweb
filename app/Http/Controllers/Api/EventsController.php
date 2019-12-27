@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\EventReservation;
 use App\Models\EventReservationAnswer;
+use App\Models\Person;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Carbon;
@@ -87,6 +88,18 @@ class EventsController extends Controller
         }
 
         event(new StudentReservedSpot($response));
+
+        // Save personal data
+        $personData = [];
+        if ($request->has('medical_issues')) {
+            $personData['medical_issues'] = $request->input('medical_issues');
+        }
+        if ($request->has('diet')) {
+            $personData['diet'] = $request->input('diet');
+        }
+
+        $part = Person::find($id_user);
+        $part->update($personData);
 
         return response()->json($response);
     }
