@@ -19,6 +19,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EventReservation;
 use App\Models\EventReservationAnswer;
 use App\Models\EventReservationQuestion;
+use App\Models\Semester;
 use App\Models\Trip;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
@@ -206,6 +207,10 @@ class TripController extends Controller
         $trip = Trip::with('event')->find($id_trip);
         $this->authorize('edit', $trip);
 
+        $semesterId = Semester::getCurrentSemester()->id_semester;
+        $semesters = Semester::orderBy('id_semester', 'desc')
+            ->pluck('semester', 'id_semester');
+
         $buddies = [];
         foreach (Buddy::with('person')->partak()->get() as $buddy) {
             $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->getFullName()];
@@ -228,6 +233,8 @@ class TripController extends Controller
             'trip' => $trip,
             'event' => $trip->event,
             'types' => Trip::getAllTypes(),
+            'semesters' => $semesters,
+            'currentSemesterId' => $semesterId
         ]);
     }
 
@@ -274,11 +281,14 @@ class TripController extends Controller
     {
         $this->authorize('acl', 'trips.add');
 
+        $semesterId = Semester::getCurrentSemester()->id_semester;
+        $semesters = Semester::orderBy('id_semester', 'desc')
+            ->pluck('semester', 'id_semester');
+
         $buddies = [];
         foreach (Buddy::with('person')->partak()->get() as $buddy) {
             $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->getFullName()];
         }
-
 
         JavaScript::put([
             'jsoptions' => ['organizers' => $buddies, 'sorganizers' => [], 'questions' => []]
@@ -286,16 +296,22 @@ class TripController extends Controller
 
         $trip = new Trip();
         $event = new Event();
+
         $event->cover = null;
-        $event->visible_from = Carbon::now(); //
-        $event->datetime_from = Carbon::now(); //
-        $trip->registration_from = Carbon::now(); //
-        $trip->trip_date_to = Carbon::now(); //
+        $event->visible_from = Carbon::now();
+        $event->datetime_from = Carbon::now();
+
+        $trip->registration_from = Carbon::now();
+        $trip->registration_to = Carbon::now();
+        $trip->trip_date_to = Carbon::now();
+
         return view('partak.trips.Create')->with([
             'trip' => $trip,
             'event' => $event,
             'types' => Trip::getAllTypes(),
             'create' => true,
+            'semesters' => $semesters,
+            'currentSemesterId' => $semesterId
         ]);
     }
 

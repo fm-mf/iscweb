@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Facades\Settings;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -125,6 +126,36 @@ class Trip extends Model
         }
 
         return true;
+    }
+
+    /**
+     * Returns if specified user already has reservation
+     * or is registered at any OW trip for current semester.
+     */
+    public function hasOwReservation(int $id_user)
+    {
+        // We only match current semester events
+        $semesterId = Semester::getCurrentSemester()->id_semester;
+        
+        // Find valid reservation
+        $reservation = EventReservation::with([
+            'event' => function ($query) use ($semesterId) {
+                $query->where('ow', 1)
+                    ->where('id_semester', $semesterId);
+            }])
+            ->where('id_user', $id_user)
+            ->first();
+
+        // Find valid registration
+        $registration = Trip::with([
+            'event' => function ($query) use ($semesterId) {
+                $query->where('ow', 1)
+                    ->where('id_semester', $semesterId);
+            }])
+            ->join('trips_participants', 'trips_participants.id_event', '=', 'id_event')
+            ->where('trips_participants.id_user', $id_user);
+
+        return $reservation !== null || $registration !== null;
     }
 
     public function standInParticipants()

@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="form-group col-sm-6">
         {{ Form::label('registration_date', 'Registration starts', ['class' => 'control-label required']) }}
@@ -27,6 +28,11 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-sm-12">
+        {{ Form::bsCheckbox('ow', 'Orientation Week event', '', '1', $trip->event->ow, [], 'students can only register for one Orientation Week event')  }}
+    </div>
+</div>
 
 <multiselectinput
     form-name="organizers"
@@ -43,3 +49,10 @@
 {{ Form::bsSelect('type', 'Who can participate', $types, $trip->type)  }}
 {{ Form::bsNumber('capacity', 'Capacity', 'required', $trip->capacity, ['min' => 0]) }}
 {{ Form::bsNumber('price', 'Price', 'required', $trip->price, ['min' => 0]) }}
+
+<reservation
+    :p-enabled="{{$event->reservations_enabled ? 'true' : 'false'}}"
+    :p-expiration="{{$event->reservations_removal_limit ?: 5}}"
+    :p-medical="{{$event->reservations_medical ? 'true' : 'false'}}"
+    :p-diet="{{$event->reservations_diet ? 'true' : 'false'}}"
+></reservation>

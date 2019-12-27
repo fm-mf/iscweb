@@ -12,6 +12,7 @@ use Hashids\Hashids;
 
 /**
  * @property int $id_event
+ * @property int $id_semester
  * @property Carbon $datetime_from
  * @property Carbon $visible_from
  * @property string $name
@@ -33,6 +34,7 @@ use Hashids\Hashids;
  * @property boolean $reservations_medical
  * @property \App\Models\Trip $trip
  * @property \App\Models\EventReservationQuestion[] $questions
+ * @property \App\Models\Semester $semester
 */
 class Event extends Model
 {
@@ -45,7 +47,7 @@ class Event extends Model
     protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at',
         'visible_from', 'cover', 'created_by', 'modified_by', 'event_type', 'location', 'location_url',
         'reservations_enabled', 'reservations_medical', 'reservations_diet',
-        'reservations_removal_limit', 'reservations_hash'];
+        'reservations_removal_limit', 'reservations_hash', 'id_semester', 'ow'];
 
     public function questions()
     {
@@ -76,6 +78,11 @@ class Event extends Model
     public function Trip()
     {
         return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
+    }
+
+    public function semester()
+    {
+        return $this->hasOne('\App\Models\Semester', 'id_semester', 'id_semester');
     }
 
     /*

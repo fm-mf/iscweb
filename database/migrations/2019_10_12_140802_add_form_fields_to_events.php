@@ -14,12 +14,20 @@ class AddFormFieldsToEvents extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
+            $table->tinyInteger('id_semester')->unsigned()->nullable()->after('id_event');
             $table->boolean('ow')->default('0');
             $table->boolean('reservations_enabled')->default('0');
             $table->char('reservations_hash', 100)->nullable();
             $table->integer('reservations_removal_limit')->nullable();
             $table->boolean('reservations_diet')->nullable();
             $table->boolean('reservations_medical')->nullable();
+
+            $table
+                ->foreign('id_semester')
+                ->references('id_semester')
+                ->on('semesters')
+                ->onUpdate('RESTRICT')
+                ->onDelete('RESTRICT');
         });
     }
 
@@ -31,6 +39,7 @@ class AddFormFieldsToEvents extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
+            $table->dropColumn('id_semester');
             $table->dropColumn('ow');
             $table->dropColumn('reservations_enabled');
             $table->dropColumn('reservations_hash');

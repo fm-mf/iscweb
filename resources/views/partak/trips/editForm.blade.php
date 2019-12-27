@@ -1,5 +1,13 @@
+<div class="row">
+    <div class="col-sm-8">
+        {{ Form::bsText('name', 'Name', 'required') }}
+    </div>
+    <div class="col-sm-4">
+        {{ Form::bsSelect('id_semester', 'Semester', $semesters, $currentSemesterId, ['required' => 'required']) }}
+    </div>
+</div>
 
-{{ Form::bsText('name', 'Name', 'required') }}<script>
+<script>
     function cover_change(files) {
         var preview = $('#cover_preview')[0];
         if (files.length <= 0) {
@@ -17,6 +25,7 @@
         reader.readAsDataURL(files[0]);
     }
 </script>
+
 @if(! isset($create) || $create == false)
     @can('acl', 'details.view')
         <div class="form-group row">
@@ -120,13 +129,6 @@
 @endif
 
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
-
-<reservation
-    :p-enabled="{{$event->reservations_enabled ? 'true' : 'false'}}"
-    :p-expiration="{{$event->reservations_removal_limit ?: 5}}"
-    :p-medical="{{$event->reservations_medical ? 'true' : 'false'}}"
-    :p-diet="{{$event->reservations_diet ? 'true' : 'false'}}"
-></reservation>
 
 {{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
 

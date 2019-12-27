@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Facades\Settings;
 use Illuminate\Database\Eloquent\Model;
 
 class Semester extends Model
@@ -51,7 +52,7 @@ class Semester extends Model
 
     public static function getCurrentSemester(): Semester
     {
-        $semesterName = \Settings::get('currentSemester');
+        $semesterName = Settings::get('currentSemester');
         return Semester::where('semester', $semesterName)->first();
     }
 

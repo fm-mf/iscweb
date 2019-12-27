@@ -453,6 +453,13 @@ fieldset {
   }
 }
 
+.form-group {
+  .info {
+    color: #666;
+    margin-left: 1rem;
+  }
+}
+
 @import "users";
 
 @import "contacts-settings";
