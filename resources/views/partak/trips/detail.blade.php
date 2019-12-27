@@ -167,7 +167,7 @@
                         </table>
                         </div>
                         @else
-                            No reservationss
+                            No reservations
                         @endif
                     </div>
                 </div>
