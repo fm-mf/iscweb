@@ -1,0 +1,272 @@
+.guide-wrapper {
+  width: 100%;
+  min-height: 500px;
+  background-image:url($baseUrl + "../guide/prague-02.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+
+  &.subpage-wrapper {
+    min-height: 400px;
+  }
+}
+
+.guide-content {
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 1000px;
+
+  
+  h1, h2, h3 {
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 200%;
+  }
+
+  h2 {
+    font-size: 150%;
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .bg-danger,
+  .bg-warning,
+  .bg-info {
+    padding:20px;
+    margin-bottom: 20px;
+  }
+
+  .bg-danger {
+    border-left: 4px $state-danger-border solid;
+  }
+
+  .bg-warning {
+    border-left: 4px $state-warning-border solid;
+  }
+
+  .bg-info {
+    border-left: 4px $state-info-border solid;
+  }
+  
+  .list-unstyled > li {
+    margin: 0.5rem 0;
+  }
+
+  ul > li {
+    margin-bottom: 0.5rem;
+  }
+
+  ul > li ul li {
+    margin-bottom: 0;
+  }
+
+  ul ul,
+  ul ol,
+  ol ul,
+  ol ol {
+    padding-left: 1.5rem;
+    color: #888;
+  }
+
+  ul ul,
+  ol ul {
+    list-style-type: disc;
+  }
+
+  .section-navigation {
+    list-style-type: none;
+    padding-left: 1rem;
+    margin-bottom: 5rem;
+
+    .section-navigation {
+      margin-bottom: 0;
+
+      a {
+        color: #4bafe6;
+      }
+    }
+
+    a {
+      &::before {
+        content: '# ';
+        opacity: 0.5;
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .bg-danger,
+  .bg-warning,
+  .bg-info {
+    p {
+      margin-bottom: 0;
+    }
+
+    li {
+      color: #636b6f;
+    }
+  }
+
+  .home-screen {
+    .guide-navigation {
+      margin-top: -170px;
+      margin-bottom: 50px;
+      
+      a {
+        display: block;
+        text-align: center;
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        color: #fff;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+
+      #link-aya {
+        background-color: #2f6fc8;
+      }
+      a:hover#link-aya {
+        background-color: #4582d3;
+      }
+
+      #link-sac {
+        background-color: #d0197b;
+      }
+      a:hover#link-sac {
+        background-color: #e73492;
+      }
+
+      #link-lip {
+        background-color: #82ba0c;
+      }
+      a:hover#link-lip {
+        background-color: #8bc80d;
+      }
+
+      #link-esn {
+        background-color: rgb(244, 124, 32);
+      }
+      a:hover#link-esn {
+        background-color: rgb(250, 132, 45);
+      }
+    }  
+
+    .img-circle {
+      display: block;
+      margin: 0 auto 3rem auto;
+    }
+
+    padding-bottom: 4rem;
+  }
+}
+
+.guide-subpage {
+  display: flex;
+
+  .row {
+    margin: 0;
+  }
+
+  .guide-nav {
+    flex-shrink: 0;
+    width: 300px;
+    background: #eee;
+    height: 100%;
+    margin-right: 2rem;
+
+    & > ul > li {
+      border-left-width: 10px;
+      border-left-style: solid;
+      margin-left: 1px;
+
+      & > a {
+        &.expanded,
+        &:hover {
+          color: #fff;
+          cursor: pointer;
+        }
+      }
+
+      & > ul > li > a {
+        margin-left: 25px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        color: #787878;
+        
+        &:hover {
+          text-decoration :underline;
+        }
+
+        &.active {
+         font-weight: bold;
+        }
+      }
+    }
+
+    .green {
+      border-left-color: rgb(130, 186, 12);
+    }
+    .green a { color: rgb(130, 186, 12);}
+    .green > a:hover,
+    .green > a.expanded {
+      background: rgb(130, 186, 12) !important;
+    }
+
+    .blue {
+      border-left-color:rgb(47, 111, 200);
+    }
+    .blue a {color: rgb(47, 111, 200);}
+    .blue > a:hover,
+    .blue > a.expanded {
+      background: rgb(47, 111, 200) !important;
+    }
+
+    .purple {
+      border-left-color:rgb(208, 25, 123);
+    }
+    .purple a {
+      color: rgb(208, 25, 123);
+    }
+    .purple > a:hover,
+    .purple > a.expanded {
+      background: rgb(208, 25, 123) !important;
+    }
+
+    .orange {
+      border-left-color:rgb(244, 123, 32);
+    }
+    .orange a { color: rgb(244, 123, 32);}
+    .orange > a:hover,
+    .orange > a.expanded {
+      background: rgb(244, 123, 32) !important;
+    }
+
+  }
+
+  .guide-subpage-content {
+    flex: 1;
+    padding: 0 2rem;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

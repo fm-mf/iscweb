@@ -1,8 +1,6 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'KOS &ndash; ')
-
-@section('content')
+@section('subpage')
     <h1>KOS & Classes registration</h1>
     <ul class="list-unstyled">
         <li>You are required to submit a Learning agreement before your arrival, and to earn at least 15 ECTS credits/semester</li>

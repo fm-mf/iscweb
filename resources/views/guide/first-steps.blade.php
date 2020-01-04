@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'First steps &ndash; ')
 
-@section('content') {{-- TODO --}}
+@section('subpage') {{-- TODO --}}
 <div class="row">
     <h1>Basic information for you</h1>
     <h2>CHECKLIST FOR AN INTERNATIONAL STUDENT</h2>

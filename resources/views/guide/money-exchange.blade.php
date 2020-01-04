@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Money exchange &ndash; ')
 
-@section('content')
+@section('subpage')
     <h1>Money exchange</h1>
     <dl>
         <dt>eXchange</dt>

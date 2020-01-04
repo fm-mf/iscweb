@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Introduction &ndash; ')
 
-@section('content')
+@section('subpage')
     <h1>Introduction</h1>
     <p><span>Dear international students,</span>
         We are the <strong>International Student Club at the Czech Technical University

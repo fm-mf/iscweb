@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'ESN & ISC Partners &ndash; ')
 
-@section('content')
+@section('subpage')
     <section id="partners">
         <h1>ESN & ISC partners</h1>
         <p> Use your ESNcard and take advantage of these offers.

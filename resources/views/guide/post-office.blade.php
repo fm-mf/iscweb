@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Post office &ndash; ')
 
-@section('content')
+@section('subpage')
     <h1>Post office</h1>
 
     <p class="bg-danger">Unfortunately, most of the post office employees don't speak english, so be prepared when going to the post office.</p>

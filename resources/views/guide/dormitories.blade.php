@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Dormitories &ndash; ')
 
-@section('content')
+@section('subpage')
     <h1>Dormitories</h1>
     <p>There are CTU dormitories (in Czech ”Kolej”) all around Prague. They are shown on the map below.</p>
     <p>Usually Erasmus+ students live in one of the two biggest, Masarykova kolej and Strahov. They are marked in red rectangles on the map.</p>

@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Welcome pack &ndash; ')
 
-@section('content')
+@section('subpage')
     <h1>Welcome pack</h1>
     <ul>
         <li>Before the Orientation Week starts you should get your Welcome Pack.</li>

@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Campus &ndash; ')
 
-@section('content')
+@section('subpage')
     <h1>Campus</h1>
 
      @component('guide.section-nav', ['items' => [

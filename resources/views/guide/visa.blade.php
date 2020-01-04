@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Visa &ndash; ')
 
-@section('content')
+@section('subpage')
     <h1>Visa</h1>
 
      @component('guide.section-nav', ['items' => [

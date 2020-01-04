@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Important numbers &ndash; ')
 
-@section('content')
+@section('subpage')
     <h1>Important numbers</h1>
     <ul>
         <li><strong>European Emergency Number: 112</strong></li>

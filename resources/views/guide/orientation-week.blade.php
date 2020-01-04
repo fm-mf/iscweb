@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
 @section('title', 'Orientation week &ndash; ')
 
-@section('content')
+@section('subpage')
     <div class="row">
         <h1>Orientation Week</h1>
     </div>
@@ -155,10 +155,10 @@
     <div class="row">
         <div class="col-lg-12">
             <h3 id="day-2-registration">Registration at faculties</h3>
-            <p class="bg-info">
+            <p class="bg-warning">
                 Note: <strong>This is only for Erasmus students and Exchange students</strong>. Self-funding students who are studying for a CTU degree, and also Erasmus Mundus students, please contact Faculty coordinators at your study department.
             </p>
-            <p class="bg-warning">Please attend this registration event at your faculty. Do not treat it as optional.</p>
+            <p class="bg-danger">Registration at your faculty is <strong>mandatory</strong>. If you can't attend this registration, you need to inform your faculty!</p>
 	    <div class="row">
 		<!--
         <div class="col-lg-12">
@@ -169,7 +169,7 @@
             <ul class="list-unstyled">
                 {{--<li>More information during the Monday presentation</li>--}}
 
-                <li>When:
+                <li><strong>When:</strong>
                     <ul>
                         <li>9:00 &ndash; <abbr title="Faculty of Transportation">FD</abbr>,
                             <abbr title="Faculty of Mechanical Engineering">FS</abbr>,
@@ -182,9 +182,7 @@
                     </ul>
                 </li>
 
-                <li><abbr title="Faculty of Civil Engineering">FSv</abbr> has registrations on day 3</li>
-
-                <li>Where: At your faculty (more information in the presentations on the first day)</li>
+                <li><strong>Where:</strong> At your faculty (more information in the presentations on the first day)</li>
                 <!--
                 <li>Meeting points:
                     <ul>
@@ -200,6 +198,9 @@
                     </ul>
                 </li>
                 -->
+
+                <li><abbr title="Faculty of Civil Engineering">FSv</abbr> has registrations on day 3</li>
+
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
                         <li>An ID (University ID / Passport)</li>
