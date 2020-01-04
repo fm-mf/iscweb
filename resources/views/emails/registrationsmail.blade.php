@@ -26,8 +26,8 @@
     that too - that makes the planning much easier for us.</p>
 
 <p>Also please note that we're not able to guarantee that everyone gets their Czech Buddy
-    (we're all volunteers after all), but by filling out that form properly you have a pretty
-    high chance to get one. After being paired with your Buddy, he or she will contact you by
+    (we're all volunteers after all), but by filling out that form properly and by attaching photo
+    you have a pretty high chance to get one. After being paired with your Buddy, he or she will contact you by
     email. Please be patient; this might take a few days/weeks.</p>
 
 <p><small>If (for any reason) you don't wish to have a Czech buddy, you can take your name out of the
@@ -47,7 +47,9 @@
 
 <p><a href="{{ url('/') }}">Web</a>: {{ url('/') }}<br>
     <a href="https://www.facebook.com/isc.ctu.prague/">FB page</a>: https://www.facebook.com/isc.ctu.prague/<br>
-    <a href="{{ $fbGroupLink }}/">FB group</a>: {{ $fbGroupLink }}</p>
+    <a href="{{ $fbGroupLink }}/">FB group</a>: {{ $fbGroupLink }}<br>
+    <a href="https://chat.whatsapp.com/IXGFais1YQ79ev0Jk37aqm">Annoucements WhatsApp group</a>: https://chat.whatsapp.com/IXGFais1YQ79ev0Jk37aqm<br>
+    <a href="https://chat.whatsapp.com/EYnWYqOF58Q9M95XFkM1wj">General WhatsApp group</a>: https://chat.whatsapp.com/EYnWYqOF58Q9M95XFkM1wj</p>
 
 <p>This <a href="{{ url('privacy/notice') }}">Privacy notice</a> is to let you know how we promise to look after your personal information.<br>
     <small>{{ url('privacy/notice') }}</small>
