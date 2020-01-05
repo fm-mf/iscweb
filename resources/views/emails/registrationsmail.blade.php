@@ -47,9 +47,9 @@
 
 <p><a href="{{ url('/') }}">Web</a>: {{ url('/') }}<br>
     <a href="https://www.facebook.com/isc.ctu.prague/">FB page</a>: https://www.facebook.com/isc.ctu.prague/<br>
-    <a href="{{ $fbGroupLink }}/">FB group</a>: {{ $fbGroupLink }}<br>
-    <a href="https://chat.whatsapp.com/IXGFais1YQ79ev0Jk37aqm">Annoucements WhatsApp group</a>: https://chat.whatsapp.com/IXGFais1YQ79ev0Jk37aqm<br>
-    <a href="https://chat.whatsapp.com/EYnWYqOF58Q9M95XFkM1wj">General WhatsApp group</a>: https://chat.whatsapp.com/EYnWYqOF58Q9M95XFkM1wj</p>
+    <a href="{{ $settings['fbGroupLink'] }}/">FB group</a>: {{ $settings['fbGroupLink'] }}<br>
+    <a href="{{ $settings['whatsAppAnnoucementsLink'] }}">Annoucements WhatsApp group</a>: {{ $settings['whatsAppAnnoucementsLink'] }}<br>
+    <a href="{{ $settings['whatsAppGeneralLink'] }}">General WhatsApp group</a>: {{ $settings['whatsAppGeneralLink'] }}</p>
 
 <p>This <a href="{{ url('privacy/notice') }}">Privacy notice</a> is to let you know how we promise to look after your personal information.<br>
     <small>{{ url('privacy/notice') }}</small>

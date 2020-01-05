@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Facades\Settings;
 use App\Models\ExchangeStudent;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -36,6 +37,6 @@ class RegistrationMail extends Mailable
                 ->from('buddy@isc.cvut.cz', 'ISC CTU in Prague')
                 ->subject('Buddy Program ISC CTU in Prague')
                 ->with('hash', $this->exchangeStudent->person->user->hash)
-                ->with('fbGroupLink', DB::table('settings')->select('value')->where('key', 'fbGroupLink')->first()->value);
+                ->with('settings', Settings::all());
     }
 }
