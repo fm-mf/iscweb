@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Orientation week &ndash; ')
+@section('subtitle', 'Orientation week')
 
 @section('subpage')
     <div class="row">
@@ -19,41 +19,6 @@
         </div>
     </div>
 
-    
-    @component('guide.section-nav', ['items' => [
-        'day-1' => [
-            'title' => 'Day 1 - Monday (10th February)',
-            'items' => [
-                'initial-meeting' => 'Initial information meeting',
-                'tandem-evening' => 'Tandem Evening'
-            ]
-        ],
-        'day-2' => [
-            'title' => 'Day 2 - Tuesday (11th February)',
-            'items' => [
-                'day-2-registration' => 'Registration at faculties',
-                'trips-meeting' => 'Second information meeting'
-            ]
-        ],
-        'day-3' => [
-            'title' => 'Day 3 - Wednesday (12th February)',
-            'items' => [
-                'day-3-registration' => 'Prague Discovery Game',
-                'integreat-party' => 'inteGREATion party'
-            ]
-        ],
-        'day-4-7' => [
-            'title' => 'Day 4-7 – Thursday to Sunday (13-16th February)',
-            'items' => [
-                'trips' => 'Trips around the Czech Republic'
-            ]
-        ],
-    ]])
-    @endcomponent
-
-    <div class="row">
-        <h2 id="programme">Orientation Week Programme: {{ $owFromTo }}</h2>
-    </div>
     <div class="row">
         <div class="col-md-12 bg-warning">
     {{--        <p>--}}
@@ -66,6 +31,39 @@
             </p>
         </div>
     </div>
+
+    
+    @component('guide.section-nav', ['items' => [
+        'day-1' => [
+            'title' => "Day 1 - $owDay1",
+            'items' => [
+                'initial-meeting' => 'Initial information meeting',
+                'tandem-evening' => 'Tandem Evening'
+            ]
+        ],
+        'day-2' => [
+            'title' => "Day 2 - $owDay2",
+            'items' => [
+                'day-2-registration' => 'Registration at faculties',
+                'trips-meeting' => 'Second information meeting'
+            ]
+        ],
+        'day-3' => [
+            'title' => "Day 3 - $owDay3",
+            'items' => [
+                'day-3-registration' => 'Prague Discovery Game',
+                'integreat-party' => 'inteGREATion party'
+            ]
+        ],
+        'day-4-7' => [
+            'title' => "Day 4-7 – $owTripsDays",
+            'items' => [
+                'trips' => 'Trips around the Czech Republic'
+            ]
+        ],
+    ]])
+    @endcomponent
+
 {{--
     <div class="row">
         <div class="col-md-12 bg-info">
@@ -74,7 +72,7 @@
     </div>
 --}}
     <div class="row">
-        <h2 id="day-1">DAY 1 – Monday <strong>(10th February)</strong></h2>
+        <h2 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -150,7 +148,7 @@
     </div>--}}
 
     <div class="row">
-        <h2 id="day-2">DAY 2 – Tuesday (11th February)</h2>
+        <h2 id="day-2">DAY 2 – {{ $owDay2 }}</h2>
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -225,7 +223,7 @@
                 {{--<li>When: in the afternoon</li>--}}
                 {{--<li>Where: <abbr title="To be announced">TBA</abbr> soon</li>--}}
                 <li>When: <strong>12:45</strong></li>
-                <li>Where: at Congress Hall of the Masarykova Dormitory</li>
+                <li>Where: <strong><a href="https://goo.gl/maps/BT426kNo4oZLarbz9">Congress Hall of the Masarykova Dormitory</a></strong></li>
                 <li>Topics:
                     <ul>
                         <li>Presentation of ISC trips</li>
@@ -254,14 +252,14 @@
     --}}
 
     <div class="row">
-        <h2 id="day-3">DAY 3 – Wednesday (12th February)</h2>
+        <h2 id="day-3">DAY 3 – {{ $owDay3 }}</h2>
     </div>
 
     <div class="row">
         <div class="col-lg-12">
             <h3 id="day-3-registration">Registration at faculties</h3>
 
-            <p>When: 10:00 &ndash; <abbr title="Faculty of Civil Engineering">FSv</abbr></p>
+            <p>When: <strong>10:00</strong> &ndash; <abbr title="Faculty of Civil Engineering">FSv</abbr></p>
         </div>
     </div>
 
@@ -271,7 +269,7 @@
             <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
             <ul class="list-unstyled">
                 <li>When: <strong>13:30</strong></li>
-                <li>Where: <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</li>
+                <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
                 {{--<li>When: in the afternoon</li>--}}
                 {{--<li>Where: <abbr title="To be announced">TBA</abbr> soon</li>--}}
             </ul>
@@ -283,7 +281,7 @@
             <h3 id="integreat-party">inteGREATion party</h3>
             <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
             <ul class="list-unstyled">
-                <li>When: TBA</li>
+                <li>When: <strong>TBA</strong></li>
                 <!--
                 <li>Where: <a href="https://goo.gl/maps/LANoqspoi362" target="_blank" rel="noopener"><strong>PM Club</strong> (Trojická 1907/10)</a></li>
                 <li>Meeting points:
@@ -298,7 +296,7 @@
     </div>
 
     <div class="row">
-        <h2 id="day-4-7">DAY 4–7 – Thursday to Sunday (13-16th February) </h2>
+        <h2 id="day-4-7">DAY 4–7 – {{ $owTripsDays }} </h2>
     </div>
     <div class="row">
         <div class="col-lg-12">

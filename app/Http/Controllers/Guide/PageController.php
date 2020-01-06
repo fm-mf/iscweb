@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Guide;
 use App\Models\Contact;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
-use App\Facades\Settings ;
+use App\Facades\Settings;
 use App\Models\ExchangeStudent;
 use Illuminate\Support\Facades\View;
 
@@ -24,7 +24,7 @@ class PageController extends Controller
             'officialName' => Settings::get('officialName'),
             'year' => Carbon::now()->year,
         ];
-        switch ($page){
+        switch ($page) {
             case "about-ctu":
                 $with += ['rector' => Settings::get('rector')];
                 break;
@@ -36,25 +36,38 @@ class PageController extends Controller
                 $page = "home";
                 break;
             case "first-steps":
-                $with += ['wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
-                        'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
-                        'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
+                $with += [
+                    'wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
+                    'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
+                    'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
                 ];
                 break;
             case "orientation-week":
-                $with += ['owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo'))];
+                $owFrom = Carbon::createFromFormat('d/m/Y', Settings::get('owFrom'));
+
+                $with += [
+                    'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
+                    'owDay1' => $this->owDateFormat($owFrom),
+                    'owDay2' => $this->owDateFormat($owFrom->copy()->addDay(1)),
+                    'owDay3' => $this->owDateFormat($owFrom->copy()->addDay(2)),
+                    'owTripsDays' => $this->owInterval(
+                        $owFrom->copy()->addDay(3),
+                        $owFrom->copy()->addDay(6)
+                    ),
+                ];
                 break;
-            /* Temporary */
+                /* Temporary */
             case "about-CTU":
                 $with += ['rector' => Settings::get('rector')];
                 break;
             case "basic-information":
-                $with = ['wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
-                        'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
-                        'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
+                $with = [
+                    'wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
+                    'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
+                    'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
                 ];
                 break;
-            /* /Temporary */
+                /* /Temporary */
         }
         $viewName = 'guide.' . $page;
         if (!View::exists($viewName)) {
@@ -62,39 +75,54 @@ class PageController extends Controller
         }
         if (in_array($page, $this->firstStepsSubpages)) {
             $with += ['firstSteps' => ''];
-        } else if (in_array($page, $this->aboutCtuSubpages)) {
+        } elseif (in_array($page, $this->aboutCtuSubpages)) {
             $with += ['aboutCtu' => ''];
-        } else if (in_array($page, $this->czechItOutSubpages)) {
+        } elseif (in_array($page, $this->czechItOutSubpages)) {
             $with += ['czechItOut' => ''];
-        } else if (in_array($page, $this->iscEsnSubpages)) {
+        } elseif (in_array($page, $this->iscEsnSubpages)) {
             $with += ['iscEsn' => ''];
         }
         $with += ['active' => $page];
         return view($viewName)->with($with);
     }
 
+    private function owDateFormat(Carbon $date)
+    {
+        return $date->format('l (jS F)');
+    }
+
+    private function owInterval(Carbon $from, Carbon $to)
+    {
+        return $from->format('l') . ' to ' . $to->format('l')
+            . ' ('
+            . ($from->month !== $to->month
+                ? $from->format('jS F') . ' – ' . $to->format('jS F')
+                : $from->format('jS') . ' – ' . $to->format('jS F'))
+            . ')';
+    }
+
     private function dateToCorrectFormat($from, $to = null)
     {
-        $dateFrom = Carbon::createFromFormat('d/m/Y' ,$from);
+        $dateFrom = $from instanceof Carbon
+            ? $from
+            : Carbon::createFromFormat('d/m/Y', $from);
+
         $result = '';
-        if($to == null) $result = $dateFrom->format('l, j F');
-        else
-        {
-            $dateTo = Carbon::createFromFormat('d/m/Y' ,$to);
-            if($dateFrom->year == $dateTo->year)
-            {
-                if($dateFrom->month != $dateTo->month )
-                {
-                    $result = $dateFrom->format('j F') .' – '. $dateTo->format('j F Y');
+        if ($to == null) {
+            $result = $dateFrom->format('l, j F');
+        } else {
+            $dateTo = $to instanceof Carbon
+                ? $to
+                : Carbon::createFromFormat('d/m/Y', $to);
+            
+            if ($dateFrom->year == $dateTo->year) {
+                if ($dateFrom->month != $dateTo->month) {
+                    $result = $dateFrom->format('j F') . ' – ' . $dateTo->format('j F Y');
+                } else {
+                    $result = $dateFrom->format('j') . ' – ' . $dateTo->format('j F Y');
                 }
-                else
-                {
-                    $result = $dateFrom->format('j') .' – '. $dateTo->format('j F Y');
-                }
-            }
-            else
-            {
-                $result = $dateFrom->format('j F Y') .' – '. $dateTo->format('j F Y');
+            } else {
+                $result = $dateFrom->format('j F Y') . ' – ' . $dateTo->format('j F Y');
             }
         }
         return $result;
