@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Transportation &ndash; ')
+@section('subtitle', 'Transportation')
 
 @section('subpage')
     <h1>Transportation</h1>

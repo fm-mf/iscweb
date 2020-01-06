@@ -82,7 +82,7 @@
   .section-navigation {
     list-style-type: none;
     padding-left: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 
     .section-navigation {
       margin-bottom: 0;
@@ -191,74 +191,103 @@
     background: #eee;
     height: 100%;
     margin-right: 2rem;
+    
+    .navbar-brand {
+      display: none;
+    }
 
-    & > ul > li {
-      border-left-width: 10px;
-      border-left-style: solid;
-      margin-left: 1px;
+    @media (max-width: 768px) {
+      position: absolute;
+      left: 0;
+      top: 82px;
+      width: 100%;
+      height: auto;
+      z-index: 10;
 
-      & > a {
-        &.expanded,
-        &:hover {
-          color: #fff;
-          cursor: pointer;
-        }
-      }
-
-      & > ul > li > a {
-        margin-left: 25px;
-        padding-bottom: 5px;
-        padding-top: 5px;
-        color: #787878;
-        
-        &:hover {
-          text-decoration :underline;
-        }
-
-        &.active {
-         font-weight: bold;
-        }
+      .navbar-brand {
+        display: block;
       }
     }
 
-    .green {
-      border-left-color: rgb(130, 186, 12);
-    }
-    .green a { color: rgb(130, 186, 12);}
-    .green > a:hover,
-    .green > a.expanded {
-      background: rgb(130, 186, 12) !important;
+    > .navbar-collapse {
+      padding: 0;
     }
 
-    .blue {
-      border-left-color:rgb(47, 111, 200);
-    }
-    .blue a {color: rgb(47, 111, 200);}
-    .blue > a:hover,
-    .blue > a.expanded {
-      background: rgb(47, 111, 200) !important;
+    .navbar-toggle {
+      padding: 10px 6px;
+
+      .icon-bar {
+        background-color: #aaa;
+      }
     }
 
-    .purple {
-      border-left-color:rgb(208, 25, 123);
-    }
-    .purple a {
-      color: rgb(208, 25, 123);
-    }
-    .purple > a:hover,
-    .purple > a.expanded {
-      background: rgb(208, 25, 123) !important;
-    }
+    .guide-nav-items {
+      & > ul > li {
+        border-left-width: 10px;
+        border-left-style: solid;
+        margin-left: 1px;
 
-    .orange {
-      border-left-color:rgb(244, 123, 32);
-    }
-    .orange a { color: rgb(244, 123, 32);}
-    .orange > a:hover,
-    .orange > a.expanded {
-      background: rgb(244, 123, 32) !important;
-    }
+        & > a {
+          &.expanded,
+          &:hover {
+            color: #fff;
+            cursor: pointer;
+          }
+        }
 
+        & > ul > li > a {
+          padding-bottom: 5px;
+          padding-top: 5px;
+          color: #787878;
+          
+          &:hover {
+            text-decoration :underline;
+          }
+
+          &.active {
+          font-weight: bold;
+          }
+        }
+      }
+
+      .green {
+        border-left-color: rgb(130, 186, 12);
+      }
+      .green a { color: rgb(130, 186, 12);}
+      .green > a:hover,
+      .green > a.expanded {
+        background: rgb(130, 186, 12) !important;
+      }
+
+      .blue {
+        border-left-color:rgb(47, 111, 200);
+      }
+      .blue a {color: rgb(47, 111, 200);}
+      .blue > a:hover,
+      .blue > a.expanded {
+        background: rgb(47, 111, 200) !important;
+      }
+
+      .purple {
+        border-left-color:rgb(208, 25, 123);
+      }
+      .purple a {
+        color: rgb(208, 25, 123);
+      }
+      .purple > a:hover,
+      .purple > a.expanded {
+        background: rgb(208, 25, 123) !important;
+      }
+
+      .orange {
+        border-left-color:rgb(244, 123, 32);
+      }
+      .orange a { color: rgb(244, 123, 32);}
+      .orange > a:hover,
+      .orange > a.expanded {
+        background: rgb(244, 123, 32) !important;
+      }
+    }
   }
 
   .guide-subpage-content {

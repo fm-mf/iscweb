@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'ESN & ISC Partners &ndash; ')
+@section('subtitle', 'ESN & ISC Partners')
 
 @section('subpage')
     <section id="partners">

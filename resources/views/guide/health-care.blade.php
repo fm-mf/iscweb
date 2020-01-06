@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Health care &ndash; ')
+@section('subtitle', 'Health care')
 
 @section('subpage')
     <h1>Health care</h1>

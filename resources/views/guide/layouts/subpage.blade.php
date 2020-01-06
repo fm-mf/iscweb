@@ -5,9 +5,7 @@
 
 @section('content')
   <div class="guide-content guide-subpage">
-    <div class="hidden-sm hidden-xs">
-      @include('guide.layouts.navigation')
-    </div>
+    @include('guide.layouts.navigation')
     <div class="guide-subpage-content">
       @yield('subpage')
     </div>

@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Dormitories &ndash; ')
+@section('subtitle', 'Dormitories')
 
 @section('subpage')
     <h1>Dormitories</h1>

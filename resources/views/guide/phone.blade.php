@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Important numbers &ndash; ')
+@section('subtitle', 'Important numbers')
 
 @section('subpage')
     <h1>Important numbers</h1>

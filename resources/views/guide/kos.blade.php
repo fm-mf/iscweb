@@ -2,15 +2,20 @@
 
 @section('subpage')
     <h1>KOS & Classes registration</h1>
+
     <ul class="list-unstyled">
         <li>You are required to submit a Learning agreement before your arrival, and to earn at least 15 ECTS credits/semester</li>
         <li>Classes offered: <a href="https://international.cvut.cz/for-incomers/erasmus-and-exchange/courses-for-ee-students-prospectus/">Prospectus catalogue</a></li>
-        <li>Registration will be done in <a href="{{ url('guide/orientation-week') }}">Orientation week</a></li>
-        <li>A visit to the study department at your faculty will be organized by ISC</li>
-        <li>You will get to know your classes and your schedule</li>
-        <li>It might take longer than you expect. Reserve the whole morning in your calendar for this.</li>
-        <li>There is no electronic registration, because you are a non-standard student with an individual study program, and you are not going to graduate from CTU</li>
     </ul>
+
+    <h2>Registration</h2>
+
+    <p>Registration is done during the <a href="{{ url('guide/orientation-week') }}">Orientation week</a>,
+        a visit to the study department at your faculty will be organized by ISC,
+        where you will get to know your classes and your schedule.</p>
+    <p>It might take longer than you expect, reserve the whole morning in your calendar for this.</p>
+    <p>There is no electronic registration, because you are a non-standard student with an individual study program, and you are not going to graduate from CTU</p>
+
 
     <h2>KOS (Study Information System)</h2>
     <ul class="list-unstyled">

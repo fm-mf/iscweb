@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Welcome pack &ndash; ')
+@section('subtitle', 'Welcome pack')
 
 @section('subpage')
     <h1>Welcome pack</h1>

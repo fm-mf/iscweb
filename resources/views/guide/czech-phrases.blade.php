@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Czech phrases &ndash; ')
+@section('subtitle', 'Czech phrases')
 
 @section('subpage')
     <section id="czech-phrases">

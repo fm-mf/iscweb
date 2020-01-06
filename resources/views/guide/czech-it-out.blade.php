@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Czech it out! &ndash; ')
+@section('subtitle', 'Czech it out!')
 
 @section('subpage')
     <div class="row">

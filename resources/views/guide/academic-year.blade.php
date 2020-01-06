@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'Academic year &ndash; ')
+@section('subtitle', 'Academic year')
 
 @section('subpage')
     <h1>Academic year</h1>

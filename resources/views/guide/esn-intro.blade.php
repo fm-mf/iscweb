@@ -1,6 +1,6 @@
 @extends('guide.layouts.subpage')
 
-@section('title', 'ESN &ndash; ')
+@section('subtitle', 'ESN')
 
 @section('subpage')
   <section id="esn-intro">
