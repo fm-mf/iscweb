@@ -1,0 +1,106 @@
+.contacts {
+  & > li {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+}
+
+.our-contacts{
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  dt {
+    display: inline-block;
+    flex: 0 0 50%;
+    padding-right: 0.5rem;
+    text-align: right;
+
+    &::after {
+      content: ':';
+    }
+  }
+
+  dd {
+    flex: 0 0 50%;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    dt {
+      flex: 0 0 auto
+    }
+
+    dd {
+      flex: 1 1 auto
+    }
+  }
+}
+
+.billing-info {
+  address {
+    margin-bottom: 0;
+  }
+}
+
+#map-preview-wrapper {
+  position: relative;
+}
+
+#map-preview {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+div.opening-hours {
+  background-color: #303030;
+  color: #ffffff;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: var(--color-blue);
+  }
+}
+
+table.opening-hours {
+  margin-left: auto;
+  margin-right: auto;
+
+  th {
+    text-align: right;
+    padding-right: 0.25rem;
+    width: 50%;
+  }
+
+  td {
+    padding-left: 0.25rem;
+    width: 50%;
+  }
+}
+
+.address {
+  background-color: #ffffff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: var(--color-blue);
+  }
+}

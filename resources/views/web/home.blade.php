@@ -1,96 +1,100 @@
-@extends('web.layouts.main')
-@section('content')
+@extends('web.layouts.layout')
 
-    <div id="events"></div>
-    <div class="wrapper">
-
-        <div class="modal fade" id="logo-download">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="{{ asset('img/logos/isc-logo-watermark-color.svg') }}" alt="ISC Logos">
-                        <h2>DOWNLOAD OUR LOGOS</h2>
-                        <p>Zip file packed with our logo in SVG and PNG format.</p>
-                        <a href="{{ asset('files/isc-logos-2019.zip') }}"><button type="button" class="btn btn-primary btn-logo">DOWNLOAD LOGOS</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <span class="vspace"></span>
-        <div class="container events">
-            <div class="container container-ow container-sm-height">
-
-                @if(isset($events) && $events->count() > 0)
-                    <h1>UPCOMING EVENTS</h1>
-                    @foreach($events as $event)
-                        <span class="vspace"></span>
-                        <div class="row row-ow row-sm-height">
-                            <div class="col-sm-6 ow-day ow-3 col-sm-height" style="background-image:url({{ url($event->cover()) }})">
-                                <span class="day">{!! $event->calendarDateTimeFrom() !!}</span>
-                                <h2>{{ $event->name }}</h2>
-                            </div>
-                            <div class="col-sm-6 ow-detail col-sm-height col-top">
-
-                                {!! $event->description !!}
-
-                                @if(isset($event->facebook_url) && $event->facebook_url != NULL)
-                                    <p>
-                                        ► <a href="{{ $event->facebook_url }}"><strong>Facebook event!</strong></a>
-                                    </p>
-                                @endif
-                            </div>
+@section('header')
+    <div class="header-wrapper home">
+        <header>
+            @include('web.layouts.navigation')
+            <p class="scroll-down">
+                <a href="#upcoming-events" class="link link-more" id="scroll">
+                    Scroll down to see upcoming events
+                    <span class="fas fa-chevron-down fa-lg"></span>
+                </a>
+            </p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 circ-info">
+                        <div class="img-wrapper">
+                            <img src="{{ asset('img/web/before-arrival.jpg') }}" />
                         </div>
-                    @endforeach
-{{--                @else--}}
-{{--                    <h1>There are no UPCOMING EVENTS. Wait for the next semester ;-)</h1>--}}
-                @endif
+                        <h3>Before arrival</h3>
+                        <p>We provide relevant information to incoming exchange students</p>
+                        <a class="btn btn-outline-light btn-lg" href="{{ route('guide') }}">Go to Survival guide</a>
+                    </div>
+                    <div class="col-md-4 circ-info">
+                        <div class="img-wrapper">
+                            <img src="{{ asset('img/web/buddy-beer.jpg') }}" />
+                        </div>
+                        <h3>Buddy program</h3>
+                        <p>We pair Czech and exchange students</p>
+                        <a class="btn btn-outline-light btn-lg" href="{{ route('web.buddy-program') }}">Learn more</a>
+                    </div>
+                    <div class="col-md-4 circ-info">
+                        <div class="img-wrapper">
+                            <img src="{{ asset('img/web/activities.jpg') }}" />
+                        </div>
+                        <h3>Activities & Events</h3>
+                        <p>We organise language programs, country presentations, trips, sports and many other activities</p>
+                        <a class="btn btn-outline-light btn-lg" href="{{ route('web.activities.index') }}">See our activities</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="introduction">
+                            This is how we integrate exchange students into life in the Czech Republic
+                            <small>
+                                &amp; create surroundings where different cultures meet and foreign and Czech students get to know each other
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-stretch align-content-center logos">
+                <div class="col-auto">
+                    <a href="https://www.esn.org" class="logo" target="_blank" rel="noopener">
+                        <img src="{{ asset('img/logos/esn/esn-logo-white.svg') }}" alt="Logo of the Erasmus Student Network" />
+                    </a>
+                    <a href="https://www.cvut.cz/en" class="logo logo-cvut" target="_blank" rel="noopener">
+                        <img src="{{ asset('img/logos/cvut/logo_cvut_en_doplnkova_verze_negativ.svg') }}" alt="Logo of the Czech Technical University in Prague" />
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+@endsection
 
-            </div>
-            @if($more)<h2 style="text-align: center">You can find more upcoming events in <a href="{{ url('calendar') }}">Calendar</a></h2>@endif
-        </div>
-        <div class="container events">
-            <div class="container container-ow container-sm-height trips-overview">
-                <img src="{{ asset('img/web/events/trips-fall-2019.jpg') }}" alt="List of trips organised during the Fall 2019 semester" />
-            </div>
-        </div>
-
-        <!--------------------- About us ---------------------------------------------------->
-        <div class="container-fluid about" id="about-us">
-            <div class="row">
-                <h2><strong>ABOUT US</strong></h2>
-            </div>
-        </div>
+@section('page')
+    <section id="upcoming-events">
         <div class="container">
-            <div class="row vision">
-                <div class="col-sm-7">
-                    <p><big>OUR VISION</big> is to create an international community at the Czech Technical University in Prague. We want to integrate exchange students into life in the Czech Republic and into events at our university. We create surroundings where different cultures meet and foreign and Czech students get to know each other.</p>
-                    <p>We support the active involvement of our members, their self-realization and personal development  in a creative environment where there is a friendly and open atmosphere.</p>
-                    <p>In this way <strong>we contribute to understanding, friendship and cooperation among the nations in Europe and throughout the world.</strong></p>
-                </div>
-                <div class="col-sm-5 book">
-                    <h2>ISC SPIRIT BOOK</h2>
-                    <p>Our culture certainly stands on some values we all share. These values are crucially important to our organization and they
-                        reflect the way we dream, work, cooperate and communicate. Learn more about our culture in our Spirit Book</p>
-                    <p class="align-center">
-                        <a href="{{ URL::asset('files/iscCtuSpiritBook.pdf') }}">
-                            <button type="button" class="btn btn-default btn-lg">Download as PDF</button>
-                        </a>
-                    </p>
+            <h1>Upcoming events</h1>
+            @if(isset($events) && $events->count() > 0)
+                <ul class="list-unstyled events">
+                    @foreach($events as $event)
+                        @include('partials.calendar-event', compact('event'))
+                    @endforeach
+                </ul>
+            @else
+                <p>There are no upcoming events. Wait for the next semester ;-)</p>
+            @endif
+
+            @if($more)
+                <p>You can find more upcoming events in <a href="{{ route('web.calendar') }}">Calendar</a></p>
+            @endif
+        </div>
+    </section>
+    <section id="testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>See what past exchange students said about us</h1>
                 </div>
             </div>
-        </div>
-
-        <!--------------------- Testimonials ---------------------------------------------------->
-        <div class="testimonials-wrap">
-            <div class="container testimonials">
-                <h1>SEE WHAT PAST EXCHANGE STUDENTS SAID ABOUT US</h1>
-                <div class="col-sm-6">
+            <div class="row">
+                <div class="col-md-6">
                     <div class="row">
-                        <div class="col-sm-4 testimonials-img"><img src="{{ URL::asset('img/web/sergio.jpg') }}" alt="Sergio Martín"></div>
-                        <div class="col-sm-8">
+                        <div class="col-md-4">
+                            <img src="{{ asset('img/web/sergio.jpg') }}" alt="Sergio Martín" />
+                        </div>
+                        <div class="col-md-8">
                             <p>I have a lot of good memories of the Czech Technical University (CTU), but the first thing I have to emphasize is the International Student Club (ISC). Due to the nice and friendly atmosphere I could feel since the beginning.</p>
                             <p>I decided to help them with the organization of some activities like the orientation week, language meetings, sport events or trips. I’ve also been teaching my Spanish language to other students!</p>
                             <p>It has been an unbelievable experience for me that I recommend to every Erasmus student for sure!</p>
@@ -98,10 +102,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <div class="row">
-                        <div class="col-sm-4 testimonials-img"><img src="{{ URL::asset('img/web/mikel.jpg') }}" alt="Mikel Ogueata"></div>
-                        <div class="col-sm-8">
+                        <div class="col-md-4">
+                            <img src="{{ asset('img/web/mikel.jpg') }}" alt="Mikel Ogueata" />
+                        </div>
+                        <div class="col-md-8">
                             <p>Joining ISC CTU in Prague allowed me many things. At the beginning of the semester, it helped me with getting to know new people from all over the world. I started learning German (with a very nice teacher) in the Masarykova dormitory, I discovered lots of new places in Prague by attending the Café Lingea meetings, where my language skills were tested, and I learned to play voleyball.</p>
                             <p>I still keep many friends who I have visited/hosted after my Erasmus. That's one of the things I am most proud of &ndash; to be able to keep these friendships through time.</p>
                             <p>My advice for those starting an Erasmus is clear: Join ISC as soon as you get there, you won't regret it.</p>
@@ -111,5 +117,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

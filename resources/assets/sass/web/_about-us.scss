@@ -1,0 +1,9 @@
+blockquote {
+  font-style: italic;
+  &::before {
+    content: "„";
+  }
+  &::after {
+    content: "“";
+  }
+}

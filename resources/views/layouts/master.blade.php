@@ -22,6 +22,7 @@
     <body>
         @include('partials.google-analytics')
         @yield('content')
+        @include('partials.logo-download-modal')
         @yield('scripts')
     </body>
 </html>
