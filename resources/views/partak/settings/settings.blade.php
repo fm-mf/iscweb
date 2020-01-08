@@ -60,11 +60,15 @@
                     @endif
                     {{ Form::url('fbGroupLink', $settings['fbGroupLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
-					{{ Form::label('owFbEventLink', 'Link to currnet OW FB event', ['class' => 'control-label']) }}
-					@if ($errors->has('owFbEventLink'))
-						<p class="error-block alert-danger">{{ $errors->first('owFbEventLink') }}</p>
-					@endif
-					{{ Form::url('owFbEventLink', $settings['owFbEventLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
+										{{ Form::label('owFbEventLink', 'Link to currnet OW FB event', ['class' => 'control-label']) }}
+										@if ($errors->has('owFbEventLink'))
+											<p class="error-block alert-danger">{{ $errors->first('owFbEventLink') }}</p>
+										@endif
+										{{ Form::url('owFbEventLink', $settings['owFbEventLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
+
+										{{ Form::bsText('whatsAppAnnoucementsLink', 'Link to Annoucements WhatsApp group', '', @$settings['whatsAppAnnoucementsLink']) }}
+
+										{{ Form::bsText('whatsAppGeneralLink', 'Link to General WhatsApp group', '', @$settings['whatsAppGeneralLink']) }}
 
                     <div style="margin-bottom: 15px;">
                    		<button type="button" id="editOpeningHoursButton" class="btn btn-warning">Edit opening hours</button>

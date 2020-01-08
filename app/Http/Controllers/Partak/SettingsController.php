@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Partak;
 
+use App\Facades\Settings;
 use App\Models\Semester;
 use App\Models\OpeningHoursMode;
 use Carbon\Carbon;
@@ -17,21 +18,20 @@ class SettingsController extends Controller
         $currentSemester = Semester::getCurrentSemester();
         $sems = Semester::orderBy('id_semester')->get();
         $semesters = [];
-        foreach ($sems as $semester)
-        {
+        foreach ($sems as $semester) {
             $semesters[$semester->semester] = $semester->semester;
         }
 
         $opms = OpeningHoursMode::listModes();
         $openingHoursModes = array();
-        foreach ( $opms as $opm ) {
-        	$openingHoursModes[ $opm ] = $opm;
+        foreach ($opms as $opm) {
+            $openingHoursModes[$opm] = $opm;
         }
 
-        $settings = \Settings::all();
-        $settings['wcFrom'] = Carbon::createFromFormat('d/m/Y' ,$settings['wcFrom']);
-        $settings['owFrom'] = Carbon::createFromFormat('d/m/Y' ,$settings['owFrom']);
-        $settings['owTo'] = Carbon::createFromFormat('d/m/Y' ,$settings['owTo']);
+        $settings = Settings::all();
+        $settings['wcFrom'] = Carbon::createFromFormat('d/m/Y', $settings['wcFrom']);
+        $settings['owFrom'] = Carbon::createFromFormat('d/m/Y', $settings['owFrom']);
+        $settings['owTo'] = Carbon::createFromFormat('d/m/Y', $settings['owTo']);
         //dd( OpeningHoursMode::getCurrentDailyHours() );
         return view('partak.settings.settings')->with([
             'settings' => $settings,
@@ -45,76 +45,74 @@ class SettingsController extends Controller
 
     public function submitSettings(Request $request)
     {
-    	if ( array_key_exists( "openingHoursMode" , $request->all() ) ) {
-        	return $this->submitOpeningHours( $request );
+        if (array_key_exists("openingHoursMode", $request->all())) {
+            return $this->submitOpeningHours($request);
         }
 
         $this->authorize('acl', 'settings.edit');
-        $this->SettingsValidator($request->all())->validate();
+        $this->settingsValidator($request->all())->validate();
+        
         $data = [];
         foreach ($request->all() as $key => $value) {
             if ($value) {
                 $data[$key] = $value;
             }
         }
-        $data['wcFrom'] = Carbon::createFromFormat('d M Y' ,$data['wcFrom'])->format('d/m/Y');
-        $data['owFrom'] = Carbon::createFromFormat('d M Y' ,$data['owFrom'])->format('d/m/Y');
-        $data['owTo'] = Carbon::createFromFormat('d M Y' ,$data['owTo'])->format('d/m/Y');
-        //dd($data);
-        foreach($data as $key => $value)
-        {
-            \Settings::set($key, $value);
-        }
-        if (!isset($data['electionStreamUrl'])) {
-            \Settings::set('electionStreamUrl', '');
+
+        $data['wcFrom'] = Carbon::createFromFormat('d M Y', $data['wcFrom'])->format('d/m/Y');
+        $data['owFrom'] = Carbon::createFromFormat('d M Y', $data['owFrom'])->format('d/m/Y');
+        $data['owTo'] = Carbon::createFromFormat('d M Y', $data['owTo'])->format('d/m/Y');
+
+        foreach ($data as $key => $value) {
+            Settings::set($key, $value);
         }
 
-        /*
-         * TODO:
-         * - 
-         */
+        if (!isset($data['electionStreamUrl'])) {
+            Settings::set('electionStreamUrl', '');
+        }
 
         return back()->with(['successUpdate' => true]);
     }
 
-    public function submitOpeningHours( Request $request ) {
-		$this->authorize( "acl", "settings.edit" );
-		$this->OpeningHoursValidator( $request->all() )->validate();
+    public function submitOpeningHours(Request $request)
+    {
+        $this->authorize("acl", "settings.edit");
+        $this->openingHoursValidator($request->all())->validate();
 
-		$data = array();
-		foreach ($request->all() as $key => $value) {
-			if ( $value ) {
-				$data[ $key ] = $value;
-			}
-		}
+        $data = array();
+        foreach ($request->all() as $key => $value) {
+            if ($value) {
+                $data[$key] = $value;
+            }
+        }
 
-		//dd( $data );
+        //dd( $data );
 
-		OpeningHoursMode::setMode( $data[ "openingHoursMode" ] );
-		\Settings::set( "openingHoursMode", OpeningHoursMode::getCurrentMode() );
+        OpeningHoursMode::setMode($data["openingHoursMode"]);
+        Settings::set("openingHoursMode", OpeningHoursMode::getCurrentMode());
 
-		if ( ! isset( $data[ "openingHoursText" ] ) ) {
-			$data[ "openingHoursText" ] = "";
-		}
+        if (!isset($data["openingHoursText"])) {
+            $data["openingHoursText"] = "";
+        }
 
-		OpeningHoursMode::updateText( OpeningHoursMode::getCurrentMode(), $data[ "openingHoursText" ] );
+        OpeningHoursMode::updateText(OpeningHoursMode::getCurrentMode(), $data["openingHoursText"]);
 
-		if ( ! isset( $data[ "showOpeningHours" ] ) ) {
-			OpeningHoursMode::hideCurrentHours();
-		} else {
-			OpeningHoursMode::showCurrentHours();
-			$hours_json = '{';
-			for ( $i = 0; $i < count( OpeningHoursMode::$dow ) - 1; ++$i ) {
-				$hours_json .= '"' . OpeningHoursMode::$dow[ $i ] . '": "' . ( isset( $data[ "openingHoursData-" . OpeningHoursMode::$dow[ $i ] ] ) ? $data[ "openingHoursData-" . OpeningHoursMode::$dow[ $i ] ] : "" ) . '",';
-			}
-			$hours_json .= '"' . OpeningHoursMode::$dow[ $i ] . '": "' . ( isset( $data[ "openingHoursData-" . OpeningHoursMode::$dow[ $i ] ] ) ? $data[ "openingHoursData-" . OpeningHoursMode::$dow[ $i ] ] : "" ) . '"}';
-			OpeningHoursMode::updateHours( OpeningHoursMode::getCurrentMode(), $hours_json );
-		}
+        if (!isset($data["showOpeningHours"])) {
+            OpeningHoursMode::hideCurrentHours();
+        } else {
+            OpeningHoursMode::showCurrentHours();
+            $hours_json = '{';
+            for ($i = 0; $i < count(OpeningHoursMode::$dow) - 1; ++$i) {
+                $hours_json .= '"' . OpeningHoursMode::$dow[$i] . '": "' . (isset($data["openingHoursData-" . OpeningHoursMode::$dow[$i]]) ? $data["openingHoursData-" . OpeningHoursMode::$dow[$i]] : "") . '",';
+            }
+            $hours_json .= '"' . OpeningHoursMode::$dow[$i] . '": "' . (isset($data["openingHoursData-" . OpeningHoursMode::$dow[$i]]) ? $data["openingHoursData-" . OpeningHoursMode::$dow[$i]] : "") . '"}';
+            OpeningHoursMode::updateHours(OpeningHoursMode::getCurrentMode(), $hours_json);
+        }
 
-		return back()->with(['successUpdate' => true]);
-	}
+        return back()->with(['successUpdate' => true]);
+    }
 
-    protected function SettingsValidator(array $data)
+    protected function settingsValidator(array $data)
     {
         return Validator::make($data, [
             'currentSemester' => 'required',
@@ -125,21 +123,33 @@ class SettingsController extends Controller
             'owFrom' => 'date_format:d M Y',
             'owTo' => 'required|date_format:d M Y',
             'electionStreamUrl' => 'nullable|url',
-            'fbGroupLink' => 'nullable|url'
+            'fbGroupLink' => 'nullable|url',
+            'whatsAppAnnoucementsLink' => 'nullable|url',
+            'whatsAppGeneralLink' => 'nullable|url'
         ]);
     }
 
-	protected function OpeningHoursValidator( array $data ) {
-		return Validator::make( $data,
-		                        [ "openingHoursMode" => "required", ] );
-	}
+    protected function openingHoursValidator(array $data)
+    {
+        return Validator::make(
+            $data,
+            ["openingHoursMode" => "required",]
+        );
+    }
 
-	public static function getOpeningHours() {
-    	$mode = isset( $_GET[ "mode" ] ) ? $_GET[ "mode" ] : null;
-    	if ( ! in_array( $mode, OpeningHoursMode::listModes() ) ) {
-    		return "";
-    	}
+    public static function getOpeningHours()
+    {
+        $mode = isset($_GET["mode"]) ? $_GET["mode"] : null;
+        if (!in_array($mode, OpeningHoursMode::listModes())) {
+            return "";
+        }
 
-    	return json_encode( array( "text" => OpeningHoursMode::getText( $mode ), "show_hours" => OpeningHoursMode::areHoursShown( $mode ) ,"hours" => OpeningHoursMode::getHours( $mode ) ) ) ? json_encode( array( "text" => OpeningHoursMode::getText( $mode ), "show_hours" => OpeningHoursMode::areHoursShown( $mode ), "hours" => OpeningHoursMode::getHours( $mode ) ) ) : "";
+        $response = json_encode([
+            "text" => OpeningHoursMode::getText($mode),
+            "show_hours" => OpeningHoursMode::areHoursShown($mode),
+            "hours" => OpeningHoursMode::getHours($mode)
+        ]);
+
+        return $response ?? "";
     }
 }
