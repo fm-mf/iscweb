@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
 @section('stylesheets')
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/czech.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/web.css') }}" />
+@endsection
+
+@section('scripts')
+    <script src="{{ mix('js/web.js') }}" defer="defer"></script>
 @endsection
 
 @section('content')

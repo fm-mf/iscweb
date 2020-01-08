@@ -59,7 +59,13 @@ class WebController extends Controller
 
     public function showSportsPage()
     {
+        $currentSemester = Semester::getCurrentSemester()->getFullName();
+        $currentSemester = strtoupper($currentSemester);
+
+        // TODO add fetching sports form DB
+
         return view('web.activities.sports')->with([
+            'currentSemester' => $currentSemester,
             'contact' => Contact::byPosition('Sports Coordinator')->first(),
         ]);
     }
@@ -79,7 +85,11 @@ class WebController extends Controller
 
     public function showTripsPage()
     {
+        $currentSemester = Semester::getCurrentSemester()->getFullName();
+        $currentSemester = strtoupper($currentSemester);
+
         return view('web.activities.trips')->with([
+            'currentSemester' => $currentSemester,
             'contact' => Contact::byPosition('Trips Coordinator')->first(),
         ]);
     }
@@ -88,10 +98,21 @@ class WebController extends Controller
     {
         $fromDate = Carbon::createFromFormat('d/m/Y' , Settings::get('wcFrom'));
         $langEvents = Languages_event::getLangEventsFrom($fromDate);
+        $currentSemester = Semester::getCurrentSemester()->getFullName();
+        $currentSemester = strtoupper($currentSemester);
+
         return view('web.activities.languages')->with([
             'langEvents' => $langEvents,
+            'currentSemester' => $currentSemester,
             'contact' => Contact::byPosition('Languages Coordinator')->first(),
         ]);
+    }
+
+    public function showFaqPage()
+    {
+        $linkExchangeGroup = Settings::get('fbGroupLink');
+
+        return view('web.faq', compact('linkExchangeGroup'));
     }
 
     public function redirectToElectionStream()

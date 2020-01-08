@@ -7,7 +7,7 @@
  */
 
 
-    Route::get('/', 'DashboardController@index');
+    Route::get('/', 'DashboardController@index')->name('partak.index');
     Route::get('/users/roles', 'RolesController@showDashboard');
     Route::get('/users/partaks', 'RolesController@showPartaks');
     Route::get('/users/roles/remove/{id_user}/{id_role}', 'RolesController@removeRole');
