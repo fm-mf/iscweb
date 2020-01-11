@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Facades\Settings;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -136,24 +137,23 @@ class Trip extends Model
     {
         // We only match current semester events
         $semesterId = Semester::getCurrentSemester()->id_semester;
-        
+
         // Find valid reservation
-        $reservation = EventReservation::with([
-            'event' => function ($query) use ($semesterId) {
-                $query->where('ow', 1)
+        $reservation = EventReservation::whereHas('event', function (Builder $query) use ($semesterId) {
+                $query->where('ow', true)
                     ->where('id_semester', $semesterId);
-            }])
+            })
             ->where('id_user', $id_user)
             ->first();
 
         // Find valid registration
-        $registration = Trip::with([
-            'event' => function ($query) use ($semesterId) {
-                $query->where('ow', 1)
+        $registration = Trip::whereHas('event', function (Builder $query) use ($semesterId) {
+                $query->where('ow', true)
                     ->where('id_semester', $semesterId);
-            }])
-            ->join('trips_participants', 'trips_participants.id_trip', '=', 'trips.id_trip')
-            ->where('trips_participants.id_user', $id_user)
+            })
+            ->whereHas('participants', function (Builder $query) use ($id_user) {
+                $query->where('trips_participants.id_user', $id_user);
+            })
             ->first();
 
         return $reservation !== null || $registration !== null;
@@ -349,7 +349,7 @@ class Trip extends Model
     {
         return $this->formatDate($datetime) . ', ' . $this->formatTime($datetime);
     }
-    
+
     private function formatDate(Carbon $datetime)
     {
         $time = $datetime->format('l') . ', ';
