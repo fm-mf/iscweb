@@ -18,7 +18,12 @@
         {!! $event->description !!}
         @isset($event->facebook_url)
             <p>
-                ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>Facebook event!</strong></a>
+                ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>@lang('web.calendar.facebook-event')</strong></a>
+            </p>
+        @endif
+        @if ($event->reservations_enabled)
+            <p>
+                ► <a href="{{ url("/event/{$event->reservations_hash}") }}"><strong>@lang('web.calendar.online-reservation')</strong></a>
             </p>
         @endif
     </div>

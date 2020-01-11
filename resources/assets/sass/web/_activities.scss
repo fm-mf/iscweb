@@ -1,183 +1,214 @@
-.activities-wrapper {
-  background: url($baseUrl + "background.jpg");
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
+section.activities-header {
+  background: url(/img/web/background.jpg) center / cover no-repeat;
+  color: #ffffff;
 
-  @media (min-width: 768px) {
-    min-height: 300px;
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 6rem;
+  }
+  @include media-breakpoint-up(md) {
+    padding-bottom: 8rem;
+  }
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 10rem;
+  }
+  @include media-breakpoint-up(xl) {
+    padding-bottom: 12rem;
   }
 
+  & ~ section {
+    background-color: #ffffff;
+  }
+}
+
+section.activities-menu {
+  .menu {
+    @include media-breakpoint-up(sm) {
+      margin-top: -6rem;
+    }
+    @include media-breakpoint-up(md) {
+      margin-top: -8rem;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-top: -10rem;
+    }
+    @include media-breakpoint-up(xl) {
+      margin-top: -12rem;
+    }
+
+    ul {
+      border-top: 0.25rem solid #ffffff;
+      border-left: 0.125rem solid #ffffff;
+      border-right: 0.125rem solid #ffffff;
+      margin-bottom: 0;
+
+      li {
+        padding: 0;
+        border-left: 0.125rem solid #ffffff;
+        border-right: 0.125rem solid #ffffff;
+
+        a {
+          display: block;
+          position: relative;
+          color: #ffffff;
+          background: #000000;
+
+          &:hover {
+            img {
+              opacity: 0.8;
+              filter: grayscale(0);
+            }
+
+            .menu-arrow {
+              color: rgba(255, 255, 255, 0.8);
+            }
+          }
+
+          img {
+            width: 100%;
+            filter: grayscale(100%);
+          }
+
+          .menu-title {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 0.5rem 0.25rem;
+            background: rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+            @include media-breakpoint-up(md) {
+              padding: 1rem 0.5rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+              padding: 1.5rem 1rem;
+            }
+          }
+
+          .menu-arrow {
+            color: rgba(255, 255, 255, 0.5);
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform: translateX(-50%);
+          }
+        }
+
+        &.active {
+          img {
+            filter: grayscale(0);
+          }
+        }
+      }
+    }
+  }
+}
+
+.motivation-quote {
   position: relative;
-  color: #FFFFFF;
-}
+  font-size: 1.25em;
+  padding: 0.5em 1.25em;
+  color: #444444;
+  max-width: 21em;
 
-.menu {
-  padding:0;
-  margin-bottom:40px;
-  position:relative;
-  @media (min-width: 768px) {
-    margin-top:-170px;
+  &::before {
+    display: block;
+    content: "“";
+    font-size: 3em;
+    position: absolute;
+    left: 0;
+    top: -0.3333333333em;
+    color: #7a7a7a;
   }
-  border-right:2px solid #fff;
-  border-left:2px solid #fff;
-  border-top:4px solid #fff;
-}
-.menu li {
-  display:block;
-  border-right:2px solid #fff;
-  border-left:2px solid #fff;
-}
-.menu li, .menu ul {
-  margin:0;
-  padding:0;
-}
-.menu li {
-}
-.menu img {
-  display:block;
-  width:100%;
-  height:auto;
-}
-.menu a {
-  text-align:center;
-  display:block;
-  position:relative;
-  color:#fff;
-  font-size:16px;
 
+  p {
+    text-align: left;
+    text-align-last: left;
+  }
+
+  &::after {
+    display: none;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+
+    & + p:last-child {
+      font-size: 0.8em;
+
+      &::before {
+        content: "—";
+        margin-right: 0.25em;
+      }
+    }
+  }
 }
 
-.menu a {
-  background:#000;
-}
-.menu a:hover img {
-  opacity:0.7;
-}
-.menu-title {
-  display:block;
-  position:absolute;
-  bottom:0;
-  left:0;
-  height:60px;
-  width:100%;
-  background:#000;
-  opacity:0.5;
-  border-top:1px solid #fff;
-}
-.menu-arrow {
-  width:40px;
-  height:42px;
-  margin-left:auto;
-  margin-right:auto;
-  background:url($baseUrl + "arrow.png");
-  background-size:cover;
-  opacity:0.2;
-
-  position:absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-a:hover > .menu-arrow {
-  opacity:1;
-}
-
-.menu strong {
-  display:block;
-  position:absolute;
-  bottom:0;
-  bottom:0;
-  width:100%;
-  height:60px;
-  line-height:60px;
-  font-weight:400;
-}
-
-.schedule img {
-  width: 90%;
-}
-
-.gallery img {
-  margin-bottom: 2px;
-  width: 60%;
+.motivation-quote-big {
+  @extend .motivation-quote;
+  font-size: 2em;
 }
 
 .gallery-row {
-  margin-top:60px;
-}
-.gallery-row li {
-  padding:1px;
-}
+  margin-top: 4em;
 
-.gallery-row img {
-  width: 100%;
-}
+  li {
+    padding: 0.0625rem;
+  }
 
-blockquote {
-  padding:0;
-  margin:0;
-  position:relative;
-  border: none;
-  display: block;
-  background-color:white;
-  font-size: 20px;
-  padding: 10px 40px;
-
-  text-align: left;
-  color: #444444;
-  margin-bottom:40px;
-  margin-left:15px;
-  @media (min-width: 420px) {
-    width: 400px;
-    margin-left:auto;
-    margin-right:auto;
+  img {
+    width: 100%;
   }
 }
 
-.quote-big {
-  font-size: 30px;
-  width:500px;
-}
-.quote-big p {
-  line-height:40px;
-}
+.room-location {
+  text-align: left;
+  text-align-last: left;
 
-
-/* Left Quote */
-blockquote:before {
-  display: block;
-  content: "\201C";
-  font-size: 90px;
-  position: absolute;
-  left: 0px;
-  top: -30px;
-  color: #7a7a7a;
+  dd {
+    margin-left: 2em;
+  }
 }
 
-.faq h2 {
-  color: #b9bbae;
+.schedule {
+  img {
+    width: 100%;
+    max-width: 12rem;
+  }
+
+  iframe {
+    width: 100%;
+  }
 }
 
-.sports-list h3 {
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 5px;
+#languages-faq {
+  background-color: #2d2d2d;
+  color: white;
+
+  dt {
+    margin-top: 1em;
+  }
+
+  dd {
+    color: #d2d2d2;
+  }
+
+  a {
+    color: white;
+  }
 }
 
-.presentations-list td, .presentations-list th {
-  padding: 10px;
-}
+.presentations-list {
+  width: 100%;
 
-.presentations-list td {
-  border-top: 1px solid #838383;
-}
+  th, td {
+    padding: 10px;
+  }
 
-.sports li {
-  margin-bottom: 60px;
-  height:150px;
+  td {
+    border-top: 1px solid #838383;
+  }
 }

@@ -1,0 +1,20 @@
+.contacts {
+  margin-top: 2rem
+}
+
+.col-info {
+  img {
+    max-width: 12rem;
+  }
+
+  h3 {
+    margin-top: 1em;
+    color: var(--color-blue);
+    font-size: 1.5rem;
+  }
+
+  p {
+    text-align: justify;
+    text-align-last: center;
+  }
+}

@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
         View::share('fullName', Settings::get('fullName'));
         View::share('officialName', Settings::get('officialName'));
         View::share('linkOwFbEvent', Settings::get('owFbEventLink'));
+        View::share('fbPageUrl', 'https://www.facebook.com/isc.ctu.prague/');
+        View::share('pointPhoneNo', '+420775198605');
+        View::share('pointPhoneNoFormatted', '+420 775 198 605');
 
         AlumniNewsletter::observe(AlumniNewsletterObserver::class);
         Contact::observe(ContactObserver::class);

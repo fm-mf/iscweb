@@ -25,16 +25,14 @@
             'title' => 'Day 1 - Monday (10th February)',
             'items' => [
                 'initial-meeting' => 'Initial information meeting',
-                'tandem-evening' => 'Tandem Evening',
-                'where-to-get-ctu-id' => 'Where to get it'
+                'tandem-evening' => 'Tandem Evening'
             ]
         ],
         'day-2' => [
             'title' => 'Day 2 - Tuesday (11th February)',
             'items' => [
                 'day-2-registration' => 'Registration at faculties',
-                'trips-meeting' => 'Second information meeting',
-                'where-to-get-ctu-id' => 'Where to get it'
+                'trips-meeting' => 'Second information meeting'
             ]
         ],
         'day-3' => [

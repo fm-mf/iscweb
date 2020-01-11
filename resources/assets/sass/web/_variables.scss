@@ -1,3 +1,8 @@
-$baseUrl: "../img/web/";
-$baseUrlBuddy: "../img/buddy/";
-$icon-font-path: "../fonts/";
+$fa-font-path: "/fonts/font-awesome";
+$enable-rounded: false;
+:root {
+  --color-blue: #05a0db;
+  --logo-height: 4rem;
+  --color-light-gray: #e4e4e4;
+  --color-blue-bg: #0079c1;
+}

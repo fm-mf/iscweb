@@ -1,23 +1,28 @@
-@extends('web.layouts.activities')
+@extends('web.layouts.layout')
+@section('title', 'Activities')
 
-@section('content')
-    <div class="container">
-    <blockquote class="quote-big"><p>Dream. Explore. Learn. Share. Discover.</p></blockquote>
-    </div>
-    <div>
-	    <ul class="row list-unstyled contacts activities-contacts">
-	        <li class="col-md-4 col-sm-6 col-md-offset-4">
-	            <img src="{{ $contact['avatar'] }}" class="img-circle">
-	            <div class="contact-details">
-	                <h4>{{ $contact['name'] }}</h4><br>
-	                <strong>{{ $contact['position'] }}</strong><br>
-	                Email: <a href="mailto:{{ $contact['email'] }}">{{ $contact['email'] }}</a><br>
-	                @if(mb_strlen($contact['phone']) === 16)
-	                    Phone: <a href="tel:{{ $contact['phone'] }}">{{ str_replace(' ', '&nbsp;', $contact['phone']) }}</a><br>
-	                @endif
-	            </div>
-	            <span class="clearfix"></span>
-	        </li>
-	    </ul>
-	</div>
+@section('page')
+    <section class="activities-header">
+    </section>
+    @include('web.partials.activities-menu')
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-auto mx-auto">
+                    <blockquote class="motivation-quote-big">
+                        <p>
+                            Dream. Explore. Learn. Share. Discover.
+                        </p>
+                    </blockquote>
+                </div>
+            </div>
+            @isset($contact)
+                <div class="row contacts">
+                    <div class="col-auto mx-auto">
+                        @include('partials.contact', compact('contact'))
+                    </div>
+                </div>
+            @endif
+        </div>
+    </section>
 @endsection

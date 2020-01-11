@@ -51,15 +51,16 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
 {
     Route::get('/', 'WebController@showLangSelection')->name('web.lang-select');
     Route::get('/home', 'WebController@showHomePage')->name('web.index');
-    Route::get('/about-us', function() { return view('web.about'); });
-    Route::get('/buddy-program', function() { return view('web.buddy-program'); });
-    Route::get('/activities', 'WebController@showActivitesPage');
-        Route::get('/activities/language-programs', 'WebController@showLanguagesPage');
-        Route::get('/activities/sports', 'WebController@showSportsPage');
-        Route::get('/activities/integreat', 'WebController@showInteGreatPage');
-        Route::get('/activities/trips', 'WebController@showTripsPage');
-    Route::get('/contact', 'WebController@showContacts');
-    Route::get('/calendar', 'WebController@showCalendar');
+    Route::get('/about-us', function() { return view('web.about'); })->name('web.about');
+    Route::get('/buddy-program', function() { return view('web.buddy-program'); })->name('web.buddy-program');
+    Route::get('/activities', 'WebController@showActivitesPage')->name('web.activities.index');
+        Route::get('/activities/language-programs', 'WebController@showLanguagesPage')->name('web.activities.languages');
+        Route::get('/activities/sports', 'WebController@showSportsPage')->name('web.activities.sports');
+        Route::get('/activities/integreat', 'WebController@showInteGreatPage')->name('web.activities.integreat');
+        Route::get('/activities/trips', 'WebController@showTripsPage')->name('web.activities.trips');
+    Route::get('/contact', 'WebController@showContacts')->name('web.contacts');
+    Route::get('/calendar', 'WebController@showCalendar')->name('web.calendar');
+    Route::get('/faq', 'WebController@showFaqPage')->name('web.faq');
     Route::get('/buddy', function() { return redirect(route('czech.index'), 301); });
     // Global IP when it is plugged in its public port -- not working now
     //Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); })->name('nas');
