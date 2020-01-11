@@ -53,7 +53,7 @@ class Event extends Model
     {
         return $this->hasMany('\App\Models\EventReservationQuestion', 'id_event')->orderBy('order');
     }
-    
+
 
     public function createdBy()
     {
@@ -251,14 +251,14 @@ class Event extends Model
     {
         $data = self::updateDatetimes($data);
         $id_user = Auth::id();
-        $hashId = $this->getHashIds();
+        $hashId = self::getHashIds();
 
         return DB::transaction(function () use ($data, $id_user, $hashId) {
             $event = new Event();
             $event->visible_from = $data['visible_from'];
             $event->datetime_from = $data['datetime_from'];
             $event->name = $data['name'];
-            
+
             $event->location = $data['location'] ?? '';
             $event->location_url = $data['location_url'] ?? '';
             $event->reservations_enabled = $data['reservations_enabled'] ?? 0;
@@ -316,7 +316,7 @@ class Event extends Model
             ->get();
     }
 
-    private function getHashIds()
+    private static function getHashIds()
     {
         return new Hashids("events");
     }
