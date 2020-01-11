@@ -1,0 +1,25 @@
+.faq {
+  dl {
+    text-align: left;
+    text-align-last: left;
+  }
+
+  dt {
+    font-size: 1.25rem;
+    margin-top: 1em;
+  }
+
+  dd {
+    margin-left: 2em;
+
+    p {
+      text-align: left;
+      text-align-last: left;
+      margin-bottom: 0.75em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

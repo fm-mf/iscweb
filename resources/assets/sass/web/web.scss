@@ -1,11 +1,23 @@
-// Variables
 @import "variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
 
+@import "header";
 @import "main";
+@import "footer";
+
 @import "home";
-@import "subpages";
-@import "columns";
+@import "about-us";
+@import "buddy-program";
+@import "activities";
+@import "faq";
+@import "contacts";
+@import "privacy";
 @import "guide";
+
+@import "lang-select";
