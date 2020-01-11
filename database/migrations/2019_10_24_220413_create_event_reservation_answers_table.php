@@ -14,9 +14,9 @@ class CreateEventReservationAnswersTable extends Migration
     public function up()
     {
         Schema::create('event_reservation_answers', function (Blueprint $table) {
-            $table->integer('id_event')->unsigned();
-            $table->integer('id_user')->unsigned();
-            $table->integer('id_question')->unsigned();
+            $table->unsignedInteger('id_event');
+            $table->unsignedInteger('id_user');
+            $table->unsignedInteger('id_question');
             $table->text('value');
 
             $table->primary(['id_event', 'id_user', 'id_question'], 'pk_event_reservation_answer');

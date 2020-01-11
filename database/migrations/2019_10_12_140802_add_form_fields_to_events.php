@@ -14,10 +14,10 @@ class AddFormFieldsToEvents extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->tinyInteger('id_semester')->unsigned()->nullable()->after('id_event');
-            $table->boolean('ow')->default('0');
-            $table->boolean('reservations_enabled')->default('0');
-            $table->char('reservations_hash', 100)->nullable();
+            $table->unsignedTinyInteger('id_semester')->nullable()->after('id_event');
+            $table->boolean('ow')->default(false);
+            $table->boolean('reservations_enabled')->default(false);
+            $table->string('reservations_hash')->nullable()->unique();
             $table->integer('reservations_removal_limit')->nullable();
             $table->boolean('reservations_diet')->nullable();
             $table->boolean('reservations_medical')->nullable();

@@ -14,16 +14,16 @@ class CreateEventReservationsTable extends Migration
     public function up()
     {
         Schema::create('event_reservations', function (Blueprint $table) {
-            $table->integer('id_event')->unsigned();
-            $table->integer('id_user')->unsigned();
+            $table->unsignedInteger('id_event');
+            $table->unsignedInteger('id_user');
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('deleted_by')->unsigned()->nullable();
-            $table->dateTime('expires_at');
+            $table->unsignedInteger('deleted_by')->nullable();
+            $table->dateTime('expires_at')->nullable();
             $table->text('medical_issues')->nullable();
             $table->enum('diet', ['Vegetarian', 'Vegan', 'Fish only'])->nullable();
             $table->text('notes')->nullable();
-            $table->string('hash', 32);
+            $table->string('hash')->unique();
 
             $table->primary(['id_event', 'id_user']);
             $table

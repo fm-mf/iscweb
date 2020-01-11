@@ -15,11 +15,11 @@ class CreateEventReservationQuestionsTable extends Migration
     {
         Schema::create('event_reservation_questions', function (Blueprint $table) {
             $table->increments('id_question');
-            $table->integer('id_event')->unsigned();
+            $table->unsignedInteger('id_event');
             $table->integer('order');
-            $table->boolean('required')->default('0');
+            $table->boolean('required')->default(false);
             $table->enum('type', ['number', 'text', 'select']);
-            $table->string('label', 255);
+            $table->string('label');
             $table->text('description')->nullable();
             $table->text('data')->nullable();
 
@@ -28,6 +28,8 @@ class CreateEventReservationQuestionsTable extends Migration
                 ->on('events')
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
+
+            $table->unique(['id_event', 'order']);
         });
     }
 

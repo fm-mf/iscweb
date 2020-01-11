@@ -14,7 +14,7 @@ class AddRegistrationIntervalFieldsToTrips extends Migration
     public function up()
     {
         Schema::table('trips', function (Blueprint $table) {
-            $table->datetime('registration_to');
+            $table->datetime('registration_to')->nullable();
         });
     }
 

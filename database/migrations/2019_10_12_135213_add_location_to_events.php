@@ -14,8 +14,8 @@ class AddLocationToEvents extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->char('location', 200)->nullable()->after('name');
-            $table->char('location_url', 200)->nullable()->after('location');
+            $table->string('location')->nullable()->after('name');
+            $table->string('location_url')->nullable()->after('location');
         });
     }
 
