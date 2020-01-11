@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Partak;
 use App\Models\Event;
 use App\Models\Integreat_party;
 use App\Models\Languages_event;
+use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -42,9 +43,16 @@ class EventController extends Controller
     {
         $this->authorize('acl', 'events.view');
         $event = Event::with('Integreat_party', 'Languages_event')->find($id_event);
+
+        $semesterId = Semester::getCurrentSemester()->id_semester;
+        $semesters = Semester::orderBy('id_semester', 'desc')
+            ->pluck('semester', 'id_semester');
+
         return view('partak.events.edit')->with([
             'event' => $event,
             'event_types' => Event::getAllTypes(),
+            'semesters' => $semesters,
+            'currentSemesterId' => $semesterId,
         ]);
 
     }
@@ -110,10 +118,17 @@ class EventController extends Controller
             $event->event_type = 'languages';
             $event->languages_event = new Languages_event();
         }
+
+        $semesterId = Semester::getCurrentSemester()->id_semester;
+        $semesters = Semester::orderBy('id_semester', 'desc')
+            ->pluck('semester', 'id_semester');
+
         return view('partak.events.create')->with([
             'event' => $event,
             'event_types' => $event->getAlltypes(),
             'create' => true,
+            'semesters' => $semesters,
+            'currentSemesterId' => $semesterId,
         ]);
 
     }
