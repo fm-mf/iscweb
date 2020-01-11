@@ -340,7 +340,7 @@ class TripController extends Controller
 
         $trip->event->save();
 
-        $this->saveQuestions($trip, $request->input('questions'));
+        $this->saveQuestions($trip, $request->input('questions') ?? []);
 
         return \Redirect::route('trips.edit', ['id_trip' => $trip->id_trip])
             ->with(['success' => 'Trip was successfully created.']);
