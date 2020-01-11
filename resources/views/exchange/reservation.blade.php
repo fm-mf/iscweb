@@ -3,7 +3,9 @@
 @section('content')
   <div id="form-app">
     <div class="header">
-      <img src="{{ url($event->cover()) }}" alt="{{ $event->name }}" />
+      @isset($event->cover)
+        <img src="{{ $event->coverUrl }}" alt="{{ $event->name }}" />
+      @endisset
       <h1>{{ $event->name }}</h1>
     </div>
 
