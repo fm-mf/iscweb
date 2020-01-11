@@ -106,7 +106,7 @@ class TripController extends Controller
             function ($excel) use ($particip, $trip) {
                 $excel->sheet('Participants', function ($sheet) use ($particip, $trip) {
                     $sheet->mergeCells('A1:I1');
-                    
+
                     // Columns A and H (order number and phone number) format is set to number
                     $sheet->setColumnFormat(array(
                         'A' => '0',
@@ -146,7 +146,7 @@ class TripController extends Controller
         $trip = Trip::find($id_trip);
 
         $this->authorize('addParticipant', $trip);
-        
+
         $responseData = [
             'paid' => $request->input('paid', 0),
             'comment' => $request->input('comment')
@@ -304,6 +304,7 @@ class TripController extends Controller
         $trip->registration_from = Carbon::now();
         $trip->registration_to = Carbon::now();
         $trip->trip_date_to = Carbon::now();
+        $trip->event = $event;
 
         return view('partak.trips.Create')->with([
             'trip' => $trip,
