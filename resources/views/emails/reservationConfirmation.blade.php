@@ -26,7 +26,7 @@
         <p>
             <strong>When:</strong> {{ $event->trip->eventDateInterval(false) }}<br />
             <strong>Where:</strong> <a href="{{ $event->location_url }}" target="_blank">{{ $event->location }}</a><br />
-            <strong>Price:</strong> @if ($event->price) {{ $event->price }} CZK @else FREE @endif<br />
+            <strong>Price:</strong> @if ($event->trip->price) {{ $event->trip->price }} CZK @else FREE @endif<br />
             <strong>Description:</strong> <a href="{{ url("/event/{$event->reservations_hash}") }}">here</a>
         </p>
         <p>With kind regards</p>
