@@ -1,9 +1,15 @@
-@extends('web.layouts.subpage')
-@section('wrapper-class', 'guide-wrapper subpage-wrapper')
-@section('navClass', 'navbar-dark')
-@section('title', 'Survival Guide')
+@extends('web.layouts.layout')
 
-@section('content')
+@section('header')
+    <div class="header-wrapper guide-wrapper subpage-wrapper">
+        <header>
+            @include('web.layouts.navigation')
+            <h1>Survival Guide</h1>
+        </header>
+    </div>
+@endsection
+
+@section('page')
   <div class="guide-content guide-subpage">
     @include('guide.layouts.navigation')
     <div class="guide-subpage-content">
@@ -11,3 +17,7 @@
     </div>
   </div>
 @stop
+
+@section('title')
+  @yield('subtitle') | Survival Guide
+@endsection

@@ -1,5 +1,7 @@
 @extends('guide.layouts.subpage')
 
+@section('subtitle', 'KOS')
+
 @section('subpage')
     <h1>KOS & Classes registration</h1>
 

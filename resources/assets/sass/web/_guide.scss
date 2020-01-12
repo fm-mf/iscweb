@@ -1,14 +1,27 @@
 .guide-wrapper {
   width: 100%;
   min-height: 500px;
-  background-image:url($baseUrl + "../guide/prague-02.jpg") !important;
+  background-image:url("/img/guide/prague-02.jpg") !important;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
   overflow: hidden;
 
+  > header > nav {
+    // Fixes web navigation being overlayed by guide navigation
+    z-index: 2;
+  }
+
   &.subpage-wrapper {
-    min-height: 400px;
+    min-height: initial;
+
+    @media (max-width: 768px) {
+      h1 {
+        display: none;
+      }
+
+      margin-bottom: 4rem;
+    }
   }
 }
 
@@ -16,7 +29,7 @@
   padding: 0 1rem;
   margin: 0 auto;
   max-width: 1000px;
-
+  text-align: left;
   
   h1, h2, h3 {
     text-align: left;
@@ -32,7 +45,7 @@
 
   h3 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 125%;
   }
 
   .bg-danger,
@@ -43,15 +56,18 @@
   }
 
   .bg-danger {
-    border-left: 4px $state-danger-border solid;
+    border-left: 4px $danger solid;
+    background-color: lighten($danger, 25%) !important;
   }
 
   .bg-warning {
-    border-left: 4px $state-warning-border solid;
+    border-left: 4px $warning solid;
+    background-color: lighten($warning, 25%) !important;
   }
 
   .bg-info {
-    border-left: 4px $state-info-border solid;
+    border-left: 4px $info solid;
+    background-color: lighten($info, 25%) !important;
   }
   
   .list-unstyled > li {
@@ -120,8 +136,7 @@
 
   .home-screen {
     .guide-navigation {
-      margin-top: -170px;
-      margin-bottom: 50px;
+      margin: -170px auto 50px auto;
       
       a {
         display: block;
@@ -167,14 +182,14 @@
       a:hover#link-esn {
         background-color: rgb(250, 132, 45);
       }
-    }  
-
-    .img-circle {
-      display: block;
-      margin: 0 auto 3rem auto;
     }
 
     padding-bottom: 4rem;
+  }
+
+  .img-circle {
+    display: block;
+    margin: 0 auto 3rem auto;
   }
 }
 
@@ -187,10 +202,12 @@
 
   .guide-nav {
     flex-shrink: 0;
-    width: 300px;
     background: #eee;
     height: 100%;
+    margin-top: 1rem;
     margin-right: 2rem;
+    padding: 0;
+    width: 250px;
     
     .navbar-brand {
       display: none;
@@ -199,13 +216,21 @@
     @media (max-width: 768px) {
       position: absolute;
       left: 0;
-      top: 82px;
+      top: 72px;
       width: 100%;
       height: auto;
-      z-index: 10;
+      margin-top: 0;
+      padding: 0.5rem 1rem;
 
+      // Fixes warning boxes being rendered over guide nav
+      z-index: 1;
+      
       .navbar-brand {
         display: block;
+      }
+
+      .guide-nav-items {
+        margin-top: 1rem;
       }
     }
 
@@ -213,11 +238,19 @@
       padding: 0;
     }
 
-    .navbar-toggle {
-      padding: 10px 6px;
+    .navbar-toggler {
+      border: none;
+    }
 
-      .icon-bar {
-        background-color: #aaa;
+    .nav {
+      display: block;
+
+      &.collapse {
+        display: none;
+      }
+
+      &.show {
+        display: block;
       }
     }
 
@@ -227,6 +260,11 @@
         border-left-style: solid;
         margin-left: 1px;
 
+        a {
+          display: block;
+          padding: 0.6rem;
+        }
+
         & > a {
           &.expanded,
           &:hover {
@@ -235,10 +273,13 @@
           }
         }
 
+        & > ul {
+          list-style-type: none;
+        }
+
         & > ul > li > a {
-          padding-bottom: 5px;
-          padding-top: 5px;
           color: #787878;
+          padding-left: 0;
           
           &:hover {
             text-decoration :underline;
@@ -292,7 +333,7 @@
 
   .guide-subpage-content {
     flex: 1;
-    padding: 0 2rem;
+    padding: 0 2rem 2rem 2rem;
 
     img {
       max-width: 100%;
