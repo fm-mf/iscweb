@@ -358,6 +358,26 @@
   #esn-cz-intro > img {
     display: block;
     width: 20rem;
-    margin: 1rem;
+    margin: 1rem auto;
+  }
+
+  #partners {
+    & > img {
+      margin: 0 auto 1rem;
+      display: block;
+      width: 12rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+      h2 {
+        clear: both;
+        margin-top: 2rem;
+      }
+
+      & > img {
+        float: right;
+        margin-left: 1rem;
+      }
+    }
   }
 }

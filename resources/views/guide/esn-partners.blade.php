@@ -34,7 +34,6 @@
         <p> Download the app via this <a href="https://getgui.de/CVUTVIP" target="_blank">link</a> and activate the
           <strong>premium account for free with the CVUTVIP promo code!</strong>
         </p>
-        <p></p>
 
         <h2>Ryanair</h2>
         <img src="{{ asset('img/guide/partners/logo-ryanair.jpg') }}" />
