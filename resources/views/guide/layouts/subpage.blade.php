@@ -19,5 +19,5 @@
 @stop
 
 @section('title')
-  @yield('subtitle') | Survival Guide
+  @yield('subtitle') – Survival Guide
 @endsection
