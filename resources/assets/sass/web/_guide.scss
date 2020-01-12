@@ -353,4 +353,11 @@
       max-width: 100%;
     }
   }
+
+  #isc-intro > img,
+  #esn-cz-intro > img {
+    display: block;
+    width: 20rem;
+    margin: 1rem;
+  }
 }
