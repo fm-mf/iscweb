@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'ESN &ndash; ')
+@section('subtitle', 'ESN')
 
-@section('content')
+@section('subpage')
   <section id="esn-intro">
     <h1>Erasmus Student Network</h1>
       <p>Erasmus Student Network (ESN) is the biggest student association in Europe.

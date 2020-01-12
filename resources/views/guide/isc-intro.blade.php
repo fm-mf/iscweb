@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'ISC &ndash; ')
+@section('subtitle', 'ISC')
 
-@section('content')
+@section('subpage')
     <section id="isc-intro">
         <h1>ISC</h1>
 

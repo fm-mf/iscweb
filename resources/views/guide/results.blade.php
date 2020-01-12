@@ -1,5 +1,5 @@
-@extends('layouts.guide.layout')
-@section('content')
+@extends('guide.layouts.subpage')
+@section('subpage')
     <h1>Search Results</h1>
     <script>
         (function() {

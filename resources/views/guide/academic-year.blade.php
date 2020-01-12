@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'Academic year &ndash; ')
+@section('subtitle', 'Academic year')
 
-@section('content')
+@section('subpage')
     <h1>Academic year</h1>
     <p><a href="https://international.cvut.cz/for-incomers/academic-calendar/">Full Academic calendar for CTU</a></p>
     <p>The academic calendar may vary from faculty to faculty.</p>

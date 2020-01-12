@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'Eduroam &ndash; ')
+@section('subtitle', 'Eduroam')
 
-@section('content')
+@section('subpage')
     <h1>Eduroam</h1>
     <p>Eduroam (education roaming) is an international roaming service for users in research,
         higher education and further education. It provides researchers, teachers and students
