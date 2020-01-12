@@ -2,8 +2,8 @@ import $ from "jquery";
 import jQuery from "jquery";
 import "bootstrap";
 
-import "./czech/_instafeed"
-import initGMapsPreview from "./czech/_gMapsPreview";
+import "./web/_instafeed"
+import initGMapsPreview from "./web/_gMapsPreview";
 
 window.jQuery = jQuery;
 require("@fancyapps/fancybox");
