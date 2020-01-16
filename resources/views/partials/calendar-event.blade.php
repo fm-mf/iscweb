@@ -17,19 +17,19 @@
     <div class="col-sm-6 description">
         {!! $event->description !!}
 
-        @if (isset($event->facebook_url) || $event->reservations_hash)
+        @isset($event->facebook_url)
+            <p>
+                ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>@lang('web.calendar.facebook-event')</strong></a>
+            </p>
+        @endisset
         <p>
-            @isset($event->facebook_url)
-                ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>@lang('web.calendar.facebook-event')</strong></a><br />
-            @endif
             ► <a href="{{ url("/event/{$event->reservations_hash}") }}">
-            @if ($event->reservations_enabled)
-                <strong>@lang('web.calendar.online-reservation')</strong>
-            @else
-                <strong>@lang('web.calendar.detail')</strong>
-            @endif
+                @if ($event->reservations_enabled && $event->trip && $event->trip->registration_to > \Carbon\Carbon::now())
+                    <strong>@lang('web.calendar.online-reservation')</strong>
+                @else
+                    <strong>@lang('web.calendar.detail')</strong>
+                @endif
             </a>
         </p>
-        @endif
     </div>
 </li>
