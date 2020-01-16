@@ -203,7 +203,7 @@ class ExchangeStudent extends Model
     }
 
     public function scopeJoinAll($query) {
-        return $query->join('arrivals', 'arrivals.id_user', '=', 'exchange_students.id_user')
+        return $query->leftJoin('arrivals', 'arrivals.id_user', '=', 'exchange_students.id_user')
             ->join('people', 'people.id_user', '=', 'exchange_students.id_user')
             ->join('countries', 'countries.id_country', '=', 'exchange_students.id_country')
             ->join('faculties', 'faculties.id_faculty', '=', 'exchange_students.id_faculty')
