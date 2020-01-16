@@ -62,7 +62,10 @@
                                 <div class="div-cell country">@{{ student.country.full_name }}</div>
                                 <div class="div-cell school">@{{ student.school }}</div>
                                 <div class="div-cell faculty">@{{ student.faculty.abbreviation }}</div>
-                                <div class="div-cell arrival"><span v-if="student.arrival">@{{ student.arrival['arrivalFormatted'] }}</span></div>
+                                <div class="div-cell arrival">
+                                    <span v-if="student.arrival">@{{ student.arrival['arrivalFormatted'] }}</span>
+                                    <span v-else>@lang('buddy-program.arrival-not-filled')</span>
+                                </div>
                                 <div class="div-cell accomodation">@{{ student.accommodation.full_name }}</div>
                             </div>
                             <div class="div-tr table-empty" v-if="!loading && data.length === 0">

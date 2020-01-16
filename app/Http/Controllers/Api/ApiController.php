@@ -37,6 +37,9 @@ class ApiController extends Controller
             return [];
         }
 
+        app()->setLocale('cs');
+        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
+
         $page = $request->page;
         if ($page > 1) {
             Paginator::currentPageResolver(function () use ($page) {
