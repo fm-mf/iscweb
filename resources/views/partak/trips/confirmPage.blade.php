@@ -23,9 +23,14 @@
         <div class="row row-inner" id="form">
             <div class="col-md-7">
                 {{ Form::model($part, ['url' => '/partak/trips/detail/'. $trip->id_trip .'/add/'. $part->id_user, 'method' => 'patch', 'id' => 'roles']) }}
-                {{ Form::bsText('medical_issues', 'Medical Issues','', $part->medical_issues) }}
 
-                {{ Form::bsSelect('diet', 'Diet', $diets, $part->diet, ['placeholder' => 'No diet'])  }}
+                @if ($trip->event->reservations_medical)
+                    {{ Form::bsText('medical_issues', 'Medical Issues','', $part->medical_issues) }}
+                @endif
+
+                @if($trip->event->reservations_diet)
+                    {{ Form::bsSelect('diet', 'Diet', $diets, $part->diet, ['placeholder' => 'No diet'])  }}
+                @endif
 
                 @include('partak.trips.custom-questions', ['id_user' => $part->id_user, 'readonly' => $reservation])
 
