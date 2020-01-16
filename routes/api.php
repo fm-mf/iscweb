@@ -30,6 +30,7 @@ use Illuminate\Http\Request;
     Route::post('/autocomplete/exchange-students', 'AutocompleteController@exchangeStudents');
     Route::post('/autocomplete/buddies', 'AutocompleteController@buddies');
     Route::post('/liststudents', 'ApiController@load');
+    Route::get('/filter-options', 'ApiController@loadFilterOptions');
 
     Route::post('/load-preregister', 'ApiController@loadPreregister');
     Route::post('/load-preregister/save', 'ApiController@preregister');

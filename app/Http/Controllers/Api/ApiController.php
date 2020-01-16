@@ -9,10 +9,12 @@ use App\Models\ExchangeStudent;
 use App\Models\Faculty;
 use App\Models\Person;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
 use App\Facades\Settings ;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -34,7 +36,7 @@ class ApiController extends Controller
     public function load(Request $request)
     {
         if (!Settings::get('isDatabaseOpen')) {
-            return [];
+            return response()->json([]);
         }
 
         app()->setLocale('cs');
@@ -55,7 +57,7 @@ class ApiController extends Controller
         if ($sort && $sort['field'] && $sort['order']) {
             $field = $sort['field'];
             $order = $sort['order'];
-            
+
             if ($order !== 'desc') {
                 $order = 'asc';
             }
@@ -94,6 +96,33 @@ class ApiController extends Controller
         return response()->json(
             $students->paginate(50)
         );
+    }
+
+    public function loadFilterOptions()
+    {
+        if (!Settings::get('isDatabaseOpen')) {
+            return response()->json([]);
+        }
+
+        app()->setLocale('cs');
+        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
+
+        $currentSemester = Settings::get('currentSemester');
+        $arrivalDates = Arrival::withStudents($currentSemester)->select(DB::raw('DATE(`arrival`) AS `arrival`'))->distinct()->pluck('arrival');
+        $arrivalDatesFormated = [];
+        for ($i = 0; $i < count($arrivalDates); $i++) {
+            $arrivalDatesFormated[] = [
+                'formatted' => Carbon::parse($arrivalDates[$i])->format('j. n. Y'),
+                'date' => Carbon::parse($arrivalDates[$i])->format('Y-m-d')
+            ];
+        }
+
+        return response()->json([
+            'countries' => Country::withStudents($currentSemester)->get(),
+            'faculties' => Faculty::withStudents($currentSemester)->get(),
+            'accommodation' => Accommodation::withStudents($currentSemester)->get(),
+            'days' => $arrivalDatesFormated,
+        ]);
     }
 
     public function loadPreregister(Request $request)
