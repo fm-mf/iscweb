@@ -10,7 +10,12 @@
             </button>
         </div>
 
-        <div class="collapse navbar-collapse navbar-guide-collapse guide-nav-items flex-grow-1">
+        <div class="collapse navbar-collapse navbar-guide-collapse guide-nav-items flex-grow-1 flex-column">
+            <div class="search">
+                <script async src="https://cse.google.com/cse.js?cx=004292872103075398046:z2zaxsglepy"></script>
+                <div class="gcse-search"></div>
+            </div>
+
             <ul class="nav flex-grow-1">
                 <li class="blue">
                     <a data-toggle="collapse" data-target="#first-steps" @if(isset($firstSteps)) class="expanded" @endif>First steps</a>

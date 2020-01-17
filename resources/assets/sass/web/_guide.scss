@@ -208,26 +208,15 @@
 
   .guide-nav {
     flex-shrink: 0;
-    background: #eee;
     height: 100%;
     margin-top: 1rem;
     margin-right: 2rem;
     padding: 0;
     width: 250px;
 
-    .navbar-brand {
-      display: none;
-    }
-
-
-    @include media-breakpoint-up(sm) {
-      .container {
-        padding: 0;
-      }
-    }
-
     // Move the guide nav under the website nav - this is hackish, but works
     @include media-breakpoint-down(sm) {
+      background: #eee;
       position: absolute;
       left: 0;
       top: 72px;
@@ -245,6 +234,61 @@
 
       .guide-nav-items {
         margin-top: 1rem;
+      }
+    }
+       
+    @include media-breakpoint-up(sm) {
+      .container {
+        padding: 0;
+      }
+    }
+
+    .navbar-brand {
+      display: none;
+    }
+
+    .search {
+      width: 100%;
+
+      /* placeholder, that prevents nav flickering */
+      .gcse-search {
+        height: 47px;
+      }
+
+      .gsc-control-cse {
+        padding: 0 0 0.25rem 0;
+        background-color: transparent;
+        border: 0;
+
+        .gsc-input {
+          padding-right: 0;
+        }
+
+        .gsc-input-box {
+          border-right: 0;
+          border-radius: 0;
+          padding-top: 2px;
+          padding-bottom: 2px;
+        }
+
+        td.gsc-search-button {
+          width: 1px;
+
+          .gsc-search-button-v2 {
+            padding: 12px;
+            margin: 0;
+            border-radius: 0;
+            border: 0;
+
+            svg {
+              width: 16px;
+            }
+          }
+        }
+
+        .gsc-results-wrapper-overlay {
+          top: 100px;
+        }
       }
     }
 
@@ -269,6 +313,11 @@
     }
 
     .guide-nav-items {
+      > .nav {
+        background: #eee;
+        width: 100%;
+      }
+
       & > ul > li {
         border-left-width: 10px;
         border-left-style: solid;
