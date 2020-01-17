@@ -58,15 +58,20 @@
                         </div>
                         <div class="div-body">
                             <div class="div-tr" v-for="student in data">
-                                <div class="div-cell name"><a href="{{url('/muj-buddy/profile/')}}" v-bind:href="'{{url('/muj-buddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} <span class="last-name">@{{ student.person.last_name }}</span></a></div>
-                                <div class="div-cell country">@{{ student.country.full_name }}</div>
+                                <div class="div-cell name">
+                                    <a href="" v-bind:href="'{{ url('/muj-buddy/profile') }}/' + student.id">
+                                        @{{ student.first_name }}
+                                        <span class="last-name">@{{ student.last_name }}</span>
+                                    </a>
+                                </div>
+                                <div class="div-cell country">@{{ student.country }}</div>
                                 <div class="div-cell school">@{{ student.school }}</div>
-                                <div class="div-cell faculty">@{{ student.faculty.abbreviation }}</div>
+                                <div class="div-cell faculty">@{{ student.faculty }}</div>
                                 <div class="div-cell arrival">
-                                    <span v-if="student.arrival">@{{ student.arrival['arrivalFormatted'] }}</span>
+                                    <span v-if="student.arrival">@{{ student.arrival}}</span>
                                     <span v-else>@lang('buddy-program.arrival-not-filled')</span>
                                 </div>
-                                <div class="div-cell accomodation">@{{ student.accommodation.full_name }}</div>
+                                <div class="div-cell accomodation">@{{ student.accommodation }}</div>
                             </div>
                             <div class="div-tr table-empty" v-if="!loading && data.length === 0">
                                 <div class="div-cell">Nenalezen žádný student</div>

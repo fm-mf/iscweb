@@ -23,10 +23,9 @@ class StudentController extends Controller
         setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
     }
 
-    public function showProfile($exchangeStudentId)
+    public function showProfile(ExchangeStudent $exchangeStudent)
     {
         $me = Buddy::find(Auth::id());
-        $exchangeStudent = ExchangeStudent::withAll()->find($exchangeStudentId);
 
         if (!Settings::get('isDatabaseOpen') && $exchangeStudent->id_buddy != Auth::id()) {
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
@@ -53,7 +52,7 @@ class StudentController extends Controller
         ]);
     }
 
-    public function assignBuddy($exchangeStudentId)
+    public function assignBuddy(ExchangeStudent $exchangeStudent)
     {
         if (!Settings::get('isDatabaseOpen')) {
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
@@ -66,22 +65,14 @@ class StudentController extends Controller
         }
 
         try {
-            $exchangeStudent = DB::transaction(function () use ($exchangeStudentId, $me) {
-                $exchangeStudent = ExchangeStudent::find($exchangeStudentId);
-                if (!$exchangeStudent) {
-                    throw new ModelNotFoundException();
-                }
+            DB::transaction(function () use ($exchangeStudent, $me) {
                 if ($exchangeStudent->id_buddy != null) {
                     throw new AlreadyHasBuddyException();
                 }
-
                 $exchangeStudent->id_buddy = $me->id_user;
                 $exchangeStudent->buddy_timestamp = Carbon::now();
                 $exchangeStudent->save();
-                return $exchangeStudent;
             });
-        } catch (ModelNotFoundException $e) {
-            $errors['notFound'] = 'Student již není v naší databázi';
         } catch (AlreadyHasBuddyException $e) {
             $errors['alreadyHasABuddy'] = 'Student již má buddyho';
         }

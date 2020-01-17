@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\ExchangeStudentResource;
 use App\Models\Accommodation;
 use App\Models\Arrival;
 use App\Models\Country;
@@ -51,7 +52,8 @@ class ApiController extends Controller
 
         $students = ExchangeStudent::withAll()
             ->joinAll()
-            ->availableToPick(Settings::get('currentSemester'));
+            ->availableToPick(Settings::get('currentSemester'))
+            ->select('exchange_students.*');
 
         $sort = $request->sortBy;
         if ($sort && $sort['field'] && $sort['order']) {
@@ -86,16 +88,7 @@ class ApiController extends Controller
             }
         }
 
-        ExchangeStudent::setStaticVisible(['id_user', 'accommodation', 'arrival', 'country', 'faculty', 'person', 'school']);
-        Accommodation::setStaticVisible(['full_name']);
-        Arrival::setStaticVisible(['arrivalFormatted']);
-        Country::setStaticVisible(['full_name']);
-        Faculty::setStaticVisible(['abbreviation']);
-        Person::setStaticVisible(['first_name', 'last_name']);
-
-        return response()->json(
-            $students->paginate(50)
-        );
+        return ExchangeStudentResource::collection($students->paginate(50));
     }
 
     public function loadFilterOptions()

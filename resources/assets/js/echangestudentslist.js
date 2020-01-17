@@ -206,8 +206,8 @@ new Vue({
           const data = res.data;
 
           this.data = data.data;
-          this.page = data.current_page;
-          this.pagesCount = data.last_page;
+          this.page = data.meta.current_page;
+          this.pagesCount = data.meta.last_page;
 
           this.loading = false;
         })

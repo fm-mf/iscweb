@@ -22,8 +22,8 @@ Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogr
      * Todo presmerovat muj profil na templatu ktera bude odpovidat vzhledu
      */
     /*Route::get('/my-profile/{id}', 'StudentController@showProfile')->name('buddy-profile');*/
-    Route::get('/profile/{id}', 'StudentController@showProfile')->name('buddy-profile');
-    Route::get('/become-buddy/{id}', 'StudentController@assignBuddy');
+    Route::get('/profile/{exchangeStudent}', 'StudentController@showProfile')->name('buddy-profile');
+    Route::post('/become-buddy/{exchangeStudent}', 'StudentController@assignBuddy')->name('become-buddy');
     Route::get('/my-students', 'ListingController@listMyStudents')->name('buddy-my-students');
 
     Route::get('/list', function () {

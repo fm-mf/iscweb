@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\ExchangeStudent;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -26,6 +28,12 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        Route::bind('exchangeStudent', function ($value) {
+            return ExchangeStudent::whereHas('person.user', function ($query) use ($value) {
+                $query->where('hash_id', DB::raw("BINARY '{$value}'"));
+            })->firstOrFail();
+        });
     }
 
     /**
