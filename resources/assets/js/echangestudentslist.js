@@ -1,8 +1,3 @@
-/* global jscountries:readonly, jsfaculties:readonly, jsdays:readonly, jsaccommodation:readonly */
-
-// Bad practice but whatever
-import './bootstrap';
-
 import Vue from 'vue';
 import axios from 'axios';
 import OrderableColumn from './components/OrderableColumn';
@@ -203,7 +198,7 @@ new Vue({
           },
           {
             headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              'X-Requested-With': 'XMLHttpRequest',
             }
           }
         )

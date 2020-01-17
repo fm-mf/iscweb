@@ -77,15 +77,15 @@
 
                     <nav aria-label="Page navigation" v-if="data && data.length > 0 && pagesCount > 1">
                         <ul class="pagination">
-                            <li>
-                                <a href="#" v-show="page > 1" aria-label="Previous" v-on:click="goToPage(page - 1)">
-                                    <span aria-hidden="true">&laquo;</span>
+                            <li v-if="page > 1">
+                                <a href="#" aria-label="Previous" v-on:click="goToPage(page - 1)">
+                                    <span aria-hidden="true">«</span>
                                 </a>
                             </li>
-                            <li v-for="n in pagesCount" v-bind:class="{active: page == n}"><a href="#" v-on:click="goToPage(n)">@{{ n }}</a></li>
-                            <li>
+                            <li v-for="n in pagesCount" v-bind:class="{active: page === n}"><a href="#" v-on:click="goToPage(n)">@{{ n }}</a></li>
+                            <li v-if="page < pagesCount">
                                 <a href="#" v-show="page < pagesCount" aria-label="Next" v-on:click="goToPage(page + 1)">
-                                    <span aria-hidden="true">&raquo;</span>
+                                    <span aria-hidden="true">»</span>
                                 </a>
                             </li>
                         </ul>
@@ -106,8 +106,7 @@
 
 @section('scripts')
     @parent
-    <script src="https://cdn.jsdelivr.net/vue.multiselect/2.0/vue-multiselect.min.js"></script>
-    <script src="{{ asset('js/echangestudentslist.js') }}"></script>
+    <script src="{{ mix('js/echangestudentslist.js') }}"></script>
 @stop
 
 @include('footer')
