@@ -290,7 +290,7 @@ class ExchangeStudent extends Model
 
     public function getHashIdAttribute()
     {
-        return $this->person->user->hash_id;
+        return $this->person->hashId;
     }
 
     public function getWhatsAppFormattedInternationalAttribute()

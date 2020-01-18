@@ -175,9 +175,13 @@ class User extends Authenticatable
         $this->notify(new PasswordReset($token));
     }
 
-    public function generateHashId()
+    public function getHashIdAttribute()
     {
-        $this->hash_id = (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->encode($this->id_user);
-        $this->save();
+        return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->encode($this->id_user);
+    }
+
+    public static function decodeHashId(string $hashId)
+    {
+        return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->decode($hashId);
     }
 }
