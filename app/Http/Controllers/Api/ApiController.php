@@ -120,6 +120,8 @@ class ApiController extends Controller
 
     public function loadPreregister(Request $request)
     {
+        $this->authorize('acl', 'exchangeStudents.register');
+
         if ($request->lastName == null) {
             $request->lastName = '';
         }
@@ -147,6 +149,8 @@ class ApiController extends Controller
 
     public function preregister(Request $request)
     {
+        $this->authorize('acl', 'exchangeStudents.register');
+        
         $student = ExchangeStudent::find($request->id);
         if (!$student) {
             return false;
