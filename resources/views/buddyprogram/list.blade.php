@@ -58,12 +58,20 @@
                         </div>
                         <div class="div-body">
                             <div class="div-tr" v-for="student in data">
-                                <div class="div-cell name"><a href="{{url('/muj-buddy/profile/')}}" v-bind:href="'{{url('/muj-buddy/profile')}}/' + student.id_user">@{{ student.person.first_name }} <span class="last-name">@{{ student.person.last_name }}</span></a></div>
-                                <div class="div-cell country">@{{ student.country.full_name }}</div>
+                                <div class="div-cell name">
+                                    <a href="" v-bind:href="'{{ url('/muj-buddy/profile') }}/' + student.id">
+                                        @{{ student.first_name }}
+                                        <span class="last-name">@{{ student.last_name }}</span>
+                                    </a>
+                                </div>
+                                <div class="div-cell country">@{{ student.country }}</div>
                                 <div class="div-cell school">@{{ student.school }}</div>
-                                <div class="div-cell faculty">@{{ student.faculty.abbreviation }}</div>
-                                <div class="div-cell arrival"><span v-if="student.arrival">@{{ student.arrival['arrivalFormatted'] }}</span></div>
-                                <div class="div-cell accomodation">@{{ student.accommodation.full_name }}</div>
+                                <div class="div-cell faculty">@{{ student.faculty }}</div>
+                                <div class="div-cell arrival">
+                                    <span v-if="student.arrival">@{{ student.arrival}}</span>
+                                    <span v-else>@lang('buddy-program.arrival-not-filled')</span>
+                                </div>
+                                <div class="div-cell accomodation">@{{ student.accommodation }}</div>
                             </div>
                             <div class="div-tr table-empty" v-if="!loading && data.length === 0">
                                 <div class="div-cell">Nenalezen žádný student</div>
@@ -74,15 +82,15 @@
 
                     <nav aria-label="Page navigation" v-if="data && data.length > 0 && pagesCount > 1">
                         <ul class="pagination">
-                            <li>
-                                <a href="#" v-show="page > 1" aria-label="Previous" v-on:click="goToPage(page - 1)">
-                                    <span aria-hidden="true">&laquo;</span>
+                            <li v-if="page > 1">
+                                <a href="#" aria-label="Previous" v-on:click="goToPage(page - 1)">
+                                    <span aria-hidden="true">«</span>
                                 </a>
                             </li>
-                            <li v-for="n in pagesCount" v-bind:class="{active: page == n}"><a href="#" v-on:click="goToPage(n)">@{{ n }}</a></li>
-                            <li>
+                            <li v-for="n in pagesCount" v-bind:class="{active: page === n}"><a href="#" v-on:click="goToPage(n)">@{{ n }}</a></li>
+                            <li v-if="page < pagesCount">
                                 <a href="#" v-show="page < pagesCount" aria-label="Next" v-on:click="goToPage(page + 1)">
-                                    <span aria-hidden="true">&raquo;</span>
+                                    <span aria-hidden="true">»</span>
                                 </a>
                             </li>
                         </ul>
@@ -103,8 +111,7 @@
 
 @section('scripts')
     @parent
-    <script src="https://cdn.jsdelivr.net/vue.multiselect/2.0/vue-multiselect.min.js"></script>
-    <script src="{{ asset('js/echangestudentslist.js') }}"></script>
+    <script src="{{ mix('js/echangestudentslist.js') }}"></script>
 @stop
 
 @include('footer')

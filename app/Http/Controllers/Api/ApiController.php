@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\ExchangeStudentResource;
 use App\Models\Accommodation;
 use App\Models\Arrival;
 use App\Models\Country;
@@ -9,10 +10,12 @@ use App\Models\ExchangeStudent;
 use App\Models\Faculty;
 use App\Models\Person;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
 use App\Facades\Settings ;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -34,8 +37,11 @@ class ApiController extends Controller
     public function load(Request $request)
     {
         if (!Settings::get('isDatabaseOpen')) {
-            return [];
+            return response()->json([]);
         }
+
+        app()->setLocale('cs');
+        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
 
         $page = $request->page;
         if ($page > 1) {
@@ -46,13 +52,14 @@ class ApiController extends Controller
 
         $students = ExchangeStudent::withAll()
             ->joinAll()
-            ->availableToPick(Settings::get('currentSemester'));
+            ->availableToPick(Settings::get('currentSemester'))
+            ->select('exchange_students.*');
 
         $sort = $request->sortBy;
         if ($sort && $sort['field'] && $sort['order']) {
             $field = $sort['field'];
             $order = $sort['order'];
-            
+
             if ($order !== 'desc') {
                 $order = 'asc';
             }
@@ -81,16 +88,34 @@ class ApiController extends Controller
             }
         }
 
-        ExchangeStudent::setStaticVisible(['id_user', 'accommodation', 'arrival', 'country', 'faculty', 'person', 'school']);
-        Accommodation::setStaticVisible(['full_name']);
-        Arrival::setStaticVisible(['arrivalFormatted']);
-        Country::setStaticVisible(['full_name']);
-        Faculty::setStaticVisible(['abbreviation']);
-        Person::setStaticVisible(['first_name', 'last_name']);
+        return ExchangeStudentResource::collection($students->paginate(50));
+    }
 
-        return response()->json(
-            $students->paginate(50)
-        );
+    public function loadFilterOptions()
+    {
+        if (!Settings::get('isDatabaseOpen')) {
+            return response()->json([]);
+        }
+
+        app()->setLocale('cs');
+        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
+
+        $currentSemester = Settings::get('currentSemester');
+        $arrivalDates = Arrival::withStudents($currentSemester)->select(DB::raw('DATE(`arrival`) AS `arrival`'))->distinct()->pluck('arrival');
+        $arrivalDatesFormated = [];
+        for ($i = 0; $i < count($arrivalDates); $i++) {
+            $arrivalDatesFormated[] = [
+                'formatted' => Carbon::parse($arrivalDates[$i])->format('j. n. Y'),
+                'date' => Carbon::parse($arrivalDates[$i])->format('Y-m-d')
+            ];
+        }
+
+        return response()->json([
+            'countries' => Country::withStudents($currentSemester)->get(),
+            'faculties' => Faculty::withStudents($currentSemester)->get(),
+            'accommodation' => Accommodation::withStudents($currentSemester)->get(),
+            'days' => $arrivalDatesFormated,
+        ]);
     }
 
     public function loadPreregister(Request $request)

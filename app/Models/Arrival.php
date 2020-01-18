@@ -19,7 +19,7 @@ class Arrival extends Model
 
     public function exchangeStudent()
     {
-        return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
     public function transportation()
