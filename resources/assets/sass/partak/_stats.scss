@@ -1,0 +1,28 @@
+.stats-filter {
+  padding: 1rem 3rem;
+}
+
+.stats {
+  padding: 1rem 3rem;
+
+  .stat {
+    float: left;
+    width: 30%;
+    padding: 0.5rem 2rem;
+    border-left: 4px solid #eee;
+    margin-right: 1rem;
+
+    .s-label {
+      font-size: 100%;
+    }
+
+    .s-value {
+      font-size: 200%;
+    }
+
+    .s-note {
+      font-size: 75%;
+      color: #999;
+    }
+  }
+}
