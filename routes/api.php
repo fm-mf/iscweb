@@ -24,17 +24,6 @@ use Illuminate\Http\Request;
     return $request->user();
 });*/
 
-    Route::post('/avatar', 'AvatarController@upload');
-    Route::post('/load', 'ApiController@load');
-
-    Route::post('/autocomplete/exchange-students', 'AutocompleteController@exchangeStudents');
-    Route::post('/autocomplete/buddies', 'AutocompleteController@buddies');
-    Route::post('/liststudents', 'ApiController@load');
-    Route::get('/filter-options', 'ApiController@loadFilterOptions');
-
-    Route::post('/load-preregister', 'ApiController@loadPreregister');
-    Route::post('/load-preregister/save', 'ApiController@preregister');
-
     Route::get('/trips', 'TripsAppController@index');
     Route::post('/trips', 'TripsAppController@index');
 

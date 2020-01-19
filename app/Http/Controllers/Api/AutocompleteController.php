@@ -30,7 +30,8 @@ class AutocompleteController extends Controller
 {
     public function exchangeStudents(Request $request)
     {
-        //dd ($request->target);
+        $this->authorize('acl', 'users.view');
+
         $search = ExchangeStudent::findAll()->bySemester(Settings::get('currentSemester'));
         $fullName = strpos($request->input, ' ') !== false
             && in_array('person.first_name', $request->field['columns'])
@@ -61,6 +62,8 @@ class AutocompleteController extends Controller
 
     public function buddies(Request $request)
     {
+        $this->authorize('acl', 'users.view');
+
         $search = Buddy::findAll();
         $fullName = strpos($request->input, ' ') !== false
             && in_array('person.first_name', $request->field['columns'])
