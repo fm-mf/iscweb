@@ -1,6 +1,5 @@
 /node_modules
 /public/hot
-/public/storage
 /storage/*.key
 /vendor
 /.idea
@@ -11,12 +10,12 @@ npm-debug.log
 yarn-error.log
 .env
 
-/public/avatars
 /public/css/
 /public/fonts/
 /public/js/
 /public/languages
 /public/mix-manifest.json
+/public/tandem
 _ide_helper.php
 _ide_helper_models.php
 .env.testing
