@@ -46,6 +46,7 @@
         <li><a href="https://www.fjfi.cvut.cz/en/education/study-programmes-and-regulations" target="_blank">Faculty of Nuclear Sciences and Physical Engineering</a></li>
     </ul>
 
+    {{--
     <h2>Public and university holidays</h2>
     <dl>
         <dt>28 September</dt>
@@ -71,4 +72,5 @@
         <dt>8 May</dt>
             <dd>Victory Day</dd>
     </dl>
+    --}}
 @stop
