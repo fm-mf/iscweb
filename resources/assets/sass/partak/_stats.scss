@@ -26,3 +26,27 @@
     }
   }
 }
+
+.arrivals {
+  padding: 1rem 3rem;
+  
+  table {
+    td {
+      padding: 0.1rem 0.5rem;
+
+      &.count {
+        padding-left: 1.5rem;
+        text-align: right;
+      }
+
+      &.histogram {
+        vertical-align: middle;
+      }
+
+      .stats-bar {
+        background: #6868ff;
+        height: 15px;
+      }
+    }
+  }
+}

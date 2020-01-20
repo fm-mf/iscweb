@@ -51,6 +51,12 @@
 
   <div class="stats clearfix">
     <div class="stat">
+      <div class="s-label">Students from previous semester</div>
+      <div class="s-value">{{ $studentsFromPreviousSemester }}</div>
+      <div class="s-note">staying here for more than one semester</div>
+    </div>
+
+    <div class="stat">
       <div class="s-label">Buddies active in last 6 months</div>
       <div class="s-value">{{ $activeBuddies }}</div>
       <div class="s-note">by last login time</div>

@@ -45,7 +45,7 @@ class Semester extends Model
         if (isset($nextSemester)) {
             return $nextSemester;
         } else {
-            throw new \Exception('No previous semester');
+            throw new \Exception('No previous semester to ' . $this->semester);
         }
     }
 

@@ -223,6 +223,15 @@ class ExchangeStudent extends Model
                 });
     }
 
+    public function scopeWithFilledArrival($query, $semester) {
+        $query->byUniqueSemester($semester)
+                ->wantBuddy()
+                ->where(function ($query) {
+                    $query->whereHas('arrival');
+                });
+    }
+
+
     public function scopeAvailableToPick($query, $semester) {
         $query->withFilledProfile($semester)
                 ->withoutBuddy();

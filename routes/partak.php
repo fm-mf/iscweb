@@ -87,4 +87,24 @@ Route::prefix('/settings/contacts')
         Route::delete('/{contact}', 'ContactsSettingsController@destroy')->name('destroy');
     });
 
-Route::get('/stats', 'StatsController@index');
+Route::prefix('/stats')
+    ->name('partak.stats.')
+    ->group(function () {
+        Route::get('/', 'StatsController@index')->name('index');
+        
+        Route::prefix('/api')
+            ->name('api.')
+            ->group(function () {
+                Route::prefix('/semester/{semester}')
+                    ->group(function () {
+                        Route::get('/student-counts', 'StatsController@getStudentCounts')
+                            ->name('student-counts');
+                        Route::get('/active-buddies', 'StatsController@getActiveBuddies')
+                            ->name('active-buddies');
+                        Route::get('/buddies', 'StatsController@getBuddies')
+                            ->name('buddies');
+                        Route::get('/arrivals', 'StatsController@getArrivals')
+                            ->name('arrivals');
+                    });
+            });
+    });
