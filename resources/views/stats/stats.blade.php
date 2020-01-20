@@ -9,21 +9,19 @@
     <p>Ovšem, i přesto že projevili zájem, <strong>{{ $studentsWithFilledProfileWithoutBuddy }}</strong> {{ trans_choice('stats.exchange_student', $studentsWithFilledProfileWithoutBuddy) }} na Buddíka stále čeká!</p>
 </div>
 
-<div class="container" style="margin-top:60px;">
-    <div class="row">
-        <h2 style="text-align: center; margin-bottom:25px;">Odkud k nám zahraniční studenti přijíždějí</h2>
-        <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-            <table class="table table-striped">
-                @foreach ($countriesStats as $country)
-                    @if($country->exchange_student_count > 0)
-                    <tr>
-                        <td>{{  $country->full_name }}</td>
-                        <td>{{ $country->exchange_student_count }}</td>
-                    </tr>
-                    @endif
-                @endforeach
-            </table>
-        </div>
-    </div>
+
+<h2 style="text-align: center; margin-bottom:25px;">Odkud k nám zahraniční studenti přijíždějí</h2>
+
+<div class="container" style="margin: auto; width: 33%;">
+    <table class="table table-striped">
+        @foreach ($countriesStats as $country)
+            @if($country->exchange_student_count > 0)
+            <tr>
+                <td>{{  $country->full_name }}</td>
+                <td>{{ $country->exchange_student_count }}</td>
+            </tr>
+            @endif
+        @endforeach
+    </table>
 </div>
 @stop
