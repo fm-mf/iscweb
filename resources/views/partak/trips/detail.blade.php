@@ -147,7 +147,7 @@
                                     <td>{{ $item->exchangeStudent->esn_card_number ?? '-' }}</td>
                                     <td>
                                         @can('addParticipant', $trip)
-                                            <a href="{{ '/partak/trips/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-xs">Register</a>
+                                            <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-xs">Register</a>
                                         @endcan
                                         @if((isset($item->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
                                                 (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))

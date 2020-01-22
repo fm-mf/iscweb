@@ -40,7 +40,7 @@
     Route::get('/trips/detail/{id}', 'TripController@showDetail');
     Route::get('/trips/detail/{id}/pdf', 'TripController@showDetailPdf');
     Route::get('/trips/detail/{id}/excel', 'TripController@showDetailExcel');
-    Route::get('/trips/{id_event}/add/{id_part}', 'TripController@confirmAddParticipant');
+    Route::get('/trips/detail/{id_event}/add/{id_part}', 'TripController@confirmAddParticipant');
     Route::patch('/trips/detail/{id_event}/add/{id_part}', 'TripController@addParticipantToTrip');
     Route::get('/trips/{id_event}/remove/{id_part}', 'TripController@removeParticipantFromTrip');
     Route::get('/trips/{id_event}/cancel/{id_part}', 'TripController@removeReservationFromTrip');
