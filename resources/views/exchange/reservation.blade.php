@@ -11,12 +11,12 @@
 
     <div class="info">
       <div class="line when">
-        <i class="fas fa-clock fa-fw"></i>
+        <i class="fas fa-clock fa-fw" title="When?"></i>
         <span>{!! $event->trip ? $event->trip->eventDateInterval() : $event->eventsDateTimeFrom() !!}</span>
       </div>
       @if ($event->location)
       <div class="line where">
-        <i class="fas fa-thumbtack fa-fw"></i><span>
+        <i class="fas fa-thumbtack fa-fw" title="Location"></i><span>
         @if ($event->location_url)
           <a href="{{ $event->location_url }}" target="_blank">{{ $event->location }}</a></span>
         @else
@@ -25,11 +25,11 @@
       </div>
       @endif
       <div class="line price">
-        <i class="fas fa-money-bill-wave-alt fa-fw"></i>
+        <i class="fas fa-money-bill-wave-alt fa-fw" title="Price"></i>
         <span>@if ($event->trip && $event->trip->price) {{ $event->trip->price }} CZK @else FREE @endif</span>
       </div>
       @if ($event->facebook_url)
-      <div class="line facebook">
+      <div class="line facebook" title="Facebook event link">
         <i class="fab fa-facebook fa-fw"></i>
         <span><a href="{{ $event->facebook_url }}">Facebook event</a></span>
       </div>
