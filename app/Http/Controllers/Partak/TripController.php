@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade as PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use Intervention\Image\Facades\Image;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class TripController extends Controller
 {
@@ -191,6 +192,36 @@ class TripController extends Controller
                 'successUpdate' => $successUpdate,
                 'error' => $error,
             ]);
+    }
+
+    public function removeReservationFromTrip(int $id_trip, int $id_part)
+    {
+        /** @var Trip */
+        $trip = Trip::find($id_trip);
+        
+        if (!$trip) {
+            throw new NotFoundHttpException('Trip not found');
+        }
+
+        $this->authorize('removeParticipant', $trip);
+
+        /** @var Person */
+        $participant = Person::find($id_part);
+
+        if (!$participant) {
+            throw new NotFoundHttpException('Participant not found');
+        }
+
+        $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
+            ->firstOrFail();
+        $reservation->update([
+            "deleted_by" => Auth::id()
+        ]);
+        $reservation->save();
+        $reservation->delete();
+
+        return back()
+            ->with(['successUpdate' => $participant->getFullName() . ' was successfully removed.']);
     }
 
     public function removeParticipantFromTrip($id_trip, $id_part)
