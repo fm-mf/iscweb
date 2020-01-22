@@ -295,6 +295,7 @@ class TripController extends Controller
             $data['reservations_enabled'] = $request->input('reservations_enabled') === '1' ? true : false;
             $data['reservations_diet'] = $request->input('reservations_diet') === '1' ? 1 : 0;
             $data['reservations_medical'] = $request->input('reservations_medical') === '1' ? 1 : 0;
+            $data['ow'] = $request->input('ow') === '1' ? 1 : 0;
 
             $trip->update($data);
             $trip->event->update($data);
