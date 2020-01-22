@@ -16,12 +16,12 @@
     </div>
     <div class="col-sm-6 description">
         {!! $event->description !!}
-        @isset($event->facebook_url)
-            <p>
-                ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>@lang('web.calendar.facebook-event')</strong></a>
-            </p>
-        @endif
+
+        @if (isset($event->facebook_url) || $event->reservations_hash)
         <p>
+            @isset($event->facebook_url)
+                ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>@lang('web.calendar.facebook-event')</strong></a><br />
+            @endif
             ► <a href="{{ url("/event/{$event->reservations_hash}") }}">
             @if ($event->reservations_enabled)
                 <strong>@lang('web.calendar.online-reservation')</strong>
@@ -30,5 +30,6 @@
             @endif
             </a>
         </p>
+        @endif
     </div>
 </li>
