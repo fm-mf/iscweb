@@ -21,5 +21,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ mix('js/czech.js') }}" defer="defer"></script>
+    <script src="{{ mix('js/web.js') }}" defer="defer"></script>
 @endsection

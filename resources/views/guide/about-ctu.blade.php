@@ -1,5 +1,5 @@
-@extends('layouts.guide.layout')
-@section('content')
+@extends('guide.layouts.subpage')
+@section('subpage')
 <div class="row">
     <h1>About CTU in Prague</h1>
     <p>The Czech Technical University in Prague was established on the initiative of Josef Christian Willenberg,

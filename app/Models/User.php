@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Notifications\PasswordReset;
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
+use Hashids\Hashids;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Str;
@@ -33,6 +34,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /* DO NOT CHANGE THIS, OTHERWISE DUPLICATE hash_id's MAY OCCUR */
+    private static $hashIdsSalt = 'eXQ3A9RejnCT7Ul/X3mQ3Writ+CpAVrQEc2hskzCU9E=';
+    private static $hashIdsLength = 6;
 
     public function person()
     {
@@ -173,5 +178,15 @@ class User extends Authenticatable
     public static function encryptPassword($email, $password)
     {
         return hash("sha512", $email . '@' . $password);
+    }
+    
+    public function getHashIdAttribute()
+    {
+        return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->encode($this->id_user);
+    }
+
+    public static function decodeHashId(string $hashId)
+    {
+        return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->decode($hashId);
     }
 }

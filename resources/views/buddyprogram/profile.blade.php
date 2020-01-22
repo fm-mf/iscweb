@@ -61,18 +61,21 @@
                 @endforeach
             @endif
             @if(!$exchangeStudent->hasBuddy() && $canChoose)
-                <a href="{{ url('muj-buddy/become-buddy/' . $exchangeStudent->id_user) }}" class="btn btn-primary btn">Staň se jeho / jejím Buddym.</a>
-            @elseif ($exchangeStudent->id_buddy === Auth::id())
+                <form method="POST" action="{{ route('become-buddy', ['exchageStudent' => $exchangeStudent->hashId]) }}">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-primary">Staň se @if ($exchangeStudent->person->sex === 'M')jeho @elseif($exchangeStudent->person->sex === 'F')jejím @endif buddym</button>
+                </form>
+            @elseif ($exchangeStudent->id_buddy === auth()->id())
                 <div class="show-email">
                     <p><strong>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</strong> je tvým Buddym!</p>
-                    <p>Teď mu můžeš napsat! Dostupné kontakty:</p>
+                    <p>Teď @if ($exchangeStudent->person->sex === 'M')mu @elseif($exchangeStudent->person->sex === 'F')jí @endif můžeš napsat! Dostupné kontakty:</p>
                     <ul class="contacts-list">
                         <li><i class="fas fa-envelope fa-fw" alt="E-mail" title="E-mail"></i> <a href="mailto:{{ $exchangeStudent->person->user->email }}">{{ $exchangeStudent->person->user->email }}</a></li>
                         @if ($exchangeStudent->whatsapp)
-                        <li><i class="fab fa-whatsapp fa-fw" alt="WhatsApp" title="WhatsApp"></i> {{ $exchangeStudent->whatsapp }}</li>
+                            <li><i class="fab fa-whatsapp fa-fw" alt="WhatsApp" title="WhatsApp"></i> <a href="tel:{{ $exchangeStudent->whatsAppFormattedE164w }}">{{ $exchangeStudent->whatsAppFormattedInternational }}</a></li>
                         @endif
                         @if ($exchangeStudent->facebook)
-                        <li><i class="fab fa-facebook fa-fw" alt="Facebook" title="Facebook"></i> <a href="{{ $exchangeStudent->facebook }}">{{ $exchangeStudent->facebook }}</a></li>
+                            <li><i class="fab fa-facebook fa-fw" alt="Facebook" title="Facebook"></i> <a href="{{ $exchangeStudent->facebook }}">{{ $exchangeStudent->facebook }}</a></li>
                         @endif
                     </ul>
                 </div>
@@ -82,9 +85,11 @@
                 </div>
             @endif
         </div>
-        <div class="card-body">
-            <p class="show-info">V případě, že chceš zahraničního studenta odebrat ze svých buddíků, napiš na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
-        </div>
+        @if ($exchangeStudent->id_buddy === auth()->id())
+            <div class="card-body">
+                <p class="show-info">V případě, že chceš zahraničního studenta odebrat ze svých buddíků, napiš na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
+            </div>
+        @endif
     </div>
 
 @stop

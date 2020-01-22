@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'ESN & ISC Partners &ndash; ')
+@section('subtitle', 'ESN & ISC Partners')
 
-@section('content')
+@section('subpage')
     <section id="partners">
         <h1>ESN & ISC partners</h1>
         <p> Use your ESNcard and take advantage of these offers.
@@ -34,7 +34,6 @@
         <p> Download the app via this <a href="https://getgui.de/CVUTVIP" target="_blank">link</a> and activate the
           <strong>premium account for free with the CVUTVIP promo code!</strong>
         </p>
-        <p></p>
 
         <h2>Ryanair</h2>
         <img src="{{ asset('img/guide/partners/logo-ryanair.jpg') }}" />

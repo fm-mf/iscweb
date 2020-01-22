@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'Living in Prague &ndash; ')
+@section('subtitle', 'Living in Prague')
 
-@section('content')
+@section('subpage')
     <h1>Living in Prague</h1>
 
     <h2>Customs and traditions</h2>

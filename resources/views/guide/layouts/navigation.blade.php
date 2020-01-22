@@ -1,29 +1,25 @@
-<nav class="navbar">
-    <div class="container">
+<nav class="guide-nav navbar navbar-expand-md navbar-light">
+    <div class="container">           
+        <div class="d-lg-none d-md-none d-flex flex-grow-1">
+            <div class="navbar-brand">
+                Survival Guide
+            </div>
 
-        <button type="button" class="navbar-toggle pull-left" id="menu-button" data-toggle="collapse" data-target=".navbar-main-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href=""><h1>Survival Guide</h1></a>
-    </div>
-</nav>
-<div class="container-fluid">
-    <div id="left-column" class="container">
-        <div id="sg-title-bg"></div>
-        <div id="sg-title" class="row">
-            <a href="{{ action('Guide\PageController@showPage', ['page' => '']) }}">
-                <h1>Survival Guide<br>
-                    <small>will guide you through your stay at ctu</small>
-                </h1>
-            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".navbar-guide-collapse" aria-controls="navbar-guide-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-        <div class="row menu">
-            <ul class="nav nav-stacked">
-                <li class="blue"><a data-toggle="collapse" data-target="#first-steps" @if(isset($firstSteps)) class="expanded" @endif>First steps</a>
-                    <ul id="first-steps" class="nav nav-stacked collapse @if(isset($firstSteps)) in @endif">
+
+        <div class="collapse navbar-collapse navbar-guide-collapse guide-nav-items flex-grow-1 flex-column">
+            <div class="search">
+                <script async src="https://cse.google.com/cse.js?cx=004292872103075398046:z2zaxsglepy"></script>
+                <div class="gcse-search"></div>
+            </div>
+
+            <ul class="nav flex-grow-1">
+                <li class="blue">
+                    <a data-toggle="collapse" data-target="#first-steps" @if(isset($firstSteps)) class="expanded" @endif>First steps</a>
+                    <ul id="first-steps" class="nav collapse @if(isset($firstSteps)) in show @endif">
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'introduction']) }}"{!! $active == 'introduction' ? 'class="active"' : '' !!}>Introduction</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'welcome-pack']) }}"{!! $active == 'welcome-pack' ? 'class="active"' : '' !!}>Welcome pack</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'orientation-week']) }}"{!! $active == 'orientation-week' ? 'class="active"' : '' !!}>Orientation week</a></li>
@@ -32,15 +28,17 @@
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'eduroam']) }}"{!! $active == 'eduroam' ? 'class="active"' : '' !!}>Eduroam</a></li>
                     </ul>
                 </li>
-                <li class="purple"><a data-toggle="collapse" data-target="#about-ctu" @if(isset($aboutCtu)) class="expanded" @endif>CTU &amp; Useful information</a>
-                    <ul id="about-ctu" class="nav nav-stacked collapse @if(isset($aboutCtu)) in @endif">
+                <li class="purple">
+                    <a data-toggle="collapse" data-target="#about-ctu" @if(isset($aboutCtu)) class="expanded" @endif>CTU &amp; Useful information</a>
+                    <ul id="about-ctu" class="nav collapse @if(isset($aboutCtu)) in show @endif">
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'academic-year']) }}"{!! $active == 'academic-year' ? 'class="active"' : '' !!}>Academic year calendar</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'campus']) }}"{!! $active == 'campus' ? 'class="active"' : '' !!}>Campus</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'dormitories']) }}"{!! $active == 'dormitories' ? 'class="active"' : '' !!}>Dormitories</a></li>
                     </ul>
                 </li>
-                <li class="green"><a data-toggle="collapse" data-target="#czech-it-out" @if(isset($czechItOut)) class="expanded" @endif>Czech it out!</a>
-                    <ul id="czech-it-out" class="nav nav-stacked collapse @if(isset($czechItOut)) in @endif">
+                <li class="green">
+                    <a data-toggle="collapse" data-target="#czech-it-out" @if(isset($czechItOut)) class="expanded" @endif>Czech it out!</a>
+                    <ul id="czech-it-out" class="nav collapse @if(isset($czechItOut)) in show @endif">
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa']) }}"{!! $active == 'visa' ? 'class="active"' : '' !!}>Visa</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa-example-pictures']) }}"{!! $active == 'visa-example-pictures' ? 'class="active"' : '' !!}>Visa examples</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'health-care']) }}"{!! $active == 'health-care' ? 'class="active"' : '' !!}>Health care</a></li>
@@ -54,8 +52,9 @@
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'funny-facts']) }}"{!! $active == 'funny-facts' ? 'class="active"' : '' !!}>Funny facts</a></li>
                     </ul>
                 </li>
-                <li class="orange"><a data-toggle="collapse" data-target="#isc-esn" @if(isset($iscEsn)) class="expanded" @endif>ISC & ESN</a>
-                    <ul id="isc-esn" class="nav nav-stacked collapse @if(isset($iscEsn)) in @endif">
+                <li class="orange">
+                    <a data-toggle="collapse" data-target="#isc-esn" @if(isset($iscEsn)) class="expanded" @endif>ISC & ESN</a>
+                    <ul id="isc-esn" class="nav collapse @if(isset($iscEsn)) in show @endif">
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'isc-intro']) }}"{!! $active == 'isc-intro' ? 'class="active"' : '' !!}>ISC</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'esn-intro']) }}"{!! $active == 'esn-intro' ? 'class="active"' : '' !!}>ESN</a></li>
                         <li><a href="{{ action('Guide\PageController@showPage', ['page' => 'esn-partners']) }}"{!! $active == 'esn-partners' ? 'class="active"' : '' !!}>Our Partners</a></li>
@@ -63,5 +62,5 @@
                 </li>
             </ul>
         </div>
-    </div><!-- left column -->
-</div><!-- /container-fluid -->
+    </div>
+</nav>

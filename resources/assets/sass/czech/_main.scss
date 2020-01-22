@@ -44,3 +44,26 @@ a.logo:focus img {
   filter: invert(50%) opacity(50%) drop-shadow(0 0 0 $link-hover-color) contrast(300%);
   transition: filter 200ms ease-out;
 }
+
+#logo-download {
+  text-align: center;
+
+  .modal-header,
+  .modal-content {
+    background-color: var(--color-blue-bg);
+    color: white;
+  }
+
+  .modal-header {
+    border-bottom: none;
+  }
+
+  img {
+    width: 100%;
+    max-width: 10em;
+  }
+
+  .btn {
+    text-transform: uppercase;
+  }
+}

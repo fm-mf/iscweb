@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Propaganistas\LaravelPhone\PhoneNumber;
 
 class ExchangeStudent extends Model
 {
@@ -53,7 +54,7 @@ class ExchangeStudent extends Model
 
     public function arrival()
     {
-        return $this->belongsTo('\App\Models\Arrival', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\Arrival', 'id_user', 'id_user');
     }
 
     public function buddy()
@@ -203,7 +204,7 @@ class ExchangeStudent extends Model
     }
 
     public function scopeJoinAll($query) {
-        return $query->join('arrivals', 'arrivals.id_user', '=', 'exchange_students.id_user')
+        return $query->leftJoin('arrivals', 'arrivals.id_user', '=', 'exchange_students.id_user')
             ->join('people', 'people.id_user', '=', 'exchange_students.id_user')
             ->join('countries', 'countries.id_country', '=', 'exchange_students.id_country')
             ->join('faculties', 'faculties.id_faculty', '=', 'exchange_students.id_faculty')
@@ -294,5 +295,20 @@ class ExchangeStudent extends Model
     public function scopeGetByEmails(Builder $query, array $emails)
     {
         return $query->byEmails($emails)->get();
+    }
+
+    public function getHashIdAttribute()
+    {
+        return $this->person->hashId;
+    }
+
+    public function getWhatsAppFormattedInternationalAttribute()
+    {
+        return PhoneNumber::make($this->whatsapp)->formatInternational();
+    }
+
+    public function getWhatsAppFormattedE164Attribute()
+    {
+        return PhoneNumber::make($this->whatsapp)->formatE164();
     }
 }

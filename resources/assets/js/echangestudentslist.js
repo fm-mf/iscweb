@@ -1,8 +1,3 @@
-/* global jscountries:readonly, jsfaculties:readonly, jsdays:readonly, jsaccommodation:readonly */
-
-// Bad practice but whatever
-import './bootstrap';
-
 import Vue from 'vue';
 import axios from 'axios';
 import OrderableColumn from './components/OrderableColumn';
@@ -84,10 +79,10 @@ new Vue({
   components: { OrderableColumn },
 
   data: () => ({
-    countries: jscountries,
-    faculties: jsfaculties,
-    arrivals: jsdays,
-    accommodation: jsaccommodation,
+    countries: [],
+    faculties: [],
+    arrivals: [],
+    accommodation: [],
 
     loading: true,
     page: 1,
@@ -107,10 +102,26 @@ new Vue({
     // Called when user moves between history entries
     window.addEventListener('popstate', this.updateFromQuery);
 
-    this.updateFromQuery();
+    this.loadFilterOptions();
   },
 
   methods: {
+    loadFilterOptions() {
+      axios.get(`/api/filter-options`)
+        .then((response) => {
+          this.countries = response.data.countries;
+          this.faculties = response.data.faculties;
+          this.arrivals = response.data.days;
+          this.accommodation = response.data.accommodation;
+
+          this.updateFromQuery();
+        })
+        .catch((error) => {
+          console.error("Failed to load filter options");
+          console.error(error);
+        })
+    },
+
     updateFromQuery() {
       const query = parseQuery(location.search);
 
@@ -187,7 +198,7 @@ new Vue({
           },
           {
             headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              'X-Requested-With': 'XMLHttpRequest',
             }
           }
         )
@@ -195,8 +206,8 @@ new Vue({
           const data = res.data;
 
           this.data = data.data;
-          this.page = data.current_page;
-          this.pagesCount = data.last_page;
+          this.page = data.meta.current_page;
+          this.pagesCount = data.meta.last_page;
 
           this.loading = false;
         })

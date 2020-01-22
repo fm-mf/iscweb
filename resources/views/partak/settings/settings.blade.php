@@ -23,7 +23,7 @@
                     <div class="form-group">
                     {{ Form::label('limitPerDay', 'Buddy database limit per day', ['class' => 'control-label']) }}
                     @if ($errors->has('limitPerDay'))
-                        <p class="error-block alert-danger">{{ $errors->first($name) }}</p>
+                        <p class="error-block alert-danger">{{ $errors->first('limitPerDay') }}</p>
                     @endif
                     {{ Form::number('limitPerDay',$settings['limitPerDay'], ['class' => 'form-control']) }}
                     </div>

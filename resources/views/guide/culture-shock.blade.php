@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'Culture shock &ndash; ')
+@section('subtitle', 'Culture shock')
 
-@section('content')
+@section('subpage')
     <h1>Culture shock</h1>
     <p>Most likely, you will experience some level of culture shock. After all, it is normal
         to miss the comforts and familiarity of home in the course of one of your first extended

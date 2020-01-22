@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'Visa example pictures &ndash; ')
+@section('subtitle', 'Visa example pictures')
 
-@section('content')
+@section('subpage')
     <h1>Visa example pictures</h1>
     <dl id="visa-pictures">
         <dt>&quot;C&quot; &ndash; Short-term visa</dt>

@@ -1,8 +1,8 @@
-@extends('layouts.guide.layout')
+@extends('guide.layouts.subpage')
 
-@section('title', 'Funny facts &ndash; ')
+@section('subtitle', 'Funny facts')
 
-@section('content')
+@section('subpage')
     <h1>Funny facts</h1>
     <p><strong>10 exchange students' commandments</strong></p>
     <ol>

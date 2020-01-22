@@ -132,3 +132,16 @@ Route::prefix('alumni')->namespace('Alumni')->name('alumni.')->group(function() 
     Route::get('/newsletters/deleted', 'AlumniNewsletterController@showDeleted')->name('newsletters.deleted');
     Route::patch('/newsletters/{id}/restore', 'AlumniNewsletterController@restore')->name('newsletters.restore');
 });
+
+Route::prefix('api')->namespace('Api')->group(function() {
+    Route::post('/avatar', 'AvatarController@upload');
+    Route::post('/load', 'ApiController@load')->middleware('auth', 'checkbuddy');
+
+    Route::post('/autocomplete/exchange-students', 'AutocompleteController@exchangeStudents')->middleware('auth', 'checkpartak');
+    Route::post('/autocomplete/buddies', 'AutocompleteController@buddies')->middleware('auth', 'checkpartak');
+    Route::post('/liststudents', 'ApiController@load')->middleware('auth', 'checkbuddy');
+    Route::get('/filter-options', 'ApiController@loadFilterOptions')->middleware('auth', 'checkbuddy');
+
+    Route::post('/load-preregister', 'ApiController@loadPreregister')->middleware('auth', 'checkpartak');
+    Route::post('/load-preregister/save', 'ApiController@preregister')->middleware('auth', 'checkpartak');
+});
