@@ -28,6 +28,12 @@
         <i class="fas fa-money-bill-wave-alt fa-fw"></i>
         <span>@if ($event->trip && $event->trip->price) {{ $event->trip->price }} CZK @else FREE @endif</span>
       </div>
+      @if ($event->facebook_url)
+      <div class="line facebook">
+        <i class="fab fa-facebook fa-fw"></i>
+        <span><a href="{{ $event->facebook_url }}">Facebook event</a></span>
+      </div>
+      @endif
       @if (!$isCancellation)
       <div class="description" v-if="!showRegistration">
         {!! $event->description !!}
