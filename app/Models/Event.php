@@ -96,11 +96,17 @@ class Event extends Model
         return Trip::where('id_event', $this->id_event)->exists();
     }
 
-    public function scopeFindByHash(Builder $query, string $hash)
+    public function scopeFindByHashWithReservation(Builder $query, string $hash)
     {
         return $query
             ->where('reservations_hash', $hash)
             ->where('reservations_enabled', '1');
+    }
+
+    public function scopeFindByHash(Builder $query, string $hash)
+    {
+        return $query
+            ->where('reservations_hash', $hash);
     }
 
     /**

@@ -12,5 +12,6 @@ return [
     'calendar' => [
         'facebook-event' => 'Facebook event!',
         'online-reservation' => 'Online reservation!',
+        'detail' => 'Detail!'
     ],
 ];

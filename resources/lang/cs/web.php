@@ -7,5 +7,6 @@ return [
     'calendar' => [
         'facebook-event' => 'Facebooková událost!',
         'online-reservation' => 'Online rezervace!',
+        'detail' => 'Detail!'
     ],
 ];

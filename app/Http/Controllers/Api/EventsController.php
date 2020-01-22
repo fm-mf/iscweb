@@ -129,7 +129,7 @@ class EventsController extends Controller
     private function getEvent(string $hash)
     {
         try {
-            return Event::findByHash($hash)->firstOrFail();
+            return Event::findByHashWithReservation($hash)->firstOrFail();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $ex) {
             throw new NotFoundHttpException('Uknown trip');
         }

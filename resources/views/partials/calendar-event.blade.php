@@ -21,10 +21,14 @@
                 ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>@lang('web.calendar.facebook-event')</strong></a>
             </p>
         @endif
-        @if ($event->reservations_enabled)
-            <p>
-                ► <a href="{{ url("/event/{$event->reservations_hash}") }}"><strong>@lang('web.calendar.online-reservation')</strong></a>
-            </p>
-        @endif
+        <p>
+            ► <a href="{{ url("/event/{$event->reservations_hash}") }}">
+            @if ($event->reservations_enabled)
+                <strong>@lang('web.calendar.online-reservation')</strong>
+            @else
+                <strong>@lang('web.calendar.detail')</strong>
+            @endif
+            </a>
+        </p>
     </div>
 </li>
