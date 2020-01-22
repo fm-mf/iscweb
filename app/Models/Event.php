@@ -126,7 +126,6 @@ class Event extends Model
             $attributes['reservations_hash'] = $this->getHashIds()->encode($this->id_event);
         }
 
-        //dd($attributes);
         return parent::update(self::updateDatetimes($attributes), $options);
     }
 
