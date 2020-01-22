@@ -11,7 +11,14 @@
 
     <div class="info">
       <div class="line when"><i class="fas fa-clock fa-fw"></i><span>{!! $event->trip->eventDateInterval() !!}</span></div>
-      <div class="line where"><i class="fas fa-thumbtack fa-fw"></i><span><a href="{{ $event->location_url }}" target="_blank">{{ $event->location }}</a></span></div>
+      <div class="line where">
+        <i class="fas fa-thumbtack fa-fw"></i><span>
+        @if ($event->location_url)
+          <a href="{{ $event->location_url }}" target="_blank">{{ $event->location }}</a></span>
+        @else
+          {{ $event->location }}
+        @endif
+      </div>
       <div class="line price"><i class="fas fa-money-bill-wave-alt fa-fw"></i><span>@if ($event->trip->price) {{ $event->trip->price }} CZK @else FREE @endif</span></div>
       @if (!$isCancellation)
       <div class="description" v-if="!showRegistration">
