@@ -123,7 +123,7 @@ class Trip extends Model
         }
 
         if ($this->registration_to && $this->registration_to->isBefore(Carbon::now())) {
-            return 'Registrations already ended';
+            return 'Sorry, registrations already ended';
         }
 
         return true;
