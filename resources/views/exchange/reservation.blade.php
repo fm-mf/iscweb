@@ -14,6 +14,7 @@
         <i class="fas fa-clock fa-fw"></i>
         <span>{!! $event->trip ? $event->trip->eventDateInterval() : $event->eventsDateTimeFrom() !!}</span>
       </div>
+      @if ($event->location)
       <div class="line where">
         <i class="fas fa-thumbtack fa-fw"></i><span>
         @if ($event->location_url)
@@ -22,6 +23,7 @@
           {{ $event->location }}
         @endif
       </div>
+      @endif
       <div class="line price">
         <i class="fas fa-money-bill-wave-alt fa-fw"></i>
         <span>@if ($event->trip && $event->trip->price) {{ $event->trip->price }} CZK @else FREE @endif</span>
