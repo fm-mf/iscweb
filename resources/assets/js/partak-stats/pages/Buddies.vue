@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { getBuddies } from '../api';
+import { getBuddies, cached } from '../api';
 
 export default {
   props: { semester: { type: String, required: true } },
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     load() {
-      getBuddies(this.semester).then(buddies => {
+      cached(getBuddies(this.semester)).then(buddies => {
         this.buddies = buddies;
       });
     }
@@ -35,10 +35,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.buddies {
-  padding: 1rem 3rem;
-}
-
 .b-table {
   td {
     padding: 0.1rem 0.5rem;

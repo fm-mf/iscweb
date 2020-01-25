@@ -13,4 +13,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.loader {
+  color: #aaa;
+  font-size: 300%;
+  margin: auto;
+  padding: 1.5rem;
+}
+</style>

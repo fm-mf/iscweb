@@ -1,5 +1,7 @@
 import { AxiosResponse } from "axios";
 
+type Request<T> = () => Promise<T> & { __key: string }
+
 type Buddy = {
   first_name: string
   last_name: string
@@ -14,6 +16,15 @@ type StudentCounts = {
   students_from_previous: number
 }
 
+type Students = {
+  by_faculty: { faculty: string; count: number }[]
+  by_gender: { sex: string; count: number }[]
+  with_facebook: number
+  with_whatsapp: number
+  with_about: number
+  with_photo: number
+}
+
 type Arrivals = {
   dates: {
     arrival: string,
@@ -25,7 +36,21 @@ type Arrivals = {
   }[]
 }
 
-declare function getStudentCounts(semester: string): Promise<StudentCounts>;
-declare function getArrivals(semester: string): Promise<Arrivals>;
-declare function getBuddies(semester: string): Promise<Buddy[]>;
-declare function getActiveBuddies(semester: string): Promise<Buddy[]>;
+type Semester = {
+  id: string
+  name: string
+  year: string
+  semester: string
+}
+
+/**
+ * Caches response, returns cached data on subsequent calls
+ */
+declare function cached<T>(request: Request<T>): Promise<T>;
+
+declare function getStudentCounts(semester: string): Request<StudentCounts>;
+declare function getArrivals(semester: string): Request<Arrivals>;
+declare function getStudents(semester: string): Request<Students>;
+declare function getBuddies(semester: string): Request<Buddy[]>;
+declare function getActiveBuddies(): Request<Buddy[]>;
+declare function getSemesters(): Request<Semester[]>;

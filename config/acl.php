@@ -63,6 +63,7 @@ return [
                 'buddy' => ['view', 'edit', 'remove'],
                 'roles' => ['view', 'partak'],
                 'events' => ['edit', 'add', 'view'],
+                'stats' => ['view', 'export']
             ],
             'inheritsFrom' => ['point']
         ],

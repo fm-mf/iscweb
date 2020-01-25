@@ -61,7 +61,7 @@
 
 <script>
 import ValueDisplay from '../components/ValueDisplay';
-import { getActiveBuddies, getBuddies, getStudentCounts } from '../api';
+import { getActiveBuddies, getBuddies, getStudentCounts, cached } from '../api';
 
 export default {
   components: { ValueDisplay },
@@ -81,13 +81,13 @@ export default {
   },
   methods: {
     load() {
-      getActiveBuddies(this.semester).then(activeBuddies => {
+      cached(getActiveBuddies()).then(activeBuddies => {
         this.activeBuddies = activeBuddies;
       });
-      getBuddies(this.semester).then(buddies => {
+      cached(getBuddies(this.semester)).then(buddies => {
         this.buddies = buddies;
       });
-      getStudentCounts(this.semester).then(data => {
+      cached(getStudentCounts(this.semester)).then(data => {
         this.arrivingStudents = data.arriving_students;
         this.studentsWithFilledProfile = data.students_with_profile;
         this.studentsWithBuddy = data.students_with_buddy;

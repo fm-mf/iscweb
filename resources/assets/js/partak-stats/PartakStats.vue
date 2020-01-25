@@ -11,6 +11,15 @@
         <router-link to="/buddies">
           Buddies
         </router-link>
+        <router-link to="/students">
+          Students
+        </router-link>
+        <router-link to="/history">
+          History
+        </router-link>
+        <router-link to="/exports">
+          Exports
+        </router-link>
       </div>
       <div class="col-sm-9 no-padding matched-cols">
         <div class="stats-content">
@@ -29,4 +38,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.stats-content {
+  padding: 1rem 3rem;
+}
+</style>

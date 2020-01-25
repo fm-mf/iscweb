@@ -12,161 +12,48 @@ use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Writers\LaravelExcelWriter;
 
 class StatsController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $currentSemester = Settings::get('currentSemester');
+        $this->authorize('acl', 'stats.view');
+        
+        $semester = Settings::get('currentSemester');
 
-        $semester = $request->input('semester', $currentSemester);
-        $semesters = Semester::all()->pluck('semester', 'semester');
-
-        $previusSmemester = Semester::where('semester', $semester)
-            ->first()
-            ->previousSemester();
-        $minusFourMonths = Carbon::now()->addMonths(-4);
-
-        $activeBuddies = Buddy::where('last_login', '>', $minusFourMonths)
-            ->count();
-
-        $buddiesCounts = Buddy::withCount([
-                'exchangeStudents' => function (Builder $studentQuery) use ($semester, $previusSmemester) {
-                    $studentQuery->whereHas('semesters', function (Builder $query) use ($semester) {
-                        $query->where('semester', $semester);
-                    })->whereDoesntHave('semesters', function (Builder $query) use ($previusSmemester) {
-                        $query->where('semester', $previusSmemester->semester);
-                    });
-                }
-            ])
-            ->having('exchange_students_count', '>', '0')
-            ->orderBy('exchange_students_count', 'desc')
-            ->get();
-
-        $avgBuddiesPerBuddy = $buddiesCounts->map(function ($item) {
-            return $item->exchange_students_count;
-        })->avg();
-
-        $arrivingStudents = ExchangeStudent::byUniqueSemester($semester)
-            ->count();
-
-        $studentsWithFilledProfile = ExchangeStudent::withFilledProfile($semester)
-            ->count();
-
-        $studentsWithBuddy = ExchangeStudent::byUniqueSemester($semester)
-            ->whereHas('buddy')
-            ->count();
-
-        $studentsWithFilledProfileWithoutBuddy = ExchangeStudent::availableToPick($semester)
-            ->count();
-
-        $studentsFromPreviousSemester = ExchangeStudent::
-            whereHas('semesters', function (Builder $query) use ($semester) {
-                $query->where('semester', $semester);
-            })
-            ->whereHas('semesters', function (Builder $query) use ($previusSmemester) {
-                $query->where('semester', $previusSmemester->semester);
-            })
-            ->count();
-
-        return view('partak.stats.index', [
-            'activeBuddies' => $activeBuddies,
-            'arrivingStudents' => $arrivingStudents,
-            'studentsWithFilledProfile' => $studentsWithFilledProfile,
-            'studentsWithBuddy' => $studentsWithBuddy,
-            'studentsWithFilledProfileWithoutBuddy' => $studentsWithFilledProfileWithoutBuddy,
-            'buddiesCounts' => $buddiesCounts,
-            'avgBuddiesPerBuddy' => $avgBuddiesPerBuddy,
-            'studentsFromPreviousSemester' => $studentsFromPreviousSemester,
-            'semester' => $semester,
-            'semesters' => $semesters
-        ]);
-    }
-
-    public function showArrivals(Request $request)
-    {
-        $currentSemester = Settings::get('currentSemester');
-
-        $semester = $request->input('semester', $currentSemester);
-        $semesters = Semester::all()->pluck('semester', 'semester');
-        $previusSmemester = Semester::where('semester', $semester)
-            ->first()
-            ->previousSemester();
-
-        $arrivingStudents = ExchangeStudent::byUniqueSemester($semester)
-            ->count();
-
-        $studentsWithFilledProfile = ExchangeStudent::withFilledArrival($semester)
-            ->count();
-
-        $previousStudents = ExchangeStudent::
-            whereHas('semesters', function (Builder $query) use ($semester) {
-                $query->where('semester', $semester);
-            })
-            ->whereHas('semesters', function (Builder $query) use ($previusSmemester) {
-                $query->where('semester', $previusSmemester->semester);
-            })
-            ->count();
-
-        $arrivals = Arrival::select(\DB::raw('DATE(arrival) as arrival'), \DB::raw('count(*) as count'))
-            ->whereHas('exchangeStudent', function (Builder $studentQuery) use ($semester, $previusSmemester) {
-                $studentQuery->whereHas('semesters', function (Builder $query) use ($semester) {
-                    $query->where('semester', $semester);
-                })->whereDoesntHave('semesters', function (Builder $query) use ($previusSmemester) {
-                    $query->where('semester', $previusSmemester->semester);
-                });
-            })
-            ->orderBy('arrival', 'asc')
-            ->groupBy(\DB::raw('DATE(arrival)'))
-            ->get();
-
-        $transports = ExchangeStudent::byUniqueSemester($semester)
-            ->join('arrivals', 'exchange_students.id_user', '=', 'arrivals.id_user')
-            ->join('transportation', 'arrivals.id_transportation', '=', 'transportation.id_transportation')
-            ->select('transportation.transportation', \DB::raw('count(*) as count'))
-            ->groupBy('transportation.transportation')
-            ->orderBy('count', 'desc')
-            ->get();
-
-        $arrivalsMax = $arrivals->map(function ($arrival) {
-            return $arrival->count;
-        })->max();
-
-        $transportsMax = $transports->map(function ($transport) {
-            return $transport->count;
-        })->max();
-
-        return view('partak.stats.arrivals', [
-            'arrivals' => $arrivals,
-            'arrivalsMax' => $arrivalsMax,
-            'arrivingStudents' => $arrivingStudents,
-            'studentsWithFilledProfile' => $studentsWithFilledProfile,
-            'previousStudents' => $previousStudents,
-            'transports' => $transports,
-            'transportsMax' => $transportsMax,
-            'semester' => $semester,
-            'semesters' => $semesters
-        ]);
+        return view('partak.stats.index', ['semester' => $semester]);
     }
 
     public function getActiveBuddies()
     {
-        $minusFourMonths = Carbon::now()->addMonths(-4);
+        $this->authorize('acl', 'stats.view');
 
         return response()->json(
-            BuddyResource::collection(Buddy::where('last_login', '>', $minusFourMonths)->get())
+            BuddyResource::collection($this->loadActiveBuddies()->get())
         );
     }
 
     public function getBuddies(Semester $semester)
     {
+        $this->authorize('acl', 'stats.view');
+
         $buddies = Buddy::withCount([
                 'exchangeStudents' => function (Builder $studentQuery) use ($semester) {
-                    $studentQuery->whereHas('semesters', function (Builder $query) use ($semester) {
+                    $previousSemester = $semester->optionalPreviousSemester();
+                    $studentQuery = $studentQuery->whereHas('semesters', function (Builder $query) use ($semester) {
                         $query->where('semester', $semester->semester);
-                    })->whereDoesntHave('semesters', function (Builder $query) use ($semester) {
-                        $query->where('semester', $semester->previousSemester()->semester);
                     });
+                    if ($previousSemester) {
+                        $studentQuery = $studentQuery->whereDoesntHave(
+                            'semesters',
+                            function (Builder $query) use ($previousSemester) {
+                                $query->where('semester', $previousSemester->semester);
+                            }
+                        );
+                    }
+                    return $studentQuery;
                 }
             ])
             ->having('exchange_students_count', '>', '0')
@@ -180,6 +67,8 @@ class StatsController extends Controller
 
     public function getStudentCounts(Semester $semester)
     {
+        $this->authorize('acl', 'stats.view');
+
         $arrivingStudents = ExchangeStudent::byUniqueSemester($semester->semester)
             ->count();
 
@@ -193,14 +82,39 @@ class StatsController extends Controller
             ->whereHas('buddy')
             ->count();
 
-        $studentsFromPreviousSemester = ExchangeStudent::
-            whereHas('semesters', function (Builder $query) use ($semester) {
-                $query->where('semester', $semester->semester);
-            })
-            ->whereHas('semesters', function (Builder $query) use ($semester) {
-                $query->where('semester', $semester->previousSemester()->semester);
-            })
-            ->count();
+        $buddies = Buddy::whereHas(
+            'exchangeStudents',
+            function (Builder $studentQuery) use ($semester) {
+                $previousSemester = $semester->optionalPreviousSemester();
+                $studentQuery = $studentQuery->whereHas('semesters', function (Builder $query) use ($semester) {
+                    $query->where('semester', $semester->semester);
+                });
+                if ($previousSemester) {
+                    $studentQuery = $studentQuery->whereDoesntHave(
+                        'semesters',
+                        function (Builder $query) use ($previousSemester) {
+                            $query->where('semester', $previousSemester->semester);
+                        }
+                    );
+                }
+                return $studentQuery;
+            }
+        )
+        ->count();
+
+        $previouSemester = $semester->optionalPreviousSemester();
+        $studentsFromPreviousSemester = 0;
+
+        if ($previouSemester) {
+            $studentsFromPreviousSemester = ExchangeStudent::
+                whereHas('semesters', function (Builder $query) use ($semester) {
+                    $query->where('semester', $semester->semester);
+                })
+                ->whereHas('semesters', function (Builder $query) use ($previouSemester) {
+                    $query->where('semester', $previouSemester->semester);
+                })
+                ->count();
+        }
 
         return response()->json([
             'arriving_students' => $arrivingStudents,
@@ -208,18 +122,29 @@ class StatsController extends Controller
             'students_with_arrival' => $studentsWithFilledArrival,
             'students_with_buddy' => $studentsWithBuddy,
             'students_from_previous' => $studentsFromPreviousSemester,
+            'buddies' => $buddies
         ]);
     }
 
     public function getArrivals(Semester $semester)
     {
+        $this->authorize('acl', 'stats.view');
+
         $arrivals = Arrival::select('arrival', \DB::raw('count(*) as count'))
             ->whereHas('exchangeStudent', function (Builder $studentQuery) use ($semester) {
-                $studentQuery->whereHas('semesters', function (Builder $query) use ($semester) {
+                $previousSemester = $semester->optionalPreviousSemester();
+                $studentQuery = $studentQuery->whereHas('semesters', function (Builder $query) use ($semester) {
                     $query->where('semester', $semester->semester);
-                })->whereDoesntHave('semesters', function (Builder $query) use ($semester) {
-                    $query->where('semester', $semester->previousSemester()->semester);
                 });
+                if ($previousSemester) {
+                    $studentQuery = $studentQuery->whereDoesntHave(
+                        'semesters',
+                        function (Builder $query) use ($previousSemester) {
+                            $query->where('semester', $previousSemester->semester);
+                        }
+                    );
+                }
+                return $studentQuery;
             })
             ->orderBy('arrival', 'asc')
             ->groupBy('arrival')
@@ -237,5 +162,132 @@ class StatsController extends Controller
             'dates' => $arrivals,
             'transports' => $transports
         ]);
+    }
+
+    public function getStudents(Semester $semester)
+    {
+        $this->authorize('acl', 'stats.view');
+
+        $faculties = ExchangeStudent::byUniqueSemester($semester->semester)
+            ->join('faculties', 'exchange_students.id_faculty', '=', 'faculties.id_faculty')
+            ->select('faculties.abbreviation as faculty', \DB::raw('count(*) as count'))
+            ->orderBy('count', 'desc')
+            ->groupBy('faculties.abbreviation')
+            ->get();
+
+        $genders = ExchangeStudent::byUniqueSemester($semester->semester)
+            ->join('people', 'exchange_students.id_user', '=', 'people.id_user')
+            ->select('people.sex', \DB::raw('count(*) as count'))
+            ->orderBy('count', 'desc')
+            ->groupBy('people.sex')
+            ->get();
+        
+        $withWhatsapp = ExchangeStudent::byUniqueSemester($semester->semester)
+            ->whereNotNull('whatsapp')
+            ->where('whatsapp', '!=', '')
+            ->count();
+        
+        $withFb = ExchangeStudent::byUniqueSemester($semester->semester)
+            ->whereNotNull('facebook')
+            ->where('facebook', '!=', '')
+            ->count();
+
+        $withPhoto = ExchangeStudent::byUniqueSemester($semester->semester)
+            ->whereHas('person', function ($query) {
+                $query->whereNotNull('avatar');
+            })
+            ->count();
+    
+        $withAbout = ExchangeStudent::byUniqueSemester($semester->semester)
+            ->whereNotNull('about')
+            ->where('about', '!=', '')
+            ->count();
+
+        return response()->json([
+            'by_faculty' => $faculties,
+            'by_gender' => $genders,
+            'with_whatsapp' => $withWhatsapp,
+            'with_facebook' => $withFb,
+            'with_photo' => $withPhoto,
+            'with_about' => $withAbout
+        ]);
+    }
+
+    public function getSemesters()
+    {
+        $semesters = Semester::all()->pluck('semester')
+            ->map(function ($semester) {
+                $matches = null;
+                preg_match('/(fall|spring)([0-9]{4})/', $semester, $matches);
+                return $matches;
+            })
+            ->filter(function ($matches) {
+                return $matches;
+            })
+            ->map(function ($matches) {
+                return [
+                    'id' => $matches[0],
+                    'name' => "{$matches[2]} " . \ucfirst($matches[1]),
+                    'year' => $matches[2],
+                    'semester' => $matches[1]
+                ];
+            })
+            ->values();
+
+        return response()->json($semesters);
+    }
+
+    public function exportCultureEveningCandidates(Semester $semester)
+    {
+        $this->authorize('acl', 'stats.export');
+
+        $students = ExchangeStudent::byUniqueSemester($semester->semester)
+            ->join('countries', 'exchange_students.id_country', '=', 'countries.id_country')
+            ->where('wants_present', '=', 'y')
+            ->orderBy('countries.full_name', 'asc')
+            ->get();
+
+        $excel = Excel::create(
+            "{$semester->semester}_ce_candidates",
+            function (LaravelExcelWriter $excel) use ($students) {
+                $excel->sheet('Participants', function ($sheet) use ($students) {
+                    $sheet->setFreeze('A2');
+                    $sheet->loadView('partak.stats.ceExport', [ 'students' => $students ]);
+                });
+            }
+        );
+
+        return $excel->download('xls');
+    }
+
+    public function exportActiveBuddies(Request $request)
+    {
+        $this->authorize('acl', 'stats.export');
+
+        $months = (int)$request->input('months', 4);
+        if (!$months || $months < 0) {
+            $months = 4;
+        }
+
+        $buddies = $this->loadActiveBuddies($months)
+            ->get();
+            
+        $now = Carbon::now();
+        $excel = Excel::create(
+            "{$now->year}-{$now->month}-{$now->day}-active-buddies",
+            function (LaravelExcelWriter $excel) use ($buddies) {
+                $excel->sheet('Participants', function ($sheet) use ($buddies) {
+                    $sheet->setFreeze('A2');
+                    $sheet->loadView('partak.stats.activeBuddiesExport', [ 'buddies' => $buddies ]);
+                });
+            }
+        );
+
+        return $excel->download('xls');
+    }
+
+    private function loadActiveBuddies($months = 4)
+    {
+        return Buddy::where('last_login', '>', Carbon::now()->addMonths(-$months));
     }
 }

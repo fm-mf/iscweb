@@ -11,51 +11,26 @@
       <div class="col-sm-6">
         <h2>Arrival dates</h2>
 
-        <table>
-          <tr v-for="date in groupedDates" :key="date.arrival">
-            <td class="date">
-              {{ date.arrival }}
-            </td>
-            <td class="count">
-              {{ date.count }}
-            </td>
-            <td class="histogram">
-              <div
-                class="stats-bar"
-                :style="`width: ${(date.count / arrivalsMax) * 150}px`"
-              />
-            </td>
-          </tr>
-        </table>
+        <stats-table key-field="arrival" :data="dates" :show-percents="false" />
       </div>
       <div class="col-sm-6">
         <h2>Transportations</h2>
 
-        <table>
-          <tr v-for="transport in transports" :key="transport.eng">
-            <td class="date">
-              {{ transport.eng }}
-            </td>
-            <td class="count">
-              {{ transport.count }}
-            </td>
-            <td class="histogram">
-              <div
-                class="stats-bar"
-                :style="`width: ${(transport.count / transportsMax) * 150}px`"
-              />
-            </td>
-          </tr>
-        </table>
+        <stats-table key-field="transport" :data="transports" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { getStudentCounts, getArrivals } from '../api';
+import StatsTable from '../components/StatsTable';
+import { getStudentCounts, getArrivals, cached } from '../api';
+import { toStatsCollection } from '../utils/collections';
 
 export default {
+  components: {
+    StatsTable
+  },
   props: {
     semester: { type: String, required: true }
   },
@@ -64,47 +39,13 @@ export default {
     transports: null,
     studentsWithFilledArrival: null,
     arrivingStudents: null,
-    previousStudents: null
+    previousStudents: null,
+    expanded: {}
   }),
   computed: {
     percentageFilled() {
       return Math.round(
         (this.studentsWithFilledArrival * 100) / this.arrivingStudents
-      );
-    },
-    groupedDates() {
-      if (!this.dates) {
-        return null;
-      }
-
-      return Object.values(
-        this.dates.reduce((acc, date) => {
-          const day = date.arrival.split(' ')[0];
-          if (!acc[day]) {
-            acc[day] = {
-              arrival: day,
-              count: 0,
-              children: []
-            };
-          }
-
-          acc[day].count += date.count;
-          acc[day].children.push(date);
-
-          return acc;
-        }, {})
-      );
-    },
-    arrivalsMax() {
-      return (this.groupedDates || []).reduce(
-        (max, item) => (item.count > max ? item.count : max),
-        0
-      );
-    },
-    transportsMax() {
-      return (this.transports || []).reduce(
-        (max, item) => (item.count > max ? item.count : max),
-        0
       );
     }
   },
@@ -113,33 +54,84 @@ export default {
   },
   methods: {
     load() {
-      getArrivals(this.semester).then(data => {
-        this.dates = data.dates;
-        this.transports = data.transports;
+      cached(getArrivals(this.semester)).then(data => {
+        this.dates = this.groupDates(data.dates);
+        this.transports = toStatsCollection(data.transports);
       });
-      getStudentCounts(this.semester).then(data => {
+      cached(getStudentCounts(this.semester)).then(data => {
         this.studentsWithFilledArrival = data.students_with_arrival;
         this.arrivingStudents = data.arriving_students;
         this.previousStudents = data.students_from_previous;
       });
+    },
+
+    groupDates(dates) {
+      return toStatsCollection(
+        Object.values(
+          dates.reduce((acc, date) => {
+            const day = date.arrival.split(' ')[0];
+            let item = acc[day];
+
+            if (!item) {
+              item = acc[day] = {
+                arrival: this.formatDate(day),
+                count: 0,
+                children: [],
+                childrenMax: 0
+              };
+            }
+
+            item.count += date.count;
+            item.children.push({
+              ...date,
+              arrival: this.formatHour(date.arrival)
+            });
+
+            if (date.count > item.childrenMax) {
+              item.childrenMax = date.count;
+            }
+
+            return acc;
+          }, {})
+        )
+      );
+    },
+
+    formatDate(date) {
+      const parsed = new Date(date);
+
+      return `${parsed
+        .getDate()
+        .toString()
+        .padStart(2, '0')}.${(parsed.getMonth() + 1)
+        .toString()
+        .padStart(2, '0')}.${parsed.getFullYear()} ${this.formatDay(date)}`;
+    },
+
+    formatDay(date) {
+      const parsed = new Date(date);
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+      return days[parsed.getDay()];
+    },
+
+    formatHour(date) {
+      const parsed = new Date(date);
+
+      return (
+        parsed
+          .getHours()
+          .toString()
+          .padStart(2, '0') +
+        ':' +
+        parsed
+          .getMinutes()
+          .toString()
+          .padStart(2, '0')
+      );
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
-.stats-bar {
-  animation-name: initialize;
-  animation-duration: 1s;
-  transform-origin: center left;
-}
-
-@keyframes initialize {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
-  }
-}
-</style>
+<style lang="scss" scoped></style>

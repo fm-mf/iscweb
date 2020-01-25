@@ -39,6 +39,12 @@ class Semester extends Model
         }
     }
 
+    public function optionalPreviousSemester()
+    {
+        return self::where('id_semester', '<', $this->id_semester)->orderBy('id_semester', 'desc')->first();
+    }
+
+
     public function previousSemester(): Semester
     {
         $nextSemester = self::where('id_semester', '<', $this->id_semester)->orderBy('id_semester', 'desc')->first();

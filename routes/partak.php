@@ -95,16 +95,34 @@ Route::prefix('/stats')
         Route::prefix('/api')
             ->name('api.')
             ->group(function () {
+                Route::get('/semesters', 'StatsController@getSemesters')
+                    ->name('semesters');
+                Route::get('/active-buddies', 'StatsController@getActiveBuddies')
+                    ->name('active-buddies');
+
                 Route::prefix('/semester/{semester}')
                     ->group(function () {
                         Route::get('/student-counts', 'StatsController@getStudentCounts')
                             ->name('student-counts');
-                        Route::get('/active-buddies', 'StatsController@getActiveBuddies')
-                            ->name('active-buddies');
                         Route::get('/buddies', 'StatsController@getBuddies')
                             ->name('buddies');
                         Route::get('/arrivals', 'StatsController@getArrivals')
                             ->name('arrivals');
+                        Route::get('/students', 'StatsController@getStudents')
+                            ->name('students');
+                    });
+            });
+
+        Route::prefix('/export')
+            ->name('export.')
+            ->group(function () {
+                Route::get('/active-buddies', 'StatsController@exportActiveBuddies')
+                    ->name('active-buddies');
+
+                Route::prefix('/semester/{semester}')
+                    ->group(function () {
+                        Route::get('/culture-evening-candidates', 'StatsController@exportCultureEveningCandidates')
+                            ->name('culture-evening-candidates');
                     });
             });
     });
