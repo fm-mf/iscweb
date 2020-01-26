@@ -1,5 +1,7 @@
 <template>
   <div class="history">
+    <loader :active="loading" absolute />
+
     <table class="table">
       <thead>
         <tr>
@@ -81,14 +83,23 @@
 
 <script>
 /* eslint-disable @typescript-eslint/camelcase */
-
 import { cached, getSemesters, getStudentCounts } from '../api';
+import Loader from '../components/Loader';
+
 export default {
+  components: {
+    Loader
+  },
   data: () => ({
-    semesters: null
+    semesters: null,
+    loading: false
   }),
   computed: {
     totals() {
+      if (!this.semesters) {
+        return {};
+      }
+
       return {
         arriving_students: this.semesters.reduce(
           (acc, i) => acc + i.data.arriving_students,
@@ -111,6 +122,8 @@ export default {
   },
   methods: {
     load() {
+      this.loading = true;
+
       cached(getSemesters())
         .then(data =>
           Promise.all(
@@ -122,7 +135,10 @@ export default {
             )
           )
         )
-        .then(semesters => (this.semesters = semesters));
+        .then(semesters => {
+          this.semesters = semesters;
+          this.loading = false;
+        });
     }
   }
 };
@@ -136,5 +152,12 @@ export default {
 td.numeric,
 th.numeric {
   text-align: right;
+}
+
+.totals {
+  td {
+    font-weight: bold;
+    border-top: 2px solid #ddd;
+  }
 }
 </style>

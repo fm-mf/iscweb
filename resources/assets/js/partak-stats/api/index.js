@@ -3,6 +3,22 @@ import axios from 'axios';
 const CACHE = {};
 const BASE = '/partak/stats/api';
 const semesterUrl = (semester, url) => `${BASE}/semester/${semester}/${url}`;
+const errorListeners = [];
+
+export const addErrorListener = listener => {
+  errorListeners.push(listener);
+};
+
+export const removeErrorListener = listener => {
+  const index = errorListeners.indexOf(listener);
+  if (index >= 0) {
+    errorListeners.splice(index, 1);
+  }
+};
+
+const emitError = error => {
+  errorListeners.forEach(listener => listener(error));
+};
 
 export const cached = callback =>
   new Promise((resolve, reject) => {
@@ -19,8 +35,46 @@ export const cached = callback =>
     }
   });
 
+export const promised = (promise, store = true) => {
+  const result = {
+    data: null,
+    error: null,
+    loading: true
+  };
+
+  promise.then(
+    res => {
+      if (store) {
+        result.data = res;
+      }
+      result.loading = false;
+    },
+    e => {
+      result.error = e;
+      result.loading = false;
+    }
+  );
+
+  result.then = cb => {
+    promise.then(cb);
+    return result;
+  };
+
+  return result;
+};
+
+export const emptyPromised = () => ({
+  data: null,
+  loading: false,
+  error: null
+});
+
 const get = url => {
-  const cb = () => axios.get(url).then(res => res.data);
+  const cb = () =>
+    axios
+      .get(url)
+      .then(res => res.data)
+      .catch(e => emitError(e));
   cb.__key = url;
   return cb;
 };

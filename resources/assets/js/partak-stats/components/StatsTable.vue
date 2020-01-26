@@ -2,7 +2,12 @@
   <table class="stats-table">
     <tr v-if="!data">
       <td colspan="99">
-        <Loader />
+        <loader />
+      </td>
+    </tr>
+    <tr v-if="data && data.items && data.items.length === 0">
+      <td colspan="99" class="no-data">
+        No data
       </td>
     </tr>
     <template v-for="item in data.items" v-else>
@@ -63,12 +68,8 @@
 
 <script>
 import Vue from 'vue';
-import Loader from '../components/Loader';
 
 export default {
-  components: {
-    Loader
-  },
   props: {
     data: {
       type: Object,
@@ -168,6 +169,11 @@ export default {
   .stats-bar {
     background: #7dacf3;
   }
+}
+
+.no-data {
+  text-align: center;
+  padding: 1rem 0;
 }
 
 @keyframes initialize-x {

@@ -15,8 +15,10 @@ class BuddyResource extends Resource
     public function toArray($request)
     {
         return [
+            'id_user' => $this->id_user,
             'first_name' => $this->person->first_name,
             'last_name' => $this->person->last_name,
+            'partak' => $this->user->isPartak(),
             'exchange_students_count' => $this->exchange_students_count
         ];
     }

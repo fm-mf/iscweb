@@ -1,6 +1,6 @@
 <template>
-  <div class="arrivals">
-    <p v-show="arrivingStudents !== null" class="alert alert-info">
+  <loader :active="counts.loading || arrivals.loading" absolute>
+    <p v-if="arrivingStudents !== null" class="alert alert-info">
       <strong>{{ percentageFilled }} %</strong>
       of arriving students filled their arrival date.
       <strong>{{ previousStudents }}</strong> exchange students are staying from
@@ -19,12 +19,18 @@
         <stats-table key-field="transport" :data="transports" />
       </div>
     </div>
-  </div>
+  </loader>
 </template>
 
 <script>
 import StatsTable from '../components/StatsTable';
-import { getStudentCounts, getArrivals, cached } from '../api';
+import {
+  getStudentCounts,
+  getArrivals,
+  cached,
+  emptyPromised,
+  promised
+} from '../api';
 import { toStatsCollection } from '../utils/collections';
 
 export default {
@@ -35,18 +41,32 @@ export default {
     semester: { type: String, required: true }
   },
   data: () => ({
-    dates: null,
-    transports: null,
     studentsWithFilledArrival: null,
     arrivingStudents: null,
     previousStudents: null,
-    expanded: {}
+    counts: emptyPromised(),
+    arrivals: emptyPromised()
   }),
   computed: {
     percentageFilled() {
-      return Math.round(
-        (this.studentsWithFilledArrival * 100) / this.arrivingStudents
+      return this.arrivingStudents > 0
+        ? Math.round(
+            (this.studentsWithFilledArrival * 100) / this.arrivingStudents
+          )
+        : '0';
+    },
+    dates() {
+      return this.arrivals.data && this.groupDates(this.arrivals.data.dates);
+    },
+    transports() {
+      return (
+        this.arrivals.data && toStatsCollection(this.arrivals.data.transports)
       );
+    }
+  },
+  watch: {
+    semester() {
+      return this.load();
     }
   },
   created() {
@@ -54,15 +74,14 @@ export default {
   },
   methods: {
     load() {
-      cached(getArrivals(this.semester)).then(data => {
-        this.dates = this.groupDates(data.dates);
-        this.transports = toStatsCollection(data.transports);
-      });
-      cached(getStudentCounts(this.semester)).then(data => {
-        this.studentsWithFilledArrival = data.students_with_arrival;
-        this.arrivingStudents = data.arriving_students;
-        this.previousStudents = data.students_from_previous;
-      });
+      this.arrivals = promised(cached(getArrivals(this.semester)));
+      this.counts = promised(cached(getStudentCounts(this.semester))).then(
+        data => {
+          this.studentsWithFilledArrival = data.students_with_arrival;
+          this.arrivingStudents = data.arriving_students;
+          this.previousStudents = data.students_from_previous;
+        }
+      );
     },
 
     groupDates(dates) {

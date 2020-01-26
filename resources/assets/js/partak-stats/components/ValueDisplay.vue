@@ -23,6 +23,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.stat {
+  float: left;
+  width: 30%;
+  min-width: 150px;
+  padding: 0.5rem 2rem;
+  border-left: 4px solid #eee;
+  margin-right: 1rem;
+
+  .s-label {
+    font-size: 100%;
+  }
+
+  .s-value {
+    font-size: 200%;
+  }
+
+  .s-note {
+    font-size: 75%;
+    color: #999;
+  }
+}
+
 .loading {
   background: #ddd;
   color: #ddd;

@@ -58,6 +58,7 @@ class StatsController extends Controller
             ])
             ->having('exchange_students_count', '>', '0')
             ->orderBy('exchange_students_count', 'desc')
+            ->limit(15)
             ->get();
 
         return response()->json(

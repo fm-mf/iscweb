@@ -43,10 +43,26 @@ type Semester = {
   semester: string
 }
 
+type Promised<T> = {
+  data: T | null
+  loading: boolean
+  error: any
+}
+
 /**
  * Caches response, returns cached data on subsequent calls
  */
 declare function cached<T>(request: Request<T>): Promise<T>;
+
+/**
+ * Returns api loading object, usefull to track more loadings at once
+ * @param request
+ */
+declare function promised<T>(request: Promise<T>): Promised<T>;
+declare function emptyPromised<T = null>(): Promised<T>;
+
+declare function addErrorListener(listener: (error: any) => void): void;
+declare function removeErrorListener(lisener: (error: any) => void): void;
 
 declare function getStudentCounts(semester: string): Request<StudentCounts>;
 declare function getArrivals(semester: string): Request<Arrivals>;

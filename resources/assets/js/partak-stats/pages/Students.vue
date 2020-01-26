@@ -1,12 +1,16 @@
 <template>
-  <div class="students">
+  <loader
+    class="students"
+    :active="students.loading || counts.loading"
+    absolute
+  >
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-md-6">
         <h2>By faculty</h2>
 
         <stats-table :data="byFaculty" key-field="faculty" />
       </div>
-      <div class="col-sm-6" />
+      <div class="col-md-6" />
       <h2>By gender</h2>
 
       <stats-table :data="byGender" key-field="sex" :show-histogram="false" />
@@ -19,13 +23,19 @@
         :show-histogram="false"
       />
     </div>
-  </div>
+  </loader>
 </template>
 
 <script>
 import StatsTable from '../components/StatsTable';
 import { toStatsCollection } from '../utils/collections';
-import { cached, getStudents, getStudentCounts } from '../api';
+import {
+  cached,
+  getStudents,
+  getStudentCounts,
+  promised,
+  emptyPromised
+} from '../api';
 
 export default {
   components: {
@@ -42,7 +52,9 @@ export default {
     withAbout: null,
     withPhoto: null,
     withArrival: null,
-    withProfile: null
+    withProfile: null,
+    students: emptyPromised(),
+    counts: emptyPromised()
   }),
   computed: {
     facultyMax() {
@@ -73,20 +85,30 @@ export default {
       };
     }
   },
+  watch: {
+    semester() {
+      return this.load();
+    }
+  },
   created() {
     this.load();
   },
   methods: {
     load() {
-      cached(getStudents(this.semester)).then(data => {
-        this.byFaculty = toStatsCollection(data.by_faculty);
-        this.byGender = toStatsCollection(data.by_gender);
-        this.withFacebook = data.with_facebook;
-        this.withWhatsapp = data.with_whatsapp;
-        this.withAbout = data.with_about;
-        this.withPhoto = data.with_photo;
-      });
-      cached(getStudentCounts(this.semester)).then(data => {
+      this.students = promised(cached(getStudents(this.semester), false)).then(
+        data => {
+          this.byFaculty = toStatsCollection(data.by_faculty);
+          this.byGender = toStatsCollection(data.by_gender);
+          this.withFacebook = data.with_facebook;
+          this.withWhatsapp = data.with_whatsapp;
+          this.withAbout = data.with_about;
+          this.withPhoto = data.with_photo;
+        }
+      );
+      this.counts = promised(
+        cached(getStudentCounts(this.semester)),
+        false
+      ).then(data => {
         this.withArrival = data.students_with_arrival;
         this.withProfile = data.students_with_profile;
       });
