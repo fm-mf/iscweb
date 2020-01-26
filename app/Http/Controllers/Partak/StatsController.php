@@ -18,7 +18,7 @@ use Maatwebsite\Excel\Writers\LaravelExcelWriter;
 
 class StatsController extends Controller
 {
-    public function index()
+    public function showIndex()
     {
         $this->authorize('acl', 'stats.view');
         

@@ -90,7 +90,7 @@ Route::prefix('/settings/contacts')
 Route::prefix('/stats')
     ->name('partak.stats.')
     ->group(function () {
-        Route::get('/', 'StatsController@index')->name('index');
+        Route::get('/', 'StatsController@showIndex')->name('index');
         
         Route::prefix('/api')
             ->name('api.')
