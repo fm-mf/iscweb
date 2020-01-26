@@ -21,7 +21,7 @@ class Buddy extends Model
 
     public function user()
     {
-        return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
+        return $this->person->user;
     }
 
     public function person()
