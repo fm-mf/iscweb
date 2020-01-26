@@ -3,7 +3,9 @@
     <card
       icon="fas fa-file-excel"
       title="Export CE candidates"
-      description="Exchange students who expressed interest in representing their country on Culture Evening (when filling out their profile)"
+      :description="
+        `Exchange students who expressed interest in representing their country on Culture Evening (when filling out their profile) in ${semester}`
+      "
       :href="
         `/partak/stats/export/semester/${semester}/culture-evening-candidates`
       "
@@ -12,7 +14,7 @@
     <card
       icon="fas fa-file-excel"
       title="Export active buddies"
-      description="Export list of buddies who logged into buddy database in last 4 months"
+      description="Export list of buddies who logged into buddy database in last months"
       @click="exportActiveBuddies = true"
     />
 
