@@ -1,5 +1,5 @@
 <template>
-  <a class="card" :href="href" target="_blank">
+  <a class="card" :href="href" target="_blank" @click="$emit('click')">
     <div class="c-title">
       {{ title }}
     </div>

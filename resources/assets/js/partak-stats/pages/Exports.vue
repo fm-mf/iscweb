@@ -13,17 +13,45 @@
       icon="fas fa-file-excel"
       title="Export active buddies"
       description="Export list of buddies who logged into buddy database in last 4 months"
-      :href="`/partak/stats/export/active-buddies?months=${months}`"
+      @click="exportActiveBuddies = true"
     />
+
+    <modal v-if="exportActiveBuddies" @cancel="exportActiveBuddies = false">
+      <template slot="header">
+        Export active buddies
+      </template>
+      <template slot="footer">
+        <a class="btn btn-secondary" @click="exportActiveBuddies = false">
+          Cancel
+        </a>
+
+        <a
+          class="btn btn-primary"
+          :href="`/partak/stats/export/active-buddies?months=${months}`"
+          target="_blank"
+          @click="exportActiveBuddies = false"
+        >
+          Export
+        </a>
+      </template>
+      Export active buddies active in last
+      <select v-model="months">
+        <option v-for="item in monthsOptions" :key="item" :value="item">
+          {{ item }} months
+        </option>
+      </select>
+    </modal>
   </div>
 </template>
 
 <script>
+import Modal from '../components/Modal';
 import Card from '../components/Card';
 
 export default {
   components: {
-    Card
+    Card,
+    Modal
   },
   props: {
     semester: { type: String, required: true }
@@ -36,7 +64,8 @@ export default {
 
     return {
       months: 4,
-      monthsOptions
+      monthsOptions,
+      exportActiveBuddies: false
     };
   }
 };
