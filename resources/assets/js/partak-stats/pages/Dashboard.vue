@@ -48,7 +48,7 @@
             ? `${percentage(
                 studentsWithBuddy,
                 studentsWithFilledProfile
-              )} % of students with filled profile`
+              )} of students with filled profile`
             : null
         "
       />
@@ -61,7 +61,7 @@
             ? `${percentage(
                 studentsWithFilledProfile,
                 arrivingStudents
-              )} % of arriving students`
+              )} of arriving students`
             : null
         "
       />
