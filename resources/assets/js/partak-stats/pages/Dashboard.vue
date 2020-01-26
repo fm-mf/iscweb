@@ -44,10 +44,12 @@
         label="Students with a buddy"
         :value="studentsWithBuddy"
         :note="
-          studentsWithFilledProfile > 0 &&
-            `${Math.round(
-              (studentsWithBuddy * 100) / studentsWithFilledProfile
-            )} % of students with filled profile`
+          studentsWithFilledProfile > 0
+            ? `${percentage(
+                studentsWithBuddy,
+                studentsWithFilledProfile
+              )} % of students with filled profile`
+            : null
         "
       />
 
@@ -55,10 +57,12 @@
         label="Students with filled profile"
         :value="studentsWithFilledProfile"
         :note="
-          arrivingStudents > 0 &&
-            `${Math.round(
-              (studentsWithFilledProfile * 100) / arrivingStudents
-            )} % of arriving students`
+          arrivingStudents > 0
+            ? `${percentage(
+                studentsWithFilledProfile,
+                arrivingStudents
+              )} % of arriving students`
+            : null
         "
       />
     </div>
@@ -130,6 +134,9 @@ export default {
       this.activeBuddies = promised(cached(getActiveBuddies()));
       this.buddies = promised(cached(getBuddies(this.semester)));
       this.counts = promised(cached(getStudentCounts(this.semester)));
+    },
+    percentage(value, total) {
+      return Math.round((value * 100) / total) + ' %';
     }
   }
 };

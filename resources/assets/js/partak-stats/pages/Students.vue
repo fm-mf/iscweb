@@ -113,9 +113,6 @@ export default {
         this.withProfile = data.students_with_profile;
       });
     },
-    percentage(value, total) {
-      return Math.round((value * 100) / total) + ' %';
-    },
     updateFaculties(byFaculty) {
       const col = toStatsCollection(byFaculty);
       col.items = col.items.map(item => ({
