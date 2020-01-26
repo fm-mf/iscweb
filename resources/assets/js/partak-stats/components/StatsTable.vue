@@ -10,7 +10,7 @@
         No data
       </td>
     </tr>
-    <template v-for="item in data.items" v-else>
+    <template v-for="item in (data && data.items) || []">
       <tr
         :key="item[keyField]"
         :class="{
@@ -30,7 +30,10 @@
           {{ item.count }}
         </td>
         <td v-if="showPercents" class="percents">
-          {{ Math.round((item.count * 100) / data.total) }} %
+          {{
+            data.total > 0 ? Math.round((item.count * 100) / data.total) : '-'
+          }}
+          %
         </td>
         <td v-if="showHistogram" class="histogram">
           <div
@@ -50,7 +53,12 @@
                 {{ child.count }}
               </td>
               <td v-if="showPercents" class="percents">
-                {{ Math.round((child.count * 100) / item.children.total) }} %
+                {{
+                  item.children.total > 0
+                    ? Math.round((child.count * 100) / item.children.total)
+                    : '-'
+                }}
+                %
               </td>
               <td class="histogram">
                 <div

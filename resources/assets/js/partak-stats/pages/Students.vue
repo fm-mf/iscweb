@@ -5,7 +5,7 @@
     absolute
   >
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 fill-height">
         <h2>By faculty</h2>
 
         <stats-table :data="byFaculty" key-field="faculty" />
@@ -120,4 +120,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.fill-height {
+  min-height: 300px;
+}
+</style>
