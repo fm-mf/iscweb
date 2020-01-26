@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\BuddyResource;
 use App\Models\Arrival;
 use App\Models\ExchangeStudent;
+use App\Models\Faculty;
 use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
@@ -165,41 +166,51 @@ class StatsController extends Controller
         ]);
     }
 
-    public function getStudents(Semester $semester)
+    public function getStudents(Semester $semester, Request $request)
     {
         $this->authorize('acl', 'stats.view');
 
-        $faculties = ExchangeStudent::byUniqueSemester($semester->semester)
+        $facultyAbbrevation = $request->input('faculty');
+        
+        $faculty = Faculty::getFacultyFromAbbreviation($facultyAbbrevation);
+
+        $currentStudents = ExchangeStudent::byUniqueSemester($semester->semester);
+        if ($faculty) {
+            $currentStudents = $currentStudents
+                ->where('exchange_students.id_faculty', $faculty->id_faculty);
+        }
+
+        $faculties = (clone $currentStudents)
             ->join('faculties', 'exchange_students.id_faculty', '=', 'faculties.id_faculty')
             ->select('faculties.abbreviation as faculty', \DB::raw('count(*) as count'))
             ->orderBy('count', 'desc')
             ->groupBy('faculties.abbreviation')
             ->get();
 
-        $genders = ExchangeStudent::byUniqueSemester($semester->semester)
+        $genders = (clone $currentStudents)
             ->join('people', 'exchange_students.id_user', '=', 'people.id_user')
             ->select('people.sex', \DB::raw('count(*) as count'))
             ->orderBy('count', 'desc')
             ->groupBy('people.sex')
             ->get();
         
-        $withWhatsapp = ExchangeStudent::byUniqueSemester($semester->semester)
+        $withWhatsapp = (clone $currentStudents)
             ->whereNotNull('whatsapp')
             ->where('whatsapp', '!=', '')
             ->count();
         
-        $withFb = ExchangeStudent::byUniqueSemester($semester->semester)
+        $withFb = (clone $currentStudents)
             ->whereNotNull('facebook')
             ->where('facebook', '!=', '')
             ->count();
 
-        $withPhoto = ExchangeStudent::byUniqueSemester($semester->semester)
+        $withPhoto = (clone $currentStudents)
             ->whereHas('person', function ($query) {
                 $query->whereNotNull('avatar');
             })
             ->count();
     
-        $withAbout = ExchangeStudent::byUniqueSemester($semester->semester)
+        $withAbout = (clone $currentStudents)
             ->whereNotNull('about')
             ->where('about', '!=', '')
             ->count();

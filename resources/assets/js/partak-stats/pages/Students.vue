@@ -97,7 +97,7 @@ export default {
     load() {
       this.students = promised(cached(getStudents(this.semester), false)).then(
         data => {
-          this.byFaculty = toStatsCollection(data.by_faculty);
+          this.byFaculty = this.updateFaculties(data.by_faculty);
           this.byGender = toStatsCollection(data.by_gender);
           this.withFacebook = data.with_facebook;
           this.withWhatsapp = data.with_whatsapp;
@@ -115,6 +115,19 @@ export default {
     },
     percentage(value, total) {
       return Math.round((value * 100) / total) + ' %';
+    },
+    updateFaculties(byFaculty) {
+      const col = toStatsCollection(byFaculty);
+      col.items = col.items.map(item => ({
+        ...item,
+        children: () =>
+          cached(getStudents(this.semester, item.faculty)).then(data =>
+            toStatsCollection(
+              data.by_gender.map(item => ({ ...item, faculty: item.sex }))
+            )
+          )
+      }));
+      return col;
     }
   }
 };

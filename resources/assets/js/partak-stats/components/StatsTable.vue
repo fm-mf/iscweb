@@ -14,14 +14,10 @@
       <tr
         :key="item[keyField]"
         :class="{
-          expandable: item.children && item.children.items.length > 0,
+          expandable: item.children,
           expaned: expanded[item[keyField]]
         }"
-        @click="
-          item.children &&
-            item.children.items.length > 0 &&
-            toggle(item[keyField])
-        "
+        @click="item.children && toggle(item)"
       >
         <td class="s-label">
           {{ item[keyField] }}
@@ -42,34 +38,42 @@
           />
         </td>
       </tr>
-      <tr v-if="expanded[item[keyField]]" :key="`${item[keyField]}-children`">
-        <td colspan="999">
-          <table class="sub-table">
-            <tr v-for="child in item.children.items" :key="child.arrival">
-              <td class="s-label">
-                {{ child[keyField] }}
-              </td>
-              <td class="count">
-                {{ child.count }}
-              </td>
-              <td v-if="showPercents" class="percents">
-                {{
-                  item.children.total > 0
-                    ? Math.round((child.count * 100) / item.children.total)
-                    : '-'
-                }}
-                %
-              </td>
-              <td class="histogram">
-                <div
-                  class="stats-bar"
-                  :style="`width: ${(child.count / item.children.max) * 100}%`"
-                />
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+      <transition :key="`${item[keyField]}-children`" name="expand">
+        <tr
+          v-if="expanded[item[keyField]]"
+          :key="`${item[keyField]}-children`"
+          class="expanded-children"
+        >
+          <td colspan="999">
+            <table v-if="typeof item.children !== 'function'" class="sub-table">
+              <tr v-for="child in item.children.items" :key="child.arrival">
+                <td class="s-label">
+                  {{ child[keyField] }}
+                </td>
+                <td class="count">
+                  {{ child.count }}
+                </td>
+                <td v-if="showPercents" class="percents">
+                  {{
+                    item.children.total > 0
+                      ? Math.round((child.count * 100) / item.children.total)
+                      : '-'
+                  }}
+                  %
+                </td>
+                <td class="histogram">
+                  <div
+                    class="stats-bar"
+                    :style="
+                      `width: ${(child.count / item.children.max) * 100}%`
+                    "
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </transition>
     </template>
   </table>
 </template>
@@ -96,8 +100,14 @@ export default {
     expanded: {}
   }),
   methods: {
-    toggle(key) {
+    toggle(item) {
+      const key = item[this.keyField];
       Vue.set(this.expanded, key, !this.expanded[key]);
+      if (this.expanded[key] && item.children instanceof Function) {
+        item.children().then(data => {
+          item.children = data;
+        });
+      }
     },
     formatDate(date) {
       const parsed = new Date(date);
@@ -122,7 +132,7 @@ export default {
 <style lang="scss" scoped>
 .stats-table {
   tr {
-    &.clickable {
+    &.expandable {
       cursor: pointer;
     }
   }
@@ -152,30 +162,34 @@ export default {
       transform-origin: center left;
     }
   }
-}
 
-.sub-table {
-  margin-left: 1rem;
-  animation-name: initialize-y;
-  animation-duration: 200ms;
-  transform-origin: top center;
-  width: 100%;
-
-  .date,
-  .count {
-    width: 0px;
+  .expanded-children {
+    transform-origin: top center;
   }
 
-  .date {
-    text-align: right;
-  }
+  .sub-table {
+    margin-left: 1rem;
+    width: 100%;
 
-  .histogram {
-    width: 150px;
-  }
+    color: #999;
 
-  .stats-bar {
-    background: #7dacf3;
+    .s-label,
+    .count {
+      width: 0px;
+    }
+
+    .date {
+      text-align: right;
+    }
+
+    .histogram {
+      width: 150px;
+    }
+
+    .stats-bar {
+      background: #7dacf3;
+      height: 10px;
+    }
   }
 }
 
@@ -184,21 +198,29 @@ export default {
   padding: 1rem 0;
 }
 
+.expand-enter {
+  transform: scaleY(0);
+}
+
+.expand-enter-to {
+  transform: scaleY(1);
+}
+
+.expand-leave-to {
+  transform: scaleY(0);
+}
+
+.expand-enter-active,
+.expand-leave-active {
+  transition: all 0.2s;
+}
+
 @keyframes initialize-x {
   0% {
     transform: scaleX(0);
   }
   100% {
     transform: scaleX(1);
-  }
-}
-
-@keyframes initialize-y {
-  0% {
-    transform: scaleY(0);
-  }
-  100% {
-    transform: scaleY(1);
   }
 }
 </style>

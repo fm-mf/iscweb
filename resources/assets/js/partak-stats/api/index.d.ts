@@ -66,7 +66,7 @@ declare function removeErrorListener(lisener: (error: any) => void): void;
 
 declare function getStudentCounts(semester: string): Request<StudentCounts>;
 declare function getArrivals(semester: string): Request<Arrivals>;
-declare function getStudents(semester: string): Request<Students>;
+declare function getStudents(semester: string, faculty?: string): Request<Students>;
 declare function getBuddies(semester: string): Request<Buddy[]>;
 declare function getActiveBuddies(): Request<Buddy[]>;
 declare function getSemesters(): Request<Semester[]>;

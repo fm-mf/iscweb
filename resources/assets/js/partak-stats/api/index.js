@@ -69,7 +69,18 @@ export const emptyPromised = () => ({
   error: null
 });
 
-const get = url => {
+const get = (url, query) => {
+  if (query) {
+    const qs = Object.entries(query)
+      .filter(([, value]) => value !== undefined && value !== null)
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+      .join('&');
+
+    if (qs) {
+      url += '?' + qs;
+    }
+  }
+
   const cb = () =>
     axios
       .get(url)
@@ -84,7 +95,8 @@ export const getStudentCounts = semester =>
 
 export const getArrivals = semester => get(semesterUrl(semester, 'arrivals'));
 
-export const getStudents = semester => get(semesterUrl(semester, 'students'));
+export const getStudents = (semester, faculty) =>
+  get(semesterUrl(semester, 'students'), { faculty });
 
 export const getBuddies = semester => get(semesterUrl(semester, 'buddies'));
 
