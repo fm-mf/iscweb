@@ -15,8 +15,9 @@
         label="Most students per buddy"
         :value="
           buddies.data &&
-            buddies.data.length > 0 &&
-            buddies.data[0].exchange_students_count
+            (buddies.data.length > 0
+              ? buddies.data[0].exchange_students_count
+              : '-')
         "
         :note="
           buddies.data &&
@@ -29,7 +30,9 @@
         label="Avg students per buddy"
         :value="
           buddies.data &&
-            Math.round((studentsWithBuddy / buddies.data.length) * 10) / 10
+            (buddies.data.length
+              ? Math.round((studentsWithBuddy / buddies.data.length) * 10) / 10
+              : '-')
         "
       />
     </div>
@@ -41,9 +44,10 @@
         label="Students with a buddy"
         :value="studentsWithBuddy"
         :note="
-          `${Math.round(
-            (studentsWithBuddy * 100) / studentsWithFilledProfile
-          )} % of students with filled profile`
+          studentsWithFilledProfile > 0 &&
+            `${Math.round(
+              (studentsWithBuddy * 100) / studentsWithFilledProfile
+            )} % of students with filled profile`
         "
       />
 
@@ -51,9 +55,10 @@
         label="Students with filled profile"
         :value="studentsWithFilledProfile"
         :note="
-          `${Math.round(
-            (studentsWithFilledProfile * 100) / arrivingStudents
-          )} % of arriving students`
+          arrivingStudents > 0 &&
+            `${Math.round(
+              (studentsWithFilledProfile * 100) / arrivingStudents
+            )} % of arriving students`
         "
       />
     </div>
