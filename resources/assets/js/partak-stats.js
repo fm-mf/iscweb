@@ -8,6 +8,8 @@ Vue.use(VueRouter);
 Vue.component('loader', Loader);
 
 const router = new VueRouter({
+  mode: 'history',
+  base: '/partak/stats',
   routes
 });
 

@@ -91,7 +91,13 @@ Route::prefix('/stats')
     ->name('partak.stats.')
     ->group(function () {
         Route::get('/', 'StatsController@showIndex')->name('index');
-        
+
+        Route::get('/arrivals', 'StatsController@showIndex')->name('arrivals');
+        Route::get('/buddies', 'StatsController@showIndex')->name('buddies');
+        Route::get('/students', 'StatsController@showIndex')->name('students');
+        Route::get('/exports', 'StatsController@showIndex')->name('exports');
+        Route::get('/history', 'StatsController@showIndex')->name('history');
+
         Route::prefix('/api')
             ->name('api.')
             ->group(function () {
