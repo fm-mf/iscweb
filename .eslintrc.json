@@ -13,6 +13,7 @@
     "$": "readonly"
   },
   "rules": {
-    "prettier/prettier": "warn"
+    "prettier/prettier": "warn",
+    "vue/max-attributes-per-line": "off"
   }
 }

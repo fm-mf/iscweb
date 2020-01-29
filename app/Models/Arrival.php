@@ -27,8 +27,14 @@ class Arrival extends Model
         return $this->hasOne('\App\Models\Transportation', 'id_transportation', 'id_transportation');
     }
 
-    public function getArrivalFormattedAttribute() {
+    public function getArrivalFormattedAttribute()
+    {
         return $this->arrival->format('d. m. Y H:i');
+    }
+
+    public function getArrivalDateFormatted()
+    {
+        return $this->arrival->format('d. m. Y');
     }
 
     public function scopeWithStudents($query, $semester = null)

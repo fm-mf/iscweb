@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\ExchangeStudent;
+use App\Models\Semester;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -31,6 +32,10 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('exchangeStudent', function ($value) {
             return ExchangeStudent::findOrFail(User::decodeHashId($value)[0]);
+        });
+
+        Route::bind('semester', function ($value) {
+            return Semester::where('semester', $value)->firstOrFail();
         });
     }
 

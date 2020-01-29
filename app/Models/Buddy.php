@@ -19,6 +19,11 @@ class Buddy extends Model
         'id_faculty', 'about', 'phone', 'subscribed', 'id_country'
     ];
 
+    public function user()
+    {
+        return $this->person->user;
+    }
+
     public function person()
     {
         return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
@@ -56,11 +61,6 @@ class Buddy extends Model
     {
         $this->verified = 'd';
         $this->save();
-    }
-
-    public function user()
-    {
-        return $this->person->user;
     }
 
     public function isVerified()
