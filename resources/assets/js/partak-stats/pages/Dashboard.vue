@@ -7,7 +7,7 @@
     <div class="stats clearfix">
       <value-display
         label="Total buddies"
-        :value="buddies.data && buddies.data.length"
+        :value="totalBuddies"
         note="buddies with >0 students this semester"
       />
 
@@ -28,12 +28,7 @@
 
       <value-display
         label="Avg students per buddy"
-        :value="
-          buddies.data &&
-            (buddies.data.length
-              ? Math.round((studentsWithBuddy / buddies.data.length) * 10) / 10
-              : '-')
-        "
+        :value="avgPerBuddy"
       />
     </div>
 
@@ -106,11 +101,17 @@ export default {
     arrivingStudents: null,
     studentsWithFilledProfile: null,
     studentsWithBuddy: null,
-    studentsFromPreviousSemester: null
+    studentsFromPreviousSemester: null,
+    totalBuddies: null,
   }),
   computed: {
     countsData() {
       return this.counts.data;
+    },
+    avgPerBuddy() {
+      return this.totalBuddies
+          ? Math.round((this.studentsWithBuddy / this.totalBuddies) * 10) / 10
+          : '-';
     }
   },
   watch: {
@@ -123,6 +124,7 @@ export default {
         this.studentsWithFilledProfile = this.countsData.students_with_profile;
         this.studentsWithBuddy = this.countsData.students_with_buddy;
         this.studentsFromPreviousSemester = this.countsData.students_from_previous;
+        this.totalBuddies = this.countsData.buddies;
       }
     }
   },
