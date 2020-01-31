@@ -51,7 +51,8 @@ return [
                 'buddy' => ['view', 'edit', 'remove', 'verify'],
                 'users' => ['view'],
                 'exchangeStudents' => ['view'],
-                'roles' => ['view', 'partak', 'samoplatce']
+                'roles' => ['view', 'partak', 'samoplatce'],
+                'stats' => ['view', 'export']
             ],
             'inheritsFrom' => ['partak']
         ],
@@ -62,7 +63,7 @@ return [
                 'trips' => ['edit', 'add'],
                 'buddy' => ['view', 'edit', 'remove'],
                 'roles' => ['view', 'partak'],
-                'events' => ['edit', 'add', 'view'],
+                'events' => ['edit', 'add', 'view']
             ],
             'inheritsFrom' => ['point']
         ],

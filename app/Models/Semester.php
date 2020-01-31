@@ -3,12 +3,22 @@
 namespace App\Models;
 
 use App\Facades\Settings;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Semester extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'id_semester';
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('defaultOrder', function (Builder $builder) {
+            $builder->orderBy(DB::raw('`semesters`.`id_semester`'), 'desc');
+        });
+    }
 
     public function exchangeStudents()
     {
@@ -40,13 +50,19 @@ class Semester extends Model
         }
     }
 
+    public function optionalPreviousSemester()
+    {
+        return self::where('id_semester', '<', $this->id_semester)->orderBy('id_semester', 'desc')->first();
+    }
+
+
     public function previousSemester(): Semester
     {
         $nextSemester = self::where('id_semester', '<', $this->id_semester)->orderBy('id_semester', 'desc')->first();
         if (isset($nextSemester)) {
             return $nextSemester;
         } else {
-            throw new \Exception('No previous semester');
+            throw new \Exception('No previous semester to ' . $this->semester);
         }
     }
 
@@ -66,6 +82,4 @@ class Semester extends Model
         $pos = strlen($this->semester) - 4;
         return substr_replace($this->semester, ' ', $pos, 0);
     }
-
-
 }

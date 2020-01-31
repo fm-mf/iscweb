@@ -13,6 +13,9 @@
                     @can('acl', 'events.view')
                         <li><a href="{{ url('partak/events') }}" @if(Request::is('partak/events') || Request::is('partak/events/*')) class="active"@endif>Events</a></li>
                     @endcan
+                     @can('acl', 'stats.view')
+                        <li><a href="{{ url('partak/stats') }}" @if(Request::is('partak/stats') || Request::is('partak/stats/*')) class="active"@endif>Statistics</a></li>
+                    @endcan
                     @can('acl', 'settings.edit')
                         <li><a href="{{ url('partak/settings') }}" @if(Request::is('partak/settings') || Request::is('partak/settings/*')) class="active"@endif>Settings</a></li>
                     @endcan

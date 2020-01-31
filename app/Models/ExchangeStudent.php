@@ -27,6 +27,11 @@ class ExchangeStudent extends Model
         'whatsapp', 'facebook'
     ];
 
+    public function user()
+    {
+        return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
+    }
+
     public function person()
     {
         return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
@@ -140,12 +145,19 @@ class ExchangeStudent extends Model
 
     public static function scopeByUniqueSemester($query, $semester)
     {
-        $previusSmemester = Semester::where('semester', $semester)->first()->previousSemester();
-        return $query->whereHas('semesters', function($query) use ($semester) {
+        $previusSmemester = Semester::where('semester', $semester)->first()->optionalPreviousSemester();
+
+        $query = $query->whereHas('semesters', function ($query) use ($semester) {
             $query->where('semester', $semester);
-        })->whereDoesntHave('semesters', function($query) use ($previusSmemester) {
-            $query->where('semester', $previusSmemester->semester);
         });
+
+        if ($previusSmemester) {
+            $query->whereDoesntHave('semesters', function ($query) use ($previusSmemester) {
+                $query->where('semester', $previusSmemester->semester);
+            });
+        }
+
+        return $query;
     }
 
     public static function scopeWithoutBuddy($query)
@@ -222,6 +234,15 @@ class ExchangeStudent extends Model
                             });
                 });
     }
+
+    public function scopeWithFilledArrival($query, $semester) {
+        $query->byUniqueSemester($semester)
+                ->wantBuddy()
+                ->where(function ($query) {
+                    $query->whereHas('arrival');
+                });
+    }
+
 
     public function scopeAvailableToPick($query, $semester) {
         $query->withFilledProfile($semester)
