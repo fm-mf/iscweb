@@ -29,3 +29,6 @@ export const postReservation = (
 
 export const cancelReservation = hash =>
   axios.delete(`/api/events/reservation/${hash}`);
+
+export const getOwTrips = () =>
+  axios.get('/api/ow-trips').then(res => res.data);

@@ -18,6 +18,7 @@ mix
   .js('resources/assets/js/reservation.js', 'public/js')
   .js('resources/assets/js/partak-stats.js', 'public/js')
   .js('resources/assets/js/saf/saf.js', 'public/js/saf')
+  .js('resources/assets/js/ow-trips-stats.js', 'public/js')
   .sass('resources/assets/sass/web/web.scss', 'public/css')
   .sass('resources/assets/sass/czech/czech.scss', 'public/css')
   .sass('resources/assets/sass/czech/alumni.scss', 'public/css')
