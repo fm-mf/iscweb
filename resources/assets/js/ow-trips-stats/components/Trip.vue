@@ -14,9 +14,9 @@
         </div>
       </div>
       <div class="trip-foot">
-        <div class="trip-url">
+        <a class="trip-url" :href="trip.url">
           {{ trip.url }}
-        </div>
+        </a>
       </div>
     </div>
   </div>
