@@ -43,7 +43,7 @@
                             <tr>
                                 <th>Link</th>
                                 <td colspan="3">
-                                    <unique-url style="width: 100%" url="{{ url("/event/{$trip->event->reservations_hash}") }}"></unique-url>
+                                    <unique-url style="width: 100%" url="{{ $trip->event->reservation_url }}"></unique-url>
                                     @if ($trip->event->reservations_enabled)
                                         <strong>Can be used for online reservations</strong>
                                     @endif
