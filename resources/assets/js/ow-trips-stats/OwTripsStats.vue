@@ -12,22 +12,30 @@ export default {
   components: { Trip },
   data: () => ({
     trips: null,
-    interval: null
+    running: true
   }),
   created() {
     this.load();
-    this.interval = setInterval(() => {
-      this.load();
-    }, 1000);
   },
   destroyed() {
-    clearInterval(this.interval);
+    this.running = false;
   },
   methods: {
     load() {
-      getOwTrips().then(trips => {
-        this.trips = trips;
-      });
+      if (this.running) {
+        getOwTrips().then(
+          trips => {
+            this.trips = trips;
+            setTimeout(() => {
+              this.load();
+            }, 1000);
+          },
+          () =>
+            setTimeout(() => {
+              this.load();
+            }, 1000)
+        );
+      }
     }
   }
 };
