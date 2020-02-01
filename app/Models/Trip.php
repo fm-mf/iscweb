@@ -119,6 +119,10 @@ class Trip extends Model
     public function canRegister()
     {
         if ($this->registration_from && $this->registration_from->isAfter(Carbon::now())) {
+            if ($this->event->ow) {
+                return 'Registrations will start during the Trips presentation in the Orientation Week';
+            }
+            
             return 'Registrations didn\'t start yet';
         }
 
