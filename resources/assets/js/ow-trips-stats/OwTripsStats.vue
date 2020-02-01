@@ -38,5 +38,6 @@ export default {
   padding: 1rem 1rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 </style>
