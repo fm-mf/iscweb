@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use App\Models\Event;
 use App\Models\EventReservation;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -15,9 +16,13 @@ class ReservationCancelledMail extends Mailable
     /** @var EventReservation */
     public $response;
 
-    public function __construct(EventReservation $response)
+    /** @var User */
+    public $cancelledBy;
+
+    public function __construct(EventReservation $response, User $cancelledBy = null)
     {
         $this->response = $response;
+        $this->cancelledBy = $cancelledBy;
     }
 
     /**
@@ -29,7 +34,8 @@ class ReservationCancelledMail extends Mailable
     {
         return $this->view('emails.reservationCancelled', [
                 'event' => $this->response->event,
-                'response' => $this->response
+                'response' => $this->response,
+                'cancelledBy' => $this->cancelledBy
             ])
             ->from('events@isc.cvut.cz', 'ISC CTU in Prague')
             ->subject("Your reservation for {$this->response->event->name} was cancelled");

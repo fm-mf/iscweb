@@ -16,15 +16,19 @@ use App\Models\Person;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\ReservationCancelledMail;
 use App\Models\EventReservation;
 use App\Models\EventReservationAnswer;
 use App\Models\EventReservationQuestion;
 use App\Models\Semester;
 use App\Models\Trip;
+use App\Models\User;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use Intervention\Image\Facades\Image;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -219,6 +223,17 @@ class TripController extends Controller
         ]);
         $reservation->save();
         $reservation->delete();
+
+        try {
+            Mail::to($reservation->user->email)
+                ->send(new ReservationCancelledMail(
+                    $reservation,
+                    User::find(Auth::id())
+                ));
+        } catch (\Exception $ex) {
+            Log::error("Failed to send email to {$reservation->user->email}");
+            Log::error($ex);
+        }
 
         return back()
             ->with(['successUpdate' => $participant->getFullName() . ' was successfully removed.']);
