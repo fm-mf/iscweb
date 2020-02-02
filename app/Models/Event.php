@@ -275,7 +275,7 @@ class Event extends Model
 
             $event->location = $data['location'] ?? '';
             $event->location_url = $data['location_url'] ?? '';
-            $event->ow = $data['ow'] === '1' ? 1 : 0;
+            $event->ow = isset($data['ow']) && $data['ow'] === '1' ? 1 : 0;
             $event->reservations_enabled = $data['reservations_enabled'] ?? 0;
             $event->reservations_medical = $data['reservations_medical'] ?? null;
             $event->reservations_diet = $data['reservations_diet'] ?? null;
