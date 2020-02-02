@@ -8,8 +8,8 @@
     </div>
 
     <p v-if="isOw">
-      Than you for reserving your spot. You can now go to trip stand and pay the
-      fee to get your spot. If you don't do this, your reservation will be
+      Thank you for reserving your spot. You can now go to trip stand and pay
+      the fee to get your spot. If you don't do this, your reservation will be
       cancelled.
     </p>
     <p v-else>
