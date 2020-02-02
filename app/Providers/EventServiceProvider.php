@@ -28,7 +28,7 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\NotifyExchangeStudent'
         ],
         'Illuminate\Auth\Events\Login' => [
-                'App\Listeners\BuddyLoggedIn'
+            'App\Listeners\UserLoggedIn'
         ]
     ];
 

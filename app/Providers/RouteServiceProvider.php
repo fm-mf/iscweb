@@ -59,7 +59,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapSafRoutes();
 
         $this->mapPrivacyRoutes();
-        //
+
+        $this->mapTandemRoutes();
     }
 
     /**
@@ -147,4 +148,12 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
+    protected function mapTandemRoutes()
+    {
+        Route::middleware('web')
+            ->name('tandem.')
+            ->prefix('tandem')
+            ->namespace("{$this->namespace}\\Tandem")
+            ->group(base_path('routes/tandem.php'));
+    }
 }

@@ -20,7 +20,7 @@ class Handler extends ExceptionHandler
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
-     * 
+     *
      * @var array
      */
     protected $dontFlash = [
@@ -68,6 +68,17 @@ class Handler extends ExceptionHandler
     protected function unauthorized($request, AuthorizationException $exception)
     {
         return response()->view('errors.unauthorized');
+    }
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if (!$request->routeIs('tandem.*')) {
+            return parent::unauthenticated($request, $exception);
+        }
+
+        return $request->expectsJson()
+            ? response()->json(['message' => $exception->getMessage()], 401)
+            : redirect()->guest(route('tandem.login'));
     }
 
 }

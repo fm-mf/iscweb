@@ -17,6 +17,7 @@ mix
   .js('resources/assets/js/partak.js', 'public/js')
   .js('resources/assets/js/partak-stats.js', 'public/js')
   .js('resources/assets/js/saf/saf.js', 'public/js/saf')
+  .js('resources/assets/js/tandem.js', 'public/js')
   .sass('resources/assets/sass/web/web.scss', 'public/css')
   .sass('resources/assets/sass/czech/czech.scss', 'public/css')
   .sass('resources/assets/sass/czech/alumni.scss', 'public/css')
@@ -29,6 +30,7 @@ mix
   .sass('resources/assets/sass/errors.scss', 'public/css')
   .sass('resources/assets/sass/saf/saf.scss', 'public/css')
   .sass('resources/assets/sass/saf/saf-partner.scss', 'public/css')
+  .sass('resources/assets/sass/tandem/tandem.scss', 'public/css')
   .copy(
     'node_modules/@fortawesome/fontawesome-free/webfonts/*',
     'public/fonts/font-awesome'

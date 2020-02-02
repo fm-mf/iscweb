@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'tandem' => [
+            'driver' => 'session',
+            'provider' => 'tandem_users',
+        ],
     ],
 
     /*
@@ -68,6 +73,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'tandem_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\TandemUser::class,
         ],
 
         // 'users' => [

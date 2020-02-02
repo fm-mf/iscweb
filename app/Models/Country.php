@@ -28,6 +28,11 @@ class Country extends Model
         return $this->belongsTo('\App\Models\Buddy', 'id_country', 'id_country');
     }
 
+    public function tandemUsers()
+    {
+        return $this->hasMany('App\\Models\\TandemUsers', 'id_country', 'id_country');
+    }
+
     public function scopeWithStudents($query, $semester = null)
     {
         if (!$semester) {

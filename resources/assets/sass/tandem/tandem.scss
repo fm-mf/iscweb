@@ -1,0 +1,34 @@
+@import "../web/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import "~vue-multiselect/dist/vue-multiselect.min.css";
+
+.multiselect__tags {
+  border-radius: 0;
+  border: $input-border-width solid $input-border-color;
+  padding-left: $input-padding-x;
+  padding-top: $input-padding-y;
+  height: $input-height;
+}
+
+.multiselect__content-wrapper {
+  border-radius: 0 !important;
+}
+
+.multiselect__input,
+.multiselect__single {
+  color: $input-color;
+  padding: 0;
+  line-height: $input-line-height;
+}
+
+.multiselect__placeholder {
+  color: $input-placeholder-color;
+  font-size: 1rem;
+  padding: 0;
+  line-height: $input-line-height;
+}
