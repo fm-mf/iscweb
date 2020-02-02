@@ -7,6 +7,7 @@ use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TripAuthUserResource;
 use App\Models\Event;
 use App\Models\EventReservation;
 use App\Models\EventReservationAnswer;
@@ -29,6 +30,7 @@ class EventsController extends Controller
         $student = null;
 
         try {
+            /** @var ExchangeStudent */
             $student = ExchangeStudent::findByEmailAndEsn(
                 $request->input('email'),
                 $request->input('esn')
@@ -39,7 +41,7 @@ class EventsController extends Controller
 
         $this->checkEventUser($event, $student->id_user);
 
-        return response()->json($student);
+        return response()->json(new TripAuthUserResource($student->user));
     }
 
     public function createReservation(Request $request)
@@ -176,7 +178,7 @@ class EventsController extends Controller
 
         $this->checkEventUser($event, $this->guard()->user()->id_user);
 
-        return response()->json($details);
+        return response()->json(new TripAuthUserResource($details));
     }
 
     protected function credentials(Request $request)

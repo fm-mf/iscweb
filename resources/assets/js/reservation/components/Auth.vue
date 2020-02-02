@@ -111,7 +111,7 @@ export default {
 
     loadUser(user) {
       this.$emit('loaded', true);
-      this.$emit('auth', user.person);
+      this.$emit('auth', user);
 
       this.password = null;
       this.error = null;
