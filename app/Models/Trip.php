@@ -109,11 +109,11 @@ class Trip extends Model
 
     public function freeSpots()
     {
-        return $this->capacity - $this->howIsFill();
+        return max(0, $this->capacity - $this->howIsFill());
     }
 
     public function isFull() {
-        return $this->freeSpots() == 0;
+        return $this->freeSpots() <= 0;
     }
 
     public function canRegister()

@@ -8,7 +8,7 @@
             FULL
           </template>
           <template v-else>
-            {{ trip.free }}
+            {{ Math.max(0, trip.free) }}
             {{ trip.free === 1 ? 'SPOT' : 'SPOTS' }}
           </template>
         </div>
@@ -49,9 +49,11 @@ export default {
     background: rgba(255, 255, 255, 0.9);
     padding: 0.5rem 1rem;
     font-weight: bold;
+    /*
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    */
   }
 
   .trip-body {
