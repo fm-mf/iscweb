@@ -170,6 +170,12 @@ class Trip extends Model
 
     public function addParticipant($userId, $data, $allowStandIn = false)
     {
+        $prereg = EventReservation::findByUserAndEvent($userId, $this->id_event);
+
+        if ($prereg) {
+            $prereg->delete();
+        }
+
         $standIn = $this->isFull() ? 'y' : 'n';
         if ($standIn == 'y' && !$allowStandIn) {
             return self::TRIP_FULL;
@@ -183,12 +189,6 @@ class Trip extends Model
 
         $part = $this->participants()->find($userId);
         $deletePart = $this->deletedParticipants()->find($userId);
-        $prereg = EventReservation::findByUserAndEvent($userId, $this->id_event);
-
-        if ($prereg) {
-            $prereg->delete();
-        }
-
         if(isset($deletePart)) {    //if softDeleted, only update row
             $this->deletedParticipants()->updateExistingPivot($userId, [
                 'deleted_at' => null,
