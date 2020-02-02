@@ -23,7 +23,7 @@
 </main>
 
 <div class="footer">
-© 2019 | International Student Club CTU in Prague, z.s.
+© {{ \Carbon\Carbon::now()->year }} | {{ $officialName }}
 </div>
 
 
