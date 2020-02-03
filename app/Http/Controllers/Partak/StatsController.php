@@ -6,6 +6,7 @@ use App\Facades\Settings;
 use App\Models\Buddy;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BuddyResource;
+use App\Http\Resources\TransportationResource;
 use App\Models\Arrival;
 use App\Models\ExchangeStudent;
 use App\Models\Faculty;
@@ -162,7 +163,7 @@ class StatsController extends Controller
 
         return response()->json([
             'dates' => $arrivals,
-            'transports' => $transports
+            'transports' => TransportationResource::collection($transports)
         ]);
     }
 
