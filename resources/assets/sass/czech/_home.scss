@@ -1,10 +1,15 @@
+$text-shadow: 0 0 0.125em black;
+@for $i from 1 through 4 {
+  $text-shadow: $text-shadow, $text-shadow;
+}
+
 .header-wrapper.home {
   background: #262626 url(/img/buddy/background.jpg) no-repeat 90% top / cover;
   color: #ffffff;
   position: relative;
 
   @include media-breakpoint-up(md) {
-    height: 100vh;
+    min-height: 100vh;
     background-position: right top;
   }
 
@@ -12,10 +17,6 @@
     text-align: center;
     font-weight: bold;
 
-    $text-shadow: 0 0 0.125em black;
-    @for $i from 1 through 4 {
-      $text-shadow: $text-shadow, $text-shadow;
-    }
     text-shadow: $text-shadow;
 
     @include media-breakpoint-up(md) {
@@ -34,41 +35,27 @@
   }
 
   .container.header {
-    position: relative;
     text-align: center;
+    overflow: hidden;
 
     @include media-breakpoint-up(md) {
-      height: 32rem;
-      position: absolute;
-      top:0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
       text-align: left;
     }
 
     h1 {
       text-align: left;
       font-size: 2rem;
-      margin-top: 7rem;
-      margin-left: initial;
-      margin-right: initial;
-      margin-bottom: 2rem;
+      margin: 7rem 0 2rem;
       padding: 0;
       border: none;
       background: none;
       font-weight: bold;
 
-      $text-shadow: 0 0 0.125em black;
-      @for $i from 1 through 4 {
-        $text-shadow: $text-shadow, $text-shadow;
-      }
       text-shadow: $text-shadow;
 
       @include media-breakpoint-up(md) {
         width: 40%;
-        margin-top: 12.5rem;
+        margin-top: 37vh;
       }
     }
   }
@@ -110,6 +97,10 @@
       height: var(--logo-height);
     }
   }
+}
+
+.p-btn {
+  margin-bottom: 4rem;
 }
 
 .play {
