@@ -16,7 +16,7 @@
       <div class="col-sm-6">
         <h2>Transportations</h2>
 
-        <stats-table key-field="transport" :data="transports" />
+        <stats-table key-field="type" :data="transports" />
       </div>
     </div>
   </loader>
