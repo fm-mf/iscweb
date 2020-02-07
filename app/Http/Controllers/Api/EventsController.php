@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Events\StudentReservedSpot;
+use App\Facades\Settings;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use Illuminate\Http\Request;
@@ -143,7 +144,7 @@ class EventsController extends Controller
             throw new HttpException(400, 'You are already registered for this event');
         }
         
-        if ($event->ow && $event->trip->hasOwReservation($id_user)) {
+        if (Settings::get('owTripsRestricted') && $event->ow && $event->trip->hasOwReservation($id_user)) {
             throw new HttpException(400, 'You are already registered to different Orientation Week trip');
         }
 
@@ -151,8 +152,6 @@ class EventsController extends Controller
             throw new HttpException(400, 'Event is already full, sorry :(');
         }
         
-        
-
         $error = $event->trip->canRegister();
         if ($error !== true) {
             throw new HttpException(400, $error);
