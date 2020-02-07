@@ -115,9 +115,9 @@
             <h3 id="tandem-evening">Tandem Evening</h3>
             <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
             <ul class="list-unstyled">
-                <li>When: <strong>TBA</strong></li>
+                <li>When: <strong>21:00</strong></li>
+                <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
                 <!--
-                <li>Where: <a href="https://goo.gl/maps/qgZJ57LcLtM2" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, Prague 3)</a></li>
                 <li>Meeting points:
                     <ul>
                         <li>20:30 at bus stop Koleje Strahov</li>
@@ -222,7 +222,7 @@
             <ul class="list-unstyled">
                 {{--<li>When: in the afternoon</li>--}}
                 {{--<li>Where: <abbr title="To be announced">TBA</abbr> soon</li>--}}
-                <li>When: <strong>12:45</strong></li>
+                <li>When: <strong>13:00</strong></li>
                 <li>Where: <strong><a href="https://goo.gl/maps/BT426kNo4oZLarbz9">Congress Hall of the Masarykova Dormitory</a></strong></li>
                 <li>Topics:
                     <ul>
@@ -281,9 +281,9 @@
             <h3 id="integreat-party">inteGREATion party</h3>
             <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
             <ul class="list-unstyled">
-                <li>When: <strong>TBA</strong></li>
+                <li>When: <strong>21:00</strong></li>
+                <li>Where: <a href="https://goo.gl/maps/ebTnpr9oMqtAWj4a9" target="_blank" rel="noopener"><strong>Chapeau Rouge Bar</strong> (Jakubská 2, 110 00 Staré Město)</a></li>
                 <!--
-                <li>Where: <a href="https://goo.gl/maps/LANoqspoi362" target="_blank" rel="noopener"><strong>PM Club</strong> (Trojická 1907/10)</a></li>
                 <li>Meeting points:
                     <ul>
                         <li>19:30 at bus stop Koleje Strahov</li>
