@@ -28,12 +28,12 @@ export default {
             this.trips = trips;
             setTimeout(() => {
               this.load();
-            }, 1000);
+            }, 2000);
           },
           () =>
             setTimeout(() => {
               this.load();
-            }, 1000)
+            }, 2000)
         );
       }
     }
