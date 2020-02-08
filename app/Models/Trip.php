@@ -112,17 +112,22 @@ class Trip extends Model
         return max(0, $this->capacity - $this->howIsFill());
     }
 
-    public function isFull() {
+    public function isFull()
+    {
         return $this->freeSpots() <= 0;
     }
 
     public function canRegister()
     {
+        if ($this->isFull()) {
+            return 'The trip is full, sorry :(';
+        }
+
+        if ($this->event->ow && !Settings::get('owTripsEnabled')) {
+            return 'Registrations will start during the Trips presentation in the Orientation Week';
+        }
+
         if ($this->registration_from && $this->registration_from->isAfter(Carbon::now())) {
-            if ($this->event->ow) {
-                return 'Registrations will start during the Trips presentation in the Orientation Week';
-            }
-            
             return 'Registrations didn\'t start yet';
         }
 

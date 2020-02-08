@@ -30,11 +30,16 @@ class EventsController extends Controller
         $event = $this->getEvent((string)$request->input('event'));
         $student = null;
 
+        $data = $request->validate([
+            'esn' => 'string|required',
+            'email' => $event->ow ? 'string|nullable' : 'string|required'
+        ]);
+
         try {
             /** @var ExchangeStudent */
-            $student = ExchangeStudent::findByEmailAndEsn(
-                $request->input('email'),
-                $request->input('esn')
+            $student = ($event->ow
+                ? ExchangeStudent::findByEsn($data['esn'])
+                : ExchangeStudent::findByEmailAndEsn($data['email'], $data['esn'])
             )->firstOrFail();
         } catch (\Exception $e) {
             throw new NotFoundHttpException('Invalid e-mail and ESN card number combination');
@@ -148,10 +153,6 @@ class EventsController extends Controller
             throw new HttpException(400, 'You are already registered to different Orientation Week trip');
         }
 
-        if ($event->trip->isFull()) {
-            throw new HttpException(400, 'Event is already full, sorry :(');
-        }
-        
         $error = $event->trip->canRegister();
         if ($error !== true) {
             throw new HttpException(400, $error);

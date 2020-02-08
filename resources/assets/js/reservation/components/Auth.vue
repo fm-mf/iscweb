@@ -3,7 +3,7 @@
     <tab id="exchange" title="Exchange student" selected>
       <error :error="error" />
       <form class="form" @submit.prevent="handleExchangeAuth">
-        <div class="form-group">
+        <div v-if="!isOw" class="form-group">
           <label>E-mail</label>
           <input v-model="esnEmail" name="email" type="email" />
         </div>
@@ -59,16 +59,17 @@ export default {
   },
   props: {
     loaded: Boolean,
-    event: String
+    event: String,
+    isOw: Boolean
   },
   data: () => ({
     error: null,
 
     tab: 'exchange',
     esn: '646026PGW90',
-    esnEmail: 'prescotw@union.edu',
-    buddyEmail: 'testuser@test.cz',
-    password: 'testuser'
+    esnEmail: '',
+    buddyEmail: '',
+    password: ''
   }),
   methods: {
     handleExchangeAuth() {
