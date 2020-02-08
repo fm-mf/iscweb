@@ -11,11 +11,13 @@ class Reserved
 {
     public function handle(StudentReservedSpot $event)
     {
-        try {
-            Mail::to($event->response->user->email)->send(new ReservationMail($event->response));
-        } catch (\Exception $ex) {
-            Log::error("Failed to send email to {$event->response->user->email}");
-            Log::error($ex);
+        if (!$event->response->event->ow) {
+            try {
+                Mail::to($event->response->user->email)->send(new ReservationMail($event->response));
+            } catch (\Exception $ex) {
+                Log::error("Failed to send email to {$event->response->user->email}");
+                Log::error($ex);
+            }
         }
     }
 }
