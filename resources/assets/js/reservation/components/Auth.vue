@@ -66,7 +66,7 @@ export default {
     error: null,
 
     tab: 'exchange',
-    esn: '646026PGW90',
+    esn: '',
     esnEmail: '',
     buddyEmail: '',
     password: ''
