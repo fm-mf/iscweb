@@ -216,14 +216,19 @@ class TripController extends Controller
             throw new NotFoundHttpException('Participant not found');
         }
 
+        /** @var EventReservation */
         $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
             ->firstOrFail();
+        
+        foreach ($reservation->answers()->get() as $answer) {
+            $answer->delete();
+        }
+
         $reservation->update([
             "deleted_by" => Auth::id()
         ]);
         $reservation->save();
         $reservation->delete();
-
         try {
             Mail::to($reservation->user->email)
                 ->send(new ReservationCancelledMail(
