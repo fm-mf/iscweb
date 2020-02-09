@@ -117,15 +117,12 @@
             <ul class="list-unstyled">
                 <li>When: <strong>21:00</strong></li>
                 <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
-                <!--
                 <li>Meeting points:
                     <ul>
-                        <li>20:30 at bus stop Koleje Strahov</li>
-                        <li><strong title="Meeting time changed">20:30</strong> <del title="Meeting time changed">20:45</del> in the lobby of the Masarykova dormitory</li>
+                        <li>20:00 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
                 <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
-                -->
             </ul>
         </div>
     </div>
@@ -181,21 +178,16 @@
                 </li>
 
                 <li><strong>Where:</strong> At your faculty (more information in the presentations on the first day)</li>
-                <!--
+                
                 <li>Meeting points:
                     <ul>
-                        <li>FBMI &ndash; 7:50 in front of the Klokner Institute</li>
-                        <li>FD &ndash; 8:25 in the lobby of the Masarykova dormitory</li>
-                        <li>FJFI &ndash; 8:30 the end stop of busses 143 and 149 Dejvická</li>
-                        <li>FSv &ndash; 8:55 in front of the faculty</li>
-                        <li>FS &ndash; 8:55 in front of the faculty</li>
-                        <li>FEL &ndash; 8:55 in front of the faculty</li>
-                        <li>MÚVS &ndash; 8:55 in front of the faculty</li>
-                        <li>FA &ndash; 9:20 in the atrium with yellow benches inside of the building</li>
-                        <li>FIT &ndash; 9:50 in the lobby of the Masarykova dormitory & 9:55 in front of the faculty</li>
+                        <li>FBMI &ndash; 7:45 in the lobby of the Masarykova dormitory</li>
+                        <li>FD &ndash; 8:45 at Entrance to Národní Třída metro station</li>
+                        <li>FS &ndash; 8:45 in front of the faculty</li>
+                        <li>FEL &ndash; 8:45 in front of the faculty</li>
+                        <li>FIT &ndash; 9:50 by the entrance door FA</li>
                     </ul>
                 </li>
-                -->
 
                 <li><abbr title="Faculty of Civil Engineering">FSv</abbr> has registrations on day 3</li>
 
@@ -260,6 +252,12 @@
             <h3 id="day-3-registration">Registration at faculties</h3>
 
             <p>When: <strong>10:00</strong> &ndash; <abbr title="Faculty of Civil Engineering">FSv</abbr></p>
+        
+            <li>Meeting points:
+                <ul>
+                    <li>FSv &ndash; 9:50 in front of the faculty</li>
+                </ul>
+            </li>     
         </div>
     </div>
 
