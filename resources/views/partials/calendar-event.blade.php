@@ -23,7 +23,7 @@
             </p>
         @endisset
         <p>
-            ► <a href="{{ url("/event/{$event->reservations_hash}") }}">
+            ► <a href="{{ $event->reservation_url }}">
                 @if ($event->reservations_enabled && $event->trip && $event->trip->registration_to > \Carbon\Carbon::now())
                     <strong>@lang('web.calendar.online-reservation')</strong>
                 @else

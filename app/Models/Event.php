@@ -158,7 +158,7 @@ class Event extends Model
 
     public function getReservationUrlAttribute()
     {
-        if (empty($this->cover)) {
+        if (empty($this->reservations_hash)) {
             return '';
         }
 
