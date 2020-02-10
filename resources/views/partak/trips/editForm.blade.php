@@ -86,8 +86,8 @@
         <p class="error-block alert-danger">{{ $errors->first('visible_time') }}</p>
     @endif
     <div class="row date-row">
-        <div class="col-sm-6">{{ Form::text('visible_date',($event->visible_from) ? $event->visible_from->format('d M Y') :'', ['id' => 'visible_date', 'class' => 'form-control arrival date']) }}</div>
-        <div class="col-sm-6">{{ Form::text('visible_time', $event->visible_from->format('g:i A'), ['id' => 'visible_time', 'class' => 'form-control arrival time']) }}</div>
+        <div class="col-sm-6">{{ Form::text('visible_date',($event->visible_from) ? $event->visible_from->format('d M Y') :'', ['id' => 'visible_date', 'class' => 'form-control arrival date', 'required' => 'required']) }}</div>
+        <div class="col-sm-6">{{ Form::text('visible_time', $event->visible_from->format('g:i A'), ['id' => 'visible_time', 'class' => 'form-control arrival time', 'required' => 'required']) }}</div>
     </div>
 </div>
 
@@ -101,8 +101,8 @@
             <p class="error-block alert-danger">{{ $errors->first('start_time') }}</p>
         @endif
         <div class="row date-row">
-            <div class="col-sm-6">{{ Form::text('start_date', $event->datetime_from->format('d M Y'), ['id' => 'start_date', 'class' => 'form-control arrival date']) }}</div>
-            <div class="col-sm-6">{{ Form::text('start_time', $event->datetime_from->format('g:i A'), ['id' => 'start_time', 'class' => 'form-control arrival time']) }}</div>
+            <div class="col-sm-6">{{ Form::text('start_date', $event->datetime_from->format('d M Y'), ['id' => 'start_date', 'class' => 'form-control arrival date', 'required' => 'required']) }}</div>
+            <div class="col-sm-6">{{ Form::text('start_time', $event->datetime_from->format('g:i A'), ['id' => 'start_time', 'class' => 'form-control arrival time', 'required' => 'required']) }}</div>
         </div>
     </div>
     @if ($trips)
@@ -115,8 +115,8 @@
             <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
         @endif
         <div class="row date-row">
-            <div class="col-sm-6">{{ Form::text('end_date', $trip->trip_date_to->format('d M Y'), ['id' => 'end_date', 'class' => 'form-control arrival date']) }}</div>
-            <div class="col-sm-6">{{ Form::text('end_time', $trip->trip_date_to->format('g:i A'), ['id' => 'end_time', 'class' => 'form-control arrival time']) }}</div>
+            <div class="col-sm-6">{{ Form::text('end_date', $trip->trip_date_to->format('d M Y'), ['id' => 'end_date', 'class' => 'form-control arrival date', 'required' => 'required']) }}</div>
+            <div class="col-sm-6">{{ Form::text('end_time', $trip->trip_date_to->format('g:i A'), ['id' => 'end_time', 'class' => 'form-control arrival time', 'required' => 'required']) }}</div>
         </div>
     </div>
     @endif
