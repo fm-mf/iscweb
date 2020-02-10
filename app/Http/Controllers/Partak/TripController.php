@@ -202,7 +202,7 @@ class TripController extends Controller
     {
         /** @var Trip */
         $trip = Trip::find($id_trip);
-        
+
         if (!$trip) {
             throw new NotFoundHttpException('Trip not found');
         }
@@ -219,7 +219,7 @@ class TripController extends Controller
         /** @var EventReservation */
         $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
             ->firstOrFail();
-        
+
         foreach ($reservation->answers()->get() as $answer) {
             $answer->delete();
         }
@@ -450,14 +450,17 @@ class TripController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required',
+            'id_semester' => 'required|exists:semesters,id_semester',
             'visible_date' => 'required|date_format:d M Y',
-            'visible_time' => 'date_format:g:i A',
-            'registration_date' => 'date_format:d M Y',
-            'registration_time' => 'date_format:g:i A',
+            'visible_time' => 'required|date_format:g:i A',
+            'registration_date' => 'required|date_format:d M Y',
+            'registration_time' => 'required|date_format:g:i A',
+            'registration_end_date' => 'required|date_format:d M Y',
+            'registration_end_time' => 'required|date_format:g:i A',
             'start_date' => 'required|date_format:d M Y',
-            'start_time' => 'date_format:g:i A',
+            'start_time' => 'required|date_format:g:i A',
             'end_date' => 'required|date_format:d M Y',
-            'end_time' => 'date_format:g:i A',
+            'end_time' => 'required|date_format:g:i A',
             'description' => 'required',
             'price' => 'required|integer|min:0|max:65535',
             'capacity' => 'required|integer|min:0||max:65535',

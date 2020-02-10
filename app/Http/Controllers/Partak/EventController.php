@@ -166,10 +166,11 @@ class EventController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required',
+            'id_semester' => 'required|exists:semesters,id_semester',
             'visible_date' => 'required|date_format:d M Y',
-            'visible_time' => 'date_format:g:i A',
+            'visible_time' => 'required| date_format:g:i A',
             'start_date' => 'required|date_format:d M Y',
-            'start_time' => 'date_format:g:i A',
+            'start_time' => 'required|date_format:g:i A',
             'description' => 'required',
             'cover' => 'max:307400|mimes:jpg,jpeg,png',
         ]);
