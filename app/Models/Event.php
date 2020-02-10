@@ -211,6 +211,22 @@ class Event extends Model
     }
 
     /**
+     * If no reservationHash is provided, it is generated from id_event,
+     * otherwise provided value is used
+     *
+     * @param  string|null  $reservationsHash Custom reservation hash can be provided
+     */
+    public function setReservationsHash(string $reservationsHash = null)
+    {
+        if ($reservationsHash) {
+            $this->reservations_hash = $reservationsHash;
+        } else {
+            $this->reservations_hash = self::getHashIds()->encode($this->id_event);
+        }
+        $this->save();
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
      */
     public static function findMaxYearOld()
