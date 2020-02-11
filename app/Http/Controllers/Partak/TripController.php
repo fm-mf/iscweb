@@ -230,6 +230,7 @@ class TripController extends Controller
         ]);
         $reservation->save();
         $reservation->delete();
+        
         try {
             Mail::to($reservation->user->email)
                 ->send(new ReservationCancelledMail(

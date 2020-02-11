@@ -28,7 +28,7 @@ class EventReservation extends Model
 
     public $timestamps = true;
     public $incrementing = false;
-    protected $primaryKey = 'id_event';
+    protected $primaryKey = 'id_event_reservation';
 
     protected $dates = ['expires_at'];
 
