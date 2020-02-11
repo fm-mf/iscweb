@@ -65,9 +65,8 @@ class EventsController extends Controller
         $softDeletedResponse = EventReservation::findByUserAndEvent($id_user, $event->id_event)
             ->withTrashed()
             ->first();
-        
+
         if ($softDeletedResponse) {
-            dd('SOFT DELETE!');
             $softDeletedResponse->forceDelete();
         }
 
@@ -170,7 +169,7 @@ class EventsController extends Controller
         if ($event->trip->hasUser($id_user)) {
             throw new HttpException(400, 'You are already registered for this event');
         }
-        
+
         if (Settings::get('owTripsRestricted') && $event->ow && $event->trip->hasOwReservation($id_user)) {
             throw new HttpException(400, 'You are already registered to different Orientation Week trip');
         }
