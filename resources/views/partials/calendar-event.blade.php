@@ -24,7 +24,7 @@
         @endisset
         <p>
             ► <a href="{{ $event->reservation_url }}">
-                @if ($event->reservations_enabled && $event->trip && $event->trip->registration_to > \Carbon\Carbon::now())
+                @if ($event->reservations_enabled && $event->trip && !$event->trip->isFull() && $event->trip->registration_to > \Carbon\Carbon::now())
                     <strong>@lang('web.calendar.online-reservation')</strong>
                 @else
                     <strong>@lang('web.calendar.detail')</strong>
