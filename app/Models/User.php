@@ -175,6 +175,11 @@ class User extends Authenticatable
         $this->notify(new PasswordReset($token));
     }
 
+    public static function encryptPassword($email, $password)
+    {
+        return hash("sha512", $email . '@' . $password);
+    }
+    
     public function getHashIdAttribute()
     {
         return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->encode($this->id_user);

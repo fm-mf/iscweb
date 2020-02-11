@@ -1,5 +1,13 @@
+<div class="row">
+    <div class="col-sm-8">
+        {{ Form::bsText('name', 'Name', 'required') }}
+    </div>
+    <div class="col-sm-4">
+        {{ Form::bsSelect('id_semester', 'Semester', $semesters, $currentSemesterId, ['required' => 'required']) }}
+    </div>
+</div>
 
-{{ Form::bsText('name', 'Name', 'required') }}<script>
+<script>
     function cover_change(files) {
         var preview = $('#cover_preview')[0];
         if (files.length <= 0) {
@@ -17,6 +25,7 @@
         reader.readAsDataURL(files[0]);
     }
 </script>
+
 @if(! isset($create) || $create == false)
     @can('acl', 'details.view')
         <div class="form-group row">
@@ -56,51 +65,63 @@
     @if($event->event_type == 'integreat')
         {{ Form::bsText('countries', 'Countries', '', $event->integreat_party->countries) }}
         {{ Form::bsText('theme', 'Theme', '', $event->integreat_party->theme) }}
-    @elseif($event->event_type == 'languages')
-        {{ Form::bsText('where', 'Where', '', $event->languages_event->where) }}
-        {{ Form::bsText('where_url', 'Url address from Google Maps', '', $event->languages_event->where_url) }}
     @endif
 @endif
 
-<div class="form-group row">
-    <div class="col-sm-6 left">
-        {{ Form::label('visible_date', 'Visible from date', ['class' => 'control-label required' ]) }}
-        @if ($errors->has('visible_date'))
-            <p class="error-block alert-danger">{{ $errors->first('visible_date') }}</p>
-        @endif
-        {{ Form::text('visible_date',($event->visible_from) ? $event->visible_from->format('d M Y') :'', ['id' => 'visible_date', 'class' => 'form-control arrival date']) }}
-
+<div class="row">
+    <div class="col-sm-6">
+        {{ Form::bsText('location', 'Where', '', $event->location) }}
     </div>
-    <div class="col-sm-6 right">
-        {{ Form::label('visible_time', 'Visible from time', ['class' => 'control-label required']) }}
-        @if ($errors->has('visible_time'))
-            <p class="error-block alert-danger">{{ $errors->first('visible_time') }}</p>
-        @endif
-        {{ Form::text('visible_time', $event->visible_from->format('g:i A'), ['id' => 'visible_time', 'class' => 'form-control arrival time']) }}
-
+    <div class="col-sm-6">
+        {{ Form::bsText('location_url', 'Where (URL)', '', $event->location_url) }}
     </div>
-    <div class="col-sm-6 info"></div>
 </div>
 
-<div class="form-group row">
-    <div class="col-sm-6 left">
-        {{ Form::label('start_date', 'Event starts date', ['class' => 'control-label required']) }}
+<div class="form-group">
+    {{ Form::label('visible_date', 'Visible from', ['class' => 'control-label required' ]) }}
+    @if ($errors->has('visible_date'))
+        <p class="error-block alert-danger">{{ $errors->first('visible_date') }}</p>
+    @endif
+    @if ($errors->has('visible_time'))
+        <p class="error-block alert-danger">{{ $errors->first('visible_time') }}</p>
+    @endif
+    <div class="row date-row">
+        <div class="col-sm-6">{{ Form::text('visible_date',($event->visible_from) ? $event->visible_from->format('d M Y') :'', ['id' => 'visible_date', 'class' => 'form-control arrival date', 'required' => 'required']) }}</div>
+        <div class="col-sm-6">{{ Form::text('visible_time', $event->visible_from->format('g:i A'), ['id' => 'visible_time', 'class' => 'form-control arrival time', 'required' => 'required']) }}</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-6">
+        {{ Form::label('start_date', 'Event starts', ['class' => 'control-label required']) }}
         @if ($errors->has('start_date'))
             <p class="error-block alert-danger">{{ $errors->first('start_date') }}</p>
         @endif
-        {{ Form::text('start_date', $event->datetime_from->format('d M Y'), ['id' => 'start_date', 'class' => 'form-control arrival date']) }}
-
-    </div>
-    <div class="col-sm-6 right">
-        {{ Form::label('time', 'Event starts time', ['class' => 'control-label required']) }}
         @if ($errors->has('start_time'))
             <p class="error-block alert-danger">{{ $errors->first('start_time') }}</p>
         @endif
-        {{ Form::text('start_time', $event->datetime_from->format('g:i A'), ['id' => 'start_time', 'class' => 'form-control arrival time']) }}
-
+        <div class="row date-row">
+            <div class="col-sm-6">{{ Form::text('start_date', $event->datetime_from->format('d M Y'), ['id' => 'start_date', 'class' => 'form-control arrival date', 'required' => 'required']) }}</div>
+            <div class="col-sm-6">{{ Form::text('start_time', $event->datetime_from->format('g:i A'), ['id' => 'start_time', 'class' => 'form-control arrival time', 'required' => 'required']) }}</div>
+        </div>
     </div>
-    <div class="col-sm-6 info"></div>
+    @if ($trips)
+    <div class="form-group col-sm-6">
+        {{ Form::label('date', 'Event ends', ['class' => 'control-label required']) }}
+        @if ($errors->has('date'))
+            <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
+        @endif
+        @if ($errors->has('time'))
+            <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
+        @endif
+        <div class="row date-row">
+            <div class="col-sm-6">{{ Form::text('end_date', $trip->trip_date_to->format('d M Y'), ['id' => 'end_date', 'class' => 'form-control arrival date', 'required' => 'required']) }}</div>
+            <div class="col-sm-6">{{ Form::text('end_time', $trip->trip_date_to->format('g:i A'), ['id' => 'end_time', 'class' => 'form-control arrival time', 'required' => 'required']) }}</div>
+        </div>
+    </div>
+    @endif
 </div>
+
 @if($trips)
     @include('partak.trips.editFormTrips')
 @else
@@ -108,6 +129,7 @@
 @endif
 
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
+
 {{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
 
 

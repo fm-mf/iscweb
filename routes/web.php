@@ -17,7 +17,8 @@ if (Request::segment(1) == "user") {
     App::setLocale('cs');
 }
 
-
+Route::get('/event/{id}/cancel/{hash}', 'Exchange\ReservationController@showForm');
+Route::get('/event/{id}', 'Exchange\ReservationController@showForm');
 
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
 {

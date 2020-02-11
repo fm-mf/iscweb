@@ -297,6 +297,21 @@ class ExchangeStudent extends Model
         })->first();
     }
 
+    public function scopeFindByEsn(Builder $query, string $esn)
+    {
+        return $query->with('person.user')->where('esn_card_number', $esn);
+    }
+
+
+    public function scopeFindByEmailAndEsn(Builder $query, string $email, string $esnCardNumber)
+    {
+        return $query->with('person.user')
+            ->where('esn_card_number', $esnCardNumber)
+            ->whereHas('person.user', function (Builder $query) use ($email) {
+                $query->where('email', $email);
+            });
+    }
+
     public function scopeByEmails(Builder $query, array $emails)
     {
         return $query->with('person.user')->whereHas('person.user', function (Builder $query) use ($emails) {

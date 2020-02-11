@@ -70,6 +70,10 @@
 
 										{{ Form::bsText('whatsAppGeneralLink', 'Link to General WhatsApp group', '', @$settings['whatsAppGeneralLink']) }}
 
+										{{ Form::bsCheckbox('owTripsEnabled', 'Enable OW trips registration', '', '1', @$settings['owTripsEnabled']) }}
+
+										{{ Form::bsCheckbox('owTripsRestricted', 'Allow only one OW trip per person', '', '1', @$settings['owTripsRestricted']) }}
+										
                     <div style="margin-bottom: 15px;">
                    		<button type="button" id="editOpeningHoursButton" class="btn btn-warning">Edit opening hours</button>
                    	</div>

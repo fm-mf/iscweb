@@ -168,6 +168,15 @@ class Buddy extends Model
 
     }
 
+    public function scopeFindByEmailAndPassword(Builder $query, string $email, string $password) {
+        return $query->with('person.user')
+            ->whereHas('person.user', function (Builder $query) use ($email, $password) {
+                $query
+                    ->where('password', User::encryptPassword($email, $password))
+                    ->where('email', $email);
+            })->first();
+    }
+
     public function agreedPrivacyPartak()
     {
         return $this->privacy_partak;

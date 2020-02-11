@@ -15,6 +15,8 @@
                 {{ Form::open() }}
                 {{ Form::bsText('paid', 'Paid','', $part->pivot->paid, ['readonly' => '']) }}
 
+                @include('partak.trips.custom-questions', ['id_user' => $part->id_user, 'readonly' => true])
+
                 <div class="form-group row">
                     <div class="col-sm-5 left">
                         {{ Form::bsText('registered_by', 'Register by', '', $registerby->person->getFullName(), ['readonly' => '']) }}

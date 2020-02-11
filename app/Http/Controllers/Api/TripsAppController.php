@@ -260,7 +260,6 @@ class TripsAppController extends Controller
                 'trip_price' => $trip->price,
                 'trip_participants' => $trip->howIsFill(),
                 'registered' => $registered,
-                'reserved' => 'y'
             ];
         };
 

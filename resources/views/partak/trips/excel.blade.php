@@ -24,6 +24,12 @@
                     <th>Comment to payment</th>
                     <th>Paid</th>
                     <th>Register By</th>
+                    @foreach($trip->questions as $question)
+                        <th>{{ $question->label }}</th>
+                    @endforeach
+                    @if ($trip->event->reservations_enabled)
+                        <th>Reservation notes</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -44,6 +50,19 @@
                         <td>{{ $participant->pivot->comment }}</td>
                         <td>{{ $participant->pivot->paid }}</td>
                         <td>{{ \App\Models\Person::find($participant->pivot->registered_by)->getFullName() }}</td>
+                        @foreach($trip->questions as $question)
+                        <td>{{ $question->getAnswerDisplayByUserAndEvent($participant->id_user, $trip->id_event) }}</td>
+                        @endforeach
+                        @if ($trip->event->reservations_enabled)
+                            <?php
+                                $reservation = \App\Models\EventReservation::findByUserAndEvent($participant->id_user, $trip->id_event)
+                                    ->withTrashed()
+                                    ->first();
+                            ?>
+                            <td>
+                            {{ $reservation ? $reservation->notes : '' }}
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>

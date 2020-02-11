@@ -29,6 +29,13 @@
                                     <p class="alert alert-info">The file has to be smaller than 2 MB.</p>
                                 </div>
                             </div>
+
+                            <div class="row" id="file-too-big" style="display: none">
+                                <div class="col-md-12">
+                                    <p class="alert alert-danger">The selected file is too big!</p>
+                                </div>
+                            </div>
+
                             <div class="row avatar-upload form-group">
                                 @if (isset($userHash))
                                 <input type="hidden" name="hash" value="{{ $userHash }}">

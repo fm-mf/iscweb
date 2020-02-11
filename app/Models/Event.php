@@ -4,10 +4,38 @@ namespace App\Models;
 
 use App\Settings\Settings;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Hashids\Hashids;
 
+/**
+ * @property int $id_event
+ * @property int $id_semester
+ * @property Carbon $datetime_from
+ * @property Carbon $visible_from
+ * @property string $name
+ * @property string $location
+ * @property string $location_url
+ * @property string $facebook_url
+ * @property string $description
+ * @property Carbon $created_at
+ * @property \App\Models\Buddy $created_by
+ * @property Carbon $updated_at
+ * @property \App\Models\Buddy $modified_by
+ * @property string $cover
+ * @property string $event_type
+ * @property boolean $ow
+ * @property boolean $reservations_enabled
+ * @property string $reservations_hash
+ * @property int $reservations_removal_limit
+ * @property boolean $reservations_diet
+ * @property boolean $reservations_medical
+ * @property \App\Models\Trip $trip
+ * @property \App\Models\EventReservationQuestion[] $questions
+ * @property \App\Models\Semester $semester
+*/
 class Event extends Model
 {
     public $timestamps = true;
@@ -17,7 +45,15 @@ class Event extends Model
     protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
 
     protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at',
-        'visible_from', 'cover', 'created_by', 'modified_by', 'event_type'];
+        'visible_from', 'cover', 'created_by', 'modified_by', 'event_type', 'location', 'location_url',
+        'reservations_enabled', 'reservations_medical', 'reservations_diet',
+        'reservations_removal_limit', 'reservations_hash', 'id_semester', 'ow'];
+
+    public function questions()
+    {
+        return $this->hasMany('\App\Models\EventReservationQuestion', 'id_event')->orderBy('order');
+    }
+
 
     public function createdBy()
     {
@@ -44,6 +80,11 @@ class Event extends Model
         return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
     }
 
+    public function semester()
+    {
+        return $this->hasOne('\App\Models\Semester', 'id_semester', 'id_semester');
+    }
+
     /*
     public function trip()
     {
@@ -55,6 +96,19 @@ class Event extends Model
         return Trip::where('id_event', $this->id_event)->exists();
     }
 
+    public function scopeFindByHashWithReservation(Builder $query, string $hash)
+    {
+        return $query
+            ->where('reservations_hash', $hash)
+            ->where('reservations_enabled', '1');
+    }
+
+    public function scopeFindByHash(Builder $query, string $hash)
+    {
+        return $query
+            ->where('reservations_hash', $hash);
+    }
+
     /**
      * @param array $attributes
      * @param array $options
@@ -62,9 +116,16 @@ class Event extends Model
      */
     public function update(array $attributes = [], array $options = [])
     {
+        // Set fb url to null if not present (why?)
+        if (!array_key_exists('facebook_url', $attributes)) {
+            $attributes['facebook_url'] = null;
+        }
 
-        if(! array_key_exists('facebook_url', $attributes)) $attributes['facebook_url'] = NULL;
-        //dd($attributes);
+        // Generate new hash if not present
+        if ((!isset($attributes['reservations_hash']) || !$attributes['reservations_hash']) && !$this->reservations_hash) {
+            $attributes['reservations_hash'] = $this->getHashIds()->encode($this->id_event);
+        }
+
         return parent::update(self::updateDatetimes($attributes), $options);
     }
 
@@ -95,11 +156,30 @@ class Event extends Model
         return asset("events/covers/{$this->cover}");
     }
 
+    public function getReservationUrlAttribute()
+    {
+        if (empty($this->reservations_hash)) {
+            return '';
+        }
+
+        return url("event/{$this->reservations_hash}");
+    }
+
     public function calendarDateTimeFrom()
     {
         $time = $this->datetime_from->format('l') . '<br>'; //get name of the day in week eg. Mondey
         $time .= $this->datetime_from->format('F') . '<br>'; // get name of the month eg. March
         $time .= '<strong>' . $this->datetime_from->format('jS') . '</strong><br>'; //get day in month eg 30th
+        $time .= $this->getTimeFormatted();
+
+        return $time;
+    }
+
+    public function eventsDateTimeFrom()
+    {
+        $time = $this->datetime_from->format('l') . ' '; //get name of the day in week eg. Mondey
+        $time .= $this->datetime_from->format('F') . ' '; // get name of the month eg. March
+        $time .= $this->datetime_from->format('jS') . ' - '; //get day in month eg 30th
         $time .= $this->getTimeFormatted();
 
         return $time;
@@ -131,6 +211,22 @@ class Event extends Model
     }
 
     /**
+     * If no reservationHash is provided, it is generated from id_event,
+     * otherwise provided value is used
+     *
+     * @param  string|null  $reservationsHash Custom reservation hash can be provided
+     */
+    public function setReservationsHash(string $reservationsHash = null)
+    {
+        if ($reservationsHash) {
+            $this->reservations_hash = $reservationsHash;
+        } else {
+            $this->reservations_hash = self::getHashIds()->encode($this->id_event);
+        }
+        $this->save();
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
      */
     public static function findMaxYearOld()
@@ -155,7 +251,7 @@ class Event extends Model
             ->where('event_type', 'normal')
             ->whereDoesntHave('trip')
             ->whereDate('datetime_from', '>=', Carbon::today())
-            ->get()->sortby('datetime_from');;
+            ->get()->sortby('datetime_from');
     }
 
     public static function findAllInteGreatInFromDate($fromDate)
@@ -164,7 +260,7 @@ class Event extends Model
             ->where('event_type', 'integreat')
             ->whereHas('integreat_party')
             ->whereDate('datetime_from', '>=', $fromDate)
-            ->get()->sortby('datetime_from');;
+            ->get()->sortby('datetime_from');
     }
 
     public static function findAllLanguagesFromDate($fromDate)
@@ -173,7 +269,7 @@ class Event extends Model
             ->where('event_type', 'languages')
             ->whereHas('Languages_event')
             ->whereDate('datetime_from', '>=', $fromDate)
-            ->get()->sortby('datetime_from');;
+            ->get()->sortby('datetime_from');
     }
 
     public static function findAll()
@@ -185,11 +281,21 @@ class Event extends Model
     {
         $data = self::updateDatetimes($data);
         $id_user = Auth::id();
-        return DB::transaction(function () use ($data, $id_user) {
+        $hashId = self::getHashIds();
+
+        return DB::transaction(function () use ($data, $id_user, $hashId) {
             $event = new Event();
             $event->visible_from = $data['visible_from'];
             $event->datetime_from = $data['datetime_from'];
             $event->name = $data['name'];
+
+            $event->location = $data['location'] ?? '';
+            $event->location_url = $data['location_url'] ?? '';
+            $event->ow = isset($data['ow']) && $data['ow'] === '1' ? 1 : 0;
+            $event->reservations_enabled = $data['reservations_enabled'] ?? 0;
+            $event->reservations_medical = $data['reservations_medical'] ?? null;
+            $event->reservations_diet = $data['reservations_diet'] ?? null;
+            $event->reservations_removal_limit = $data['reservations_removal_limit'] ?? null;
 
             $event->description = $data['description'];
             $event->facebook_url = array_key_exists('facebook_url', $data) ? $data['facebook_url'] : NULL;
@@ -197,6 +303,10 @@ class Event extends Model
             $event->created_by = $id_user;
             if(array_key_exists('event_type', $data)) $event->event_type = $data['event_type'];
             $event->save();
+
+            $event->reservations_hash = $hashId->encode($event->id_event);
+            $event->save();
+
             return $event;
         });
     }
@@ -235,5 +345,10 @@ class Event extends Model
             ->whereDate('visible_from','>=', $fromDate)
             ->orderBy('datetime_from','asc')
             ->get();
+    }
+
+    private static function getHashIds()
+    {
+        return new Hashids("events");
     }
 }
