@@ -40,7 +40,7 @@
 <script>
 /* global EVENT_QUESTIONS:readonly */
 
-import { postReservation } from '../api';
+import { confirmReservation, createReservation } from '../api';
 import Loader from '../components/Loader';
 import Auth from './components/Auth';
 import UserInfo from './components/UserInfo';
@@ -86,7 +86,25 @@ export default {
 
     handleAuth(userData) {
       this.userData = userData;
-      this.nextStep();
+      this.loaded = false;
+
+      createReservation(this.eventHash, this.userData.id_user).then(
+        () => {
+          this.loaded = true;
+          this.nextStep();
+        },
+        e => {
+          this.loaded = true;
+
+          this.error =
+            (e.response &&
+              e.response.data &&
+              (e.response.data.errors
+                ? flattenErrors(e.response.data.errors)
+                : e.response.data.message)) ||
+            'Unknown error occured, when trying to save your response. Please contact administrators.';
+        }
+      );
     },
 
     handleLogout() {
@@ -100,7 +118,7 @@ export default {
 
       this.loaded = false;
 
-      postReservation(
+      confirmReservation(
         this.eventHash,
         this.userData.id_user,
         data.foodPreference,

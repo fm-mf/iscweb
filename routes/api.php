@@ -33,6 +33,7 @@ use Illuminate\Http\Request;
     Route::post('/events/getExchangeStudent', 'EventsController@getExchangeStudent');
     Route::post('/events/getBuddy', 'EventsController@login');
     Route::post('/events/reservation', 'EventsController@createReservation');
+    Route::put('/events/reservation', 'EventsController@confirmReservation');
     Route::delete('/events/reservation/{hash}', 'EventsController@deleteReservation');
 
     Route::get('/ow-trips', 'StatsController@getOwTrips');
