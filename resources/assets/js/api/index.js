@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import axios from 'axios';
 
 export const getExchangeStudent = (event, email, esn) =>
@@ -10,7 +11,13 @@ export const getBuddy = (event, email, password) =>
     .post('/api/events/getBuddy', { event, email, password })
     .then(res => res.data);
 
-export const postReservation = (
+export const createReservation = (event, id_user) =>
+  axios.post('/api/events/reservation', {
+    event,
+    id_user
+  });
+
+export const confirmReservation = (
   event,
   id_user,
   diet,
@@ -18,7 +25,7 @@ export const postReservation = (
   notes,
   custom
 ) =>
-  axios.post('/api/events/reservation', {
+  axios.put('/api/events/reservation', {
     event,
     id_user,
     diet,

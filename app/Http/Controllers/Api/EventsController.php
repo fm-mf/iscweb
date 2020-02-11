@@ -6,7 +6,6 @@ use App\Events\StudentReservedSpot;
 use App\Facades\Settings;
 use App\Models\Buddy;
 use App\Models\ExchangeStudent;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TripAuthUserResource;
 use App\Models\Event;
@@ -16,6 +15,7 @@ use App\Models\Person;
 use App\Models\Trip;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -55,7 +55,7 @@ class EventsController extends Controller
         $this->responseValidator($request->all())->validate();
 
         $id_user = (int)$request->input('id_user');
-        $user = User::find($id_user)->firstOrFail();
+        $user = User::where('id_user', '=', $id_user)->firstOrFail();
         $event = $this->getEvent((string)$request->input('event'));
 
         $this->checkEventUser($event, $id_user);
@@ -65,7 +65,7 @@ class EventsController extends Controller
         $softDeletedResponse = EventReservation::findByUserAndEvent($id_user, $event->id_event)
             ->withTrashed()
             ->first();
-        
+
         if ($softDeletedResponse) {
             $softDeletedResponse->forceDelete();
         }
@@ -73,30 +73,52 @@ class EventsController extends Controller
         // Build new reservation
         $response = new EventReservation();
         $response->id_event = $event->id_event;
-        $response->id_user = $id_user;
-        $response->medical_issues = $request->input('medical_issues');
-        $response->diet = $request->input('diet');
-        $response->notes = $request->input('notes');
+        $response->id_user = $user->id_user;
         $response->expires_at = (new Carbon())
             ->now()
             ->addDays($event->reservations_removal_limit)
             ->setTime(0, 0);
         $response->save();
 
+        return response()->json($response);
+    }
+
+    public function confirmReservation(Request $request)
+    {
+        $data = $request->validate([
+            'event' => 'string|required',
+            'id_user' => 'int|required',
+            'diet' => 'string|nullable',
+            'medical_issues' => 'string|nullable',
+            'notes' => 'string|nullable'
+        ]);
+        $user = User::where('id_user', '=', $data['id_user'])->firstOrFail();
+        $event = $this->getEvent($data['event']);
+
+        /** @var EventReservation */
+        $reservation = EventReservation::findByUserAndEvent($user->id_user, $event->id_event)
+            ->firstOrFail();
+
+        $reservation->update($data);
+
+        // Clear previous anwsers
+        foreach ($reservation->answers as $answer) {
+            $answer->delete();
+        }
+
+        // Create new anwsers
         $custom = $request->input('custom');
         foreach ($event->questions()->get() as $question) {
             if (isset($custom[$question->id_question])) {
                 $value = new EventReservationAnswer([
                     'id_event' => $event->id_event,
-                    'id_user' => $id_user,
+                    'id_user' => $user->id_user,
                     'id_question' => $question->id_question,
                     'value' => json_encode($custom[$question->id_question])
                 ]);
                 $value->save();
             }
         }
-
-        event(new StudentReservedSpot($response));
 
         // Save personal data
         $personData = [];
@@ -106,11 +128,10 @@ class EventsController extends Controller
         if ($request->has('diet')) {
             $personData['diet'] = $request->input('diet');
         }
-
-        $part = Person::find($id_user);
+        $part = Person::find($user->id_user);
         $part->update($personData);
 
-        return response()->json($response);
+        return response()->json($reservation);
     }
 
     public function deleteReservation(Request $request)
@@ -148,7 +169,7 @@ class EventsController extends Controller
         if ($event->trip->hasUser($id_user)) {
             throw new HttpException(400, 'You are already registered for this event');
         }
-        
+
         if (Settings::get('owTripsRestricted') && $event->ow && $event->trip->hasOwReservation($id_user)) {
             throw new HttpException(400, 'You are already registered to different Orientation Week trip');
         }
