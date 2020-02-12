@@ -39,7 +39,7 @@ class AddPrimaryKeyToReservations extends Migration
         });
 
         Schema::table('event_reservations', function (Blueprint $table) {
-            $table->increments('id_event_reservation')->before('id_event');
+            $table->increments('id_event_reservation')->first();
         });
     }
 
