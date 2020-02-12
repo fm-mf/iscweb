@@ -282,15 +282,16 @@ class Trip extends Model
         })->exists();
     }
 
-    public function answers($id_user)
-    {
-        return $this->hasMany('\App\Models\EventReservationAnswer', 'id_event', 'id_event')
-            ->where('id_user', $id_user);
-    }
-
     public static function withParticipants(... $with)
     {
         return self::with('participants.user', 'participants.exchangeStudent', 'participants.buddy', ...$with);
+    }
+
+    public function answers(int $id_user)
+    {
+        return EventReservation::findByUserAndEvent($id_user, $this->id_event)
+            ->first()
+            ->answers();
     }
 
     public static function createTrip($data)

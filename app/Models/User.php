@@ -58,6 +58,18 @@ class User extends Authenticatable
         return $this->belongsToMany('\App\Models\Role', 'users_roles', 'id_user', 'id_role');
     }
 
+    public function reservations()
+    {
+        return $this->hasMany('\App\Models\EventReservation', 'id_user', 'id_user');
+    }
+
+    public function reservationByEvent(int $id_event)
+    {
+        return $this->reservations()
+            ->where('id_event', $id_event)
+            ->frist();
+    }
+
     public function isExchangeStudent()
     {
         return ExchangeStudent::where('id_user', $this->id_user)->exists();

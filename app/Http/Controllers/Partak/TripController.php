@@ -138,7 +138,6 @@ class TripController extends Controller
         $part = Person::with('user', 'exchangeStudent', 'buddy')->find($id_part);
         $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)->first();
 
-
         return view('partak.trips.confirmPage')->with([
             'trip' => $trip,
             'part' => $part,

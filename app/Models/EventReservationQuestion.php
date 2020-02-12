@@ -34,17 +34,16 @@ class EventReservationQuestion extends Model
         return $this->hasMany('\App\Models\EventReservationAnswer', 'id_question', 'id_question');
     }
 
-    public function getAnswerByUserAndEvent(int $id_user, int $id_event)
+    public function getAnswerByReservation(int $id_event_reservation)
     {
         return $this->answers()
-            ->where('id_user', $id_user)
-            ->where('id_event', $id_event)
+            ->where('id_event_reservation', $id_event_reservation)
             ->first();
     }
 
-    public function getAnswerDisplayByUserAndEvent(int $id_user, int $id_event, string $defaultValue = '')
+    public function getAnswerDisplayByReservation(int $id_event_reservation, string $defaultValue = '')
     {
-        $answer = $this->getAnswerByUserAndEvent($id_user, $id_event);
+        $answer = $this->getAnswerByReservation($id_event_reservation);
         return $answer ? $answer->getDisplayValue() : $defaultValue;
     }
 
