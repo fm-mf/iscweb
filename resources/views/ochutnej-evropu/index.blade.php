@@ -5,6 +5,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-lg-6 mx-md-auto">
+                    <div class="row mb-4">
+                        <div class="col-5 col-sm-5 mx-auto d-flex">
+                            <img src="{{ asset('img/logos/cvut/logo_CVUT.svg') }}" alt="Logo ČVUT" class="mw-100"/>
+                        </div>
+                        <div class="col-12 col-sm-7 d-flex justify-content-center">
+                            <img src="{{ asset('img/logos/erasmus+/EU flag-Erasmus+_vect_POS [CMYK].svg') }}" alt="Logo Erasmus+" class="mw-100" />
+                        </div>
+                    </div>
                     <h1>Kvíz Ochutnej Evropu</h1>
                     <form action="{{ route('ochutnej-evropu.evaluate') }}" method="POST">
                         {{ csrf_field() }}
