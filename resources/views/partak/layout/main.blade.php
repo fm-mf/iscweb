@@ -20,52 +20,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
         <link href="{{ mix('css/partaknet.css') }}" rel="stylesheet" type="text/css">
     @show
-
-{{--
-	We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
-
-    <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>
---}}
 </head>
 
 <body>
-<div id="wrap">
-<!------------------------------ Logo and navigation ----------------------------------->
-<nav class="navbar navbar-custom navbar-main top-navigation" role="navigation">
-    <div class="container">
-        <div class="row">
-            <div class="navbar-header col-sm-3">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand partaknet-logo" href="{{ url('') }}">
-                    <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" id="logo" alt="International Student Club">
-                    <!--PartákNET-->
-                </a>
-            </div><!-- /.navbar-header -->
-            <div class="navbar-brand" href="#">ParťákNET</div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse col-sm-9">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li><a href="{{ url('user/logout') }}"><img src="{{ URL::asset( Auth::user()->person->avatar() ) }}" class="img-circle top-navigation-user" />Logout</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-    @if(session('AlertMessage'))
-        <div class="alert-danger">
-            <span class="glyphicon glyphicon-alert" style="padding-right:5px;"></span>{{ session('AlertMessage') }}<br>
-        </div>
-    @endif
-</nav>
-@yield('page')
 
-@include('footer')
+<div id="wrap">
+    @include("partak.layout.navigation")
+
+    @yield('page')
+
+    @include('footer')
     <div id="push"></div>
 </div>
 
@@ -80,12 +44,13 @@
 </div>
 
 @section('scripts')
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 @show
-
 
 </body>
 </html>

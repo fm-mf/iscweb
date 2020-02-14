@@ -1,12 +1,15 @@
-<table class="table" id="protected">
-    <tr>
-        <th>Name</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Price</th>
-        <th>Capacity</th>
-        <th>Actions</th>
-    </tr>
+<table class="table p-table" id="protected">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Price</th>
+            <th>Capacity</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
     @foreach($Trips as $trip)
         <tr>
             <td>{{ $trip->event->name }}</td>
@@ -16,9 +19,9 @@
             <td>{{ $trip->howIsFillSimple() }}</td>
             <td align="right">
                 @can('edit', $trip)
-                    <a href="{{ url('partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs">Edit</a>
+                    <a href="{{ url('partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs btn-sm">Edit</a>
                 @endcan
-                <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs btn-sm">Detail</a>
                 @can('acl', 'trips.remove')
                     <protectedbutton  url="{{ url('partak/trips/delete/'. $trip->id_trip) }}"
                                       protection-text="Delete trip &quot;{{ $trip->event->name }}&quot;?"
@@ -26,4 +29,5 @@
                 @endcan
         </tr>
     @endforeach
+    </tbody>
 </table>

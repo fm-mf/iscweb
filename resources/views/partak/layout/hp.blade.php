@@ -1,8 +1,6 @@
 @extends('partak.layout.main')
 @section('page')
 
-@include('partak.layout.menu')
-
 <div class="dashboard-header">
 <div class="dashboard-header-wrapper">
    <!-- <h1 class="title">Believe in ISC Spirit. Pass it on.</h1> -->

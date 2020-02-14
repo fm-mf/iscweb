@@ -54,7 +54,7 @@
                         </table>
                     </div>
                     @can('edit', $trip)
-                        <a href="{{ url('/partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs">Edit</a>
+                        <a href="{{ url('/partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-sm">Edit</a>
                     @endcan
                 </div>
             </div>
@@ -96,32 +96,25 @@
                 @endif
                 @if($trip->type === 'buddy' || $trip->type === 'ex+buddy')
                     <div class="container">
-                        <div class="row search-buddy">
-                            <div class="row-inner">
-                                <div class="col-sm-8 col-sm-offset-0">
-                                    <h3>Add Buddy</h3>
-                                    <autocomplete url="{{ url('api/autocomplete/buddies') }}"
-                                                  :fields="[
-                                                                {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
-                                                                {title: 'Name', columns: ['person.first_name', 'person.last_name']},
-                                                                {title: 'Email', columns: ['person.user.email']},
-                                                                 ]"
-                                                  :topline="['person.first_name', 'person.last_name']"
-                                                  :subline="['person.user.email']"
-                                                  placeholder="Search Buddy..."
-                                                  target="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}' }}"
-                                                  :image="{url: '/avatars/', file: 'person.user.avatar'}">
-                                    </autocomplete>
-                                </div>
-                            </div>
-                        </div>
+                        <h3>Add Buddy</h3>
+                        <autocomplete url="{{ url('api/autocomplete/buddies') }}"
+                                        :fields="[
+                                                    {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
+                                                    {title: 'Name', columns: ['person.first_name', 'person.last_name']},
+                                                    {title: 'Email', columns: ['person.user.email']},
+                                                        ]"
+                                        :topline="['person.first_name', 'person.last_name']"
+                                        :subline="['person.user.email']"
+                                        placeholder="Search Buddy..."
+                                        target="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}' }}"
+                                        :image="{url: '/avatars/', file: 'person.user.avatar'}">
+                        </autocomplete>
                     </div>
                 @endif
             @endcan
         @endif
 
         @if ($trip->event->reservations_enabled)
-        <div style="min-height: 300px">
             <div class="container">
                 <div class="row row-inner">
                     <div class="col-sm-12">
@@ -129,7 +122,7 @@
                         
                         @if($reservations->count() > 0)
                         <div class="panel panel-default">
-                        <table class="table">
+                        <table class="table p-table">
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -147,17 +140,17 @@
                                     <td>{{ $item->exchangeStudent->esn_card_number ?? '-' }}</td>
                                     <td>
                                         @can('addParticipant', $trip)
-                                            <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-xs">Register</a>
+                                            <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-sm">Register</a>
                                         @endcan
                                         @if((isset($item->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
                                                 (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                            <a href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                            <a href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}" role="button" class="btn btn-info btn-sm">Detail</a>
                                         @endif
                                         @can('removeParticipant', $trip)
                                             <protectedbutton
                                                 url="{{ '/partak/trips/'. $trip->id_trip .'/cancel/' . $item->user->id_user }}"
                                                 protection-text="Remove {{ $item->getFullName() }} from event {{ $trip->event->name }}?"
-                                                button-style="btn btn-danger btn-xs"
+                                                button-style="btn btn-danger btn-sm"
                                             >
                                                 Remove
                                             </protectedbutton>
@@ -173,7 +166,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         @endif
         
         <div style="min-height: 300px">
@@ -191,7 +183,7 @@
                                 </a>
                             </div>
                             <div class="panel panel-default">
-                                <table class="table">
+                                <table class="table p-table">
                                     <tr>
                                         <th>Name</th>
                                         <th>Email</th>
@@ -202,23 +194,27 @@
                                     </tr>
                                     @foreach($particip as $participant)
                                         <tr>
-                                            <td>@if($participant->pivot->stand_in == "y") <span class="glyphicon glyphicon-time"></span>@endif {{ $participant->getFullName(true)}}</td>
+                                            <td>
+                                            @if((isset($participant->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
+                                                    (isset($participant->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
+                                                <a href="{{ ($participant->exchangeStudent ?? $participant->buddy)->getDetailLink() }}" target="_blank">{{ $participant->getFullName(true) }}</a>
+                                            @else
+                                                {{ $participant->getFullName(true)}}
+                                            @endif
+                                            </td>
                                             <td>{{ $participant->user->email }}</td>
                                             <td>{{ $participant->getSex() }}</td>
                                             <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
                                             <td>{{ $participant->exchangeStudent->esn_card_number ?? '-' }}</td>
-                                            <td> @if((isset($participant->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
-                                                        (isset($participant->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                                    <a href="{{ ($participant->exchangeStudent ?? $participant->buddy)->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
-                                                @endif
+                                            <td>
                                                 @can('viewPayment', $trip)
-                                                    <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-xs">Payment</a>
+                                                    <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-sm">Payment</a>
                                                 @endcan
                                                 @if($trip->isOpen())
                                                     @can('removeParticipant', $trip)
                                                     <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
                                                                      protection-text="Remove {{ $participant->getFullName() }} from event {{ $trip->event->name }}?"
-                                                                     button-style="btn btn-danger btn-xs">Remove</protectedbutton>
+                                                                     button-style="btn btn-danger btn-sm">Remove</protectedbutton>
                                                     @endcan
                                                 @endif
                                             </td>

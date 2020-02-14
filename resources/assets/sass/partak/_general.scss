@@ -1,0 +1,15 @@
+.table.p-table {
+  td, th {
+    border: 0;
+    padding: 0.2rem 0.75rem;
+    vertical-align: middle;
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background: #f0f0f0;
+      }
+    }
+  }
+}

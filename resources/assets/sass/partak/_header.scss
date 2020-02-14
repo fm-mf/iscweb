@@ -1,0 +1,16 @@
+
+.navbar-brand {
+  display: block;
+
+  & > img {
+    display: block;
+    height: 3.5rem;
+    margin-top: -0.3125rem;
+    margin-bottom: -0.3125rem;
+  }
+}
+
+.subnav {
+  background: #e5e5e5;
+  margin-bottom: 3rem;
+}

@@ -5,7 +5,7 @@
 @import "variables";
 
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 
 // Font Awesome
 $fa-font-path: "/fonts/font-awesome";
@@ -14,8 +14,7 @@ $fa-font-path: "/fonts/font-awesome";
 
 @import "../common/columns";
 
-* {
-}
+@import "header";
 
 html, body {
   width: 100%;
@@ -38,7 +37,9 @@ html, body {
   height: 60px;
 }
 
-.footer-wrapper {background: #0079C1;}
+.footer-wrapper {
+  background: #0079C1;
+}
 
 .footer {
   padding-top: 20px;
@@ -59,7 +60,18 @@ html, body {
   }
 }
 
+h2 {
+  font-weight: 700;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
 
+h3 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
 
 .errors {
   color: #ca0f0f !important;
@@ -68,6 +80,7 @@ html, body {
 .login-nav {
   padding-top: 15px;
 }
+
 .login-nav img {
   height:25px;
   margin-right: 10px;
@@ -116,15 +129,11 @@ a.active {
   border-bottom: 3px solid #1b6d85;
 }
 
-
-body {font-family: myriad-pro, Helvetica, Arial, sans-serif;}
-
-.align-center {text-align: center;}
-
-h2 {font-weight: 700; font-size:25px; margin-bottom: 20px}
-h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
-
-.list-colored li {background: #ebebeb; border-left: 5px solid #d4d4d4; margin-bottom: 1px; padding: 15px;
+.list-colored li {
+  background: #ebebeb;
+  border-left: 5px solid #d4d4d4;
+  margin-bottom: 1px;
+  padding: 15px;
   border-radius: 2px;
 }
 
@@ -154,6 +163,7 @@ h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
   padding-top:300px;
   font-weight: bold;
 }
+
 .title strong, .title-sp strong {
   display:block;
   width:500px;
@@ -185,13 +195,10 @@ h3 {font-size:18px; margin: 0; padding: 0; margin-bottom: 20px;}
   margin-left: 50px;
 }
 
-
 a.disabled {
   pointer-events: none;
   cursor: default;
 }
-
-
 
 .subpage-header-wrapper {
   width: 100%;
@@ -239,25 +246,16 @@ a.disabled {
     padding-left: 40px;
     color: rgba(0,0,0,0.70);
   }
+
   a:hover {
     text-decoration: none;
     background: #eeeeee;
   }
-
-  li {
-
-  }
 }
 
-.autocomplete-input {
-
-}
 
 .inner-content {
   min-height: 500px;
-}
-
-.row-inner {
 }
 
 .sub-active {
@@ -274,7 +272,6 @@ a.disabled {
 }
 
 .autocomplete-input {
-
   border-radius: 0 !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
@@ -293,42 +290,9 @@ a.disabled {
   }
 }
 
-.partaknet-logo {
-  color: #000;
-  font-weight: bold;
-  // HACK: Make ISC logo clickable.
-  z-index: 10;
-  padding: 5px 0px 0px 0px;
-
-  img {
-    width: 150px;
-    margin-top: -5px;
-  }
-}
-
 .top-navigation-user {
   width: 30px;
   margin-right: 10px;
-}
-
-.navbar-brand
-{
-  position: absolute;
-  width: 100%;
-  left: 0;
-  text-align: center;
-  margin:0 auto;
-  font-weight: bold;
-}
-.navbar-toggle {
-}
-
-.row-grey {
-  background: #EDF2F6;
-}
-.row-inner {
-  max-width: 900px;
-  padding: 40px;
 }
 
 .buddy-detail {
@@ -460,6 +424,7 @@ fieldset {
   }
 }
 
+@import "general";
 @import "users";
 @import "contacts-settings";
 
