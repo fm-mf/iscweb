@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFbgrouplinkKeyToSettingsTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddFbgrouplinkKeyToSettingsTable extends Migration
      */
     public function up()
     {
-        \DB::statement( "
-			INSERT INTO `settings` VALUES ( 'fbGroupLink', 'https://www.facebook.com/isc.ctu.prague/')" );
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
     }
 
     /**
@@ -24,7 +27,6 @@ class AddFbgrouplinkKeyToSettingsTable extends Migration
      */
     public function down()
     {
-        \DB::statement( "
-			DELETE FROM `settings` WHERE `key` = 'fbGroupLink'" );
+        Schema::dropIfExists('password_resets');
     }
 }

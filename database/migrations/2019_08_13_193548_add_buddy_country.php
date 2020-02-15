@@ -14,7 +14,9 @@ class AddBuddyCountry extends Migration
     public function up()
     {
         Schema::table('buddies', function (Blueprint $table) {
-            $table->integer( 'id_country' )->after( 'id_faculty' );
+            $table->unsignedSmallInteger('id_country')->after('id_faculty')->nullable();
+
+            $table->foreign('id_country')->references('id_country')->on('countries')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 
@@ -26,7 +28,9 @@ class AddBuddyCountry extends Migration
     public function down()
     {
         Schema::table('buddies', function (Blueprint $table) {
-            $table->dropColumn( 'id_country' );
+            $table->dropForeign(['id_country']);
+
+            $table->dropColumn('id_country');
         });
     }
 }

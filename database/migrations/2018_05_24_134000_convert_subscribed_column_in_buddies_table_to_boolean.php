@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -29,7 +30,7 @@ class ConvertSubscribedColumnInBuddiesTableToBoolean extends Migration
             $table->dropColumn('subscribed');
         });
 
-        \DB::statement('ALTER TABLE `buddies` CHANGE COLUMN `subscribed_bool` `subscribed` tinyint(1) NOT NULL DEFAULT \'1\' AFTER `active`;');
+        DB::statement('ALTER TABLE `buddies` CHANGE COLUMN `subscribed_bool` `subscribed` tinyint(1) NOT NULL DEFAULT \'1\' AFTER `active`;');
     }
 
     /**
@@ -39,7 +40,7 @@ class ConvertSubscribedColumnInBuddiesTableToBoolean extends Migration
      */
     public function down()
     {
-        \DB::statement('ALTER TABLE `buddies` CHANGE COLUMN `subscribed` `subscribed_bool` tinyint(1) NOT NULL DEFAULT \'1\' AFTER `active`;');
+        DB::statement('ALTER TABLE `buddies` CHANGE COLUMN `subscribed` `subscribed_bool` tinyint(1) NOT NULL DEFAULT \'1\' AFTER `active`;');
 
         Schema::table('buddies', function (Blueprint $table) {
             $table->enum('subscribed', ['y', 'n'])->default('y')->after('subscribed_bool');

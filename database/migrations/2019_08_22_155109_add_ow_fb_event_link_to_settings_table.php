@@ -15,7 +15,7 @@ class AddOwFbEventLinkToSettingsTable extends Migration
      */
     public function up()
     {
-        Settings::push($this->settingsKey, '');
+        Settings::push($this->settingsKey, 'https://www.facebook.com/events/454633535219010/');
     }
 
     /**

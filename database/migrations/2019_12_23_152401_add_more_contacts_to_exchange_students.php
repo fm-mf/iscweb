@@ -14,8 +14,8 @@ class AddMoreContactsToExchangeStudents extends Migration
     public function up()
     {
         Schema::table('exchange_students', function (Blueprint $table) {
-            $table->string('whatsapp', 255)->after('phone')->nullable();
-            $table->string('facebook', 255)->after('phone')->nullable();
+            $table->string('whatsapp')->after('phone')->nullable();
+            $table->string('facebook')->after('phone')->nullable();
         });
     }
 

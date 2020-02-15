@@ -17,24 +17,24 @@ class CreateEventReservationAnswersTable extends Migration
             $table->unsignedInteger('id_event');
             $table->unsignedInteger('id_user');
             $table->unsignedInteger('id_question');
-            $table->text('value');
+            $table->json('value');
 
             $table->primary(['id_event', 'id_user', 'id_question'], 'pk_event_reservation_answer');
             $table->foreign('id_event')
                 ->references('id_event')
                 ->on('events')
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table->foreign('id_user')
                 ->references('id_user')
                 ->on('users')
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->foreign('id_question')
                 ->references('id_question')
                 ->on('event_reservation_questions')
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

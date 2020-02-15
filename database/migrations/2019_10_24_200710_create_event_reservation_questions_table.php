@@ -21,13 +21,13 @@ class CreateEventReservationQuestionsTable extends Migration
             $table->enum('type', ['number', 'text', 'select']);
             $table->string('label');
             $table->text('description')->nullable();
-            $table->text('data')->nullable();
+            $table->json('data')->nullable();
 
             $table->foreign('id_event')
                 ->references('id_event')
                 ->on('events')
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->unique(['id_event', 'order']);
         });
