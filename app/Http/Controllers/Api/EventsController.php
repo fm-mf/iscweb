@@ -135,6 +135,8 @@ class EventsController extends Controller
         $part = Person::find($user->id_user);
         $part->update($personData);
 
+        event(new StudentReservedSpot($reservation));
+
         return response()->json($reservation);
     }
 
