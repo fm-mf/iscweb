@@ -133,7 +133,15 @@
                             </tr>
                             @foreach($reservations as $item)
                                 <tr>
-                                    <td>{{ $item->getFullName(true)}}</td>
+                                    <td>
+                                    @if((isset($item->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
+                                                (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
+                                            <a target="_blank" href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}">
+                                            {{ $item->getFullName(true) }}
+                                        </a>
+                                    @else
+                                        {{ $item->getFullName(true) }}
+                                    @endif</td>
                                     <td>{{ $item->user->email }}</td>
                                     <td>{{ $item->getSex() }}</td>
                                     <td>{{ $item->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
@@ -142,10 +150,6 @@
                                         @can('addParticipant', $trip)
                                             <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-sm">Register</a>
                                         @endcan
-                                        @if((isset($item->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
-                                                (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                            <a href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}" role="button" class="btn btn-info btn-sm">Detail</a>
-                                        @endif
                                         @can('removeParticipant', $trip)
                                             <protectedbutton
                                                 url="{{ '/partak/trips/'. $trip->id_trip .'/cancel/' . $item->user->id_user }}"

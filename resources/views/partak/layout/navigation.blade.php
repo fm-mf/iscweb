@@ -13,7 +13,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             @include('partak.components.navbar-nav', ['navItems' => [
-                ['title' => 'Dasboard', 'route' => 'partak.index'],
+                ['title' => 'Dashboard', 'route' => 'partak.index'],
                 ['title' => 'Users', 'route' => 'partak.users', 'acl' => 'users.view'],
                 ['title' => 'Trips', 'route' => 'partak.trips'],
                 ['title' => 'Events', 'route' => 'partak.events', 'acl' => 'events.view'],

@@ -12,7 +12,7 @@
     <tbody>
     @foreach($Trips as $trip)
         <tr>
-            <td>{{ $trip->event->name }}</td>
+            <td><a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}">{{ $trip->event->name }}</a></td>
             <td>{{ $trip->event->datetime_from->toFormattedDateString() }}</td>
             <td>{{ $trip->trip_date_to->toFormattedDateString() }}</td>
             <td>{{ $trip->price }}@if(isset($trip->price)) Kč@endif</td>
@@ -21,7 +21,6 @@
                 @can('edit', $trip)
                     <a href="{{ url('partak/trips/edit/' . $trip->id_trip) }}" role="button" class="btn btn-success btn-xs btn-sm">Edit</a>
                 @endcan
-                <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs btn-sm">Detail</a>
                 @can('acl', 'trips.remove')
                     <protectedbutton  url="{{ url('partak/trips/delete/'. $trip->id_trip) }}"
                                       protection-text="Delete trip &quot;{{ $trip->event->name }}&quot;?"
