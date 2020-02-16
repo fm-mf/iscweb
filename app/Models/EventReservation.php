@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Awobaz\Compoships\Compoships;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 
 /**
+ * @property int $id_event_reservation
  * @property int $id_user
  * @property int $id_event
  * @property int $deleted_by
@@ -24,11 +24,10 @@ use Illuminate\Support\Carbon;
 class EventReservation extends Model
 {
     use SoftDeletes;
-    use Compoships;
 
     public $timestamps = true;
     public $incrementing = false;
-    protected $primaryKey = 'id_event';
+    protected $primaryKey = 'id_event_reservation';
 
     protected $dates = ['expires_at'];
 
@@ -48,7 +47,11 @@ class EventReservation extends Model
 
     public function answers()
     {
-        return $this->hasMany('\App\Models\EventReservationAnswer', ['id_event', 'id_user'], ['id_event', 'id_user']);
+        return $this->hasMany(
+            '\App\Models\EventReservationAnswer',
+            'id_event_reservation',
+            'id_event_reservation'
+        );
     }
 
     public function save(array $options = [])

@@ -52,35 +52,40 @@ class EventsController extends Controller
 
     public function createReservation(Request $request)
     {
-        $this->responseValidator($request->all())->validate();
+        $data = $request->validate([
+            'id_user' => 'int|required',
+            'event' => 'string|required'
+        ]);
 
-        $id_user = (int)$request->input('id_user');
+        $id_user = (int)$data['id_user'];
         $user = User::where('id_user', '=', $id_user)->firstOrFail();
-        $event = $this->getEvent((string)$request->input('event'));
+        $event = $this->getEvent($data['event']);
 
         $this->checkEventUser($event, $id_user);
 
-        // Remove soft deleted reservation if exists
+        // Get soft deleted reservation if exists
         /** @var EventReservation|null */
-        $softDeletedResponse = EventReservation::findByUserAndEvent($id_user, $event->id_event)
+        $reservation = EventReservation::findByUserAndEvent($id_user, $event->id_event)
             ->withTrashed()
             ->first();
 
-        if ($softDeletedResponse) {
-            $softDeletedResponse->forceDelete();
+        // Build new reservation if there's no soft deleted one
+        if (!$reservation) {
+            $reservation = new EventReservation();
+            $reservation->id_event = $event->id_event;
+            $reservation->id_user = $user->id_user;
+        } else {
+            $reservation->deleted_by = null;
+            $reservation->deleted_at = null;
         }
 
-        // Build new reservation
-        $response = new EventReservation();
-        $response->id_event = $event->id_event;
-        $response->id_user = $user->id_user;
-        $response->expires_at = (new Carbon())
+        $reservation->expires_at = (new Carbon())
             ->now()
             ->addDays($event->reservations_removal_limit)
             ->setTime(0, 0);
-        $response->save();
+        $reservation->save();
 
-        return response()->json($response);
+        return response()->json($reservation);
     }
 
     public function confirmReservation(Request $request)
@@ -111,8 +116,7 @@ class EventsController extends Controller
         foreach ($event->questions()->get() as $question) {
             if (isset($custom[$question->id_question])) {
                 $value = new EventReservationAnswer([
-                    'id_event' => $event->id_event,
-                    'id_user' => $user->id_user,
+                    'id_event_reservation' => $reservation->id_event_reservation,
                     'id_question' => $question->id_question,
                     'value' => json_encode($custom[$question->id_question])
                 ]);
@@ -130,6 +134,8 @@ class EventsController extends Controller
         }
         $part = Person::find($user->id_user);
         $part->update($personData);
+
+        event(new StudentReservedSpot($reservation));
 
         return response()->json($reservation);
     }

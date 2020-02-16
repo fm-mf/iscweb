@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Awobaz\Compoships\Compoships;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $id_event
- * @property int $id_user
+ * @property int $id_event_reservation
  * @property int $id_question
  * @property string $value
  * @property \App\Models\Event $event
@@ -16,13 +14,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class EventReservationAnswer extends Model
 {
-    use Compoships;
-
     public $timestamps = false;
-    protected $primaryKey = 'id_event';
+    protected $primaryKey = 'id_event_reservation_answer';
 
     protected $fillable = [
-        'id_event', 'id_user', 'id_question', 'value'
+        'id_event_reservation', 'id_question', 'value'
     ];
 
     public function event()
@@ -37,7 +33,11 @@ class EventReservationAnswer extends Model
 
     public function question()
     {
-        return $this->hasOne('\App\Models\EventReservationQuestion', 'id_question', 'id_question');
+        return $this->hasOne(
+            '\App\Models\EventReservationQuestion',
+            'id_question',
+            'id_question'
+        );
     }
 
     public function getDisplayValue()
