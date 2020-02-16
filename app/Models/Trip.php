@@ -290,6 +290,7 @@ class Trip extends Model
     public function answers(int $id_user)
     {
         return EventReservation::findByUserAndEvent($id_user, $this->id_event)
+            ->withTrashed()
             ->first()
             ->answers();
     }
