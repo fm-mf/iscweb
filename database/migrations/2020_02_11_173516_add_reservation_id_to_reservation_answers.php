@@ -40,6 +40,17 @@ class AddReservationIdToReservationAnswers extends Migration
                 ->after('id_event_reservation_answer');
         });
 
+        // Delete answers that have no reservation
+        DB::statement('
+            DELETE FROM `event_reservation_answers`
+            WHERE NOT EXISTS (
+                    SELECT id_event_reservation FROM event_reservations
+                    WHERE
+                        id_event = event_reservation_answers.id_event AND
+                        id_user = event_reservation_answers.id_user
+            );
+        ');
+
         // Update references to the reservation
         DB::statement('
             UPDATE `event_reservation_answers`
