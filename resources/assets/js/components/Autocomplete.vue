@@ -13,7 +13,12 @@
           {{ model.selectedField.title }}
         </button>
         <div class="dropdown-menu">
-          <a v-for="field in fields" :key="field.title" class="dropdown-item" @click="setfield(field)">
+          <a
+            v-for="field in fields"
+            :key="field.title"
+            class="dropdown-item"
+            @click="setfield(field)"
+          >
             {{ field.title }}
           </a>
         </div>
@@ -62,10 +67,11 @@
       </div>
     -->
   </div>
-</div>
 </template>
 
 <script>
+import axios from 'axios';
+
 class AutocompleteModel {
   constructor($url, $fields, $topline, $subline, $target) {
     this.url = $url;
@@ -92,32 +98,27 @@ class AutocompleteModel {
       return;
     }
 
-    const _this = this;
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-
-    $.ajax({
-      url: _this.url,
-      method: 'post',
-      dataType: 'json',
-      data: {
-        field: _this.selectedField,
-        input: _this.input,
-        topline: _this.topline,
-        subline: _this.subline,
-        limit: _this.limit,
-        target: _this.target
-      }
-    })
-      .done(function(newData) {
-        console.log(newData);
-        _this.items = newData.items;
+    axios
+      .request({
+        url: this.url,
+        method: 'POST',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          field: this.selectedField,
+          input: this.input,
+          topline: this.topline,
+          subline: this.subline,
+          limit: this.limit,
+          target: this.target
+        }
       })
-      .fail(function(error) {
-        alert('error');
+      .then(res => {
+        this.items = res.data.items;
+      })
+      .catch(err => {
+        alert('Failed to fetch list of people: ' + err);
       });
   }
 
