@@ -2,19 +2,17 @@
 @section('inner-content')
     <div class="container">
         @if( session('successUpdate'))
-            <div class="success">
-                <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span>{{ session('successUpdate') }}<br>
+            <div class="success mb-5">
+                <i class="fas fa-check mr-1"></i>{{ session('successUpdate') }}<br>
             </div>
-            <div style="min-height: 30px"></div>
         @elseif(session('error'))
-            <div class="alert-danger">
-                <span class="glyphicon glyphicon-alert" style="padding-right:5px;"></span>{{ session('error') }}<br>
+            <div class="alert-danger mb-5">
+                <i class="fas fa-exclamation-triangle mr-1"></i>{{ session('error') }}<br>
             </div>
-            <div style="min-height: 30px"></div>
         @endif
 
         <div class="d-flex">
-            <h2>{{ $trip->event->name }}</h2>
+            <h2 class="trip-header">{{ $trip->event->name }}</h2>
             <div class="ml-4">
                 @can('edit', $trip)
                     <a
@@ -29,72 +27,43 @@
             </div>
         </div>
 
-        <div class="panel panel-default">
-            <table class="table">
-                <tr>
-                    <th>From</th>
-                    <td>{{ $trip->event->datetime_from->toFormattedDateString() }}</td>
-                    <th>To</th>
-                    <td>{{ $trip->trip_date_to->toFormattedDateString() }}</td>
-                </tr>
-                <tr>
-                    <th>Capacity</th>
-                    <td>{!! $trip->howIsFillWithDetail() !!}</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Price</th>
-                    <td>{{ $trip->price }} Kč</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Link</th>
-                    <td colspan="3">
-                        <unique-url style="width: 100%" url="{{ $trip->event->reservation_url }}"></unique-url>
-                        @if ($trip->event->reservations_enabled)
-                            <strong>Can be used for online reservations</strong>
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                </tr>
-            </table>
-        </div>
+        <table class="table trip-info">
+            <tr>
+                <th>Duration</th>
+                <td>{{ $trip->eventDateInterval() }}</td>
+            </tr>
+            <tr>
+                <th>Capacity</th>
+                <td>{!! $trip->howIsFillWithDetail() !!}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ $trip->price }} Kč</td>
+            </tr>
+            <tr>
+                <th>Organizers</th>
+                <td>
+                    @if($organizers->count() > 0)
+                        @foreach($organizers as $organizer)
+                            @include("partak.components.user-link", ['user' => $organizer->person])@if(!$loop->last), @endif
+                        @endforeach
+                    @else Event doesn't have organizers
+                    @endif
+                </td>
+            <tr>
+                <th>Link</th>
+                <td colspan="3">
+                    <unique-url style="width: 100%" url="{{ $trip->event->reservation_url }}"></unique-url>
+                    @if ($trip->event->reservations_enabled)
+                        <strong>Can be used for online reservations</strong>
+                    @endif
+                </td>
+            </tr>
+            <tr>
+            </tr>
+        </table>
     </div>
-    <div class="container">
-        <h3>Organizers</h3>
-        @if($organizers->count() > 0)
-            <div class="panel panel-default">
-                <table class="table p-table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                    </tr>
-                    @foreach($organizers as $organizer)
-                        <tr>
-                            <td>
-                                @if((isset($organizer->person->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
-                                    (isset($organizer->person->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                    <a target="_blank" href="{{ ($organizer->person->exchangeStudent ?? $organizer->person->buddy)->getDetailLink() }}">
-                                        {{ $organizer->person->getFullName(true) }}
-                                    </a>
-                                @else
-                                    {{ $organizer->person->getFullName(true) }}
-                                @endif
-                            </td>
-                            <td>{{ $organizer->person->user->email }}</td>
-                            <td>{{ $organizer->phone }}</td>
-                        </tr>
-                    @endforeach
-                </table>
-            </div>
-        @else Event doesn't have organizers
-        @endif
 
-    </div>
     @if($trip->isOpen() && !$trip->isFull())
         @can('addParticipant', $trip)
             @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
@@ -107,16 +76,16 @@
                 <div class="container">
                     <h3>Add Buddy</h3>
                     <autocomplete url="{{ url('api/autocomplete/buddies') }}"
-                                    :fields="[
-                                                {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
-                                                {title: 'Name', columns: ['person.first_name', 'person.last_name']},
-                                                {title: 'Email', columns: ['person.user.email']},
-                                                    ]"
-                                    :topline="['person.first_name', 'person.last_name']"
-                                    :subline="['person.user.email']"
-                                    placeholder="Search Buddy..."
-                                    target="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}' }}"
-                                    :image="{url: '/avatars/', file: 'person.user.avatar'}">
+                        :fields="[
+                            {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
+                            {title: 'Name', columns: ['person.first_name', 'person.last_name']},
+                            {title: 'Email', columns: ['person.user.email']},
+                        ]"
+                        :topline="['person.first_name', 'person.last_name']"
+                        :subline="['person.user.email']"
+                        placeholder="Search Buddy..."
+                        target="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}' }}"
+                        :image="{url: '/avatars/', file: 'person.user.avatar'}">
                     </autocomplete>
                 </div>
             @endif
@@ -187,7 +156,7 @@
             <h3>Participants</h3>
 
             @if($particip->count() > 0)
-            <div class="export-links ml-auto">
+            <div class="ml-auto">
                 <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" class="btn btn-primary btn-sm">
                     <i class="fas fa-file-pdf"></i> Export PDF
                 </a>
