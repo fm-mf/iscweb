@@ -24,6 +24,11 @@
                         Edit
                     </a>
                 @endcan
+
+                <a href="{{ $trip->event->reservation_url }}" class="btn btn-primary">
+                    <i class="fas fa-share-alt"></i>
+                    Share
+                </a>
             </div>
         </div>
 
@@ -53,10 +58,7 @@
             <tr>
                 <th>Link</th>
                 <td colspan="3">
-                    <unique-url style="width: 100%" url="{{ $trip->event->reservation_url }}"></unique-url>
-                    @if ($trip->event->reservations_enabled)
-                        <strong>Can be used for online reservations</strong>
-                    @endif
+                    <unique-url style="width: 400px" url="{{ $trip->event->reservation_url }}"></unique-url>
                 </td>
             </tr>
             <tr>
@@ -98,14 +100,52 @@
         @endcan
     @endif
 
-    @if ($trip->event->reservations_enabled)
-        <div class="container">
-            <div class="row row-inner">
-                <div class="col-sm-12">
-                    <h3>Reservations</h3>
-                    
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+            @if ($trip->event->reservations_enabled)
+            <li class="nav-item">
+                <a
+                    class="nav-link active"
+                    id="reservations-tab"
+                    data-toggle="tab"
+                    href="#reservations"
+                    role="tab"
+                    aria-controls="reservations"
+                    aria-selected="true"
+                >
+                    Reservations
+                    <span class="badge badge-pill badge-info">{{ $reservations->count() }}</span>
+                </a>
+            </li>
+            @endif
+            <li class="nav-item">
+                <a
+                    class="nav-link{{ !$trip->event->reservations_enabled ? " active" : "" }}"
+                    id="participants-tab"
+                    data-toggle="tab"
+                    href="#participants"
+                    role="tab"
+                    aria-controls="participants"
+                    aria-selected="{{ !$trip->event->reservations_enabled ? "true" : "false" }}"
+                >
+                    Participants
+                    <span class="badge badge-pill badge-info">{{ $particip->count() }}</span>
+                </a>
+            </li>
+            <div class="ml-auto">
+                <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" class="btn btn-primary btn-sm">
+                    <i class="fas fa-file-pdf"></i> Export participants (PDF)
+                </a>
+                <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="btn btn-success btn-sm">
+                    <i class="fas fa-file-excel"></i> Export participants (Excel)
+                </a>
+            </div>
+        </ul>
+
+        <div class="tab-content">
+            @if ($trip->event->reservations_enabled)
+                <div class="tab-pane active show" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
                     @if($reservations->count() > 0)
-                    <div class="panel panel-default">
                     <table class="table p-table">
                         <thead>
                         <tr>
@@ -152,78 +192,62 @@
                         @endforeach
                         </tbody>
                     </table>
-                    </div>
                     @else
                         No reservations
                     @endif
                 </div>
-            </div>
-        </div>
-    @endif
-    
-    <div class="container">
-        <div class="d-flex align-items-center">
-            <h3>Participants</h3>
-
-            @if($particip->count() > 0)
-            <div class="ml-auto">
-                <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" class="btn btn-primary btn-sm">
-                    <i class="fas fa-file-pdf"></i> Export PDF
-                </a>
-                <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="btn btn-primary btn-sm">
-                    <i class="fas fa-file-excel"></i> Export Excel (all info)
-                </a>
-            </div>
             @endif
-        </div>
-
-        @if($particip->count() > 0)
-            <div class="panel panel-default">
-                <table class="table p-table">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Sex</th>
-                        <th>Phone</th>
-                        <th>ESN card number</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($particip as $participant)
-                        <tr>
-                            <td>
-                            @if((isset($participant->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
-                                    (isset($participant->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                <a href="{{ ($participant->exchangeStudent ?? $participant->buddy)->getDetailLink() }}" target="_blank">{{ $participant->getFullName(true) }}</a>
-                            @else
-                                {{ $participant->getFullName(true)}}
-                            @endif
-                            </td>
-                            <td>{{ $participant->user->email }}</td>
-                            <td>{{ $participant->getSex() }}</td>
-                            <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
-                            <td>{{ $participant->exchangeStudent->esn_card_number ?? '-' }}</td>
-                            <td class="text-right">
-                                @can('viewPayment', $trip)
-                                    <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-sm">Payment</a>
-                                @endcan
-                                @if($trip->isOpen())
-                                    @can('removeParticipant', $trip)
-                                    <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
-                                                        protection-text="Remove {{ $participant->getFullName() }} from event {{ $trip->event->name }}?"
-                                                        button-style="btn btn-danger btn-sm">Remove</protectedbutton>
-                                    @endcan
-                                @endif
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+            
+            <div class="tab-pane{{ !$trip->event->reservations_enabled ? " show active" : "" }}" id="participants" role="tabpanel" aria-labelledby="participants-tab">
+                @if($particip->count() > 0)    
+                    <div class="panel panel-default">
+                        <table class="table p-table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Sex</th>
+                                <th>Phone</th>
+                                <th>ESN card number</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($particip as $participant)
+                                <tr>
+                                    <td>
+                                    @if((isset($participant->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
+                                            (isset($participant->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
+                                        <a href="{{ ($participant->exchangeStudent ?? $participant->buddy)->getDetailLink() }}" target="_blank">{{ $participant->getFullName(true) }}</a>
+                                    @else
+                                        {{ $participant->getFullName(true)}}
+                                    @endif
+                                    </td>
+                                    <td>{{ $participant->user->email }}</td>
+                                    <td>{{ $participant->getSex() }}</td>
+                                    <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
+                                    <td>{{ $participant->exchangeStudent->esn_card_number ?? '-' }}</td>
+                                    <td class="text-right">
+                                        @can('viewPayment', $trip)
+                                            <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-sm">Payment</a>
+                                        @endcan
+                                        @if($trip->isOpen())
+                                            @can('removeParticipant', $trip)
+                                            <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
+                                                                protection-text="Remove {{ $participant->getFullName() }} from event {{ $trip->event->name }}?"
+                                                                button-style="btn btn-danger btn-sm">Remove</protectedbutton>
+                                            @endcan
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @else Event doesn't have participants
+                @endif
             </div>
-        @else Event doesn't have participants
-        @endif
+        </div>
     </div>
 @stop
 
