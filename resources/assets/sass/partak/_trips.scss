@@ -3,14 +3,11 @@
 }
 
 .trip-info {
-  th, td {
-    border: 0;
-    padding: 0.4rem 0;
+  > div {
+    padding: 0.5rem 0;
   }
 
-  th {
-    padding-left: 0;
-    max-width: 50px;
+  .label {
     font-weight: normal;
     color: #999;
   }

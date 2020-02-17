@@ -32,38 +32,37 @@
             </div>
         </div>
 
-        <table class="table trip-info">
-            <tr>
-                <th>Duration</th>
-                <td>{{ $trip->eventDateInterval() }}</td>
-            </tr>
-            <tr>
-                <th>Capacity</th>
-                <td>{!! $trip->howIsFillWithDetail() !!}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ $trip->price }} Kč</td>
-            </tr>
-            <tr>
-                <th>Organizers</th>
-                <td>
+        <div class="trip-info">
+            <div class="row">
+                <div class="col-lg-1 col-md-2 label">Duration</div>
+                <div class="col-lg-11 col-md-10">{{ $trip->eventDateInterval() }}</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 col-md-2 label">Capacity</div>
+                <div class="col-lg-11 col-md-10">{!! $trip->howIsFillWithDetail() !!}</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 col-md-2 label">Price</div>
+                <div class="col-lg-11 col-md-10">{{ $trip->price }} Kč</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 col-md-2 label">Organizers</div>
+                <div class="col-lg-11 col-md-10">
                     @if($organizers->count() > 0)
                         @foreach($organizers as $organizer)
                             @include("partak.components.user-link", ['user' => $organizer->person])@if(!$loop->last), @endif
                         @endforeach
                     @else Event doesn't have organizers
                     @endif
-                </td>
-            <tr>
-                <th>Link</th>
-                <td colspan="3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 col-md-2 label">Link</div>
+                <div class="col-lg-11 col-md-10">
                     <unique-url style="max-width: 400px" url="{{ $trip->event->reservation_url }}"></unique-url>
-                </td>
-            </tr>
-            <tr>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     @if($trip->isOpen() && !$trip->isFull())
