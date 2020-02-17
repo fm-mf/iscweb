@@ -58,7 +58,7 @@
             <tr>
                 <th>Link</th>
                 <td colspan="3">
-                    <unique-url style="width: 400px" url="{{ $trip->event->reservation_url }}"></unique-url>
+                    <unique-url style="max-width: 400px" url="{{ $trip->event->reservation_url }}"></unique-url>
                 </td>
             </tr>
             <tr>
@@ -133,12 +133,28 @@
                 </a>
             </li>
             <div class="ml-auto">
-                <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" class="btn btn-primary btn-sm">
-                    <i class="fas fa-file-pdf"></i> Export participants (PDF)
-                </a>
-                <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="btn btn-success btn-sm">
-                    <i class="fas fa-file-excel"></i> Export participants (Excel)
-                </a>
+                <div class="dropdown">
+                    <button
+                        class="btn btn-primary dropdown-toggle"
+                        type="button"
+                        id="exportDropdownButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="exportDropdownButton">
+                        <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" class="dropdown-item">
+                            <i class="fas fa-file-pdf"></i> Export participants (PDF)
+                        </a>
+                        <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="dropdown-item">
+                            <i class="fas fa-file-excel"></i> Export participants (Excel)
+                        </a>
+                    </div>
+                </div>
+                
             </div>
         </ul>
 
@@ -146,6 +162,7 @@
             @if ($trip->event->reservations_enabled)
                 <div class="tab-pane active show" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
                     @if($reservations->count() > 0)
+                    <div class="table-responsive">
                     <table class="table p-table">
                         <thead>
                         <tr>
@@ -192,6 +209,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    </div>
                     @else
                         No reservations
                     @endif
@@ -201,6 +219,7 @@
             <div class="tab-pane{{ !$trip->event->reservations_enabled ? " show active" : "" }}" id="participants" role="tabpanel" aria-labelledby="participants-tab">
                 @if($particip->count() > 0)    
                     <div class="panel panel-default">
+                        <div class="table-responsive">
                         <table class="table p-table">
                             <thead>
                             <tr>
@@ -243,6 +262,7 @@
                             @endforeach
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 @else Event doesn't have participants
                 @endif
