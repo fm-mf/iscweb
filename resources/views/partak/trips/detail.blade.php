@@ -66,14 +66,18 @@
 
     @if($trip->isOpen() && !$trip->isFull())
         @can('addParticipant', $trip)
-            @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
-            @include('partak.users.officeRegistration.search',[
-                'label' => 'Add Exchange student',
-                'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}'),
-            ])
-            @endif
-            @if($trip->type === 'buddy' || $trip->type === 'ex+buddy')
-                <div class="container">
+            <div class="container">
+                <div class="row">
+                @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
+                <div class="col-md-6">
+                    @include('partak.users.officeRegistration.search',[
+                        'label' => 'Add Exchange student',
+                        'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}'),
+                    ])
+                </div>
+                @endif
+                @if($trip->type === 'buddy' || $trip->type === 'ex+buddy')
+                <div class="col-md-6">
                     <h3>Add Buddy</h3>
                     <autocomplete url="{{ url('api/autocomplete/buddies') }}"
                         :fields="[
@@ -88,7 +92,9 @@
                         :image="{url: '/avatars/', file: 'person.user.avatar'}">
                     </autocomplete>
                 </div>
-            @endif
+                @endif
+                </div>
+            </div>
         @endcan
     @endif
 
@@ -101,14 +107,17 @@
                     @if($reservations->count() > 0)
                     <div class="panel panel-default">
                     <table class="table p-table">
+                        <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Sex</th>
                             <th>Phone</th>
                             <th>ESN card number</th>
-                            <th>Detail</th>
+                            <th></th>
                         </tr>
+                        </thead>
+                        <tbody>
                         @foreach($reservations as $item)
                             <tr>
                                 <td>
@@ -125,7 +134,7 @@
                                 <td>{{ $item->getSex() }}</td>
                                 <td>{{ $item->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
                                 <td>{{ $item->exchangeStudent->esn_card_number ?? '-' }}</td>
-                                <td>
+                                <td class="text-right">
                                     @can('addParticipant', $trip)
                                         <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-sm">Register</a>
                                     @endcan
@@ -141,6 +150,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        </tbody>
                     </table>
                     </div>
                     @else
@@ -170,14 +180,17 @@
         @if($particip->count() > 0)
             <div class="panel panel-default">
                 <table class="table p-table">
+                    <thead>
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Sex</th>
                         <th>Phone</th>
                         <th>ESN card number</th>
-                        <th>Detail</th>
+                        <th></th>
                     </tr>
+                    </thead>
+                    <tbody>
                     @foreach($particip as $participant)
                         <tr>
                             <td>
@@ -192,7 +205,7 @@
                             <td>{{ $participant->getSex() }}</td>
                             <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
                             <td>{{ $participant->exchangeStudent->esn_card_number ?? '-' }}</td>
-                            <td>
+                            <td class="text-right">
                                 @can('viewPayment', $trip)
                                     <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-sm">Payment</a>
                                 @endcan
@@ -206,6 +219,7 @@
                             </td>
                         </tr>
                     @endforeach
+                    </tbody>
                 </table>
             </div>
         @else Event doesn't have participants
