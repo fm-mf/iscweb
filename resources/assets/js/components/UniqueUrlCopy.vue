@@ -1,8 +1,10 @@
 <template>
   <div class="input-group">
-    <span id="url" class="input-group-addon">
-      <span class="glyphicon glyphicon-link"></span>
-    </span>
+    <div id="url" class="input-group-prepend">
+      <span class="input-group-text">
+        <i class="fas fa-link"></i>
+      </span>
+    </div>
     <input
       id="unique_url"
       type="text"
@@ -11,19 +13,18 @@
       aria-describedby="url"
       readonly=""
     />
-    <span class="input-group-btn">
+    <div class="input-group-append">
       <button
         v-tooltip:right="tooltipTest"
-        class="btn btn-default"
+        class="btn btn-secondary"
         type="button"
         @mouseleave="mouseLeave"
         @click="copy"
       >
-        <span class="glyphicon glyphicon-copy"></span>
+        <i class="fas fa-copy"></i>
       </button>
-    </span>
+    </div>
   </div>
-  <!-- /input-group -->
 </template>
 <script>
 function bsTooltip(el, binding, updating = false) {
