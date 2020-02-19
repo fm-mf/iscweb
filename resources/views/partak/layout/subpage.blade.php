@@ -2,7 +2,7 @@
 @section('page')
 
 <div id="partakApp">
-    @yield('content')
+    @yield('subpage')
 </div>
 
 @stop

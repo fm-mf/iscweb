@@ -1,6 +1,6 @@
 @extends('partak.layout.hp')
 
-@section('content')
+@section('subpage')
 
     <div class="container">
         <div class="row subtitle">

@@ -1,6 +1,6 @@
 @extends('partak.layout.subpage')
 
-@section('content')
+@section('subpage')
     <div class="container-fluid">
         <div class="row match-my-cols">
             <div class="col-sm-3 submenu matched-cols">

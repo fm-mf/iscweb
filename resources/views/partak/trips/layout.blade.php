@@ -1,6 +1,6 @@
 @extends('partak.layout.subpage')
 
-@section('content')
+@section('subpage')
     @include('partak.components.subnav', [
         'navItems' => [
             ['title' => 'My trips', 'route' => 'partak.trips.my'],
