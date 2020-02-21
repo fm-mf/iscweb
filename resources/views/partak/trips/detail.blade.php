@@ -25,10 +25,10 @@
                     </a>
                 @endcan
 
-                <a href="{{ $trip->event->reservation_url }}" class="btn btn-primary">
+                <share-button url="{{ $trip->event->reservation_url }}" button-style="btn btn-primary">
                     <i class="fas fa-share-alt"></i>
                     Share
-                </a>
+                </share-button>
             </div>
         </div>
 
@@ -39,7 +39,25 @@
             </div>
             <div class="row">
                 <div class="col-lg-1 col-md-2 label">Capacity</div>
-                <div class="col-lg-11 col-md-10">{!! $trip->howIsFillWithDetail() !!}</div>
+                <div class="col-lg-11 col-md-10">
+                    @if ($trip->isFull())
+                        <b>Event is full</b>
+                    @endif
+                    {{ $trip->howIsFill() }} / {{ $trip->capacity }}
+                    <span class="ml-3">
+                        @if ($trip->type === 'ex+buddy')
+                            <?php
+                            $buddyCount = $trip->buddyParticipants()->count();
+                            $exCount = $participats->count() - $buddyCount;
+                            ?>
+                            <span class="badge badge-pill badge-info">{{ $exCount }} exchange students</span>
+                            <span class="badge badge-pill badge-info">{{ $buddyCount }} buddies</span>
+                        @endif
+                        @if ($trip->event->reservations_enabled)
+                            <span class="badge badge-pill badge-secondary">{{ $reservations->count() }} reservations</span>
+                        @endif
+                    </span>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-1 col-md-2 label">Price</div>
@@ -54,12 +72,6 @@
                         @endforeach
                     @else Event doesn't have organizers
                     @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-1 col-md-2 label">Link</div>
-                <div class="col-lg-11 col-md-10">
-                    <unique-url style="max-width: 400px" url="{{ $trip->event->reservation_url }}"></unique-url>
                 </div>
             </div>
         </div>

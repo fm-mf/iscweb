@@ -86,6 +86,14 @@ class Trip extends Model
         return $this->howIsfill() .'/'. $this->capacity;
     }
 
+    public function buddyParticipants()
+    {
+        $participats = $this->participants()->with('buddy', 'exchangeStudent')->wherePivot('stand_in', 'n')->get();
+        return $participats->filter(function ($value, $key) {
+            return isset($value->buddy);
+        });
+    }
+
     public function howIsFillWithDetail()
     {
         $result = '';
