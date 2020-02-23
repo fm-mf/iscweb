@@ -35,7 +35,7 @@
         <div class="trip-info">
             <div class="row">
                 <div class="col-lg-1 col-md-2 label">Duration</div>
-                <div class="col-lg-11 col-md-10">{{ $trip->eventDateInterval() }}</div>
+                <div class="col-lg-11 col-md-10">{!! $trip->eventDateInterval() !!}</div>
             </div>
             <div class="row">
                 <div class="col-lg-1 col-md-2 label">Capacity</div>
