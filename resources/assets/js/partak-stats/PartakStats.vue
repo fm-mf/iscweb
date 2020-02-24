@@ -1,61 +1,65 @@
 <template>
-  <div class="container-fluid">
-    <div class="row match-my-cols">
-      <div class="col-sm-3 submenu matched-cols">
-        <router-link to="/">
-          Dashboard
-        </router-link>
-        <router-link to="/arrivals">
-          Arrivals
-        </router-link>
-        <router-link to="/buddies">
-          Buddies
-        </router-link>
-        <router-link to="/students">
-          Students
-        </router-link>
-        <router-link to="/history">
-          History
-        </router-link>
-        <router-link to="/exports">
-          Exports
-        </router-link>
-      </div>
-      <div class="col-sm-9 no-padding matched-cols">
-        <div class="stats-content">
-          <div class="stats-filter">
-            <select
-              v-if="semesters.data"
-              v-model="semester"
-              class="form-control"
-            >
-              <option
-                v-for="item in semesters.data"
-                :key="item.id"
-                :value="item.id"
-              >
-                {{ item.name }}
-              </option>
-            </select>
-          </div>
+  <div>
+    <nav class="navbar navbar-expand-lg subnav">
+      <div style="width: 130px"></div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <router-link to="/" class="nav-link">
+            Dashboard
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/arrivals" class="nav-link">
+            Arrivals
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/buddies" class="nav-link">
+            Buddies
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/students" class="nav-link">
+            Students
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/history" class="nav-link">
+            History
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/exports" class="nav-link">
+            Exports
+          </router-link>
+        </li>
+      </ul>
+    </nav>
 
-          <div v-if="error" class="error">
-            <p>{{ error.message }}</p>
-            <div v-if="error.error" class="error-desc">
-              <div>
-                <strong>URL:</strong> {{ error.error.request.responseURL }}
-              </div>
-              <div>
-                <strong>Error:</strong> {{ error.error.response.status }}
-              </div>
-            </div>
-            <div class="btn btn-warning" @click="error = null">
-              OK
-            </div>
-          </div>
-          <router-view :semester="semester" />
+    <div class="stats-content container">
+      <div class="stats-filter">
+        <select v-if="semesters.data" v-model="semester" class="form-control">
+          <option
+            v-for="item in semesters.data"
+            :key="item.id"
+            :value="item.id"
+          >
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+
+      <div v-if="error" class="error">
+        <p>{{ error.message }}</p>
+        <div v-if="error.error" class="error-desc">
+          <div><strong>URL:</strong> {{ error.error.request.responseURL }}</div>
+          <div><strong>Error:</strong> {{ error.error.response.status }}</div>
+        </div>
+        <div class="btn btn-warning" @click="error = null">
+          OK
         </div>
       </div>
+      <router-view :semester="semester" />
     </div>
   </div>
 </template>
