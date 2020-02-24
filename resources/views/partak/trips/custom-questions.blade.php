@@ -1,5 +1,5 @@
 @if ($readonly)
-    @foreach($trip->answers($id_user)->get() as $data)
+    @foreach($trip->answers($id_user) as $data)
         {{ Form::bsText("void[{$data->id_question}]", $data->question->label, '', $data->getDisplayValue(), ['readonly' => '']) }}
     @endforeach
 @else
