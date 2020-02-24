@@ -2,11 +2,12 @@
 @section('inner-content')
 
     @if(session('successUpdate'))
-        <div class="success">
-            <i class="fas fa-check mr-1"></i> Profile was successfully updated.
+        <div class="container">
+            <div class="alert alert-success">
+                <i class="fas fa-check mr-1"></i> Profile was successfully updated.
+            </div>
         </div>
     @endif
-
 
     <div class="container">
         <div class="row container">
@@ -14,7 +15,13 @@
                 <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($buddy->person->avatar()) }}">
             </div>
             <div class="col-sm-10">
-                <h3>{{ $buddy->person->first_name .' '. $buddy->person->last_name}}</h3>
+                <div class="d-flex align-items-start">
+                    <h3>{{ $buddy->person->first_name .' '. $buddy->person->last_name}}</h3>
+                    <a href="{{ $buddy->getDetailLink() }}" class="btn btn-primary btn-sm ml-3">
+                        <i class="fas fa-address-card"></i> Detail
+                    </a>
+                </div>    
+            
                 <div class="info-line">
                     @if($buddy->verified == 'y')
                         <i class="fas fa-check fa-fw mr-1"></i> Verified
