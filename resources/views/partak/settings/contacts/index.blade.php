@@ -2,9 +2,11 @@
 
 @section('inner-content')
     @if(session('success'))
-        <div class="alert alert-success alert-dismissable fade in">
-            <button class="close" data-dismiss="alert" aria-label="close"><span class="fas fa-times"></span></button>
-            <span class="fas fa-check"></span> @lang(session('success')['event'], ['position' => session('success')['position']])
+        <div class="container">
+            <div class="alert alert-success alert-dismissable fade show">
+                <button class="close" data-dismiss="alert" aria-label="close"><i class="fas fa-times"></i></button>
+                <i class="fas fa-check"></i> @lang(session('success')['event'], ['position' => session('success')['position']])
+            </div>
         </div>
     @endif
 
