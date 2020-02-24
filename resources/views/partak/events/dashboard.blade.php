@@ -11,7 +11,7 @@
             <h3>Active events</h3>
             @if($activeEvents->count() > 0)
                 <div class="panel panel-default" id="protected">
-                    @include('partak.events.evetsTable', ['Events' => $activeEvents])
+                    @include('partak.events.eventsTable', ['Events' => $activeEvents])
                 </div>
             @endif
         </div>
@@ -19,7 +19,7 @@
             <a data-toggle="collapse" href="#collapseT2"><h3>InteGREAT's events</h3></a>
             @if($integreatEvents->count() > 0)
                 <div class="panel panel-collapse collapse" id="collapseT2">
-                    @include('partak.events.evetsTable', ['Events' => $integreatEvents])
+                    @include('partak.events.eventsTable', ['Events' => $integreatEvents])
                 </div>
             @endif
         </div>
@@ -27,7 +27,7 @@
             <a data-toggle="collapse" href="#collapseT3"><h3>Languages events</h3></a>
             @if($languagesEvents->count() > 0)
                 <div class="panel panel-collapse collapse" id="collapseT3">
-                    @include('partak.events.evetsTable', ['Events' => $languagesEvents])
+                    @include('partak.events.eventsTable', ['Events' => $languagesEvents])
                 </div>
             @endif
         </div>
@@ -35,7 +35,7 @@
             <a data-toggle="collapse" href="#collapseT1"><h3>Old events</h3></a>
             @if($oldEvents->count() > 0)
                 <div class="panel panel-collapse collapse" id="collapseT1">
-                    @include('partak.events.evetsTable', ['Events' => $oldEvents])
+                    @include('partak.events.eventsTable', ['Events' => $oldEvents])
                 </div>
             @endif
         </div>
