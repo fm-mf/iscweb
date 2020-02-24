@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="row-inner">
                     <div class="success">
-                        <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> {{ session('removeSuccess') }}
+                        <i class="fas fa-check mr-1"></i> {{ session('removeSuccess') }}
                     </div>
                 </div>
             </div>

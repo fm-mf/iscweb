@@ -2,7 +2,7 @@
 @section('inner-content')
     @if(session('tripDeleted'))
         <div class="success">
-            <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> {{ session('tripDeleted') }}
+            <i class="fas fa-check mr-1"></i> {{ session('tripDeleted') }}
         </div>
     @endif
 

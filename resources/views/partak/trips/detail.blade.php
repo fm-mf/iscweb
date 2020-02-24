@@ -48,7 +48,7 @@
                         @if ($trip->type === 'ex+buddy')
                             <?php
                             $buddyCount = $trip->buddyParticipants()->count();
-                            $exCount = $participats->count() - $buddyCount;
+                            $exCount = $particip->count() - $buddyCount;
                             ?>
                             <span class="badge badge-pill badge-info">{{ $exCount }} exchange students</span>
                             <span class="badge badge-pill badge-info">{{ $buddyCount }} buddies</span>
