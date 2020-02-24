@@ -39,8 +39,8 @@ class TandemRegisterController extends Controller
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:tandem_users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'firstName' => ['required', 'string', 'max:45'],
-            'lastName' => ['nullable', 'string', 'max:45'],
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['nullable', 'string', 'max:255'],
             'country' => ['nullable', 'integer', 'exists:countries,id_country'],
             'about' => ['nullable', 'string'],
             'languagesToTeach' => ['required', 'array', 'min:1', 'exists:languages,id_language'],
