@@ -3,6 +3,7 @@
 @section('stylesheets')
     <link href="{{ mix('css/partaknet.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('fa/css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
 @section('content')
@@ -30,7 +31,8 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/jquery.slim.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.4.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 @endsection
