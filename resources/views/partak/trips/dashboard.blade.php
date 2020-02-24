@@ -16,14 +16,11 @@
     </div>
 
     <div class="container">
-        <ul class="list-unstyled">
-            <li id="t1"><a data-toggle="collapse" data-parent="t1" href="#collapseT1"><h3>Old Trips</h3></a>
-                @if($oldTrips->count() > 0)
-                    <div class="panel panel-collapse collapse" id="collapseT1">
-                        @include('partak.trips.tripsTable', ['Trips' => $oldTrips,])
-                    </div>
-                @endif
-            </li>
-        </ul>
+        <a data-toggle="collapse" href="#collapseT1"><h3>Old Trips</h3></a>
+        @if($oldTrips->count() > 0)
+            <div class="panel panel-collapse collapse" id="collapseT1">
+                @include('partak.trips.tripsTable', ['Trips' => $oldTrips,])
+            </div>
+        @endif
     </div>
 @stop
