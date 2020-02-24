@@ -4,7 +4,7 @@
     @include('partak.components.subnav', [
         'navItems' => [
             ['title' => 'General', 'route' => 'partak.settings', 'acl' => 'settings.edit'],
-            ['title' => 'Active trips', 'route' => 'partak.settings.contacts.index', 'acl' => 'settings.edit']
+            ['title' => 'Contacts', 'route' => 'partak.settings.contacts.index', 'acl' => 'settings.edit']
         ]
     ])
 
