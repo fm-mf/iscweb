@@ -63,7 +63,7 @@
                             <textarea class="form-control" placeholder="Some information about you" name="about" id="input-about">{{ old('about') }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="select-languages-learn">I would like to learn</label>
+                            <label for="select-languages-learn" class="required">I would like to learn</label>
                             <vue-multiselect
                                     id="select-languages-learn"
                                     :options="{{ $languages }}"
@@ -75,10 +75,10 @@
                                     value="{{ collect(old('languagesToLearn')) }}"
                                     :limit="3">
                             </vue-multiselect>
-                            <input type="hidden" name="languagesToLearn[]" v-for="language in languagesToLearn" :value="language.id_language" :key="language.id_language" />
+                            <input type="hidden" name="languagesToLearn[]" v-for="language in languagesToLearn" :value="language.id_language" :key="language.id_language" required="required" />
                         </div>
                         <div class="form-group">
-                            <label for="select-languages-teach">I would like to teach</label>
+                            <label for="select-languages-teach" class="required">I would like to teach</label>
                             <vue-multiselect
                                     id="select-languages-teach"
                                     :options="{{ $languages }}"
@@ -90,7 +90,7 @@
                                     value="{{ collect(old('languagesToTeach')) }}"
                                     :limit="3">
                             </vue-multiselect>
-                            <input type="hidden" name="languagesToTeach[]" v-for="language in languagesToTeach" :value="language.id_language" :key="language.id_language" />
+                            <input type="hidden" name="languagesToTeach[]" v-for="language in languagesToTeach" :value="language.id_language" :key="language.id_language" required="required" />
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>
