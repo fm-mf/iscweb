@@ -5,7 +5,7 @@
         </div>
         <div class="col-sm-6">
             @if(isset($exStudent->buddy))
-                @include("partak.users.userInfo", ['user' => $exStudent->buddy->user()])
+                @include("partak.users.userInfo", ['user' => $exStudent->buddy->user(), 'buddyStudent' => $exStudent])
             @else
                 <p>{{$exStudent->person->first_name }} doesn't have a buddy! :(</p>
             @endif

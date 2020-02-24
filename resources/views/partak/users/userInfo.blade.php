@@ -18,11 +18,20 @@
         @can('acl', 'exchangeStudents.edit')
             <a
                 href="{{ url('partak/users/exchange-students/edit/' . $user->id_user) }}"
-                class="btn btn-xs btn-success ml-4"
+                class="btn btn-xs btn-success ml-3"
             >
                 <i class="fas fa-pen"></i> Edit
             </a>
         @endcan
+    @endif
+    @if(isset($buddyStudent))
+        <protectedbutton
+            url="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$buddyStudent->id_user) }}"
+            protection-text="Remove buddy {{ $buddy->person->getFullName() }}?"
+            button-style="btn btn-danger ml-3"
+        >
+            <i class="fas fa-times"></i> Remove
+        </protectedbutton>
     @endif
 </div>
 
