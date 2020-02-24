@@ -24,6 +24,12 @@ h3 {
     border: 0;
     padding: 0.2rem 0.75rem;
     vertical-align: middle;
+
+    &.empty-data {
+      text-align: center;
+      padding: 1.5rem 0;
+      color: #666;
+    }
   }
 
   th {
@@ -39,4 +45,12 @@ h3 {
       }
     }
   }
+}
+
+.icon-button {
+  white-space: nowrap;
+}
+
+.img-circle {
+  border-radius: 50%;
 }

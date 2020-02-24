@@ -31,7 +31,7 @@
         @can('acl', 'buddy.verify')
             <h3>Not verified Buddies</h3>
             @if($notVerifiedBuddies->count() > 0)
-            <div class="panel panel-default" id="protected">
+            <div class="table-responsive">
                 <table class="table p-table">
                     @foreach($notVerifiedBuddies->get() as $buddy)
                         <tr>
@@ -40,10 +40,10 @@
                             <td align="right">
                                 <protectedbutton url="{{ url('partak/users/buddies/approve/' . $buddy->id_user) }}"
                                                     protection-text="Approve buddy {{ $buddy->person->getFullName() }}?"
-                                                    button-style="btn-success btn-xs"><i class="fas fa-check mr-1"></i> Approve</protectedbutton>
+                                                    button-style="btn-success btn-xs icon-button"><i class="fas fa-check mr-1"></i> Approve</protectedbutton>
                                 <protectedbutton url="{{ url('partak/users/buddies/deny/' . $buddy->id_user) }}"
                                                     protection-text="Deny buddy {{ $buddy->person->getFullName() }}?"
-                                                    button-style="btn-danger btn-xs"><i class="fas fa-times mr-1"></i> Deny</protectedbutton>
+                                                    button-style="btn-danger btn-xs icon-button"><i class="fas fa-times mr-1"></i> Deny</protectedbutton>
                             </td>
                         </tr>
                     @endforeach
