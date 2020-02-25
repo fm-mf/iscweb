@@ -32,6 +32,7 @@ mix
   .sass('resources/assets/sass/saf/saf.scss', 'public/css')
   .sass('resources/assets/sass/saf/saf-partner.scss', 'public/css')
   .sass('resources/assets/sass/form/form.scss', 'public/css')
+  .sass('resources/assets/sass/vendor.scss', 'public/css')
   .copy(
     'node_modules/@fortawesome/fontawesome-free/webfonts/*',
     'public/fonts/font-awesome'

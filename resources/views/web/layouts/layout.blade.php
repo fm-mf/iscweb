@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('stylesheets')
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/vendor.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ mix('css/web.css') }}" />
 @endsection
 

@@ -1,13 +1,6 @@
-@import "custom";
-@import "~bootstrap/scss/bootstrap";
-
-$fa-font-path: "/fonts/font-awesome";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/regular";
-@import "~@fortawesome/fontawesome-free/scss/brands";
-
-@import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 @import "variables";
 
