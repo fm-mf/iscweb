@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col col-sm-auto ml-auto">
+                        <div class="col-sm-8 col-md-6 col-lg-4 ml-auto">
                             <div class="row">
                                 <div class="col opening-hours">
                                     <h2>Otvírací hodiny</h2>
