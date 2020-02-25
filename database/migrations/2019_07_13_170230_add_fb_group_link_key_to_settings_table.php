@@ -5,17 +5,16 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOwSettings extends Migration
+class AddFbGroupLinkKeyToSettingsTable extends Migration
 {
-     /**
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Settings::push('owTripsEnabled', '0');
-        Settings::push('owTripsRestricted', '1');
+        Settings::push('fbGroupLink', 'https://www.facebook.com/groups/ISCCTUSpring2020/');
     }
 
     /**
@@ -25,7 +24,6 @@ class AddOwSettings extends Migration
      */
     public function down()
     {
-        Settings::delete('owTripsEnabled');
-        Settings::delete('owTripsRestricted');
+        Settings::delete('fbGroupLink');
     }
 }

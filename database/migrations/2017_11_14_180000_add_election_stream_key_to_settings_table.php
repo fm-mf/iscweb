@@ -5,17 +5,16 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOwSettings extends Migration
+class AddElectionStreamKeyToSettingsTable extends Migration
 {
-     /**
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Settings::push('owTripsEnabled', '0');
-        Settings::push('owTripsRestricted', '1');
+        Settings::push('electionStreamUrl', 'https://youtu.be/Pihx0ldClkM');
     }
 
     /**
@@ -25,7 +24,6 @@ class AddOwSettings extends Migration
      */
     public function down()
     {
-        Settings::delete('owTripsEnabled');
-        Settings::delete('owTripsRestricted');
+        Settings::delete('electionStreamUrl');
     }
 }

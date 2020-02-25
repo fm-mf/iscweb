@@ -181,6 +181,7 @@ return [
 
         App\Providers\FormServiceProvider::class,
         App\Providers\SettingsProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
         //App\Providers\AclServiceProvider::class,
 
     ],

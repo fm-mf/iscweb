@@ -14,9 +14,9 @@ class AddGdprColumnsToBuddiesTable extends Migration
     public function up()
     {
         Schema::table('buddies', function (Blueprint $table) {
-            $table->boolean('agreement');
-            $table->boolean('privacy_partak');
-            $table->boolean('privacy_buddy');
+            $table->boolean('agreement')->default(false);
+            $table->boolean('privacy_partak')->default(false);
+            $table->boolean('privacy_buddy')->default(false);
         });
     }
 
