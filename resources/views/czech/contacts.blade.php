@@ -51,12 +51,12 @@
             </div>
             <div class="row">
                 <dl class="col">
-                    <dt><span class="fas fa-phone-alt"></span> Telefon</dt>
-                    <dd><a href="tel:+420775198605">+420 775 198 605</a></dd>
-                    <dt><span class="fas fa-envelope"></span> E-mail</dt>
+                    <dt><span class="fas fa-phone-alt"></span> @lang('web.Phone')</dt>
+                    <dd><a href="tel:{{ $pointPhoneNo }}">{{ $pointPhoneNoFormatted }}</a></dd>
+                    <dt><span class="fas fa-envelope"></span> @lang('web.Email')</dt>
                     <dd><a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a></dd>
                     <dt><span class="far fa-thumbs-up"></span> Facebook</dt>
-                    <dd><a href="https://www.facebook.com/isc.ctu.prague" target="_blank" rel="noopener">isc.ctu.prague</a></dd>
+                    <dd><a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">isc.ctu.prague</a></dd>
                 </dl>
             </div>
         </div>
