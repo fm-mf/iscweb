@@ -11,9 +11,9 @@ $fa-font-path: "/fonts/font-awesome";
 
 @import "variables";
 
-@import "header";
-@import "main";
-@import "footer";
+@import "../web/header";
+@import "../web/main";
+@import "../web/footer";
 
 @import "home";
 @import "about-us";
@@ -21,6 +21,4 @@ $fa-font-path: "/fonts/font-awesome";
 @import "activities";
 @import "zig-zag";
 @import "faq";
-@import "contacts";
-
-@import "../web/lang-select";
+@import "../web/contacts";
