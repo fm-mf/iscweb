@@ -236,7 +236,7 @@
         margin-top: 1rem;
       }
     }
-       
+
     @include media-breakpoint-up(sm) {
       .container {
         padding: 0;
@@ -415,12 +415,16 @@
       margin: 0 auto 1rem;
       display: block;
       width: 12rem;
+
+      &.square-logo {
+        width: 9rem;
+      }
     }
 
     @include media-breakpoint-up(sm) {
       h2 {
         clear: both;
-        margin-top: 2rem;
+        margin-top: 3rem;
       }
 
       & > img {
