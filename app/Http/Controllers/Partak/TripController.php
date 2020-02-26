@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: speedy
@@ -15,13 +16,22 @@ use App\Models\Person;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\ReservationCancelledMail;
+use App\Models\EventReservation;
+use App\Models\EventReservationAnswer;
+use App\Models\EventReservationQuestion;
+use App\Models\Semester;
 use App\Models\Trip;
+use App\Models\User;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use Intervention\Image\Facades\Image;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class TripController extends Controller
 {
@@ -38,20 +48,33 @@ class TripController extends Controller
 
     public function showMyTrips()
     {
-        return view('partak.trips.mytrips')->with(['myTrips' => Buddy::with('organizedTrips')->find(Auth::id())->organizedTrips ]);
+        return view('partak.trips.mytrips')
+            ->with([
+                'myTrips' => Buddy::with('organizedTrips')->find(Auth::id())->organizedTrips
+            ]);
     }
 
     public function showDetail($id)
     {
-        $trip = Trip::withParticipants('organizers.person.user', 'event')->find($id);
+        $trip = Trip::withParticipants(
+            'reservations.user',
+            'reservations.exchangeStudent',
+            'reservations.buddy',
+            'reservations.user.person',
+            'event'
+        )->find($id);
+
         $this->authorize('view', $trip);
+
         $particip = $trip->participants;
         $organizers = $trip->organizers;
+        $reservations = $trip->reservations;
 
         return view('partak.trips.detail')->with([
             'trip' => $trip,
             'particip' => $particip,
             'organizers' => $organizers,
+            'reservations' => $reservations
         ]);
     }
 
@@ -60,7 +83,7 @@ class TripController extends Controller
         $trip = Trip::withParticipants('event')->find($id);
         $this->authorize('view', $trip);
 
-        $particip = $trip->participants->sortby(function ($item){
+        $particip = $trip->participants->sortby(function ($item) {
             return strtolower($item->last_name);
         });
         $exBuddy = $trip->type == 'ex+buddy';
@@ -68,11 +91,10 @@ class TripController extends Controller
             'particip' => $particip,
             'trip' => $trip,
             'exBuddy' => $exBuddy,
-        ] )->setOptions(['dpi' => 96, 'fontHeightRatio' =>0.7]);
+        ])->setOptions(['dpi' => 96, 'fontHeightRatio' => 0.7]);
 
         //return view('partak.trips.pdf')->with([ 'particip' => $particip, 'trip' => $trip]);
-        return $pdf->setPaper('a4', 'landscape')->download($trip->event->nameWithoutSpaces() .'_participants.pdf');
-
+        return $pdf->setPaper('a4', 'landscape')->download($trip->event->nameWithoutSpaces() . '_participants.pdf');
     }
 
     public function showDetailExcel($id)
@@ -80,25 +102,32 @@ class TripController extends Controller
         $trip = Trip::withParticipants('event')->find($id);
         $this->authorize('view', $trip);
 
-        $particip = $trip->participants->sortby(function ($item){
+        $particip = $trip->participants->sortby(function ($item) {
             return strtolower($item->last_name);
         });
-        $excell = Excel::create($trip->event->nameWithoutSpaces() .'_participants', function($excel) use($particip, $trip) {
 
-            $excel->sheet('Participants', function ($sheet) use($particip, $trip) {
+        $excell = Excel::create(
+            $trip->event->nameWithoutSpaces() . '_participants',
+            function ($excel) use ($particip, $trip) {
+                $excel->sheet('Participants', function ($sheet) use ($particip, $trip) {
+                    $sheet->mergeCells('A1:I1');
 
-                $sheet->mergeCells('A1:I1');
-                $sheet->setColumnFormat(array( //columns A and H (order number and phone number) format is set to number
-                    'A' => '0',
-                    'H' => '0',
-                ));
-                $sheet->setHeight(array(
-                    1 => 20,
-                ));
-                $sheet->setFreeze('A4'); //Freez row with columns description
-                $sheet->loadView('partak.trips.excel', [ 'particip' => $particip, 'trip' => $trip]);
-            });
-        });
+                    // Columns A and H (order number and phone number) format is set to number
+                    $sheet->setColumnFormat(array(
+                        'A' => '0',
+                        'H' => '0',
+                    ));
+                    $sheet->setHeight(array(
+                        1 => 20,
+                    ));
+
+                    // Freeze row with columns description
+                    $sheet->setFreeze('A4');
+
+                    $sheet->loadView('partak.trips.excel', ['particip' => $particip, 'trip' => $trip]);
+                });
+            }
+        );
         return $excell->download('xls');
     }
 
@@ -107,10 +136,12 @@ class TripController extends Controller
         $trip = Trip::find($id_trip);
         $this->authorize('addParticipant', $trip);
         $part = Person::with('user', 'exchangeStudent', 'buddy')->find($id_part);
+        $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)->first();
 
         return view('partak.trips.confirmPage')->with([
             'trip' => $trip,
             'part' => $part,
+            'reservation' => $reservation,
             'diets' => Person::getAllDiets(),
         ]);
     }
@@ -118,29 +149,100 @@ class TripController extends Controller
     public function addParticipantToTrip(Request $request, $id_trip, $id_part)
     {
         $trip = Trip::find($id_trip);
+
         $this->authorize('addParticipant', $trip);
-        $data = [];
-        foreach ($request->all() as $key => $value) {
-            if ($value) {
-                $data[$key] = $value;
-            }
+
+        $responseData = [
+            'paid' => $request->input('paid', 0),
+            'comment' => $request->input('comment')
+        ];
+
+        $personData = [];
+        if ($request->has('medical_issues')) {
+            $personData['medical_issues'] = $request->input('medical_issues');
         }
-        if(! array_key_exists('paid', $data)) $data['paid'] = 0;
+        if ($request->has('diet')) {
+            $personData['diet'] = $request->input('diet');
+        }
+
         $part = Person::find($id_part);
-        $part->update($data);
-        $result = $trip->addParticipant($id_part, $data);
-        if ($result < Trip::TRIP_FULL){
+        $part->update($personData);
+
+        $result = $trip->addParticipant($id_part, $responseData);
+        if ($result < Trip::TRIP_FULL) {
             $successUpdate = $trip->getStatusMessage($result, $part);
             $error = null;
+
+            $custom = $request->input('custom');
+            foreach ($trip->questions as $question) {
+                if (isset($custom[$question->id_question])) {
+                    $value = new EventReservationAnswer([
+                        'id_event' => $trip->id_event,
+                        'id_user' => $id_part,
+                        'id_question' => $question->id_question,
+                        'value' => json_encode($custom[$question->id_question])
+                    ]);
+                    $value->save();
+                }
+            }
         } else {
             $error = $trip->getStatusMessage($result, $part);
             $successUpdate = null;
         }
-        return redirect()->action('Partak\TripController@showDetail', ['id' => $id_trip])
+
+        return redirect()
+            ->action('Partak\TripController@showDetail', ['id' => $id_trip])
             ->with([
                 'successUpdate' => $successUpdate,
                 'error' => $error,
-                ]);
+            ]);
+    }
+
+    public function removeReservationFromTrip(int $id_trip, int $id_part)
+    {
+        /** @var Trip */
+        $trip = Trip::find($id_trip);
+
+        if (!$trip) {
+            throw new NotFoundHttpException('Trip not found');
+        }
+
+        $this->authorize('removeParticipant', $trip);
+
+        /** @var Person */
+        $participant = Person::find($id_part);
+
+        if (!$participant) {
+            throw new NotFoundHttpException('Participant not found');
+        }
+
+        /** @var EventReservation */
+        $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
+            ->firstOrFail();
+
+        foreach ($reservation->answers()->get() as $answer) {
+            $answer->delete();
+        }
+
+        $reservation->update([
+            "deleted_by" => Auth::id()
+        ]);
+        $reservation->save();
+        $reservation->delete();
+        
+        try {
+            Mail::to($reservation->user->email)
+                ->send(new ReservationCancelledMail(
+                    $reservation,
+                    User::find(Auth::id())
+                ));
+        } catch (\Exception $ex) {
+            Log::error("Failed to send email to {$reservation->user->email}");
+            Log::error($ex);
+        }
+
+        return back()
+            ->with(['successUpdate' => $participant->getFullName() . ' was successfully removed.']);
     }
 
     public function removeParticipantFromTrip($id_trip, $id_part)
@@ -157,23 +259,34 @@ class TripController extends Controller
         $trip = Trip::with('event')->find($id_trip);
         $this->authorize('edit', $trip);
 
+        $semesterId = Semester::getCurrentSemester()->id_semester;
+        $semesters = Semester::orderBy('id_semester', 'desc')
+            ->pluck('semester', 'id_semester');
+
         $buddies = [];
-        foreach(Buddy::with('person')->partak()->get() as $buddy) {
+        foreach (Buddy::with('person')->partak()->get() as $buddy) {
             $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->getFullName()];
         }
 
         $organizers = [];
-        foreach($trip->organizers()->with('person')->get() as $organizer) {
+        foreach ($trip->organizers()->with('person')->get() as $organizer) {
             $organizers[] = ['id_user' => $organizer->id_user, 'name' => $organizer->person->getFullName()];
         }
 
         JavaScript::put([
-            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => $organizers]
+            'jsoptions' => [
+                'organizers' => $buddies,
+                'sorganizers' => $organizers,
+                'questions' => $trip->questions()->get()
+            ]
         ]);
+
         return view('partak.trips.edit')->with([
             'trip' => $trip,
             'event' => $trip->event,
             'types' => Trip::getAllTypes(),
+            'semesters' => $semesters,
+            'currentSemesterId' => $semesterId
         ]);
     }
 
@@ -182,7 +295,7 @@ class TripController extends Controller
         $trip = Trip::with('event')->find($id_trip);
         $this->authorize('edit', $trip);
         $this->tripValidator($request->all())->validate();
-        if(isset($trip)){
+        if (isset($trip)) {
             $data = [];
             foreach ($request->all() as $key => $value) {
                 if ($value) {
@@ -190,6 +303,7 @@ class TripController extends Controller
                 }
             }
             $data['modified_by'] = Auth::id();
+
             if ($request->hasFile('cover')) {
                 $file = $request->file('cover');
                 $image_name = $trip->event->id_event . '.' . $file->extension();
@@ -197,8 +311,19 @@ class TripController extends Controller
                 Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
                 $data['cover'] = $image_name;
             }
+
+
+            $data['reservations_enabled'] = $request->input('reservations_enabled') === '1' ? true : false;
+            $data['reservations_diet'] = $request->input('reservations_diet') === '1' ? 1 : 0;
+            $data['reservations_medical'] = $request->input('reservations_medical') === '1' ? 1 : 0;
+            $data['ow'] = $request->input('ow') === '1' ? 1 : 0;
+
             $trip->update($data);
             $trip->event->update($data);
+
+            $questions = $request->input('questions');
+            $this->saveQuestions($trip, is_array($questions) ? $questions : []);
+
             return back()->with(['success' => 'Trip was successfully updated']);
         } else {
             return back()->with(['!success' => 'Trip wasn\'t updated']);
@@ -209,28 +334,38 @@ class TripController extends Controller
     {
         $this->authorize('acl', 'trips.add');
 
+        $semesterId = Semester::getCurrentSemester()->id_semester;
+        $semesters = Semester::orderBy('id_semester', 'desc')
+            ->pluck('semester', 'id_semester');
+
         $buddies = [];
-        foreach(Buddy::with('person')->partak()->get() as $buddy) {
+        foreach (Buddy::with('person')->partak()->get() as $buddy) {
             $buddies[] = ['id_user' => $buddy->id_user, 'name' => $buddy->person->getFullName()];
         }
 
-
         JavaScript::put([
-            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => []]
+            'jsoptions' => ['organizers' => $buddies, 'sorganizers' => [], 'questions' => []]
         ]);
 
         $trip = new Trip();
         $event = new Event();
+
         $event->cover = null;
-        $event->visible_from = Carbon::now();//
-        $event->datetime_from = Carbon::now();//
-        $trip->registration_from = Carbon::now();//
-        $trip->trip_date_to = Carbon::now();//
+        $event->visible_from = Carbon::now();
+        $event->datetime_from = Carbon::now();
+
+        $trip->registration_from = Carbon::now();
+        $trip->registration_to = Carbon::now();
+        $trip->trip_date_to = Carbon::now();
+        $trip->event = $event;
+
         return view('partak.trips.Create')->with([
             'trip' => $trip,
             'event' => $event,
             'types' => Trip::getAllTypes(),
             'create' => true,
+            'semesters' => $semesters,
+            'currentSemesterId' => $semesterId
         ]);
     }
 
@@ -248,29 +383,85 @@ class TripController extends Controller
 
         $trip = Trip::createTrip($data);
         $trip = Trip::with('event')->find($trip->id_trip);
+
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $image_name = $trip->event->id_event . '.' . $file->extension();
             Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
             $trip->event->cover = $image_name;
         }
+
         $trip->event->save();
-        return \Redirect::route('trips.edit',['id_trip' => $trip->id_trip])
+
+        $this->saveQuestions($trip, $request->input('questions') ?? []);
+
+        return \Redirect::route('trips.edit', ['id_trip' => $trip->id_trip])
             ->with(['success' => 'Trip was successfully created.']);
+    }
+
+    protected function saveQuestions(Trip $trip, array $questions)
+    {
+        $previous = $trip->questions()->get();
+        $removed = [];
+        $order = 0;
+        foreach ($previous as $q) {
+            $removed[(string) $q->id_question] = true;
+        }
+
+        foreach ($questions as $id => $data) {
+            if (preg_match("/^new-.*/", $id)) {
+                $created = new EventReservationQuestion([
+                    'id_event' => $trip->id_event,
+                    'order' => $order++,
+                    'type' => $data['type'],
+                    'label' => $data['label'],
+                    'description' => $data['description'],
+                    'required' => $data['required'],
+                    'data' => $data['data']
+                ]);
+                $created->save();
+            } else {
+                /** @var EventReservationQuestion $existing */
+                $existing = EventReservationQuestion::find($id);
+                if ($existing) {
+                    $existing->update([
+                        'order' => $order++,
+                        'type' => $data['type'],
+                        'label' => $data['label'],
+                        'description' => $data['description'],
+                        'required' => $data['required'],
+                        'data' => $data['data']
+                    ]);
+                }
+
+                $removed[(string) $id] = false;
+            }
+        }
+
+        foreach ($removed as $id => $remove) {
+            if ($remove) {
+                /** @var EventReservationQuestion $existing */
+                $existing = EventReservationQuestion::find($id);
+                $existing->delete();
+            }
+        }
     }
 
     protected function tripValidator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required',
+            'id_semester' => 'required|exists:semesters,id_semester',
             'visible_date' => 'required|date_format:d M Y',
-            'visible_time' => 'date_format:g:i A',
-            'registration_date' => 'date_format:d M Y',
-            'registration_time' => 'date_format:g:i A',
+            'visible_time' => 'required|date_format:g:i A',
+            'registration_date' => 'required|date_format:d M Y',
+            'registration_time' => 'required|date_format:g:i A',
+            'registration_end_date' => 'required|date_format:d M Y',
+            'registration_end_time' => 'required|date_format:g:i A',
             'start_date' => 'required|date_format:d M Y',
-            'start_time' => 'date_format:g:i A',
+            'start_time' => 'required|date_format:g:i A',
             'end_date' => 'required|date_format:d M Y',
-            'end_time' => 'date_format:g:i A',
+            'end_time' => 'required|date_format:g:i A',
             'description' => 'required',
             'price' => 'required|integer|min:0|max:65535',
             'capacity' => 'required|integer|min:0||max:65535',
@@ -283,7 +474,7 @@ class TripController extends Controller
         $trip = Trip::with('event')->find($id_event);
         $this->authorize('viewPayment', $trip);
         $part = $trip->participants()->where('id', $id_payment)->first();
-        if($part == null){
+        if ($part == null) {
             $part = $trip->buddyParticipants()->where('id', $id_payment)->first();
         }
         $registerby = Buddy::with('person')->find($part->pivot->registered_by);
@@ -309,4 +500,15 @@ class TripController extends Controller
         return back()->with(['tripDeleted' => "Trip \"$name\" has been deleted."]);
     }
 
+    public function uploadOptionImage(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $image_name = \uniqid('q-') . '.' . $file->extension();
+            Image::make($file)->save(storage_path() . '/app/events/' . $image_name);
+            return response()->json(['path' => $image_name], 200);
+        } else {
+            return response()->json(['error' => 'file parameter is missing'], 400);
+        }
+    }
 }

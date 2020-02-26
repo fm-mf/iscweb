@@ -2,11 +2,24 @@
 
 namespace App\Models;
 
+use App\Facades\Settings;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @property int $id_trip
+ * @property int $id_event
+ * @property Carbon $trip_date_to
+ * @property Carbon $registration_from
+ * @property Carbon $registration_to
+ * @property int $capacity
+ * @property string $type
+ * @property \App\Models\Event $event
+ * @property \App\Models\EventReservationQuestion $questions[]
+ */
 class Trip extends Model
 {
     const REGULAR_PARTICIPANT = 1;
@@ -20,7 +33,10 @@ class Trip extends Model
 
     protected $dates = ['registration_from', 'trip_date_to', 'registration_to'];
 
-    protected $fillable = [ 'registration_from', 'trip_date_to', 'registration_to', 'capacity', 'price', 'type'];
+    protected $fillable = [
+        'registration_from', 'trip_date_to', 'registration_to',
+        'capacity', 'price', 'type'
+    ];
 
 
     public function organizers()
@@ -28,10 +44,22 @@ class Trip extends Model
         return $this->belongsToMany('\App\Models\Buddy', 'trips_organizers', 'id_trip', 'id_user')->withTimestamps();
     }
 
+    public function questions()
+    {
+        return $this->hasMany('\App\Models\EventReservationQuestion', 'id_event', 'id_event')->orderBy('order');
+    }
+
     public function participants()
     {
         return $this->belongsToMany('\App\Models\Person', 'trips_participants', 'id_trip', 'id_user')
             ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id')
+            ->wherePivot('deleted_at', null);
+    }
+
+    public function reservations()
+    {
+        return $this->belongsToMany('\App\Models\Person', 'event_reservations', 'id_event', 'id_user', 'id_event')
+            ->withTimestamps()->withPivot('medical_issues', 'diet', 'notes', 'created_at')
             ->wherePivot('deleted_at', null);
     }
 
@@ -49,7 +77,8 @@ class Trip extends Model
 
     public function howIsFill()
     {
-        return $this->participants()->wherePivot('stand_in', 'n')->count();
+        return $this->participants()->wherePivot('stand_in', 'n')->count()
+            + $this->reservations()->count();
     }
 
     public function howIsFillSimple()
@@ -80,11 +109,63 @@ class Trip extends Model
 
     public function freeSpots()
     {
-        return $this->capacity - $this->howIsFill();
+        return max(0, $this->capacity - $this->howIsFill());
     }
 
-    public function isFull() {
-        return $this->freeSpots() == 0;
+    public function isFull()
+    {
+        return $this->freeSpots() <= 0;
+    }
+
+    public function canRegister()
+    {
+        if ($this->isFull()) {
+            return 'The trip is full, sorry :(';
+        }
+
+        if ($this->event->ow && !Settings::get('owTripsEnabled')) {
+            return 'Registrations will start during the Trips presentation in the Orientation Week';
+        }
+
+        if ($this->registration_from && $this->registration_from->isAfter(Carbon::now())) {
+            return 'Registrations didn\'t start yet';
+        }
+
+        if ($this->registration_to && $this->registration_to->isBefore(Carbon::now())) {
+            return 'Sorry, registrations already ended';
+        }
+
+        return true;
+    }
+
+    /**
+     * Returns if specified user already has reservation
+     * or is registered at any OW trip for current semester.
+     */
+    public function hasOwReservation(int $id_user)
+    {
+        // We only match current semester events
+        $semesterId = Semester::getCurrentSemester()->id_semester;
+
+        // Find valid reservation
+        $reservation = EventReservation::whereHas('event', function (Builder $query) use ($semesterId) {
+                $query->where('ow', true)
+                    ->where('id_semester', $semesterId);
+            })
+            ->where('id_user', $id_user)
+            ->first();
+
+        // Find valid registration
+        $registration = Trip::whereHas('event', function (Builder $query) use ($semesterId) {
+                $query->where('ow', true)
+                    ->where('id_semester', $semesterId);
+            })
+            ->whereHas('participants', function (Builder $query) use ($id_user) {
+                $query->where('trips_participants.id_user', $id_user);
+            })
+            ->first();
+
+        return $reservation !== null || $registration !== null;
     }
 
     public function standInParticipants()
@@ -94,6 +175,12 @@ class Trip extends Model
 
     public function addParticipant($userId, $data, $allowStandIn = false)
     {
+        $prereg = EventReservation::findByUserAndEvent($userId, $this->id_event);
+
+        if ($prereg) {
+            $prereg->delete();
+        }
+
         $standIn = $this->isFull() ? 'y' : 'n';
         if ($standIn == 'y' && !$allowStandIn) {
             return self::TRIP_FULL;
@@ -168,6 +255,7 @@ class Trip extends Model
         if(! array_key_exists('price', $attributes)) $attributes['price'] = 0;
         if(! array_key_exists('capacity', $attributes)) $attributes['capacity'] = 0;
         //dd($attributes);
+
         return parent::update(self::updateDatetimes($attributes), $options);
     }
 
@@ -199,6 +287,15 @@ class Trip extends Model
         return self::with('participants.user', 'participants.exchangeStudent', 'participants.buddy', ...$with);
     }
 
+    public function answers(int $id_user)
+    {
+        $reservations = EventReservation::findByUserAndEvent($id_user, $this->id_event)
+            ->withTrashed()
+            ->first();
+
+        return empty($reservations) ? [] : $reservations->answers()->get();
+    }
+
     public static function createTrip($data)
     {
         $data = self::updateDatetimes($data);
@@ -217,6 +314,7 @@ class Trip extends Model
             $trip = new Trip();
             $trip->id_event = $event->id_event;
             $trip->registration_from = $data['registration_from'];
+            $trip->registration_to = $data['registration_to'];
             $trip->trip_date_to = $data['trip_date_to'];
             $trip->capacity = $data['capacity'] ?? 0;
             $trip->price = $data['price'] ?? 0;
@@ -234,13 +332,56 @@ class Trip extends Model
     protected static function updateDatetimes($data)
     {
         $time = $data['registration_time'] ?? "00:00 AM";
-        //dd($data['registration_date']);
         $data['registration_from'] = Carbon::createFromFormat('d M Y g:i A', $data['registration_date'] . ' ' . $time);
+        $time = $data['registration_end_time'] ?? "00:00 AM";
+        $data['registration_to'] = Carbon::createFromFormat('d M Y g:i A', $data['registration_end_date'] . ' ' . $time);
         $time = $data['end_time'] ?? "00:00 AM";
         $data['trip_date_to'] = Carbon::createFromFormat('d M Y g:i A', $data['end_date'] . ' ' . $time);
         return $data;
     }
 
+    public function eventDateInterval($style = true)
+    {
+        $from = $this->event->datetime_from;
+        $to = $this->trip_date_to;
+        $same = $from->isSameDay($to);
+
+        $result = $this->formatDateTime($from);
+
+        if ($same) {
+            $result .= ' - ' . $this->formatTime($to);
+        } else {
+            $result .= ($style ? ' <span class="to">to</span> ' : ' to ') . $this->formatDateTime($to);
+        }
+
+        return $result;
+    }
+
+    private function formatDateTime(Carbon $datetime)
+    {
+        return $this->formatDate($datetime) . ', ' . $this->formatTime($datetime);
+    }
+
+    private function formatDate(Carbon $datetime)
+    {
+        $time = $datetime->format('l') . ', ';
+        $time .= $datetime->format('F') . ' ';
+        $time .= $datetime->format('jS');
+        return $time;
+    }
+
+    private function formatTime(Carbon $datetime)
+    {
+        $time = $datetime->format('g');
+
+        if ($datetime->minute == 0) {
+            $time .= $datetime->format('a');
+        } else {
+            $time .= $datetime->format(':ia');
+        }
+
+        return $time;
+    }
 
     public static function findAllUpcoming()
     {
@@ -290,5 +431,11 @@ class Trip extends Model
             case self::PARTICIPANT_ALREADY_IN:
                 return $partName . ' is already in ' . $this->event->name;
         }
+    }
+
+    public function hasUser($id_user)
+    {
+        return $this->participants()->where('trips_participants.id_user', $id_user)->count() > 0
+            || $this->reservations()->where('event_reservations.id_user', $id_user)->count() > 0;
     }
 }

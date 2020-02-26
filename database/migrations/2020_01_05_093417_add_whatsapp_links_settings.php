@@ -1,7 +1,9 @@
 <?php
 
+use App\Facades\Settings;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
 
 class AddWhatsappLinksSettings extends Migration
 {
@@ -12,16 +14,8 @@ class AddWhatsappLinksSettings extends Migration
      */
     public function up()
     {
-        DB::table('settings')->insert([
-            [
-                'key' => 'whatsAppAnnoucementsLink',
-                'value' => ''
-            ],
-            [
-                'key' => 'whatsAppGeneralLink',
-                'value' => ''
-            ]
-        ]);
+        Settings::push('whatsAppAnnoucementsLink', 'https://chat.whatsapp.com/IXGFais1YQ79ev0Jk37aqm');
+        Settings::push('whatsAppGeneralLink', 'https://chat.whatsapp.com/EYnWYqOF58Q9M95XFkM1wj');
     }
 
     /**
@@ -31,8 +25,7 @@ class AddWhatsappLinksSettings extends Migration
      */
     public function down()
     {
-        DB::table('settings')
-            ->whereIn('key', ['whatsAppAnnoucementsLink', 'whatsAppGeneralLink'])
-            ->delete();
+        Settings::delete('whatsAppAnnoucementsLink');
+        Settings::delete('whatsAppGeneralLink');
     }
 }

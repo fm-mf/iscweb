@@ -34,6 +34,7 @@ Route::patch('/users/exchange-students/edit/{id}', 'ExchangeStudentsController@s
 //Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
 
 Route::get('/trips', 'DashboardController@trips');
+Route::post('/trips/upload-option', 'TripController@uploadOptionImage');
 Route::get('/trips/upcoming', 'TripController@showUpcoming');
 Route::get('/trips/mytrips', 'TripController@showMyTrips');
 Route::get('/trips/detail/{id}', 'TripController@showDetail');
@@ -42,6 +43,7 @@ Route::get('/trips/detail/{id}/excel', 'TripController@showDetailExcel');
 Route::get('/trips/detail/{id_event}/add/{id_part}', 'TripController@confirmAddParticipant');
 Route::patch('/trips/detail/{id_event}/add/{id_part}', 'TripController@addParticipantToTrip');
 Route::get('/trips/{id_event}/remove/{id_part}', 'TripController@removeParticipantFromTrip');
+Route::get('/trips/{id_event}/cancel/{id_part}', 'TripController@removeReservationFromTrip');
 Route::get('/trips/edit/{id_trip}', 'TripController@showEditForm')->name('trips.edit');
 Route::patch('/trips/edit/{id_trip}', 'TripController@submitEditForm');
 Route::get('/trips/create', 'TripController@showCreateForm');

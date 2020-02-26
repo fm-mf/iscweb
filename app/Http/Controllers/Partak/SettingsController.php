@@ -62,6 +62,8 @@ class SettingsController extends Controller
         $data['wcFrom'] = Carbon::createFromFormat('d M Y', $data['wcFrom'])->format('d/m/Y');
         $data['owFrom'] = Carbon::createFromFormat('d M Y', $data['owFrom'])->format('d/m/Y');
         $data['owTo'] = Carbon::createFromFormat('d M Y', $data['owTo'])->format('d/m/Y');
+        $data['owTripsEnabled'] = $request->input('owTripsEnabled', 0) ? 1 : 0;
+        $data['owTripsRestricted'] = $request->input('owTripsRestricted', 0) ? 1 : 0;
 
         foreach ($data as $key => $value) {
             Settings::set($key, $value);

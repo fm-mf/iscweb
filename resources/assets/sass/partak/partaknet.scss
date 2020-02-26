@@ -411,6 +411,55 @@ a.disabled {
 	margin: 0;
 }
 
+fieldset {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+
+  legend {
+    font-size: 100%;
+    border: 0;
+    margin-bottom: 15px;
+    display: inline-block;
+    width: auto;
+  }
+}
+
+.custom-question {
+  cursor: pointer;
+  display: block;
+  font-weight: normal;
+  
+  &.with-image {
+    margin-bottom: 2rem;
+    box-shadow: 1px 1px 5px #999;
+    width: 300px;
+
+    .q-img {
+      background: #eee;
+
+      img {
+        max-width: 300px;
+        max-height: 200px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .q-input {
+      padding: 1rem;
+    }
+  }
+}
+
+.form-group {
+  .info {
+    color: #666;
+    margin-left: 1rem;
+  }
+}
+
 @import "users";
 @import "contacts-settings";
 

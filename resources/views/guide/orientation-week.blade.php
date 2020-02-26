@@ -115,17 +115,14 @@
             <h3 id="tandem-evening">Tandem Evening</h3>
             <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
             <ul class="list-unstyled">
-                <li>When: <strong>TBA</strong></li>
-                <!--
-                <li>Where: <a href="https://goo.gl/maps/qgZJ57LcLtM2" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, Prague 3)</a></li>
+                <li>When: <strong>21:00</strong></li>
+                <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
                 <li>Meeting points:
                     <ul>
-                        <li>20:30 at bus stop Koleje Strahov</li>
-                        <li><strong title="Meeting time changed">20:30</strong> <del title="Meeting time changed">20:45</del> in the lobby of the Masarykova dormitory</li>
+                        <li>20:00 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
                 <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
-                -->
             </ul>
         </div>
     </div>
@@ -181,21 +178,16 @@
                 </li>
 
                 <li><strong>Where:</strong> At your faculty (more information in the presentations on the first day)</li>
-                <!--
+                
                 <li>Meeting points:
                     <ul>
-                        <li>FBMI &ndash; 7:50 in front of the Klokner Institute</li>
-                        <li>FD &ndash; 8:25 in the lobby of the Masarykova dormitory</li>
-                        <li>FJFI &ndash; 8:30 the end stop of busses 143 and 149 Dejvická</li>
-                        <li>FSv &ndash; 8:55 in front of the faculty</li>
-                        <li>FS &ndash; 8:55 in front of the faculty</li>
-                        <li>FEL &ndash; 8:55 in front of the faculty</li>
-                        <li>MÚVS &ndash; 8:55 in front of the faculty</li>
-                        <li>FA &ndash; 9:20 in the atrium with yellow benches inside of the building</li>
-                        <li>FIT &ndash; 9:50 in the lobby of the Masarykova dormitory & 9:55 in front of the faculty</li>
+                        <li>FBMI &ndash; 7:45 in the lobby of the Masarykova dormitory</li>
+                        <li>FD &ndash; 8:45 at Entrance to Národní Třída metro station</li>
+                        <li>FS &ndash; 8:45 in front of the faculty</li>
+                        <li>FEL &ndash; 8:45 in front of the faculty</li>
+                        <li>FIT &ndash; 9:50 by the entrance door FA</li>
                     </ul>
                 </li>
-                -->
 
                 <li><abbr title="Faculty of Civil Engineering">FSv</abbr> has registrations on day 3</li>
 
@@ -222,7 +214,7 @@
             <ul class="list-unstyled">
                 {{--<li>When: in the afternoon</li>--}}
                 {{--<li>Where: <abbr title="To be announced">TBA</abbr> soon</li>--}}
-                <li>When: <strong>12:45</strong></li>
+                <li>When: <strong>13:00</strong></li>
                 <li>Where: <strong><a href="https://goo.gl/maps/BT426kNo4oZLarbz9">Congress Hall of the Masarykova Dormitory</a></strong></li>
                 <li>Topics:
                     <ul>
@@ -260,6 +252,12 @@
             <h3 id="day-3-registration">Registration at faculties</h3>
 
             <p>When: <strong>10:00</strong> &ndash; <abbr title="Faculty of Civil Engineering">FSv</abbr></p>
+        
+            <li>Meeting points:
+                <ul>
+                    <li>FSv &ndash; 9:50 in front of the faculty</li>
+                </ul>
+            </li>     
         </div>
     </div>
 
@@ -281,9 +279,9 @@
             <h3 id="integreat-party">inteGREATion party</h3>
             <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
             <ul class="list-unstyled">
-                <li>When: <strong>TBA</strong></li>
+                <li>When: <strong>21:00</strong></li>
+                <li>Where: <a href="https://goo.gl/maps/ebTnpr9oMqtAWj4a9" target="_blank" rel="noopener"><strong>Chapeau Rouge Bar</strong> (Jakubská 2, 110 00 Staré Město)</a></li>
                 <!--
-                <li>Where: <a href="https://goo.gl/maps/LANoqspoi362" target="_blank" rel="noopener"><strong>PM Club</strong> (Trojická 1907/10)</a></li>
                 <li>Meeting points:
                     <ul>
                         <li>19:30 at bus stop Koleje Strahov</li>

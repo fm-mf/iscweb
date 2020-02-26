@@ -30,13 +30,13 @@
                         Take advantage of our free language courses! The courses are taught by you –
                         Erasmus and exchange students, Czech students and foreigners living in Prague.
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
-                        Language courses for the Fall semester 2019 will start on Monday, 7 October 2019. The schedule
-                        will be updated as soon as possible at the beginning of October 2019. The courses will take place
-                        in the Masarykova dormitory and at Strahov, block 8.
+                        Language courses for the Spring semester 2020 will start on Monday, 2 March 2020. The schedule
+                        for Spring semester 2020 will be available during the last week of February 2020. The courses will
+                        take place at the Masarykova dormitory and at Strahov, block 8.
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Have a look at the <b>Fall 2019 schedule</b>
+                            Have a look at the <b>Spring 2020 schedule</b>
                         </a>
                     </p>
                     <h3>Where are the classrooms?</h3>
@@ -67,8 +67,9 @@
                     <p>The main advantage of Tandem is that it will be just you two who will set the time and the intensity
                         of the courses! You can form as many couples as you wish. </p>
                     <p>Register in the <a href="{{ url('tandem') }}">Tandem database</a> and find your Tandem partner!</p>
-                    <p>Come to the Tandem evening on Monday 16 September to the Storm club!
-                        See the <a href="https://www.facebook.com/events/898122270571359/" target="_blank" rel="noopener">facebook event</a>.</p>
+                    <p>Come to the <strong>Tandem evening on Monday 10 February</strong> to the P.M. club!
+                        See the <a href="https://www.facebook.com/events/563244627556599/" target="_blank" rel="noopener">facebook event</a>.</p>
+                    <p><a href="{{ url('/tandem') }}" class="btn btn-primary"><span class="fas fa-sign-in-alt"></span> Tandem database</a></p>
 
                     <h2>Café Lingea</h2>
                     <p>Café Lingea is a conversational meeting where we informally chat in different languages
@@ -108,14 +109,16 @@
                     <h2>See the schedule</h2>
                     <p>You can have a look at the
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            Fall 2019 schedule
+                            Spring 2020 schedule
                         </a>.
-                    </p>
+                    </p>{{--
                     <p>
                         The only language course running during the exam period is the Czech course on Wednesday.
                         The schedule for the spring courses will be published at the beginning of October 2019.
+                    </p>--}}
+                    <p>
+                        Schedule for upcoming semester will be available in the second week of the semester.
                     </p>
-                    {{--<p>Schedule for upcoming semester will be available in first week of the semester.</p>--}}
                     {{--<p>
                         Our currently offered courses will end according to every teachers' wish or latest at the end of June.
                         Schedule for the autumn courses shall be published in October 2018.

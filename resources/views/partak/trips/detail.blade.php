@@ -41,6 +41,15 @@
                                 <td></td>
                             </tr>
                             <tr>
+                                <th>Link</th>
+                                <td colspan="3">
+                                    <unique-url style="width: 100%" url="{{ $trip->event->reservation_url }}"></unique-url>
+                                    @if ($trip->event->reservations_enabled)
+                                        <strong>Can be used for online reservations</strong>
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
                             </tr>
                         </table>
                     </div>
@@ -110,6 +119,63 @@
                 @endif
             @endcan
         @endif
+
+        @if ($trip->event->reservations_enabled)
+        <div style="min-height: 300px">
+            <div class="container">
+                <div class="row row-inner">
+                    <div class="col-sm-12">
+                        <h3>Reservations</h3>
+                        
+                        @if($reservations->count() > 0)
+                        <div class="panel panel-default">
+                        <table class="table">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Sex</th>
+                                <th>Phone</th>
+                                <th>ESN card number</th>
+                                <th>Detail</th>
+                            </tr>
+                            @foreach($reservations as $item)
+                                <tr>
+                                    <td>{{ $item->getFullName(true)}}</td>
+                                    <td>{{ $item->user->email }}</td>
+                                    <td>{{ $item->getSex() }}</td>
+                                    <td>{{ $item->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
+                                    <td>{{ $item->exchangeStudent->esn_card_number ?? '-' }}</td>
+                                    <td>
+                                        @can('addParticipant', $trip)
+                                            <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-xs">Register</a>
+                                        @endcan
+                                        @if((isset($item->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
+                                                (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
+                                            <a href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                                        @endif
+                                        @can('removeParticipant', $trip)
+                                            <protectedbutton
+                                                url="{{ '/partak/trips/'. $trip->id_trip .'/cancel/' . $item->user->id_user }}"
+                                                protection-text="Remove {{ $item->getFullName() }} from event {{ $trip->event->name }}?"
+                                                button-style="btn btn-danger btn-xs"
+                                            >
+                                                Remove
+                                            </protectedbutton>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                        </div>
+                        @else
+                            No reservations
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        
         <div style="min-height: 300px">
             <div class="container">
                 <div class="row row-inner">

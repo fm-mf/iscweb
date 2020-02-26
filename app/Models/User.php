@@ -58,6 +58,18 @@ class User extends Authenticatable
         return $this->belongsToMany('\App\Models\Role', 'users_roles', 'id_user', 'id_role');
     }
 
+    public function reservations()
+    {
+        return $this->hasMany('\App\Models\EventReservation', 'id_user', 'id_user');
+    }
+
+    public function reservationByEvent(int $id_event)
+    {
+        return $this->reservations()
+            ->where('id_event', $id_event)
+            ->frist();
+    }
+
     public function isExchangeStudent()
     {
         return ExchangeStudent::where('id_user', $this->id_user)->exists();
@@ -175,6 +187,11 @@ class User extends Authenticatable
         $this->notify(new PasswordReset($token));
     }
 
+    public static function encryptPassword($email, $password)
+    {
+        return hash("sha512", $email . '@' . $password);
+    }
+    
     public function getHashIdAttribute()
     {
         return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->encode($this->id_user);

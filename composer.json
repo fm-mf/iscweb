@@ -5,6 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
+        "awobaz/compoships": "^1.1",
         "php": "^7.0.33",
         "barryvdh/laravel-dompdf": "^0.8.1",
         "fideloper/proxy": "~3.3",

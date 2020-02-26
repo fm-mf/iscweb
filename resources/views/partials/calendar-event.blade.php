@@ -16,10 +16,20 @@
     </div>
     <div class="col-sm-6 description">
         {!! $event->description !!}
+
         @isset($event->facebook_url)
             <p>
-                ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>Facebook event!</strong></a>
+                ► <a href="{{ $event->facebook_url }}" target="_blank" rel="noopener"><strong>@lang('web.calendar.facebook-event')</strong></a>
             </p>
-        @endif
+        @endisset
+        <p>
+            ► <a href="{{ $event->reservation_url }}">
+                @if ($event->reservations_enabled && $event->trip && !$event->trip->isFull() && $event->trip->registration_to > \Carbon\Carbon::now())
+                    <strong>@lang('web.calendar.online-reservation')</strong>
+                @else
+                    <strong>@lang('web.calendar.detail')</strong>
+                @endif
+            </a>
+        </p>
     </div>
 </li>

@@ -9,4 +9,9 @@ return [
         'description' => 'Zip file packed with our logo in SVG and PNG format.',
         'link' => 'Download logos',
     ],
+    'calendar' => [
+        'facebook-event' => 'Facebook event!',
+        'online-reservation' => 'Online reservation!',
+        'detail' => 'Detail!'
+    ],
 ];
