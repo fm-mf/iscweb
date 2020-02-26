@@ -45,10 +45,6 @@ class SettingsController extends Controller
 
     public function submitSettings(Request $request)
     {
-        if (array_key_exists("openingHoursMode", $request->all())) {
-            return $this->submitOpeningHours($request);
-        }
-
         $this->authorize('acl', 'settings.edit');
         $this->settingsValidator($request->all())->validate();
         
@@ -74,6 +70,25 @@ class SettingsController extends Controller
         }
 
         return back()->with(['successUpdate' => true]);
+    }
+
+    public function showOpeningHours()
+    {
+        $this->authorize("acl", "settings.edit");
+
+        $opms = OpeningHoursMode::listModes();
+        $openingHoursModes = array();
+        foreach ($opms as $opm) {
+            $openingHoursModes[$opm] = $opm;
+        }
+
+        return view('partak.settings.openingHours')->with([
+            'settings' => Settings::all(),
+            'openingHoursModes' => $openingHoursModes,
+            'openingHoursText' => OpeningHoursMode::getCurrentText(),
+            'showOpeningHours' => OpeningHoursMode::areCurrentHoursShown(),
+            'openingHoursData' => OpeningHoursMode::getCurrentHours(),
+        ]);
     }
 
     public function submitOpeningHours(Request $request)

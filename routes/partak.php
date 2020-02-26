@@ -79,6 +79,12 @@ Route::get('/users/preregistrations/{id}', 'OfficeRegistrationController@showPre
 
 Route::get('/settings', 'SettingsController@showSettings')->name('settings');
 Route::patch('/settings', 'SettingsController@submitSettings');
+
+Route::get('/settings/opening-hours', 'SettingsController@showOpeningHours')
+    ->name('settings.openingHours');
+Route::patch('/settings/opening-hours', 'SettingsController@submitOpeningHours')
+    ->name('settings.openingHours.save');
+
 Route::get('/openinghours', 'SettingsController@getOpeningHours');
 Route::get('/logs', 'LogsController@index')->name('logs');
 

@@ -67,55 +67,13 @@
             {{ Form::bsCheckbox('owTripsEnabled', 'Enable OW trips registration', '', '1', @$settings['owTripsEnabled']) }}
 
             {{ Form::bsCheckbox('owTripsRestricted', 'Allow only one OW trip per person', '', '1', @$settings['owTripsRestricted']) }}
-            
-            <div style="margin-bottom: 15px;">
-            <button type="button" id="editOpeningHoursButton" class="btn btn-warning">Edit opening hours</button>
-            </div>
+
             <div style="margin-bottom: 15px;">
             <input type="submit" value="Update settings" class="btn btn-primary btn-submit">
             </div>
 
             {{ Form::close() }}
         </div>
-    </div>
-
-    <div style="min-height: 250px"></div>
-
-    <div id="editOpeningHoursDialog" title="Edit opening hours">
-      {{ Form::model($settings, ['url' => 'partak/settings', 'method' => 'patch']) }}
-        <fieldset>
-          {{ Form::bsSelect('openingHoursMode', 'Opening hours mode', $openingHoursModes, $settings['openingHoursMode'], ['id' => 'openingHoursMode', 'style' => 'margin-bottom: 20px;', 'class' => 'ui-widget-content ui-corner-all']) }}
-
-           {{ Form::label('openingHoursText', 'Opening hours text', ['class' => 'control-label']) }}<br>
-           {{ Form::textarea('openingHoursText', $openingHoursText, ['class' => 'ui-widget-content ui-corner-all form-control']) }}<br>
-
-           {{ Form::label('showOpeningHours', 'Show daily hours', ['class' => 'control-label']) }}
-           {{ Form::checkbox( 'showOpeningHours', 'on', $showOpeningHours, ['id' => 'showOpeningHours', 'class' => 'ui-widget-content ui-corner-all', 'style' => 'margin-bottom: 20px;'] ) }}
-
-          <div id="openingHoursData">
-          <table id="openingHoursTable" style="width: 100%;">
-          @foreach ( $openingHoursData as $day => $value )
-            <tr>
-              <th>
-                <label for="openingHoursData-{{$day}}">{{$day}}</label>
-              </th>
-              <td class="pull-right" style="padding: 0 0 5px 0">
-                <input type="text" name="openingHoursData-{{ $day }}" id="openingHoursData-{{ $day }}" value="{{ $openingHoursData[ $day ] }}" class="form-control text ui-widget-content ui-corner-all">
-              </td>
-            </tr>
-          @endforeach
-          </table>
-          </div>
-
-          <div id="editOpeningHoursSubmitButton" style="margin-top: 10px; margin-bottom: 0;">
-            <input type="submit" value="Save changes" class="btn btn-primary btn-submit pull-left">
-            <button type="button" value="Cancel" id="dialogCancelButton" class="btn btn-danger btn-submit pull-right">Cancel</button>
-
-          </div>
-          {{ Form::close() }}
-        </fieldset>
-    </div>
-
     </div>
 @stop
 
@@ -129,5 +87,12 @@
 
     <script src="{{ asset('/js/picker.js') }}"></script>
     <script src="{{ asset('/js/picker.date.js') }}"></script>
-    <script src="{{ mix('/js/partak-settings-hours.js') }}"></script>
+
+    <script type="text/javascript">
+    $('.date').pickadate({
+        editable: true,
+        firstDay: 1,
+        format: 'dd mmm yyyy'
+    });
+    </script>
 @stop
