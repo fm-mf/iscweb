@@ -1,20 +1,60 @@
+.headbox {
+  background: #fff;
+  display: flex;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 5px 3px -3px #eee;
 
-.navbar-brand {
-  display: block;
+  h1 {
+    font-size: 150%;
+  }
 
-  & > img {
-    display: block;
-    height: 3.5rem;
-    margin-top: -0.3125rem;
-    margin-bottom: -0.3125rem;
+  .userbox {
+    > .btn {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
-.subnav {
-  box-shadow: 0 5px 3px -3px #ddd;
-  margin-bottom: 3rem;
+.partak-nav.navbar {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  z-index: 1;
+  flex-grow: 0;
 
-  .container {
-    justify-content: center;
+  .logo {
+    display: block;
+    padding: 0.5rem;
+
+    img {
+      min-width: 150px;
+    }
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    padding-right: 1rem;
+
+    .fas {
+      margin-right: 0.5rem;
+    }
+
+    .navbar-nav {
+      padding-left: 1rem;
+      display: none;
+    }
+
+    .active {
+      .navbar-nav {
+        display: block;
+      }
+    }
+  }
+
+  .navbar-collapse {
+    display: block !important;
   }
 }

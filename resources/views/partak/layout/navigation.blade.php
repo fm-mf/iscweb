@@ -1,32 +1,43 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-    <div class="container mb-0">
-        <div class="d-flex flex-grow-1 align-items-center">
-            <span class="w-100 d-lg-none"></span>
-            <a class="navbar-brand" href="{{ route('partak.index') }}">
-                <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
-            </a>
-            <span class="w-100 text-right">
-                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </span>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            @include('partak.components.navbar-nav', ['navItems' => [
-                ['title' => 'Dashboard', 'route' => 'partak.index'],
-                ['title' => 'Users', 'route' => 'partak.users', 'acl' => 'users.view'],
-                ['title' => 'Trips', 'route' => 'partak.trips'],
-                ['title' => 'Events', 'route' => 'partak.events', 'acl' => 'events.view'],
-                ['title' => 'Stats', 'route' => 'partak.stats.index', 'acl' => 'stats.view'],
-                ['title' => 'Settings', 'route' => 'partak.settings', 'acl' => 'settings.edit'],
-                ['title' => 'Alumni Newsletters', 'route' => 'alumni.newsletters.index', 'acl' => ['alumniNewsletter.create', 'alumniNewsletter.update', 'alumniNewsletter.delete']],
-                ['title' => 'Logs', 'route' => 'partak.logs', 'acl' => 'logs'],
-            ]])
-        </div>
-        <div class="collapse navbar-collapse ml-auto flex-grow-0">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url('user/logout') }}"><img src="{{ URL::asset( Auth::user()->person->avatar() ) }}" class="img-circle top-navigation-user" />Logout</a></li>
-            </ul>
-        </div>
+<nav class="partak-nav navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="logo" href="{{ route('partak.index') }}">
+        <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
+    </a>
+
+    <span class="w-100 text-right">
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </span>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        @include('partak.components.nav', ['items' => [
+            ['title' => 'Dashboard', 'icon' => 'columns', 'route' => 'partak.index'],
+            ['title' => 'Users', 'icon' => 'users', 'route' => 'partak.users', 'acl' => 'users.view', 'items' => [
+                ['title' => 'Buddies', 'route' => 'partak.users.buddies', 'acl' => 'buddy.view'],
+                ['title' => 'Exchange students', 'route' => 'partak.users.exchangeStudents', 'acl' => 'exchangeStudents.view'],
+                ['title' => 'Office registration', 'route' => 'partak.users.registration', 'acl' => 'exchangeStudents.register'],
+                ['title' => 'Preregistrations', 'route' => 'partak.users.preregistrations', 'acl' => 'exchangeStudents.register'],
+                ['title' => 'Roles', 'route' => 'partak.roles', 'acl' => 'roles.view'],
+                ['title' => 'Parťáks', 'route' => 'partak.users.partaks', 'acl' => 'roles.view'],
+            ]],
+            ['title' => 'Trips', 'icon' => 'image', 'route' => 'partak.trips', 'items' => [
+                ['title' => 'My trips', 'route' => 'partak.trips.my'],
+                ['title' => 'Active trips', 'route' => 'partak.trips', 'acl' => 'trips.view'],
+                ['title' => 'Add trip', 'route' => 'partak.trips.create', 'acl' => 'trips.add'],
+            ]],
+            ['title' => 'Events', 'icon' => 'glass-cheers', 'route' => 'partak.events', 'acl' => 'events.view', 'items' => [
+                ['title' => 'Active events', 'route' => 'partak.events'],
+                ['title' => 'Add event', 'route' => 'partak.events.create', 'acl' => 'events.add'],
+                ['title' => 'Add trip', 'route' => 'partak.trips.create', 'acl' => 'trips.add'],
+            ]],
+            ['title' => 'Stats', 'icon' => 'chart-pie', 'route' => 'partak.stats.index', 'acl' => 'stats.view'],
+            ['title' => 'Settings', 'icon' => 'cog', 'route' => 'partak.settings', 'acl' => 'settings.edit', 'items' => [
+                ['title' => 'General', 'route' => 'partak.settings', 'acl' => 'settings.edit'],
+                ['title' => 'Opening hours', 'route' => 'partak.settings.openingHours', 'acl' => 'settings.edit'],
+                ['title' => 'Contacts', 'route' => 'partak.settings.contacts.index', 'acl' => 'settings.edit']
+            ]],
+            ['title' => 'Alumni Newsletters', 'icon' => 'newspaper', 'route' => 'alumni.newsletters.index', 'acl' => ['alumniNewsletter.create', 'alumniNewsletter.update', 'alumniNewsletter.delete']],
+            ['title' => 'Logs', 'icon' => 'file', 'route' => 'partak.logs', 'acl' => 'logs'],
+        ]])
     </div>
 </nav>

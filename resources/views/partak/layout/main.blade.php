@@ -7,21 +7,39 @@
 @endsection
 
 @section('content')
-    @section('header')
-        @include("partak.layout.navigation")
-    @show
+    <div class="site-wrapper">
+        @section('header')
+            @include("partak.layout.navigation")
+        @show
 
-    <main class="site-wrapper">
-        @yield('page')
-        
-        <div id="push"></div>
-    </main>
+        <div class="content-wrapper">
+            <div class="headbox">
+                <span class="flex-grow-1 w-100"></span>
 
-    <div class="footer-wrapper" id="footer">
-        <div class="container">
-            <div class="row footer">
-                <div class="col-sm-12 align-center">
-                    &copy; International Student Club CTU in Prague, z.s. | za stránku zodpovídá Quality & Knowledge Manager (<a href="mailto:knowledge@isc.cvut.cz">knowledge@isc.cvut.cz</a>)
+                <div class="d-flex align-items-center p-3 flex-grow-1">
+                    <h1 class="p-0 mx-auto my-0">ParťákNet</h1>
+                </div>
+
+                <div class="flex-grow-1 w-100 d-flex">
+                    <div class="dropdown userbox ml-auto">
+                        <a href="#" class="dropdown-toggle btn" id="userMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{ URL::asset( Auth::user()->person->avatar() ) }}" class="img-circle top-navigation-user" /> {{ Auth::user()->person->getFullname() }}
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="userMenuLink">
+                            <a class="dropdown-item" href="{{ url('user/logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <main>
+                @yield('page')
+            </main>
+            
+            <div class="footer" id="footer">
+                <div class="container mb-0 text-center p-3">
+                    &copy; {{ $officialName }} | za stránku zodpovídá Quality & Knowledge Manager (<a href="mailto:knowledge@isc.cvut.cz">knowledge@isc.cvut.cz</a>)
                 </div>
             </div>
         </div>

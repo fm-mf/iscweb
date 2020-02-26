@@ -8,6 +8,10 @@
     )
 )
 <li class="nav-item{{ strpos(request()->route()->getName(), $route) === 0 ? " active" : "" }}">
-    <a class="nav-link" href="{{ route($route) }}">{{ $title }}</a>
+    <a class="nav-link" href="{{ route($route) }}"><i class="fas @if($icon)fa-{{ $icon }}@endif fa-fw"></i> {{ $title }}</a>
+
+    @if ($items)
+        @include("partak.components.nav", ['item' => $items])
+    @endif
 </li>
 @endif

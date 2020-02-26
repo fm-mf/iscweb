@@ -43,6 +43,10 @@ h3 {
       &:nth-child(even) {
         background: #f0f0f0;
       }
+
+      &:hover {
+        background: #dfdfdf;
+      }
     }
   }
 }
