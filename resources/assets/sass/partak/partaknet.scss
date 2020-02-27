@@ -67,24 +67,12 @@ html, body {
   border-radius: 2px;
 }
 
-.dashboard-header-wrapper {
-  width: 100%;
-  //height: 100%;
-  min-height: 450px;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255, 0.3);
-  background-color: #000;
-  background-image:url($imgPath + "speedy_a_dominik.jpg");
-  //background-image:url($imgPath + "keep-calm.jpg");
-  //background-image:url($imgPath + "speedy_ho_ma_velkyho.jpg");
-  //background-image:url($imgPath + "burgers2.jpg");
-  //background-image:url($imgPath + "devilAndAngel.jpg");
-  //background-image:url($imgPath + "burgers.jpg");
-  /*background-image:url($imgPath + "us.jpg");*/
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  color: #fff;
+.dashboard-header {
+  margin-bottom: 3rem;
+
+  > img {
+    width: 100%;
+  }
 }
 
 .title, .title-sp {

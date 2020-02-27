@@ -26,7 +26,7 @@
                             <img src="{{ URL::asset( Auth::user()->person->avatar() ) }}" class="img-circle top-navigation-user" /> {{ Auth::user()->person->getFullname() }}
                         </a>
 
-                        <div class="dropdown-menu" aria-labelledby="userMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenuLink">
                             <a class="dropdown-item" href="{{ url('user/logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </div>
