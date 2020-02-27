@@ -1,14 +1,14 @@
 <nav class="partak-nav navbar navbar-dark bg-dark navbar-expand-lg">
-    <a class="logo" href="{{ route('partak.index') }}">
-        <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
-    </a>
+    <div class="top-wrapper">
+        <a class="logo" href="{{ route('partak.index') }}">
+            <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
+        </a>
 
-    <span class="w-100 text-right">
-        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </span>
-
+        <a class="toggle-button btn" data-toggle="collapse" href="#navbarNav" role="button" aria-expanded="false" aria-controls="navbarNav">
+            <i class="fas fa-bars fa-lg"></i>
+        </a>
+    </div>
+    
     <div class="collapse navbar-collapse" id="navbarNav">
         @include('partak.components.nav', ['items' => [
             ['title' => 'Dashboard', 'icon' => 'columns', 'route' => 'partak.index'],
