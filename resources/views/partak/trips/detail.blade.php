@@ -191,7 +191,7 @@
                                 <td>
                                 @if((isset($item->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
                                             (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                        <a target="_blank" href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}">
+                                        <a href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}">
                                         {{ $item->getFullName(true) }}
                                     </a>
                                 @else
