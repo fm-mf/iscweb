@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-md-8">
                 <p>Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="{{ url('/wiki') }}">wiki</a>. Pro přihlášení použij uživatelské jméno <strong>User</strong> a heslo <strong>Vzdy*VIS*viC</strong>.</p>
 
                 <h2>Co se děje v ISC?</h2>
@@ -41,7 +41,7 @@
 
                 <img src="{{ URL::asset('img/partak/asana-guide.jpg') }}" id="asana-img">                
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 <h2>Důležité odkazy</h2>
                 <ul class="list-unstyled list-colored">
                     <li><a href="{{ url('/wiki') }}">DokuWiki</a>

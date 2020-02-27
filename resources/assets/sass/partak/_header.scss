@@ -97,4 +97,10 @@
       }
     }
   }
+
+  .headbox {
+    > span {
+      display: none;
+    }
+  }
 }
