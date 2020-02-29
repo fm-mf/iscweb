@@ -32,7 +32,7 @@ class EventReservation extends Model
     protected $dates = ['expires_at'];
 
     protected $fillable = [
-        'diet', 'medical_issues', 'notes', 'hash', 'deleted_by'
+        'id_event', 'id_user', 'diet', 'medical_issues', 'notes', 'hash', 'deleted_by'
     ];
 
     public function event()

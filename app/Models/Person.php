@@ -88,6 +88,18 @@ class Person extends Model
         }
     }
 
+    public function getSexIcon()
+    {
+        switch ($this->sex) {
+            case 'M':
+                return 'fas fa-mars fa-fw sex-icon';
+            case 'F':
+                return 'fas fa-venus fa-fw sex-icon';
+            default:
+                return 'fas fa-genderless fa-fw sex-icon';
+        }
+    }
+
     public function getEmailAttribute($value)
     {
         return $this->user->email;
