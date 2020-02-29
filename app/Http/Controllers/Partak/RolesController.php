@@ -19,9 +19,10 @@ class RolesController extends Controller
 
     public function showPartaks()
     {
-        $partaks = User::with('person')->whereHas('roles', function($query) {
-            $query->where('title', 'partak');
-        })->get();
+        $partaks = User::with('person', 'person.exchangeStudent', 'person.buddy')
+            ->whereHas('roles', function ($query) {
+                $query->where('title', 'partak');
+            })->get();
 
         return view('partak.roles.partaks')->with('partaks', $partaks);
     }
