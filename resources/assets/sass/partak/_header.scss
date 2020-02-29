@@ -73,8 +73,8 @@
 
 /* When the display is too small, move menu to the top */
 @media (max-width: map-get($grid-breakpoints, "lg")) {
-  .site-wrapper {
-    flex-wrap: wrap;
+  div.site-wrapper {
+    display: block;
   }
 
   .partak-nav.navbar {
