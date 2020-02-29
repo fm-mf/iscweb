@@ -26,6 +26,7 @@
   align-items: stretch;
   z-index: 1;
   flex-grow: 0;
+  width: $menu-width;
 
   .top-wrapper {
     display: flex;
