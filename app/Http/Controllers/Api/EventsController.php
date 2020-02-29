@@ -115,12 +115,14 @@ class EventsController extends Controller
         $custom = $request->input('custom');
         foreach ($event->questions()->get() as $question) {
             if (isset($custom[$question->id_question])) {
-                $value = new EventReservationAnswer([
+                $answer = EventReservationAnswer::firstOrCreate([
                     'id_event_reservation' => $reservation->id_event_reservation,
                     'id_question' => $question->id_question,
+                ], ['value' => '']);
+
+                $answer->update([
                     'value' => json_encode($custom[$question->id_question])
                 ]);
-                $value->save();
             }
         }
 

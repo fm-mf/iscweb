@@ -1,59 +1,74 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SemestersTableSeeder extends Seeder
 {
-
     /**
-     * Auto generated seed file
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        
-
-        \DB::table('semesters')->delete();
-        
-        \DB::table('semesters')->insert(array (
-            0 => 
-            array (
+        DB::table('semesters')->insert([
+            [
                 'id_semester' => 1,
                 'semester' => 'fall2014',
-            ),
-            1 => 
-            array (
-                'id_semester' => 3,
-                'semester' => 'fall2015',
-            ),
-            2 => 
-            array (
-                'id_semester' => 6,
-                'semester' => 'fall2016',
-            ),
-            3 => 
-            array (
+            ],
+            [
                 'id_semester' => 2,
                 'semester' => 'spring2015',
-            ),
-            4 => 
-            array (
+            ],
+            [
+                'id_semester' => 3,
+                'semester' => 'fall2015',
+            ],
+            [
                 'id_semester' => 4,
                 'semester' => 'spring2016',
-            ),
-            5 => 
-            array (
-                'id_semester' => 7,
-                'semester' => 'spring2017',
-            ),
-            6 => 
-            array (
+            ],
+            [
                 'id_semester' => 5,
                 'semester' => 'test',
-            ),
-        ));
-        
-        
+            ],
+            [
+                'id_semester' => 6,
+                'semester' => 'fall2016',
+            ],
+            [
+                'id_semester' => 7,
+                'semester' => 'spring2017',
+            ],
+            [
+                'id_semester' => 8,
+                'semester' => 'fall2017',
+            ],
+            [
+                'id_semester' => 9,
+                'semester' => 'spring2018',
+            ],
+            [
+                'id_semester' => 10,
+                'semester' => 'fall2018',
+            ],
+            [
+                'id_semester' => 11,
+                'semester' => 'spring2019',
+            ],
+            [
+                'id_semester' => 12,
+                'semester' => 'fall2019',
+            ],
+            [
+                'id_semester' => 13,
+                'semester' => 'spring2020',
+            ],
+            [
+                'id_semester' => 14,
+                'semester' => 'fall2020',
+            ],
+        ]);
     }
 }

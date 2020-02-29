@@ -26,8 +26,8 @@ class AddFormFieldsToEvents extends Migration
                 ->foreign('id_semester')
                 ->references('id_semester')
                 ->on('semesters')
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 
@@ -39,6 +39,8 @@ class AddFormFieldsToEvents extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
+            $table->dropForeign(['id_semester']);
+
             $table->dropColumn('id_semester');
             $table->dropColumn('ow');
             $table->dropColumn('reservations_enabled');

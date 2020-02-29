@@ -40,6 +40,12 @@ class EventReservationAnswer extends Model
         );
     }
 
+    public static function findByReservationAndQuestion(int $id_event_reservation, int $id_question)
+    {
+        return EventReservationAnswer::where('id_event_reservation', $id_event_reservation)
+            ->where('id_question', $id_question);
+    }
+
     public function getDisplayValue()
     {
         $questionData = \json_decode($this->question->data);

@@ -30,20 +30,20 @@ class CreateEventReservationsTable extends Migration
                 ->foreign('id_event')
                 ->references('id_event')
                 ->on('events')
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table
                 ->foreign('id_user')
                 ->references('id_user')
                 ->on('users')
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table
                 ->foreign('deleted_by')
                 ->references('id_user')
                 ->on('users')
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 
