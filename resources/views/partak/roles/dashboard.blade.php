@@ -14,33 +14,24 @@
         </div>
     @endif
 
-    <div class="container">
-        <div class="row">
-            <?php $i = 1; ?>
-            @foreach($roles as $role)
-                <div class="col-sm-4">
-                <h4>{{ $role->title }}</h4>
-                    <ul class="list-group">
-                        @foreach($role->users as $user)
-                            <li class="list-group-item">
-                                {{ $user->person->first_name }} {{ $user->person->last_name }}
-                                <span style="float:right;">
-                                <protectedbutton url="{{ url('partak/users/roles/remove/' . $user->id_user . '/' . $role->id_role) }}"
-                                                    protection-text="Remove role {{ $role->title }} from {{ $user->person->first_name }} {{ $user->person->last_name }}?"
-                                                    button-style="btn-danger btn-xs align-right">Remove</protectedbutton></span>
-
-                            </li>
-                        @endforeach
-                    </ul>
+    @foreach ($roles as $role)
+        <div class="container">
+            <h4>{{ $role['title'] }} <span class="badge badge-primary">{{ $role['users']->count() }}</span></h4>
+            <div class="roles-users">
+            @foreach($role['users'] as $user)
+                <div class="col-md-5 d-flex py-1 align-items-center">
+                    {{ $user->person->getFullName(false) }}
+                    <div class="ml-auto">
+                        <protectedbutton url="{{ url('partak/users/roles/remove/' . $user->id_user . '/' . $role['id_role']) }}"
+                            protection-text="Remove role {{ $role['title'] }} from {{ $user->person->first_name }} {{ $user->person->last_name }}?"
+                            button-style="btn-danger btn-sm"
+                        >
+                            <i class="fas fa-times"></i> Remove
+                        </protectedbutton>
+                    </div>
                 </div>
-                @if($i % 3 == 0)
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-                    @endif
-                    <?php ++$i ?>
             @endforeach
+            </div>
         </div>
-    </div>
+    @endforeach
 @stop
