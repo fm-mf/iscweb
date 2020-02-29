@@ -2,30 +2,22 @@
 @section('inner-content')
 
     @if(session('success'))
-        <div class="row">
-            <div class="row-inner">
-                <div class="success">
-                    <i class="fas fa-check mr-1"></i>{{ session('success') }}
-                </div>
-            </div>
+        <div class="success top-message">
+            <i class="fas fa-check mr-1"></i>{{ session('success') }}
         </div>
     @endif
 
 
-    <div class="container">
-        <div class="row row-inner" id="form">
-            <div class="col-md-8">
-                <h2>Edit trip <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a></h2>
+    <div class="container" id="form">
+        <h2>Edit trip <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a></h2>
 
-                {{ Form::model($event, ['url' => 'partak/trips/edit/'. $trip->id_trip, 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
+        {{ Form::model($event, ['url' => 'partak/trips/edit/'. $trip->id_trip, 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
 
-                @include('partak.trips.editForm',['trips' => true])
+        @include('partak.trips.editForm',['trips' => true])
 
-                {{ Form::bsSubmit('Update event') }}
+        {{ Form::bsSubmit('Update event') }}
 
-                {{ Form::close() }}
-            </div>
-        </div>
+        {{ Form::close() }}
     </div>
 @stop
 

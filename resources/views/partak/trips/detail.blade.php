@@ -179,9 +179,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Sex</th>
                                 <th>Phone</th>
-                                <th>ESN card number</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -189,12 +187,11 @@
                             @foreach($reservations as $item)
                                 <tr>
                                     <td>
+                                        <i class="{{ $item->getSexIcon() }}"></i>
                                         @include('partak.components.user-link', ['user' => $item])
                                     </td>
                                     <td>{{ $item->user->email }}</td>
-                                    <td>{{ $item->getSex() }}</td>
                                     <td>{{ $item->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
-                                    <td>{{ $item->exchangeStudent->esn_card_number ?? '-' }}</td>
                                     <td class="text-right">
                                         @can('addParticipant', $trip)
                                             <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-sm">Register</a>
@@ -228,9 +225,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Sex</th>
                                 <th>Phone</th>
-                                <th>ESN card number</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -238,12 +233,11 @@
                             @foreach($particip as $participant)
                                 <tr>
                                     <td>
+                                        <i class="{{ $item->getSexIcon() }}"></i>
                                         @include('partak.components.user-link', ['user' => $participant])
                                     </td>
                                     <td>{{ $participant->user->email }}</td>
-                                    <td>{{ $participant->getSex() }}</td>
                                     <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
-                                    <td>{{ $participant->exchangeStudent->esn_card_number ?? '-' }}</td>
                                     <td class="text-right">
                                         @can('viewPayment', $trip)
                                             <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-sm">Payment</a>
