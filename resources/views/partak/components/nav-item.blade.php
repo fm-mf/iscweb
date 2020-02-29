@@ -11,9 +11,9 @@
 <?php $id = str_replace('.', '-', $route) ?>
 
 <li class="nav-item{{ $active ? " active" : "" }}">
-    @if (!$items)<a class="nav-link"@if ($target) target="{{ $target }}"@endif href="{{ route($route) }}">@endif
-    @if ($items)<a class="nav-link" href="#{{ $id }}" role="button" data-toggle="collapse" aria-expanded="{{ $active ? 'true' : 'false' }}" aria-controls="{{ $id }}">@endif
-        <i class="fas @if($icon)fa-{{ $icon }}@endif fa-fw"></i> {!! $title !!}
+    @if (!$items)<a class="nav-link d-flex align-items-center"@if ($target) target="{{ $target }}"@endif href="{{ route($route) }}">@endif
+    @if ($items)<a class="nav-link d-flex align-items-center" href="#{{ $id }}" role="button" data-toggle="collapse" aria-expanded="{{ $active ? 'true' : 'false' }}" aria-controls="{{ $id }}">@endif
+        <i class="fas @if($icon)fa-{{ $icon }}@endif fa-fw"></i> {{ $title }}@if($target === '_blank') <i class="fas fa-external-link-alt fa-xs ml-2"></i>@endif
     </a>
 
     @if ($items)

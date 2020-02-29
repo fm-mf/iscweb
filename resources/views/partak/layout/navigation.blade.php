@@ -38,8 +38,8 @@
             ['title' => 'Alumni Newsletters', 'icon' => 'newspaper', 'route' => 'alumni.newsletters.index', 'acl' => ['alumniNewsletter.create', 'alumniNewsletter.update', 'alumniNewsletter.delete']],
             ['title' => 'Logs', 'icon' => 'file', 'route' => 'partak.logs', 'acl' => 'logs'],
             ['spacer' => true],
-            ['title' => 'Wiki <i class="fas fa-external-link-alt ml-1"></i>', 'icon' => 'question-circle', 'route' => 'wiki', 'target' => '_blank'],
-            ['title' => 'NAS <i class="fas fa-external-link-alt ml-1"></i>', 'icon' => 'photo-video', 'route' => 'nas', 'target' => '_blank'],
+            ['title' => 'Wiki', 'icon' => 'question-circle', 'route' => 'wiki', 'target' => '_blank'],
+            ['title' => 'NAS', 'icon' => 'photo-video', 'route' => 'nas', 'target' => '_blank'],
         ]])
     </div>
 </nav>
