@@ -21,14 +21,13 @@
                 ['title' => 'Parťáks', 'route' => 'partak.users.partaks', 'acl' => 'roles.view'],
             ]],
             ['title' => 'Trips', 'icon' => 'image', 'route' => 'partak.trips', 'items' => [
+                ['title' => 'Active trips', 'route' => 'partak.trips.list', 'acl' => 'trips.view'],
                 ['title' => 'My trips', 'route' => 'partak.trips.my'],
-                ['title' => 'Active trips', 'route' => 'partak.trips', 'acl' => 'trips.view'],
                 ['title' => 'Add trip', 'route' => 'partak.trips.create', 'acl' => 'trips.add'],
             ]],
             ['title' => 'Events', 'icon' => 'glass-cheers', 'route' => 'partak.events', 'acl' => 'events.view', 'items' => [
-                ['title' => 'Active events', 'route' => 'partak.events'],
+                ['title' => 'Active events', 'route' => 'partak.events.list'],
                 ['title' => 'Add event', 'route' => 'partak.events.create', 'acl' => 'events.add'],
-                ['title' => 'Add trip', 'route' => 'partak.trips.create', 'acl' => 'trips.add'],
             ]],
             ['title' => 'Stats', 'icon' => 'chart-pie', 'route' => 'partak.stats.index', 'acl' => 'stats.view'],
             ['title' => 'Settings', 'icon' => 'cog', 'route' => 'partak.settings', 'acl' => 'settings.edit', 'items' => [

@@ -9,7 +9,6 @@
 
 Route::get('/', 'DashboardController@index')->name('index');
 
-Route::get('/users', 'DashboardController@users')->name('users');
 Route::prefix('/users')
     ->name('users.')
     ->group(function () {
@@ -57,10 +56,10 @@ Route::prefix('/users')
             ->name('preregistration');
     });
 
-Route::get('/trips', 'DashboardController@trips')->name('trips');
 Route::prefix('/trips')
     ->name('trips.')
     ->group(function () {
+        Route::get('/', 'DashboardController@trips')->name('list');
         Route::post('/upload-option', 'TripController@uploadOptionImage')->name('uploadOption');
         Route::get('/upcoming', 'TripController@showUpcoming')->name('upcoming');
         Route::get('/mytrips', 'TripController@showMyTrips')->name('my');
@@ -82,10 +81,10 @@ Route::prefix('/trips')
         Route::get('/{id_event}/payment/{id_payment}', 'TripController@showPaymentDetail')->name('pariticpant.detail');
     });
 
-Route::get('/events', 'EventController@showDashboard')->name('events');
 Route::prefix('/events')
     ->name('events.')
     ->group(function () {
+        Route::get('/', 'EventController@showDashboard')->name('list');
         Route::get('/edit/{id_event}', 'EventController@showEditForm')->name('edit');
         Route::patch('/edit/{id_event}', 'EventController@submmitEditForm')->name('doEdit');
         Route::get('/create', 'EventController@showCreateForm')->name('create');
