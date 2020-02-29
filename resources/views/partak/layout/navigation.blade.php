@@ -17,7 +17,7 @@
                 ['title' => 'Exchange students', 'route' => 'partak.users.exchangeStudents', 'acl' => 'exchangeStudents.view'],
                 ['title' => 'Office registration', 'route' => 'partak.users.registration', 'acl' => 'exchangeStudents.register'],
                 ['title' => 'Preregistrations', 'route' => 'partak.users.preregistrations', 'acl' => 'exchangeStudents.register'],
-                ['title' => 'Roles', 'route' => 'partak.roles', 'acl' => 'roles.view'],
+                ['title' => 'Roles', 'route' => 'partak.users.roles', 'acl' => 'roles.view'],
                 ['title' => 'Parťáks', 'route' => 'partak.users.partaks', 'acl' => 'roles.view'],
             ]],
             ['title' => 'Trips', 'icon' => 'image', 'route' => 'partak.trips', 'items' => [
