@@ -180,35 +180,38 @@ class TripController extends Controller
                 $response->successUpdate = $trip->getStatusMessage($result, $part);
                 $response->error = null;
 
-                $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
-                    ->withTrashed()
-                    ->first();
-                
-                if (!$reservation) {
-                    // Somehow we will not receive primary key here :(
-                    $reservation = EventReservation::create([
-                        'id_event' => $trip->id_event,
-                        'id_user' => $id_part,
-                    ]);
-                    $reservation->delete();
-
-                    // We have to fetch the reservation to get proper primary key due to weird laravel bug
+                if ($trip->event->reservations_enabled) {
                     $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
                         ->withTrashed()
                         ->first();
-                }
-
-                $custom = $request->input('custom');
-                foreach ($trip->questions as $question) {
-                    if (isset($custom[$question->id_question])) {
-                        $answer = EventReservationAnswer::firstOrCreate([
-                            'id_event_reservation' => $reservation->id_event_reservation,
-                            'id_question' => $question->id_question
-                        ], ['value' => '']);
-
-                        $answer->update([
-                            'value' => json_encode($custom[$question->id_question])
+                    
+                    if (!$reservation) {
+                        // Somehow we will not receive primary key here :(
+                        $reservation = EventReservation::create([
+                            'id_event' => $trip->id_event,
+                            'id_user' => $id_part,
+                            'deleted_by' => Auth::id()
                         ]);
+
+                        // We have to fetch the reservation to get proper primary key due to weird laravel bug
+                        $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
+                            ->withTrashed()
+                            ->first();
+                        $reservation->delete();
+                    }
+
+                    $custom = $request->input('custom');
+                    foreach ($trip->questions as $question) {
+                        if (isset($custom[$question->id_question])) {
+                            $answer = EventReservationAnswer::firstOrCreate([
+                                'id_event_reservation' => $reservation->id_event_reservation,
+                                'id_question' => $question->id_question
+                            ], ['value' => '']);
+
+                            $answer->update([
+                                'value' => json_encode($custom[$question->id_question])
+                            ]);
+                        }
                     }
                 }
             } else {
