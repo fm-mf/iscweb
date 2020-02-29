@@ -1,39 +1,44 @@
 <?php $buddy = $user->buddy ?>
 <?php $exStudent = $user->exchangeStudent ?>
 
+@if(!isset($noTitle) || !$noTitle)
 <div class="d-flex align-items-center mb-2">
     <h2 class="mb-0">{{ $user->person->first_name }} <span class="last-name">{{ $user->person->last_name }}</span></h2>
+    {{-- @TODO: Is this useful --}}
     @if($buddy)<span class="badge badge-info ml-2">Buddy</span>@endif
     @if($exStudent)<span class="badge badge-success ml-2">Exchange student</span>@endif
-    @if($buddy)
-    @can('acl', 'buddy.edit')
-        <a
-            href="{{ url('partak/users/buddies/edit/' . $user->id_user) }}"
-            class="btn btn-xs btn-success ml-4"
-        >
-            <i class="fas fa-pen"></i> Edit
-        </a>
-    @endcan
-    @elseif($exStudent)
-        @can('acl', 'exchangeStudents.edit')
+    @if(!isset($edit) || $edit)
+        @if($buddy)
+        @can('acl', 'buddy.edit')
             <a
-                href="{{ url('partak/users/exchange-students/edit/' . $user->id_user) }}"
-                class="btn btn-xs btn-success ml-3"
+                href="{{ url('partak/users/buddies/edit/' . $user->id_user) }}"
+                class="btn btn-xs btn-success ml-4"
             >
                 <i class="fas fa-pen"></i> Edit
             </a>
         @endcan
-    @endif
-    @if(isset($buddyStudent))
-        <protectedbutton
-            url="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$buddyStudent->id_user) }}"
-            protection-text="Remove buddy {{ $buddy->person->getFullName() }}?"
-            button-style="btn btn-danger ml-3"
-        >
-            <i class="fas fa-times"></i> Remove
-        </protectedbutton>
+        @elseif($exStudent)
+            @can('acl', 'exchangeStudents.edit')
+                <a
+                    href="{{ url('partak/users/exchange-students/edit/' . $user->id_user) }}"
+                    class="btn btn-xs btn-success ml-3"
+                >
+                    <i class="fas fa-pen"></i> Edit
+                </a>
+            @endcan
+        @endif
+        @if(isset($buddyStudent))
+            <protectedbutton
+                url="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$buddyStudent->id_user) }}"
+                protection-text="Remove buddy {{ $buddy->person->getFullName() }}?"
+                button-style="btn btn-danger ml-3"
+            >
+                <i class="fas fa-times"></i> Remove
+            </protectedbutton>
+        @endif
     @endif
 </div>
+@endif
 
 <div class="row container mb-0">
     <div class="col-2-sm">
@@ -47,6 +52,12 @@
                     ? $exStudent->country
                     : null)
         ?>
+
+        @if(isset($noTitle) && $noTitle)
+        <div class="info-line">
+            <h4>{{ $user->person->first_name }} <span class="last-name">{{ $user->person->last_name }}</span></h4>
+        </div>
+        @endif
 
         @if($country)
         <div class="info-line">

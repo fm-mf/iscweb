@@ -9,15 +9,17 @@
 
 
     <div class="container" id="form">
-        <h2>Edit trip <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a></h2>
+        <div class="col-xl-8">
+            <h2>Edit trip <a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}" role="button" class="btn btn-info btn-xs">Detail</a></h2>
 
-        {{ Form::model($event, ['url' => 'partak/trips/edit/'. $trip->id_trip, 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
+            {{ Form::model($event, ['url' => 'partak/trips/edit/'. $trip->id_trip, 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
 
-        @include('partak.trips.editForm',['trips' => true])
+            @include('partak.trips.editForm',['trips' => true])
 
-        {{ Form::bsSubmit('Update event') }}
+            {{ Form::bsSubmit('Update event') }}
 
-        {{ Form::close() }}
+            {{ Form::close() }}
+        </div>
     </div>
 @stop
 
