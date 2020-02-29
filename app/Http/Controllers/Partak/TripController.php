@@ -61,7 +61,10 @@ class TripController extends Controller
             'reservations.exchangeStudent',
             'reservations.buddy',
             'reservations.user.person',
-            'event'
+            'event',
+            'organizers.person',
+            'organizers.person.buddy',
+            'organizers.person.exchangeStudent'
         )->find($id);
 
         $this->authorize('view', $trip);

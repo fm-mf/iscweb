@@ -174,52 +174,45 @@
                 <div class="tab-pane active show" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
                     @if($reservations->count() > 0)
                     <div class="table-responsive">
-                    <table class="table p-table">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Sex</th>
-                            <th>Phone</th>
-                            <th>ESN card number</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($reservations as $item)
+                        <table class="table p-table">
+                            <thead>
                             <tr>
-                                <td>
-                                @if((isset($item->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
-                                            (isset($item->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                        <a href="{{ ($item->exchangeStudent ?? $item->buddy)->getDetailLink() }}">
-                                        {{ $item->getFullName(true) }}
-                                    </a>
-                                @else
-                                    {{ $item->getFullName(true) }}
-                                @endif
-                                </td>
-                                <td>{{ $item->user->email }}</td>
-                                <td>{{ $item->getSex() }}</td>
-                                <td>{{ $item->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
-                                <td>{{ $item->exchangeStudent->esn_card_number ?? '-' }}</td>
-                                <td class="text-right">
-                                    @can('addParticipant', $trip)
-                                        <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-sm">Register</a>
-                                    @endcan
-                                    @can('removeParticipant', $trip)
-                                        <protectedbutton
-                                            url="{{ '/partak/trips/'. $trip->id_trip .'/cancel/' . $item->user->id_user }}"
-                                            protection-text="Remove {{ $item->getFullName() }} from event {{ $trip->event->name }}?"
-                                            button-style="btn btn-danger btn-sm"
-                                        >
-                                            Remove
-                                        </protectedbutton>
-                                    @endcan
-                                </td>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Sex</th>
+                                <th>Phone</th>
+                                <th>ESN card number</th>
+                                <th></th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            @foreach($reservations as $item)
+                                <tr>
+                                    <td>
+                                        @include('partak.components.user-link', ['user' => $item])
+                                    </td>
+                                    <td>{{ $item->user->email }}</td>
+                                    <td>{{ $item->getSex() }}</td>
+                                    <td>{{ $item->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
+                                    <td>{{ $item->exchangeStudent->esn_card_number ?? '-' }}</td>
+                                    <td class="text-right">
+                                        @can('addParticipant', $trip)
+                                            <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-sm">Register</a>
+                                        @endcan
+                                        @can('removeParticipant', $trip)
+                                            <protectedbutton
+                                                url="{{ '/partak/trips/'. $trip->id_trip .'/cancel/' . $item->user->id_user }}"
+                                                protection-text="Remove {{ $item->getFullName() }} from event {{ $trip->event->name }}?"
+                                                button-style="btn btn-danger btn-sm"
+                                            >
+                                                Remove
+                                            </protectedbutton>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                     @else
                         No reservations
@@ -229,8 +222,7 @@
             
             <div class="tab-pane{{ !$trip->event->reservations_enabled ? " show active" : "" }}" id="participants" role="tabpanel" aria-labelledby="participants-tab">
                 @if($particip->count() > 0)    
-                    <div class="panel panel-default">
-                        <div class="table-responsive">
+                    <div class="table-responsive">
                         <table class="table p-table">
                             <thead>
                             <tr>
@@ -246,12 +238,7 @@
                             @foreach($particip as $participant)
                                 <tr>
                                     <td>
-                                    @if((isset($participant->buddy) && Auth::user()->can('acl', 'buddy.view')) ||
-                                            (isset($participant->exchangeStudent) && Auth::user()->can('acl', 'exchangeStudents.view')))
-                                        <a href="{{ ($participant->exchangeStudent ?? $participant->buddy)->getDetailLink() }}">{{ $participant->getFullName(true) }}</a>
-                                    @else
-                                        {{ $participant->getFullName(true)}}
-                                    @endif
+                                        @include('partak.components.user-link', ['user' => $participant])
                                     </td>
                                     <td>{{ $participant->user->email }}</td>
                                     <td>{{ $participant->getSex() }}</td>
@@ -273,7 +260,6 @@
                             @endforeach
                             </tbody>
                         </table>
-                        </div>
                     </div>
                 @else Event doesn't have participants
                 @endif
