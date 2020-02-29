@@ -1,12 +1,8 @@
 @extends('partak.users.layout')
 @section('inner-content')
     @if (session('removeSuccess'))
-        <div class="row">
-            <div class="row-inner">
-                <div class="success">
-                    <i class="fas fa-check mr-1"></i> {{ session('removeSuccess') }}
-                </div>
-            </div>
+        <div class="success top-message">
+            <i class="fas fa-check mr-1"></i> {{ session('removeSuccess') }}
         </div>
     @endif
 
