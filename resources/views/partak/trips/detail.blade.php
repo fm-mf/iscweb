@@ -113,36 +113,36 @@
 
     <div class="container">
         <ul class="nav nav-tabs" role="tablist">
-            @if ($trip->event->reservations_enabled)
             <li class="nav-item">
                 <a
                     class="nav-link active"
+                    id="participants-tab"
+                    data-toggle="tab"
+                    href="#participants"
+                    role="tab"
+                    aria-controls="participants"
+                    aria-selected="true"
+                >
+                    Participants
+                    <span class="badge badge-pill badge-info">{{ $particip->count() }}</span>
+                </a>
+            </li>
+            @if ($trip->event->reservations_enabled)
+            <li class="nav-item">
+                <a
+                    class="nav-link"
                     id="reservations-tab"
                     data-toggle="tab"
                     href="#reservations"
                     role="tab"
                     aria-controls="reservations"
-                    aria-selected="true"
+                    aria-selected="false"
                 >
                     Reservations
                     <span class="badge badge-pill badge-info">{{ $reservations->count() }}</span>
                 </a>
             </li>
             @endif
-            <li class="nav-item">
-                <a
-                    class="nav-link{{ !$trip->event->reservations_enabled ? " active" : "" }}"
-                    id="participants-tab"
-                    data-toggle="tab"
-                    href="#participants"
-                    role="tab"
-                    aria-controls="participants"
-                    aria-selected="{{ !$trip->event->reservations_enabled ? "true" : "false" }}"
-                >
-                    Participants
-                    <span class="badge badge-pill badge-info">{{ $particip->count() }}</span>
-                </a>
-            </li>
             <div class="ml-auto">
                 <div class="dropdown">
                     <button
@@ -170,8 +170,50 @@
         </ul>
 
         <div class="tab-content">
+            <div class="tab-pane show active" id="participants" role="tabpanel" aria-labelledby="participants-tab">
+                @if($particip->count() > 0)    
+                    <div class="table-responsive">
+                        <table class="table p-table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($particip as $participant)
+                                <tr>
+                                    <td>
+                                        <i class="{{ $participant->getSexIcon() }}"></i>
+                                        @include('partak.components.user-link', ['user' => $participant])
+                                    </td>
+                                    <td>{{ $participant->user->email }}</td>
+                                    <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
+                                    <td class="text-right">
+                                        @can('viewPayment', $trip)
+                                            <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-sm">Payment</a>
+                                        @endcan
+                                        @if($trip->isOpen())
+                                            @can('removeParticipant', $trip)
+                                            <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
+                                                                protection-text="Remove {{ $participant->getFullName() }} from event {{ $trip->event->name }}?"
+                                                                button-style="btn btn-danger btn-sm">Remove</protectedbutton>
+                                            @endcan
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @else Event doesn't have participants
+                @endif
+            </div>
+
             @if ($trip->event->reservations_enabled)
-                <div class="tab-pane active show" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
+                <div class="tab-pane" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
                     @if($reservations->count() > 0)
                     <div class="table-responsive">
                         <table class="table p-table">
@@ -216,48 +258,6 @@
                     @endif
                 </div>
             @endif
-            
-            <div class="tab-pane{{ !$trip->event->reservations_enabled ? " show active" : "" }}" id="participants" role="tabpanel" aria-labelledby="participants-tab">
-                @if($particip->count() > 0)    
-                    <div class="table-responsive">
-                        <table class="table p-table">
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($particip as $participant)
-                                <tr>
-                                    <td>
-                                        <i class="{{ $item->getSexIcon() }}"></i>
-                                        @include('partak.components.user-link', ['user' => $participant])
-                                    </td>
-                                    <td>{{ $participant->user->email }}</td>
-                                    <td>{{ $participant->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
-                                    <td class="text-right">
-                                        @can('viewPayment', $trip)
-                                            <a href="{{ url('partak/trips/'. $trip->id_trip .'/payment/' .$participant->pivot->id) }}" role="button" class="btn btn-info btn-sm">Payment</a>
-                                        @endcan
-                                        @if($trip->isOpen())
-                                            @can('removeParticipant', $trip)
-                                            <protectedbutton url="{{ url('partak/trips/'. $trip->id_trip .'/remove/' . $participant->id_user) }}"
-                                                                protection-text="Remove {{ $participant->getFullName() }} from event {{ $trip->event->name }}?"
-                                                                button-style="btn btn-danger btn-sm">Remove</protectedbutton>
-                                            @endcan
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                @else Event doesn't have participants
-                @endif
-            </div>
         </div>
     </div>
 @stop
