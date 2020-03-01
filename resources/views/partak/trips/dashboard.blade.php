@@ -9,16 +9,14 @@
     <div class="container">
         <h3>Active trips</h3>
         @if($visibleTrips->count() > 0)
-            <div class="panel panel-default">
-                @include('partak.trips.tripsTable', ['Trips' => $visibleTrips])
-            </div>
+             @include('partak.trips.tripsTable', ['Trips' => $visibleTrips])
         @endif
     </div>
 
     <div class="container">
         <a data-toggle="collapse" href="#collapseT1"><h3>Old Trips</h3></a>
         @if($oldTrips->count() > 0)
-            <div class="panel panel-collapse collapse" id="collapseT1">
+            <div class="collapse" id="collapseT1">
                 @include('partak.trips.tripsTable', ['Trips' => $oldTrips,])
             </div>
         @endif
