@@ -83,27 +83,19 @@
                 <div class="row">
                 @if($trip->type === 'exchange' || $trip->type === 'ex+buddy')
                 <div class="col-md-6">
-                    @include('partak.users.officeRegistration.search',[
-                        'label' => 'Add Exchange student',
+                    @include('partak.components.student-search',[
+                        'label' => 'Add an Exchange student',
                         'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}'),
+                        'create' => false
                     ])
                 </div>
                 @endif
                 @if($trip->type === 'buddy' || $trip->type === 'ex+buddy')
                 <div class="col-md-6">
-                    <h3>Add Buddy</h3>
-                    <autocomplete url="{{ url('api/autocomplete/buddies') }}"
-                        :fields="[
-                            {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
-                            {title: 'Name', columns: ['person.first_name', 'person.last_name']},
-                            {title: 'Email', columns: ['person.user.email']},
-                        ]"
-                        :topline="['person.first_name', 'person.last_name']"
-                        :subline="['person.user.email']"
-                        placeholder="Search Buddy..."
-                        target="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}' }}"
-                        :image="{url: '/avatars/', file: 'person.user.avatar'}">
-                    </autocomplete>
+                    @include('partak.components.buddy-search',[
+                        'label' => 'Add a Buddy',
+                        'target' => url('/partak/trips/detail/'. $trip->id_trip .'/add/{id_user}')
+                    ])
                 </div>
                 @endif
                 </div>

@@ -8,7 +8,6 @@ use App\Facades\Settings ;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use ReflectionClass;
 
 class Item
 {
@@ -32,14 +31,21 @@ class AutocompleteController extends Controller
     {
         $this->authorize('acl', 'users.view');
 
-        $search = ExchangeStudent::findAll()->bySemester(Settings::get('currentSemester'));
-        $fullName = strpos($request->input, ' ') !== false
-            && in_array('person.first_name', $request->field['columns'])
-            && in_array('person.last_name', $request->field['columns']);
-        $search = $this->query($search, $request->field, $request->input, $fullName)->limit($request->limit);
+        $filter = (object)$this->validateRequest($request);
 
+        $search = ExchangeStudent::findAll();
+        if (!$filter->allSemesters) {
+            $search = $search->bySemester(Settings::get('currentSemester'));
+        }
+        
+        $fullName = strpos($filter->input, ' ') !== false
+            && in_array('person.first_name', $filter->field['columns'])
+            && in_array('person.last_name', $filter->field['columns']);
+        
+        $search = $this->query($search, $filter->field, $filter->input, $fullName)
+            ->limit($filter->limit);
 
-        $link = $request->target;
+        $link = $filter->target;
         if ($link) {
             preg_match('/{.*}/', $link, $matches);
             $targetColumn = substr($matches[0], 1, -1);
@@ -51,8 +57,13 @@ class AutocompleteController extends Controller
                 $targetField = $this->getColumnValue($student, $targetColumn);
                 $thisLink = preg_replace('/{.*}/', $targetField, $link);
             }
-            $items[] = new Item($this->getline($student, $request->topline), $this->getline($student, $request->subline),
-                $thisLink, $student->person->avatar());
+
+            $items[] = new Item(
+                $this->getline($student, $request->topline),
+                $this->getline($student, $request->subline),
+                $thisLink,
+                $student->person->avatar()
+            );
         }
 
         return response()->json([
@@ -64,13 +75,15 @@ class AutocompleteController extends Controller
     {
         $this->authorize('acl', 'users.view');
 
-        $search = Buddy::findAll();
-        $fullName = strpos($request->input, ' ') !== false
-            && in_array('person.first_name', $request->field['columns'])
-            && in_array('person.last_name', $request->field['columns']);
-        $search = $this->query($search, $request->field, $request->input, $fullName)->limit($request->limit);
+        $filter = (object)$this->validateRequest($request);
 
-        $link = $request->target;
+        $search = Buddy::findAll();
+        $fullName = strpos($filter->input, ' ') !== false
+            && in_array('person.first_name', $filter->field['columns'])
+            && in_array('person.last_name', $filter->field['columns']);
+        $search = $this->query($search, $filter->field, $filter->input, $fullName)->limit($filter->limit);
+
+        $link = $filter->target;
         if ($link) {
             preg_match('/{.*}/', $link, $matches);
             $targetColumn = substr($matches[0], 1, -1);
@@ -82,8 +95,12 @@ class AutocompleteController extends Controller
                 $targetField = $this->getColumnValue($buddy, $targetColumn);
                 $thisLink = preg_replace('/{.*}/', $targetField, $link);
             }
-            $items[] = new Item($this->getline($buddy, $request->topline), $this->getline($buddy, $request->subline),
-                $thisLink, $buddy->person->avatar());
+            $items[] = new Item(
+                $this->getline($buddy, $filter->topline),
+                $this->getline($buddy, $filter->subline),
+                $thisLink,
+                $buddy->person->avatar()
+            );
         }
 
         return response()->json([
@@ -93,9 +110,9 @@ class AutocompleteController extends Controller
 
     private function query($query, $field, $input, $fullName = false)
     {
-        $query->where(function($query) use ($field, $input, $fullName) {
+        $query->where(function ($query) use ($field, $input, $fullName) {
             $firstQ = true;
-            if($fullName){
+            if ($fullName) {
                 $name = str_replace(' ', '%', $input);
                 $table = 'person';
                 $col = ['first_name', 'last_name'];
@@ -104,9 +121,7 @@ class AutocompleteController extends Controller
                 })->orWhereHas($table, function ($query) use ($col, $name) {
                     $query->where(DB::raw('CONCAT(last_name, " ", first_name)'), 'LIKE', '%' . $name . '%');
                 });
-            }
-            else
-            {
+            } else {
                 foreach ($field['columns'] as $column) {
                     $commaPos = strrpos($column, '.');
                     if ($commaPos) {
@@ -129,7 +144,6 @@ class AutocompleteController extends Controller
                         } else {
                             $query->orWhere($column, 'LIKE', '%' . $input . '%');
                         }
-
                     }
                 }
             }
@@ -143,11 +157,10 @@ class AutocompleteController extends Controller
             return "";
         }
         $result = "";
-        foreach($fields as $field) {
+        foreach ($fields as $field) {
             $result .= $this->getColumnValue($object, $field) . ' ';
         }
         return substr($result, 0, -1);
-
     }
 
     private function getColumnValue($object, $field)
@@ -158,5 +171,18 @@ class AutocompleteController extends Controller
             $cPath = $cPath->$t;
         }
         return $cPath;
+    }
+
+    private function validateRequest(Request $req)
+    {
+        return $req->validate([
+            'field' => 'array',
+            'input' => 'string',
+            'topline' => 'array',
+            'subline' => 'array',
+            'limit' => 'integer',
+            'target' => 'string',
+            'allSemesters' => 'bool|nullable'
+        ]);
     }
 }

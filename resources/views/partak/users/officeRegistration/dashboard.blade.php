@@ -1,7 +1,9 @@
 @extends('partak.users.layout')
 @section('inner-content')
     <div class="container">
-        @include('partak.users.officeRegistration.search')
+        @include("partak.components.student-search", [
+            'target' => '/partak/users/office-registration/registration/{id_user}'
+        ])
     </div>
 
     <div class="container">

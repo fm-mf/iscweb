@@ -22,7 +22,7 @@ import ShareButton from './partak/ShareButton';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('autocomplete', Autocomplete);
+Vue.component('auto-complete', Autocomplete);
 Vue.component('multiselectinput', MultiSelectInput);
 Vue.component('protectedbutton', Button);
 Vue.component('preregister', PreRegister);
