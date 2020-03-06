@@ -35,8 +35,23 @@
         @keydown.enter="hit"
         @keydown.esc="reset"
         @click="update"
+        @blur="blur"
       />
-      <ul v-show="model.hasItems" class="typehead listgroup">
+      <ul
+        v-show="focused && model.charactersWritten() >= 3"
+        class="typehead listgroup"
+      >
+        <loader :loaded="!model.loading" fill />
+        <li
+          v-if="model.items.length === 0 && model.loading"
+          class="list-group-item loading-placeholder"
+        ></li>
+        <li
+          v-if="!model.loading && model.items.length === 0"
+          class="list-group-item text-center py-4"
+        >
+          Nothing found <i class="fas fa-sad-cry"></i>
+        </li>
         <li
           v-for="(item, index) in model.items"
           :key="item.link"
@@ -71,6 +86,8 @@
 
 <script>
 import axios from 'axios';
+import debounce from 'debounce';
+import Loader from './Loader';
 
 class AutocompleteModel {
   constructor($url, $fields, $topline, $subline, $target) {
@@ -90,6 +107,8 @@ class AutocompleteModel {
     this.limit = 5;
 
     this.target = $target;
+
+    this.debouncedRequest = debounce(this.doRequest, 200);
   }
 
   update() {
@@ -98,6 +117,11 @@ class AutocompleteModel {
       return;
     }
 
+    this.loading = true;
+    this.debouncedRequest();
+  }
+
+  doRequest() {
     axios
       .request({
         url: this.url,
@@ -115,9 +139,11 @@ class AutocompleteModel {
         }
       })
       .then(res => {
+        this.loading = false;
         this.items = res.data.items;
       })
       .catch(err => {
+        this.loading = false;
         alert('Failed to fetch list of people: ' + err);
       });
   }
@@ -163,17 +189,21 @@ class AutocompleteModel {
   }
 }
 export default {
-  props: [
-    'url',
-    'fields',
-    'topline',
-    'subline',
-    'image',
-    'placeholder',
-    'target'
-  ],
+  components: {
+    Loader
+  },
+  props: {
+    url: String,
+    image: Object,
+    fields: Array,
+    topline: Array,
+    subline: Array,
+    placeholder: String,
+    target: String
+  },
   data: function() {
     return {
+      focused: false,
       model: new AutocompleteModel(
         this.url,
         this.fields,
@@ -206,10 +236,14 @@ export default {
       }
     },
     update() {
+      this.focused = true;
       this.model.update();
     },
     reset() {
       this.model.reset();
+    },
+    blur() {
+      this.focused = false;
     }
   }
 };
@@ -221,10 +255,14 @@ export default {
   border-bottom-left-radius: 0px !important;
 }
 
+.loading-placeholder {
+  height: 100px;
+}
+
 .typehead {
   position: absolute;
   width: 90%;
-  top: 48px;
+  top: 38px;
   left: 0;
   background: #fff;
   list-style: none;
