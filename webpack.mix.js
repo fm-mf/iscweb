@@ -37,7 +37,7 @@ mix
     'node_modules/@fortawesome/fontawesome-free/webfonts/*',
     'public/fonts/font-awesome'
   )
-  .copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
+  .copy('node_modules/jquery/dist/jquery.slim.min.js', 'public/js')
   .copy('node_modules/popper.js/dist/umd/popper.min.js', 'public/js')
   .copy(
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
