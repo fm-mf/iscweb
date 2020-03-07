@@ -17,7 +17,7 @@
         <a data-toggle="collapse" href="#collapseT1"><h3>Old Trips</h3></a>
         @if($oldTrips->count() > 0)
             <div class="collapse" id="collapseT1">
-                @include('partak.trips.tripsTable', ['Trips' => $oldTrips,])
+                @include('partak.trips.tripsTable', ['Trips' => $oldTrips, 'detail' => true])
             </div>
         @endif
     </div>

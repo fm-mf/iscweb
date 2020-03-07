@@ -3,8 +3,10 @@
         <thead>
             <tr>
                 <th>Name</th>
+                @if(isset($detail) && $detail)
                 <th>From</th>
                 <th>To</th>
+                @endif
                 <th>Price</th>
                 <th>Capacity</th>
                 <th class="text-right">Actions</th>
@@ -14,9 +16,11 @@
         @foreach($Trips as $trip)
             <tr>
                 <td><a href="{{ url('partak/trips/detail/' . $trip->id_trip) }}">{{ $trip->event->name }}</a></td>
+                @if(isset($detail) && $detail)
                 <td>{{ $trip->event->datetime_from->toFormattedDateString() }}</td>
                 <td>{{ $trip->trip_date_to->toFormattedDateString() }}</td>
-                <td>{{ $trip->price }}@if(isset($trip->price)) Kč@endif</td>
+                @endif
+                <td>{{ $trip->price }}@if(isset($trip->price)) Kč @endif</td>
                 <td>{{ $trip->howIsFillSimple() }}</td>
                 <td class="text-right">
                     @can('edit', $trip)

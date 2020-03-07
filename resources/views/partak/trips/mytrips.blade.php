@@ -8,7 +8,7 @@
                     <h3>My trips</h3>
                     @if($myTrips->count() > 0)
                         <div class="panel panel-default" id="protected">
-                            @include('partak.trips.tripsTable', ['Trips' => $myTrips])
+                            @include('partak.trips.tripsTable', ['Trips' => $myTrips, 'detail' => true])
                         </div>
                         @else No trips
                         <div style="min-height: 100px"></div>
