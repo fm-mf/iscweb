@@ -16,7 +16,7 @@ use Illuminate\Validation\Rule;
 
 class ExchangeStudentsController extends Controller
 {
-    protected function profileValidator(array $data,$id)
+    protected function profileValidator(array $data, $id)
     {
         $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
 
@@ -34,6 +34,7 @@ class ExchangeStudentsController extends Controller
             'whatsapp' => ['phone:AUTO', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
         ]);
+        
         return $validator;
     }
 
@@ -46,18 +47,24 @@ class ExchangeStudentsController extends Controller
     public function showDetailExchangeStudent($id)
     {
         $this->authorize('acl', 'exchangeStudents.view');
+        
         $exStudent = ExchangeStudent::with(['person.user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
-        if($exStudent == null)
+        if ($exStudent == null) {
             throw new UserDoesntExist("Exchange Student does not exist !!!");
+        }
+
         return view('partak.users.exchangeSudents.detail')->with(['exStudent' => $exStudent,]);
     }
 
     public function showEditFormExchangeStudent($id)
     {
         $this->authorize('acl', 'exchangeStudents.edit');
+
         $exStudent = ExchangeStudent::with('person.user')->find($id);
-        if($exStudent == null)
+        if ($exStudent == null) {
             throw new UserDoesntExist();
+        }
+
         return view('partak.users.exchangeSudents.edit')->with([
             'exStudent' => $exStudent,
             'faculties' => Faculty::getOptions(),
@@ -80,12 +87,25 @@ class ExchangeStudentsController extends Controller
                 $data[$key] = $value;
             }
         }
-        if(! isset($data['esn_registered'])) $data['esn_registered'] = 'n';
+        
+        if (!isset($data['esn_registered'])) {
+            $data['esn_registered'] = 'n';
+        }
+
+        if (!isset($data['fullTime'])) {
+            if ($exStudent->user->hasRole('samoplatce')) {
+                $exStudent->user->removeRole('samoplatce');
+            }
+        } else {
+            if (!$exStudent->user->hasRole('samoplatce')) {
+                $exStudent->user->addRole('samoplatce');
+            }
+        }
+
         $exStudent->person->user->update($data);
         $exStudent->person->updateWithIssuesAndDiet($data);
         $exStudent->update($data);
 
         return back()->with(['successUpdate' => true,]);
     }
-
 }

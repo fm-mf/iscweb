@@ -32,7 +32,7 @@
                     {{ Form::bsSelect('id_country', 'Country', $countries, $exStudent->id_country, ['placeholder' => 'Choose country...', 'required' =>'required']) }}
 
                     {{ Form::label('fullTime', 'Full-time student', ['class' => 'control-label']) }}
-                    {{ Form::checkbox('fullTime', 'y') }}
+                    {{ Form::checkbox('fullTime', 'y', $exStudent->user->hasRole('samoplatce')) }}
 
                     <div class="form-group row" style="overflow: hidden;">
                         <div class="col-sm-6 left">

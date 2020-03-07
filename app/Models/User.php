@@ -148,6 +148,18 @@ class User extends Authenticatable
 
     }
 
+    public function removeRole($role)
+    {
+        if (is_integer($role)) {
+            $this->roles()->detach($role);
+        } else {
+            $role = Role::where('title', $role)->first();
+            if ($role) {
+                $this->roles()->detach($role);
+            }
+        }
+    }
+
     public function addRoles($roles)
     {
         if (is_array($roles)) {

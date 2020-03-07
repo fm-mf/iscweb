@@ -95,7 +95,7 @@ class OfficeRegistrationController extends Controller
         $exStudent->semesters()->attach($semester->id_semester);
 
         if (array_key_exists('fullTime', $data) && $data['fullTime'] == 'y') {
-            $exStudent->person->user->addRole(9); // 'samoplatce'
+            $exStudent->person->user->addRole('samoplatce');
         }
 
         return \Redirect::route('exStudent.edit',['id_user' => $exStudent->id_user]);
