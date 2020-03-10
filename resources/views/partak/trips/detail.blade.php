@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="trip-info">
+        <div class="info-table">
             <div class="row">
                 <div class="col-lg-1 col-md-2 label">Duration</div>
                 <div class="col-lg-11 col-md-10">{!! $trip->eventDateInterval() !!}</div>

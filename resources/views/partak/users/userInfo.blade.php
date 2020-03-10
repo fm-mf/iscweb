@@ -2,17 +2,17 @@
 <?php $exStudent = $user->exchangeStudent ?>
 
 @if(!isset($noTitle) || !$noTitle)
+@if(isset($buddyStudent))
+    <div class="mt-2 text-muted">His/Her buddy</div>
+@endif
 <div class="d-flex align-items-center mb-2">
     <h2 class="mb-0">{{ $user->person->first_name }} <span class="last-name">{{ $user->person->last_name }}</span></h2>
-    {{-- @TODO: Is this useful --}}
-    @if($buddy)<span class="badge badge-info ml-2">Buddy</span>@endif
-    @if($exStudent)<span class="badge badge-success ml-2">Exchange student</span>@endif
     @if(!isset($edit) || $edit)
         @if($buddy)
         @can('acl', 'buddy.edit')
             <a
                 href="{{ url('partak/users/buddies/edit/' . $user->id_user) }}"
-                class="btn btn-xs btn-success ml-4"
+                class="btn btn-sm btn-success ml-4"
             >
                 <i class="fas fa-pen"></i> Edit
             </a>
@@ -21,20 +21,31 @@
             @can('acl', 'exchangeStudents.edit')
                 <a
                     href="{{ url('partak/users/exchange-students/edit/' . $user->id_user) }}"
-                    class="btn btn-xs btn-success ml-3"
+                    class="btn btn-sm btn-success ml-3"
                 >
                     <i class="fas fa-pen"></i> Edit
                 </a>
             @endcan
         @endif
-        @if(isset($buddyStudent))
-            <protectedbutton
-                url="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$buddyStudent->id_user) }}"
-                protection-text="Remove buddy {{ $buddy->person->getFullName() }}?"
-                button-style="btn btn-danger ml-3"
+    @else
+        @if($buddy)
+        @can('acl', 'buddy.view')
+            <a
+                href="{{ url('partak/users/buddies/' . $user->id_user) }}"
+                class="btn btn-sm btn-primary ml-4"
             >
-                <i class="fas fa-times"></i> Remove
-            </protectedbutton>
+                <i class="fas fa-address-card"></i> Detail
+            </a>
+        @endcan
+        @elseif($exStudent)
+            @can('acl', 'exchangeStudents.view')
+                <a
+                    href="{{ url('partak/users/exchange-students/' . $user->id_user) }}"
+                    class="btn btn-sm btn-primary ml-3"
+                >
+                    <i class="fas fa-address-card"></i> Detail
+                </a>
+            @endcan
         @endif
     @endif
 </div>
@@ -61,7 +72,7 @@
 
         @if($country)
         <div class="info-line">
-            <i class="fas fa-globe fa-fw mr-1"></i> {{ $country->full_name }}
+            <i class="fas fa-globe-europe fa-fw mr-1"></i> {{ $country->full_name }}
         </div>
         @endif
         <div class="info-line">
@@ -76,7 +87,16 @@
                 <i class="fab fa-whatsapp fa-fw mr-1 user-detail-icon"></i> {{ $exStudent->whatsapp ?? 'No WhatsApp' }}
             </div>
             <div class="info-line">
-                <i class="fab fa-facebook fa-fw mr-1 user-detail-icon"></i> {{ $exStudent->facebook ?? 'No Facebook' }}<br>
+                <i class="fab fa-facebook fa-fw mr-1 user-detail-icon"></i> @if($exStudent->facebook)
+                    <a href="{{ $exStudent->facebook }}">{{ preg_replace('/^https?:\/\/(www\.)?facebook\.com/i', '...', $exStudent->facebook) }}</a>
+                @else
+                    No Facebook
+                @endif
+            </div>
+            <div class="info-line">
+                <i class="fas fa-university fa-fw mr-1 user-detail-icon"></i> @foreach($exStudent->semesters as $semester)
+                    {{ $semester->semester }}
+                @endforeach
             </div>
             <div class="info-line">
                 @if($exStudent->esn_registered === 'y')
@@ -90,13 +110,23 @@
         @if($buddy)
             <div class="info-line">
                 @if($buddy->verified == 'y')
-                    <i class="fas fa-check fa-fw mr-1"></i> Verified
+                    <i class="fas fa-check fa-fw mr-1" style="color: #449D44"></i> Verified
                 @elseif ($buddy->verified == 'n')
                     <i class="fas fa-hourglass-half fa-fw mr-1"></i> Not verified yet
                 @else
                     <i class="fas fa-times fa-fw mr-1"></i> Denied
                 @endif
             </div>
+        @endif
+
+        @if(isset($buddyStudent))
+            <protectedbutton
+                url="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$buddyStudent->id_user) }}"
+                protection-text="Remove buddy {{ $buddy->person->getFullName() }}?"
+                button-style="btn btn-danger btn-sm mt-2"
+            >
+                <i class="fas fa-times"></i> Remove
+            </protectedbutton>
         @endif
     </div>
 </div>
