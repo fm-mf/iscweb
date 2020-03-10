@@ -1,6 +1,5 @@
 @extends('partak.trips.layout')
 @section('inner-content')
-
     <div class="row-grey">
         <div class="container">
             <div class="row-inner">
