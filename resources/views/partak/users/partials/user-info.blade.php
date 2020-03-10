@@ -3,7 +3,7 @@
 
 @if(!isset($noTitle) || !$noTitle)
 @if(isset($buddyStudent))
-    <div class="mt-2 text-muted">His/Her buddy</div>
+    <div class="text-muted">His/Her buddy</div>
 @endif
 <div class="d-flex align-items-center mb-2">
     <h3 class="mb-0">{{ $user->person->first_name }} <span class="last-name">{{ $user->person->last_name }}</span></h3>
