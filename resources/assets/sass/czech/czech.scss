@@ -1,19 +1,12 @@
-@import "custom";
-@import "~bootstrap/scss/bootstrap";
-
-$fa-font-path: "/fonts/font-awesome";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/regular";
-@import "~@fortawesome/fontawesome-free/scss/brands";
-
-@import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 @import "variables";
 
-@import "header";
-@import "main";
-@import "footer";
+@import "../web/header";
+@import "../web/main";
+@import "../web/footer";
 
 @import "home";
 @import "about-us";
@@ -21,6 +14,4 @@ $fa-font-path: "/fonts/font-awesome";
 @import "activities";
 @import "zig-zag";
 @import "faq";
-@import "contacts";
-
-@import "../web/lang-select";
+@import "../web/contacts";
