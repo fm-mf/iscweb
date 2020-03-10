@@ -2,7 +2,7 @@
 @section('inner-content')
     <div class="container">
         <h2 class="mb-4">Payment detail for trip {{ $trip->event->name }}</h2>
-        @include("partak.users.userInfo", ['user' => $part->user, 'noTitle' => true])
+        @include("partak.users.partials.user-info", ['user' => $part->user, 'noTitle' => true])
     </div>
     <div class="container" id="form">
         <div class="col-xl-7">

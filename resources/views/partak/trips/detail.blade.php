@@ -34,12 +34,12 @@
 
         <div class="info-table">
             <div class="row">
-                <div class="col-lg-1 col-md-2 label">Duration</div>
-                <div class="col-lg-11 col-md-10">{!! $trip->eventDateInterval() !!}</div>
+                <div class="col-lg-2 col-md-3 label">Duration</div>
+                <div class="col-lg-10 col-md-9">{!! $trip->eventDateInterval() !!}</div>
             </div>
             <div class="row">
-                <div class="col-lg-1 col-md-2 label">Capacity</div>
-                <div class="col-lg-11 col-md-10">
+                <div class="col-lg-2 col-md-3 label">Capacity</div>
+                <div class="col-lg-10 col-md-9">
                     @if ($trip->isFull())
                         <b>Event is full</b>
                     @endif
@@ -60,12 +60,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-1 col-md-2 label">Price</div>
-                <div class="col-lg-11 col-md-10">{{ $trip->price }} Kč</div>
+                <div class="col-lg-2 col-md-3 label">Price</div>
+                <div class="col-lg-10 col-md-9">{{ $trip->price }} Kč</div>
             </div>
             <div class="row">
-                <div class="col-lg-1 col-md-2 label">Organizers</div>
-                <div class="col-lg-11 col-md-10">
+                <div class="col-lg-2 col-md-3 label">Organizers</div>
+                <div class="col-lg-10 col-md-9">
                     @if($organizers->count() > 0)
                         @foreach($organizers as $organizer)
                             @include("partak.components.user-link", ['user' => $organizer->person])@if(!$loop->last), @endif
@@ -200,7 +200,8 @@
                             </tbody>
                         </table>
                     </div>
-                @else Event doesn't have participants
+                @else
+                    @include("partak.components.no-data", ["label" => "No participants yet"])
                 @endif
             </div>
 
@@ -246,7 +247,7 @@
                         </table>
                     </div>
                     @else
-                        No reservations
+                        @include("partak.components.no-data", ["label" => "No reservations yet"])
                     @endif
                 </div>
             @endif

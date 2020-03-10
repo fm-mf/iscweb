@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row row-inner buddy-detail">
         <div class="col-xl-6">
-            @include("partak.users.userInfo", ['user' => $exStudent->user])
+            @include("partak.users.partials.user-info", ['user' => $exStudent->user])
         </div>
         <div class="col-xl-6">
             @if(isset($exStudent->buddy))
-                @include("partak.users.userInfo", [
+                @include("partak.users.partials.user-info", [
                     'user' => $exStudent->buddy->user(),
                     'buddyStudent' => $exStudent,
                     'edit' => false

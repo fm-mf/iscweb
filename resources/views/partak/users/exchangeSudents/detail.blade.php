@@ -1,18 +1,15 @@
 @extends('partak.users.layout')
 @section('inner-content')
-
     @if (session('removeSuccess'))
         <div class="container">
-            <div class="row">
-                <div class="row-inner">
-                    <div class="success">
-                        <i class="fas fa-check mr-1"></i> {{ session('removeSuccess') }}
-                    </div>
-                </div>
+            <div class="success top-message">
+                <i class="fas fa-check mr-1"></i> {{ session('removeSuccess') }}
             </div>
         </div>
     @endif
-    @include('partak.users.exStudent-Buddy_Bubles', ['buddyRemovable' => true])
+
+    @include('partak.users.partials.exstudent-with-buddy', ['buddyRemovable' => true])
+
     <div class="container">
         <div class="row row-inner">
             <div class="col-sm-8">
@@ -22,5 +19,5 @@
         </div>
     </div>
 
-    @include('partak.users.exStudentDetailTable')
+    @include('partak.users.partials.exstudent-detail-table')
 @stop

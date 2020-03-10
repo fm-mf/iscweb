@@ -8,7 +8,7 @@
 
     <div class="container">
         <h2 class="mb-4">&quot;{{ $trip->event->name }}&quot; participant detail</h2>
-        @include("partak.users.userInfo", ['user' => $part->user, 'noTitle' => true])
+        @include("partak.users.partials.user-info", ['user' => $part->user, 'noTitle' => true])
     </div>
 
 
