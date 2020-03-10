@@ -6,7 +6,7 @@
     <div class="mt-2 text-muted">His/Her buddy</div>
 @endif
 <div class="d-flex align-items-center mb-2">
-    <h2 class="mb-0">{{ $user->person->first_name }} <span class="last-name">{{ $user->person->last_name }}</span></h2>
+    <h3 class="mb-0">{{ $user->person->first_name }} <span class="last-name">{{ $user->person->last_name }}</span></h3>
     @if(!isset($edit) || $edit)
         @if($buddy)
         @can('acl', 'buddy.edit')

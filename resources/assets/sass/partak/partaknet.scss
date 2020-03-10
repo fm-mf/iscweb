@@ -14,7 +14,6 @@ $fa-font-path: "/fonts/font-awesome";
 
 @import "../common/columns";
 
-@import "header";
 
 html, body {
   width: 100%;
@@ -53,18 +52,10 @@ html, body {
   color: #ca0f0f !important;
 }
 
-.menu-wrapper {
-  background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.05);
-}
-
 .list-colored li {
   background: #ebebeb;
   border-left: 5px solid #d4d4d4;
-  margin-bottom: 1px;
-  padding: 15px;
-  border-radius: 2px;
+  padding: 0.4rem;
 }
 
 .dashboard-header {
@@ -75,42 +66,9 @@ html, body {
   }
 }
 
-.title, .title-sp {
-  font-size: 30px;
-  text-align:center;
-  padding-top:300px;
-  font-weight: bold;
-}
-
-.title strong, .title-sp strong {
-  display:block;
-  width:500px;
-  margin-left:auto;
-  margin-right:auto;
-  border:3px solid #fff;
-  text-align:center;
-  padding-top:15px;
-  padding-bottom:15px;
-  font-size: 30px;
-  text-shadow:rgb(12,12,12) 0px 3px 3px;
-}
-
-.title {
-  margin-top:40px !important;
-}
-.title strong {
-  width: 360px !important;
-}
-
-.subtitle {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#asana-img {width: 100%; margin-top: 20px;}
-
-.offset {
-  margin-left: 50px;
+#asana-img {
+  width: 100%;
+  margin-top: 2.5rem;
 }
 
 a.disabled {
@@ -118,109 +76,10 @@ a.disabled {
   cursor: default;
 }
 
-.subpage-header-wrapper {
-  width: 100%;
-  min-height: 70px;
-  //background-color: #0079C1;
-
-  background-image:url($imgPath + "burgersno.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 top;
-  overflow: hidden;
-  border-bottom: 5px solid #0079C1;
-
-  color: #fff;
-}
-
-.title-sp {
-  margin-top:20px !important;
-}
-.title-sp strong {
-  width: 360px !important;
-}
-
-.content {
-  margin: 0;
-  padding: 0;
-  min-height: 500px;
-}
-
-.submenu {
-  padding: 0;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background: #FAFAFA;
-  border-right: 1px solid #eeeeee;
-
-  ul {
-    padding: 0;
-    margin: 0;
-  }
-
-  a {
-    display: block;
-    padding: 10px 5px;
-    padding-left: 40px;
-    color: rgba(0,0,0,0.70);
-  }
-
-  a:hover {
-    text-decoration: none;
-    background: #eeeeee;
-  }
-}
-
-
-.inner-content {
-  min-height: 500px;
-}
-
-.sub-active {
-  border-left: 3px solid #2a62bc;
-}
-
-.row.match-my-cols {
-  overflow: hidden;
-}
-
-.matched-cols {
-  margin-bottom: -99999px;
-  padding-bottom: 99999px;
-}
-
 .autocomplete-input {
   border-radius: 0 !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
-}
-
-.search-buddy {
-  padding-bottom: 40px;
-}
-
-.top-navigation {
-  color: #fff;
-  background: #333333;
-  margin: 0;
-  a {
-    color: #fff;
-  }
-}
-
-.top-navigation-user {
-  width: 30px;
-  margin-right: 10px;
-}
-
-.buddy-detail {
-  h3 {
-    margin-bottom: 2px;
-  }
-}
-
-.edit-button {
-  margin-bottom: 8px;
 }
 
 .success {
@@ -238,59 +97,10 @@ a.disabled {
   text-align: center;
 }
 
-.no-padding {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.export-links {
-  padding-bottom: 20px;
-}
-
-.export-link {
-  padding-right: 20px;
-}
-.export-link:hover {
-  text-decoration: none;
-}
-.export-link img {
-  margin-right: 5px;
-}
-
-.required:after{
+.required:after {
   content:'*';
   color:red;
   padding-left:5px;
-}
-
-@media(max-width: 400px) {
-  .table>tbody>tr>td,
-  .table>tbody>tr>th,
-  .table>tfoot>tr>td,
-  .table>tfoot>tr>th,
-  .table>thead>tr>td,
-  .table>thead>tr>th {
-  	padding-left: 0;
-  	padding-right: 1px;
-  	word-break: break-word;
-  }
-}
-
-#showOpeningHours:checked ~ #openingHoursData {
-	display: block;
-}
-
-#showOpeningHours:not(:checked) ~ #openingHoursData {
-	display: none;
-}
-
-#openingHoursTable th {
-	text-align: right;
-	padding-right: 10px;
-}
-
-#editOpeningHoursSubmitButton div {
-	margin: 0;
 }
 
 fieldset {
@@ -308,33 +118,6 @@ fieldset {
   }
 }
 
-.custom-question {
-  cursor: pointer;
-  display: block;
-  font-weight: normal;
-  
-  &.with-image {
-    margin-bottom: 2rem;
-    box-shadow: 1px 1px 5px #999;
-    width: 300px;
-
-    .q-img {
-      background: #eee;
-
-      img {
-        max-width: 300px;
-        max-height: 200px;
-        display: block;
-        margin: 0 auto;
-      }
-    }
-
-    .q-input {
-      padding: 1rem;
-    }
-  }
-}
-
 .form-group {
   .info {
     color: #666;
@@ -343,7 +126,9 @@ fieldset {
 }
 
 @import "general";
+@import "header";
 @import "users";
 @import "contacts-settings";
+@import "opening-hours";
 @import "trips";
 @import "roles";
