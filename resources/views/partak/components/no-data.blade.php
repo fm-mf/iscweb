@@ -1,0 +1,1 @@
+<div class="no-data"><i class="fas fa-people-carry mr-2"></i><span>{{ isset($label) ? $label : 'There\'s nothing here.' }}</span></div>

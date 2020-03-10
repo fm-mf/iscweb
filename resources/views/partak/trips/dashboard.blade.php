@@ -9,7 +9,9 @@
     <div class="container">
         <h3>Active trips</h3>
         @if($visibleTrips->count() > 0)
-             @include('partak.trips.tripsTable', ['Trips' => $visibleTrips])
+            @include('partak.trips.tripsTable', ['Trips' => $visibleTrips])
+        @else
+            @include('partak.components.no-data')
         @endif
     </div>
 
