@@ -14,23 +14,17 @@
             </div>
         @endif
 
-        <div class="row">
-            <div class="row-inner">
-                <div class="col-md-12">
-                    {{ Form::model($settings, ['id' => 'mainForm', 'url' => 'partak/settings/coronavirus', 'method' => 'patch']) }}
-                    {{ Form::bsSelect('coronavirusEnabled', 'Coronavirus alert is', ['1' => 'Enabled', '0' => 'Disabled'], $settings['coronavirusEnabled'] ? '1' : '0')  }}
-    
-                    {{ Form::bsText('title', 'Title')  }}
-                    {{ Form::bsTextarea('content', 'Alert content', 'required') }}
+        {{ Form::model($settings, ['id' => 'mainForm', 'url' => 'partak/settings/coronavirus', 'method' => 'patch']) }}
+        {{ Form::bsSelect('coronavirusEnabled', 'Coronavirus alert is', ['1' => 'Enabled', '0' => 'Disabled'], $settings['coronavirusEnabled'] ? '1' : '0')  }}
 
-                   	<div style="margin-bottom: 15px;">
-                   		<input type="submit" value="Update settings" class="btn btn-primary btn-submit">
-                   	</div>
+        {{ Form::bsText('title', 'Title', 'required')  }}
+        {{ Form::bsTextarea('content', 'Alert content', 'required', null, ['style' => 'height: 500px']) }}
 
-                    {{ Form::close() }}
-                </div>
-            </div>
+        <div style="margin-bottom: 15px;">
+            <input type="submit" value="Update settings" class="btn btn-primary btn-submit">
         </div>
+
+        {{ Form::close() }}
     </div>
 @stop
 
