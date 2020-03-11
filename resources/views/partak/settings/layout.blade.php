@@ -12,6 +12,9 @@
                         <li @if(Request::is('partak/settings/contacts')) class="sub-active" @endif>
                             <a href="{{ url('partak/settings/contacts') }}">Contacts</a>
                         </li>
+                        <li @if(Request::is('partak/settings/coronavirus')) class="sub-active" @endif>
+                            <a href="{{ url('partak/settings/coronavirus') }}">Coronavirus</a>
+                        </li>
                     @endcan
                 </ul>
             </div>

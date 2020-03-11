@@ -74,6 +74,8 @@ Route::get('/settings', 'SettingsController@showSettings');
 Route::patch('/settings', 'SettingsController@submitSettings');
 Route::get('/openinghours', 'SettingsController@getOpeningHours');
 Route::get('/logs', 'LogsController@index');
+Route::get('/settings/coronavirus', 'SettingsController@showCoronavirus')->name('partak.coronavirus');
+Route::patch('/settings/coronavirus', 'SettingsController@submitCoronavirus')->name('partak.coronavirus.save');
 
 Route::prefix('/settings/contacts')
     ->name('partak.settings.contacts.')

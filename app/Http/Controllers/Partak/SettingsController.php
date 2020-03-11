@@ -6,8 +6,9 @@ use App\Facades\Settings;
 use App\Models\Semester;
 use App\Models\OpeningHoursMode;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Page;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class SettingsController extends Controller
@@ -153,5 +154,52 @@ class SettingsController extends Controller
         ]);
 
         return $response ?? "";
+    }
+
+    public function showCoronavirus()
+    {
+        $this->authorize('acl', 'settings.edit');
+        
+        $page = Page::findByType('coronavirus')->first();
+
+        return view('partak.settings.coronavirus')->with([
+            'settings' => [
+                'coronavirusEnabled' => Settings::get('coronavirusEnabled'),
+                'content' => $page ? $page->content : '',
+                'title' => $page ? $page->title : 'Coronavirus (COVID-19) Situation Information'
+            ]
+        ]);
+    }
+
+    public function submitCoronavirus(Request $req)
+    {
+        $this->authorize('acl', 'settings.edit');
+        
+        $data = $req->validate([
+            'coronavirusEnabled' => 'required',
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        /** @var Page */
+        $page = Page::findByType('coronavirus')->first();
+
+        if (!$page) {
+            $page = new Page([
+                'type' => 'coronavirus',
+                'title' => $data['title'],
+                'content' => $data['content']
+            ]);
+            $page->save();
+        } else {
+            $page->update([
+                'title' => $data['title'],
+                'content' => $data['content']
+            ]);
+        }
+
+        Settings::set('coronavirusEnabled', $data['coronavirusEnabled']);
+
+        return redirect()->route('partak.coronavirus')->with(['successUpdate' => true]);
     }
 }
