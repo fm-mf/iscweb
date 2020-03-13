@@ -4,14 +4,14 @@
     <div class="header-wrapper home">
         <header>
             @include('web.layouts.navigation')
-            
+
             @if($coronavirusEnabled)
             <div class="coronavirus-alert">
-                More information about coronavirus (COVID-19) situation can be found <a href="{{ route('coronavirus') }}">here</a>
+                Regularly updated information about coronavirus (COVID-19) situation can be found <a href="{{ route('coronavirus') }}">here</a>
             </div>
             @endif
 
-            
+
             <p class="scroll-down">
                 <a href="#upcoming-events" class="link link-more" id="scroll">
                     Scroll down to see upcoming events
