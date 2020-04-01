@@ -43,7 +43,7 @@
             </li>
             {{--<li><a n:href="Homepage:arrivals"><img src="{$basePath}/img/arrivals.png"><br>PŘÍJEZDY</a></li>--}}
             <li class="nav-item">
-                <a class="nav-link" href="{{ action('Auth\ProfileController@showProfileForm') }}">
+                <a class="nav-link" href="{{ route('buddy-my-profile') }}">
                     <i class="fas fa-user"></i> Můj profil
                 </a>
             </li>

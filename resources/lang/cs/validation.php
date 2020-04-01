@@ -123,7 +123,9 @@ return [
         'password' => 'Heslo',
         'kodex' => 'Buddy kodex',
         'age' => 'Rok narození',
-        'agreement' => 'Zpracování'
+        'agreement' => 'Zpracování',
+        'old_password' => 'Staré heslo',
+        'new_password' => 'Nové heslo'
     ],
 
 ];
