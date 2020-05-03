@@ -9,7 +9,7 @@
                     <h1>Privacy notice</h1>
                     <p>
                         This privacy notice informs you how we, {{ $officialName }},
-                        Thákurova 550/1, 160 00 Praha 6, IČO: 22841032, uses any information that was provided to us by
+                        Thákurova 550/1, 160 00 Praha 6, IČO: 22841032, use any information that was provided to us by
                         České vysoké učení technické v Praze, Jugoslávských partyzánů 1580/3, 160 00 Praha 6 - Dejvice, IČO 68407700 about you.
                     </p>
 
@@ -29,7 +29,7 @@
                     <ul>
                         <li>to provide you with any important news before and after your arrival to the Czech Republic via e-mail;</li>
                         <li>to organise the events during the Orientation week;</li>
-                        <li>to prepare some documents, such as welcome package and ESN card, in advance.</li>
+                        <li>to prepare some documents, such as welcome package and ESNcard, in advance.</li>
                     </ul>
 
                     <p>We also may employ the third-party companies to provide us selected services due to the following reasons:</p>
