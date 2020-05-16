@@ -94,9 +94,18 @@
                 @endif
             </div>
             <div class="info-line">
-                <i class="fas fa-university fa-fw mr-1 user-detail-icon"></i> @foreach($exStudent->semesters as $semester)
-                    {{ $semester->semester }}
-                @endforeach
+                <i class="fas fa-university fa-fw mr-1 user-detail-icon"></i>
+                @for ($i = 0; $i < count($exStudent->semesters); $i++)
+                    @php
+                            $sem = $exStudent->semesters[$i]->semester;
+                            $semester = ucfirst(substr($sem, 0, -4)) . " " . substr($sem, -4);
+                    @endphp
+                    {{ 
+                        $i === count($exStudent->semesters) - 1
+                            ? $semester
+                            : $semester . ", "
+                    }}
+                @endfor
             </div>
             <div class="info-line">
                 @if($exStudent->esn_registered === 'y')
