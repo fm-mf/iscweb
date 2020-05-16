@@ -29,7 +29,14 @@
                 ['title' => 'Active events', 'icon' => 'list', 'route' => 'partak.events.list'],
                 ['title' => 'Add event', 'icon' => 'plus', 'route' => 'partak.events.create', 'acl' => 'events.add'],
             ]],
-            ['title' => 'Stats', 'icon' => 'chart-pie', 'route' => 'partak.stats.index', 'acl' => 'stats.view'],
+            ['title' => 'Stats', 'icon' => 'chart-pie', 'route' => 'partak.stats', 'acl' => 'stats.view', 'items' => [
+                ['title' => 'Dashboard', 'route' => 'partak.stats.index', 'id' => 'stats-dashboard'],
+                ['title' => 'Arrivals', 'route' => 'partak.stats.arrivals', 'id' => 'stats-arrivals'],
+                ['title' => 'Buddies', 'route' => 'partak.stats.buddies', 'id' => 'stats-buddies'],
+                ['title' => 'Students', 'route' => 'partak.stats.students', 'id' => 'stats-students'],
+                ['title' => 'History', 'route' => 'partak.stats.history', 'id' => 'stats-history'],
+                ['title' => 'Exports', 'route' => 'partak.stats.exports', 'id' => 'stats-exports'],
+            ]],
             ['title' => 'Settings', 'icon' => 'cog', 'route' => 'partak.settings', 'acl' => 'settings.edit', 'items' => [
                 ['title' => 'General', 'route' => 'partak.settings.general', 'acl' => 'settings.edit'],
                 ['title' => 'Opening hours', 'route' => 'partak.settings.openingHours', 'acl' => 'settings.edit'],

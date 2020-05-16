@@ -1,41 +1,5 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg subnav">
-      <div style="width: 130px"></div>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link to="/" class="nav-link">
-            Dashboard
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/arrivals" class="nav-link">
-            Arrivals
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/buddies" class="nav-link">
-            Buddies
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/students" class="nav-link">
-            Students
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/history" class="nav-link">
-            History
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/exports" class="nav-link">
-            Exports
-          </router-link>
-        </li>
-      </ul>
-    </nav>
-
     <div class="stats-content container">
       <div class="stats-filter">
         <select v-if="semesters.data" v-model="semester" class="form-control">
@@ -86,6 +50,33 @@ export default {
   },
   created() {
     addErrorListener(this.catchError);
+
+    // UGLY HACK START
+    const navs = {
+      'stats-dashboard': '/',
+      'stats-arrivals': '/arrivals',
+      'stats-buddies': '/buddies',
+      'stats-students': '/students',
+      'stats-history': '/history',
+      'stats-exports': '/exports'
+    }
+
+    Object.entries(navs).forEach(([id, url]) => {
+      const element = document.getElementById(id)
+      element.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        Object.keys(navs).forEach(n => {
+          document.getElementById(n).parentElement.classList.remove('active')
+        })
+
+        element.parentElement.classList.add('active')
+
+        this.$router.push(url)
+      })
+    })
+    // UGLY HACK END
   },
   destroyed() {
     removeErrorListener(this.catchError);
