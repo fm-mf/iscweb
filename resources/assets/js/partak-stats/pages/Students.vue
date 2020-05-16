@@ -135,4 +135,10 @@ export default {
 .fill-height {
   min-height: 300px;
 }
+
+.students {
+  h2 {
+    margin: 1rem 0 0.5rem 0;
+  }
+}
 </style>
