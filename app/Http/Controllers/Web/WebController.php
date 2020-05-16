@@ -15,7 +15,9 @@ use App\Models\Languages_event;
 use App\Models\Semester;
 use App\Models\OpeningHoursMode;
 use App\Facades\Settings;
+use App\Models\Page;
 use Carbon\Carbon;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class WebController extends Controller
 {
@@ -32,7 +34,8 @@ class WebController extends Controller
         return view('web.home')->with([
             'events' => $events,
             'more' => $more,
-            ]);
+            'coronavirusEnabled' => Settings::get('coronavirusEnabled')
+        ]);
     }
 
     public function showContacts() {
@@ -121,4 +124,14 @@ class WebController extends Controller
         return redirect($streamUrl == "" ? url('/') : $streamUrl);
     }
 
+    public function showCoronavirusPage()
+    {
+        if (!Settings::get('coronavirusEnabled')) {
+            throw new NotFoundHttpException();
+        }
+
+        $page = Page::findByType('coronavirus')->firstOrFail();
+
+        return view('web.coronavirus', ['page' => $page]);
+    }
 }

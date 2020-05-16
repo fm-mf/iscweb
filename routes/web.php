@@ -87,6 +87,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/volba-presidenta', function() {
         return redirect(url('/volba'), 301);
     });
+    Route::get('/coronavirus', 'WebController@showCoronavirusPage')->name('coronavirus');
 });
 
 // Survival Guide

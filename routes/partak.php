@@ -24,7 +24,7 @@ Route::prefix('/users')
 
         Route::get('/buddies/approve/{id}', 'BuddiesController@approveBuddy')->name('buddy.approve');
         Route::get('/buddies/deny/{id}', 'BuddiesController@denyBuddy')->name('buddy.deny');
- 
+
         Route::get('/exchange-students', 'ExchangeStudentsController@showExchangeStudentDashboard')
             ->name('exchangeStudents');
         Route::get('/exchange-students/{id_user}', 'ExchangeStudentsController@showDetailExchangeStudent')
@@ -34,7 +34,7 @@ Route::prefix('/users')
         Route::patch('/exchange-students/edit/{id}', 'ExchangeStudentsController@submitEditFormExStudent')
             ->name('exStudent.doEdit');
 
-        
+
         Route::get('/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard')
             ->name('registration');
         Route::get('/office-registration/registration/{id}', 'OfficeRegistrationController@showExchangeStudent')
@@ -100,10 +100,15 @@ Route::prefix('/settings')
     ->group(function () {
         Route::patch('/', 'SettingsController@submitSettings')->name('save');
 
-        Route::get('/settings/opening-hours', 'SettingsController@showOpeningHours')
+        Route::get('/opening-hours', 'SettingsController@showOpeningHours')
             ->name('openingHours');
-        Route::patch('/settings/opening-hours', 'SettingsController@submitOpeningHours')
+        Route::patch('/opening-hours', 'SettingsController@submitOpeningHours')
             ->name('openingHours.save');
+
+        Route::get('/coronavirus', 'SettingsController@showCoronavirus')
+            ->name('coronavirus');
+        Route::patch('/coronavirus', 'SettingsController@submitCoronavirus')
+            ->name('coronavirus.save');
 
         Route::prefix('/contacts')
             ->name('contacts.')
