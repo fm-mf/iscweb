@@ -94,11 +94,11 @@ Route::prefix('/events')
         Route::get('/delete/{id_event}', 'EventController@deleteEvent')->name('delete');
     });
 
-Route::get('/settings', 'SettingsController@showSettings')->name('settings');
 Route::prefix('/settings')
     ->name('settings.')
     ->group(function () {
-        Route::patch('/', 'SettingsController@submitSettings')->name('save');
+        Route::get('/general', 'SettingsController@showSettings')->name('general');
+        Route::patch('/general', 'SettingsController@submitSettings')->name('general.save');
 
         Route::get('/opening-hours', 'SettingsController@showOpeningHours')
             ->name('openingHours');

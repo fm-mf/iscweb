@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="col-md-7">
-            {{ Form::model($settings, ['id' => 'mainForm', 'url' => 'partak/settings', 'method' => 'patch']) }}
+            {{ Form::model($settings, ['id' => 'mainForm', 'route' => 'partak.settings.general.save', 'method' => 'patch']) }}
             {{ Form::bsSelect('isDatabaseOpen', 'Buddy database is', ['true' => 'Open', 'false' => 'Closed'], $settings['isDatabaseOpen'] ? 'true' : 'false')  }}
             {{ Form::bsText('rector', 'Rector') }}
 

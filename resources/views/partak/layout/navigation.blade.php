@@ -31,7 +31,7 @@
             ]],
             ['title' => 'Stats', 'icon' => 'chart-pie', 'route' => 'partak.stats.index', 'acl' => 'stats.view'],
             ['title' => 'Settings', 'icon' => 'cog', 'route' => 'partak.settings', 'acl' => 'settings.edit', 'items' => [
-                ['title' => 'General', 'route' => 'partak.settings', 'acl' => 'settings.edit'],
+                ['title' => 'General', 'route' => 'partak.settings.general', 'acl' => 'settings.edit'],
                 ['title' => 'Opening hours', 'route' => 'partak.settings.openingHours', 'acl' => 'settings.edit'],
                 ['title' => 'Contacts', 'route' => 'partak.settings.contacts.index', 'acl' => 'settings.edit'],
                 ['title' => 'Coronavirus', 'route' => 'partak.settings.coronavirus', 'acl' => 'settings.edit'],
