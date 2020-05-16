@@ -10,18 +10,19 @@
 
         <stats-table :data="byFaculty" key-field="faculty" />
       </div>
-      <div class="col-md-6" />
-      <h2>By gender</h2>
+      <div class="col-md-6">
+        <h2>By gender</h2>
 
-      <stats-table :data="byGender" key-field="sex" :show-histogram="false" />
+        <stats-table :data="byGender" key-field="sex" :show-histogram="false" />
 
-      <h2>Profile stats</h2>
+        <h2>Profile stats</h2>
 
-      <stats-table
-        :data="profileStats"
-        key-field="label"
-        :show-histogram="false"
-      />
+        <stats-table
+          :data="profileStats"
+          key-field="label"
+          :show-histogram="false"
+        />
+      </div>
     </div>
   </loader>
 </template>
