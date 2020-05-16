@@ -56,6 +56,11 @@ Installation
 			</Directory>
 		</VirtualHost>
 
+1. If you don't have `mod_rewrite` enabled then run the following commands in terminal:
+
+		sudo a2enmod rewrite
+		sudo service apache2 restart
+
 1. Import the ISC database
 	1. Into the address bar enter `iscweb/adminer.php`
 	1. Log in to the database (Username: `root`, password you set during MySQL installation)

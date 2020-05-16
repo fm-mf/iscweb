@@ -9,7 +9,7 @@
                     <h1>Privacy policy</h1>
                     <p>
                         This privacy Policy summarise how we, {{ $officialName }},
-                        Thákurova 550/1, 160 00 Praha 6, IČO: 22841032, uses the information that you provide us during
+                        Thákurova 550/1, 160 00 Praha 6, IČO: 22841032, use the information that you provide us during
                         the registration to the Buddy database in combination with information we obtained from
                         České vysoké učení technické v Praze, Jugoslávských partyzánů 1580/3, 160 00 Praha 6 - Dejvice, IČO 68407700.
                     </p>
@@ -30,13 +30,13 @@
                     <ul>
                         <li>we provide you with any important news before and after your arrival to the Czech Republic
                             <ul>
-                                <li>Nothing special about it - we just uses your e-mail address to send you inform you about
-                                    anything we think it is important to know for you.</li>
+                                <li>Nothing special about it - we just use your e-mail address to inform you about
+                                    anything we think is important for you to know.</li>
                             </ul>
                         </li>
                         <li>we manage the Buddy database
                             <ul>
-                                <li>Buddy database serves a simple purpose - to find you a Buddy, Czech student which will
+                                <li>Buddy database serves a simple purpose - to find you a Buddy, Czech student who will
                                     help you after your arrival.</li>
                                 <li>To allow Czech students to choose the best exchange student for them, we make some of
                                     your information available to them after registration and login into the Buddy database.

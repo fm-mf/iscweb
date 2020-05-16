@@ -27,7 +27,7 @@
                         reflect the way we dream, work, cooperate and communicate. Learn more about our culture in our Spirit Book</p>
                     <p class="align-center">
                         <a href="{{ asset('files/iscCtuSpiritBook.pdf') }}" class="btn btn-outline-dark">
-                            <span class="fas fa-file-pdf"></span> ISC Spirit nook
+                            <span class="fas fa-file-pdf"></span> ISC Spirit book
                         </a>
                     </p>
                 </div>
