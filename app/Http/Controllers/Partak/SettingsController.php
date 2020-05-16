@@ -119,12 +119,15 @@ class SettingsController extends Controller
             OpeningHoursMode::hideCurrentHours();
         } else {
             OpeningHoursMode::showCurrentHours();
-            $hours_json = '{';
-            for ($i = 0; $i < count(OpeningHoursMode::$dow) - 1; ++$i) {
-                $hours_json .= '"' . OpeningHoursMode::$dow[$i] . '": "' . (isset($data["openingHoursData-" . OpeningHoursMode::$dow[$i]]) ? $data["openingHoursData-" . OpeningHoursMode::$dow[$i]] : "") . '",';
+            $hours = [];
+
+            foreach (OpeningHoursMode::$dow as $day) {
+                $hours[$day] = isset($data["openingHoursData-$day"])
+                    ? $data["openingHoursData-$day"]
+                    : '';
             }
-            $hours_json .= '"' . OpeningHoursMode::$dow[$i] . '": "' . (isset($data["openingHoursData-" . OpeningHoursMode::$dow[$i]]) ? $data["openingHoursData-" . OpeningHoursMode::$dow[$i]] : "") . '"}';
-            OpeningHoursMode::updateHours(OpeningHoursMode::getCurrentMode(), $hours_json);
+
+            OpeningHoursMode::updateHours(OpeningHoursMode::getCurrentMode(), $hours);
         }
 
         return back()->with(['successUpdate' => true]);
