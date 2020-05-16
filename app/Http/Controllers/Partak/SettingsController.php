@@ -48,7 +48,7 @@ class SettingsController extends Controller
     {
         $this->authorize('acl', 'settings.edit');
         $this->settingsValidator($request->all())->validate();
-        
+
         $data = [];
         foreach ($request->all() as $key => $value) {
             if ($value) {
@@ -174,7 +174,7 @@ class SettingsController extends Controller
     public function showCoronavirus()
     {
         $this->authorize('acl', 'settings.edit');
-        
+
         $page = Page::findByType('coronavirus')->first();
 
         return view('partak.settings.coronavirus')->with([
@@ -189,7 +189,7 @@ class SettingsController extends Controller
     public function submitCoronavirus(Request $req)
     {
         $this->authorize('acl', 'settings.edit');
-        
+
         $data = $req->validate([
             'coronavirusEnabled' => 'required',
             'title' => 'required',
@@ -215,6 +215,7 @@ class SettingsController extends Controller
 
         Settings::set('coronavirusEnabled', $data['coronavirusEnabled']);
 
-        return redirect()->route('partak.coronavirus')->with(['successUpdate' => true]);
+        return redirect()->route('partak.settings.coronavirus')
+            ->with(['successUpdate' => true]);
     }
 }

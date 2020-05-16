@@ -33,7 +33,8 @@
             ['title' => 'Settings', 'icon' => 'cog', 'route' => 'partak.settings', 'acl' => 'settings.edit', 'items' => [
                 ['title' => 'General', 'route' => 'partak.settings', 'acl' => 'settings.edit'],
                 ['title' => 'Opening hours', 'route' => 'partak.settings.openingHours', 'acl' => 'settings.edit'],
-                ['title' => 'Contacts', 'route' => 'partak.settings.contacts.index', 'acl' => 'settings.edit']
+                ['title' => 'Contacts', 'route' => 'partak.settings.contacts.index', 'acl' => 'settings.edit'],
+                ['title' => 'Coronavirus', 'route' => 'partak.settings.coronavirus', 'acl' => 'settings.edit'],
             ]],
             ['title' => 'Alumni Newsletters', 'icon' => 'newspaper', 'route' => 'alumni.newsletters.index', 'acl' => ['alumniNewsletter.create', 'alumniNewsletter.update', 'alumniNewsletter.delete']],
             ['title' => 'Logs', 'icon' => 'file', 'route' => 'partak.logs', 'acl' => 'logs'],
