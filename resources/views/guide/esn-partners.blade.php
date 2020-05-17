@@ -84,7 +84,7 @@
                 and for travelling dates between <strong>1 September to 15 June</strong>
             </li>
         </ul>
-
+        <!--
         <h2>Revolut</h2>
         <img src="{{ asset('img/guide/partners/revolut.svg') }}" alt="Revolut logo" />
         <p>
@@ -103,7 +103,7 @@
         <p>
             Use <a href="https://revolut.ngih.net/kGWO3">this link</a> to order the Revolut card for FREE!
         </p>
-
+        -->
         <h2>Grammarly</h2>
         <img src="{{ asset('img/guide/partners/grammarly.jpg') }}" alt="Grammarly logo" />
         <p>
