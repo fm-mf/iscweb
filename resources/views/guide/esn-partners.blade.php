@@ -84,6 +84,17 @@
                 and for travelling dates between <strong>1 September to 15 June</strong>
             </li>
         </ul>
+
+        <h2>FlixBus</h2>
+        <img src="{{ asset('img/guide/partners/flixbus.svg') }}" alt="FlixBus logo" />
+        <p>
+            FlixBus is a young mobility provider that has been changing the way millions of people travel in Europe.
+            As a combination of tech-startup, e-commerce-platform and transportation company,
+            FlixBus was able to establish Europe's largest intercity bus network in the shortest amount of time.
+        </p>
+        <p><a href="https://esncard.org/flixbus" target="_blank" rel="noopener">Enjoy 10% discount with your voucher.</a></p>
+        <p>*You can claim up to 12 vouchers per ESNcard.</p>
+
         <!--
         <h2>Revolut</h2>
         <img src="{{ asset('img/guide/partners/revolut.svg') }}" alt="Revolut logo" />
