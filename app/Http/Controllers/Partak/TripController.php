@@ -156,7 +156,7 @@ class TripController extends Controller
 
         $this->authorize('addParticipant', $trip);
 
-        $response = (object)[
+        $response = (object) [
             'error' => null,
             'successUpdate' => null
         ];
@@ -187,7 +187,7 @@ class TripController extends Controller
                     $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
                         ->withTrashed()
                         ->first();
-                    
+
                     if (!$reservation) {
                         // Somehow we will not receive primary key here :(
                         $reservation = EventReservation::create([
@@ -225,7 +225,7 @@ class TripController extends Controller
 
         return redirect()
             ->action('Partak\TripController@showDetail', ['id' => $id_trip])
-            ->with((array)$response);
+            ->with((array) $response);
     }
 
     public function removeReservationFromTrip(int $id_trip, int $id_part)
@@ -259,7 +259,7 @@ class TripController extends Controller
         ]);
         $reservation->save();
         $reservation->delete();
-        
+
         try {
             Mail::to($reservation->user->email)
                 ->send(new ReservationCancelledMail(
@@ -425,7 +425,7 @@ class TripController extends Controller
 
         $this->saveQuestions($trip, $request->input('questions') ?? []);
 
-        return \Redirect::route('trips.edit', ['id_trip' => $trip->id_trip])
+        return \Redirect::route('partak.trips.edit', ['id_trip' => $trip->id_trip])
             ->with(['success' => 'Trip was successfully created.']);
     }
 
