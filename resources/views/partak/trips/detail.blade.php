@@ -29,6 +29,15 @@
                     <i class="fas fa-share-alt"></i>
                     Share
                 </share-button>
+
+                <a
+                    href="{{ $trip->event->reservation_url }}"
+                    class="btn btn-secondary"
+                    target="_blank"
+                >
+                    <i class="fas fa-external-link-alt"></i>
+                    View
+                </a>
             </div>
         </div>
 
