@@ -6,8 +6,8 @@
           <h3>
             <span>
               {{ student.person.last_name }},
-              {{ student.person.first_name }} ({{ student.id_user }})
             </span>
+            {{ student.person.first_name }} ({{ student.id_user }})
           </h3>
           <small>{{ student.person.user.email }}</small>
           <div class="form-goup">
@@ -31,7 +31,9 @@
             />
           </div>
           <div class="form-group">
-            <button class="btn btn-warning" @click="save">Save</button>
+            <button class="btn btn-warning" @click="save">
+              <span class="fas fa-save"></span> Save
+            </button>
           </div>
         </div>
       </li>

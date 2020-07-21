@@ -31,7 +31,7 @@
                         protection-text="Remove {{ $partak->person->first_name }} {{ $partak->person->last_name }} from Partaks?"
                         button-style="btn-danger btn-xs align-right"
                     >
-                        Remove
+                        <span class="fas fa-times"></span> Remove
                     </protectedbutton>
                 </td>
             </tr>
