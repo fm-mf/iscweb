@@ -49,7 +49,7 @@
                     {{ Form::label('esn_registered', 'ESN registered', ['class' => 'control-label', 'for' => 'esn_registered']) }}
                 </div>
                 <div class="col-md-6">
-                    {{ Form::bsText('esn_card_number', 'ESN card number') }}
+                    {{ Form::bsText('esn_card_number', 'ESNcard number') }}
                 </div>
             </div>
 

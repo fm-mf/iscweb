@@ -26,7 +26,7 @@
                     {{ Form::bsUrl('facebook', 'Facebook', '', null, [], 'Full link to the Facebook profile') }}
                     {{ Form::label('esn_registered', 'ESN registered', ['class' => 'control-label']) }}
                     {{ Form::checkbox('esn_registered', 'y', $exStudent->esn_registered == 'y') }}
-                    {{ Form::bsText('esn_card_number', 'ESN card number') }}
+                    {{ Form::bsText('esn_card_number', 'ESNcard number') }}
                     {{ Form::bsSelect('id_faculty', 'Faculty', $faculties, $exStudent->id_faculty, ['placeholder' => 'Choose faculty...', 'required' =>'required']) }}
                     {{ Form::bsSelect('id_accommodation', 'Accommodation', $accommodations, $exStudent->id_accommodation, ['placeholder' => 'Choose accommodation...', 'required' =>'required']) }}
                     {{ Form::bsSelect('id_country', 'Country', $countries, $exStudent->id_country, ['placeholder' => 'Choose country...', 'required' =>'required']) }}
