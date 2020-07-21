@@ -14,6 +14,7 @@ import PreRegister from './components/Preregister';
 import UniqueUrlCopy from './components/UniqueUrlCopy';
 import Reservation from './partak/Reservation';
 import ContactsOrder from './components/ContactsOrder';
+import ShareButton from './partak/ShareButton';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -21,12 +22,13 @@ import ContactsOrder from './components/ContactsOrder';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('autocomplete', Autocomplete);
+Vue.component('auto-complete', Autocomplete);
 Vue.component('multiselectinput', MultiSelectInput);
 Vue.component('protectedbutton', Button);
 Vue.component('preregister', PreRegister);
 Vue.component('unique-url', UniqueUrlCopy);
 Vue.component('contacts-order', ContactsOrder);
+Vue.component('share-button', ShareButton);
 
 new Vue({
   el: '#partakApp',

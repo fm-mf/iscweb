@@ -27,8 +27,8 @@ export default {
 .card {
   float: left;
   display: block;
-  width: 250px;
-  height: 200px;
+  width: 300px;
+  height: 250px;
   background: #0079c1;
   padding: 1rem;
   position: relative;

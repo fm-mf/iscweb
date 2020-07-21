@@ -1,5 +1,5 @@
 <template>
-  <div v-show="!loaded" class="loader">
+  <div v-show="!loaded" :class="['loader', { fill: fill }]">
     <i class="fas fa-circle-notch fa-spin" />
   </div>
 </template>
@@ -7,7 +7,8 @@
 <script>
 export default {
   props: {
-    loaded: Boolean
+    loaded: Boolean,
+    fill: Boolean
   }
 };
 </script>
@@ -23,6 +24,14 @@ export default {
   box-sizing: border-box;
   padding: 5em 0;
   text-align: center;
+  z-index: 1;
+
+  &.fill {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   &-container {
     position: relative;

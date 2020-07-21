@@ -4,18 +4,14 @@
     <div class="container">
         <h2>Coronavirus alert settings</h2>
 
-        @if(session('successUpdate'))
-            <div class="row">
-                <div class="row-inner">
-                    <div class="success">
-                        <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> Settings was successfully updated.
-                    </div>
-                </div>
-            </div>
-        @endif
-
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-10">     
+                @if(session('successUpdate'))
+                    <div class="success top-message">
+                        <i class="fas fa-check mr-1"></i>Settings was successfully updated.
+                    </div>
+                @endif
+
                 {{ Form::model($settings, ['id' => 'mainForm', 'url' => 'partak/settings/coronavirus', 'method' => 'patch']) }}
 
                 {{ Form::bsSelect('coronavirusEnabled', 'Coronavirus alert is', ['1' => 'Enabled', '0' => 'Disabled'], $settings['coronavirusEnabled'] ? '1' : '0')  }}

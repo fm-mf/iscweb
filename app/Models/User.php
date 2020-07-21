@@ -44,8 +44,14 @@ class User extends Authenticatable
         return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
     }
 
-    public function buddy() {
+    public function buddy()
+    {
         return $this->belongsTo('\App\Models\Buddy', 'id_user', 'id_user');
+    }
+
+    public function exchangeStudent()
+    {
+        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
     static function findByHash($hash)
@@ -140,6 +146,18 @@ class User extends Authenticatable
             }
         }
 
+    }
+
+    public function removeRole($role)
+    {
+        if (is_integer($role)) {
+            $this->roles()->detach($role);
+        } else {
+            $role = Role::where('title', $role)->first();
+            if ($role) {
+                $this->roles()->detach($role);
+            }
+        }
     }
 
     public function addRoles($roles)

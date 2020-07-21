@@ -7,92 +7,129 @@
  * Prefix: partak
  */
 
-Route::get('/', 'DashboardController@index')->name('partak.index');
-Route::get('/users/roles', 'RolesController@showDashboard');
-Route::get('/users/partaks', 'RolesController@showPartaks');
-Route::get('/users/roles/remove/{id_user}/{id_role}', 'RolesController@removeRole');
+Route::get('/', 'DashboardController@index')->name('index');
 
-Route::get('/users', 'DashboardController@users');
-
-Route::get('/users/buddies', 'BuddiesController@showBuddiesDashboard');
-Route::get('/users/buddies/{id}', 'BuddiesController@showBuddyDetail');
-Route::get('/users/buddies/{id_buddy}/remove/{id_exStudent}', 'BuddiesController@removeExStudentFromBuddy');
-Route::get('/users/buddies/edit/{id}', 'BuddiesController@showEditFormBuddy');
-Route::patch('/users/buddies/edit/{id}', 'BuddiesController@submitEditFormBuddy');
-
-Route::get('/users/buddies/approve/{id}', 'BuddiesController@approveBuddy');
-Route::get('/users/buddies/deny/{id}', 'BuddiesController@denyBuddy');
-//Route::get('/mail', 'DashboardController@mail')->middleware('can:partaknet');
-
-Route::get('/users/exchange-students', 'ExchangeStudentsController@showExchangeStudentDashboard');
-Route::get('/users/exchange-students/{id_user}', 'ExchangeStudentsController@showDetailExchangeStudent');
-Route::get('/users/exchange-students/edit/{id_user}', 'ExchangeStudentsController@showEditFormExchangeStudent')->name('exStudent.edit');
-Route::patch('/users/exchange-students/edit/{id}', 'ExchangeStudentsController@submitEditFormExStudent');
-
-//Route::get('/users/office-registration', 'OfficeRegistrationControler@showOfficeRegistrationDashboard');
-//Route::get('/users/office-registration/{id}', 'OfficeRegistrationControler@showExchangeStudent');
-//Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationControler@esnRegistration');
-
-Route::get('/trips', 'DashboardController@trips');
-Route::post('/trips/upload-option', 'TripController@uploadOptionImage');
-Route::get('/trips/upcoming', 'TripController@showUpcoming');
-Route::get('/trips/mytrips', 'TripController@showMyTrips');
-Route::get('/trips/detail/{id}', 'TripController@showDetail');
-Route::get('/trips/detail/{id}/pdf', 'TripController@showDetailPdf');
-Route::get('/trips/detail/{id}/excel', 'TripController@showDetailExcel');
-Route::get('/trips/detail/{id_event}/add/{id_part}', 'TripController@confirmAddParticipant');
-Route::patch('/trips/detail/{id_event}/add/{id_part}', 'TripController@addParticipantToTrip');
-Route::get('/trips/{id_event}/remove/{id_part}', 'TripController@removeParticipantFromTrip');
-Route::get('/trips/{id_event}/cancel/{id_part}', 'TripController@removeReservationFromTrip');
-Route::get('/trips/edit/{id_trip}', 'TripController@showEditForm')->name('trips.edit');
-Route::patch('/trips/edit/{id_trip}', 'TripController@submitEditForm');
-Route::get('/trips/create', 'TripController@showCreateForm');
-Route::patch('/trips/create', 'TripController@submitCreateForm');
-Route::get('/trips/delete/{id_trip}', 'TripController@deleteTrip');
-Route::get('/trips/{id_event}/payment/{id_payment}', 'TripController@showPaymentDetail');
-
-Route::get('/events', 'EventController@showDashboard');
-Route::get('/events/edit/{id_event}', 'EventController@showEditForm')->name('events.edit');
-Route::patch('/events/edit/{id_event}', 'EventController@submmitEditForm');
-Route::get('/events/create', 'EventController@showCreateForm');
-Route::get('/events/create/integreat', 'EventController@showCreateForm');
-Route::get('/events/create/languages', 'EventController@showCreateForm');
-Route::patch('/events/create', 'EventController@submitCreateForm');
-Route::get('/events/delete/{id_event}', 'EventController@deleteEvent');
-
-Route::get('/users/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard');
-Route::get('/users/office-registration/registration/{id}', 'OfficeRegistrationController@showExchangeStudent');
-Route::get('/users/office-registration/register/{id}/{phone}/{esnCard}', 'OfficeRegistrationController@esnRegistrationNotPreregistered');
-Route::get('/users/office-registration/register/{id}', 'OfficeRegistrationController@esnRegistration');
-Route::get('/users/office-registration/create', 'OfficeRegistrationController@showCreateExStudent');
-Route::patch('/users/office-registration/create', 'OfficeRegistrationController@createExStudent');
-
-Route::get('/users/preregistrations', 'OfficeRegistrationController@showPreregistrations');
-Route::get('/users/preregistrations/{id}', 'OfficeRegistrationController@showPreregistrations');
-
-Route::get('/settings', 'SettingsController@showSettings');
-Route::patch('/settings', 'SettingsController@submitSettings');
-Route::get('/openinghours', 'SettingsController@getOpeningHours');
-Route::get('/logs', 'LogsController@index');
-Route::get('/settings/coronavirus', 'SettingsController@showCoronavirus')->name('partak.coronavirus');
-Route::patch('/settings/coronavirus', 'SettingsController@submitCoronavirus')->name('partak.coronavirus.save');
-
-Route::prefix('/settings/contacts')
-    ->name('partak.settings.contacts.')
+Route::prefix('/users')
+    ->name('users.')
     ->group(function () {
-        Route::get('/', 'ContactsSettingsController@index')->name('index');
-        Route::get('/data', 'ContactsSettingsController@data')->name('data');
-        Route::get('/create', 'ContactsSettingsController@create')->name('create');
-        Route::post('/', 'ContactsSettingsController@store')->name('store');
-        Route::get('/{contact}/edit', 'ContactsSettingsController@edit')->name('edit');
-        Route::patch('/{contact}', 'ContactsSettingsController@update')->name('update');
-        Route::put('/{contact}', 'ContactsSettingsController@update')->name('update');
-        Route::post('/{contact}/move', 'ContactsSettingsController@move')->name('move');
-        Route::delete('/{contact}', 'ContactsSettingsController@destroy')->name('destroy');
+        Route::get('/roles', 'RolesController@showDashboard')->name('roles');
+        Route::get('/roles/remove/{id_user}/{id_role}', 'RolesController@removeRole')->name('roles.remove');
+        Route::get('/partaks', 'RolesController@showPartaks')->name('partaks');
+        Route::get('/buddies', 'BuddiesController@showBuddiesDashboard')->name('buddies');
+        Route::get('/buddies/{id}', 'BuddiesController@showBuddyDetail')->name('buddy');
+        Route::get('/buddies/{id_buddy}/remove/{id_exStudent}', 'BuddiesController@removeExStudentFromBuddy')
+            ->name('buddy.remove');
+        Route::get('/buddies/edit/{id}', 'BuddiesController@showEditFormBuddy')->name('buddy.edit');
+        Route::patch('/buddies/edit/{id}', 'BuddiesController@submitEditFormBuddy')->name('buddy.doEdit');
+
+        Route::get('/buddies/approve/{id}', 'BuddiesController@approveBuddy')->name('buddy.approve');
+        Route::get('/buddies/deny/{id}', 'BuddiesController@denyBuddy')->name('buddy.deny');
+
+        Route::get('/exchange-students', 'ExchangeStudentsController@showExchangeStudentDashboard')
+            ->name('exchangeStudents');
+        Route::get('/exchange-students/{id_user}', 'ExchangeStudentsController@showDetailExchangeStudent')
+            ->name('exchangeStudent');
+        Route::get('/exchange-students/edit/{id_user}', 'ExchangeStudentsController@showEditFormExchangeStudent')
+            ->name('exStudent.edit');
+        Route::patch('/exchange-students/edit/{id}', 'ExchangeStudentsController@submitEditFormExStudent')
+            ->name('exStudent.doEdit');
+
+
+        Route::get('/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard')
+            ->name('registration');
+        Route::get('/office-registration/registration/{id}', 'OfficeRegistrationController@showExchangeStudent')
+            ->name('registration.user');
+        Route::get(
+            '/office-registration/register/{id}/{phone}/{esnCard}',
+            'OfficeRegistrationController@esnRegistrationNotPreregistered'
+        )->name('registration.register');
+        Route::get('/office-registration/register/{id}', 'OfficeRegistrationController@esnRegistration')
+            ->name('registration.registerEsn');
+        Route::get('/office-registration/create', 'OfficeRegistrationController@showCreateExStudent')
+            ->name('registration.create');
+        Route::patch('/office-registration/create', 'OfficeRegistrationController@createExStudent')
+            ->name('registration.doCreate');
+
+        Route::get('/preregistrations', 'OfficeRegistrationController@showPreregistrations')
+            ->name('preregistrations');
+        Route::get('/preregistrations/{id}', 'OfficeRegistrationController@showPreregistrations')
+            ->name('preregistration');
     });
 
+Route::prefix('/trips')
+    ->name('trips.')
+    ->group(function () {
+        Route::get('/', 'DashboardController@trips')->name('list');
+        Route::post('/upload-option', 'TripController@uploadOptionImage')->name('uploadOption');
+        Route::get('/upcoming', 'TripController@showUpcoming')->name('upcoming');
+        Route::get('/mytrips', 'TripController@showMyTrips')->name('my');
+        Route::get('/detail/{id}', 'TripController@showDetail')->name('detail');
+        Route::get('/detail/{id}/pdf', 'TripController@showDetailPdf')->name('export.pdf');
+        Route::get('/detail/{id}/excel', 'TripController@showDetailExcel')->name('export.excel');
+        Route::get('/detail/{id_event}/add/{id_part}', 'TripController@confirmAddParticipant')->name('participant.add');
+        Route::patch('/detail/{id_event}/add/{id_part}', 'TripController@addParticipantToTrip')
+            ->name('participant.doAdd');
+        Route::get('/{id_event}/remove/{id_part}', 'TripController@removeParticipantFromTrip')
+            ->name('pariticpant.remove');
+        Route::get('/{id_event}/cancel/{id_part}', 'TripController@removeReservationFromTrip')
+            ->name('paritcipant.cancelReservation');
+        Route::get('/edit/{id_trip}', 'TripController@showEditForm')->name('edit');
+        Route::patch('/edit/{id_trip}', 'TripController@submitEditForm')->name('doEdit');
+        Route::get('/create', 'TripController@showCreateForm')->name('create');
+        Route::patch('/create', 'TripController@submitCreateForm')->name('doCreate');
+        Route::get('/delete/{id_trip}', 'TripController@deleteTrip')->name('delete');
+        Route::get('/{id_event}/payment/{id_payment}', 'TripController@showPaymentDetail')->name('pariticpant.detail');
+    });
+
+Route::prefix('/events')
+    ->name('events.')
+    ->group(function () {
+        Route::get('/', 'EventController@showDashboard')->name('list');
+        Route::get('/edit/{id_event}', 'EventController@showEditForm')->name('edit');
+        Route::patch('/edit/{id_event}', 'EventController@submmitEditForm')->name('doEdit');
+        Route::get('/create', 'EventController@showCreateForm')->name('create');
+        Route::get('/create/integreat', 'EventController@showCreateForm')->name('integreat');
+        Route::get('/create/languages', 'EventController@showCreateForm')->name('languages');
+        Route::patch('/create', 'EventController@submitCreateForm')->name('doCreate');
+        Route::get('/delete/{id_event}', 'EventController@deleteEvent')->name('delete');
+    });
+
+Route::prefix('/settings')
+    ->name('settings.')
+    ->group(function () {
+        Route::get('/general', 'SettingsController@showSettings')->name('general');
+        Route::patch('/general', 'SettingsController@submitSettings')->name('general.save');
+
+        Route::get('/opening-hours', 'SettingsController@showOpeningHours')
+            ->name('openingHours');
+        Route::patch('/opening-hours', 'SettingsController@submitOpeningHours')
+            ->name('openingHours.save');
+
+        Route::get('/coronavirus', 'SettingsController@showCoronavirus')
+            ->name('coronavirus');
+        Route::patch('/coronavirus', 'SettingsController@submitCoronavirus')
+            ->name('coronavirus.save');
+
+        Route::prefix('/contacts')
+            ->name('contacts.')
+            ->group(function () {
+                Route::get('/', 'ContactsSettingsController@index')->name('index');
+                Route::get('/data', 'ContactsSettingsController@data')->name('data');
+                Route::get('/create', 'ContactsSettingsController@create')->name('create');
+                Route::post('/', 'ContactsSettingsController@store')->name('store');
+                Route::get('/{contact}/edit', 'ContactsSettingsController@edit')->name('edit');
+                Route::patch('/{contact}', 'ContactsSettingsController@update')->name('update');
+                Route::put('/{contact}', 'ContactsSettingsController@update')->name('update');
+                Route::post('/{contact}/move', 'ContactsSettingsController@move')->name('move');
+                Route::delete('/{contact}', 'ContactsSettingsController@destroy')->name('destroy');
+            });
+    });
+
+Route::get('/openinghours', 'SettingsController@getOpeningHours');
+Route::get('/logs', 'LogsController@index')->name('logs');
+
 Route::prefix('/stats')
-    ->name('partak.stats.')
+    ->name('stats.')
     ->group(function () {
         Route::get('/', 'StatsController@showIndex')->name('index');
 

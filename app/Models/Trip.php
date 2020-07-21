@@ -86,6 +86,14 @@ class Trip extends Model
         return $this->howIsfill() .'/'. $this->capacity;
     }
 
+    public function buddyParticipants()
+    {
+        $participats = $this->participants()->with('buddy', 'exchangeStudent')->wherePivot('stand_in', 'n')->get();
+        return $participats->filter(function ($value, $key) {
+            return isset($value->buddy);
+        });
+    }
+
     public function howIsFillWithDetail()
     {
         $result = '';
@@ -423,9 +431,9 @@ class Trip extends Model
         switch ($messageCode)
         {
             case self::REGULAR_PARTICIPANT:
-                return $partName . ' was successfully add to ' . $this->event->name;
+                return $partName . ' was successfully added to ' . $this->event->name;
             case self::STAND_IN:
-                return $partName . ' was successfully add in to ' . $this->event->name . ' as stand in';
+                return $partName . ' was successfully added in to ' . $this->event->name . ' as stand in';
             case self::TRIP_FULL:
                 return 'Trip '. $this->event->name . 'is FULL!!!';
             case self::PARTICIPANT_ALREADY_IN:

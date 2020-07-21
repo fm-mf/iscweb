@@ -1,18 +1,4 @@
-.buddy-detail-img
-{
-  margin-right: 30px;
-  margin-bottom: 50px;
-}
-
-.buddy-detail-icon
-{
-  margin-right: 10px;
-  
-  &.fab {
-    margin-right: 8px;
-    margin-left: -2px;
-  }
-
+.user-detail-icon {
   &.fa-facebook {
     color: #4267B2;
   }
@@ -21,7 +7,6 @@
     color: #1BD741;
   }
 }
-
 
 /* Titles */
 .hline {
@@ -34,6 +19,7 @@
 
   margin-bottom: 20px !important;
 }
+
 .hline:before, .hline:after {
   position: absolute;
   top: 51%;
