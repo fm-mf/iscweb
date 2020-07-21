@@ -26,7 +26,7 @@
 
                     @else
                     {{ Form::bsText('phone', 'Phone', 'required', $exStudent->phone) }}
-                    {{ Form::bsText('esn_card_number', 'ESN card number', 'required', $exStudent->esn_card_number) }}
+                    {{ Form::bsText('esn_card_number', 'ESNcard number', 'required', $exStudent->esn_card_number) }}
                     <protectedbutton  url="{{ url('partak/users/office-registration/register/' .$exStudent->id_user) }}"
                             protection-text="Do you really want to register {{ $exStudent->person->first_name }} {{ $exStudent->person->last_name }} to ESN?"
                             button-style="btn-warning btn-lg"
