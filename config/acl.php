@@ -66,6 +66,7 @@ return [
                 'roles' => ['view', 'partak', 'point'],
                 'events' => ['view', 'add', 'edit'],
                 'stats' => ['view'],
+                'settings' => ['openingHours'],
             ],
         ],
 
