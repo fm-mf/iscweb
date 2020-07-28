@@ -118,6 +118,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'age' => 'year of birth'
+    ],
 
 ];
