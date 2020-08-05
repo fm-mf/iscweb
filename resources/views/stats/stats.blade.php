@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col">
                     <h1>Statistika Buddy Programu</h1>
-                    <h2>Letní semestr 2019/2020</h2>
+                    <h2>{{ $season }} semestr {{ $schoolYear }}</h2>
                     <p>
-                        V únoru 2020 přijede studovat na ČVUT <strong>{{ $students }}</strong>
+                        V {{ $month }} {{ $currYear }} přijede studovat na ČVUT <strong>{{ $students }}</strong>
                         {{ trans_choice('stats.exchange_student', $students) }}
                         z <strong>{{ $countriesCount }}</strong> zemí.
                     </p>
