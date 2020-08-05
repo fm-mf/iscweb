@@ -18,6 +18,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Facades\Settings;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -86,7 +88,8 @@ class EventController extends Controller
             if ($request->hasFile('cover')) {
                 $file = $request->file('cover');
                 $image_name = $event->id_event . '.' . $file->extension();
-                \File::delete(storage_path() . '/app/events/covers/' . $event->cover);
+                Storage::makeDirectory('events/covers');
+                File::delete(storage_path() . '/app/events/covers/' . $event->cover);
                 Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
                 $data['cover'] = $image_name;
             }
@@ -142,6 +145,7 @@ class EventController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $image_name = $event->id_event . '.' . $file->extension();
+            Storage::makeDirectory('events/covers');
             Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
             $event['cover'] = $image_name;
         }
