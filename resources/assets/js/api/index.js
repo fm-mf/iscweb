@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import axios from 'axios';
 
 export const getExchangeStudent = (event, email, esn) =>
