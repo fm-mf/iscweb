@@ -67,7 +67,7 @@ class ProfileController extends Controller
                     }
                 }
             ],
-            'new_password' => 'required|confirmed|min:6'
+            'new_password' => 'required|string|min:8|confirmed',
         ]);
 
 
