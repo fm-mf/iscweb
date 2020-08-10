@@ -73,9 +73,6 @@ class ProfileController extends Controller
 
         $user = User::find(Auth::id());
 
-        if ($user->password !== bcrypt(User::encryptPassword($user->email, $data['old_password']))) {
-        }
-
         $user->forceFill([
             'password' => Hash::make(User::encryptPassword($user->email, $data['new_password']))
         ])->save();
