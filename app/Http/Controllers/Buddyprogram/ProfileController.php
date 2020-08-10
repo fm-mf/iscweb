@@ -32,15 +32,15 @@ class ProfileController extends Controller
     public function updateProfile(Request $request)
     {
         $data = $request->validate([
-            'phone' => 'max:20',
-            'age' => 'integer|min:1901|max:2155|nullable',
-            'subscribed' => 'boolean|nullable',
-            'sex' => 'required|string|in:M,F',
+            'phone' => ['max:20'],
+            'age' => ['integer', 'min:1901', 'max:2155', 'nullable'],
+            'subscribed' => ['boolean', 'nullable'],
+            'sex' => ['required', 'string', 'in:M,F'],
             'id_faculty' => ['required', 'int', function ($attribute, $value, $error) {
                 if (!Faculty::find($value)) {
                     $error(__('buddy-program.my-profile.invalid-faculty'));
                 }
-            }]
+            }],
         ]);
 
         if (!isset($data['subscribed'])) {
@@ -67,7 +67,7 @@ class ProfileController extends Controller
                     }
                 }
             ],
-            'new_password' => 'required|string|min:8|confirmed',
+            'new_password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
 
