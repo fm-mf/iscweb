@@ -97,9 +97,9 @@ return [
     |
     */
 
-    'custom'               => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+    'custom' => [
+        'id_faculty' => [
+            'exists' => 'Vybrána neexistující fakulta',
         ],
     ],
 
@@ -116,7 +116,7 @@ return [
     |
     */
 
-    'attributes'           => [
+    'attributes' => [
         'first_name' => 'Jméno',
         'last_name' => 'Příjmení',
         'email' => 'E-mail',

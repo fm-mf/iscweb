@@ -36,11 +36,7 @@ class ProfileController extends Controller
             'age' => ['integer', 'min:1901', 'max:2155', 'nullable'],
             'subscribed' => ['boolean', 'nullable'],
             'sex' => ['required', 'string', 'in:M,F'],
-            'id_faculty' => ['required', 'int', function ($attribute, $value, $error) {
-                if (!Faculty::find($value)) {
-                    $error(__('buddy-program.my-profile.invalid-faculty'));
-                }
-            }],
+            'id_faculty' => ['required', 'int', 'exists:faculties'],
         ]);
 
         if (!isset($data['subscribed'])) {

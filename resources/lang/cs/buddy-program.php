@@ -19,6 +19,5 @@ return [
         'password-changed' => 'Heslo změněno',
         'wrong-old-password' => 'Špatné heslo',
         'subscribed' => 'Souhlasím s občasným zasíláním informací o dění v ISC (např. informace o otevření databáze či o nadcházejících akcích).',
-        'invalid-faculty' => 'Vybrána neexistující fakulta'
     ]
 ];
