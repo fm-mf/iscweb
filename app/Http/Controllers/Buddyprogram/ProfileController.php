@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Buddy;
 use App\Models\Faculty;
 use App\Models\User;
-use Auth;
-use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -43,7 +42,7 @@ class ProfileController extends Controller
             $data['subscribed'] = false;
         }
 
-        $buddy = Buddy::find(Auth::id());
+        $buddy = auth()->user()->buddy;
         $buddy->person->update($data);
         $buddy->update($data);
 
@@ -57,7 +56,7 @@ class ProfileController extends Controller
             'old_password' => [
                 'required',
                 function ($attribute, $value, $fail) {
-                    $user = User::find(Auth::id());
+                    $user = auth()->user();
                     if (!Hash::check(User::encryptPassword($user->email, $value), $user->password)) {
                         $fail(__('buddy-program.my-profile.wrong-old-password'));
                     }
@@ -66,8 +65,7 @@ class ProfileController extends Controller
             'new_password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-
-        $user = User::find(Auth::id());
+        $user = auth()->user();
 
         $user->forceFill([
             'password' => Hash::make(User::encryptPassword($user->email, $data['new_password']))
