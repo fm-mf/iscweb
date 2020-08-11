@@ -16,17 +16,15 @@ class BuddyWithoutEmailRegistered
     use InteractsWithSockets, SerializesModels;
 
     public $buddy;
-    public $motivation;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Buddy $buddy, $motivation)
+    public function __construct(Buddy $buddy)
     {
         $this->buddy = $buddy;
-        $this->motivation = $motivation;
     }
 
     /**

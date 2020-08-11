@@ -28,7 +28,7 @@
             <dt>E-mail</dt>
             <dd>{{ $buddy->person->user->email }}</dd>
             <dt>Motivace</dt>
-            <dd>{{  $motivation }}</dd>
+            <dd>{{ $buddy->motivation }}</dd>
         </dl>
         <p>
             <a class="approve" href="{{ url('/partak/users/buddies/approve/' . $buddy->id_user) }}">Scvhálit</a>
