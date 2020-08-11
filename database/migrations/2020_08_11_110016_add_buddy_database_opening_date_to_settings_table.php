@@ -14,6 +14,7 @@ class AddBuddyDatabaseOpeningDateToSettingsTable extends Migration
     public function up()
     {
         Settings::push('buddyDbFrom', '25/08/2020');
+        Settings::push('buddyDbFromTime', '13:00');
     }
 
     /**
@@ -24,5 +25,6 @@ class AddBuddyDatabaseOpeningDateToSettingsTable extends Migration
     public function down()
     {
         Settings::delete('buddyDbFrom');
+        Settings::delete('buddyDbFromTime');
     }
 }

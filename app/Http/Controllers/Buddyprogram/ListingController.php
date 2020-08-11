@@ -6,6 +6,7 @@ use App\Facades\Settings;
 use App\Models\Buddy;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 
 class ListingController extends Controller
@@ -36,7 +37,11 @@ class ListingController extends Controller
 
     public function listExchangeStudents()
     {
-        if (!Settings::get('isDatabaseOpen')) {
+        $curr = Carbon::now();
+        $timeStr = Settings::get('buddyDbFrom') . " " . Settings::get('buddyDbFromTime');
+        $timeStr = str_replace('/', '-', $timeStr);
+        $timeInDb = Carbon::parse($timeStr);
+        if ($curr->lessThan($timeInDb)) {
             return $this->showClosed();
         }
 
