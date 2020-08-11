@@ -19,7 +19,7 @@ class ProfileController extends Controller
 
     public function showProfile()
     {
-        $buddy = Buddy::with('person')->find(Auth::id());
+        $buddy = auth()->user()->buddy;
 
         return view('buddyprogram.my-profile')->with([
             'faculties' => Faculty::getOptions(),
