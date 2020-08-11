@@ -13,15 +13,64 @@ class RolesController extends Controller
 {
     public function showDashboard()
     {
-        $roles = Role::with('users.person')->where('title', '<>', 'partak')->where('title', '<>', 'samoplatce')->get();
-        return view('partak.roles.dashboard')->with(['roles' => $roles]);
+        $roles = Role::with('users.person')
+            ->where('title', '<>', 'partak')
+            ->where('title', '<>', 'exchange_student')
+            ->where('title', '<>', 'buddy')
+            ->where('title', '<>', 'samoplatce')
+            ->where('title', '<>', 'author')
+            ->get();
+        
+        // Predefined roles order
+        $predefined = [
+            'supervisor' => [
+                'title' => 'Supervisor'
+            ],
+            'admin' => [
+                'title' => 'Admin'
+            ],
+            'board' => [
+                'title' => 'Board'
+            ],
+            'buddyManager' => [
+                'title' => 'Buddy coordinator'
+            ],
+            'hr' => [
+                'title' => 'Human relations'
+            ],
+            'integreatCoordinator' => [
+                'title' => 'inteGREAT coordinator'
+            ],
+            'team' => [
+                'title' => 'Team'
+            ],
+            'point' => [
+                'title' => 'Point'
+            ]
+        ];
+
+        foreach ($roles as $role) {
+            if (isset($predefined[$role->title])) {
+                $predefined[$role->title]['id_role'] = $role->id_role;
+                $predefined[$role->title]['users'] = $role->users;
+            } else {
+                $predefined[$role->title] = [
+                    'id_role' => $role->id_role,
+                    'title' => $role->title,
+                    'role' => $role
+                ];
+            }
+        }
+
+        return view('partak.roles.dashboard')->with(['roles' => $predefined]);
     }
 
     public function showPartaks()
     {
-        $partaks = User::with('person')->whereHas('roles', function($query) {
-            $query->where('title', 'partak');
-        })->get();
+        $partaks = User::with('person', 'person.exchangeStudent', 'person.buddy')
+            ->whereHas('roles', function ($query) {
+                $query->where('title', 'partak');
+            })->get();
 
         return view('partak.roles.partaks')->with('partaks', $partaks);
     }

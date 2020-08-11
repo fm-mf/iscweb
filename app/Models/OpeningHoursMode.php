@@ -8,153 +8,177 @@ use App\Helpers\Settings;
 /**
  * @author Jiri Hajek
  */
-class OpeningHoursMode extends Model {
-	public $timestamps = false;
-	protected $primaryKey = "id_mode";
-	protected $table = "opening_hours_mode";
+class OpeningHoursMode extends Model
+{
+    public $timestamps = false;
+    protected $primaryKey = "id_mode";
+    protected $table = "opening_hours_mode";
 
-	public static $dow = [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ];
+    public static $dow = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-	public static function getCurrentMode() {
-		$r = \Settings::get( "openingHoursMode" );
-		return $r;
-	}
+    public static function getCurrentMode()
+    {
+        $r = \Settings::get("openingHoursMode");
+        return $r;
+    }
 
-	public static function setMode( $mode ) {
-		if ( ! in_array( $mode, self::listModes() ) ) {
-			return false;
-		}
+    public static function setMode($mode)
+    {
+        if (!in_array($mode, self::listModes())) {
+            return false;
+        }
 
-		\Settings::set( "openingHoursMode", $mode );
+        \Settings::set("openingHoursMode", $mode);
 
-		return true;
-	}
+        return true;
+    }
 
-	public static function listModes() {
-		return self::pluck( "mode" )->toArray();
-	}
+    public static function listModes()
+    {
+        return self::pluck("mode")->toArray();
+    }
 
-	public function __toString() {
-		return $this->getCurrentMode();
-	}
+    public function __toString()
+    {
+        return $this->getCurrentMode();
+    }
 
-	public static function getText( $mode ) {
-		if ( ! in_array( $mode, self::listModes() ) ) {
-			return null;
-		}
+    public static function getText($mode)
+    {
+        if (!in_array($mode, self::listModes())) {
+            return null;
+        }
 
-		$r = self::where( "mode", $mode )->pluck( "hours_json" )->first();
-		$d = json_decode( $r );
-		return str_replace( "<br>", "\n", $d->text );
-	}
+        $r = self::where("mode", $mode)->pluck("hours_json")->first();
+        $d = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $r));
 
-	public static function getCurrentText() {
-		return self::getText( self::getCurrentMode() );
-	}
+        return str_replace("<br>", "\n", $d->text);
+    }
 
-	public static function getHours( $mode ) {
-		if ( ! in_array( $mode, self::listModes() ) ) {
-			return null;
-		}
+    public static function getCurrentText()
+    {
+        return self::getText(self::getCurrentMode());
+    }
 
-		$r = self::where( "mode", $mode )->pluck( "hours_json" )->first();
-		$d = json_decode( $r );
+    public static function getHours($mode)
+    {
+        if (!in_array($mode, self::listModes())) {
+            return null;
+        }
 
-		$result = array();
-		foreach ( self::$dow as $day ) {
-			$result[ $day ] = $d->hours->$day;
-		}
+        $r = self::where("mode", $mode)->pluck("hours_json")->first();
+        $d = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $r));
 
-		return $result;
-	}
+        $result = array();
+        foreach (self::$dow as $day) {
+            $result[$day] = $d->hours->$day;
+        }
 
-	public static function getCurrentHours() {
-		return self::getHours( self::getCurrentMode() );
-	}
+        return $result;
+    }
 
-	public static function areHoursShown( $mode ) {
-		if ( ! in_array( $mode, self::listModes() ) ) {
-			return null;
-		}
+    public static function getCurrentHours()
+    {
+        return self::getHours(self::getCurrentMode());
+    }
 
-		return self::where( "mode", $mode )->pluck( "show_hours" )->first();
-	}
+    public static function areHoursShown($mode)
+    {
+        if (!in_array($mode, self::listModes())) {
+            return null;
+        }
 
-	public static function areCurrentHoursShown() {
-		return self::areHoursShown( self::getCurrentMode() );
-	}
+        return self::where("mode", $mode)->pluck("show_hours")->first();
+    }
 
-	public static function showHours( $mode ) {
-		if ( ! in_array( $mode, self::listModes() ) ) {
-			return false;
-		}
+    public static function areCurrentHoursShown()
+    {
+        return self::areHoursShown(self::getCurrentMode());
+    }
 
-		self::where( "mode", $mode )->update( [ "show_hours" => true ] );
-	}
+    public static function showHours($mode)
+    {
+        if (!in_array($mode, self::listModes())) {
+            return false;
+        }
 
-	public static function showCurrentHours() {
-		return self::showHours( self::getCurrentMode() );
-	}
+        self::where("mode", $mode)->update(["show_hours" => true]);
+    }
 
-	public static function hideHours( $mode ) {
-		if ( ! in_array( $mode, self::listModes() ) ) {
-			return false;
-		}
+    public static function showCurrentHours()
+    {
+        return self::showHours(self::getCurrentMode());
+    }
 
-		self::where( "mode", $mode )->update( [ "show_hours" => false ] );
-	}
+    public static function hideHours($mode)
+    {
+        if (!in_array($mode, self::listModes())) {
+            return false;
+        }
 
-	public static function hideCurrentHours() {
-		return self::hideHours( self::getCurrentMode() );
-	}
+        self::where("mode", $mode)->update(["show_hours" => false]);
+    }
 
-	public static function updateText( $mode, $text ) {
-		if ( ! in_array( $mode, self::listModes() ) ) {
-			return false;
-		}
+    public static function hideCurrentHours()
+    {
+        return self::hideHours(self::getCurrentMode());
+    }
 
-		$text = htmlentities( $text );
-		$text = str_replace( "\n", "<br>", $text );
-		$text = str_replace( "&quot;", "\"", $text );
+    public static function updateText($mode, $text)
+    {
+        if (!in_array($mode, self::listModes())) {
+            return false;
+        }
 
-		self::where( "mode", $mode )->update( [ "hours_json->text" => $text ] );
-		return true;
-	}
+        $text = htmlentities($text);
+        $text = str_replace("\n", "<br>", $text);
+        $text = str_replace("&quot;", "\"", $text);
 
-	public static function updateHours( $mode, $json ) {
-		if ( ! in_array( $mode, self::listModes() ) ) {
-			return false;
-		}
+        self::where("mode", $mode)->update(["hours_json->text" => $text]);
+        return true;
+    }
 
-		$json = htmlentities( $json );
-		$json = str_replace( "\n", "<br>", $json );
-		$json = str_replace( "&quot;", "\"", $json );
+    public static function updateHours($mode, $hours)
+    {
+        if (!in_array($mode, self::listModes())) {
+            return false;
+        }
 
-		self::where( "mode", $mode )->update( [ "hours_json" => '{"text": "' . self::getCurrentText() . '", "hours": ' . $json . '}' ] );
+        foreach ($hours as $day => $text) {
+            $hours[$day] = htmlentities($text);
+        }
 
-		return true;
-	}
+        self::where("mode", $mode)->update([
+            "hours_json" => json_encode([
+                "text" => self::getCurrentText(),
+                "hours" => $hours
+            ])
+        ]);
 
-	public static function buildHoursTable() {
-		if ( ! self::areCurrentHoursShown() ) {
-			return "";
-		}
-		$h = self::getCurrentHours();
+        return true;
+    }
 
-		$r = "<table class='opening-hours'>";
+    public static function buildHoursTable()
+    {
+        if (!self::areCurrentHoursShown()) {
+            return "";
+        }
+        $h = self::getCurrentHours();
 
-		foreach ( self::$dow as $day ) {
-			$v = str_replace( "-", "&ndash;", $h[ $day ] );
-			$r .= "
-			<tr>
-				<th>" . $day . "</th>
-				<td>" . $v . "</td>
-			</tr>
-			";
-		}
+        $r = "<table class='opening-hours'>";
 
-		$r .= "</table>";
+        foreach (self::$dow as $day) {
+            $v = str_replace("-", "&ndash;", $h[$day]);
+            $r .= "
+            <tr>
+                <th>" . $day . "</th>
+                <td>" . $v . "</td>
+            </tr>
+            ";
+        }
 
-		return $r;
-	}
+        $r .= "</table>";
+
+        return $r;
+    }
 }

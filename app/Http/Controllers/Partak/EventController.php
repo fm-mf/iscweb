@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: speedy
@@ -16,7 +17,9 @@ use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Facades\Settings ;
+use App\Facades\Settings;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -26,7 +29,7 @@ class EventController extends Controller
     public function showDashboard()
     {
         $this->authorize('acl', 'events.view');
-        $fromDate = Carbon::createFromFormat('d/m/Y' , Settings::get('wcFrom'));
+        $fromDate = Carbon::createFromFormat('d/m/Y', Settings::get('wcFrom'));
         $visibleEvents = Event::findAllNormalActive()->sortby('datetime_from');
         $integreatEvents = Event::findAllInteGreatInFromDate($fromDate);
         $languagesEvents = Event::findAllLanguagesFromDate($fromDate);
@@ -36,7 +39,7 @@ class EventController extends Controller
             'oldEvents' => $oldEvents,
             'languagesEvents' => $languagesEvents,
             'integreatEvents' => $integreatEvents,
-            ]);
+        ]);
     }
 
     public function showEditForm(Request $request, $id_event)
@@ -54,7 +57,6 @@ class EventController extends Controller
             'semesters' => $semesters,
             'currentSemesterId' => $semesterId,
         ]);
-
     }
 
     public function submmitEditForm(Request $request, $id_event)
@@ -62,7 +64,7 @@ class EventController extends Controller
         $this->authorize('acl', 'events.edit');
         $this->eventValidator($request->all())->validate();
         $event = Event::find($id_event);
-        if(isset($event)){
+        if (isset($event)) {
             $data = [];
             foreach ($request->all() as $key => $value) {
                 if ($value) {
@@ -70,18 +72,14 @@ class EventController extends Controller
                 }
             }
             $data['modified_by'] = Auth::id();
-            if($data['event_type'] == 'integreat')
-            {
-                if(isset($event->integreat_party))
-                {
+            if ($data['event_type'] == 'integreat') {
+                if (isset($event->integreat_party)) {
                     $event->integreat_party->update($data);
                 } else {
                     Integreat_party::creatParty($event->id_event, $data);
                 }
-
             } else if ($data['event_type'] == 'languages') {
-                if(isset($event->languages_event))
-                {
+                if (isset($event->languages_event)) {
                     $event->languages_event->update($data);
                 } else {
                     Languages_event::creatLanguagesEvent($event->id_event, $data);
@@ -90,16 +88,16 @@ class EventController extends Controller
             if ($request->hasFile('cover')) {
                 $file = $request->file('cover');
                 $image_name = $event->id_event . '.' . $file->extension();
-                \File::delete(storage_path() . '/app/events/covers/' . $event->cover);
+                Storage::makeDirectory('events/covers');
+                File::delete(storage_path() . '/app/events/covers/' . $event->cover);
                 Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
                 $data['cover'] = $image_name;
             }
             $event->update($data);
             return back()->with([
                 'successUpdate' => 'Event was successfully updated.',
-                ]);
-        }
-        else {
+            ]);
+        } else {
             return back()->with(['!success' => 'Event wasn\'t updated']);
         }
     }
@@ -114,7 +112,7 @@ class EventController extends Controller
         if ($request->is('partak/events/create/integreat')) {
             $event->event_type = 'integreat';
             $event->integreat_party = new Integreat_party();
-        } else if($request->is('partak/events/create/languages')){
+        } else if ($request->is('partak/events/create/languages')) {
             $event->event_type = 'languages';
             $event->languages_event = new Languages_event();
         }
@@ -130,7 +128,6 @@ class EventController extends Controller
             'semesters' => $semesters,
             'currentSemesterId' => $semesterId,
         ]);
-
     }
 
     public function submitCreateForm(Request $request)
@@ -148,18 +145,19 @@ class EventController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $image_name = $event->id_event . '.' . $file->extension();
+            Storage::makeDirectory('events/covers');
             Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
             $event['cover'] = $image_name;
         }
-        if($data['event_type'] == 'integreat'){
+        if ($data['event_type'] == 'integreat') {
             Integreat_party::creatParty($event->id_event, $data);
-        } else if($data['event_type'] == 'languages') {
+        } else if ($data['event_type'] == 'languages') {
             Languages_event::creatLanguagesEvent($event->id_event, $data);
         }
         $event->save();
-        return \Redirect::route('events.edit',[
+        return \Redirect::route('partak.events.edit', [
             'id_event' => $event->id_event,
-            ])->with(['successUpdate' => 'Event was successfully created.',]);
+        ])->with(['successUpdate' => 'Event was successfully created.',]);
     }
 
     protected function eventValidator(array $data)
@@ -186,5 +184,4 @@ class EventController extends Controller
         $event->delete();
         return back()->with(['eventDeleted' => "Event \"$name\" has been deleted."]);
     }
-
 }

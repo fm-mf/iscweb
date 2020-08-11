@@ -1,11 +1,8 @@
 @extends('partak.layout.main')
 @section('page')
 
-
-    @include('partak.layout.menu')
-
 <div id="partakApp">
-    @yield('content')
+    @yield('subpage')
 </div>
 
 @stop

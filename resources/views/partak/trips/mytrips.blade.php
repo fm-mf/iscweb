@@ -1,6 +1,5 @@
 @extends('partak.trips.layout')
 @section('inner-content')
-
     <div class="row-grey">
         <div class="container">
             <div class="row-inner">
@@ -8,7 +7,7 @@
                     <h3>My trips</h3>
                     @if($myTrips->count() > 0)
                         <div class="panel panel-default" id="protected">
-                            @include('partak.trips.tripsTable', ['Trips' => $myTrips])
+                            @include('partak.trips.tripsTable', ['Trips' => $myTrips, 'detail' => true])
                         </div>
                         @else No trips
                         <div style="min-height: 100px"></div>

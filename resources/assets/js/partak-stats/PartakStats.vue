@@ -1,61 +1,29 @@
 <template>
-  <div class="container-fluid">
-    <div class="row match-my-cols">
-      <div class="col-sm-3 submenu matched-cols">
-        <router-link to="/">
-          Dashboard
-        </router-link>
-        <router-link to="/arrivals">
-          Arrivals
-        </router-link>
-        <router-link to="/buddies">
-          Buddies
-        </router-link>
-        <router-link to="/students">
-          Students
-        </router-link>
-        <router-link to="/history">
-          History
-        </router-link>
-        <router-link to="/exports">
-          Exports
-        </router-link>
+  <div>
+    <div class="stats-content container">
+      <div class="stats-filter">
+        <select v-if="semesters.data" v-model="semester" class="form-control">
+          <option
+            v-for="item in semesters.data"
+            :key="item.id"
+            :value="item.id"
+          >
+            {{ item.name }}
+          </option>
+        </select>
       </div>
-      <div class="col-sm-9 no-padding matched-cols">
-        <div class="stats-content">
-          <div class="stats-filter">
-            <select
-              v-if="semesters.data"
-              v-model="semester"
-              class="form-control"
-            >
-              <option
-                v-for="item in semesters.data"
-                :key="item.id"
-                :value="item.id"
-              >
-                {{ item.name }}
-              </option>
-            </select>
-          </div>
 
-          <div v-if="error" class="error">
-            <p>{{ error.message }}</p>
-            <div v-if="error.error" class="error-desc">
-              <div>
-                <strong>URL:</strong> {{ error.error.request.responseURL }}
-              </div>
-              <div>
-                <strong>Error:</strong> {{ error.error.response.status }}
-              </div>
-            </div>
-            <div class="btn btn-warning" @click="error = null">
-              OK
-            </div>
-          </div>
-          <router-view :semester="semester" />
+      <div v-if="error" class="error">
+        <p>{{ error.message }}</p>
+        <div v-if="error.error" class="error-desc">
+          <div><strong>URL:</strong> {{ error.error.request.responseURL }}</div>
+          <div><strong>Error:</strong> {{ error.error.response.status }}</div>
+        </div>
+        <div class="btn btn-warning" @click="error = null">
+          OK
         </div>
       </div>
+      <router-view :semester="semester" />
     </div>
   </div>
 </template>
@@ -82,6 +50,33 @@ export default {
   },
   created() {
     addErrorListener(this.catchError);
+
+    // UGLY HACK START
+    const navs = {
+      'stats-dashboard': '/',
+      'stats-arrivals': '/arrivals',
+      'stats-buddies': '/buddies',
+      'stats-students': '/students',
+      'stats-history': '/history',
+      'stats-exports': '/exports'
+    }
+
+    Object.entries(navs).forEach(([id, url]) => {
+      const element = document.getElementById(id)
+      element.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        Object.keys(navs).forEach(n => {
+          document.getElementById(n).parentElement.classList.remove('active')
+        })
+
+        element.parentElement.classList.add('active')
+
+        this.$router.push(url)
+      })
+    })
+    // UGLY HACK END
   },
   destroyed() {
     removeErrorListener(this.catchError);

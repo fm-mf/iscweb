@@ -97,10 +97,10 @@
                             </p>
                             <p>
                                 The Membership Package also includes
-                                an <a href="{{ route('guide-page', ['page' => 'esn-partners']) }}">ESN card</a>,
+                                an <a href="{{ route('guide-page', ['page' => 'esn-partners']) }}">ESNcard</a>,
                                 <a href="https://www.esncz.org/partners/vodafone" target="_blank" rel="noopener">Vodafone SIM card</a>
                                 with a student plan (with 50% discount) and an "I was there" T-shirt. If you want to buy
-                                the membership, just bring 500 CZK in cash and a passport-format photo (for the ESN card).
+                                the membership, just bring 500 CZK in cash and a passport-format photo (for the ESNcard).
                             </p>
                         </dd>
 
@@ -158,8 +158,8 @@
                             <p>
                                 Sure you can. There are the same rules for all the students. To join our parties and other
                                 events which don't require the registration everybody is free to come. If you want to join
-                                the trips you need to get an ISC Membership Package (it includes ESN card, Vodafone SIM card,
-                                and a t-shirt and costs 500 CZK).
+                                the trips you need to get an ISC Membership Package (it includes ESNcard, Vodafone SIM card,
+                                and a T-shirt and costs 500 CZK).
                             </p>
                         </dd>
 
@@ -171,9 +171,9 @@
                         </dt>
                         <dd id="answer10" class="collapse">
                             <p>
-                                For a lot of the activities we do not require the students to have our membership ESN card
-                                and you are free to come. If you want to join some of the activities for which the ESN card
-                                and registration is needed, but you have an ESN card from some of the other Prague
+                                For a lot of the activities we do not require the students to have our membership ESNcard
+                                and you are free to come. If you want to join some of the activities for which the ESNcard
+                                and registration is needed, but you have an ESNcard from some of the other Prague
                                 universities (UCT, CU, VŠE or CULS) send us a message on
                                 <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">Facebook</a> or an e-mail to
                                 <a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a> and we will help you.

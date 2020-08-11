@@ -59,9 +59,16 @@
     @endcan
 @endif
 
-{{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png image/jpg', 'onchange' => 'cover_change(this.files)']) }}
-<img id="cover_preview" width="100%" src="{{$event->cover()}}" href="{{$event->cover()}}" style="display: {{$event->hasCover() ? 'block' : 'none'}};"/>
-@if(! $trips)
+<div class="row">
+    <div class="col-sm-9">
+    {{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png image/jpg', 'onchange' => 'cover_change(this.files)']) }}
+    </div>
+    <div class="col-sm-3">
+        <img id="cover_preview" src="{{$event->cover()}}" href="{{$event->cover()}}" style="display: {{$event->hasCover() ? 'block' : 'none'}};"/>
+    </div>
+</div>
+
+@if(!$trips)
     @if($event->event_type == 'integreat')
         {{ Form::bsText('countries', 'Countries', '', $event->integreat_party->countries) }}
         {{ Form::bsText('theme', 'Theme', '', $event->integreat_party->theme) }}

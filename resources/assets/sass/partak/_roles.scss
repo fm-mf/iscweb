@@ -1,0 +1,9 @@
+.roles-users {
+  > div:nth-child(odd) {
+    background-color: #eee;
+  }
+
+  > div:hover {
+    background-color: #ddd;
+  }
+}

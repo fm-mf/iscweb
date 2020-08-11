@@ -19,7 +19,7 @@
 
 <div class="login-wrapper">
     <div class="center">
-        <blockquote><p>"We can't help everyone, but everyone can help someone."</p><p><small>Ronald Raegan</small></p></blockquote>
+        <blockquote><p>"We can't help everyone, but everyone can help someone."</p><p><small>Ronald Reagan</small></p></blockquote>
         @if(str_contains(Session::get('url.intended', action('Buddyprogram\ListingController@listExchangeStudents')), action('Partak\DashboardController@index')))
             <h1>Přihlášení na ParťákNET</h1>
         @else

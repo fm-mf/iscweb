@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class AvatarController extends Controller
@@ -40,6 +41,7 @@ class AvatarController extends Controller
 
         $fileName = \Ramsey\Uuid\Uuid::uuid4() . '.jpg';
         $dst = storage_path() . '/app/avatars/' . $fileName;
+        Storage::makeDirectory('avatars');
         $img->save($dst);
 
         $person->avatar = $fileName;

@@ -68,6 +68,8 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     //Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas');
     // Proxy using DDNS (and VPN?) -- should work always
     Route::get('/nas', function () { return redirect('http://quickconnect.to/ISCCTU'); })->name('nas');
+    
+    Route::get('/wiki')->name('wiki');
 
     Route::post('/voting/process', 'VotingController@processVoting');
     Route::get('/voting/results', 'VotingController@showResults')->middleware(['checkpartak', 'auth']);
@@ -85,6 +87,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/volba-presidenta', function() {
         return redirect(url('/volba'), 301);
     });
+    Route::get('/coronavirus', 'WebController@showCoronavirusPage')->name('coronavirus');
 });
 
 // Survival Guide

@@ -27,6 +27,7 @@ use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
@@ -61,7 +62,10 @@ class TripController extends Controller
             'reservations.exchangeStudent',
             'reservations.buddy',
             'reservations.user.person',
-            'event'
+            'event',
+            'organizers.person',
+            'organizers.person.buddy',
+            'organizers.person.exchangeStudent'
         )->find($id);
 
         $this->authorize('view', $trip);
@@ -152,50 +156,76 @@ class TripController extends Controller
 
         $this->authorize('addParticipant', $trip);
 
-        $responseData = [
-            'paid' => $request->input('paid', 0),
-            'comment' => $request->input('comment')
+        $response = (object) [
+            'error' => null,
+            'successUpdate' => null
         ];
 
-        $personData = [];
-        if ($request->has('medical_issues')) {
-            $personData['medical_issues'] = $request->input('medical_issues');
-        }
-        if ($request->has('diet')) {
-            $personData['diet'] = $request->input('diet');
-        }
+        DB::transaction(function () use ($request, $trip, $id_part, $response) {
+            $responseData = [
+                'paid' => $request->input('paid', 0),
+                'comment' => $request->input('comment')
+            ];
 
-        $part = Person::find($id_part);
-        $part->update($personData);
-
-        $result = $trip->addParticipant($id_part, $responseData);
-        if ($result < Trip::TRIP_FULL) {
-            $successUpdate = $trip->getStatusMessage($result, $part);
-            $error = null;
-
-            $custom = $request->input('custom');
-            foreach ($trip->questions as $question) {
-                if (isset($custom[$question->id_question])) {
-                    $value = new EventReservationAnswer([
-                        'id_event' => $trip->id_event,
-                        'id_user' => $id_part,
-                        'id_question' => $question->id_question,
-                        'value' => json_encode($custom[$question->id_question])
-                    ]);
-                    $value->save();
-                }
+            $personData = [];
+            if ($request->has('medical_issues')) {
+                $personData['medical_issues'] = $request->input('medical_issues');
             }
-        } else {
-            $error = $trip->getStatusMessage($result, $part);
-            $successUpdate = null;
-        }
+            if ($request->has('diet')) {
+                $personData['diet'] = $request->input('diet');
+            }
+
+            $part = Person::find($id_part);
+            $part->update($personData);
+
+            $result = $trip->addParticipant($id_part, $responseData);
+            if ($result < Trip::TRIP_FULL) {
+                $response->successUpdate = $trip->getStatusMessage($result, $part);
+                $response->error = null;
+
+                if ($trip->event->reservations_enabled) {
+                    $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
+                        ->withTrashed()
+                        ->first();
+
+                    if (!$reservation) {
+                        // Somehow we will not receive primary key here :(
+                        $reservation = EventReservation::create([
+                            'id_event' => $trip->id_event,
+                            'id_user' => $id_part,
+                            'deleted_by' => Auth::id()
+                        ]);
+
+                        // We have to fetch the reservation to get proper primary key due to weird laravel bug
+                        $reservation = EventReservation::findByUserAndEvent($id_part, $trip->id_event)
+                            ->withTrashed()
+                            ->first();
+                        $reservation->delete();
+                    }
+
+                    $custom = $request->input('custom');
+                    foreach ($trip->questions as $question) {
+                        if (isset($custom[$question->id_question])) {
+                            $answer = EventReservationAnswer::firstOrCreate([
+                                'id_event_reservation' => $reservation->id_event_reservation,
+                                'id_question' => $question->id_question
+                            ], ['value' => '']);
+
+                            $answer->update([
+                                'value' => json_encode($custom[$question->id_question])
+                            ]);
+                        }
+                    }
+                }
+            } else {
+                $response->error = $trip->getStatusMessage($result, $part);
+                $response->successUpdate = null;
+            }
+        });
 
         return redirect()
             ->action('Partak\TripController@showDetail', ['id' => $id_trip])
-            ->with([
-                'successUpdate' => $successUpdate,
-                'error' => $error,
-            ]);
+            ->with((array) $response);
     }
 
     public function removeReservationFromTrip(int $id_trip, int $id_part)
@@ -229,7 +259,7 @@ class TripController extends Controller
         ]);
         $reservation->save();
         $reservation->delete();
-        
+
         try {
             Mail::to($reservation->user->email)
                 ->send(new ReservationCancelledMail(
@@ -395,7 +425,7 @@ class TripController extends Controller
 
         $this->saveQuestions($trip, $request->input('questions') ?? []);
 
-        return \Redirect::route('trips.edit', ['id_trip' => $trip->id_trip])
+        return \Redirect::route('partak.trips.edit', ['id_trip' => $trip->id_trip])
             ->with(['success' => 'Trip was successfully created.']);
     }
 

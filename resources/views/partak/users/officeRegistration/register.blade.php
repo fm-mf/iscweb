@@ -1,25 +1,22 @@
 @extends('partak.users.layout')
 @section('inner-content')
-    @include('partak.users.officeRegistration.search')
+    @include("partak.components.student-search", [
+        'target' => '/partak/users/office-registration/registration/{id_user}'
+    ])
+
     <div class="container">
         @if(session('successUpdate'))
-            <div class="row">
-                <div class="row-inner">
-                    <div class="success">
-                        <span class="glyphicon glyphicon-ok" style="padding-right:5px;"></span> Profile was successfully updated.
-                    </div>
-                </div>
+            <div class="success top-message">
+                <i class="fas fa-check mr-1"></i> Profile was successfully updated.
             </div>
         @endif
-
-
-        @include('partak.users.exStudent-Buddy_Bubles', ['buddyRemovable' => false])
     </div>
+    
+    @include('partak.users.partials.exstudent-with-buddy', ['buddyRemovable' => false])
 
-    <div class="row row-inner">
+    <div class="container mt-2">
         <div class="col-sm-3"></div>
         <div class="col-sm-6 align-center">
-
             @if($exStudent->esn_registered == 'n')
                 @can('acl', 'exchangeStudents.register')
                     @if($exStudent->esn_card_number != null && $exStudent->phone != null)
@@ -29,7 +26,7 @@
 
                     @else
                     {{ Form::bsText('phone', 'Phone', 'required', $exStudent->phone) }}
-                    {{ Form::bsText('esn_card_number', 'ESN card number', 'required', $exStudent->esn_card_number) }}
+                    {{ Form::bsText('esn_card_number', 'ESNcard number', 'required', $exStudent->esn_card_number) }}
                     <protectedbutton  url="{{ url('partak/users/office-registration/register/' .$exStudent->id_user) }}"
                             protection-text="Do you really want to register {{ $exStudent->person->first_name }} {{ $exStudent->person->last_name }} to ESN?"
                             button-style="btn-warning btn-lg"
@@ -42,5 +39,6 @@
         </div>
         <div class="col-sm-3"></div>
     </div>
-    @include('partak.users.exStudentDetailTable')
+
+    @include('partak.users.partials.exstudent-detail-table')
 @stop

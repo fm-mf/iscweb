@@ -16,6 +16,7 @@
       title="Export active buddies"
       description="Export list of buddies who logged into buddy database in last months"
       @click="exportActiveBuddies = true"
+      href="#"
     />
 
     <modal v-if="exportActiveBuddies" @cancel="exportActiveBuddies = false">

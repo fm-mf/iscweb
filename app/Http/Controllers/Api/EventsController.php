@@ -42,7 +42,7 @@ class EventsController extends Controller
                 : ExchangeStudent::findByEmailAndEsn($data['email'], $data['esn'])
             )->firstOrFail();
         } catch (\Exception $e) {
-            throw new NotFoundHttpException('Invalid e-mail and ESN card number combination');
+            throw new NotFoundHttpException('Invalid e-mail and ESNcard number combination');
         }
 
         $this->checkEventUser($event, $student->id_user);
@@ -115,12 +115,14 @@ class EventsController extends Controller
         $custom = $request->input('custom');
         foreach ($event->questions()->get() as $question) {
             if (isset($custom[$question->id_question])) {
-                $value = new EventReservationAnswer([
+                $answer = EventReservationAnswer::firstOrCreate([
                     'id_event_reservation' => $reservation->id_event_reservation,
                     'id_question' => $question->id_question,
+                ], ['value' => '']);
+
+                $answer->update([
                     'value' => json_encode($custom[$question->id_question])
                 ]);
-                $value->save();
             }
         }
 
