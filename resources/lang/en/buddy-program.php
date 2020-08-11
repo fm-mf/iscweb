@@ -19,5 +19,6 @@ return [
         'password-changed' => 'Password changed',
         'wrong-old-password' => 'Wrong password',
         'subscribed' => 'Agree to receive occasional info about ISC events (ex. info about opening database or other pending events).',
-    ]
+    ],
+    'world-map-alt' => 'World map with arrows pointing to the Czech Republic',
 ];
