@@ -19,15 +19,18 @@ class ListingController extends Controller
     public function showClosed()
     {
         $currentSemester = Settings::get('currentSemester');
+        $buddyDbFrom = Settings::get('buddyDbFrom');
         $semester = substr($currentSemester, 0, -4);
         $currYear = intval(substr($currentSemester, -4));
         $season = $semester == "fall" ? "zimní" : "letní";
         $schoolYear = $semester == "fall" 
             ? $currYear . "/" . ($currYear + 1) 
             : ($currYear - 1) . "/" . $currYear;
+
         return view('buddyprogram.closed')->with([
             'schoolYear' => $schoolYear,
             'season' => $season,
+            'buddyDbFrom' => $buddyDbFrom,
         ]);
     }
 
