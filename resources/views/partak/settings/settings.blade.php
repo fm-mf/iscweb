@@ -24,6 +24,12 @@
 
             {{ Form::bsSelect('currentSemester', 'Current Semester', $semesters, $settings['currentSemester']) }}
 
+            {{ Form::label('date', 'Buddy database opened from', ['class' => 'control-label']) }}
+            @if ($errors->has('date'))
+                <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
+            @endif
+            {{ Form::text('buddyDbFrom', $settings['buddyDbFrom']->format('d M Y'), ['id' => 'buddyDbFrom', 'class' => 'form-control arrival date', 'style' => 'margin-bottom: 15px']) }}
+
             {{ Form::label('date', 'Welcome package from', ['class' => 'control-label']) }}
             @if ($errors->has('date'))
                 <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
