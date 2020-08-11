@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Buddyprogram;
 
-use App\Facades\Settings ;
+use App\Facades\Settings;
 use App\Models\Buddy;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+
 
 class ListingController extends Controller
 {
@@ -17,7 +18,17 @@ class ListingController extends Controller
 
     public function showClosed()
     {
-        return view('buddyprogram.closed');
+        $currentSemester = Settings::get('currentSemester');
+        $semester = substr($currentSemester, 0, -4);
+        $currYear = intval(substr($currentSemester, -4));
+        $season = $semester == "fall" ? "zimní" : "letní";
+        $schoolYear = $semester == "fall" 
+            ? $currYear . "/" . ($currYear + 1) 
+            : ($currYear - 1) . "/" . $currYear;
+        return view('buddyprogram.closed')->with([
+            'schoolYear' => $schoolYear,
+            'season' => $season,
+        ]);
     }
 
     public function listExchangeStudents()
