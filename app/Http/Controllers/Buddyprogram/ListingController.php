@@ -21,6 +21,7 @@ class ListingController extends Controller
     {
         $currentSemester = Settings::get('currentSemester');
         $buddyDbFrom = Settings::get('buddyDbFrom');
+        $buddyDbFromTime = Settings::get('buddyDbFromTime');
         $semester = substr($currentSemester, 0, -4);
         $currYear = intval(substr($currentSemester, -4));
         $season = $semester == "fall" ? "zimní" : "letní";
@@ -32,6 +33,7 @@ class ListingController extends Controller
             'schoolYear' => $schoolYear,
             'season' => $season,
             'buddyDbFrom' => $buddyDbFrom,
+            'buddyDbFromTime' => $buddyDbFromTime,
         ]);
     }
 
