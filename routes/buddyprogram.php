@@ -29,6 +29,8 @@ Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogr
     Route::patch('/my-profile', 'ProfileController@updateProfile')->name('buddy-update-my-profile');
     Route::post('/change-password', 'ProfileController@changePassword')->name('buddy-password-change');
 
+    Route::post('/set-locale', 'ProfileController@setLocale')->name('buddy-set-locale');
+
     Route::get('/list', function () {
         return redirect(action('Buddyprogram\ListingController@listExchangeStudents'), 301);
     });

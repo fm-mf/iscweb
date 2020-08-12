@@ -285,4 +285,14 @@ main {
   }
 }
 
+.languages {
+  display: flex;
+  justify-content: center;
+
+  button {
+    border: 0;
+    background-color: transparent;
+  }
+}
+
 @import "my-profile"

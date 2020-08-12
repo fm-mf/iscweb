@@ -8,15 +8,11 @@ use App\Models\Faculty;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class ProfileController extends Controller
 {
-    public function __construct()
-    {
-        // TODO: This should be decided by browser language or user choice
-        app()->setLocale('cs');
-    }
-
     public function showProfile()
     {
         $buddy = auth()->user()->buddy;
@@ -73,5 +69,16 @@ class ProfileController extends Controller
 
         return redirect()->route('buddy-my-profile')
             ->with(['success' => __('buddy-program.my-profile.password-changed')]);
+    }
+
+    public function setLocale(Request $request)
+    {
+        $data = $request->validate([
+            'locale' => ['string', 'in:en,cs']
+        ]);
+
+        Session::put('locale', $data['locale']);
+
+        return back();
     }
 }

@@ -39,8 +39,7 @@ class ApiController extends Controller
         if (!Settings::get('isDatabaseOpen')) {
             return response()->json([]);
         }
-
-        app()->setLocale('cs');
+        
         setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
 
         $page = $request->page;
@@ -97,7 +96,6 @@ class ApiController extends Controller
             return response()->json([]);
         }
 
-        app()->setLocale('cs');
         setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
 
         $currentSemester = Settings::get('currentSemester');

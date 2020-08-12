@@ -19,7 +19,6 @@ class StudentController extends Controller
 {
     public function __construct()
     {
-        app()->setLocale('cs');
         setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
     }
 
