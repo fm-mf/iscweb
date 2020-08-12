@@ -1,5 +1,4 @@
-h2 {
-}
+@import "variables";
 
 h3 {
   font-size: 125%;
@@ -35,18 +34,32 @@ h3 {
   th {
     font-weight: normal;
     color: #999;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid $tableEvenRowBg;
   }
 
   tbody {
     tr {
       &:nth-child(even) {
-        background: #f0f0f0;
+        background: $tableEvenRowBg;
       }
 
       &:hover {
-        background: #dfdfdf;
+        background: $tableRowHoverBg;
       }
+    }
+  }
+}
+
+div.table,
+ol.table,
+ul.table {
+  .row {
+    &:nth-child(odd) {
+      background: $tableEvenRowBg;
+    }
+
+    &:not(.thead-dark):hover {
+      background: $tableRowHoverBg;
     }
   }
 }
