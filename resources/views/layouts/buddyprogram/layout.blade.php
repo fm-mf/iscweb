@@ -33,23 +33,23 @@
         <ul class="navbar-nav ml-auto flex-nowrap">
             <li class="nav-item">
                 <a class="nav-link" href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}">
-                    <i class="fas fa-users"></i> Volní studenti
+                    <i class="fas fa-users"></i> @lang('buddy-program.available-students')
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ action('Buddyprogram\ListingController@listMyStudents') }}">
-                    <i class="fas fa-user-friends"></i> Moji studenti
+                    <i class="fas fa-user-friends"></i> @lang('buddy-program.my-students')
                 </a>
             </li>
             {{--<li><a n:href="Homepage:arrivals"><img src="{$basePath}/img/arrivals.png"><br>PŘÍJEZDY</a></li>--}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('buddy-my-profile') }}">
-                    <i class="fas fa-user"></i> Můj profil
+                    <i class="fas fa-user"></i> @lang('buddy-program.my-profile.title')
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ action('Auth\LoginController@logout') }}">
-                    <i class="fas fa-sign-out-alt"></i> Odhlásit se
+                    <i class="fas fa-sign-out-alt"></i> @lang('buddy-program.logout')
                 </a>
             </li>
         </ul>
@@ -58,6 +58,17 @@
 
 <main class="container-fluid">
     @yield('content')
+
+    <div class="languages">
+        {{ Form::open(['method' => 'post', 'route' => 'buddy-set-locale']) }}
+            <input type="hidden" name="locale" value="en" />
+            <button>English</button>
+        {{ Form::close() }}
+        {{ Form::open(['method' => 'post', 'route' => 'buddy-set-locale']) }}
+            <input type="hidden" name="locale" value="cs" />
+            <button>Czech</button>
+        {{ Form::close() }}
+    </div>
 </main>
 
 @section('scripts')

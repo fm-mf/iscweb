@@ -2,17 +2,17 @@
 @section('content')
 
     <div class="container page">
-        <h1 class="text-center">MOJI STUDENTI</h1>
+        <h1 class="text-center">@lang('buddy-program.my-students')</h1>
 
         <div class="table-responsive">
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>Jméno</th>
-                    <th>Národnost</th>
-                    <th>Fakulta</th>
-                    <th>Kolej</th>
-                    <th>Pohlaví</th>
+                    <th>@lang('buddy-program.student-name')</th>
+                    <th>@lang('buddy-program.nationality')</th>
+                    <th>@lang('buddy-program.faculty')</th>
+                    <th>@lang('buddy-program.dormitory')</th>
+                    <th>@lang('buddy-program.sex')</th>
                 </tr>
                 </thead>
                 <tbody>

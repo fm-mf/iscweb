@@ -2,7 +2,7 @@
 @section('content')
     <div class="container page">
         <div class="my-profile">
-            <h1 class="text-center">Můj profil</h1>
+            <h1 class="text-center">@lang('buddy-program.my-profile.title')</h1>
 
             @if(session('success'))
             <div class="alert-success p-3 mb-4">
@@ -12,8 +12,6 @@
 
             {{ Form::model($buddy, ['route' => 'buddy-update-my-profile', 'method' => 'patch']) }}
             <fieldset class="mb-4">
-                <legend>Upravit profil</legend>
-
                 <div class="form-group row">
                     <div class="col-sm-6">
                         {{ Form::bsText('phone', __('buddy-program.phone'), '', $buddy->phone) }}
