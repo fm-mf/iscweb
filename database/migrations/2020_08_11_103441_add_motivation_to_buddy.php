@@ -26,7 +26,7 @@ class AddMotivationToBuddy extends Migration
     public function down()
     {
         Schema::table('buddies', function (Blueprint $table) {
-            $table->dropIfExists('motivation');
+            $table->dropColumn('motivation');
         });
     }
 }

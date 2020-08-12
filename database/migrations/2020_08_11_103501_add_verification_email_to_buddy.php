@@ -26,7 +26,7 @@ class AddVerificationEmailToBuddy extends Migration
     public function down()
     {
         Schema::table('buddies', function (Blueprint $table) {
-            $table->dropIfExists('verification_email');
+            $table->dropColumn('verification_email');
         });
     }
 }
