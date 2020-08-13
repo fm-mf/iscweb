@@ -29,10 +29,8 @@
                 @if ($errors->has('date'))
                     <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
                 @endif
-                <div class="form-row">
-                    {{ Form::text('buddyDbFrom', $settings['buddyDbFrom']->format('d M Y'), ['id' => 'buddyDbFrom', 'class' => 'form-control arrival date col-md', 'style' => 'margin: 0 5px 5px 5px']) }}
-                    {{ Form::text('buddyDbFromTime', $settings['buddyDbFromTime']->format('H:i'), ['id' => 'buddyDbFromTime', 'class' => 'form-control arrival time col-md', 'style' => 'margin: 0 5px 5px 5px']) }}
-                </div>
+                {{ Form::text('buddyDbFrom', $settings['buddyDbFrom']->format('d M Y'), ['id' => 'buddyDbFrom', 'class' => 'form-control arrival date', 'style' => 'margin-bottom: 15px']) }}
+                {{ Form::text('buddyDbFromTime', $settings['buddyDbFromTime']->format('H:i'), ['id' => 'buddyDbFromTime', 'class' => 'form-control arrival time', 'style' => 'margin-bottom: 15px']) }}
             </div>
             
             {{ Form::label('date', 'Welcome package from', ['class' => 'control-label']) }}

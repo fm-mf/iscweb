@@ -143,7 +143,7 @@ class SettingsController extends Controller
             'currentSemester' => 'required',
             'rector' => 'required',
             'limitPerDay' => 'required|digits:1',
-            'isDatabaseOpen' => 'required',
+            /* 'isDatabaseOpen' => 'required', */
             'buddyDbFrom' => 'required|date_format:d M Y',
             'buddyDbFromTime' => 'required|date_format:H:i',
             'wcFrom' => 'required|date_format:d M Y',
