@@ -18,7 +18,8 @@ h3 {
   margin-bottom: 1.5rem;
 }
 
-.table.p-table {
+.table.p-table,
+.table.list-unstyled {
   td, th {
     border: 0;
     padding: 0.2rem 0.75rem;
@@ -31,10 +32,15 @@ h3 {
     }
   }
 
-  th {
+  th, .row.thead-light {
     font-weight: normal;
     color: #999;
     border-bottom: 2px solid $tableEvenRowBg;
+    background: transparent;
+
+    &:hover {
+      background: transparent;
+    }
   }
 
   tbody {

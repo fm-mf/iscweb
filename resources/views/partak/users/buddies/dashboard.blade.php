@@ -20,7 +20,7 @@
                 </div>
             @else
                 <ol class="table list-unstyled">
-                    <li class="row py-2 thead-dark bg-dark text-light">
+                    <li class="row py-2 thead-light">
                         <div class="col-12 col-sm-4">Name</div>
                         <div class="col-12 col-sm-4">E-mail</div>
                         <div class="col-12 col-sm-4 text-right">Actions</div>
