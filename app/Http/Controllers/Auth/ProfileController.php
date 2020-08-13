@@ -98,7 +98,7 @@ class ProfileController extends Controller
     protected function motivationValidator(array $data)
     {
         $validator = Validator::make($data, [
-                'motivation' => 'required',
+            'motivation' => ['required', 'string', 'max:65535'],
         ]);
         return $validator;
     }
@@ -129,8 +129,10 @@ class ProfileController extends Controller
         if ($user->isBuddy()) {
             return Redirect::to('/user/profile')->with('success', true);
         } else if ($this->isEmailVerifiable($user->email)) {
-
-            $this->sendVerificationEmail($user->email);
+            $buddy->update([
+                'verification_email' => $user->email,
+            ]);
+            event(new BuddyRegistered($buddy));
             return Redirect::to('user/verification-info')->with(['email' => $user->email]);
         } else {
             return Redirect::to('user/verify');
@@ -147,16 +149,22 @@ class ProfileController extends Controller
         $this->emailValidator($request->all())->validate();
 
         $email = $request->email . '@' . $request->domain;
-        $this->sendVerificationEmail($email);
+        auth()->user()->buddy->update([
+            'verification_email' => $email,
+        ]);
+        event(new BuddyRegistered(auth()->user()->buddy));
 
         return redirect('/user/verification-info')->with(['email' => $email]);
     }
 
     public function processNoEmail(Request $request)
     {
-        $buddy = Buddy::findBuddy(Auth::id());
+        $buddy = auth()->user()->buddy;
         $this->motivationValidator($request->all())->validate();
-        event(new BuddyWithoutEmailRegistered($buddy, $request->motivation));
+        $buddy->update([
+            'motivation' => $request->motivation,
+        ]);
+        event(new BuddyWithoutEmailRegistered($buddy));
         return redirect('/user/thankyou')->with('verified', false);
     }
 
@@ -192,11 +200,5 @@ class ProfileController extends Controller
         }
 
         return false;
-    }
-
-    private function sendVerificationEmail($email)
-    {
-        $person = Auth::user()->person;
-        Mail::to($email)->send(new VerifyUser($person));
     }
 }

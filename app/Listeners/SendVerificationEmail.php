@@ -2,15 +2,13 @@
 
 namespace App\Listeners;
 
-use App\Events\BuddyWithoutEmailRegistered;
-use App\Mail\HRNoEmail;
+use App\Events\BuddyRegistered;
+use App\Mail\VerifyUser;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 
-use App\Models\Buddy;
-
-class NotifyHRNoEmail
+class SendVerificationEmail
 {
     /**
      * Create the event listener.
@@ -25,11 +23,12 @@ class NotifyHRNoEmail
     /**
      * Handle the event.
      *
-     * @param  BuddyWithoutEmailRegistered  $event
+     * @param  BuddyRegistered  $event
      * @return void
      */
-    public function handle(BuddyWithoutEmailRegistered $event)
+    public function handle(BuddyRegistered $event)
     {
-        Mail::to('hr@isc.cvut.cz')->send(new HRNoEmail($event->buddy));
+        Mail::to($event->buddy->verification_email)
+            ->send(new VerifyUser($event->buddy->person));
     }
 }
