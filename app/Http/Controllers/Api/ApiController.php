@@ -25,7 +25,7 @@ class ApiController extends Controller
         'arrival' => 'arrivals.arrival',
         'faculty' => 'faculties.abbreviation',
         'school' => 'school',
-        'accomodation' => 'accommodation.full_name'
+        'accommodation' => 'accommodation.full_name'
     ];
 
     const FILTER_ALIAS = [

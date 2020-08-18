@@ -170,7 +170,7 @@ class ProfileController extends Controller
 
     public function showVerificationInfo(Request $request)
     {
-        return view('auth.vefificationsent')->with(['email' => $request->session()->get('email')]);
+        return view('auth.verificationsent')->with(['email' => $request->session()->get('email')]);
     }
 
     public function verifyBuddy($hash)
