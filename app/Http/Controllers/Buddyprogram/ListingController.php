@@ -20,20 +20,20 @@ class ListingController extends Controller
     public function showClosed()
     {
         $currentSemester = Settings::get('currentSemester');
-        $buddyDbFrom = Settings::get('buddyDbFrom');
-        $buddyDbFromTime = Settings::get('buddyDbFromTime');
+        $buddyDbFrom = Carbon::parse(str_replace('/', '-', Settings::get('buddyDbFrom')));
+        $buddyDbFromTime = Carbon::parse(Settings::get('buddyDbFromTime'));
         $semester = substr($currentSemester, 0, -4);
         $currYear = intval(substr($currentSemester, -4));
         $season = $semester == "fall" ? "zimní" : "letní";
-        $schoolYear = $semester == "fall" 
-            ? $currYear . "/" . ($currYear + 1) 
+        $schoolYear = $semester == "fall"
+            ? $currYear . "/" . ($currYear + 1)
             : ($currYear - 1) . "/" . $currYear;
 
         return view('buddyprogram.closed')->with([
             'schoolYear' => $schoolYear,
             'season' => $season,
-            'buddyDbFrom' => $buddyDbFrom,
-            'buddyDbFromTime' => $buddyDbFromTime,
+            'buddyDbFrom' => $buddyDbFrom->formatLocalized(__('formatting.full-date')),
+            'buddyDbFromTime' => $buddyDbFromTime->formatLocalized(__('formatting.time-h-m')),
         ]);
     }
 
