@@ -39,11 +39,7 @@ class ListingController extends Controller
 
     public function listExchangeStudents()
     {
-        $curr = Carbon::now();
-        $timeStr = Settings::get('buddyDbFrom') . " " . Settings::get('buddyDbFromTime');
-        $timeStr = str_replace('/', '-', $timeStr);
-        $timeInDb = Carbon::parse($timeStr);
-        if ($curr->lessThan($timeInDb)) {
+        if (Settings::isDatabaseClosed()) {
             return $this->showClosed();
         }
 

@@ -34,17 +34,11 @@ class ApiController extends Controller
         'faculties' => 'exchange_students.id_faculty'
     ];
 
-    public function isDatabaseOpen() {
-        $curr = Carbon::now();
-        $timeStr = Settings::get('buddyDbFrom') . " " . Settings::get('buddyDbFromTime');
-        $timeStr = str_replace('/', '-', $timeStr);
-        $timeInDb = Carbon::parse($timeStr);
-        return $timeInDb->lessThan($curr);
-    }
-
     public function load(Request $request)
     {
-        if(!$this->isDatabaseOpen()) return response()->json([]);
+        if (Settings::isDatabaseClosed()) {
+            return response()->json([]);
+        }
 
         app()->setLocale('cs');
         setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
@@ -99,7 +93,9 @@ class ApiController extends Controller
 
     public function loadFilterOptions()
     {
-        if(!$this->isDatabaseOpen()) return response()->json([]);
+        if (Settings::isDatabaseClosed()) {
+            return response()->json([]);
+        }
 
         app()->setLocale('cs');
         setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
@@ -154,7 +150,7 @@ class ApiController extends Controller
     public function preregister(Request $request)
     {
         $this->authorize('acl', 'exchangeStudents.register');
-        
+
         $student = ExchangeStudent::find($request->id);
         if (!$student) {
             return false;
