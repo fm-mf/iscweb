@@ -20,6 +20,7 @@ use App\Mail\ReservationCancelledMail;
 use App\Models\EventReservation;
 use App\Models\EventReservationAnswer;
 use App\Models\EventReservationQuestion;
+use App\Models\Receipt;
 use App\Models\Semester;
 use App\Models\Trip;
 use App\Models\User;
@@ -32,6 +33,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use Intervention\Image\Facades\Image;
+use Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class TripController extends Controller
@@ -73,12 +75,21 @@ class TripController extends Controller
         $particip = $trip->participants;
         $organizers = $trip->organizers;
         $reservations = $trip->reservations;
+        $receipt = null;
+
+        if (Session::has('receipt')) {
+            $receipt = Receipt::find(Session::get('receipt'));
+        }
 
         return view('partak.trips.detail')->with([
             'trip' => $trip,
             'particip' => $particip,
             'organizers' => $organizers,
-            'reservations' => $reservations
+            'reservations' => $reservations,
+            'receipt' => $receipt !== null ? view('partak.receipt')->with([
+                'receipt' => $receipt,
+                'esn_card' => false
+            ]) : null
         ]);
     }
 
@@ -158,13 +169,14 @@ class TripController extends Controller
 
         $response = (object) [
             'error' => null,
-            'successUpdate' => null
+            'successUpdate' => null,
+            'receipt' => null,
         ];
 
         DB::transaction(function () use ($request, $trip, $id_part, $response) {
             $responseData = [
                 'paid' => $request->input('paid', 0),
-                'comment' => $request->input('comment')
+                'comment' => $request->input('comment'),
             ];
 
             $personData = [];
@@ -179,8 +191,9 @@ class TripController extends Controller
             $part->update($personData);
 
             $result = $trip->addParticipant($id_part, $responseData);
-            if ($result < Trip::TRIP_FULL) {
-                $response->successUpdate = $trip->getStatusMessage($result, $part);
+            if ($result->code < Trip::TRIP_FULL) {
+                $response->successUpdate = $trip->getStatusMessage($result->code, $part);
+                $response->receipt = $result->receipt->id_receipt;
                 $response->error = null;
 
                 if ($trip->event->reservations_enabled) {
@@ -218,7 +231,7 @@ class TripController extends Controller
                     }
                 }
             } else {
-                $response->error = $trip->getStatusMessage($result, $part);
+                $response->error = $trip->getStatusMessage($result->code, $part);
                 $response->successUpdate = null;
             }
         });

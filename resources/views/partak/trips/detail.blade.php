@@ -11,6 +11,10 @@
             </div>
         @endif
 
+        @if($receipt)
+            <print-me-pls copies="2" content="{{$receipt}}" />
+        @endif
+
         <div class="d-flex">
             <h2 class="trip-header">{{ $trip->event->name }}</h2>
             <div class="ml-4">

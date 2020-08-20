@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Hashids\Hashids;
 use Illuminate\Database\Eloquent\Model;
 
 class Receipt extends Model
@@ -32,5 +33,12 @@ class Receipt extends Model
     public function trip()
     {
         return $this->tripParticipant()->trip();
+    }
+
+    public function getHashIdAttribute()
+    {
+        $hashIds = new Hashids('receipt', 10, 'ABCDEFGHKMNPQRSTWXYZ123456789');
+
+        return $hashIds->encode($this->id_receipt);
     }
 }
