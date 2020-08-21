@@ -2,18 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Helpers\Locale as LocaleHelper;
 use Closure;
-use Illuminate\Http\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Locale as GlobalLocale;
 
 class Locale
 {
-    private $availableLocales = ["en", "cs"];
-
     /**
      * Handle an incoming request.
      *
@@ -23,36 +17,20 @@ class Locale
      */
     public function handle(Request $request, Closure $next)
     {
-        $language = $this->getRequestedLocale($request);
-
-        if (Session::has('locale')) {
-            $lang = Session::get('locale');
-            if ($this->isValidLocale($lang)) {
-                $language = $lang;
-            }
+        if (auth()->user()) {
+            session([
+                LocaleHelper::SESSION_KEY => auth()->user()->preferred_language ?? LocaleHelper::AVAILABLE_LOCALES[0],
+            ]);
         }
+
+        $language = session(
+            LocaleHelper::SESSION_KEY,
+            $request->getPreferredLanguage(LocaleHelper::AVAILABLE_LOCALES)
+        );
 
         app()->setLocale($language);
+        setlocale(LC_ALL, __('web.locale-full'));
 
         return $next($request);
-    }
-
-    private function getRequestedLocale(Request $request)
-    {
-        $requestedLanguages = $request->getLanguages();
-
-        while (count($requestedLanguages) > 0) {
-            $lang = array_shift($requestedLanguages);
-            if ($this->isValidLocale($lang)) {
-                return $lang;
-            }
-        }
-
-        return "en";
-    }
-
-    private function isValidLocale(string $lang)
-    {
-        return in_array($lang, $this->availableLocales);
     }
 }

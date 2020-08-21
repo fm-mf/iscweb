@@ -1,4 +1,5 @@
 <?php
+
 return [
     'phone' => 'telefon',
     'Phone' => 'Telefon',
@@ -9,4 +10,5 @@ return [
         'online-reservation' => 'Online rezervace!',
         'detail' => 'Detail!'
     ],
+    'locale-full' => 'cs_CZ.UTF-8',
 ];

@@ -12,7 +12,18 @@
 
             {{ Form::model($buddy, ['route' => 'buddy-update-my-profile', 'method' => 'patch']) }}
             <fieldset class="mb-4">
-                <div class="form-group row">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ Form::bsText('first_name', __('buddy-program.my-profile.given-names'), '', $buddy->person->first_name, ['disabled' => 'disabled']) }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ Form::bsText('last_name', __('buddy-program.my-profile.surname'), '', $buddy->person->last_name, ['disabled' => 'disabled']) }}
+                    </div>
+                </div>
+
+                {{ Form::bsEmail('email', __('buddy-program.e-mail'), '', $buddy->email, ['disabled' => 'disabled']) }}
+
+                <div class="row">
                     <div class="col-sm-6">
                         {{ Form::bsText('phone', __('buddy-program.phone'), '', $buddy->phone) }}
                     </div>
@@ -21,25 +32,54 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="row">
                     <div class="col-sm-6">
-                        {{ Form::bsSelect('sex', __('buddy-program.my-profile.sex'), ['M' => __('buddy-program.my-profile.sex-m'), 'F' => __('buddy-program.my-profile.sex-f')], $buddy->person->sex, ['class' => 'form-control'])}}
+                        {{ Form::bsSelect(
+                            'sex', __('buddy-program.my-profile.sex'),
+                            [
+                                'M' => __('buddy-program.sex-m'),
+                                'F' => __('buddy-program.sex-f'),
+                            ],
+                            $buddy->person->sex,
+                            [
+                                'class' => 'form-control',
+                            ]
+                        ) }}
                     </div>
                     <div class="col-sm-6">
-                        {{ Form::bsNumber('age', __('buddy-program.my-profile.year-of-birth'), '', $buddy->person->age) }}
+                        {{ Form::bsNumber(
+                            'age',
+                            __('buddy-program.my-profile.year-of-birth'),
+                            '',
+                            $buddy->person->age,
+                            [
+                                'min' => 1901,
+                                'max' => 2155,
+                            ]
+                        ) }}
                     </div>
                     <div class="col-sm-6 info"></div>
                 </div>
 
                 {{ Form::bsTextarea('about', __('buddy-program.my-profile.about-you'), '', $buddy->about) }}
 
-                <div class="checkbox">
+                {{ Form::bsSelect(
+                    'preferred_language',
+                    __('buddy-program.my-profile.preferred-language'),
+                    $availableLanguages,
+                    $buddy->preferred_language,
+                    [],
+                    __('buddy-program.my-profile.note-language')
+                ) }}
+
+                <div class="form-group">
                     @if ($errors->has('subscribed'))
                         <p class="error-block alert-danger">{{ $errors->first('subscribed') }}</p>
                     @endif
-                    <label class="col-sm-12">
-                        <input type="checkbox" name="subscribed" value="1"{{ $buddy->subscribed === 1 ? ' checked="checked"' :'' }} /> @lang('buddy-program.my-profile.subscribed')
-                    </label>
+                    <div class="form-check">
+                        {{ Form::checkbox('subscribed', 1, $buddy->subscribed === 1, ['class' => 'form-check-input', 'id' => 'subscribed']) }}
+                        {{ Form::label('subscribed', __('buddy-program.my-profile.subscribed'), ['class' => 'form-check-label']) }}
+                    </div>
                 </div>
 
                 <div class="mt-2">
@@ -52,7 +92,7 @@
             <fieldset>
                 <legend>@lang('buddy-program.my-profile.change-password')</legend>
 
-                <div class="form-group row mb-0">
+                <div class="row">
                     <div class="col-sm-4">
                         {{ Form::bsPassword('old_password', __('buddy-program.my-profile.old-password')) }}
                     </div>

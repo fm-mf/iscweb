@@ -15,7 +15,12 @@ class Buddy extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        'id_faculty', 'about', 'phone', 'subscribed', 'id_country'
+        'id_faculty',
+        'about',
+        'phone',
+        'subscribed',
+        'id_country',
+        'preferred_language',
     ];
 
     public function user()

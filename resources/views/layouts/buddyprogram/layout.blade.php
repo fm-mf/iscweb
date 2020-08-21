@@ -20,8 +20,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="d-flex flex-grow-1">
         <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-        <a class="navbar-brand" href="{{route('buddy-home')}}">
-            <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}"  alt="International Student Club">
+        <a class="navbar-brand" href="{{ route('buddy-home') }}">
+            <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}"  alt="{{ $shortName }}" />
         </a>
         <div class="w-100 text-right">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -32,23 +32,22 @@
     <div class="collapse navbar-collapse flex-grow-1 " id="navbar">
         <ul class="navbar-nav ml-auto flex-nowrap">
             <li class="nav-item">
-                <a class="nav-link" href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}">
+                <a class="nav-link" href="{{ route('buddy-home') }}">
                     <i class="fas fa-users"></i> @lang('buddy-program.available-students')
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ action('Buddyprogram\ListingController@listMyStudents') }}">
+                <a class="nav-link" href="{{ route('buddy-my-students') }}">
                     <i class="fas fa-user-friends"></i> @lang('buddy-program.my-students')
                 </a>
             </li>
-            {{--<li><a n:href="Homepage:arrivals"><img src="{$basePath}/img/arrivals.png"><br>PŘÍJEZDY</a></li>--}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('buddy-my-profile') }}">
                     <i class="fas fa-user"></i> @lang('buddy-program.my-profile.title')
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ action('Auth\LoginController@logout') }}">
+                <a class="nav-link" href="{{ route('logout') }}">
                     <i class="fas fa-sign-out-alt"></i> @lang('buddy-program.logout')
                 </a>
             </li>
@@ -58,17 +57,6 @@
 
 <main class="container-fluid">
     @yield('content')
-
-    <div class="languages">
-        {{ Form::open(['method' => 'post', 'route' => 'buddy-set-locale']) }}
-            <input type="hidden" name="locale" value="en" />
-            <button>English</button>
-        {{ Form::close() }}
-        {{ Form::open(['method' => 'post', 'route' => 'buddy-set-locale']) }}
-            <input type="hidden" name="locale" value="cs" />
-            <button>Czech</button>
-        {{ Form::close() }}
-    </div>
 </main>
 
 @section('scripts')
