@@ -67,7 +67,7 @@
                     'preferred_language',
                     __('buddy-program.my-profile.preferred-language'),
                     $availableLanguages,
-                    $buddy->preferred_language,
+                    $buddy->preferred_language ?? $browserPreferredLanguage,
                     [],
                     __('buddy-program.my-profile.note-language')
                 ) }}

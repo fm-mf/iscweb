@@ -20,6 +20,7 @@ class ProfileController extends Controller
             'avatar' => $buddy->person->avatar(),
             'buddy' => $buddy,
             'availableLanguages' => Locale::getAvailableLocalesSelectOptions(),
+            'browserPreferredLanguage' => Locale::getBrowserPreferredLanguage(),
         ]);
     }
 

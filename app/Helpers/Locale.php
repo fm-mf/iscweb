@@ -21,4 +21,19 @@ class Locale
             'en' => __('languages.en', [], 'en'),
         ];
     }
+
+    public static function getBrowserPreferredLanguage()
+    {
+        $browserPreferredLanguage = request()->getPreferredLanguage(self::AVAILABLE_LOCALES);
+
+        // Override for Slovak language to show Czech translation
+        if (
+            $browserPreferredLanguage === self::AVAILABLE_LOCALES[0] &&
+            request()->getPreferredLanguage(array_merge(['sk'], self::AVAILABLE_LOCALES)) === 'sk'
+        ) {
+            $browserPreferredLanguage = 'cs';
+        }
+
+        return $browserPreferredLanguage;
+    }
 }

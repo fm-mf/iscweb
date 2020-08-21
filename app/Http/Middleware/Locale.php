@@ -17,15 +17,21 @@ class Locale
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()) {
+        $browserPreferredLanguage = LocaleHelper::getBrowserPreferredLanguage();
+
+        if (auth()->guest() && session(LocaleHelper::SESSION_KEY) !== $browserPreferredLanguage) {
             session([
-                LocaleHelper::SESSION_KEY => auth()->user()->preferred_language ?? LocaleHelper::AVAILABLE_LOCALES[0],
+                LocaleHelper::SESSION_KEY => $browserPreferredLanguage,
+            ]);
+        } elseif (auth()->user() && session(LocaleHelper::SESSION_KEY, $browserPreferredLanguage) !== auth()->user()->preferred_language) {
+            session([
+                LocaleHelper::SESSION_KEY => auth()->user()->preferred_language ?? $browserPreferredLanguage,
             ]);
         }
 
         $language = session(
             LocaleHelper::SESSION_KEY,
-            $request->getPreferredLanguage(LocaleHelper::AVAILABLE_LOCALES)
+            $browserPreferredLanguage
         );
 
         app()->setLocale($language);
