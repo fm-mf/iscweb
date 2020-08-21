@@ -21,7 +21,7 @@ class StudentController extends Controller
     {
         $me = Buddy::find(Auth::id());
 
-        if (!Settings::get('isDatabaseOpen') && $exchangeStudent->id_buddy != Auth::id()) {
+        if (Settings::isDatabaseClosed() && $exchangeStudent->id_buddy != Auth::id()) {
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
         }
 
@@ -48,7 +48,7 @@ class StudentController extends Controller
 
     public function assignBuddy(ExchangeStudent $exchangeStudent)
     {
-        if (!Settings::get('isDatabaseOpen')) {
+        if (Settings::isDatabaseClosed()) {
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'));
         }
 
