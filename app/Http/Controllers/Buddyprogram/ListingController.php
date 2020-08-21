@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
-    public function __construct()
-    {
-        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
-    }
-
     public function showClosed()
     {
         return view('buddyprogram.closed');
