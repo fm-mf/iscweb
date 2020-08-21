@@ -338,4 +338,11 @@ class ExchangeStudent extends Model
     {
         return PhoneNumber::make($this->whatsapp)->formatE164();
     }
+
+    public function getAgeRangeAttribute()
+    {
+        $age = intval(date('Y')) - ($this->person->age);
+
+        return ($age - 1) . '–' . $age;
+    }
 }

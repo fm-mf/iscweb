@@ -18,10 +18,6 @@ Route::get('/muj-buddy/register/buddy', function () {
 
 Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogram', 'prefix' => 'muj-buddy'], function () {
     Route::get('/', 'ListingController@listExchangeStudents')->name('buddy-home');
-    /**
-     * Todo presmerovat muj profil na templatu ktera bude odpovidat vzhledu
-     */
-    /*Route::get('/my-profile/{id}', 'StudentController@showProfile')->name('buddy-profile');*/
     Route::get('/profile/{exchangeStudent}', 'StudentController@showProfile')->name('buddy-profile');
     Route::post('/become-buddy/{exchangeStudent}', 'StudentController@assignBuddy')->name('become-buddy');
     Route::get('/my-students', 'ListingController@listMyStudents')->name('buddy-my-students');
@@ -30,10 +26,10 @@ Route::group(['middleware' => ['checkbuddy', 'auth'], 'namespace' => 'Buddyprogr
     Route::post('/change-password', 'ProfileController@changePassword')->name('buddy-password-change');
 
     Route::get('/list', function () {
-        return redirect(action('Buddyprogram\ListingController@listExchangeStudents'), 301);
+        return redirect(route('buddy-home'), 301);
     });
     Route::get('/closed', function () {
-        return redirect(action('Buddyprogram\ListingController@listExchangeStudents'), 301);
+        return redirect(route('buddy-home'), 301);
     });
 });
 

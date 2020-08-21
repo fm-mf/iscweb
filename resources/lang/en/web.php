@@ -14,4 +14,5 @@ return [
         'online-reservation' => 'Online reservation!',
         'detail' => 'Detail!'
     ],
+    'locale-full' => 'en_GB.UTF-8',
 ];

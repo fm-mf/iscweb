@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Buddyprogram;
 
+use App\Helpers\Locale;
 use App\Http\Controllers\Controller;
-use App\Models\Buddy;
 use App\Models\Faculty;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,12 +11,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    public function __construct()
-    {
-        // TODO: This should be decided by browser language or user choice
-        app()->setLocale('cs');
-    }
-
     public function showProfile()
     {
         $buddy = auth()->user()->buddy;
@@ -24,18 +18,27 @@ class ProfileController extends Controller
         return view('buddyprogram.my-profile')->with([
             'faculties' => Faculty::getOptions(),
             'avatar' => $buddy->person->avatar(),
-            'buddy' => $buddy
+            'buddy' => $buddy,
+            'availableLanguages' => Locale::getAvailableLocalesSelectOptions(),
+            'browserPreferredLanguage' => Locale::getBrowserPreferredLanguage(),
         ]);
     }
 
     public function updateProfile(Request $request)
     {
         $data = $request->validate([
-            'phone' => ['max:20'],
+            'phone' => ['nullable', 'phone:AUTO,CZ,SK'],
             'age' => ['integer', 'min:1901', 'max:2155', 'nullable'],
             'subscribed' => ['boolean', 'nullable'],
             'sex' => ['required', 'string', 'in:M,F'],
-            'id_faculty' => ['required', 'int', 'exists:faculties'],
+            'id_faculty' => ['required', 'integer', 'exists:faculties'],
+            'about' => ['nullable', 'string'],
+            'preferred_language' => [
+                'required',
+                'string',
+                'size:2',
+                'in:' . implode(',', Locale::AVAILABLE_LOCALES),
+            ],
         ]);
 
         if (!isset($data['subscribed'])) {
@@ -43,20 +46,22 @@ class ProfileController extends Controller
         }
 
         $buddy = auth()->user()->buddy;
-        $buddy->person->update($data);
         $buddy->update($data);
+        $buddy->person->update($data);
 
         return redirect()->route('buddy-my-profile')
-            ->with(['success' => __('buddy-program.my-profile.profile-updated')]);
+            ->with(['success' => __('buddy-program.my-profile.profile-updated', [], $buddy->preferred_language)]);
     }
 
     public function changePassword(Request $request)
     {
+        $user = auth()->user();
+
         $data = $request->validate([
             'old_password' => [
                 'required',
-                function ($attribute, $value, $fail) {
-                    $user = auth()->user();
+                'string',
+                function ($attribute, $value, $fail) use ($user) {
                     if (!Hash::check(User::encryptPassword($user->email, $value), $user->password)) {
                         $fail(__('buddy-program.my-profile.wrong-old-password'));
                     }
@@ -64,8 +69,6 @@ class ProfileController extends Controller
             ],
             'new_password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-
-        $user = auth()->user();
 
         $user->forceFill([
             'password' => Hash::make(User::encryptPassword($user->email, $data['new_password']))

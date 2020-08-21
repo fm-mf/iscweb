@@ -25,7 +25,7 @@ class ApiController extends Controller
         'arrival' => 'arrivals.arrival',
         'faculty' => 'faculties.abbreviation',
         'school' => 'school',
-        'accomodation' => 'accommodation.full_name'
+        'accommodation' => 'accommodation.full_name'
     ];
 
     const FILTER_ALIAS = [
@@ -39,9 +39,6 @@ class ApiController extends Controller
         if (Settings::isDatabaseClosed()) {
             return response()->json([]);
         }
-
-        app()->setLocale('cs');
-        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
 
         $page = $request->page;
         if ($page > 1) {
@@ -96,9 +93,6 @@ class ApiController extends Controller
         if (Settings::isDatabaseClosed()) {
             return response()->json([]);
         }
-
-        app()->setLocale('cs');
-        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
 
         $currentSemester = Settings::get('currentSemester');
         $arrivalDates = Arrival::withStudents($currentSemester)->select(DB::raw('DATE(`arrival`) AS `arrival`'))->distinct()->pluck('arrival');
