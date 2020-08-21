@@ -50,6 +50,10 @@
         </div>
     </div>
 
+    @if(isset($receipt) && $receipt)
+        <print-me-pls copies="2" content="{{ $receipt }}" />
+    @endif
+
     @include('footer')
 @endsection
 
