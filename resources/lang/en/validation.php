@@ -119,7 +119,9 @@ return [
     */
 
     'attributes' => [
-        'age' => 'year of birth'
+        'age' => 'year of birth',
+        'buddyDbFromDate' => 'Buddy database opening date',
+        'buddyDbFromTime' => 'Buddy database opening time',
     ],
 
 ];

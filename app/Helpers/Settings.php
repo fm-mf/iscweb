@@ -120,11 +120,10 @@ class Settings implements ConfigContract
     }
 
     public function isDatabaseOpen() {
-        $curr = Carbon::now();
-        $timeStr = $this->get('buddyDbFrom') . " " . $this->get('buddyDbFromTime');
-        $timeStr = str_replace('/', '-', $timeStr);
-        $timeInDb = Carbon::parse($timeStr);
-        return $timeInDb->lessThanOrEqualTo($curr);
+        $now = Carbon::now();
+        $buddyDbFrom = Carbon::parse($this->get('buddyDbFrom'));
+
+        return $now->greaterThanOrEqualTo($buddyDbFrom);
     }
 
     public function isDatabaseClosed() {

@@ -26,11 +26,11 @@ class StudentController extends Controller
         }
 
         if ($exchangeStudent == null) {
-            $errors['accessDenied'] = 'Nemáte oprávnění k prohlížení zvoleného záznamu.';
+            $errors['accessDenied'] = __('buddy-program.access-denied');
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'))->withErrors($errors);
         }
         if ($exchangeStudent->id_buddy != Auth::id() && !$exchangeStudent->isAvailableToPick()) {
-            $errors['accessDenied'] = 'Nemáte oprávnění k prohlížení zvoleného záznamu.';
+            $errors['accessDenied'] = __('buddy-program.access-denied');
             return redirect(action('Buddyprogram\ListingController@listExchangeStudents'))->withErrors($errors);
         }
 
@@ -53,8 +53,9 @@ class StudentController extends Controller
         }
 
         $me = Buddy::find(Auth::id());
-        if ($me->pickedStudentsToday() >= Settings::get('limitPerDay', 1)) {
-            $errors['limitReached'] = 'Dosažen denní limit vybraných zahraničních studentů (' . Settings::get('limitPerDay', 1) . ')';
+        $limitPerDay = Settings::get('limitPerDay', 1);
+        if ($me->pickedStudentsToday() >= $limitPerDay) {
+            $errors['limitReached'] = __('buddy-program.buddy-limit-reached', ['limit' => $limitPerDay]);
             return back()->withErrors($errors);
         }
 
@@ -68,7 +69,7 @@ class StudentController extends Controller
                 $exchangeStudent->save();
             });
         } catch (AlreadyHasBuddyException $e) {
-            $errors['alreadyHasABuddy'] = 'Student již má buddyho';
+            $errors['alreadyHasABuddy'] = __('buddy-program.already-has-buddy');
         }
 
         if (isset($errors)) {

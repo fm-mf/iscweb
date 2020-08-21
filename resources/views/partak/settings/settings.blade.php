@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-7">
             {{ Form::model($settings, ['id' => 'mainForm', 'route' => 'partak.settings.general.save', 'method' => 'patch']) }}
-            {{-- {{ Form::bsSelect('isDatabaseOpen', 'Buddy database is', ['true' => 'Open', 'false' => 'Closed'], $settings['isDatabaseOpen'] ? 'true' : 'false')  }} --}}
+
             {{ Form::bsText('rector', 'Rector') }}
 
             <div class="form-group">
@@ -25,14 +25,34 @@
             {{ Form::bsSelect('currentSemester', 'Current Semester', $semesters, $settings['currentSemester']) }}
 
             <div class="form-group">
-                {{ Form::label('date', 'Buddy database opened from', ['class' => 'control-label']) }}
-                @if ($errors->has('date'))
-                    <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
+                {{ Form::label('buddyDbFromDate', 'Buddy database open from', ['class' => 'control-label']) }}
+                @if ($errors->hasAny(['buddyDbFromDate', 'buddyDbFromTime']))
+                    <p class="error-block alert-danger">
+                        @if($errors->has('buddyDbFromDate'))
+                            {{ $errors->first('buddyDbFromDate') }}
+                        @else
+                            {{ $errors->first('buddyDbFromTime') }}
+                        @endif
+                    </p>
                 @endif
-                {{ Form::text('buddyDbFrom', $settings['buddyDbFrom']->format('d M Y'), ['id' => 'buddyDbFrom', 'class' => 'form-control arrival date', 'style' => 'margin-bottom: 15px']) }}
-                {{ Form::text('buddyDbFromTime', $settings['buddyDbFromTime']->format('H:i'), ['id' => 'buddyDbFromTime', 'class' => 'form-control arrival time', 'style' => 'margin-bottom: 15px']) }}
+                <div class="row">
+                    <div class="col-sm-6 mb-2 mb-sm-0">
+                        {{ Form::text(
+                            'buddyDbFromDate',
+                            $settings['buddyDbFrom']->format('d M Y'),
+                            ['id' => 'buddyDbFromDate', 'class' => 'form-control date']
+                        ) }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ Form::text(
+                            'buddyDbFromTime',
+                            $settings['buddyDbFrom']->format('H:i'),
+                            ['id' => 'buddyDbFromTime', 'class' => 'form-control time']
+                        ) }}
+                    </div>
+                </div>
             </div>
-            
+
             {{ Form::label('date', 'Welcome package from', ['class' => 'control-label']) }}
             @if ($errors->has('date'))
                 <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
