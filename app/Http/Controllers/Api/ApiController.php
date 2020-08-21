@@ -40,9 +40,6 @@ class ApiController extends Controller
             return response()->json([]);
         }
 
-        app()->setLocale('cs');
-        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
-
         $page = $request->page;
         if ($page > 1) {
             Paginator::currentPageResolver(function () use ($page) {
@@ -97,9 +94,6 @@ class ApiController extends Controller
             return response()->json([]);
         }
 
-        app()->setLocale('cs');
-        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
-
         $currentSemester = Settings::get('currentSemester');
         $arrivalDates = Arrival::withStudents($currentSemester)->select(DB::raw('DATE(`arrival`) AS `arrival`'))->distinct()->pluck('arrival');
         $arrivalDatesFormated = [];
@@ -150,7 +144,7 @@ class ApiController extends Controller
     public function preregister(Request $request)
     {
         $this->authorize('acl', 'exchangeStudents.register');
-        
+
         $student = ExchangeStudent::find($request->id);
         if (!$student) {
             return false;
