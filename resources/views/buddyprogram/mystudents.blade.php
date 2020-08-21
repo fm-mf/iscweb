@@ -20,7 +20,7 @@
                     @foreach($myStudents as $exchangeStudent)
                         <tr>
                             <td>
-                                <a href="{{ route('buddy-profile', ['$exchangeStudent' => $exchangeStudent->hashId]) }}">
+                                <a href="{{ route('buddy-profile', ['$exchangeStudent' => $exchangeStudent->hash_id]) }}">
                                     {{ $exchangeStudent->person->first_name }}
                                     <span class="last-name">{{ $exchangeStudent->person->last_name }}</span>
                                 </a>
@@ -28,7 +28,13 @@
                             <td>{{ $exchangeStudent->country->full_name }}</td>
                             <td>{{ $exchangeStudent->faculty->faculty }}</td>
                             <td>{{ $exchangeStudent->accommodation->full_name }}</td>
-                            <td>{{ $exchangeStudent->person->sex == null ? "" : ($exchangeStudent->person->sex == 'M' ? 'muž' : 'žena') }}</td>
+                            <td>
+                                @if($exchangeStudent->person->sex === 'M')
+                                    @lang('buddy-program.sex-m')
+                                @elseif($exchangeStudent->person->sex === 'F')
+                                    @lang('buddy-program.sex-f')
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 @endif
