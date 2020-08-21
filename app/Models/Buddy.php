@@ -20,6 +20,8 @@ class Buddy extends Model
         'phone',
         'subscribed',
         'id_country',
+        'motivation',
+        'verification_email',
         'preferred_language',
     ];
 

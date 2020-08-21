@@ -51,8 +51,8 @@
                             <div class="div-cell arrival">
                                 <orderable-column v-model="sortBy" v-on:input="filterChanged" field="arrival">@lang('buddy-program.arrival')</orderable-column>
                             </div>
-                            <div class="div-cell accomodation">
-                                <orderable-column v-model="sortBy" v-on:input="filterChanged" field="accomodation">@lang('buddy-program.accommodation')</orderable-column>
+                            <div class="div-cell accommodation">
+                                <orderable-column v-model="sortBy" v-on:input="filterChanged" field="accommodation">@lang('buddy-program.accommodation')</orderable-column>
                             </div>
                         </div>
                         <div class="div-body">
@@ -70,7 +70,7 @@
                                     <span v-if="student.arrival">@{{ student.arrival}}</span>
                                     <span v-else>@lang('buddy-program.arrival-not-filled')</span>
                                 </div>
-                                <div class="div-cell accomodation">@{{ student.accommodation }}</div>
+                                <div class="div-cell accommodation">@{{ student.accommodation }}</div>
                             </div>
                             <div class="div-tr table-empty" v-if="!loading && data.length === 0">
                                 <div class="div-cell">@lang('buddy-program.no-student-found')</div>

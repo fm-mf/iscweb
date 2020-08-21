@@ -25,7 +25,7 @@
     {{--            This is preliminary programme. Events may be moved to another days of the week. Details will be added during September.--}}
     {{--        </p>--}}
             <p>
-                Check this page regularly for updates. You can also follow the
+                Due to pandemic situation, the schedule and programme can change, please check this page regularly for updates. Definitive programme will be announced on Monday during the presentation. You can also follow the
                 <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a>
                 for up to date information.
             </p>
@@ -51,6 +51,7 @@
         'day-3' => [
             'title' => "Day 3 - $owDay3",
             'items' => [
+                'survival-czech-talk' => 'Survival Czech Talk',
                 'day-3-registration' => 'Prague Discovery Game',
                 'integreat-party' => 'inteGREATion party'
             ]
@@ -71,6 +72,7 @@
         </div>
     </div>
 --}}
+
     <div class="row">
         <h2 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h2>
     </div>
@@ -78,8 +80,9 @@
         <div class="col-lg-12">
             <h3 id="initial-meeting">Initial information meeting</h3>
             <ul class="list-unstyled">
-                <li>When: <strong>13:30</strong> - 17:00</li>
-                <li>Where: <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank"><strong>Faculty of Mechanical Engineering, room T4: D2-256 and 358</strong></a></li>
+                <li>When: <strong>13:00</strong> - 17:30</li>
+                <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>
+                
                 <!--
                 <li>Meeting points:
                     <ul>
@@ -88,6 +91,7 @@
                     </ul>
                 </li>
                 -->
+
                 <li>Topics:
                     <ul>
                         <li>Official welcome</li>
@@ -114,7 +118,13 @@
         <div class="col-lg-12">
             <h3 id="tandem-evening">Tandem Evening</h3>
             <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
+
+            <div class="bg-info">
+                <p>Due to pandemic situation, it's uncentrain when and where will this event happen. Please check this page during September for more info.</p>
+            </div>
+            {{--
             <ul class="list-unstyled">
+                
                 <li>When: <strong>21:00</strong></li>
                 <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
                 <li>Meeting points:
@@ -124,6 +134,7 @@
                 </li>
                 <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
             </ul>
+            --}}
         </div>
     </div>
     {{--<div class="row">
@@ -150,20 +161,19 @@
     <div class="row">
         <div class="col-lg-12">
             <h3 id="day-2-registration">Registration at faculties</h3>
+
             <p class="bg-warning">
                 Note: <strong>This is only for Erasmus students and Exchange students</strong>. Self-funding students who are studying for a CTU degree, and also Erasmus Mundus students, please contact Faculty coordinators at your study department.
             </p>
+
             <p class="bg-danger">Registration at your faculty is <strong>mandatory</strong>. If you can't attend this registration, you need to inform your faculty!</p>
-	    <div class="row">
-		<!--
-        <div class="col-lg-12">
-		    <a href="{{ asset('/files/ow-fall-2019/registrations-at-faculties.pdf') }}">Meeting points - Tuesday</a>
-		</div>
-        -->
-	    </div>
+
+            <p class="bg-info">The schedule will be announced during September</p>
+
             <ul class="list-unstyled">
                 {{--<li>More information during the Monday presentation</li>--}}
 
+                {{--TBA:
                 <li><strong>When:</strong>
                     <ul>
                         <li>9:00 &ndash; <abbr title="Faculty of Transportation">FD</abbr>,
@@ -190,6 +200,7 @@
                 </li>
 
                 <li><abbr title="Faculty of Civil Engineering">FSv</abbr> has registrations on day 3</li>
+                --}}
 
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
@@ -208,14 +219,13 @@
             </ul>
         </div>
     </div>
+
     <div class="row">
         <div class="col-lg-12">
             <h3 id="trips-meeting">Second information meeting</h3>
             <ul class="list-unstyled">
-                {{--<li>When: in the afternoon</li>--}}
-                {{--<li>Where: <abbr title="To be announced">TBA</abbr> soon</li>--}}
                 <li>When: <strong>13:00</strong></li>
-                <li>Where: <strong><a href="https://goo.gl/maps/BT426kNo4oZLarbz9">Congress Hall of the Masarykova Dormitory</a></strong></li>
+                <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
                 <li>Topics:
                     <ul>
                         <li>Presentation of ISC trips</li>
@@ -225,23 +235,6 @@
             </ul>
         </div>
     </div>
-    {{--<div class="row">--}}
-    {{--    <div class="col-lg-12">--}}
-    {{--        <h3>Blind Date</h3>--}}
-    {{--        <p>An interesting dating game organized by ISC Care team</p>--}}
-    {{--        <ul class="list-unstyled">--}}
-    {{--            <li>When: in the evening</li>--}}
-    {{--            <li>Where: TBA</li>--}}
-    {{--        </ul>--}}
-    {{--    </div>--}}
-    {{--</div> --}}
-    {{--
-    <div class="row">
-        <div class="col-lg-12">
-            <a href="{{ asset('/files/OW_S2017/OW_S2017_Meeting_points_Registrations_at_faculties.pdf') }}">Meeting points - Tuesday</a>
-        </div>
-    </div>
-    --}}
 
     <div class="row">
         <h2 id="day-3">DAY 3 – {{ $owDay3 }}</h2>
@@ -249,15 +242,33 @@
 
     <div class="row">
         <div class="col-lg-12">
+            <h3 id="survival-czech-talk">Survival Czech Talk</h3>
+            <ul class="list-unstyled">
+                <li>How do I ask for a beer in Czech? How do I pronounce “ř” and other strange letters? And if I want to say “hi, bye, thanks, please”, and more in Czech, what are the proper words? Learn this and more with the Rectorate teacher of Czech, Eva dos Reis, who will give you 90 minutes of exposure to the elementary stuff you better know NOW!</li>
+
+                <li>When: <strong>9:00 - 10:30</strong> OR <strong>11:00 - 12:30</strong></li>
+                <li>Where: <strong><a href="https://goo.gl/maps/qN4e4UDXfeAkVw1b7" target="_blank">CTU Rectorate</a>, building B, CIIRC Red Room</strong></li>
+                
+                <li>If you want to attend the Survival Czech Talk <a href="https://cvut.us20.list-manage.com/track/click?u=9b8d409b5e6e6e9214f58de33&id=691692a15d&e=6858531003" target="_blank">register in the form</a> and choose which time you want to attend. If the situation about Covid-19 gets worse, the course will be held online via Zoom or some similar platform.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
             <h3 id="day-3-registration">Registration at faculties</h3>
 
+            <p class="bg-info">The schedule will be announced during September</p>
+
+            {{--
             <p>When: <strong>10:00</strong> &ndash; <abbr title="Faculty of Civil Engineering">FSv</abbr></p>
         
             <li>Meeting points:
                 <ul>
                     <li>FSv &ndash; 9:50 in front of the faculty</li>
                 </ul>
-            </li>     
+            </li>  
+            --}}   
         </div>
     </div>
 
@@ -266,7 +277,7 @@
             <h3 id="prague-discovery-game">Prague Discovery Game</h3>
             <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
             <ul class="list-unstyled">
-                <li>When: <strong>13:30</strong></li>
+                <li>When: <strong>TBA</strong></li>
                 <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
                 {{--<li>When: in the afternoon</li>--}}
                 {{--<li>Where: <abbr title="To be announced">TBA</abbr> soon</li>--}}
@@ -274,6 +285,7 @@
         </div>
     </div>
 
+    {{-- TBA
     <div class="row">
         <div class="col-lg-12">
             <h3 id="integreat-party">inteGREATion party</h3>
@@ -292,6 +304,7 @@
             </ul>
         </div>
     </div>
+    --}}
 
     <div class="row">
         <h2 id="day-4-7">DAY 4–7 – {{ $owTripsDays }} </h2>
