@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Tandem Database')
+@section('title', __('tandem.page-title'))
 
 @section('content')
     <div class="d-flex flex-column min-vh-100">

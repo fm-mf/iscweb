@@ -3,48 +3,51 @@
 @section('page')
     <section>
         <div class="container">
+            @if(session('logoutSuccessful'))
+                <div class="row">
+                    <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+                        <p class="alert alert-success">
+                            @lang('tandem.auth.logout-successful')
+                        </p>
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col">
-                    <h1>ISC Tandem Database</h1>
+                    <h1>@lang('tandem.index.heading')</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-11 col-sm-9 col-md-8 mx-auto">
-                    <p>
-                        Tandem is a way of mutual learning and teaching languages. You will find someone who would
-                        teach you a foreign language and you would teach him yours in return
-                    </p>
-                    <p>
-                        The main advantage of Tandem is that it will be just you two, who will set the time and
-                        the intensity of the courses! You can form as many couples as you wish.
-                    </p>
-                    <p>
-                        If you join the ISC Tandem Database, you will get the access to the list of students
-                        looking for a Tandem partner and other students will be able to find you.
-                    </p>
+                    <p>@lang('tandem.index.desc-p1')</p>
+                    <p>@lang('tandem.index.desc-p2')</p>
+                    <p>@lang('tandem.index.desc-p3')</p>
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-auto mx-auto">
                     <div class="form-group">
-                        <p class="text-uppercase">Already registered?</p>
+                        <p class="text-uppercase">@lang('tandem.index.already-registered')</p>
                         <a class="btn btn-primary" href="{{ route('tandem.login') }}">
-                            <span class="fas fa-sign-in-alt"></span> Log in
+                            <span class="fas fa-sign-in-alt"></span> @lang('tandem.index.log-in')
                         </a>
                     </div>
                     <div class="form-group">
-                        <p class="text-uppercase">Are you new here</p>
+                        <p class="text-uppercase">@lang('tandem.index.new-here')</p>
                         <a class="btn btn-primary" href="{{ route('tandem.register') }}">
-                            <span class="fas fa-user-plus"></span> Register
+                            <span class="fas fa-user-plus"></span> @lang('tandem.index.register')
                         </a>
                     </div>
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-auto mx-auto">
-                    <p>Any questions or problems? Contact us!</p>
+                    <p>@lang('tandem.index.any-questions-contact-us')</p>
                     <p>
-                        E-mail: <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a>
+                        <strong>
+                            <span class="fas fa-envelope"></span> @lang('tandem.auth.e-mail'):
+                        </strong>
+                        <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a>
                     </p>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Tandem;
 
-use Illuminate\Http\Request;
+use App\Helpers\Locale;
 use App\Http\Controllers\Controller;
 
 class TandemController extends Controller
@@ -20,5 +20,27 @@ class TandemController extends Controller
     public function profile()
     {
         return view('tandem.profile');
+    }
+
+    public function changeLanguage()
+    {
+        request()->validate([
+            'language' => [
+                'required',
+                'in:' . implode(',', Locale::AVAILABLE_LOCALES)
+            ],
+        ]);
+
+        if (auth('tandem')->check()) {
+            auth('tandem')->user()->update([
+                'preferred_language' => request('language'),
+            ]);
+        }
+
+        session([
+            Locale::SESSION_KEY_TANDEM => request('language'),
+        ]);
+
+        return back();
     }
 }

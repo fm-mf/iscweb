@@ -13,3 +13,5 @@ Route::post('logout', 'Auth\\TandemLoginController@logout')->name('logout');
 
 Route::get('register', 'Auth\\TandemRegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\\TandemRegisterController@register');
+
+Route::get('change-language', 'TandemController@changeLanguage')->name('change-language');

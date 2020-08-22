@@ -14,7 +14,8 @@ class UpdateTandemUsers extends Migration
     public function up()
     {
         Schema::table('tandem_users', function (Blueprint $table) {
-            $table->string('password')->after('email');
+            $table->string('password')->after('email')->nullable();
+            $table->char('preferred_language', 2)->nullable();
         });
     }
 
@@ -26,7 +27,8 @@ class UpdateTandemUsers extends Migration
     public function down()
     {
         Schema::table('tandem_users', function (Blueprint $table) {
-            $table->dropIfExists('password');
+            $table->dropColumn('preferred_language');
+            $table->dropColumn('password');
         });
     }
 }

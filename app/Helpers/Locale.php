@@ -11,6 +11,8 @@ class Locale
 
     const SESSION_KEY = 'locale';
 
+    const SESSION_KEY_TANDEM = 'locale_tandem';
+
     public static function getAvailableLocalesSelectOptions()
     {
         return [

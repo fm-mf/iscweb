@@ -1,6 +1,6 @@
 @extends('tandem.layouts.layout')
 
-@section('title', 'Login – Tandem Database')
+@section('title', __('tandem.auth.login') . ' – ' . __('tandem.page-title'))
 
 @section('page')
     <section>
@@ -9,14 +9,14 @@
                 <div class="row">
                     <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
                         <p class="alert alert-success">
-                            Your registration completed successfully. You may now continue with log in.
+                            @lang('tandem.auth.registration-successful')
                         </p>
                     </div>
                 </div>
             @endif
             <div class="row">
                 <div class="col">
-                    <h1>Login to Tandem Database</h1>
+                    <h1>@lang('tandem.auth.login-heading')</h1>
                 </div>
             </div>
             @if($errors->any())
@@ -33,11 +33,11 @@
                     <form action="{{ route('tandem.login') }}" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label class="required" for="input-email">E-mail</label>
+                            <label class="required" for="input-email">@lang('tandem.auth.e-mail')</label>
                             <input type="email" class="form-control" name="email" id="input-email" value="{{ old('email') }}" required="required" />
                         </div>
                         <div class="form-group">
-                            <label class="required" for="input-password">Password</label>
+                            <label class="required" for="input-password">@lang('tandem.auth.password')</label>
                             <input type="password" class="form-control" name="password" id="input-password" required="required" />
                         </div>
                         <button type="submit" class="btn btn-primary">Log in</button>
