@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Tandem\Auth;
 
+use App\Helpers\Locale;
 use App\Models\TandemUser;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class TandemLoginController extends Controller
 {
@@ -28,7 +28,7 @@ class TandemLoginController extends Controller
 
     protected function guard()
     {
-        return Auth::guard('tandem');
+        return auth()->guard('tandem');
     }
 
     public function showLoginForm()
@@ -50,16 +50,29 @@ class TandemLoginController extends Controller
             return false;
         }
 
-        Auth::guard('tandem')->login($user);
+        $this->guard()->login($user);
+
+        $user->update([
+            'password' => bcrypt($credintials['password']),
+            'passhash' => null,
+        ]);
 
         return true;
     }
 
     public function logout(Request $request)
     {
+        $user = auth()->user();
+        $locale = session(Locale::SESSION_KEY);
+        $localeTandem = session(Locale::SESSION_KEY_TANDEM);
+
         $this->traitLogout($request);
 
-        return redirect(route('tandem.index'))->with('logoutSuccessful');
+        $user === null ?: auth()->login($user);
+        $locale === null ?: session([Locale::SESSION_KEY => $locale]);
+        $localeTandem === null ?: session([Locale::SESSION_KEY => $localeTandem]);
+
+        return redirect()->route('tandem.index')->with('logoutSuccessful');
     }
 
     private function hashPassword(array $credintials)

@@ -9,7 +9,6 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class TandemRegisterController extends Controller
@@ -23,7 +22,7 @@ class TandemRegisterController extends Controller
 
     protected function guard()
     {
-        return Auth::guard('tandem');
+        return auth()->guard('tandem');
     }
 
     public function showRegistrationForm()
@@ -70,6 +69,6 @@ class TandemRegisterController extends Controller
     {
         $this->guard()->logout();
 
-        return redirect(route('tandem.login'))->with('registrationSuccessful', true);
+        return redirect()->route('tandem.login')->with('registrationSuccessful', true);
     }
 }

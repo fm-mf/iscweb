@@ -13,7 +13,7 @@
                 </span>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
-                @guest
+                @guest('tandem')
                     @component('web.components.navbar-nav', ['navItems' => [
                         ['title' => $shortName, 'route' => 'web.index'],
                         ['title' => __('tandem.auth.register'), 'route' => 'tandem.register', 'icon' => 'fas fa-user-plus'],
