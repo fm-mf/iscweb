@@ -4,32 +4,74 @@
 
     <div class="container page">
         <div class="card-body">
-            <h1 class="text-center card-title">Profil zahraničního studenta</h1>
+            <h1 class="text-center card-title">@lang('buddy-program.student-profile')</h1>
 
             <div class="row">
                 <div class="col-12 col-md-9 order-md-first order-last">
-                    <h2>{{ $exchangeStudent->person->first_name }} <span class="last-name">{{ $exchangeStudent->person->last_name }}</span></h2>
+                    <h2>
+                        {{ $exchangeStudent->person->first_name }}
+                        <span class="last-name">{{ $exchangeStudent->person->last_name }}</span>
+                    </h2>
                     <div class="row">
                         <div class="col">
-                            @if($exchangeStudent->country) <strong>Země</strong>: {{ $exchangeStudent->country->full_name }}<br> @endif
-                            @if($exchangeStudent->school != "NULL") <strong>Škola</strong>: {{ $exchangeStudent->school }}<br> @endif
-                            @if($exchangeStudent->person->sex) <strong>Pohlaví</strong>: {{ $exchangeStudent->person->sex === "F" ? "žena" : "muž" }}<br> @endif
-                            @if($exchangeStudent->person->age)<strong>Věk</strong>: {{ date("Y") - $exchangeStudent->person->age -1}}-{{date("Y") - $exchangeStudent->person->age }} let <br>@endif
-                            @if($exchangeStudent->faculty)<strong>Fakulta ČVUT</strong>: {{ $exchangeStudent->faculty->faculty }}<br> @endif
-                            <strong>Samoplátce</strong>: {{ $exchangeStudent->isSelfPaying() ? 'ano' : 'ne' }}<br>
-                            <strong>Datum příjezdu</strong>:
-                            @if($exchangeStudent->arrival)
-                                {{ $exchangeStudent->arrival->arrivalFormatted }} <br>
-                            @else
-                                Zatím nevyplněno <br>
+                            @if($exchangeStudent->country)
+                                <strong>@lang('buddy-program.country')</strong>:
+                                {{ $exchangeStudent->country->full_name }}
+                                <br>
                             @endif
-                            <strong>Způsob příjezdu</strong>:
-                            @if($exchangeStudent->arrival)
-                                {{ $exchangeStudent->arrival->transportation->transportation }} <br>
-                            @else
-                                Zatím nevyplněno <br>
+                            @if($exchangeStudent->school)
+                                <strong>@lang('buddy-program.school')</strong>:
+                                {{ $exchangeStudent->school }}
+                                <br>
                             @endif
-                            <strong>Ubytování</strong>: {{ $exchangeStudent->accommodation->full_name }} <br>
+                            @if($exchangeStudent->person->sex)
+                                <strong>@lang('buddy-program.sex')</strong>:
+                                @if($exchangeStudent->person->sex === 'M')
+                                    @lang('buddy-program.sex-m')
+                                @else
+                                    @lang('buddy-program.sex-f')
+                                @endif
+                                <br>
+                            @endif
+                            @if($exchangeStudent->person->age)
+                                <strong>@lang('buddy-program.age')</strong>:
+                                {{ $exchangeStudent->age_range }}
+                                @lang('buddy-program.years-old')
+                                <br>
+                            @endif
+                            @if($exchangeStudent->faculty)
+                                <strong>@lang('buddy-program.faculty')</strong>:
+                                {{ $exchangeStudent->faculty->faculty }}
+                                <br>
+                            @endif
+
+                            <strong>@lang('buddy-program.full-time-student')</strong>:
+                            @if($exchangeStudent->isSelfPaying())
+                                @lang('buddy-program.yes')
+                            @else
+                                @lang('buddy-program.no')
+                            @endif
+                            <br>
+
+                            <strong>@lang('buddy-program.arrival-date')</strong>:
+                            @if($exchangeStudent->arrival)
+                                {{ $exchangeStudent->arrival->arrivalFormatted }}
+                            @else
+                                @lang('buddy-program.not-filled-yet')
+                            @endif
+                            <br>
+
+                            <strong>@lang('buddy-program.arrival-transport')</strong>:
+                            @if($exchangeStudent->arrival)
+                                {{ $exchangeStudent->arrival->transportation->transportation }}
+                            @else
+                                @lang('buddy-program.not-filled-yet')
+                            @endif
+                            <br>
+
+                            <strong>@lang('buddy-program.accommodation')</strong>:
+                            {{ $exchangeStudent->accommodation->full_name }}
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -48,7 +90,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="container">
-                        <h3>Podrobosti</h3>
+                        <h3>@lang('buddy-program.details')</h3>
                         <p>{{ $exchangeStudent->about }}</p>
                     </div>
                 </div>
@@ -61,33 +103,67 @@
                 @endforeach
             @endif
             @if(!$exchangeStudent->hasBuddy() && $canChoose)
-                <form method="POST" action="{{ route('become-buddy', ['exchageStudent' => $exchangeStudent->hashId]) }}">
+                <form method="POST" action="{{ route('become-buddy', ['exchangeStudent' => $exchangeStudent->hash_id]) }}">
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-primary">Staň se @if ($exchangeStudent->person->sex === 'M')jeho @elseif($exchangeStudent->person->sex === 'F')jejím @endif buddym</button>
+                    <button type="submit" class="btn btn-primary">
+                        @if($exchangeStudent->person->sex === 'M')
+                            @lang('buddy-program.become-buddy-m')
+                        @else
+                            @lang('buddy-program.become-buddy-f')
+                        @endif
+                    </button>
                 </form>
-            @elseif ($exchangeStudent->id_buddy === auth()->id())
+            @elseif($exchangeStudent->id_buddy === auth()->id())
                 <div class="show-email">
-                    <p><strong>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</strong> je tvým Buddym!</p>
-                    <p>Teď @if ($exchangeStudent->person->sex === 'M')mu @elseif($exchangeStudent->person->sex === 'F')jí @endif můžeš napsat! Dostupné kontakty:</p>
+                    <p>
+                        <strong>{{ $exchangeStudent->person->first_name }} {{ $exchangeStudent->person->last_name }}</strong>
+                        @lang('buddy-program.is-your-buddy')
+                        @if ($exchangeStudent->person->sex === 'M')
+                            @lang('buddy-program.you-can-write-him')
+                        @else
+                            @lang('buddy-program.you-can-write-her')
+                        @endif
+                    </p>
+                    <p class="mb-0">
+                        @lang('buddy-program.available-contacts'):
+                    </p>
                     <ul class="contacts-list">
-                        <li><i class="fas fa-envelope fa-fw" alt="E-mail" title="E-mail"></i> <a href="mailto:{{ $exchangeStudent->person->user->email }}">{{ $exchangeStudent->person->user->email }}</a></li>
+                        <li>
+                            <i class="fas fa-envelope fa-fw" title="@lang('buddy-program.e-mail')"></i>
+                            <a href="mailto:{{ $exchangeStudent->person->user->email }}">
+                                {{ $exchangeStudent->person->user->email }}
+                            </a>
+                        </li>
                         @if ($exchangeStudent->whatsapp)
-                            <li><i class="fab fa-whatsapp fa-fw" alt="WhatsApp" title="WhatsApp"></i> <a href="tel:{{ $exchangeStudent->whatsAppFormattedE164w }}">{{ $exchangeStudent->whatsAppFormattedInternational }}</a></li>
+                            <li>
+                                <i class="fab fa-whatsapp fa-fw" title="WhatsApp"></i>
+                                <a href="tel:{{ $exchangeStudent->whatsAppFormattedE164 }}">
+                                    {{ $exchangeStudent->whatsAppFormattedInternational }}
+                                </a>
+                            </li>
                         @endif
                         @if ($exchangeStudent->facebook)
-                            <li><i class="fab fa-facebook fa-fw" alt="Facebook" title="Facebook"></i> <a href="{{ $exchangeStudent->facebook }}">{{ $exchangeStudent->facebook }}</a></li>
+                            <li>
+                                <i class="fab fa-facebook fa-fw" title="Facebook"></i>
+                                <a href="{{ $exchangeStudent->facebook }}" target="_blank" rel="noopener">
+                                    {{ $exchangeStudent->facebook }}
+                                </a>
+                            </li>
                         @endif
                     </ul>
                 </div>
             @else
                 <div class="show-email">
-                    <p>Vyčerpán denní limit ({{ $limit }}) pro výběr zahraničních studentů</p>
+                    <p>@lang('buddy-program.buddy-limit-reached', [ 'limit' => $limit ])</p>
                 </div>
             @endif
         </div>
         @if ($exchangeStudent->id_buddy === auth()->id())
             <div class="card-body">
-                <p class="show-info">V případě, že chceš zahraničního studenta odebrat ze svých buddíků, napiš na <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
+                <p class="show-info">
+                    @lang('buddy-program.buddy-removal-info')
+                    <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>
+                </p>
             </div>
         @endif
     </div>

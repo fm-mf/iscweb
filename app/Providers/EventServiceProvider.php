@@ -14,8 +14,9 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\BuddyRegistered' => [
-            'App\Listeners\NotifyHRNewRegistration',
-            //'App\Listeners\AsanaNewRegistration',
+//            'App\Listeners\NotifyHRNewRegistration',
+//            'App\Listeners\AsanaNewRegistration',
+            'App\Listeners\SendVerificationEmail',
         ],
         'App\Events\BuddyVerified' => [
                 'App\Listeners\WelcomeBuddy',
