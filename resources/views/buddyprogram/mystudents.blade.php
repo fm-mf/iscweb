@@ -2,17 +2,17 @@
 @section('content')
 
     <div class="container page">
-        <h1 class="text-center">MOJI STUDENTI</h1>
+        <h1 class="text-center">@lang('buddy-program.my-students')</h1>
 
         <div class="table-responsive">
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>Jméno</th>
-                    <th>Národnost</th>
-                    <th>Fakulta</th>
-                    <th>Kolej</th>
-                    <th>Pohlaví</th>
+                    <th>@lang('buddy-program.student-name')</th>
+                    <th>@lang('buddy-program.nationality')</th>
+                    <th>@lang('buddy-program.faculty')</th>
+                    <th>@lang('buddy-program.dormitory')</th>
+                    <th>@lang('buddy-program.sex')</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -20,7 +20,7 @@
                     @foreach($myStudents as $exchangeStudent)
                         <tr>
                             <td>
-                                <a href="{{ route('buddy-profile', ['$exchangeStudent' => $exchangeStudent->hashId]) }}">
+                                <a href="{{ route('buddy-profile', ['$exchangeStudent' => $exchangeStudent->hash_id]) }}">
                                     {{ $exchangeStudent->person->first_name }}
                                     <span class="last-name">{{ $exchangeStudent->person->last_name }}</span>
                                 </a>
@@ -28,7 +28,13 @@
                             <td>{{ $exchangeStudent->country->full_name }}</td>
                             <td>{{ $exchangeStudent->faculty->faculty }}</td>
                             <td>{{ $exchangeStudent->accommodation->full_name }}</td>
-                            <td>{{ $exchangeStudent->person->sex == null ? "" : ($exchangeStudent->person->sex == 'M' ? 'muž' : 'žena') }}</td>
+                            <td>
+                                @if($exchangeStudent->person->sex === 'M')
+                                    @lang('buddy-program.sex-m')
+                                @elseif($exchangeStudent->person->sex === 'F')
+                                    @lang('buddy-program.sex-f')
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 @endif
