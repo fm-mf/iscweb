@@ -130,7 +130,8 @@ class OfficeRegistrationController extends Controller
             $exStudent->person->user->addRole('samoplatce');
         }
 
-        return \Redirect::route('exStudent.edit', ['id_user' => $exStudent->id_user]);
+        return redirect()
+            ->route('partak.users.exStudent.edit', ['id_user' => $exStudent->id_user]);
     }
 
     protected function profileValidator(array $data)
