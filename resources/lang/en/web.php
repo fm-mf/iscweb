@@ -14,5 +14,7 @@ return [
         'online-reservation' => 'Online reservation!',
         'detail' => 'Detail!'
     ],
+    'term-winter' => 'winter',
+    'term-summer' => 'summer',
     'locale-full' => 'en_GB.UTF-8',
 ];

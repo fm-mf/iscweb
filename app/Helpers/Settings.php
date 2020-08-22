@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -116,6 +117,17 @@ class Settings implements ConfigContract
     {
         Cache::forget(self::CACHE_KEY);
         DB::table(self::TABLE)->where('key', $key)->delete();
+    }
+
+    public function isDatabaseOpen() {
+        $now = Carbon::now();
+        $buddyDbFrom = Carbon::parse($this->get('buddyDbFrom'));
+
+        return $now->greaterThanOrEqualTo($buddyDbFrom);
+    }
+
+    public function isDatabaseClosed() {
+        return !$this->isDatabaseOpen();
     }
 
 }
