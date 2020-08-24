@@ -23,7 +23,7 @@
                 @else
                     @component('web.components.navbar-nav', ['navItems' => [
                         ['title' => $shortName, 'route' => 'web.index'],
-                        ['title' => __('tandem.my-profile.title'), 'route' => 'tandem.profile', 'icon' => 'fas fa-user-edit'],
+                        ['title' => __('tandem.my-profile.title'), 'route' => 'tandem.my-profile', 'icon' => 'fas fa-user-edit'],
                         ['title' => __('tandem.auth.log-out'), 'route' => 'tandem.logout', 'icon' => 'fas fa-sign-out-alt', 'onClick' => "event.preventDefault(); document.getElementById('logout-form').submit();"],
                     ]])
                     @endcomponent

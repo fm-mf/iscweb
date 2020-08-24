@@ -15,7 +15,7 @@ const vueForm = new Vue({
     },
     computed: {
         countryId() {
-            return this.country == null ? null : this.country.id_country;
+            return this.country?.id_country;
         },
     },
 });

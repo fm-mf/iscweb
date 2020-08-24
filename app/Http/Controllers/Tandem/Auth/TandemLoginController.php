@@ -43,7 +43,7 @@ class TandemLoginController extends Controller
         }
 
         $credintials = $this->credentials($request);
-        $credintials['passhash'] = $this->hashPassword($credintials);
+        $credintials['passhash'] = TandemUser::generateOldPasshash($credintials);
         $user = TandemUser::where('email', $credintials['email'])->first();
 
         if (!isset($user) || !hash_equals($user->getAuthPassword(), $credintials['passhash'])) {
@@ -54,7 +54,6 @@ class TandemLoginController extends Controller
 
         $user->update([
             'password' => bcrypt($credintials['password']),
-            'passhash' => null,
         ]);
 
         return true;
@@ -72,11 +71,6 @@ class TandemLoginController extends Controller
         $locale === null ?: session([Locale::SESSION_KEY => $locale]);
         $localeTandem === null ?: session([Locale::SESSION_KEY => $localeTandem]);
 
-        return redirect()->route('tandem.index')->with('logoutSuccessful');
-    }
-
-    private function hashPassword(array $credintials)
-    {
-        return hash('sha512', "{$credintials['email']}@{$credintials['password']}");
+        return redirect()->route('tandem.index')->with('logoutSuccessful', true);
     }
 }

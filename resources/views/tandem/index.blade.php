@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-11 col-sm-9 col-md-8 mx-auto">
+                <div class="col-11 col-sm-9 col-md-8 col-xl-7 mx-auto">
                     <p>@lang('tandem.index.desc-p1')</p>
                     <p>@lang('tandem.index.desc-p2')</p>
                     <p>@lang('tandem.index.desc-p3')</p>
@@ -26,18 +26,30 @@
             </div>
             <div class="row mt-5">
                 <div class="col-auto mx-auto">
-                    <div class="form-group">
-                        <p class="text-uppercase">@lang('tandem.index.already-registered')</p>
-                        <a class="btn btn-primary" href="{{ route('tandem.login') }}">
-                            <span class="fas fa-sign-in-alt"></span> @lang('tandem.index.log-in')
-                        </a>
-                    </div>
-                    <div class="form-group">
-                        <p class="text-uppercase">@lang('tandem.index.new-here')</p>
-                        <a class="btn btn-primary" href="{{ route('tandem.register') }}">
-                            <span class="fas fa-user-plus"></span> @lang('tandem.index.register')
-                        </a>
-                    </div>
+                    @guest('tandem')
+                        <div class="form-group">
+                            <p class="text-uppercase">@lang('tandem.index.already-registered')</p>
+                            <a class="btn btn-primary" href="{{ route('tandem.login') }}">
+                                <span class="fas fa-sign-in-alt"></span> @lang('tandem.index.log-in')
+                            </a>
+                        </div>
+                        <div class="form-group">
+                            <p class="text-uppercase">@lang('tandem.index.new-here')</p>
+                            <a class="btn btn-primary" href="{{ route('tandem.register') }}">
+                                <span class="fas fa-user-plus"></span> @lang('tandem.index.register')
+                            </a>
+                        </div>
+                    @else
+                        <div class="form-group">
+                            <p class="text-uppercase">
+                                @lang('tandem.index.already-logged-in')
+                            </p>
+                            <a class="btn btn-primary" href="{{ route('tandem.main') }}">
+                                @lang('tandem.index.continue')
+                                <span class="fas fa-arrow-right"></span>
+                            </a>
+                        </div>
+                    @endauth
                 </div>
             </div>
             <div class="row mt-5">

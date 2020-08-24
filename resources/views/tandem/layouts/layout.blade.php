@@ -21,6 +21,7 @@
 @endsection
 
 @section('stylesheets')
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/vendor.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ mix('css/web.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ mix('css/tandem.css') }}" />
 @endsection

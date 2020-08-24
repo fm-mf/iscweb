@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\ExchangeStudent;
 use App\Models\Semester;
+use App\Models\TandemUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -36,6 +37,10 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('semester', function ($value) {
             return Semester::where('semester', $value)->firstOrFail();
+        });
+
+        Route::bind('tandemUser', function (string $value) {
+            return TandemUser::findOrFail(TandemUser::decodeHashId($value));
         });
     }
 

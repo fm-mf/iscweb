@@ -17,6 +17,9 @@ return [
         'new-here' => 'Jsi tu poprvé?',
         'register' => 'Zaregistruj se',
 
+        'already-logged-in' => 'Už jsi přihlášený',
+        'continue' => 'Pokračovat do databáze',
+
         'any-questions-contact-us' => 'Máš-li jakýkoliv dotaz nebo nějaký problém, kontaktuj nás!',
     ],
 
@@ -46,15 +49,46 @@ return [
         ]
     ],
 
+    'list' => [
+        'name' => 'Jméno',
+        'wants-to-teach' => 'Chce tě naučit',
+        'wants-to-learn' => 'Chce se od tebe naučit',
+
+        'potential-partners-info' => 'Následující tabulka obsahuje studenty,'
+            . ' kteří odpovídají tvým preferencím.',
+
+        'no-potential-partners-info-1' => 'Je nám líto, ale aktuálně není v databázi nikdo,'
+            . ' kdo by vyhovoval tvým preferencím.',
+
+        'no-potential-partners-info-2' => 'Tvůj profil je však pro ostatní uživatele viditelný,'
+            . ' a až se zaregistruje někdo, kdo vyhovuje tvým preferencím, určitě tě brzy kontaktuje.',
+
+        'all-users-info' => 'Následující tabulka obsahuje všechny studenty'
+            . ' zaregistrované v ISC Tandem databázi.',
+
+        'list-instructions' => 'Klikni na jejich jméno, aby ses o nich dozvěděl více,'
+            . ' pak je můžeš kontaktovat e-mailem a vytvořit tak dvojici.',
+
+        'show-all-users' => 'Ukázat všechny studenty zaregistrované v ISC Tandem databázi',
+        'show-only-potential-partners' => 'Ukázat jen studenty vyhovující mým jazykovým preferencím',
+    ],
+
     'my-profile' => [
         'title' => 'Můj profil',
+    ],
 
+    'profile' => [
+        'title' => 'Profil uživatele :Name',
         'given-names' => 'Jméno',
         'surname' => 'Příjmení',
+        'name' => 'Jméno',
         'country' => 'Země',
+        'i-am-from' => 'Jsem z',
         'about-me' => 'O mě',
         'i-want-to-learn' => 'Chtěl/a bych se naučit',
         'i-want-to-teach' => 'Rád/a někoho naučím',
+
+        'update' => 'Aktualizovat',
 
         'placeholder' => [
             'given-names' => 'Zadej své jméno',

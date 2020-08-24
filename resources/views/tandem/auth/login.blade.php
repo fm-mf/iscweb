@@ -40,7 +40,7 @@
                             <label class="required" for="input-password">@lang('tandem.auth.password')</label>
                             <input type="password" class="form-control" name="password" id="input-password" required="required" />
                         </div>
-                        <button type="submit" class="btn btn-primary">Log in</button>
+                        <button type="submit" class="btn btn-primary">@lang('tandem.auth.log-in')</button>
                     </form>
                 </div>
             </div>

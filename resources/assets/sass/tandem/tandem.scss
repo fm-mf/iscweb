@@ -1,11 +1,8 @@
 @import "../web/variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/regular";
-@import "~@fortawesome/fontawesome-free/scss/brands";
 
-@import "~vue-multiselect/dist/vue-multiselect.min.css";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 .multiselect__tags {
   border-radius: 0;
@@ -38,4 +35,43 @@ label.required::after {
   content: '*';
   color: #ff0000;
   margin-left: 0.25em;
+}
+
+ul.table {
+  li.row {
+    &:not(:first-of-type) {
+      text-align: left;
+    }
+    &:nth-of-type(#{$table-striped-order}) {
+      background-color: $table-accent-bg;
+    }
+    &:hover {
+      background-color: $table-hover-bg;
+    }
+    & > div {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+
+      & + div {
+        border-left: $table-border-width solid $table-border-color;
+      }
+    }
+  }
+}
+
+dl.user-profile {
+  text-align: left;
+
+  dd {
+    margin-bottom: 0;
+  }
+
+  dt, dd {
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    &:nth-of-type(#{$table-striped-order}) {
+      background-color: $table-accent-bg;
+    }
+  }
 }

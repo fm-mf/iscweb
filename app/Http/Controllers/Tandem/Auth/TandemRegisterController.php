@@ -52,6 +52,10 @@ class TandemRegisterController extends Controller
         $tandemUser = TandemUser::create([
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'passhash' => TandemUser::generateOldPasshash([
+                'email' => $data['email'],
+                'password' => $data['password']
+            ]),
             'first_name' => $data['firstName'],
             'last_name' => $data['lastName'] ?? null,
             'id_country' => $data['country'] ?? null,

@@ -4,7 +4,9 @@ Route::get('', 'TandemController@index')->name('index');
 
 Route::middleware('auth:tandem')->group(function () {
     Route::get('main', 'TandemController@main')->name('main');
-    Route::get('profile', 'TandemController@profile')->name('profile');
+    Route::get('profile/{tandemUser}', 'TandemController@profile')->name('profile');
+    Route::get('my-profile', 'TandemProfileController@edit')->name('my-profile');
+    Route::patch('my-profile', 'TandemProfileController@update');
 });
 
 Route::get('login', 'Auth\\TandemLoginController@showLoginForm')->name('login');

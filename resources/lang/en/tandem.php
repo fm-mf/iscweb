@@ -17,6 +17,9 @@ return [
         'new-here' => 'Are you new here?',
         'register' => 'Register',
 
+        'already-logged-in' => 'You are already logged in',
+        'continue' => 'Continue into the database',
+
         'any-questions-contact-us' => 'Any questions or problems? Contact us!',
     ],
 
@@ -46,15 +49,46 @@ return [
         ]
     ],
 
+    'list' => [
+        'name' => 'Name',
+        'wants-to-teach' => 'Wants to teach you',
+        'wants-to-learn' => 'Wants to learn from you',
+
+        'potential-partners-info' => 'The following table shows the students'
+            . ' that match your language preferences.',
+
+        'no-potential-partners-info-1' => 'Unfortunately, there are currently no students'
+            . ' that match your language preferences.',
+
+        'no-potential-partners-info-2' => 'However, your entry is visible to other students,'
+            . ' so a new student will surely register soon and contact you!',
+
+        'all-users-info' => 'The following table shows all students'
+            . ' registered in the ISC Tandem Database.',
+
+        'list-instructions' => 'Click on the name, see details about them'
+            . ' and contact them by e-mail to arrange Tandem!',
+
+        'show-all-users' => 'Show all students in the ISC Tandem Database',
+        'show-only-potential-partners' => 'Show only students that match my language preferences',
+    ],
+
     'my-profile' => [
         'title' => 'My profile',
+    ],
 
+    'profile' => [
+        'title' => ':Name\'s profile',
         'given-names' => 'Given names',
         'surname' => 'Surname',
+        'name' => 'Name',
         'country' => 'Country',
+        'i-am-from' => 'I am from',
         'about-me' => 'About me',
         'i-want-to-learn' => 'I would like to learn',
         'i-want-to-teach' => 'I would like to teach',
+
+        'update' => 'Update',
 
         'placeholder' => [
             'given-names' => 'Given names',

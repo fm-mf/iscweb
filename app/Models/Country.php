@@ -30,7 +30,7 @@ class Country extends Model
 
     public function tandemUsers()
     {
-        return $this->hasMany('App\\Models\\TandemUsers', 'id_country', 'id_country');
+        return $this->hasMany('App\\Models\\TandemUser', 'id_country', 'id_country');
     }
 
     public function scopeWithStudents($query, $semester = null)

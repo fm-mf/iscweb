@@ -37,15 +37,15 @@
                             <input type="password" class="form-control" name="password_confirmation" id="input-password-confirmation" required="required" placeholder="@lang('tandem.auth.placeholder.password-confirmation')" minlength="8" />
                         </div>
                         <div class="form-group">
-                            <label class="required" for="input-first-name">@lang('tandem.my-profile.given-names')</label>
-                            <input type="text" class="form-control" name="firstName" id="input-first-name" value="{{ old('firstName') }}" required="required" placeholder="@lang('tandem.my-profile.placeholder.given-names')" />
+                            <label class="required" for="input-first-name">@lang('tandem.profile.given-names')</label>
+                            <input type="text" class="form-control" name="firstName" id="input-first-name" value="{{ old('firstName') }}" required="required" placeholder="@lang('tandem.profile.placeholder.given-names')" />
                         </div>
                         <div class="form-group">
-                            <label for="input-last-name">@lang('tandem.my-profile.surname')</label>
-                            <input type="text" class="form-control" name="lastName" id="input-last-name" value="{{ old('lastName') }}" placeholder="@lang('tandem.my-profile.placeholder.surname')" />
+                            <label for="input-last-name">@lang('tandem.profile.surname')</label>
+                            <input type="text" class="form-control" name="lastName" id="input-last-name" value="{{ old('lastName') }}" placeholder="@lang('tandem.profile.placeholder.surname')" />
                         </div>
                         <div class="form-group">
-                            <label for="select-country">@lang('tandem.my-profile.country')</label>
+                            <label for="select-country">@lang('tandem.profile.country')</label>
                             <vue-multiselect
                                     id="select-country"
                                     :options="{{ $countries }}"
@@ -54,16 +54,16 @@
                                     :multiple="false"
                                     v-model="country"
                                     :value="61"
-                                    placeholder="@lang('tandem.my-profile.placeholder.country')">
+                                    placeholder="@lang('tandem.profile.placeholder.country')">
                             </vue-multiselect>
                             <input type="hidden" name="country" :value="countryId" />
                         </div>
                         <div class="form-group">
-                            <label for="input-about">@lang('tandem.my-profile.about-me')</label>
-                            <textarea class="form-control" placeholder="@lang('tandem.my-profile.placeholder.about-me')" name="about" id="input-about">{{ old('about') }}</textarea>
+                            <label for="input-about">@lang('tandem.profile.about-me')</label>
+                            <textarea class="form-control" placeholder="@lang('tandem.profile.placeholder.about-me')" name="about" id="input-about">{{ old('about') }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="select-languages-learn" class="required">@lang('tandem.my-profile.i-want-to-learn')</label>
+                            <label for="select-languages-learn" class="required">@lang('tandem.profile.i-want-to-learn')</label>
                             <vue-multiselect
                                     id="select-languages-learn"
                                     :options="{{ $languages }}"
@@ -71,14 +71,16 @@
                                     track-by="id_language"
                                     :multiple="true"
                                     v-model="languagesToLearn"
-                                    placeholder="@lang('tandem.my-profile.placeholder.i-want-to-learn')"
+                                    placeholder="@lang('tandem.profile.placeholder.i-want-to-learn')"
                                     value="{{ collect(old('languagesToLearn')) }}"
+                                    allow-empty="false"
+                                    max="5"
                                     :limit="3">
                             </vue-multiselect>
                             <input type="hidden" name="languagesToLearn[]" v-for="language in languagesToLearn" :value="language.id_language" :key="language.id_language" required="required" />
                         </div>
                         <div class="form-group">
-                            <label for="select-languages-teach" class="required">@lang('tandem.my-profile.i-want-to-teach')</label>
+                            <label for="select-languages-teach" class="required">@lang('tandem.profile.i-want-to-teach')</label>
                             <vue-multiselect
                                     id="select-languages-teach"
                                     :options="{{ $languages }}"
@@ -86,8 +88,10 @@
                                     track-by="id_language"
                                     :multiple="true"
                                     v-model="languagesToTeach"
-                                    placeholder="@lang('tandem.my-profile.placeholder.i-want-to-teach')"
+                                    placeholder="@lang('tandem.profile.placeholder.i-want-to-teach')"
                                     value="{{ collect(old('languagesToTeach')) }}"
+                                    allow-empty="false"
+                                    max="5"
                                     :limit="3">
                             </vue-multiselect>
                             <input type="hidden" name="languagesToTeach[]" v-for="language in languagesToTeach" :value="language.id_language" :key="language.id_language" required="required" />
