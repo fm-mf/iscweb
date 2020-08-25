@@ -69,7 +69,7 @@ class LoginController extends Controller
 
         $tandemUser === null ?: auth('tandem')->login($tandemUser);
         $locale === null ?: session([Locale::SESSION_KEY => $locale]);
-        $localeTandem === null ?: session([Locale::SESSION_KEY => $localeTandem]);
+        $localeTandem === null ?: session([Locale::SESSION_KEY_TANDEM => $localeTandem]);
 
         return $return;
     }

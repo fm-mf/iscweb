@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-xl-8 mx-auto">
-                    {{ Form::model($tandemUser, ['method' => 'patch', 'route' => 'tandem.my-profile', 'id' => 'vue-form') }}
+                    {{ Form::model($tandemUser, ['method' => 'patch', 'route' => 'tandem.my-profile', 'id' => 'vue-form']) }}
                         <div class="form-group">
                             {{ Form::label('email', __('tandem.auth.e-mail'), ['class' => 'required']) }}
                             {{ Form::email('email', $tandemUser->email, ['class' => 'form-control', 'disabled' => 'disabled', 'required' => 'required']) }}
