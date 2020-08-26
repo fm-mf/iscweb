@@ -26,7 +26,7 @@
                             <!-- Upload image and data -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p class="alert alert-info">The file has to be smaller than 2 MB.</p>
+                                    <p class="alert alert-info"><strong>The file has to be smaller than 2 MiB.</strong></p>
                                 </div>
                             </div>
 
