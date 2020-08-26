@@ -31,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         Route::bind('exchangeStudent', function ($value) {
-            return ExchangeStudent::findOrFail(User::decodeHashId($value)[0]);
+            return ExchangeStudent::findOrFail(User::decodeHashId($value));
         });
 
         Route::bind('semester', function ($value) {
