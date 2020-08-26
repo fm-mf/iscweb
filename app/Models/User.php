@@ -217,7 +217,9 @@ class User extends Authenticatable
 
     public static function decodeHashId(string $hashId)
     {
-        return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->decode($hashId);
+        $decoded = (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->decode($hashId);
+
+        return $decoded[0] ?? null;
     }
 
     public function getPreferredLanguageAttribute()
