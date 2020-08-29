@@ -87,12 +87,23 @@ class OfficeRegistrationController extends Controller
     {
         $this->authorize('acl', 'exchangeStudents.register');
         $this->registrationValidator(['phone' => $phone, 'esn_card_number' => $esnCard])->validate();
+
+        $receipt = new Receipt([
+            'created_by' => auth()->id(),
+            'subject' => 'ESN Membership',
+            // TODO: Configurable amount
+            'amount' => 500
+        ]);
+        $receipt->save();
+
         $exStudent = ExchangeStudent::find($id);
         $exStudent->esn_registered = 'y';
+        $exStudent->esn_receipt_id = $receipt->id_receipt;
         $exStudent->esn_card_number = $esnCard;
         $exStudent->phone = $phone;
         $exStudent->save();
-        return back();
+
+        return back()->with(['receipt' => $receipt->id_receipt]);;
     }
 
     public function showCreateExStudent()
