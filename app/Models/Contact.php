@@ -26,7 +26,7 @@ class Contact extends Model
         'position' => ['string', 'required', 'unique:contacts'],
         'email' => ['email', 'required', 'unique:contacts'],
         'name' => ['string', 'nullable'],
-        'phone' => ['phone:CZ', 'nullable'],
+        'phone' => ['phone:CZ,SK', 'nullable'],
         'photo' => ['string', 'required'],
         'custom_photo' => ['required_if:photo,custom'],
         'visible' => ['boolean', 'sometimes'],
