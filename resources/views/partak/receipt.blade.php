@@ -36,6 +36,6 @@ TODO: Encode as 2bit BMP
 <feed/>
 <text>Printed by {{ $receipt->createdBy->person->getFullName() }}&#10;</text>
 <text>{{ $receipt->created_at }}&#10;</text>
-<text>Toto není daňový doklad&#10;</text>
+<text>Have a nice day, we &#10084; you&#10;</text>
 <feed line="1"/>
 <cut type="feed"/>
