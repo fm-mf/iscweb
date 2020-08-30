@@ -38,21 +38,10 @@ class OfficeRegistrationController extends Controller
     {
         $this->authorize('acl', 'exchangeStudents.register');
 
-        // TODO: Somehow make this universal
-        $receipt = null;
-        if (Session::has('receipt')) {
-            $receipt = Receipt::find(Session::get('receipt'));
-            $receipt = $receipt !== null ? view('partak.receipt')->with([
-                'receipt' => $receipt,
-                'esn_card' => true
-            ]) : null;
-        }
-
         return view('partak.users.officeRegistration.register')->with([
             'exStudent' => ExchangeStudent::with('person.user')->find($id),
             'faculties' => Faculty::getOptions(),
-            'accommodations' => Accommodation::getOptions(),
-            'receipt' => $receipt
+            'accommodations' => Accommodation::getOptions()
         ]);
     }
 
@@ -80,7 +69,10 @@ class OfficeRegistrationController extends Controller
 
         $exStudent->save();
 
-        return back()->with(['receipt' => $receipt->id_receipt]);
+        return back()->with([
+            'receipt' => $receipt->id_receipt,
+            'receiptType' => 'esn_card'
+        ]);
     }
 
     public function esnRegistrationNotPreregistered($id, $phone, $esnCard)
@@ -103,7 +95,10 @@ class OfficeRegistrationController extends Controller
         $exStudent->phone = $phone;
         $exStudent->save();
 
-        return back()->with(['receipt' => $receipt->id_receipt]);;
+        return back()->with([
+            'receipt' => $receipt->id_receipt,
+            'receiptType' => 'esn_card'
+        ]);
     }
 
     public function showCreateExStudent()

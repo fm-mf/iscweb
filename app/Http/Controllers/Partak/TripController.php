@@ -77,19 +77,11 @@ class TripController extends Controller
         $reservations = $trip->reservations;
         $receipt = null;
 
-        if (Session::has('receipt')) {
-            $receipt = Receipt::find(Session::get('receipt'));
-        }
-
         return view('partak.trips.detail')->with([
             'trip' => $trip,
             'particip' => $particip,
             'organizers' => $organizers,
-            'reservations' => $reservations,
-            'receipt' => $receipt !== null ? view('partak.receipt')->with([
-                'receipt' => $receipt,
-                'esn_card' => false
-            ]) : null
+            'reservations' => $reservations
         ]);
     }
 

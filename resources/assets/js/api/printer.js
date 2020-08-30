@@ -1,17 +1,15 @@
 const parser = new DOMParser();
 
-// TODO: This should be configurable
-const printerUrl =
-  'http://192.168.0.10/cgi-bin/epos/service.cgi?devid=local_printer&timeout=10000';
+const printerUrl = window['receipt_printer_url'];
 
-export async function printReceipt(contents) {
-  // TODO: Maybe we should first check if the printer exists?
-
+async function request(contents) {
   const message =
     '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">' +
     '<s:Body>' +
     '<epos-print xmlns="http://www.epson-pos.com/schemas/2011/03/epos-print">' +
-    contents +
+    contents.replace(/[\u1000-\u9999]/gim, function(i) {
+      return '&#' + i.charCodeAt(0) + ';';
+    }) +
     '</epos-print>' +
     '</s:Body>' +
     '</s:Envelope>';
@@ -23,24 +21,37 @@ export async function printReceipt(contents) {
     signal.abort();
   }, 5000);
 
+  const result = await fetch(printerUrl, {
+    method: 'POST',
+    headers: {
+      'content-type': 'text/xml; charset=utf-8'
+    },
+    body: message,
+    signal
+  });
+
+  const text = await result.text();
+  return parser.parseFromString(text, 'text/xml');
+}
+
+export async function printReceipt(contents) {
+  // TODO: Maybe we should first check if the printer exists?
   try {
-    const result = await fetch(printerUrl, {
-      method: 'POST',
-      headers: {
-        'content-type': 'text/xml; charset=utf-8'
-      },
-      body: message,
-      signal
-    });
-
-    const text = await result.text();
-    const xmlDoc = parser.parseFromString(text, 'text/xml');
-
+    const xmlDoc = await request(contents);
     return xmlDoc.getElementsByTagName('response')[0].getAttribute('success');
   } catch (e) {
     console.error(
       "Failed to print receipt - this is normal if you're not at ISC Point",
       e
     );
+  }
+}
+
+export async function checkPrinter() {
+  try {
+    await request('');
+    return true;
+  } catch (e) {
+    return false;
   }
 }
