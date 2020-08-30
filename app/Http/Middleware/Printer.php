@@ -37,7 +37,7 @@ class Printer
             }
         }
 
-        JavaScript::put('receipt_printer_url', Settings::get('receipt_printer_url'));
+        JavaScript::put('receiptPrinterUrl', Settings::get('receiptPrinterUrl'));
 
         return $next($request);
     }

@@ -13,7 +13,7 @@ class AddReceiptSettings extends Migration
      */
     public function up()
     {
-        Settings::push('receipt_printer_url', 'http://192.168.0.10/cgi-bin/epos/service.cgi?devid=local_printer&timeout=10000');
+        Settings::push('receiptPrinterUrl', 'http://192.168.0.10/cgi-bin/epos/service.cgi?devid=local_printer&timeout=10000');
     }
 
     /**
@@ -23,6 +23,6 @@ class AddReceiptSettings extends Migration
      */
     public function down()
     {
-        Settings::delete('receipt_printer_url');
+        Settings::delete('receiptPrinterUrl');
     }
 }

@@ -1,6 +1,6 @@
 const parser = new DOMParser();
 
-const printerUrl = window['receipt_printer_url'];
+const printerUrl = window['receiptPrinterUrl'];
 
 async function request(contents) {
   const message =
