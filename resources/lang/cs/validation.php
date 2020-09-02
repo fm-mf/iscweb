@@ -128,6 +128,20 @@ return [
         'new_password' => 'Nové heslo',
         'buddyDbFromDate' => 'Datum otevření Buddy databáze',
         'buddyDbFromTime' => 'Čas otevření Buddy databáze',
+
+        'hours_json' => [
+            'text' => 'Popis k otevíracím hodinám',
+            'textCs' => 'Popis k otevíracím hodinám (v češtině)',
+            'hours' => [
+                'Monday' => 'Pondělní otevírací hodiny',
+                'Tuesday' => 'Úterní otevírací hodiny',
+                'Wednesday' => 'Středeční otevírací hodiny',
+                'Thursday' => 'Čtvrteční otevírací hodiny',
+                'Friday' => 'Páteční otevírací hodiny',
+                'Saturday' => 'Sobotní otevírací hodiny',
+                'Sunday' => 'Nedělní otevírací hodiny',
+            ],
+        ],
     ],
 
 ];

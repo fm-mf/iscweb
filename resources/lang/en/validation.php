@@ -122,6 +122,20 @@ return [
         'age' => 'year of birth',
         'buddyDbFromDate' => 'Buddy database opening date',
         'buddyDbFromTime' => 'Buddy database opening time',
+
+        'hours_json' => [
+            'text' => 'Opening hours text',
+            'textCs' => 'Opening hours text in Czech',
+            'hours' => [
+                'Monday' => 'Monday opening hours',
+                'Tuesday' => 'Tuesday opening hours',
+                'Wednesday' => 'Wednesday opening hours',
+                'Thursday' => 'Thursday opening hours',
+                'Friday' => 'Friday opening hours',
+                'Saturday' => 'Saturday opening hours',
+                'Sunday' => 'Sunday opening hours',
+            ],
+        ],
     ],
 
 ];
