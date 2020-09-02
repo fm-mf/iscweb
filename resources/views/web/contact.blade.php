@@ -1,4 +1,5 @@
 @extends('web.layouts.layout')
+
 @section('title', 'Contacts')
 
 @section('header')
@@ -18,8 +19,9 @@
                             <div class="row">
                                 <div class="col opening-hours">
                                     <h2>See when we're in the ISC Point:</h2>
-                                    <p>{{ $openingHoursText }}</p>
-                                    {!! $openingHoursTable !!}
+                                    {{ $openingHours->html_text }}
+                                    @component('web.components.opening-hours-table', ['openingHours' => $openingHours->hours_json['hours']])
+                                    @endcomponent
                                 </div>
                             </div>
                             <div class="row">

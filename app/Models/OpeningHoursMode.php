@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Facades\Settings;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\HtmlString;
 
-/**
- * @author Jiri Hajek
- */
 class OpeningHoursMode extends Model
 {
     const SETTINGS_KEY = 'openingHoursMode';
@@ -40,5 +38,20 @@ class OpeningHoursMode extends Model
     public function setAsCurrent()
     {
         Settings::set(self::SETTINGS_KEY, $this->id_opening_hours_mode);
+    }
+
+    public function getHtmlTextAttribute()
+    {
+        if (app()->isLocale('cs')) {
+            $text = $this->hours_json['textCs'];
+        } else {
+            $text = $this->hours_json['text'];
+        }
+
+        $text = preg_replace("/\r\n(\r\n)+/", '</p><p>', $text);
+
+        $htmlText = new HtmlString('<p>' . $text . '</p>');
+
+        return $htmlText;
     }
 }

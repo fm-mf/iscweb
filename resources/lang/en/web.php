@@ -17,4 +17,16 @@ return [
     'term-winter' => 'winter',
     'term-summer' => 'summer',
     'locale-full' => 'en_GB.UTF-8',
+
+    'days' => [
+        'Monday' => 'Monday',
+        'Tuesday' => 'Tuesday',
+        'Wednesday' => 'Wednesday',
+        'Thursday' => 'Thursday',
+        'Friday' => 'Friday',
+        'Saturday' => 'Saturday',
+        'Sunday' => 'Sunday',
+    ],
+
+    'closed' => 'Closed',
 ];
