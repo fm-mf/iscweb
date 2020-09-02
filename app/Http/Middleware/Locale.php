@@ -17,6 +17,11 @@ class Locale
      */
     public function handle(Request $request, Closure $next)
     {
+        // Set locale only for Buddy DB, otherwise there will be a mix of languages on non-translated pages
+        if (!$request->is('muj-buddy') && !$request->is('muj-buddy/*')) {
+            return $next($request);
+        }
+
         $browserPreferredLanguage = LocaleHelper::getBrowserPreferredLanguage();
 
         if (auth()->guest() && session(LocaleHelper::SESSION_KEY) !== $browserPreferredLanguage) {
