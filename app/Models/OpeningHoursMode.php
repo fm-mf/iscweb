@@ -43,7 +43,7 @@ class OpeningHoursMode extends Model
     public function getHtmlTextAttribute()
     {
         if (app()->isLocale('cs')) {
-            $text = $this->hours_json['textCs'];
+            $text = $this->hours_json['textCs'] ?? $this->hours_json['text'];
         } else {
             $text = $this->hours_json['text'];
         }

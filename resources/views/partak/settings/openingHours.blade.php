@@ -21,8 +21,8 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('hours_json[text]', 'Opening hours text', ['class' => 'required']) }}
-            {{ Form::textarea('hours_json[text]', old('hours_json.text', $currentMode->hours_json['text']), ['class' => 'form-control' . ($errors->has('hours_json.text') ? ' is-invalid' : ''), 'required' => 'required']) }}
+            {{ Form::label('hours_json[text]', 'Opening hours text') }}
+            {{ Form::textarea('hours_json[text]', old('hours_json.text', $currentMode->hours_json['text']), ['class' => 'form-control' . ($errors->has('hours_json.text') ? ' is-invalid' : '')]) }}
             @if($errors->has('hours_json.text'))
                 <div class="invalid-feedback">
                     {{ $errors->first('hours_json.text') }}
@@ -31,8 +31,8 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('hours_json[textCs]', 'Opening hours text (Czech)', ['class' => 'required']) }}
-            {{ Form::textarea('hours_json[textCs]', old('hours_json.textCs', $currentMode->hours_json['textCs'] ?? ""), ['class' => 'form-control' . ($errors->has('hours_json.textCs') ? ' is-invalid' : ''), 'required' => 'required', 'lang' => 'cs']) }}
+            {{ Form::label('hours_json[textCs]', 'Opening hours text (Czech)') }}
+            {{ Form::textarea('hours_json[textCs]', old('hours_json.textCs', $currentMode->hours_json['textCs'] ?? ""), ['class' => 'form-control' . ($errors->has('hours_json.textCs') ? ' is-invalid' : ''), 'lang' => 'cs']) }}
             @if($errors->has('hours_json.textCs'))
                 <div class="invalid-feedback">
                     {{ $errors->first('hours_json.textCs') }}

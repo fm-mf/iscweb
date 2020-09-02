@@ -96,8 +96,8 @@ class SettingsController extends Controller
 
         $data = request()->validate([
             'id_opening_hours_mode' => ['required', 'exists:opening_hours_mode'],
-            'hours_json.text' => ['required', 'string'],
-            'hours_json.textCs' => ['required', 'string'],
+            'hours_json.text' => ['nullable', 'required_with:hours_json.textCs', 'string'],
+            'hours_json.textCs' => ['nullable', 'required_with:hours_json.text', 'string'],
             'show_hours' => ['nullable', 'boolean'],
             'hours_json.hours.Monday' => ['required', 'string'],
             'hours_json.hours.Tuesday' => ['required', 'string'],
