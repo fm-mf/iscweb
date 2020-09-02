@@ -224,15 +224,18 @@ class ExchangeStudent extends Model
     }
 
     public function scopeWithFilledProfile($query, $semester) {
-        $query->byUniqueSemester($semester)
-                ->wantBuddy()
-                ->where(function ($query) {
-                    $query->whereNotNull('about')
-                            ->orWhereHas('arrival')
-                            ->orWhereHas('person', function ($query) {
-                                $query->whereNotNull('avatar');
-                            });
-                });
+        return $query->byUniqueSemester($semester)
+            ->where(function (Builder $query) {
+                $query->wantBuddy()
+                    ->orWhereHas('buddy');
+            })
+            ->where(function ($query) {
+                $query->whereNotNull('about')
+                    ->orWhereHas('arrival')
+                    ->orWhereHas('person', function ($query) {
+                        $query->whereNotNull('avatar');
+                    });
+            });
     }
 
     public function scopeWithFilledArrival($query, $semester) {
