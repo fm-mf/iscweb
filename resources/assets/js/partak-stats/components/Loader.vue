@@ -25,6 +25,7 @@ export default {
   font-size: 300%;
   margin: auto;
   padding: 1.5rem;
+  text-align: center;
 }
 
 .absolute {

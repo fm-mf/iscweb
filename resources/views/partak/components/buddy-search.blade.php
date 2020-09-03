@@ -10,7 +10,7 @@
     :topline="['person.first_name', 'person.last_name']"
     :subline="['person.user.email']"
     placeholder="Find a buddy..."
-    target="{{ (isset($target))? $target : '/partak/users/buddies/{id_user}' }}'"
+    target="{{ (isset($target))? $target : '/partak/users/buddies/{id_user}' }}"
     :image="{url: '/avatars/', file: 'person.user.avatar'}"
 >
 </auto-complete>

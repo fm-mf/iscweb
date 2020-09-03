@@ -33,9 +33,15 @@
             </div>
 
             <main>
+                @if(session('AlertMessage'))
+                    <div class="alert alert-danger">
+                        <span class="fas fa-exclamation-triangle"></span> {{ session('AlertMessage') }}
+                    </div>
+                @endif
+
                 @yield('page')
             </main>
-            
+
             <div class="footer" id="footer">
                 <div class="container mb-0 text-center p-3">
                     &copy; {{ $officialName }} | za stránku zodpovídá Quality & Knowledge Manager (<a href="mailto:knowledge@isc.cvut.cz">knowledge@isc.cvut.cz</a>)

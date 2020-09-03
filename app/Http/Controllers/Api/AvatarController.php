@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Exception\NotReadableException;
 use Intervention\Image\Facades\Image;
 
 class AvatarController extends Controller
@@ -31,7 +33,15 @@ class AvatarController extends Controller
 
         $person = Person::find($user->id_user);
 
-        $img = Image::make(Input::file('avatar_file'));
+        try {
+            $img = Image::make(Input::file('avatar_file'));
+        } catch (NotReadableException $e) {
+            return response()->json([
+                'state' => 400,
+                'message' => 'The selected image file size is too large. Please, select a smaller one (maximum allowed size is 2 MiB)',
+                'result' => ''
+            ], 400);
+        }
 
         $avatarData = json_decode(stripslashes($request->avatar_data));
 
@@ -40,6 +50,7 @@ class AvatarController extends Controller
 
         $fileName = \Ramsey\Uuid\Uuid::uuid4() . '.jpg';
         $dst = storage_path() . '/app/avatars/' . $fileName;
+        Storage::makeDirectory('avatars');
         $img->save($dst);
 
         $person->avatar = $fileName;

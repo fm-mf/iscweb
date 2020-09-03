@@ -100,8 +100,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'id_faculty' => [
+            'exists' => 'Invalid faculty selected',
         ],
     ],
 
@@ -118,6 +118,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'age' => 'year of birth',
+        'buddyDbFromDate' => 'Buddy database opening date',
+        'buddyDbFromTime' => 'Buddy database opening time',
+    ],
 
 ];

@@ -265,7 +265,11 @@
                 },
 
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    _this.submitFail(textStatus || errorThrown);
+                    if (XMLHttpRequest.status === 400) {
+                        _this.submitFail(XMLHttpRequest.responseJSON.message);
+                    } else {
+                        _this.submitFail(textStatus || errorThrown);
+                    }
                 },
 
                 complete: function () {

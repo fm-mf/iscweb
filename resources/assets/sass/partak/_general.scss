@@ -1,5 +1,4 @@
-h2 {
-}
+@import "variables";
 
 h3 {
   font-size: 125%;
@@ -19,7 +18,8 @@ h3 {
   margin-bottom: 1.5rem;
 }
 
-.table.p-table {
+.table.p-table,
+.table.list-unstyled {
   td, th {
     border: 0;
     padding: 0.2rem 0.75rem;
@@ -32,21 +32,40 @@ h3 {
     }
   }
 
-  th {
+  th, .row.thead-light {
     font-weight: normal;
     color: #999;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid $tableEvenRowBg;
+    background: transparent;
+
+    &:hover {
+      background: transparent;
+    }
   }
 
   tbody {
     tr {
       &:nth-child(even) {
-        background: #f0f0f0;
+        background: $tableEvenRowBg;
       }
 
       &:hover {
-        background: #dfdfdf;
+        background: $tableRowHoverBg;
       }
+    }
+  }
+}
+
+div.table,
+ol.table,
+ul.table {
+  .row {
+    &:nth-child(odd) {
+      background: $tableEvenRowBg;
+    }
+
+    &:not(.thead-dark):hover {
+      background: $tableRowHoverBg;
     }
   }
 }

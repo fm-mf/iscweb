@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: speedy
@@ -16,7 +17,7 @@ use App\Models\Person;
 use App\Models\Semester;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Facades\Settings ;
+use App\Facades\Settings;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Validator;
 
@@ -98,7 +99,8 @@ class OfficeRegistrationController extends Controller
             $exStudent->person->user->addRole('samoplatce');
         }
 
-        return \Redirect::route('exStudent.edit',['id_user' => $exStudent->id_user]);
+        return redirect()
+            ->route('partak.users.exStudent.edit', ['id_user' => $exStudent->id_user]);
     }
 
     protected function profileValidator(array $data)
@@ -136,5 +138,4 @@ class OfficeRegistrationController extends Controller
         $this->authorize('acl', 'exchangeStudents.register');
         return view('partak.users.preregistration')->with('currentId', $id);
     }
-
 }

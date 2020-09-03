@@ -23,6 +23,7 @@ class ViewComposerServiceProvider extends ServiceProvider
                 'officialName' => Settings::get('officialName'),
                 'linkOwFbEvent' => Settings::get('owFbEventLink'),
                 'fbPageUrl' => 'https://www.facebook.com/isc.ctu.prague/',
+                'fbGroupCzechBuddies' => 'https://www.facebook.com/groups/isc.ctu.buddies',
                 'pointPhoneNo' => '+420775198605',
                 'pointPhoneNoFormatted' => '+420 775 198 605',
             ]);

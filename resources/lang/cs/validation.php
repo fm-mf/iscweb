@@ -97,9 +97,9 @@ return [
     |
     */
 
-    'custom'               => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+    'custom' => [
+        'id_faculty' => [
+            'exists' => 'Vybrána neexistující fakulta',
         ],
     ],
 
@@ -116,14 +116,18 @@ return [
     |
     */
 
-    'attributes'           => [
+    'attributes' => [
         'first_name' => 'Jméno',
         'last_name' => 'Příjmení',
         'email' => 'E-mail',
         'password' => 'Heslo',
         'kodex' => 'Buddy kodex',
         'age' => 'Rok narození',
-        'agreement' => 'Zpracování'
+        'agreement' => 'Zpracování',
+        'old_password' => 'Staré heslo',
+        'new_password' => 'Nové heslo',
+        'buddyDbFromDate' => 'Datum otevření Buddy databáze',
+        'buddyDbFromTime' => 'Čas otevření Buddy databáze',
     ],
 
 ];

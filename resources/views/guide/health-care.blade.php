@@ -9,6 +9,7 @@
         'ehic' => 'EHIC card',
         'urgent-care' => 'Urgent medical treatment',
         'standard-care' => 'Standard medical care',
+        'hiv' => 'HIV+',
         'pharmacies' => 'Pharmacies near the main campus',
         'prescriptions' => 'Prescriptions',
         'english-care' => [
@@ -58,6 +59,62 @@
             </ul>
         </li>
     </ul>
+
+    <h2 id="hiv">HIV+</h2>
+    <p>
+        If you are HIV+ this is how you can take your medication and make your check up in Prague for free.
+        If you don't want to waste your time, follow the next instructions.
+    </p>
+    <b>Have with you:</b>
+    <ul>
+        <li>Your Czech medical insurance</li>
+        <li>Your Czech student card</li>
+        <li>An English certification from your home hospital that declare you are HIV+ and the kind of medication you take</li>
+        <li>History of your blood tests (always from your home hospital)</li>
+    </ul>
+    <b>The hospital area is in Prague 8, there are many specialized pavilions, you have to go for "infectious diseases":</b>
+    <ul>
+        <li>Go to Pavilion 7, you can find on Google map: Budova 7 - Klinika infekčních, parazitárních a tropických nemocí - Nemocnice Na Bulovce</li>
+        <li>After that you will talk with a doctor, the nurse will record you in the system</li>
+        <li>They will release you a paper that you will bring to the closing pharmacy (pavilion 1)</li>
+        <li>You can find the pharmacy on Google maps: Ústavní lékárna Bulovka.</li>
+        <li>Address: Budínova 3, 180 00 Praha 8, Cechia.</li>
+        <li>Take your drugs and can come back to your room :)</li>
+    </ul>
+    <b>For other time:</b>
+    <p>
+        After the first time,  just take with you your Czech Insurance (no more), you have to go every month to take your drugs
+        (while Czech people can go every 3 months) and the doctor will decide also when you will take your blood tests.
+    </p>
+    <b>When:</b>
+    <p>Monday to Friday - 8:00 to 13:00</p>
+    <p>
+        (The first time go before than 10:30/11:00 because you have to find the HIV department inside the building 7,
+        and you have also to talk with a doctor who will not stay there all the morning.
+        The doctors can speak English, the nurse cannot or not very well).
+    </p>
+    <b>FOR FAST RECAPPING:</b>
+    <ul>
+        <li>Pavilion 7: Klinika infekčních</li>
+        <li>Pavilion 1: Ústavní lékárna Bulovka</li>
+    </ul>
+    <p>
+        NOTE 1: In this hospital you can book for free also tests for other STDs (like Syphilis, Clamidia, Gonorrhea, etc),
+        you can ask to the nurse to book a visit with a dermatologist. For the tests you will go to Pavilion 9: dermatovenereology.
+    </p>
+    <p>
+        NOTE 2: if you will go by public transport, the closest tram station is BULOVKA.
+    </p>
+    <p>
+        This is the faster way to reach BULOVKA tram station:
+    </p>
+    <ul>
+        <li>Take the green metro A, get off in FLORA.</li>
+        <li>Exit (Směr): Ohrada - Palmovka</li>
+        <li>As you go out, you can wait there the tram n° 10 to Bulovka.</li>
+    </ul>
+    <p>NOTE 3: Use the condom and enjoy Prague!</p>
+    <p>Thank you, Alex, for this info</p>
 
     <h2 id="pharmacies">Pharmacies near the main campus</h2>
     <dl>

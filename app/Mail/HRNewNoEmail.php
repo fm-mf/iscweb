@@ -13,17 +13,15 @@ class HRNoEmail extends Mailable
     use Queueable, SerializesModels;
 
     public $buddy;
-    public $motivation;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Buddy $buddy, $motivation)
+    public function __construct(Buddy $buddy)
     {
         $this->buddy = $buddy;
-        $this->motivation = $motivation;
     }
 
     /**
@@ -34,7 +32,6 @@ class HRNoEmail extends Mailable
     public function build()
     {
         return $this->view('emails.noEmail')
-                    ->with(['buddy' => $this->buddy, 'motivation' => $this->motivation])
                     ->from('it.support@isc.cvut.cz')
                     ->subject('Nový buddy bez univerzitního e-mailu');
     }

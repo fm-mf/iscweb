@@ -25,7 +25,11 @@ class BuddiesController extends Controller
     {
         $validator = Validator::make($data, [
             'phone' => 'max:15',
-            'age' => 'digits:4',
+            'age' => [
+                'numeric',
+                'min:1991',
+                'max:2154'
+            ],
             'email' => [
                 'required',
                 'max:255',
@@ -63,7 +67,6 @@ class BuddiesController extends Controller
                     $validator->errors()->add('roles', 'You do not have permission to remove the role ' . $role->title);
                 }
             }
-
         });
 
         return $validator;
@@ -81,7 +84,7 @@ class BuddiesController extends Controller
     {
         $this->authorize('acl', 'buddy.view');
         $buddy = Buddy::findBuddy($id);
-        if($buddy == null)
+        if ($buddy == null)
             throw new UserDoesntExist("Buddy does not exist !!!");
         $semester = Semester::getCurrentSemester();
         $myStudents = $buddy->exchangeStudents()->bySemester($semester->semester)->with('person.user')->get();
@@ -98,7 +101,7 @@ class BuddiesController extends Controller
         $this->authorize('acl', 'buddy.remove');
         $exStudent = ExchangeStudent::find($id_exStudent);
         $exStudent->removeBuddy();
-        $removeSuccess = 'Buddy for exchange student with name '. $exStudent->person->first_name .' '. $exStudent->person->last_name .' was removed.';
+        $removeSuccess = 'Buddy for exchange student with name ' . $exStudent->person->first_name . ' ' . $exStudent->person->last_name . ' was removed.';
         return back()->with(['removeSuccess' => $removeSuccess]);
     }
 
@@ -106,12 +109,12 @@ class BuddiesController extends Controller
     {
         $this->authorize('acl', 'buddy.edit');
         $buddy = Buddy::with('person.user')->find($id);
-        if($buddy == null)
+        if ($buddy == null)
             throw new UserDoesntExist("Buddy does not exist !!!");
 
         JavaScript::put([
             'jsoptions' => ['roles' => Role::all(), 'sroles' => $buddy->user()->roles]
-            ]);
+        ]);
         return view('partak.users.buddies.edit')->with([
             'buddy' => $buddy,
             'faculties' => Faculty::getOptions(),

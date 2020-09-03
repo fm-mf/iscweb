@@ -20,7 +20,7 @@ class Handler extends ExceptionHandler
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
-     * 
+     *
      * @var array
      */
     protected $dontFlash = [
@@ -50,17 +50,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof AuthorizationException)
-        {
-            if($request->is('partak') || $request->is('partak/*'))
-                return back()->with(['AlertMessage' => 'You are not authorize for this Action']);
-            else
+        if ($exception instanceof AuthorizationException) {
+            if ($request->is('partak') || $request->is('partak/*')) {
+                return back()->with(['AlertMessage' => 'You are not authorised for this action']);
+            } else {
                 return response()->view('errors.unauthorized');
+            }
         }
-        if($exception instanceof UserDoesntExist)
-        {
-            if($request->is('partak') || $request->is('partak/*'))
+        if ($exception instanceof UserDoesntExist) {
+            if ($request->is('partak') || $request->is('partak/*')) {
                 return back()->with(['AlertMessage' => $exception->getMessage()]);
+            }
         }
         return parent::render($request, $exception);
     }

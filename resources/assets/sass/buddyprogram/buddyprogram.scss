@@ -240,7 +240,7 @@ main {
 
 
       &.arrival,
-      &.accomodation {
+      &.accommodation {
         min-width: 30%;
       }
     }
@@ -278,9 +278,11 @@ main {
 
 
       &.arrival,
-      &.accomodation {
+      &.accommodation {
         min-width: 100%;
       }
     }
   }
 }
+
+@import "my-profile";

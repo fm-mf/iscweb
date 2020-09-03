@@ -20,6 +20,7 @@ mix
   .js('resources/assets/js/partak-settings-hours.js', 'public/js')
   .js('resources/assets/js/saf/saf.js', 'public/js/saf')
   .js('resources/assets/js/ow-trips-stats.js', 'public/js')
+  .js('resources/assets/js/blog-rss-feed.js', 'public/js')
   .sass('resources/assets/sass/web/web.scss', 'public/css')
   .sass('resources/assets/sass/czech/czech.scss', 'public/css')
   .sass('resources/assets/sass/czech/alumni.scss', 'public/css')
