@@ -14,7 +14,7 @@
                 <ul class="list-unstyled list-colored">
                     <li>
                         <p><h3><strong>Plníme ISC DokuWiki!</strong></h3></p>
-                        <p>Naše DokuWiki pomalu začíná ožívat. Podívej se na <a href="{{ url('/wiki') }}">{{ url('/wiki') }}</a> a připiš co tam ještě není. Heslo je Vzdy*VIS*viC</p>
+                        <p>Naše DokuWiki pomalu začíná ožívat. Podívej se na <a href="{{ url('/wiki') }}">{{ url('/wiki') }}</a> a připiš co tam ještě není.</p>
                     </li>
 
                 </ul>
@@ -44,7 +44,7 @@
                 <h2>Důležité odkazy</h2>
                 <ul class="list-unstyled list-colored">
                     <li><a href="{{ url('/wiki') }}">DokuWiki</a>
-                        <p>Studnice všech vědomostí o projektech a aktivitách.</p><p><strong>Login: User</strong></p><p><strong>Heslo: Vzdy*VIS*viC</strong></p>
+                        <p>Studnice všech vědomostí o projektech a aktivitách.</p>
                     </li>
                     
                     <li><a href="https://www.google.com/calendar/embed?src=bnn2dkobab8l6p4n6jtot9gmd8%40group.calendar.google.com&ctz=Europe/Prague">Vnitřní kalendář</a>

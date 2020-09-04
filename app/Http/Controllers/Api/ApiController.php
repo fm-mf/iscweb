@@ -36,7 +36,7 @@ class ApiController extends Controller
 
     public function load(Request $request)
     {
-        if (!Settings::get('isDatabaseOpen')) {
+        if (Settings::isDatabaseClosed()) {
             return response()->json([]);
         }
 
@@ -90,7 +90,7 @@ class ApiController extends Controller
 
     public function loadFilterOptions()
     {
-        if (!Settings::get('isDatabaseOpen')) {
+        if (Settings::isDatabaseClosed()) {
             return response()->json([]);
         }
 

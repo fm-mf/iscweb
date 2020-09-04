@@ -125,7 +125,9 @@ return [
         'age' => 'Rok narození',
         'agreement' => 'Zpracování',
         'old_password' => 'Staré heslo',
-        'new_password' => 'Nové heslo'
+        'new_password' => 'Nové heslo',
+        'buddyDbFromDate' => 'Datum otevření Buddy databáze',
+        'buddyDbFromTime' => 'Čas otevření Buddy databáze',
     ],
 
 ];

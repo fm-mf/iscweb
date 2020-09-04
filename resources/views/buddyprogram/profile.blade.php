@@ -103,16 +103,54 @@
                 @endforeach
             @endif
             @if(!$exchangeStudent->hasBuddy() && $canChoose)
-                <form method="POST" action="{{ route('become-buddy', ['exchangeStudent' => $exchangeStudent->hash_id]) }}">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-primary">
-                        @if($exchangeStudent->person->sex === 'M')
-                            @lang('buddy-program.become-buddy-m')
-                        @else
-                            @lang('buddy-program.become-buddy-f')
-                        @endif
-                    </button>
-                </form>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#becomeBuddyModal">
+                    @if($exchangeStudent->person->sex === 'M')
+                        @lang('buddy-program.become-buddy-m')
+                    @else
+                        @lang('buddy-program.become-buddy-f')
+                    @endif
+                </button>
+                <div class="modal fade" id="becomeBuddyModal" tabindex="-1" role="dialog" aria-labelledby="becomeBuddyModalTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="becomeBuddyModalTitle">
+                                    @if($exchangeStudent->person->sex === 'M')
+                                        @lang('buddy-program.become-buddy-confirm-title-m', ['name' => $exchangeStudent->person->first_name])
+                                    @else
+                                        @lang('buddy-program.become-buddy-confirm-title-f', ['name' => $exchangeStudent->person->first_name])
+                                    @endif
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                @if($exchangeStudent->person->sex === 'M')
+                                    @lang('buddy-program.become-buddy-confirm-description-m', ['name' => $exchangeStudent->person->first_name])
+                                @else
+                                    @lang('buddy-program.become-buddy-confirm-description-f', ['name' => $exchangeStudent->person->first_name])
+                                @endif
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    @lang('buddy-program.cancel')
+                                </button>
+
+                                <form method="POST" action="{{ route('become-buddy', ['exchangeStudent' => $exchangeStudent->hash_id]) }}">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-primary">
+                                        @if($exchangeStudent->person->sex === 'M')
+                                            @lang('buddy-program.become-buddy-m')
+                                        @else
+                                            @lang('buddy-program.become-buddy-f')
+                                        @endif
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @elseif($exchangeStudent->id_buddy === auth()->id())
                 <div class="show-email">
                     <p>
