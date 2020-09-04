@@ -8,5 +8,5 @@
 @stop
 @section('scripts')
     @parent
-    <script src="{{ mix('js/partak.js') }}"></script>
+    <script src="{{ mix('js/partak.js') }}" defer="defer"></script>
 @stop

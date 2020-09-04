@@ -1,16 +1,43 @@
 <template>
-  <div>
-    <exchange-student
-      v-for="item in items"
-      :key="item.id_user"
-      :student="item"
-      :url="url"
-      @saved="onSaved(item.id_user)"
-    ></exchange-student>
+  <div class="d-flex justify-content-between">
+    <transition-group name="slide-fade" tag="ul" class="list-group mx-auto">
+      <li
+        class="list-group-item student"
+        v-for="item in items"
+        :key="item.id_user"
+      >
+        <exchange-student
+          :student="item"
+          :url="url"
+          @saved="onSaved(item)"
+          @skip="onSaved(item)"
+          :first-id="firstId"
+          :esn-card-number-length="esnCardNumberLength"
+        ></exchange-student>
+      </li>
+    </transition-group>
+    <div class="ml-3 preregistration-options">
+      <div class="form-group">
+        <label for="phoneNumberLength">Phone number length</label>
+        <input class="form-control" type="number" v-model.number="phoneNumberLength" name="phoneNumberLength" id="phoneNumberLength" />
+        <small class="form-text text-muted">Set focus to ESNcard number after entering specified number of characters into Phone number input</small>
+      </div>
+      <div class="form-group">
+        <label for="esnCardNumberLength">ESNcard number length</label>
+        <input class="form-control" type="number" v-model.number="esnCardNumberLength" name="esnCardNumberLength" id="esnCardNumberLength" />
+        <small class="form-text text-muted">Try to save data after entering specified number of characters into ESNcard number input</small>
+      </div>
+      <div class="form-group">
+        <label for="limit">Number of students to show</label>
+        <input class="form-control" type="number" v-model.number="limit" name="limit" id="limit" min="1" />
+        <small class="form-text text-muted">Load this number of students</small>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import ExchangeStudent from './ExchangeStudent.vue';
 
 export default {
@@ -20,15 +47,15 @@ export default {
 
   props: {
     url: String,
-    currentId: Number,
-    currentLastName: String
+    defaultLimit: Number,
   },
 
   data() {
     return {
       items: [],
-      lastId: this.currentId - 1,
-      lastLastName: this.currentLastName
+      esnCardNumberLength: 11,
+      phoneNumberLength: 12,
+      limit: this.defaultLimit,
     };
   },
 
@@ -36,42 +63,81 @@ export default {
     this.update();
   },
 
-  methods: {
-    onSaved() {
-      this.model.update(1);
-    },
-    async update(limit = 30) {
-      try {
-        const response = await fetch(this.url, {
-          method: 'post',
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            id: this.lastId + 1,
-            lastName: this.lastLastName,
-            limit: limit
-          })
-        });
-        const newData = await response.json();
+  computed: {
+    firstId() {
+      return this.items[0]?.id_user;
+    }
+  },
 
-        if (limit == 1) {
-          this.items.push(newData[0]);
-        } else {
-          this.items = newData;
-        }
-
-        if (this.items.length > 0) {
-          this.lastId = this.items[this.items.length - 1].id_user;
-          this.lastLastName = this.items[
-            this.items.length - 1
-          ].person.last_name;
-        }
-      } catch (err) {
-        alert(err);
+  watch: {
+    limit(newValue, oldValue) {
+      if (newValue < 1) {
+        this.limit = 1;
+        return;
       }
+      if (newValue > oldValue) {
+        this.items = [];
+        this.update();
+      } else {
+        this.items.splice(newValue, oldValue - newValue);
+      }
+    }
+  },
+
+  methods: {
+    onSaved(user) {
+      const lastItem = this.items.length !== 0 ? this.items[this.items.length - 1] : {};
+      this.items.splice(this.items.indexOf(user), 1);
+      this.update(1, lastItem);
+    },
+    update(limit = this.limit, user = {}) {
+      axios.get(this.url, {
+        params: {
+          id: user.id_user ?? 0,
+          lastName: user.last_name ?? '',
+          firstName: user.first_name ?? '',
+          limit: limit,
+        },
+      })
+      .then(response => {
+        this.items.push(...response.data.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
     }
   }
 };
 </script>
+
+<style>
+.student {
+  width: 500px;
+}
+
+.preregistration-options {
+  max-width: 13rem;
+}
+
+.list-group-item {
+  transition: all 0.3s ease-in-out;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s ease-in;
+  position: absolute;
+}
+
+.slide-fade-leave-to {
+  opacity: 0;
+}
+
+.slide-fade-enter {
+  opacity: 0;
+  transform: translateY(20rem);
+}
+</style>
