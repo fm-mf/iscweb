@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Helpers\Locale as LocaleHelper;
+use App\Facades\Settings;
 use App\Models\Receipt;
 use Closure;
 use Illuminate\Http\Request;
-use JavaScript;
-use Settings;
+use Illuminate\View\View;
+use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
 /**
  * Adds printer-related stuff to views
@@ -27,13 +27,17 @@ class Printer
         $receiptType = session('receiptType', 'trip');
 
         if ($receiptId) {
-            $receipt = Receipt::find((int)$receiptId);
+            $receipt = Receipt::find((int) $receiptId);
 
             if ($receipt) {
-                view()->share('session_receipt', view('partak.receipt')->with([
-                    'receipt' => $receipt,
-                    'esn_card' => $receiptType === 'esn_card'
-                ]));
+                view()->composer(['partak.layout.main'], function (View $view) use ($receipt, $receiptType) {
+                    $view->with([
+                        'session_receipt' => view('partak.receipt')->with([
+                            'receipt' => $receipt,
+                            'esn_card' => $receiptType === 'esn_card'
+                        ])
+                    ]);
+                });
             }
         }
 

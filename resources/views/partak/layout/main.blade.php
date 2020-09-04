@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    @if(isset($session_receipt) && $session_receipt)
+    @if(!empty($session_receipt))
         <print-me-pls copies="2" content="{{ $session_receipt }}" />
     @endif
 
