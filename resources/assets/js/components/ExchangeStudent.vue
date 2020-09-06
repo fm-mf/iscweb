@@ -135,26 +135,25 @@ export default {
   },
 
   methods: {
-    save() {
+    async save() {
       if (!this.esnCardNumber || !this.phone) {
         return;
       }
 
-      axios.patch(this.saveUrl, {
-        phone: this.phoneComplete,
-        esn_card_number: this.esnCardNumber
-      })
-      .then(response => {
+      try {
+        await axios.patch(this.saveUrl, {
+          phone: this.phoneComplete,
+          esn_card_number: this.esnCardNumber
+        });
         this.$emit('saved');
-      })
-      .catch(error => {
+      } catch (error) {
         if (error.response.status === 422) {
           this.onValidationErrors(error.response.data.errors);
         } else {
           this.error = error.message;
           console.error(error);
         }
-      });
+      }
     },
     onValidationErrors(errors) {
       if (errors.hasOwnProperty('esn_card_number')) {

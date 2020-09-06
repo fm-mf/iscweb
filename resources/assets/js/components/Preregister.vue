@@ -90,21 +90,20 @@ export default {
       this.items.splice(this.items.indexOf(user), 1);
       this.update(1, lastItem);
     },
-    update(limit = this.limit, user = {}) {
-      axios.get(this.url, {
-        params: {
-          id: user.id_user ?? 0,
-          lastName: user.last_name ?? '',
-          firstName: user.first_name ?? '',
-          limit: limit,
-        },
-      })
-      .then(response => {
+    async update(limit = this.limit, user = {}) {
+      try {
+        const response = await axios.get(this.url, {
+          params: {
+            id: user.id_user ?? 0,
+            lastName: user.last_name ?? '',
+            firstName: user.first_name ?? '',
+            limit: limit,
+          },
+        });
         this.items.push(...response.data.data);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error(error);
-      });
+      }
     }
   }
 };
