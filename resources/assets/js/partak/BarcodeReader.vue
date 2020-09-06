@@ -8,13 +8,7 @@
         <i class="fas fa-times"></i> Cancel
       </div>
     </div>
-    <video
-      id="video"
-      width="300"
-      height="200"
-      style="border: 1px solid gray"
-    ></video>
-
+    <div ref="video" class="video-container"></div>
     <div class="tips">
       Image of the barcode has to be clear and focused
     </div>
@@ -22,26 +16,47 @@
 </template>
 
 <script>
-import { BrowserBarcodeReader } from '@zxing/library/esm5';
+import Quagga from 'quagga';
 
 export default {
   data: () => ({
     error: null,
     reader: null
   }),
-  created() {
-    this.reader = new BrowserBarcodeReader();
-    this.reader
-      .decodeOnceFromVideoDevice(undefined, 'video')
-      .then(result => this.$emit('code', result.text))
-      .catch(err => {
-        this.error = err;
-      });
+  mounted() {
+    console.log(this.$refs.video);
+
+    Quagga.init(
+      {
+        inputStream: {
+          name: 'Live',
+          type: 'LiveStream',
+          target: this.$refs.video
+        },
+        decoder: {
+          readers: ['code_128_reader']
+        },
+        numOfWorkers: 0
+      },
+      err => {
+        if (err) {
+          this.error = err;
+        }
+
+        Quagga.start();
+      }
+    );
+    Quagga.onDetected(this.handleDetected);
   },
   beforeDestroy() {
-    if (this.reader) {
-      this.reader.stopAsyncDecode();
-      this.reader = null;
+    Quagga.offDetected(this.handleDetected);
+    Quagga.stop();
+  },
+  methods: {
+    handleDetected(result) {
+      if (result.codeResult && result.codeResult.code !== undefined) {
+        this.$emit('code', result.codeResult.code);
+      }
     }
   }
 };
@@ -101,8 +116,16 @@ export default {
     padding: 0.5rem;
     text-align: center;
   }
+}
+</style>
 
-  video {
+<style lang="scss">
+/** This has to be unscoped, since the element is created by Quagga */
+.video-container {
+  width: 100%;
+  height: 100%;
+
+  > video {
     width: 100%;
     height: 100%;
   }

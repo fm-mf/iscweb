@@ -37,8 +37,8 @@
         "vuedraggable": "^2.23.0"
     },
     "dependencies": {
-        "@zxing/library": "^0.17.1",
         "debounce": "^1.2.0",
+        "quagga": "^0.12.1",
         "vue-router": "^3.1.5"
     }
 }

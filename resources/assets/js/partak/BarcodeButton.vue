@@ -19,18 +19,12 @@ export default {
   components: {
     BarcodeReader
   },
-  props: {
-    target: {
-      type: String,
-      required: true
-    }
-  },
   data: () => ({
     shown: false
   }),
   methods: {
     handleCode(code) {
-      document.getElementById('target').value = code;
+      this.$emit('code', code);
       this.shown = false;
     },
     handleClose() {

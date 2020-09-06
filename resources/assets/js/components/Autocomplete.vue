@@ -24,6 +24,7 @@
     </div>
     <input
       :id="showBarCode ? 'barcode-input' : undefined"
+      ref="input"
       v-model="search"
       type="text"
       :placeholder="placeholder"
@@ -71,7 +72,7 @@
       </li>
     </ul>
     <div v-if="showBarCode" class="input-group-append">
-      <barcode-button target="barcode-input" />
+      <barcode-button @code="handleBarCode" />
     </div>
     <div v-if="showSemesters" class="input-group-append">
       <button
@@ -188,6 +189,11 @@ export default {
     },
     handleNew() {
       window.location.href = this.createUrl;
+    },
+    handleBarCode(code) {
+      this.search = code;
+      this.$refs.input.focus();
+      this.update();
     },
 
     debouncedRequest: debounce(function(input) {
