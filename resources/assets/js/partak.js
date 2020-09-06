@@ -14,6 +14,7 @@ import PreRegister from './components/Preregister';
 import UniqueUrlCopy from './components/UniqueUrlCopy';
 import Reservation from './partak/Reservation';
 import ContactsOrder from './components/ContactsOrder';
+import BarcodeButton from './partak/BarcodeButton';
 import ShareButton from './partak/ShareButton';
 
 /**
@@ -29,6 +30,7 @@ Vue.component('preregister', PreRegister);
 Vue.component('unique-url', UniqueUrlCopy);
 Vue.component('contacts-order', ContactsOrder);
 Vue.component('share-button', ShareButton);
+Vue.component('barcode-button', BarcodeButton);
 
 new Vue({
   el: '#partakApp',

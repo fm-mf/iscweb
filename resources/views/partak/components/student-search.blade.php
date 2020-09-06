@@ -15,5 +15,6 @@
     target="{{ (isset($target))? $target : '/partak/users/exchange-students/{id_user}' }}"
     :image="{url: '/avatars/', file: 'person.user.avatar'}"
     show-semesters
+    show-bar-code
 >
 </auto-complete>
