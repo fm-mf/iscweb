@@ -23,7 +23,7 @@
       </div>
     </div>
     <input
-      :id="barCode ? 'barcode-input' : ''"
+      :id="showBarCode ? 'barcode-input' : undefined"
       v-model="search"
       type="text"
       :placeholder="placeholder"

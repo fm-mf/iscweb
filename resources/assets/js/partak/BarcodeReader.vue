@@ -2,7 +2,8 @@
   <div class="barcode-reader">
     <div v-if="error" class="error">Error occurred: {{ error }}</div>
     <div class="title">
-      <span>BARCODE READER</span>
+      <i class="fas fa-barcode"></i>
+      <span>Barcode Reader</span>
       <div class="close-button" @click="$emit('close')">
         <i class="fas fa-times"></i> Cancel
       </div>
@@ -21,20 +22,27 @@
 </template>
 
 <script>
-import ZXing from '@zxing/library/esm5';
+import { BrowserBarcodeReader } from '@zxing/library/esm5';
 
 export default {
   data: () => ({
-    error: null
+    error: null,
+    reader: null
   }),
   created() {
-    const reader = new ZXing.BrowserBarcodeReader();
-    reader
+    this.reader = new BrowserBarcodeReader();
+    this.reader
       .decodeOnceFromVideoDevice(undefined, 'video')
       .then(result => this.$emit('code', result.text))
       .catch(err => {
         this.error = err;
       });
+  },
+  beforeDestroy() {
+    if (this.reader) {
+      this.reader.stopAsyncDecode();
+      this.reader = null;
+    }
   }
 };
 </script>
@@ -54,20 +62,23 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    font-size: 150%;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 0.5rem;
     text-align: left;
     display: flex;
+    align-items: center;
     z-index: 5;
+
+    .fas {
+      margin-right: 0.5rem;
+    }
 
     > span {
       flex: 1;
     }
 
     .close-button {
-      font-size: 66%;
       flex: 0;
       cursor: pointer;
       display: flex;
