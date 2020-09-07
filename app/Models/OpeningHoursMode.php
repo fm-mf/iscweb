@@ -40,6 +40,16 @@ class OpeningHoursMode extends Model
         Settings::set(self::SETTINGS_KEY, $this->id_opening_hours_mode);
     }
 
+    public function getHoursJsonAttribute(string $value) : array
+    {
+        $value = json_decode($value, true);
+        uksort($value['hours'], function ($a, $b) {
+            return array_search($a, self::DAYS_OF_WEEK) - array_search($b, self::DAYS_OF_WEEK);
+        });
+
+        return $value;
+    }
+
     public function getHtmlTextAttribute()
     {
         if (app()->isLocale('cs')) {
