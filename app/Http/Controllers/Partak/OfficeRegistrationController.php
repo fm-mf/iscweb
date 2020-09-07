@@ -9,7 +9,7 @@
 
 namespace App\Http\Controllers\Partak;
 
-use App\Models\Buddy;
+use App\Http\Controllers\Api\ApiController;
 use App\Models\ExchangeStudent;
 use App\Models\Accommodation;
 use App\Models\Country;
@@ -133,9 +133,12 @@ class OfficeRegistrationController extends Controller
         return $validator;
     }
 
-    public function showPreregistrations($id = 1)
+    public function showPreregistrations()
     {
         $this->authorize('acl', 'exchangeStudents.register');
-        return view('partak.users.preregistration')->with('currentId', $id);
+
+        return view('partak.users.preregistration')->with([
+            'limit' => ApiController::DEFAULT_PREREGISTRATION_LIMIT,
+        ]);
     }
 }

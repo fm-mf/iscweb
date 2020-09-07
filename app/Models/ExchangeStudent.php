@@ -252,6 +252,31 @@ class ExchangeStudent extends Model
                 ->withoutBuddy();
     }
 
+    public function scopeToPreregister($query, $lastName, $firstName, $id)
+    {
+        $query
+            ->whereNull('esn_card_number')
+            ->whereNull('phone')
+            ->join('people', 'people.id_user', 'exchange_students.id_user')
+            ->whereHas('person', function ($query) use ($lastName, $firstName, $id) {
+                $query
+                    ->where('last_name', '>', $lastName)
+                    ->orWhere(function ($query) use ($lastName, $firstName, $id) {
+                        $query->where('last_name', $lastName)
+                            ->where(function ($query) use ($firstName, $id) {
+                                $query->where('first_name', '>', $firstName)
+                                    ->orWhere(function ($query) use ($firstName, $id) {
+                                        $query->where('first_name', $firstName)
+                                            ->where('id_user', '>', $id);
+                                    });
+                            });
+                    });
+                })
+            ->orderBy('last_name')
+            ->orderBy('first_name')
+            ->orderBy('exchange_students.id_user');
+    }
+
     public function isAvailableToPick() {
         return $this->hasSemester(Semester::getCurrentSemester())
                 && !$this->hasSemester(Semester::getCurrentSemester()->previousSemester())
