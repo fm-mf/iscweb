@@ -115,7 +115,7 @@ class ExchangeStudent extends Model
     {
         return url('partak/users/exchange-students/' . $this->id_user);
     }
-    /*
+/*
     public function getEmailAttribute($value)
     {
         return $this->person->email;
@@ -232,8 +232,11 @@ class ExchangeStudent extends Model
 
     public function scopeWithFilledProfile($query, $semester)
     {
-        $query->byUniqueSemester($semester)
-            ->wantBuddy()
+        return $query->byUniqueSemester($semester)
+            ->where(function (Builder $query) {
+                $query->wantBuddy()
+                    ->orWhereHas('buddy');
+            })
             ->where(function ($query) {
                 $query->whereNotNull('about')
                     ->orWhereHas('arrival')
