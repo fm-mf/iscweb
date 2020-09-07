@@ -42,7 +42,7 @@ import ExchangeStudent from './ExchangeStudent.vue';
 
 export default {
   components: {
-    ExchangeStudent
+    ExchangeStudent,
   },
 
   props: {
@@ -66,7 +66,10 @@ export default {
   computed: {
     firstId() {
       return this.items[0]?.id_user;
-    }
+    },
+    lastItem() {
+      return this.items.length > 0 ? this.items[this.items.length - 1] : {};
+    },
   },
 
   watch: {
@@ -76,17 +79,16 @@ export default {
         return;
       }
       if (newValue > oldValue) {
-        this.items = [];
-        this.update();
+        this.update(newValue - oldValue, this.lastItem);
       } else {
         this.items.splice(newValue, oldValue - newValue);
       }
-    }
+    },
   },
 
   methods: {
     onSaved(user) {
-      const lastItem = this.items.length !== 0 ? this.items[this.items.length - 1] : {};
+      const lastItem = this.lastItem;
       this.items.splice(this.items.indexOf(user), 1);
       this.update(1, lastItem);
     },
@@ -104,8 +106,8 @@ export default {
       } catch (error) {
         console.error(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
