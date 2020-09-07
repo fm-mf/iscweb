@@ -69,7 +69,7 @@ class SettingsController extends Controller
 
     public function showOpeningHours()
     {
-        $this->authorize('acl', 'settings.edit');
+        $this->authorize('acl', 'settings.openingHours');
 
         return view('partak.settings.openingHours')->with([
             'settings' => Settings::all(),
@@ -82,7 +82,7 @@ class SettingsController extends Controller
 
     public function submitOpeningHours()
     {
-        $this->authorize('acl', 'settings.edit');
+        $this->authorize('acl', 'settings.openingHours');
 
         $data = request()->validate([
             'id_opening_hours_mode' => ['required', 'exists:opening_hours_mode'],

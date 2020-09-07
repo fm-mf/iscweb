@@ -4,118 +4,115 @@ return [
 
         'exchange_student' => [
             'id' => 6,
+            'inheritsFrom' => [],
             'resources' => [],
-            'inheritsFrom' => []
         ],
 
         'samoplatce' => [
             'id' => 9,
+            'inheritsFrom' => [],
             'resources' => [],
-            'inheritsFrom' => []
         ],
 
         'buddy' => [
             'id' => 3,
+            'inheritsFrom' => [],
             'resources' => [],
-            'inheritsFrom' => []
         ],
 
         'partak' => [
             'id' => 2,
+            'inheritsFrom' => ['buddy'],
             'resources' => [
                 'partaknet',
             ],
-            'inheritsFrom' => ['buddy']
         ],
 
         'author' => [
             'id' => 8,
+            'inheritsFrom' => ['partak'],
             'resources' => [],
-            'inheritsFrom' => ['partak']
         ],
 
         'point' => [
             'id' => 11,
+            'inheritsFrom' => ['partak'],
             'resources' => [
+                'exchangeStudents' => ['view', 'add', 'edit', 'register'],
                 'trips' => ['view', 'view_payment'],
                 'participant' => ['add', 'remove'],
                 'users' => ['view'],
-                'exchangeStudents' => ['register', 'add', 'view', 'edit'],
             ],
-            'inheritsFrom' => ['partak']
         ],
 
         'buddyManager' => [
             'id' => 10,
+            'inheritsFrom' => ['partak'],
             'resources' => [
                 'buddy' => ['view', 'edit', 'remove', 'verify'],
                 'users' => ['view'],
                 'exchangeStudents' => ['view'],
                 'roles' => ['view', 'partak', 'samoplatce'],
-                'stats' => ['view', 'export']
+                'stats' => ['view', 'export'],
             ],
-            'inheritsFrom' => ['partak']
         ],
 
         'team' => [
             'id' => 4,
+            'inheritsFrom' => ['point'],
             'resources' => [
-                'trips' => ['edit', 'add'],
+                'trips' => ['add', 'edit'],
                 'buddy' => ['view', 'edit', 'remove'],
-                'roles' => ['view', 'partak'],
-                'events' => ['edit', 'add', 'view']
+                'roles' => ['view', 'partak', 'point'],
+                'events' => ['view', 'add', 'edit'],
+                'stats' => ['view'],
+                'settings' => ['openingHours'],
             ],
-            'inheritsFrom' => ['point']
         ],
 
         'integreatCoordinator' => [
             'id' => 13,
+            'inheritsFrom' => ['team'],
             'resources' => [
                 'votingResults' => ['view'],
             ],
-            'inheritsFrom' => ['team']
         ],
 
         'board' => [
             'id' => 5,
+            'inheritsFrom' => ['buddyManager', 'team'],
             'resources' => [
-                'users' => ['edit'],
-                'roles' => ['team']
+                'details' => ['view'],
+                'events' => ['remove'],
+                'trips' => ['remove'],
             ],
-            'inheritsFrom' => ['buddyManager', 'team']
         ],
 
         'hr' => [
             'id' => 12,
+            'inheritsFrom' => ['board'],
             'resources' => [
-                'buddy' => ['verify'],
-                'roles' => ['view', 'partak', 'buddyManager', 'point'],
+                'roles' => ['team', 'buddyManager', 'integreatCoordinator', 'hr']
             ],
-            'inheritsFrom' => ['board']
         ],
-
 
         'admin' => [
             'id' => 7,
+            'inheritsFrom' => ['hr', 'integreatCoordinator'],
             'resources' => [
-                'roles' => ['view', 'partak', 'buddyManager', 'board', 'hr', 'integreatCoordinator'],
+                'roles' => ['board', 'admin'],
                 'settings' => ['edit'],
-                'details' => ['view'],
-                'votingResults' => ['view'],
                 'alumniNewsletter' => ['create', 'update', 'delete'],
             ],
-            'inheritsFrom' => ['hr']
         ],
 
         'supervisor' => [
             'id' => 1,
+            'inheritsFrom' => ['admin'],
             'resources' => [
-                'trips' => ['remove'],
-                'events' => ['remove'],
-                'roles' => ['view', 'all'],
+                'roles' => ['all'],
                 'logs',
             ],
-            'inheritsFrom' => ['admin']
         ],
     ],
 ];

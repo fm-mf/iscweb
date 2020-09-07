@@ -13,7 +13,7 @@
     </div>
 
     @can('acl', 'buddy.verify')
-        @if($buddy->verified === 'n')
+        @if(!$buddy->isVerified() && !$buddy->isDenied())
             <div class="container">
                 <div class="row">
                     <div class="col-12">

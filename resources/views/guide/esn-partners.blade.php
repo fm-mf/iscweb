@@ -77,7 +77,7 @@
                     dedicated portal
                 </a>.
             </li>
-            <li>15% discount on 8 single flights (or 4 return flights)</li>
+            <li>10% discount on 4 single flights (or 2 return flights)</li>
             <li>Free check in luggage of 20 kg</li>
             <li>
                 This is only applicable for flights booked at least <strong>28 days in advance</strong>

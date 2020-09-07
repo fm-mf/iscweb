@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 class Buddy extends Model
 {
+    const VERIFICATION_START_DATE = '2017-01-21 00:00:00';
+
     public $timestamps = false;
     protected $primaryKey = 'id_user';
     public $incrementing = false;
@@ -71,12 +73,27 @@ class Buddy extends Model
 
     public function isVerified()
     {
-        return $this->verified == 'y';
+        return $this->verified === 'y'
+            || (
+                (
+                    $this->person->user->created_at === null
+                    || $this->person->user->created_at->lessThan(Carbon::parse(self::VERIFICATION_START_DATE))
+                )
+                && (
+                    $this->active === 'y'
+                    || $this->subscribed === 1
+                )
+            );
+    }
+
+    public function isDenied()
+    {
+        return $this->verified === 'd';
     }
 
     public function isSubscribed()
     {
-        return $this->subscribed == 'y';
+        return $this->subscribed === 1;
     }
 
     public function setWelcomeSent() {
@@ -149,7 +166,8 @@ class Buddy extends Model
 
     public static function scopeNotVerified($query)
     {
-        $applicableDate = Carbon::create(2017, 1, 21, 0, 0, 0)->toDateTimeString();
+        $applicableDate = Carbon::parse(self::VERIFICATION_START_DATE)->toDateTimeString();
+
         return $query->where(function($query) use ($applicableDate) {
             $query->whereHas('person.user', function($query) use ($applicableDate) {
                 $query->where('created_at', '>=', $applicableDate)->where('verified', '!=', 'y');
