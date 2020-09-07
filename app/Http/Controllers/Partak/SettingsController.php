@@ -16,17 +16,11 @@ class SettingsController extends Controller
     public function showSettings()
     {
         $this->authorize('acl', 'settings.edit');
-        $currentSemester = Semester::getCurrentSemester();
+
         $sems = Semester::orderBy('id_semester')->get();
         $semesters = [];
         foreach ($sems as $semester) {
             $semesters[$semester->semester] = $semester->semester;
-        }
-
-        $opms = OpeningHoursMode::listModes();
-        $openingHoursModes = array();
-        foreach ($opms as $opm) {
-            $openingHoursModes[$opm] = $opm;
         }
 
         $settings = Settings::all();
@@ -34,14 +28,10 @@ class SettingsController extends Controller
         $settings['wcFrom'] = Carbon::createFromFormat('d/m/Y', $settings['wcFrom']);
         $settings['owFrom'] = Carbon::createFromFormat('d/m/Y', $settings['owFrom']);
         $settings['owTo'] = Carbon::createFromFormat('d/m/Y', $settings['owTo']);
-        //dd( OpeningHoursMode::getCurrentDailyHours() );
+
         return view('partak.settings.settings')->with([
             'settings' => $settings,
             'semesters' => $semesters,
-            'openingHoursModes' => $openingHoursModes,
-            'openingHoursText' => OpeningHoursMode::getCurrentText(),
-            'showOpeningHours' => OpeningHoursMode::areCurrentHoursShown(),
-            'openingHoursData' => OpeningHoursMode::getCurrentHours(),
         ]);
     }
 
