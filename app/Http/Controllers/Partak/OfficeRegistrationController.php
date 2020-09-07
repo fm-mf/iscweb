@@ -42,26 +42,24 @@ class OfficeRegistrationController extends Controller
         ]);
     }
 
-    public function esnRegistration($id)
+    public function esnRegistration(ExchangeStudent $student)
     {
         $this->authorize('acl', 'exchangeStudents.register');
-        $exStudent = ExchangeStudent::find($id);
-        $this->registrationValidator(['phone' => $exStudent->phone, 'esn_card_number' => $exStudent->esn_card_number])->validate();
-        $exStudent->esn_registered = 'y';
-        $exStudent->save();
-        return back();
-    }
 
-    public function esnRegistrationNotPreregistered($id, $phone, $esnCard)
-    {
-        $this->authorize('acl', 'exchangeStudents.register');
-        $this->registrationValidator(['phone' => $phone, 'esn_card_number' => $esnCard])->validate();
-        $exStudent = ExchangeStudent::find($id);
-        $exStudent->esn_registered = 'y';
-        $exStudent->esn_card_number = $esnCard;
-        $exStudent->phone = $phone;
-        $exStudent->save();
-        return back();
+        if (request()->has('phone') && substr(request('phone'), 0, 3) === '420') {
+            request()->merge(['phone' => '+' . request('phone')]);
+        }
+
+        $data = request()->validate([
+            'phone' => ['sometimes', 'required', 'phone:CZ', 'unique:exchange_students'],
+            'esn_card_number' => ['sometimes', 'required', 'string', 'unique:exchange_students'],
+        ]);
+        $data['esn_registered'] = 'y';
+        $student->update($data);
+
+        return back()->with([
+            'successRegister' => true,
+        ]);
     }
 
     public function showCreateExStudent()
@@ -120,15 +118,6 @@ class OfficeRegistrationController extends Controller
             'medical_issues' => 'max:255',
             'whatsapp' => ['phone:AUTO', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
-        ]);
-        return $validator;
-    }
-
-    protected function registrationValidator(array $data)
-    {
-        $validator = Validator::make($data, [
-            'phone' => ['required', 'max:16',],
-            'esn_card_number' => ['required', 'max:12',],
         ]);
         return $validator;
     }
