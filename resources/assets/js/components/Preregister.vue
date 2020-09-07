@@ -78,10 +78,10 @@ export default {
         this.limit = 1;
         return;
       }
-      if (newValue > oldValue) {
-        this.update(newValue - oldValue, this.lastItem);
+      if (newValue > this.items.length) {
+        this.update(newValue - this.items.length, this.lastItem);
       } else {
-        this.items.splice(newValue, oldValue - newValue);
+        this.items.splice(newValue, this.items.length - newValue);
       }
     },
   },
