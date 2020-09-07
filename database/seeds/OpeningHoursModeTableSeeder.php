@@ -37,7 +37,7 @@ class OpeningHoursModeTableSeeder extends Seeder
                 'mode' => 'Orientation Week',
                 'hours_json' => json_encode([
                     'text' => 'There are no regular opening hours during the Orientation Week',
-                    'text' => 'Během Orientation Weeku nemáme pravidelné otevírací hodiny',
+                    'textCs' => 'Během Orientation Weeku nemáme pravidelné otevírací hodiny',
                     'hours' => [
                         'Monday' => 'Closed',
                         'Tuesday' => 'Closed',
@@ -71,7 +71,7 @@ class OpeningHoursModeTableSeeder extends Seeder
                 'mode' => 'Other',
                 'hours_json' => json_encode([
                     'text' => 'Custom text',
-                    'text' => 'Vlastní text',
+                    'textCs' => 'Vlastní text',
                     'hours' => [
                         'Monday' => 'Closed',
                         'Tuesday' => 'Closed',
