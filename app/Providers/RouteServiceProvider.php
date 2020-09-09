@@ -97,7 +97,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapPartakRoutes()
     {
         Route::prefix('partak')
-            ->middleware(['web','checkpartak', 'auth'])
+            ->middleware(['web','checkpartak', 'auth', 'printer'])
             ->namespace($this->namespace . '\Partak')
             ->name('partak.')
             ->group(base_path('routes/partak.php'));

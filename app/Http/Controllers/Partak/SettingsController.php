@@ -149,7 +149,8 @@ class SettingsController extends Controller
             'electionStreamUrl' => 'nullable|url',
             'fbGroupLink' => 'nullable|url',
             'whatsAppAnnoucementsLink' => 'nullable|url',
-            'whatsAppGeneralLink' => 'nullable|url'
+            'whatsAppGeneralLink' => 'nullable|url',
+            'receiptPrinterUrl' => 'url'
         ]);
     }
 
