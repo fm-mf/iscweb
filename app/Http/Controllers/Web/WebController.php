@@ -38,13 +38,16 @@ class WebController extends Controller
         ]);
     }
 
-    public function showContacts() {
+    public function showContacts()
+    {
         $dateFrom = Carbon::createFromFormat('d/m/Y' ,Settings::get('wcFrom'));
         $contacts = Contact::visibleOnWeb()->get();
-        return view('web.contact') -> with(['wcFrom' => $dateFrom->format('l F jS'),
-                                            'contacts' => $contacts,
-                                            'openingHoursText' => OpeningHoursMode::getCurrentText(),
-                                            'openingHoursTable' => OpeningHoursMode::buildHoursTable()]);
+
+        return view('web.contact')->with([
+            'wcFrom' => $dateFrom->format('l F jS'),
+            'contacts' => $contacts,
+            'openingHours' => OpeningHoursMode::getCurrentMode(),
+        ]);
     }
 
     public function showCalendar()

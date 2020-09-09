@@ -98,8 +98,7 @@ Route::prefix('/settings')
 
         Route::get('/opening-hours', 'SettingsController@showOpeningHours')
             ->name('openingHours');
-        Route::patch('/opening-hours', 'SettingsController@submitOpeningHours')
-            ->name('openingHours.save');
+        Route::patch('/opening-hours', 'SettingsController@submitOpeningHours');
 
         Route::get('/coronavirus', 'SettingsController@showCoronavirus')
             ->name('coronavirus');
@@ -121,7 +120,7 @@ Route::prefix('/settings')
             });
     });
 
-Route::get('/openinghours', 'SettingsController@getOpeningHours');
+Route::get('/opening-hours', 'SettingsController@getOpeningHoursData');
 Route::get('/logs', 'LogsController@index')->name('logs');
 
 Route::prefix('/stats')
