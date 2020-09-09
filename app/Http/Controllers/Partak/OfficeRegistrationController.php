@@ -41,63 +41,38 @@ class OfficeRegistrationController extends Controller
         return view('partak.users.officeRegistration.register')->with([
             'exStudent' => ExchangeStudent::with('person.user')->find($id),
             'faculties' => Faculty::getOptions(),
-            'accommodations' => Accommodation::getOptions()
+            'accommodations' => Accommodation::getOptions(),
         ]);
     }
 
-    public function esnRegistration($id)
+    public function esnRegistration(ExchangeStudent $student)
     {
         $this->authorize('acl', 'exchangeStudents.register');
 
-        $exStudent = ExchangeStudent::find($id);
+        if (request()->has('phone') && substr(request('phone'), 0, 3) === '420') {
+            request()->merge(['phone' => '+' . request('phone')]);
+        }
 
-        $this->registrationValidator([
-            'phone' => $exStudent->phone,
-            'esn_card_number' => $exStudent->esn_card_number
-        ])->validate();
+        $data = request()->validate([
+            'phone' => ['sometimes', 'required', 'phone:CZ', 'unique:exchange_students'],
+            'esn_card_number' => ['sometimes', 'required', 'string', 'unique:exchange_students'],
+        ]);
+        $data['esn_registered'] = 'y';
 
-        $receipt = new Receipt([
+        $receipt = Receipt::create([
             'created_by' => auth()->id(),
             'subject' => 'ESN Membership',
             // TODO: Configurable amount
-            'amount' => 500
+            'amount' => 500,
         ]);
-        $receipt->save();
+        $data['esn_receipt_id'] = $receipt->id_receipt;
 
-        $exStudent->esn_registered = 'y';
-        $exStudent->esn_receipt_id = $receipt->id_receipt;
-
-        $exStudent->save();
+        $student->update($data);
 
         return back()->with([
             'receipt' => $receipt->id_receipt,
-            'receiptType' => 'esn_card'
-        ]);
-    }
-
-    public function esnRegistrationNotPreregistered($id, $phone, $esnCard)
-    {
-        $this->authorize('acl', 'exchangeStudents.register');
-        $this->registrationValidator(['phone' => $phone, 'esn_card_number' => $esnCard])->validate();
-
-        $receipt = new Receipt([
-            'created_by' => auth()->id(),
-            'subject' => 'ESN Membership',
-            // TODO: Configurable amount
-            'amount' => 500
-        ]);
-        $receipt->save();
-
-        $exStudent = ExchangeStudent::find($id);
-        $exStudent->esn_registered = 'y';
-        $exStudent->esn_receipt_id = $receipt->id_receipt;
-        $exStudent->esn_card_number = $esnCard;
-        $exStudent->phone = $phone;
-        $exStudent->save();
-
-        return back()->with([
-            'receipt' => $receipt->id_receipt,
-            'receiptType' => 'esn_card'
+            'receiptType' => 'esn_card',
+            'successRegister' => true,
         ]);
     }
 
@@ -159,15 +134,6 @@ class OfficeRegistrationController extends Controller
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
         ]);
 
-        return $validator;
-    }
-
-    protected function registrationValidator(array $data)
-    {
-        $validator = Validator::make($data, [
-            'phone' => ['required', 'max:16',],
-            'esn_card_number' => ['required', 'max:12',],
-        ]);
         return $validator;
     }
 

@@ -384,4 +384,14 @@ class ExchangeStudent extends Model
 
         return ($age - 1) . '–' . $age;
     }
+
+    public function getIsEsnRegisteredAttribute()
+    {
+        return $this->esn_registered === 'y';
+    }
+
+    public function getIsNotEsnRegisteredAttribute()
+    {
+        return $this->esn_registered === 'n';
+    }
 }
