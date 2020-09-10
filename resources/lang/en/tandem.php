@@ -35,8 +35,11 @@ return [
         'password' => 'Password',
         'password-confirmation' => 'Password confirmation',
 
+        'reset-password' => 'Forgot your password?',
+
         'registration-successful' => 'Your registration completed successfully. You may now continue with log in.',
         'logout-successful' => 'You have been successfully logged out.',
+        'password-reset-successful' => 'Your password has been successfully changed. You may now continue with login.',
 
         'registration' => 'Registration',
         'registration-heading' => 'Registration to Tandem Database',
@@ -47,6 +50,21 @@ return [
             'password' => 'Enter your password',
             'password-confirmation' => 'Confirm your password',
         ]
+    ],
+
+    'passwords' => [
+        'password-reset' => 'Password reset',
+        'reset-password' => 'Reset password',
+        'send-link' => 'Get password reset link',
+        'reset-link-sent' => 'Password reset link has been sent to your e-mail (:email)',
+
+        'email' => [
+            'greeting' => 'Hello',
+            'line-1' => 'You are receiving this email because we received a password reset request for your account.',
+            'action' => 'Reset password',
+            'line-2' => 'If you did not request a password reset, no further action is required.',
+            'salutation' => 'Best regards,'
+        ],
     ],
 
     'list' => [

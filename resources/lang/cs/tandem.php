@@ -35,8 +35,11 @@ return [
         'password' => 'Heslo',
         'password-confirmation' => 'Heslo znovu',
 
+        'reset-password' => 'Zapomenuté heslo',
+
         'registration-successful' => 'Registrace proběhla úspěšně. Nyní se můžeš přihlásit.',
         'logout-successful' => 'Odhlášení proběhlo úspěšně.',
+        'password-reset-successful' => 'Heslo bylo úspěšně změněno. Nyní se můžeš přihlásit',
 
         'registration' => 'Registrace',
         'registration-heading' => 'Registrace do Tandem databáze',
@@ -47,6 +50,21 @@ return [
             'password' => 'Zadej své heslo',
             'password-confirmation' => 'Potvrď své heslo',
         ]
+    ],
+
+    'passwords' => [
+        'password-reset' => 'Obnovení hesla',
+        'reset-password' => 'Obnovit heslo',
+        'send-link' => 'Získat odkaz pro obnovu hesla',
+        'reset-link-sent' => 'Odkaz pro obnovu hesla ti byl zaslán na tvůj e-mail (:email)',
+
+        'email' => [
+            'greeting' => 'Ahoj',
+            'line-1' => 'Tento e-mail dostáváš, protože jsme obdrželi žádost o obnovu hesla k tvému účtu v ISC Tandem databázi',
+            'action' => 'Obnovit heslo',
+            'line-2' => 'Pokud jsi o obnovu nežádal/a, můžeš tento e-mail ignorovat.',
+            'salutation' => 'S pozdravem,'
+        ],
     ],
 
     'list' => [

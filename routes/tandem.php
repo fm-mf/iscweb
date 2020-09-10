@@ -16,4 +16,10 @@ Route::post('logout', 'Auth\\TandemLoginController@logout')->name('logout');
 Route::get('register', 'Auth\\TandemRegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\\TandemRegisterController@register');
 
+Route::get('password/reset', 'Auth\\TandemForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\\TandemForgotPasswordController@sendResetLinkEmail')->name('password.email');
+
+Route::get('password/reset/{token}', 'Auth\\TandemResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\\TandemResetPasswordController@reset');
+
 Route::get('change-language', 'TandemController@changeLanguage')->name('change-language');

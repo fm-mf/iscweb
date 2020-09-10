@@ -14,6 +14,15 @@
                     </div>
                 </div>
             @endif
+            @if(session('passwordResetSuccessful'))
+                <div class="row">
+                    <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+                        <p class="alert alert-success">
+                            @lang('tandem.auth.password-reset-successful')
+                        </p>
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col">
                     <h1>@lang('tandem.auth.login-heading')</h1>
@@ -44,6 +53,15 @@
                             <button type="submit" class="btn btn-primary">@lang('tandem.auth.log-in')</button>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <a href="{{ route('tandem.password.request') }}">
+                            @lang('tandem.auth.reset-password')
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

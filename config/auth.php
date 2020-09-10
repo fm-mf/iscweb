@@ -107,6 +107,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'tandem_users' => [
+            'provider' => 'tandem_users',
+            'table' => 'tandem_password_resets',
+            'expire' => 60,
+        ],
     ],
 
 ];

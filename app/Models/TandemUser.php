@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
+use App\Notifications\TandemResetPassword;
 use Carbon\Carbon;
 use Hashids\Hashids;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 
 class TandemUser extends Authenticatable
 {
+    use Notifiable;
+
     const ACTIVE_THRESHOLD_MONTHS = 9;
 
     protected $primaryKey = 'id_tandemuser';
@@ -109,5 +113,10 @@ class TandemUser extends Authenticatable
     public static function generateOldPasshash(array $credintials)
     {
         return hash('sha512', "{$credintials['email']}@{$credintials['password']}");
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new TandemResetPassword($token));
     }
 }
