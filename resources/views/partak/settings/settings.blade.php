@@ -83,7 +83,7 @@
             @endif
             {{ Form::url('fbGroupLink', $settings['fbGroupLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
-            {{ Form::label('owFbEventLink', 'Link to currnet OW FB event', ['class' => 'control-label']) }}
+            {{ Form::label('owFbEventLink', 'Link to current OW FB event', ['class' => 'control-label']) }}
             @if ($errors->has('owFbEventLink'))
             <p class="error-block alert-danger">{{ $errors->first('owFbEventLink') }}</p>
             @endif
@@ -96,6 +96,12 @@
             {{ Form::bsCheckbox('owTripsEnabled', 'Enable OW trips registration', '', '1', @$settings['owTripsEnabled']) }}
 
             {{ Form::bsCheckbox('owTripsRestricted', 'Allow only one OW trip per person', '', '1', @$settings['owTripsRestricted']) }}
+
+            {{ Form::label('receiptPrinterUrl', 'Receipt printer url', ['class' => 'control-label']) }}
+            @if ($errors->has('receiptPrinterUrl'))
+            <p class="error-block alert-danger">{{ $errors->first('receiptPrinterUrl') }}</p>
+            @endif
+            {{ Form::url('receiptPrinterUrl', @$settings['receiptPrinterUrl'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
             <div style="margin-bottom: 15px;">
             <input type="submit" value="Update settings" class="btn btn-primary btn-submit">

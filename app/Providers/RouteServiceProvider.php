@@ -32,7 +32,7 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         Route::bind('exchangeStudent', function ($value) {
-            return ExchangeStudent::findOrFail(User::decodeHashId($value)[0]);
+            return ExchangeStudent::findOrFail(User::decodeHashId($value));
         });
 
         Route::bind('semester', function ($value) {
@@ -103,7 +103,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapPartakRoutes()
     {
         Route::prefix('partak')
-            ->middleware(['web','checkpartak', 'auth'])
+            ->middleware(['web','checkpartak', 'auth', 'printer'])
             ->namespace($this->namespace . '\Partak')
             ->name('partak.')
             ->group(base_path('routes/partak.php'));

@@ -20,7 +20,7 @@ class RolesController extends Controller
             ->where('title', '<>', 'samoplatce')
             ->where('title', '<>', 'author')
             ->get();
-        
+
         // Predefined roles order
         $predefined = [
             'supervisor' => [
@@ -93,8 +93,8 @@ class RolesController extends Controller
             return back()->withErrors(['user' => 'Role not found.']);
         }
 
-        if(Auth::user()->cant('acl', 'roles.' . $role->title) && Auth::user()->cant('acl', 'roles.all')) {
-            return back()->withErrors(['role' => 'You do not have permission to remove the role <strong>' . $role->title] . '</strong>');
+        if (Auth::user()->cant('acl', 'roles.' . $role->title) && Auth::user()->cant('acl', 'roles.all')) {
+            return back()->withErrors(['role' => 'You do not have permission to remove the role <strong>' . $role->title . '</strong>']);
         }
 
         $user->roles()->detach($roleId);

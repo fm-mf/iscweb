@@ -50,6 +50,10 @@
         </div>
     </div>
 
+    @if(!empty($session_receipt))
+        <print-me-pls copies="2" content="{{ $session_receipt }}" />
+    @endif
+
     @include('footer')
 @endsection
 
@@ -57,4 +61,5 @@
     <script src="{{ asset('js/jquery.slim.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.4.min.js') }}"></script>
+    <script src="{{ mix('js/printer.js') }}"></script>
 @endsection
