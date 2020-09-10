@@ -41,7 +41,7 @@ return [
         'registration' => 'Registrace',
         'registration-heading' => 'Registrace do Tandem databáze',
 
-        'password-note' => 'Alespoň 8 znaků',
+        'password-note' => 'Heslo musí mít alespoň 8 znaků',
         'placeholder' => [
             'e-mail' => 'Zadej svou e-mailovou adresu',
             'password' => 'Zadej své heslo',
@@ -75,6 +75,7 @@ return [
 
     'my-profile' => [
         'title' => 'Můj profil',
+        'update-successful' => 'Profil byl úspěšně aktualizován',
     ],
 
     'profile' => [

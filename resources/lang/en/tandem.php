@@ -41,7 +41,7 @@ return [
         'registration' => 'Registration',
         'registration-heading' => 'Registration to Tandem Database',
 
-        'password-note' => 'At least 8 characters',
+        'password-note' => 'Password has to be at least 8 characters long',
         'placeholder' => [
             'e-mail' => 'Enter your e-mail address',
             'password' => 'Enter your password',
@@ -75,6 +75,7 @@ return [
 
     'my-profile' => [
         'title' => 'My profile',
+        'update-successful' => 'Profil byl úspěšně aktualizován',
     ],
 
     'profile' => [

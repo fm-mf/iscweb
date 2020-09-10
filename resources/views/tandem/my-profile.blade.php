@@ -5,9 +5,22 @@
 @section('page')
     <section>
         <div class="container">
+            @if(session('updateSuccessful'))
+                <div class="row">
+                    <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+                        <p class="alert alert-success">
+                            @lang('tandem.my-profile.update-successful')
+                        </p>
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-lg-10 col-xl-8 mx-auto">
-                    {{ Form::model($tandemUser, ['method' => 'patch', 'route' => 'tandem.my-profile', 'id' => 'vue-form']) }}
+                    {{ Form::model($tandemUser, [
+                        'method' => 'patch',
+                        'route' => 'tandem.my-profile',
+                        'id' => 'vue-form',
+                    ]) }}
                         <div class="form-group">
                             {{ Form::label('email', __('tandem.auth.e-mail'), ['class' => 'required']) }}
                             {{ Form::email('email', $tandemUser->email, ['class' => 'form-control', 'disabled' => 'disabled', 'required' => 'required']) }}
@@ -26,59 +39,10 @@
                                 </div>
                             </div>
                         </div>
+                        @include('tandem.partials.my-profile')
                         <div class="form-group">
-                            {{ Form::label('select-country', __('tandem.profile.country')) }}
-                            <vue-multiselect
-                                    id="select-country"
-                                    :options="{{ $countries }}"
-                                    label="full_name"
-                                    track-by="id_country"
-                                    :multiple="false"
-                                    v-model="country"
-                                    value="{{ $tandemUser->country }}"
-                                    placeholder="@lang('tandem.profile.placeholder.country')">
-                            </vue-multiselect>
-                            <input type="hidden" name="country" :value="countryId" />
+                            <button type="submit" class="btn btn-primary">@lang('tandem.profile.update')</button>
                         </div>
-                        <div class="form-group">
-                            <label for="input-about">@lang('tandem.profile.about-me')</label>
-                            <textarea class="form-control" placeholder="@lang('tandem.profile.placeholder.about-me')" name="about" id="input-about">{{ old('about') }}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="select-languages-learn" class="required">@lang('tandem.profile.i-want-to-learn')</label>
-                            <vue-multiselect
-                                    id="select-languages-learn"
-                                    :options="{{ $languages }}"
-                                    label="language"
-                                    track-by="id_language"
-                                    :multiple="true"
-                                    v-model="languagesToLearn"
-                                    placeholder="@lang('tandem.profile.placeholder.i-want-to-learn')"
-                                    value="{{ $tandemUser->languagesToLearn }}"
-                                    allow-empty="false"
-                                    max="5"
-                                    :limit="3">
-                            </vue-multiselect>
-                            <input type="hidden" name="languagesToLearn[]" v-for="language in languagesToLearn" :value="language.id_language" :key="language.id_language" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="select-languages-teach" class="required">@lang('tandem.profile.i-want-to-teach')</label>
-                            <vue-multiselect
-                                    id="select-languages-teach"
-                                    :options="{{ $languages }}"
-                                    label="language"
-                                    track-by="id_language"
-                                    :multiple="true"
-                                    v-model="languagesToTeach"
-                                    placeholder="@lang('tandem.profile.placeholder.i-want-to-teach')"
-                                    value="{{ $tandemUser->languagesToTeach }}"
-                                    allow-empty="false"
-                                    max="5"
-                                    :limit="3">
-                            </vue-multiselect>
-                            <input type="hidden" name="languagesToTeach[]" v-for="language in languagesToTeach" :value="language.id_language" :key="language.id_language" required="required" />
-                        </div>
-                        <button type="submit" class="btn btn-primary">@lang('tandem.profile.update')</button>
                     {{ Form::close() }}
                 </div>
             </div>

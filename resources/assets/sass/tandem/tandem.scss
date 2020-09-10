@@ -4,6 +4,16 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
+.multiselect.is-invalid {
+  & > .multiselect__tags {
+    border-color: $danger;
+    background-image: escape-svg($form-feedback-icon-invalid);
+    background-repeat: no-repeat;
+    background-position: right calc(#{$input-height-inner-quarter} + 40px) center;
+    background-size: $input-height-inner-half $input-height-inner-half;
+  }
+}
+
 .multiselect__tags {
   border-radius: 0;
   border: $input-border-width solid $input-border-color;

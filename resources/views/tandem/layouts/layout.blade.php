@@ -18,6 +18,8 @@
             @include('tandem.layouts.footer')
         </div>
     </div>
+
+    @include('footer')
 @endsection
 
 @section('stylesheets')

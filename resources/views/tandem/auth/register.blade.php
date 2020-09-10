@@ -10,93 +10,50 @@
                     <h1>@lang('tandem.auth.registration-heading')</h1>
                 </div>
             </div>
-            @if($errors->any())
-                <div class="row">
-                    <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
-                        @foreach($errors->all() as $error)
-                            <p class="alert alert-danger">{{ $error }}</p>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
             <div class="row">
                 <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
                     <form action="{{ route('tandem.register') }}" method="POST" id="vue-form">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label class="required" for="input-email">@lang('tandem.auth.e-mail')</label>
-                            <input type="email" class="form-control" name="email" id="input-email" value="{{ old('email') }}" required="required" placeholder="@lang('tandem.auth.placeholder.e-mail')" />
+                            <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" id="input-email" value="{{ old('email') }}" required="required" placeholder="@lang('tandem.auth.placeholder.e-mail')" />
+                            @if($errors->has('email'))
+                                <div class="invalid-feedback">{{ $errors->first('email') }}</div>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label class="required" for="input-password">@lang('tandem.auth.password')</label>
-                            <input type="password" class="form-control" name="password" id="input-password" required="required" placeholder="@lang('tandem.auth.placeholder.password')" minlength="8" />
+                            <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password" id="input-password" required="required" placeholder="@lang('tandem.auth.placeholder.password')" minlength="8" />
+                            @if($errors->has('password'))
+                                <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                            @endif
                             <small class="form-text text-muted">@lang('tandem.auth.password-note')</small>
                         </div>
                         <div class="form-group">
                             <label class="required" for="input-password-confirmation">@lang('tandem.auth.password-confirmation')</label>
-                            <input type="password" class="form-control" name="password_confirmation" id="input-password-confirmation" required="required" placeholder="@lang('tandem.auth.placeholder.password-confirmation')" minlength="8" />
+                            <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password_confirmation" id="input-password-confirmation" required="required" placeholder="@lang('tandem.auth.placeholder.password-confirmation')" minlength="8" />
+                            @if($errors->has('password'))
+                                <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label class="required" for="input-first-name">@lang('tandem.profile.given-names')</label>
-                            <input type="text" class="form-control" name="firstName" id="input-first-name" value="{{ old('firstName') }}" required="required" placeholder="@lang('tandem.profile.placeholder.given-names')" />
+                            <input type="text" class="form-control {{ $errors->has('firstName') ? 'is-invalid' : '' }}" name="firstName" id="input-first-name" value="{{ old('firstName') }}" required="required" placeholder="@lang('tandem.profile.placeholder.given-names')" />
+                            @if($errors->has('firstName'))
+                                <div class="invalid-feedback">{{ $errors->first('firstName') }}</div>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="input-last-name">@lang('tandem.profile.surname')</label>
-                            <input type="text" class="form-control" name="lastName" id="input-last-name" value="{{ old('lastName') }}" placeholder="@lang('tandem.profile.placeholder.surname')" />
+                            <input type="text" class="form-control {{ $errors->has('lastName') ? 'is-invalid' : '' }}" name="lastName" id="input-last-name" value="{{ old('lastName') }}" placeholder="@lang('tandem.profile.placeholder.surname')" />
+                            @if($errors->has('lastName'))
+                                <div class="invalid-feedback">{{ $errors->first('lastName') }}</div>
+                            @endif
                         </div>
+                        @include('tandem.partials.my-profile')
                         <div class="form-group">
-                            <label for="select-country">@lang('tandem.profile.country')</label>
-                            <vue-multiselect
-                                    id="select-country"
-                                    :options="{{ $countries }}"
-                                    label="full_name"
-                                    track-by="id_country"
-                                    :multiple="false"
-                                    v-model="country"
-                                    :value="61"
-                                    placeholder="@lang('tandem.profile.placeholder.country')">
-                            </vue-multiselect>
-                            <input type="hidden" name="country" :value="countryId" />
+                            <button type="submit" class="btn btn-primary">@lang('tandem.auth.register')</button>
                         </div>
-                        <div class="form-group">
-                            <label for="input-about">@lang('tandem.profile.about-me')</label>
-                            <textarea class="form-control" placeholder="@lang('tandem.profile.placeholder.about-me')" name="about" id="input-about">{{ old('about') }}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="select-languages-learn" class="required">@lang('tandem.profile.i-want-to-learn')</label>
-                            <vue-multiselect
-                                    id="select-languages-learn"
-                                    :options="{{ $languages }}"
-                                    label="language"
-                                    track-by="id_language"
-                                    :multiple="true"
-                                    v-model="languagesToLearn"
-                                    placeholder="@lang('tandem.profile.placeholder.i-want-to-learn')"
-                                    value="{{ collect(old('languagesToLearn')) }}"
-                                    allow-empty="false"
-                                    max="5"
-                                    :limit="3">
-                            </vue-multiselect>
-                            <input type="hidden" name="languagesToLearn[]" v-for="language in languagesToLearn" :value="language.id_language" :key="language.id_language" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="select-languages-teach" class="required">@lang('tandem.profile.i-want-to-teach')</label>
-                            <vue-multiselect
-                                    id="select-languages-teach"
-                                    :options="{{ $languages }}"
-                                    label="language"
-                                    track-by="id_language"
-                                    :multiple="true"
-                                    v-model="languagesToTeach"
-                                    placeholder="@lang('tandem.profile.placeholder.i-want-to-teach')"
-                                    value="{{ collect(old('languagesToTeach')) }}"
-                                    allow-empty="false"
-                                    max="5"
-                                    :limit="3">
-                            </vue-multiselect>
-                            <input type="hidden" name="languagesToTeach[]" v-for="language in languagesToTeach" :value="language.id_language" :key="language.id_language" required="required" />
-                        </div>
-                        <button type="submit" class="btn btn-primary">@lang('tandem.auth.register')</button>
                     </form>
                 </div>
             </div>

@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 
 class TandemRegisterController extends Controller
 {
@@ -29,6 +30,14 @@ class TandemRegisterController extends Controller
     {
         $countries = Country::all(['id_country', 'full_name']);
         $languages = Language::all(['id_language', 'language']);
+
+        JavaScript::put([
+            'initValues' => [
+                'country' => Country::find(old('country', null)),
+                'languagesToLearn' => Language::find(old('languagesToLearn', [])),
+                'languagesToTeach' => Language::find(old('languagesToTeach', [])),
+            ]
+        ]);
 
         return view('tandem.auth.register', compact('countries', 'languages'));
     }
