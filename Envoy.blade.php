@@ -92,5 +92,6 @@
     cd {{ $new_release_dir }}
     php artisan config:cache || echo "Config caching failed"
     php artisan route:cache || echo "Routes caching failed"
+    php artisan queue:restart
     php artisan up
 @endtask

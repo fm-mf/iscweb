@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\HtmlString;
 
-class TandemResetPassword extends Notification
+class TandemResetPassword extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -27,6 +27,7 @@ class TandemResetPassword extends Notification
     public function __construct($token)
     {
         $this->token = $token;
+        $this->queue = 'emails';
     }
 
     /**
@@ -48,6 +49,8 @@ class TandemResetPassword extends Notification
      */
     public function toMail($notifiable)
     {
+        app()->setLocale($notifiable->preferred_language);
+
         return (new MailMessage)
             ->from('no-reply@isc.cvut.cz', config('app.name'))
             ->subject(__('tandem.index.heading') . ' – ' . __('tandem.passwords.password-reset'))
