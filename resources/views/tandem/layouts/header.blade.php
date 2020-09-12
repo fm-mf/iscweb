@@ -15,14 +15,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 @guest('tandem')
                     @component('web.components.navbar-nav', ['navItems' => [
-                        ['title' => $shortName, 'route' => 'web.index'],
+                        ['title' => $shortName, 'route' => __('routes.web.index')],
                         ['title' => __('tandem.auth.register'), 'route' => 'tandem.register', 'icon' => 'fas fa-user-plus'],
                         ['title' => __('tandem.auth.log-in'), 'route' => 'tandem.login', 'icon' => 'fas fa-sign-in-alt'],
                     ]])
                     @endcomponent
                 @else
                     @component('web.components.navbar-nav', ['navItems' => [
-                        ['title' => $shortName, 'route' => 'web.index'],
+                        ['title' => $shortName, 'route' => __('routes.web.index')],
                         ['title' => __('tandem.my-profile.title'), 'route' => 'tandem.my-profile', 'icon' => 'fas fa-user-edit'],
                         ['title' => __('tandem.auth.log-out'), 'route' => 'tandem.logout', 'icon' => 'fas fa-sign-out-alt', 'onClick' => "event.preventDefault(); document.getElementById('logout-form').submit();"],
                     ]])

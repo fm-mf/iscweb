@@ -13,6 +13,7 @@
                         </p>
                         <p>
                             <a class="btn btn-outline-primary" href="{{ route('tandem.main') }}">
+                                <span class="fas fa-user-friends"></span>
                                 @lang('tandem.list.show-only-potential-partners')
                             </a>
                         </p>
@@ -33,6 +34,7 @@
                         </p>
                         <p>
                             <a class="btn btn-outline-primary" href="{{ route('tandem.main', ['showAll']) }}">
+                                <span class="fas fa-users"></span>
                                 @lang('tandem.list.show-all-users')
                             </a>
                         </p>

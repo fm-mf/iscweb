@@ -24,6 +24,12 @@
                             <a href="mailto:{{ $tandemUser->email }}">{{ $tandemUser->email }}</a>
                         </dd>
                     </dl>
+                    <div class="form-group">
+                        <a href="{{ route('tandem.main') }}" class="btn btn-outline-primary">
+                            <span class="fas fa-arrow-left"></span>
+                            @lang('tandem.profile.back')
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

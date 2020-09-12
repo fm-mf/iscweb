@@ -66,6 +66,8 @@ return [
             'salutation' => 'S pozdravem,'
         ],
 
+        'cancel' => 'Zrušit',
+
         'change-password' => 'Změnit heslo',
         'password-change' => 'Změna hesla',
         'current-password' => 'Současné heslo',
@@ -120,6 +122,7 @@ return [
         'i-want-to-teach' => 'Rád/a někoho naučím',
 
         'update' => 'Aktualizovat',
+        'back' => 'Zpátky na seznam studentů',
 
         'placeholder' => [
             'given-names' => 'Zadej své jméno',

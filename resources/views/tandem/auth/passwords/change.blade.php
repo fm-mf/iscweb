@@ -36,11 +36,23 @@
                                 <div class="invalid-feedback">{{ $errors->first('password_confirmation') }}</div>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
-                                <span class="fas fa-key"></span>
-                                @lang('tandem.passwords.change-password')
-                            </button>
+                        <div class="row flex-wrap-reverse justify-content-between">
+                            <div class="col-sm-auto">
+                                <div class="form-group">
+                                    <a href="{{ route('tandem.my-profile') }}" class="btn btn-outline-secondary d-block d-sm-inline-block">
+                                        <span class="fas fa-times"></span>
+                                        @lang('tandem.passwords.cancel')
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary d-block d-sm-inline-block w-100">
+                                        <span class="fas fa-key"></span>
+                                        @lang('tandem.passwords.change-password')
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

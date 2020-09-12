@@ -49,19 +49,33 @@
                             </div>
                         </div>
                         @include('tandem.partials.my-profile')
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
-                                <span class="fas fa-save"></span>
-                                @lang('tandem.profile.update')
-                            </button>
+                        <div class="row flex-wrap-reverse">
+                            <div class="col text-md-left">
+                                <div class="form-group">
+                                    <a href="{{ route('tandem.main') }}" class="btn btn-outline-secondary d-block d-md-inline-block">
+                                        <span class="fas fa-arrow-left"></span>
+                                        @lang('tandem.profile.back')
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-auto">
+                                <div class="form-group">
+                                    <a href="{{ route('tandem.password.change') }}" class="btn btn-outline-primary d-block d-md-inline-block">
+                                        <span class="fas fa-key"></span>
+                                        @lang('tandem.passwords.change-password')
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-auto">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary d-block d-md-inline w-100">
+                                        <span class="fas fa-save"></span>
+                                        @lang('tandem.profile.update')
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     {{ Form::close() }}
-                    <div class="form-group">
-                        <a href="{{ route('tandem.password.change') }}" class="btn btn-outline-primary">
-                            <span class="fas fa-key"></span>
-                            @lang('tandem.passwords.change-password')
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

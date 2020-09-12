@@ -66,6 +66,8 @@ return [
             'salutation' => 'Best regards,'
         ],
 
+        'cancel' => 'Cancel',
+
         'change-password' => 'Change password',
         'password-change' => 'Password change',
         'current-password' => 'Current password',
@@ -120,6 +122,7 @@ return [
         'i-want-to-teach' => 'I would like to teach',
 
         'update' => 'Update',
+        'back' => 'Back to the list of students',
 
         'placeholder' => [
             'given-names' => 'Given names',
