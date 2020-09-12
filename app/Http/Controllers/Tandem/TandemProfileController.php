@@ -47,4 +47,17 @@ class TandemProfileController extends Controller
 
         return back()->with(['updateSuccessful' => true]);
     }
+
+    public function delete()
+    {
+        $user = auth('tandem')->user();
+        auth('tandem')->logout();
+        $user->languagesToTeach()->detach();
+        $user->languagesToLearn()->detach();
+        $user->delete();
+
+        return redirect()->route('tandem.index')->with([
+            'accountDeleteSuccessful' => true,
+        ]);
+    }
 }

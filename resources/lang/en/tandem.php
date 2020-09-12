@@ -108,6 +108,13 @@ return [
     'my-profile' => [
         'title' => 'My profile',
         'update-successful' => 'Profil byl úspěšně aktualizován',
+
+        'delete-account' => 'Delete account',
+        'delete-modal-title' => 'Delete account?',
+        'delete-modal-text-1' => 'Are you sure you want to delete your account?',
+        'delete-modal-text-2' => 'It is not possible to undo this operation, however, you can register again later.',
+        'delete' => 'Delete',
+        'delete-successful' => 'Your account has been successfully deleted'
     ],
 
     'profile' => [

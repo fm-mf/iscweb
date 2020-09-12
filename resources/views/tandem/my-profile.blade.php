@@ -78,6 +78,29 @@
                     {{ Form::close() }}
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <form action="{{ route('tandem.my-profile') }}" method="POST" id="delete-account-form" class="mt-5">
+                        {{ csrf_field() }}
+                        {{ method_field('delete') }}
+                        <protected-submit-button
+                            protection-title="@lang('tandem.my-profile.delete-modal-title')"
+                            protection-text=""
+                            proceed-text="@lang('tandem.my-profile.delete')"
+                            classes="btn-outline-danger"
+                            proceed-classes="btn-danger"
+                            modal-body-classes=""
+                            :custom-modal-body="true"
+                        >
+                            <template v-slot:modal-body>
+                                <p>@lang('tandem.my-profile.delete-modal-text-1')</p>
+                                <p>@lang('tandem.my-profile.delete-modal-text-2')</p>
+                            </template>
+                            @lang('tandem.my-profile.delete-account')
+                        </protected-submit-button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 @endsection

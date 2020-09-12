@@ -12,6 +12,15 @@
                     </div>
                 </div>
             @endif
+            @if(session('accountDeleteSuccessful'))
+                <div class="row">
+                    <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+                        <p class="alert alert-success">
+                            @lang('tandem.my-profile.delete-successful')
+                        </p>
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col">
                     <h1>@lang('tandem.index.heading')</h1>

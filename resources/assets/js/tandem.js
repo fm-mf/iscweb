@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueMultiselect from 'vue-multiselect';
+import ProtectedSubmitButton from "./components/ProtectedSubmitButton";
 
 if (document.getElementById('vue-form')) {
     new Vue({
@@ -24,6 +25,15 @@ if (document.getElementById('vue-form')) {
             this.country = this.initValues?.country ?? null;
             this.languagesToLearn = this.initValues?.languagesToLearn ?? [];
             this.languagesToTeach = this.initValues?.languagesToTeach ?? [];
+        },
+    });
+}
+
+if (document.getElementById('delete-account-form')) {
+    new Vue({
+        el: "#delete-account-form",
+        components: {
+            ProtectedSubmitButton,
         },
     });
 }

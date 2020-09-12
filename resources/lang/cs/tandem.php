@@ -108,6 +108,13 @@ return [
     'my-profile' => [
         'title' => 'Můj profil',
         'update-successful' => 'Profil byl úspěšně aktualizován',
+
+        'delete-account' => 'Smazat účet',
+        'delete-modal-title' => 'Smazat účet?',
+        'delete-modal-text-1' => '',
+        'delete-modal-text-2' => '',
+        'delete' => 'Smazat',
+        'delete-successful' => 'Účet byl úspěšně smazán'
     ],
 
     'profile' => [

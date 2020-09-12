@@ -22,7 +22,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body d-flex align-items-center">
+        <div class="modal-body" :class="modalBodyClasses">
           <slot name="modal-body">
             <img
               src="/img/partak/speedy.jpg"
@@ -45,7 +45,7 @@
                 Cancel
               </slot>
             </button>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn" :class="proceedClasses">
               <slot name="modal-btn-primary-text">
                 Continue
               </slot>
@@ -61,7 +61,15 @@
 export default {
   name: 'ProtectionModal',
   props: {
-    id: String
+    id: String,
+    proceedClasses: {
+      type: String,
+      required: true,
+    },
+    modalBodyClasses: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
     titleId() {
@@ -74,5 +82,9 @@ export default {
 <style scoped>
 .modal-body img {
   width: 6rem;
+}
+
+.modal-title {
+  margin-top: 0;
 }
 </style>

@@ -10,7 +10,7 @@
       <slot></slot>
     </button>
 
-    <protection-modal :id="modalId">
+    <protection-modal :id="modalId" :proceed-classes="proceedClasses" :modal-body-classes="modalBodyClasses">
       <template v-slot:modal-title>
         {{ protectionTitle }}
       </template>
@@ -20,7 +20,12 @@
       <template v-slot:modal-btn-secondary-text>
         {{ cancelText }}
       </template>
-      {{ protectionText }}
+      <template v-if="customModalBody" v-slot:modal-body>
+        <slot name="modal-body"></slot>
+      </template>
+      <template v-else>
+        {{ protectionText }}
+      </template>
     </protection-modal>
   </div>
 </template>
@@ -54,10 +59,22 @@ export default {
       type: String,
       default: 'btn-primary'
     },
+    proceedClasses: {
+      type: String,
+      default: 'btn-primary',
+    },
+    modalBodyClasses: {
+      type: String,
+      default: 'd-flex align-items-center',
+    },
     modalId: {
       type: String,
       default: 'protectionModal'
-    }
+    },
+    customModalBody: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     target() {
