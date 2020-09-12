@@ -14,6 +14,15 @@
                     </div>
                 </div>
             @endif
+            @if(session('passwordChangeSuccessful'))
+                <div class="row">
+                    <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+                        <p class="alert alert-success">
+                            @lang('tandem.passwords.password-change-successful')
+                        </p>
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-lg-10 col-xl-8 mx-auto">
                     {{ Form::model($tandemUser, [
@@ -41,9 +50,18 @@
                         </div>
                         @include('tandem.partials.my-profile')
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">@lang('tandem.profile.update')</button>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="fas fa-save"></span>
+                                @lang('tandem.profile.update')
+                            </button>
                         </div>
                     {{ Form::close() }}
+                    <div class="form-group">
+                        <a href="{{ route('tandem.password.change') }}" class="btn btn-outline-primary">
+                            <span class="fas fa-key"></span>
+                            @lang('tandem.passwords.change-password')
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

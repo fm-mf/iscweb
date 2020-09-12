@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Tandem\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\TandemUser;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 
 class TandemResetPasswordController extends Controller
@@ -44,13 +42,7 @@ class TandemResetPasswordController extends Controller
 
     protected function resetPassword($user, $password)
     {
-        $user->update([
-            'password' => Hash::make($password),
-            'passhash' => TandemUser::generateOldPasshash([
-                'email' => $user->email,
-                'password' => $password
-            ]),
-        ]);
+        $user->setNewPassword($password);
 
         event(new PasswordReset($user));
     }

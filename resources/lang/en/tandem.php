@@ -65,6 +65,18 @@ return [
             'line-2' => 'If you did not request a password reset, no further action is required.',
             'salutation' => 'Best regards,'
         ],
+
+        'change-password' => 'Change password',
+        'password-change' => 'Password change',
+        'current-password' => 'Current password',
+        'new-password' => 'New password',
+        'new-password-confirmation' => 'New password confirmation',
+        'password-change-successful' => 'The password has been changed',
+        'placeholder' => [
+            'current-password' => 'Enter your current password',
+            'new-password' => 'Enter the new password',
+            'new-password-confirmation' => 'Confirm the new password',
+        ],
     ],
 
     'list' => [

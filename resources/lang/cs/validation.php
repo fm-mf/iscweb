@@ -115,6 +115,7 @@ return [
     ],
 
     'phone' => 'Zadané telefonní číslo není platné',
+    'password' => 'Zadané současné heslo je chybné',
 
     /*
     |--------------------------------------------------------------------------

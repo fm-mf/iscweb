@@ -65,6 +65,18 @@ return [
             'line-2' => 'Pokud jsi o obnovu nežádal/a, můžeš tento e-mail ignorovat.',
             'salutation' => 'S pozdravem,'
         ],
+
+        'change-password' => 'Změnit heslo',
+        'password-change' => 'Změna hesla',
+        'current-password' => 'Současné heslo',
+        'new-password' => 'Nové heslo',
+        'new-password-confirmation' => 'Potvrzení nového hesla',
+        'password-change-successful' => 'Heslo bylo úspěšně změněno',
+        'placeholder' => [
+            'current-password' => 'Zadej své současné heslo',
+            'new-password' => 'Zadej nové heslo',
+            'new-password-confirmation' => 'Potvrď nové heslo',
+        ],
     ],
 
     'list' => [

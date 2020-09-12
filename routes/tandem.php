@@ -22,4 +22,7 @@ Route::post('password/email', 'Auth\\TandemForgotPasswordController@sendResetLin
 Route::get('password/reset/{token}', 'Auth\\TandemResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\\TandemResetPasswordController@reset');
 
+Route::get('password/change', 'Auth\\TandemChangePasswordController@showChangePasswordForm')->name('password.change');
+Route::post('password/change', 'Auth\\TandemChangePasswordController@changePassword');
+
 Route::get('change-language', 'TandemController@changeLanguage')->name('change-language');

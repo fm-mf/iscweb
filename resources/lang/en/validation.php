@@ -117,6 +117,7 @@ return [
     ],
 
     'phone' => 'Entered phone number is invalid',
+    'password' => 'The current password does not match',
 
     /*
     |--------------------------------------------------------------------------

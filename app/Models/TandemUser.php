@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class TandemUser extends Authenticatable
 {
@@ -108,6 +109,17 @@ class TandemUser extends Authenticatable
         }
 
         return $this->passhash;
+    }
+
+    public function setNewPassword(string $password)
+    {
+        $this->update([
+            'password' => Hash::make($password),
+            'passhash' => self::generateOldPasshash([
+                'email' => $this->email,
+                'password' => $password,
+            ])
+        ]);
     }
 
     public static function generateOldPasshash(array $credintials)
