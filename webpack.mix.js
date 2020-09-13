@@ -19,6 +19,7 @@ mix
   .js('resources/assets/js/partak-stats.js', 'public/js')
   .js('resources/assets/js/partak-settings-hours.js', 'public/js')
   .js('resources/assets/js/saf/saf.js', 'public/js/saf')
+  .js('resources/assets/js/tandem.js', 'public/js')
   .js('resources/assets/js/ow-trips-stats.js', 'public/js')
   .js('resources/assets/js/blog-rss-feed.js', 'public/js')
   .js('resources/assets/js/printer.js', 'public/js')
@@ -34,6 +35,7 @@ mix
   .sass('resources/assets/sass/errors.scss', 'public/css')
   .sass('resources/assets/sass/saf/saf.scss', 'public/css')
   .sass('resources/assets/sass/saf/saf-partner.scss', 'public/css')
+  .sass('resources/assets/sass/tandem/tandem.scss', 'public/css')
   .sass('resources/assets/sass/form/form.scss', 'public/css')
   .sass('resources/assets/sass/vendor.scss', 'public/css')
   .copy(

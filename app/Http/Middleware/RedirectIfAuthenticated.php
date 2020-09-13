@@ -19,6 +19,11 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             $user = Auth::user();
+
+            if ($guard === 'tandem') {
+                return redirect(route('tandem.main'));
+            }
+
             if ($user->isPartak()) {
                 return redirect('/partak');
             } else if ($user->isBuddy()) {

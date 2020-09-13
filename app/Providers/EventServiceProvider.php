@@ -32,7 +32,7 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Reserved'
         ],
         'Illuminate\Auth\Events\Login' => [
-                'App\Listeners\BuddyLoggedIn'
+            'App\Listeners\UserLoggedIn'
         ]
     ];
 

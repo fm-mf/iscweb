@@ -70,4 +70,15 @@ class Handler extends ExceptionHandler
         return response()->view('errors.unauthorized');
     }
 
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if (!$request->routeIs('tandem.*')) {
+            return parent::unauthenticated($request, $exception);
+        }
+
+        return $request->expectsJson()
+            ? response()->json(['message' => $exception->getMessage()], 401)
+            : redirect()->guest(route('tandem.login'));
+    }
+
 }
