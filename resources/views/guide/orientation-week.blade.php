@@ -224,7 +224,7 @@
         <div class="col-lg-12">
             <h3 id="trips-meeting">Second information meeting</h3>
             <ul class="list-unstyled">
-                <li>When: <strong>13:00</strong></li>
+                <li>When: <strong>13:30</strong></li>
                 <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
                 <li>Topics:
                     <ul>
@@ -277,7 +277,7 @@
             <h3 id="prague-discovery-game">Prague Discovery Game</h3>
             <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
             <ul class="list-unstyled">
-                <li>When: <strong>TBA</strong></li>
+                <li>When: <strong>13:00</strong></li>
                 <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
                 {{--<li>When: in the afternoon</li>--}}
                 {{--<li>Where: <abbr title="To be announced">TBA</abbr> soon</li>--}}
