@@ -79,7 +79,14 @@
             <i class="fas fa-envelope fa-fw mr-1"></i> {{ $user->email }}
         </div>
         <div class="info-line">
-            <i class="fas fa-phone fa-fw mr-1"></i> @if(isset($buddy->phone)) {{ $buddy->phone }} @else No Phone @endif
+            <i class="fas fa-phone fa-fw mr-1"></i>
+            @if(isset($buddy->phone))
+                {{ $buddy->phone }}
+            @elseif($exStudent->phone)
+                {{ $exStudent->phone }}
+            @else
+                No Phone
+            @endif
         </div>
 
         @if($exStudent)
