@@ -107,7 +107,7 @@ return [
 
     'my-profile' => [
         'title' => 'My profile',
-        'update-successful' => 'Profil byl úspěšně aktualizován',
+        'update-successful' => 'Your profile has been successfully updated',
 
         'delete-account' => 'Delete account',
         'delete-modal-title' => 'Delete account?',
