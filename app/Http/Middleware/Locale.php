@@ -17,8 +17,12 @@ class Locale
      */
     public function handle(Request $request, Closure $next)
     {
-        // Set locale only for Buddy DB, otherwise there will be a mix of languages on non-translated pages
-        if (!$request->is('muj-buddy') && !$request->is('muj-buddy/*')) {
+        // Apply the locale only for Buddy DB & Tandem database,
+        // otherwise there will be a mix of languages on non-translated pages
+        if (!$request->is('muj-buddy')
+            && !$request->is('muj-buddy/*')
+            && !$request->routeIs('tandem.*')
+        ) {
             return $next($request);
         }
 
