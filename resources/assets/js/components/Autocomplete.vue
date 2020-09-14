@@ -23,6 +23,8 @@
       </div>
     </div>
     <input
+      :id="showBarCode ? 'barcode-input' : undefined"
+      ref="input"
       v-model="search"
       type="text"
       :placeholder="placeholder"
@@ -69,10 +71,13 @@
         </a>
       </li>
     </ul>
+    <div v-if="showBarCode" class="input-group-append">
+      <barcode-button @code="handleBarCode" />
+    </div>
     <div v-if="showSemesters" class="input-group-append">
       <button
         type="button"
-        class="btn btn-outline-secondary dropdown-toggle"
+        class="btn btn-outline-secondary dropdown-toggle semesters-button"
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
@@ -111,7 +116,8 @@ export default {
     placeholder: String,
     target: String,
     showSemesters: Boolean,
-    createUrl: String
+    createUrl: String,
+    showBarCode: Boolean
   },
   data: function() {
     return {
@@ -184,6 +190,11 @@ export default {
     handleNew() {
       window.location.href = this.createUrl;
     },
+    handleBarCode(code) {
+      this.search = code;
+      this.$refs.input.focus();
+      this.update();
+    },
 
     debouncedRequest: debounce(function(input) {
       axios
@@ -217,6 +228,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints';
+
 .dropdown-toggle {
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
@@ -271,6 +286,18 @@ export default {
     a small {
       color: #fff !important;
     }
+  }
+}
+
+.input-group-append .btn.btn {
+  z-index: inherit;
+}
+
+@include media-breakpoint-down(sm) {
+  .semesters-button {
+    max-width: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 </style>
