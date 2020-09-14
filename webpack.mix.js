@@ -23,6 +23,8 @@ mix
   .js('resources/assets/js/ow-trips-stats.js', 'public/js')
   .js('resources/assets/js/blog-rss-feed.js', 'public/js')
   .js('resources/assets/js/printer.js', 'public/js')
+  .js('resources/assets/js/pickers.js', 'public/js')
+  .js('resources/assets/js/text-editor.js', 'public/js')
   .sass('resources/assets/sass/web/web.scss', 'public/css')
   .sass('resources/assets/sass/czech/czech.scss', 'public/css')
   .sass('resources/assets/sass/czech/alumni.scss', 'public/css')
