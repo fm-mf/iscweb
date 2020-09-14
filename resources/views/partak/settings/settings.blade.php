@@ -120,20 +120,9 @@
 @section('scripts')
     @parent
 
-    <script src="{{ asset('/js/picker.js') }}"></script>
-    <script src="{{ asset('/js/picker.date.js') }}"></script>
-    <script src="{{ asset('/js/picker.time.js') }}"></script>
+    <script src="{{ asset('/js/picker.js') }}" defer></script>
+    <script src="{{ asset('/js/picker.date.js') }}" defer></script>
+    <script src="{{ asset('/js/picker.time.js') }}" defer></script>
 
-    <script type="text/javascript">
-    $('.date').pickadate({
-        editable: true,
-        firstDay: 1,
-        format: 'dd mmm yyyy'
-    });
-
-    $('.time').pickatime({
-        editable: true,
-        format: 'HH:i'
-    });
-    </script>
+    <script src="{{ mix('/js/pickers.js') }}" defer></script>
 @stop
