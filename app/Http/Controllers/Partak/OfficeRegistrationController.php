@@ -9,7 +9,7 @@
 
 namespace App\Http\Controllers\Partak;
 
-use App\Models\Buddy;
+use App\Http\Controllers\Api\ApiController;
 use App\Models\ExchangeStudent;
 use App\Models\Accommodation;
 use App\Models\Country;
@@ -19,7 +19,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Facades\Settings;
 use App\Models\Faculty;
+use App\Models\Receipt;
 use Illuminate\Support\Facades\Validator;
+use Session;
 
 class OfficeRegistrationController extends Controller
 {
@@ -35,6 +37,7 @@ class OfficeRegistrationController extends Controller
     public function showExchangeStudent($id)
     {
         $this->authorize('acl', 'exchangeStudents.register');
+
         return view('partak.users.officeRegistration.register')->with([
             'exStudent' => ExchangeStudent::with('person.user')->find($id),
             'faculties' => Faculty::getOptions(),
@@ -42,26 +45,35 @@ class OfficeRegistrationController extends Controller
         ]);
     }
 
-    public function esnRegistration($id)
+    public function esnRegistration(ExchangeStudent $student)
     {
         $this->authorize('acl', 'exchangeStudents.register');
-        $exStudent = ExchangeStudent::find($id);
-        $this->registrationValidator(['phone' => $exStudent->phone, 'esn_card_number' => $exStudent->esn_card_number])->validate();
-        $exStudent->esn_registered = 'y';
-        $exStudent->save();
-        return back();
-    }
 
-    public function esnRegistrationNotPreregistered($id, $phone, $esnCard)
-    {
-        $this->authorize('acl', 'exchangeStudents.register');
-        $this->registrationValidator(['phone' => $phone, 'esn_card_number' => $esnCard])->validate();
-        $exStudent = ExchangeStudent::find($id);
-        $exStudent->esn_registered = 'y';
-        $exStudent->esn_card_number = $esnCard;
-        $exStudent->phone = $phone;
-        $exStudent->save();
-        return back();
+        if (request()->has('phone') && substr(request('phone'), 0, 3) === '420') {
+            request()->merge(['phone' => '+' . request('phone')]);
+        }
+
+        $data = request()->validate([
+            'phone' => ['sometimes', 'required', 'phone:CZ', 'unique:exchange_students'],
+            'esn_card_number' => ['sometimes', 'required', 'string', 'unique:exchange_students'],
+        ]);
+        $data['esn_registered'] = 'y';
+
+        $receipt = Receipt::create([
+            'created_by' => auth()->id(),
+            'subject' => 'ESN Membership',
+            // TODO: Configurable amount
+            'amount' => 500,
+        ]);
+        $data['esn_receipt_id'] = $receipt->id_receipt;
+
+        $student->update($data);
+
+        return back()->with([
+            'receipt' => $receipt->id_receipt,
+            'receiptType' => 'esn_card',
+            'successRegister' => true,
+        ]);
     }
 
     public function showCreateExStudent()
@@ -121,21 +133,16 @@ class OfficeRegistrationController extends Controller
             'whatsapp' => ['phone:AUTO', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
         ]);
+
         return $validator;
     }
 
-    protected function registrationValidator(array $data)
-    {
-        $validator = Validator::make($data, [
-            'phone' => ['required', 'max:16',],
-            'esn_card_number' => ['required', 'max:12',],
-        ]);
-        return $validator;
-    }
-
-    public function showPreregistrations($id = 1)
+    public function showPreregistrations()
     {
         $this->authorize('acl', 'exchangeStudents.register');
-        return view('partak.users.preregistration')->with('currentId', $id);
+
+        return view('partak.users.preregistration')->with([
+            'limit' => ApiController::DEFAULT_PREREGISTRATION_LIMIT,
+        ]);
     }
 }

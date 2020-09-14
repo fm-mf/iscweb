@@ -13,4 +13,16 @@ return [
     'term-winter' => 'zimní',
     'term-summer' => 'letní',
     'locale-full' => 'cs_CZ.UTF-8',
+
+    'days' => [
+        'Monday' => 'pondělí',
+        'Tuesday' => 'úterý',
+        'Wednesday' => 'středa',
+        'Thursday' => 'čtvrtek',
+        'Friday' => 'pátek',
+        'Saturday' => 'sobota',
+        'Sunday' => 'neděle',
+    ],
+
+    'closed' => 'zavřeno',
 ];

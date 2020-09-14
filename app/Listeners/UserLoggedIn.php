@@ -4,10 +4,11 @@ namespace App\Listeners;
 
 
 use App\Models\Buddy;
+use App\Models\TandemUser;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Login;
 
-class BuddyLoggedIn
+class UserLoggedIn
 {
     /**
      * Create the event listener.
@@ -26,9 +27,15 @@ class BuddyLoggedIn
      */
     public function handle(Login $event)
     {
+        if ($event->user instanceof TandemUser) {
+            $event->user->last_login = Carbon::now();
+            $event->user->save();
+            return;
+        }
+
         $buddy = Buddy::findBuddy($event->user->getAuthIdentifier());
         if ($buddy != null) {
-            $buddy->last_login = Carbon::now('UTC');
+            $buddy->last_login = Carbon::now();
             $buddy->save();
         }
     }

@@ -66,7 +66,6 @@
     ln -sr "{{ $web_home }}/iscproisc" "{{ $new_release_dir }}/public/iscproisc"
     ln -sr "{{ $web_home }}/languages" "{{ $new_release_dir }}/public/languages"
     ln -sr "{{ $web_home }}/pw" "{{ $new_release_dir }}/public/pw"
-    ln -sr "{{ $web_home }}/Tandem/www" "{{ $new_release_dir }}/public/tandem"
     ln -sr "{{ $web_home }}/wiki" "{{ $new_release_dir }}/public/wiki"
 @endtask
 
@@ -92,5 +91,6 @@
     cd {{ $new_release_dir }}
     php artisan config:cache || echo "Config caching failed"
     php artisan route:cache || echo "Routes caching failed"
+    php artisan queue:restart
     php artisan up
 @endtask

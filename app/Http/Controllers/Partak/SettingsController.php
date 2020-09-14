@@ -16,17 +16,11 @@ class SettingsController extends Controller
     public function showSettings()
     {
         $this->authorize('acl', 'settings.edit');
-        $currentSemester = Semester::getCurrentSemester();
+
         $sems = Semester::orderBy('id_semester')->get();
         $semesters = [];
         foreach ($sems as $semester) {
             $semesters[$semester->semester] = $semester->semester;
-        }
-
-        $opms = OpeningHoursMode::listModes();
-        $openingHoursModes = array();
-        foreach ($opms as $opm) {
-            $openingHoursModes[$opm] = $opm;
         }
 
         $settings = Settings::all();
@@ -38,10 +32,6 @@ class SettingsController extends Controller
         return view('partak.settings.settings')->with([
             'settings' => $settings,
             'semesters' => $semesters,
-            'openingHoursModes' => $openingHoursModes,
-            'openingHoursText' => OpeningHoursMode::getCurrentText(),
-            'showOpeningHours' => OpeningHoursMode::areCurrentHoursShown(),
-            'openingHoursData' => OpeningHoursMode::getCurrentHours(),
         ]);
     }
 
@@ -79,58 +69,42 @@ class SettingsController extends Controller
 
     public function showOpeningHours()
     {
-        $this->authorize("acl", "settings.openingHours");
-
-        $opms = OpeningHoursMode::listModes();
-        $openingHoursModes = array();
-        foreach ($opms as $opm) {
-            $openingHoursModes[$opm] = $opm;
-        }
+        $this->authorize('acl', 'settings.openingHours');
 
         return view('partak.settings.openingHours')->with([
             'settings' => Settings::all(),
-            'openingHoursModes' => $openingHoursModes,
-            'openingHoursText' => OpeningHoursMode::getCurrentText(),
-            'showOpeningHours' => OpeningHoursMode::areCurrentHoursShown(),
-            'openingHoursData' => OpeningHoursMode::getCurrentHours(),
+            'currentMode' => OpeningHoursMode::getCurrentMode(),
+            'availableModes' => OpeningHoursMode::all()->mapWithKeys(function ($item) {
+                return [$item['id_opening_hours_mode'] => $item['mode']];
+            }),
         ]);
     }
 
-    public function submitOpeningHours(Request $request)
+    public function submitOpeningHours()
     {
-        $this->authorize("acl", "settings.openingHours");
-        $this->openingHoursValidator($request->all())->validate();
+        $this->authorize('acl', 'settings.openingHours');
 
-        $data = array();
-        foreach ($request->all() as $key => $value) {
-            if ($value) {
-                $data[$key] = $value;
-            }
+        $data = request()->validate([
+            'id_opening_hours_mode' => ['required', 'exists:opening_hours_mode'],
+            'hours_json.text' => ['nullable', 'required_with:hours_json.textCs', 'string'],
+            'hours_json.textCs' => ['nullable', 'required_with:hours_json.text', 'string'],
+            'show_hours' => ['nullable', 'boolean'],
+            'hours_json.hours.Monday' => ['required', 'string'],
+            'hours_json.hours.Tuesday' => ['required', 'string'],
+            'hours_json.hours.Wednesday' => ['required', 'string'],
+            'hours_json.hours.Thursday' => ['required', 'string'],
+            'hours_json.hours.Friday' => ['required', 'string'],
+            'hours_json.hours.Saturday' => ['required', 'string'],
+            'hours_json.hours.Sunday' => ['required', 'string'],
+        ]);
+
+        if (!isset($data['show_hours'])) {
+            $data['show_hours'] = false;
         }
 
-        OpeningHoursMode::setMode($data["openingHoursMode"]);
-        Settings::set("openingHoursMode", OpeningHoursMode::getCurrentMode());
-
-        if (!isset($data["openingHoursText"])) {
-            $data["openingHoursText"] = "";
-        }
-
-        OpeningHoursMode::updateText(OpeningHoursMode::getCurrentMode(), $data["openingHoursText"]);
-
-        if (!isset($data["showOpeningHours"])) {
-            OpeningHoursMode::hideCurrentHours();
-        } else {
-            OpeningHoursMode::showCurrentHours();
-            $hours = [];
-
-            foreach (OpeningHoursMode::$dow as $day) {
-                $hours[$day] = isset($data["openingHoursData-$day"])
-                    ? $data["openingHoursData-$day"]
-                    : '';
-            }
-
-            OpeningHoursMode::updateHours(OpeningHoursMode::getCurrentMode(), $hours);
-        }
+        $mode = OpeningHoursMode::find($data['id_opening_hours_mode']);
+        $mode->update($data);
+        $mode->setAsCurrent();
 
         return back()->with(['successUpdate' => true]);
     }
@@ -149,32 +123,18 @@ class SettingsController extends Controller
             'electionStreamUrl' => 'nullable|url',
             'fbGroupLink' => 'nullable|url',
             'whatsAppAnnoucementsLink' => 'nullable|url',
-            'whatsAppGeneralLink' => 'nullable|url'
+            'whatsAppGeneralLink' => 'nullable|url',
+            'receiptPrinterUrl' => 'url'
         ]);
     }
 
-    protected function openingHoursValidator(array $data)
+    public function getOpeningHoursData()
     {
-        return Validator::make(
-            $data,
-            ["openingHoursMode" => "required",]
-        );
-    }
+        $this->authorize("acl", "settings.edit");
 
-    public static function getOpeningHours()
-    {
-        $mode = isset($_GET["mode"]) ? $_GET["mode"] : null;
-        if (!in_array($mode, OpeningHoursMode::listModes())) {
-            return "";
-        }
+        $mode = OpeningHoursMode::findOrFail(request()->query('mode'));
 
-        $response = json_encode([
-            "text" => OpeningHoursMode::getText($mode),
-            "show_hours" => OpeningHoursMode::areHoursShown($mode),
-            "hours" => OpeningHoursMode::getHours($mode)
-        ]);
-
-        return $response ?? "";
+        return $mode;
     }
 
     public function showCoronavirus()

@@ -103,9 +103,21 @@ return [
         'id_faculty' => [
             'exists' => 'Invalid faculty selected',
         ],
+        'password' => [
+            'confirmed' => 'The passwords does not match',
+        ],
+        'languagesToLearn' => [
+            'required' => 'You have to choose at least one language you want to learn',
+            'min' => 'You have to choose at least one language you want to learn',
+        ],
+        'languagesToTeach' => [
+            'required' => 'You have to choose at least one language you want to teach someone',
+            'min' => 'You have to choose at least one language you want to teach someone',
+        ],
     ],
 
     'phone' => 'Entered phone number is invalid',
+    'password' => 'The current password does not match',
 
     /*
     |--------------------------------------------------------------------------
@@ -122,6 +134,20 @@ return [
         'age' => 'year of birth',
         'buddyDbFromDate' => 'Buddy database opening date',
         'buddyDbFromTime' => 'Buddy database opening time',
+
+        'hours_json' => [
+            'text' => 'Opening hours text',
+            'textCs' => 'Opening hours text in Czech',
+            'hours' => [
+                'Monday' => 'Monday opening hours',
+                'Tuesday' => 'Tuesday opening hours',
+                'Wednesday' => 'Wednesday opening hours',
+                'Thursday' => 'Thursday opening hours',
+                'Friday' => 'Friday opening hours',
+                'Saturday' => 'Saturday opening hours',
+                'Sunday' => 'Sunday opening hours',
+            ],
+        ],
     ],
 
 ];

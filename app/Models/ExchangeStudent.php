@@ -24,7 +24,7 @@ class ExchangeStudent extends Model
 
     protected $fillable = [
         'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation',
-        'whatsapp', 'facebook'
+        'whatsapp', 'facebook', 'esn_receipt_id'
     ];
 
     public function user()
@@ -74,6 +74,11 @@ class ExchangeStudent extends Model
             ->wherePivot('deleted_at', null);
     }
 
+    public function esnReceipt()
+    {
+        return $this->hasOne('\App\Models\Receipt', 'id_receipt', 'esn_receipt_id');
+    }
+
     public function isSelfPaying()
     {
         return $this->person->user->hasRole('samoplatce');
@@ -86,8 +91,8 @@ class ExchangeStudent extends Model
 
     public function removeBuddy()
     {
-        $this->id_buddy = NULL;
-        $this->buddy_timestamp = NULL;
+        $this->id_buddy = null;
+        $this->buddy_timestamp = null;
         $this->save();
     }
 
@@ -138,22 +143,22 @@ class ExchangeStudent extends Model
 
     public static function scopeBySemester($query, $semester)
     {
-        return $query->whereHas('semesters', function($query) use ($semester) {
+        return $query->whereHas('semesters', function ($query) use ($semester) {
             $query->where('semester', $semester);
         });
     }
 
     public static function scopeByUniqueSemester($query, $semester)
     {
-        $previusSmemester = Semester::where('semester', $semester)->first()->optionalPreviousSemester();
+        $previousSemester = Semester::where('semester', $semester)->first()->optionalPreviousSemester();
 
         $query = $query->whereHas('semesters', function ($query) use ($semester) {
             $query->where('semester', $semester);
         });
 
-        if ($previusSmemester) {
-            $query->whereDoesntHave('semesters', function ($query) use ($previusSmemester) {
-                $query->where('semester', $previusSmemester->semester);
+        if ($previousSemester) {
+            $query->whereDoesntHave('semesters', function ($query) use ($previousSemester) {
+                $query->where('semester', $previousSemester->semester);
             });
         }
 
@@ -162,7 +167,7 @@ class ExchangeStudent extends Model
 
     public static function scopeWithoutBuddy($query)
     {
-        return $query->where('id_buddy', NULL);
+        return $query->where('id_buddy', null);
     }
 
     public static function scopeFilter($query, $filter, $values)
@@ -173,20 +178,20 @@ class ExchangeStudent extends Model
         }
         if ($filter == "countries") {
             return $query->whereIn('id_country', self::filterToArray($values, 'id_country'));
-        } else if ($filter == "accommodation") {
+        } elseif ($filter == "accommodation") {
             return $query->whereIn('id_accommodation', self::filterToArray($values, 'id_accommodation'));
-        } else if ($filter == "faculties") {
+        } elseif ($filter == "faculties") {
             return $query->whereIn('id_faculty', self::filterToArray($values, 'id_faculty'));
-        } else if ($filter == "arrivals") {
-            return $query->whereHas('arrival', function($query) use ($values) {
-                $query->where(function($query) use ($values) {
+        } elseif ($filter == "arrivals") {
+            return $query->whereHas('arrival', function ($query) use ($values) {
+                $query->where(function ($query) use ($values) {
                     foreach ($values as $value) {
                         $dayBeginning = Carbon::createFromFormat('j. n. Y', $value)->setTime(0, 0, 0);
                         $dayEnd = $dayBeginning->copy()->setTime(23, 59, 59);
-                        $query->orWhere(function($query) use ($dayBeginning, $dayEnd) {
+                        $query->orWhere(function ($query) use ($dayBeginning, $dayEnd) {
                             $query->where('arrival', '>=', $dayBeginning->toDateTimeString())
                                 ->where('arrival', '<=', $dayEnd->toDateTimeString());
-                            });
+                        });
                     }
                 });
             });
@@ -211,11 +216,13 @@ class ExchangeStudent extends Model
         return $query->where('want_buddy', 'y');
     }
 
-    public function scopeWithAll($query) {
+    public function scopeWithAll($query)
+    {
         $query->with(['person.user', 'country', 'faculty', 'accommodation', 'arrival']);
     }
 
-    public function scopeJoinAll($query) {
+    public function scopeJoinAll($query)
+    {
         return $query->leftJoin('arrivals', 'arrivals.id_user', '=', 'exchange_students.id_user')
             ->join('people', 'people.id_user', '=', 'exchange_students.id_user')
             ->join('countries', 'countries.id_country', '=', 'exchange_students.id_country')
@@ -223,38 +230,70 @@ class ExchangeStudent extends Model
             ->join('accommodation', 'accommodation.id_accommodation', '=', 'exchange_students.id_accommodation');
     }
 
-    public function scopeWithFilledProfile($query, $semester) {
-        $query->byUniqueSemester($semester)
-                ->wantBuddy()
-                ->where(function ($query) {
-                    $query->whereNotNull('about')
-                            ->orWhereHas('arrival')
-                            ->orWhereHas('person', function ($query) {
-                                $query->whereNotNull('avatar');
-                            });
-                });
+    public function scopeWithFilledProfile($query, $semester)
+    {
+        return $query->byUniqueSemester($semester)
+            ->where(function (Builder $query) {
+                $query->wantBuddy()
+                    ->orWhereHas('buddy');
+            })
+            ->where(function ($query) {
+                $query->whereNotNull('about')
+                    ->orWhereHas('arrival')
+                    ->orWhereHas('person', function ($query) {
+                        $query->whereNotNull('avatar');
+                    });
+            });
     }
 
-    public function scopeWithFilledArrival($query, $semester) {
+    public function scopeWithFilledArrival($query, $semester)
+    {
         $query->byUniqueSemester($semester)
-                ->wantBuddy()
-                ->where(function ($query) {
-                    $query->whereHas('arrival');
-                });
+            ->wantBuddy()
+            ->where(function ($query) {
+                $query->whereHas('arrival');
+            });
     }
 
 
-    public function scopeAvailableToPick($query, $semester) {
+    public function scopeAvailableToPick($query, $semester)
+    {
         $query->withFilledProfile($semester)
-                ->withoutBuddy();
+            ->withoutBuddy();
     }
 
-    public function isAvailableToPick() {
+    public function scopeToPreregister($query, $lastName, $firstName, $id)
+    {
+        $query
+            ->whereNull('esn_card_number')
+            ->whereNull('phone')
+            ->join('people', 'people.id_user', 'exchange_students.id_user')
+            ->whereHas('person', function ($query) use ($lastName, $firstName, $id) {
+                $query
+                    ->where('last_name', '>', $lastName)
+                    ->orWhere(function ($query) use ($lastName, $firstName, $id) {
+                        $query->where('last_name', $lastName)
+                            ->where(function ($query) use ($firstName, $id) {
+                                $query->where('first_name', '>', $firstName)
+                                    ->orWhere(function ($query) use ($firstName, $id) {
+                                        $query->where('first_name', $firstName)
+                                            ->where('id_user', '>', $id);
+                                    });
+                            });
+                    });
+                })
+            ->orderBy('last_name')
+            ->orderBy('first_name')
+            ->orderBy('exchange_students.id_user');
+    }
+
+    public function isAvailableToPick()
+    {
         return $this->hasSemester(Semester::getCurrentSemester())
-                && !$this->hasSemester(Semester::getCurrentSemester()->previousSemester())
-                && ($this->about != null || $this->arrival != null || $this->person->avatar != null)
-                && $this->wantBuddy()
-                && !$this->hasBuddy();
+            && !$this->hasSemester(Semester::getCurrentSemester()->previousSemester())
+            && ($this->about != null || $this->arrival != null || $this->person->avatar != null)
+            && $this->wantBuddy()
+            && !$this->hasBuddy();
     }
 
     public static function filterToArray($values, $key)
@@ -344,5 +383,15 @@ class ExchangeStudent extends Model
         $age = intval(date('Y')) - ($this->person->age);
 
         return ($age - 1) . '–' . $age;
+    }
+
+    public function getIsEsnRegisteredAttribute()
+    {
+        return $this->esn_registered === 'y';
+    }
+
+    public function getIsNotEsnRegisteredAttribute()
+    {
+        return $this->esn_registered === 'n';
     }
 }

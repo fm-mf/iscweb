@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'checkbuddy' => \App\Http\Middleware\CheckBuddy::class,
         'checkpartak' => \App\Http\Middleware\CheckPartak::class,
         'locale' => \App\Http\Middleware\Locale::class,
+        'printer' => \App\Http\Middleware\Printer::class
     ];
 }
