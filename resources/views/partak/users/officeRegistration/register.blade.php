@@ -33,7 +33,7 @@
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="phone-not-required" name="phone-not-required" value="1" />
-                                <label class="form-check-label" for="phone-not-required">Does not want a phone</label>
+                                <label class="form-check-label" for="phone-not-required">Does not want a SIM card</label>
                             </div>
                         @endif
                         @if($exStudent->esn_card_number === null)
