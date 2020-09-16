@@ -13,7 +13,7 @@
     </div>
 
     <!-- Cropping modal -->
-    <div class="modal fade" id="avatar-modal" tabindex="-1" role="dialog" aria-labelledby="avatar-modal-label" aria-hidden="true">
+    <div class="modal fade show" id="avatar-modal" tabindex="-1" role="dialog" aria-labelledby="avatar-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <form class="avatar-form" id="avatar-form" method="post" action="{{ url('api/avatar') }}" enctype="multipart/form-data">

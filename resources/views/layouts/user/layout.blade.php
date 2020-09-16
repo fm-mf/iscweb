@@ -12,10 +12,6 @@
     @section('stylesheets')
         <link href="{{ URL::asset('css/user.css') }}" rel="stylesheet" type="text/css">
     @show
-
-{{-- We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
-    <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>--}}
 </head>
 <body>
 @include('partials.google-analytics')
@@ -24,9 +20,10 @@
 
 @section('scripts')
     <script
-            src="https://code.jquery.com/jquery-3.1.1.js"
-            integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-            crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous"
+    ></script>
     <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::asset('js/chosen.jquery.min.js') }}"></script>
     <script>
