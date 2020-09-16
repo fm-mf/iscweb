@@ -31,6 +31,10 @@
                                 @endif
                                 <small class="form-text text-muted">Scan the phone number using the barcode scanner – keyboard layout must be set to English</small>
                             </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="phone-not-required" name="phone-not-required" value="1" />
+                                <label class="form-check-label" for="phone-not-required">Does not want a phone</label>
+                            </div>
                         @endif
                         @if($exStudent->esn_card_number === null)
                             <div class="form-group">

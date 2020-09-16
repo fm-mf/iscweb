@@ -16,7 +16,7 @@ import Reservation from './partak/Reservation';
 import ContactsOrder from './components/ContactsOrder';
 import BarcodeButton from './partak/BarcodeButton';
 import ShareButton from './partak/ShareButton';
-import ProtectedSubmitButton from "./components/ProtectedSubmitButton";
+import ProtectedSubmitButton from './components/ProtectedSubmitButton';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -238,4 +238,23 @@ if (formRegister != null) {
       event.stopPropagation();
     }
   });
+}
+
+const phoneNotWanted = document.getElementById('phone-not-required');
+if (phoneNotWanted != null) {
+  phoneNotWanted.addEventListener('change', onPhoneNotWantedChange);
+}
+
+function onPhoneNotWantedChange(event) {
+  if (event.target.checked === true) {
+    const phoneInput = document.getElementById('phone');
+    phoneInput.removeAttribute('required');
+    phoneInput.disabled = true;
+    document.querySelector('label[for=phone]').classList.remove('required');
+  } else {
+    const phoneInput = document.getElementById('phone');
+    phoneInput.setAttribute('required', 'required');
+    phoneInput.disabled = false;
+    document.querySelector('label[for=phone]').classList.add('required');
+  }
 }
