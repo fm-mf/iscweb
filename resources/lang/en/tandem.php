@@ -127,9 +127,17 @@ return [
         'about-me' => 'About me',
         'i-want-to-learn' => 'I would like to learn',
         'i-want-to-teach' => 'I would like to teach',
+        'languages-select-note' => 'Select at least 1 language and at most 5 languages',
 
         'update' => 'Update',
         'back' => 'Back to the list of students',
+
+        'select-label' => 'Press enter to select',
+        'selected-label' => 'Selected',
+        'deselect-label' => 'Press enter to remove',
+        'selected-max-elements' => 'Maximum of :max options selected. First remove a selected option to select another.',
+        'no-results' => 'No elements found. Consider changing the search query.',
+        'no-options' => 'List is empty.',
 
         'placeholder' => [
             'given-names' => 'Given names',

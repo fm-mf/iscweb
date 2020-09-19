@@ -127,9 +127,17 @@ return [
         'about-me' => 'O mě',
         'i-want-to-learn' => 'Chtěl/a bych se naučit',
         'i-want-to-teach' => 'Rád/a někoho naučím',
+        'languages-select-note' => 'Vyber nejméně 1 jazyk a nejvýše 5 jazyků',
 
         'update' => 'Aktualizovat',
         'back' => 'Zpátky na seznam studentů',
+
+        'select-label' => 'Vyber stisknutím enteru',
+        'selected-label' => 'Vybráno',
+        'deselect-label' => 'Odeber stisknutím enteru',
+        'selected-max-elements' => 'Maximální počet možností (:max) vybrán. Nejdříve odstraň nějakou možnost, abys mohl vybrat jinou.',
+        'no-results' => 'Žádné výsledky. Zkus jiný dotaz.',
+        'no-options' => 'Nabídka je prázdná.',
 
         'placeholder' => [
             'given-names' => 'Zadej své jméno',
