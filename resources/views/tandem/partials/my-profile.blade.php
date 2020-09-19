@@ -18,7 +18,13 @@
 </div>
 <div class="form-group">
     <label for="input-about">@lang('tandem.profile.about-me')</label>
-    <textarea class="form-control" placeholder="@lang('tandem.profile.placeholder.about-me')" name="about" id="input-about">{{ old('about') }}</textarea>
+    <textarea
+        class="form-control"
+        placeholder="@lang('tandem.profile.placeholder.about-me')"
+        name="about"
+        id="input-about"
+        rows="5"
+    >{{ old('about') }}</textarea>
 </div>
 <div class="form-group">
     <label for="select-languages-learn" class="required">@lang('tandem.profile.i-want-to-learn')</label>
