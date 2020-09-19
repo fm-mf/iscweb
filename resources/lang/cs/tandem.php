@@ -111,8 +111,8 @@ return [
 
         'delete-account' => 'Smazat účet',
         'delete-modal-title' => 'Smazat účet?',
-        'delete-modal-text-1' => '',
-        'delete-modal-text-2' => '',
+        'delete-modal-text-1' => 'Opravdu chceš smazat svůj účet?',
+        'delete-modal-text-2' => 'Smazaný účet není možné obnovit. Kdykoliv si však můžeš založit účet nový.',
         'delete' => 'Smazat',
         'delete-successful' => 'Účet byl úspěšně smazán'
     ],
