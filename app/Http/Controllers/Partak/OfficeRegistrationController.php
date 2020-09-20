@@ -118,6 +118,7 @@ class OfficeRegistrationController extends Controller
     protected function profileValidator(array $data)
     {
         $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
+        $instagramRegex = '/^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/';
 
         $validator = Validator::make($data, [
             'first_name' => 'required',
@@ -132,6 +133,7 @@ class OfficeRegistrationController extends Controller
             'medical_issues' => 'max:255',
             'whatsapp' => ['phone:AUTO', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
+            'instagram' => ["regex:$instagramRegex", 'nullable'],
         ]);
 
         return $validator;

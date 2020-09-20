@@ -76,6 +76,7 @@ class ProfileController extends Controller
         $student->id_accommodation = $request->accommodation;
         $student->whatsapp = $request->whatsapp;
         $student->facebook = $request->facebook;
+        $student->instagram = $request->instagram;
 
         if (!$request->arrival_skipped && $request->date && $request->transportation) {
             $arrival = $student->arrival;
@@ -112,7 +113,7 @@ class ProfileController extends Controller
             'diet' => $request->diet == '' ? null : $request->diet,
         ]);
 
-        return redirect('/exchange/'.$request->hash)->with('success', true);
+        return redirect('/exchange/' . $request->hash)->with('success', true);
     }
 
     public function showFlagParade($hash)
@@ -159,6 +160,7 @@ class ProfileController extends Controller
     protected function profileValidator(array $data)
     {
         $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
+        $instagramRegex = '/^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/';
 
         return Validator::make($data, [
             'date' => 'required_without_all:arrival_skipped,opt_out|date_format:d M Y',
@@ -168,6 +170,7 @@ class ProfileController extends Controller
             'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
             'whatsapp' => ['phone:AUTO', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
+            'instagram' => ["regex:$instagramRegex", 'nullable']
         ]);
     }
 }

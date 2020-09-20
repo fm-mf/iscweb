@@ -94,8 +94,15 @@
                 <i class="fab fa-whatsapp fa-fw mr-1 user-detail-icon"></i> {{ $exStudent->whatsapp ?? 'No WhatsApp' }}
             </div>
             <div class="info-line">
+                <i class="fab fa-instagram fa-fw mr-1 user-detail-icon"></i> @if($exStudent->instagram)
+                    <a href="{{ $exStudent->instagram_link }}" target="_blank">{{ $exStudent->instagram }}</a>
+                @else
+                    No Instagram
+                @endif
+            </div>
+            <div class="info-line">
                 <i class="fab fa-facebook fa-fw mr-1 user-detail-icon"></i> @if($exStudent->facebook)
-                    <a href="{{ $exStudent->facebook }}">{{ preg_replace('/^https?:\/\/(www\.)?facebook\.com/i', '...', $exStudent->facebook) }}</a>
+                    <a href="{{ $exStudent->facebook }}"  target="_blank">{{ $exStudent->facebook_trimmed }}</a>
                 @else
                     No Facebook
                 @endif

@@ -85,6 +85,7 @@ return [
                 'details' => ['view'],
                 'events' => ['remove'],
                 'trips' => ['remove'],
+                'quarantined'
             ],
         ],
 

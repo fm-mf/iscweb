@@ -50,6 +50,8 @@ Route::prefix('/users')
             ->name('preregistrations');
         Route::get('/preregistrations/{id}', 'OfficeRegistrationController@showPreregistrations')
             ->name('preregistration');
+
+        Route::get('/quarantined', 'QuarantinedController@index')->name('quarantined');
     });
 
 Route::prefix('/trips')

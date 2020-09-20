@@ -13,7 +13,7 @@
                 <img class="img-circle pull-left buddy-detail-img"  width="125" src="{{ asset($exStudent->person->avatar()) }}">
             </div>
             <div class="col-sm-10">
-                <h3>{{ $exStudent->person->getFullName() }}</h3>
+                <h3>{{ $exStudent->person->getFullName() }} <a href="{{ route('partak.users.exchangeStudent', [$exStudent->id_user]) }}" role="button" class="btn btn-info btn-xs">Detail</a></h3>
             </div>
         </div>
 
@@ -24,6 +24,7 @@
                     {{ Form::bsText('phone', 'Phone') }}
                     {{ Form::bsTel('whatsapp', 'WhatsApp', '', null, [], 'Full number including the country prefix') }}
                     {{ Form::bsUrl('facebook', 'Facebook', '', null, [], 'Full link to the Facebook profile') }}
+                    {{ Form::bsText('instagram', 'Instagram', '', null, [], 'Instagram handle without @') }}
                     {{ Form::label('esn_registered', 'ESN registered', ['class' => 'control-label']) }}
                     {{ Form::checkbox('esn_registered', 'y', $exStudent->esn_registered == 'y') }}
                     {{ Form::bsText('esn_card_number', 'ESNcard number') }}
@@ -55,10 +56,35 @@
 
                     {{ Form::bsSelect('diet', 'Food preference', $diets, $exStudent->person->diet, ['placeholder' => 'No preference'])  }}
                     {{ Form::bsTextarea('about', 'About') }}
+
+                    {{ Form::bsTextarea('note', 'Internal note') }}
+
+                    {{ Form::bsText(
+                        'quarantined_until',
+                        'Quarantined until',
+                        '',
+                        $exStudent->quarantined_until ? $exStudent->quarantined_until->format('d M Y') : '',
+                        ['class' => 'form-control date']
+                    ) }}
+
                     {{ Form::bsSubmit('Update profile') }}
 
                 {{ Form::close() }}
             </div>
         </div>
     </div>
+@stop
+
+@section('stylesheets')
+    @parent
+    <link href="{{ URL::asset('/css/picker.css') }}" rel="stylesheet" type="text/css">
+@stop
+
+@section('scripts')
+    @parent
+
+    <script src="{{ URL::asset('/js/picker.js') }}" defer></script>
+    <script src="{{ URL::asset('/js/picker.date.js') }}" defer></script>
+    <script src="{{ URL::asset('/js/picker.time.js') }}" defer></script>
+    <script src="{{ mix('/js/pickers.js') }}" defer></script>
 @stop
