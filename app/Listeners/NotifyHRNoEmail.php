@@ -3,12 +3,10 @@
 namespace App\Listeners;
 
 use App\Events\BuddyWithoutEmailRegistered;
-use App\Mail\HRNoEmail;
+use App\Mail\HRNewNoEmail;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
-
-use App\Models\Buddy;
 
 class NotifyHRNoEmail
 {
@@ -30,6 +28,6 @@ class NotifyHRNoEmail
      */
     public function handle(BuddyWithoutEmailRegistered $event)
     {
-        Mail::to('hr@isc.cvut.cz')->send(new HRNoEmail($event->buddy));
+        Mail::to('hr@isc.cvut.cz')->send(new HRNewNoEmail($event->buddy));
     }
 }
