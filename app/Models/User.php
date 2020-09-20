@@ -209,7 +209,7 @@ class User extends Authenticatable
     {
         return hash("sha512", $email . '@' . $password);
     }
-    
+
     public function getHashIdAttribute()
     {
         return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->encode($this->id_user);
@@ -217,6 +217,13 @@ class User extends Authenticatable
 
     public static function decodeHashId(string $hashId)
     {
-        return (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->decode($hashId);
+        $decoded = (new Hashids(self::$hashIdsSalt, self::$hashIdsLength))->decode($hashId);
+
+        return $decoded[0] ?? null;
+    }
+
+    public function getPreferredLanguageAttribute()
+    {
+        return $this->buddy ? $this->buddy->preferred_language : null;
     }
 }

@@ -12,10 +12,40 @@
         @include('partak.users.partials.user-info', ['user' => $buddy->user()])
     </div>
 
+    @can('acl', 'buddy.verify')
+        @if(!$buddy->isVerified() && !$buddy->isDenied())
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        @if($buddy->motivation)
+                            <p class="mb-0"><strong>Motivation:</strong> {{ $buddy->motivation }}</p>
+                        @elseif(hash_equals($buddy->user()->email ?? "", $buddy->verification_email ?? ""))
+                            <p class="mb-0">{{ $buddy->person->first_name }} has used university e-mail for registration</p>
+                        @elseif($buddy->verification_email)
+                            <p class="mb-0">{{ $buddy->person->first_name }} has entered university e-mail for verification: {{ $buddy->verification_email }}</p>
+                        @else
+                            <p class="mb-0">{{ $buddy->person->first_name }} has not yet filled either a university e-mail or motivation</p>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <protectedbutton url="{{ url('partak/users/buddies/approve/' . $buddy->id_user) }}"
+                                         protection-text="Approve buddy {{ $buddy->person->getFullName() }}?"
+                                         button-style="btn-success btn-sm icon-button"><i class="fas fa-check mr-1"></i> Approve</protectedbutton>
+                        <protectedbutton url="{{ url('partak/users/buddies/deny/' . $buddy->id_user) }}"
+                                         protection-text="Deny buddy {{ $buddy->person->getFullName() }}?"
+                                         button-style="btn-danger btn-sm icon-button"><i class="fas fa-times mr-1"></i> Deny</protectedbutton>
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endcan
+
     @if(isset($myStudents))
         <div class="container">
             <h3>{{ $buddy->person->first_name }}'s exchange students for {{ $currentSemester }}</h3>
-            
+
             <div class="table-responsive">
                 <table class="table p-table">
                     <thead>

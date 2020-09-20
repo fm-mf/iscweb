@@ -1,0 +1,87 @@
+@import "../web/variables";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.multiselect.is-invalid {
+  & > .multiselect__tags {
+    border-color: $danger;
+    background-image: escape-svg($form-feedback-icon-invalid);
+    background-repeat: no-repeat;
+    background-position: right calc(#{$input-height-inner-quarter} + 40px) center;
+    background-size: $input-height-inner-half $input-height-inner-half;
+  }
+}
+
+.multiselect__tags {
+  border-radius: 0;
+  border: $input-border-width solid $input-border-color;
+  padding-left: $input-padding-x;
+  padding-top: $input-padding-y;
+  height: $input-height;
+}
+
+.multiselect__content-wrapper {
+  border-radius: 0 !important;
+}
+
+.multiselect__input,
+.multiselect__single {
+  color: $input-color;
+  padding: 0;
+  line-height: $input-line-height;
+}
+
+.multiselect__placeholder {
+  color: $input-placeholder-color;
+  font-size: 1rem;
+  padding: 0;
+  line-height: $input-line-height;
+}
+
+label.required::after {
+  display: inline;
+  content: '*';
+  color: #ff0000;
+  margin-left: 0.25em;
+}
+
+ul.table {
+  li.row {
+    &:not(:first-of-type) {
+      text-align: left;
+    }
+    &:nth-of-type(#{$table-striped-order}) {
+      background-color: $table-accent-bg;
+    }
+    &:hover {
+      background-color: $table-hover-bg;
+    }
+    & > div {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+
+      & + div {
+        border-left: $table-border-width solid $table-border-color;
+      }
+    }
+  }
+}
+
+dl.user-profile {
+  text-align: left;
+
+  dd {
+    margin-bottom: 0;
+  }
+
+  dt, dd {
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    &:nth-of-type(#{$table-striped-order}) {
+      background-color: $table-accent-bg;
+    }
+  }
+}

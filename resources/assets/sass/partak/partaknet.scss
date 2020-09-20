@@ -39,6 +39,14 @@ html, body {
   }
 }
 
+@include media-breakpoint-down(sm) {
+  .content-wrapper {
+    main {
+      padding: 1rem 0.5rem;
+    }
+  }
+}
+
 .footer {
   background: #0079C1;
   color: #fff;
@@ -62,7 +70,8 @@ html, body {
   margin-bottom: 3rem;
 
   > img {
-    width: 100%;
+    margin: auto;
+    max-width: 100%;
   }
 }
 

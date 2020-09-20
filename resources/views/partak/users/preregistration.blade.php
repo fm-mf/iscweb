@@ -8,6 +8,6 @@
     </div>
 
     <div class="container">
-        <preregister url="{{ url('api/load-preregister') }}" :current-id="{{ $currentId }}"></preregister>
+        <preregister url="{{ route('api.preregister') }}" :default-limit="{{ $limit }}"></preregister>
     </div>
 @stop

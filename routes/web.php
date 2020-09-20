@@ -39,7 +39,7 @@ Route::get('/visa', function() {
 Route::get('kos-manual', function () { return response()->file('files/KOS_manual_2017.pdf'); });
 
 Route::get('buddy-prirucka', function () {
-    $fileName = 'buddy-prirucka-19-20-ls.pdf';
+    $fileName = 'buddy-prirucka-fall-2020_web.pdf';
     return response()
         ->file("files/${fileName}", [
             'Content-Disposition' => "inline; filename=\"${fileName}\"",
@@ -68,7 +68,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     //Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas');
     // Proxy using DDNS (and VPN?) -- should work always
     Route::get('/nas', function () { return redirect('http://quickconnect.to/ISCCTU'); })->name('nas');
-    
+
     Route::get('/wiki')->name('wiki');
 
     Route::post('/voting/process', 'VotingController@processVoting');
@@ -136,7 +136,7 @@ Route::prefix('alumni')->namespace('Alumni')->name('alumni.')->group(function() 
     Route::patch('/newsletters/{id}/restore', 'AlumniNewsletterController@restore')->name('newsletters.restore');
 });
 
-Route::prefix('api')->namespace('Api')->group(function() {
+Route::prefix('api')->namespace('Api')->name('api.')->group(function() {
     Route::post('/avatar', 'AvatarController@upload');
     Route::post('/load', 'ApiController@load')->middleware('auth', 'checkbuddy');
 
@@ -145,8 +145,8 @@ Route::prefix('api')->namespace('Api')->group(function() {
     Route::post('/liststudents', 'ApiController@load')->middleware('auth', 'checkbuddy');
     Route::get('/filter-options', 'ApiController@loadFilterOptions')->middleware('auth', 'checkbuddy');
 
-    Route::post('/load-preregister', 'ApiController@loadPreregister')->middleware('auth', 'checkpartak');
-    Route::post('/load-preregister/save', 'ApiController@preregister')->middleware('auth', 'checkpartak');
+    Route::get('/preregister', 'ApiController@loadPreregister')->middleware('auth', 'checkpartak')->name('preregister');
+    Route::patch('/preregister/{student}', 'ApiController@preregister')->middleware('auth', 'checkpartak');
 });
 
 

@@ -8,7 +8,7 @@
             <i class="fas fa-bars fa-lg"></i>
         </a>
     </div>
-    
+
     <div class="collapse navbar-collapse" id="navbarNav">
         @include('partak.components.nav', ['items' => [
             ['title' => 'Dashboard', 'icon' => 'columns', 'route' => 'partak.index'],
@@ -37,9 +37,9 @@
                 ['title' => 'History', 'route' => 'partak.stats.history', 'id' => 'stats-history'],
                 ['title' => 'Exports', 'route' => 'partak.stats.exports', 'id' => 'stats-exports'],
             ]],
-            ['title' => 'Settings', 'icon' => 'cog', 'route' => 'partak.settings', 'acl' => 'settings.edit', 'items' => [
+            ['title' => 'Settings', 'icon' => 'cog', 'route' => 'partak.settings', 'acl' => ['settings.openingHours', 'settings.edit'], 'items' => [
                 ['title' => 'General', 'route' => 'partak.settings.general', 'acl' => 'settings.edit'],
-                ['title' => 'Opening hours', 'route' => 'partak.settings.openingHours', 'acl' => 'settings.edit'],
+                ['title' => 'Opening hours', 'route' => 'partak.settings.openingHours'],
                 ['title' => 'Contacts', 'route' => 'partak.settings.contacts.index', 'acl' => 'settings.edit'],
                 ['title' => 'Coronavirus', 'route' => 'partak.settings.coronavirus', 'acl' => 'settings.edit'],
             ]],

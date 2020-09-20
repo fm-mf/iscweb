@@ -14,7 +14,9 @@ import PreRegister from './components/Preregister';
 import UniqueUrlCopy from './components/UniqueUrlCopy';
 import Reservation from './partak/Reservation';
 import ContactsOrder from './components/ContactsOrder';
+import BarcodeButton from './partak/BarcodeButton';
 import ShareButton from './partak/ShareButton';
+import ProtectedSubmitButton from "./components/ProtectedSubmitButton";
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -25,10 +27,12 @@ import ShareButton from './partak/ShareButton';
 Vue.component('auto-complete', Autocomplete);
 Vue.component('multiselectinput', MultiSelectInput);
 Vue.component('protectedbutton', Button);
+Vue.component('protected-submit-button', ProtectedSubmitButton);
 Vue.component('preregister', PreRegister);
 Vue.component('unique-url', UniqueUrlCopy);
 Vue.component('contacts-order', ContactsOrder);
 Vue.component('share-button', ShareButton);
+Vue.component('barcode-button', BarcodeButton);
 
 new Vue({
   el: '#partakApp',
@@ -216,4 +220,22 @@ function dataURItoFile(dataURI, name) {
   }
 
   return new File(ia, name, { type: mimeString });
+}
+
+const formRegister = document.getElementById('form-register');
+if (formRegister != null) {
+  const modalToggleBtn = formRegister.querySelector('button[data-toggle=modal]');
+  formRegister.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter' && formRegister.reportValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+      modalToggleBtn.click();
+    }
+  });
+  modalToggleBtn.addEventListener('click', (event) => {
+    if (!formRegister.reportValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  });
 }

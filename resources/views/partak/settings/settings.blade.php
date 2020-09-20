@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-7">
             {{ Form::model($settings, ['id' => 'mainForm', 'route' => 'partak.settings.general.save', 'method' => 'patch']) }}
-            {{ Form::bsSelect('isDatabaseOpen', 'Buddy database is', ['true' => 'Open', 'false' => 'Closed'], $settings['isDatabaseOpen'] ? 'true' : 'false')  }}
+
             {{ Form::bsText('rector', 'Rector') }}
 
             <div class="form-group">
@@ -23,6 +23,35 @@
             </div>
 
             {{ Form::bsSelect('currentSemester', 'Current Semester', $semesters, $settings['currentSemester']) }}
+
+            <div class="form-group">
+                {{ Form::label('buddyDbFromDate', 'Buddy database open from', ['class' => 'control-label']) }}
+                @if ($errors->hasAny(['buddyDbFromDate', 'buddyDbFromTime']))
+                    <p class="error-block alert-danger">
+                        @if($errors->has('buddyDbFromDate'))
+                            {{ $errors->first('buddyDbFromDate') }}
+                        @else
+                            {{ $errors->first('buddyDbFromTime') }}
+                        @endif
+                    </p>
+                @endif
+                <div class="row">
+                    <div class="col-sm-6 mb-2 mb-sm-0">
+                        {{ Form::text(
+                            'buddyDbFromDate',
+                            $settings['buddyDbFrom']->format('d M Y'),
+                            ['id' => 'buddyDbFromDate', 'class' => 'form-control date']
+                        ) }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ Form::text(
+                            'buddyDbFromTime',
+                            $settings['buddyDbFrom']->format('H:i'),
+                            ['id' => 'buddyDbFromTime', 'class' => 'form-control time']
+                        ) }}
+                    </div>
+                </div>
+            </div>
 
             {{ Form::label('date', 'Welcome package from', ['class' => 'control-label']) }}
             @if ($errors->has('date'))
@@ -54,7 +83,7 @@
             @endif
             {{ Form::url('fbGroupLink', $settings['fbGroupLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
-            {{ Form::label('owFbEventLink', 'Link to currnet OW FB event', ['class' => 'control-label']) }}
+            {{ Form::label('owFbEventLink', 'Link to current OW FB event', ['class' => 'control-label']) }}
             @if ($errors->has('owFbEventLink'))
             <p class="error-block alert-danger">{{ $errors->first('owFbEventLink') }}</p>
             @endif
@@ -67,6 +96,12 @@
             {{ Form::bsCheckbox('owTripsEnabled', 'Enable OW trips registration', '', '1', @$settings['owTripsEnabled']) }}
 
             {{ Form::bsCheckbox('owTripsRestricted', 'Allow only one OW trip per person', '', '1', @$settings['owTripsRestricted']) }}
+
+            {{ Form::label('receiptPrinterUrl', 'Receipt printer url', ['class' => 'control-label']) }}
+            @if ($errors->has('receiptPrinterUrl'))
+            <p class="error-block alert-danger">{{ $errors->first('receiptPrinterUrl') }}</p>
+            @endif
+            {{ Form::url('receiptPrinterUrl', @$settings['receiptPrinterUrl'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
             <div style="margin-bottom: 15px;">
             <input type="submit" value="Update settings" class="btn btn-primary btn-submit">
@@ -85,14 +120,9 @@
 @section('scripts')
     @parent
 
-    <script src="{{ asset('/js/picker.js') }}"></script>
-    <script src="{{ asset('/js/picker.date.js') }}"></script>
+    <script src="{{ asset('/js/picker.js') }}" defer></script>
+    <script src="{{ asset('/js/picker.date.js') }}" defer></script>
+    <script src="{{ asset('/js/picker.time.js') }}" defer></script>
 
-    <script type="text/javascript">
-    $('.date').pickadate({
-        editable: true,
-        firstDay: 1,
-        format: 'dd mmm yyyy'
-    });
-    </script>
+    <script src="{{ mix('/js/pickers.js') }}" defer></script>
 @stop

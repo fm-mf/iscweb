@@ -30,7 +30,7 @@ return [
         'array'   => ':attribute musí obsahovat nejméně :min a nesmí obsahovat více než :max prvků.',
     ],
     'boolean'              => ':attribute musí být true nebo false',
-    'confirmed'            => ':attribute nebylo odsouhlaseno.',
+    'confirmed'            => ':attribute nebylo potvrzeno.',
     'date'                 => ':attribute musí být platné datum.',
     'date_format'          => ':attribute není platný formát data podle :format.',
     'different'            => ':attribute a :other se musí lišit.',
@@ -101,9 +101,21 @@ return [
         'id_faculty' => [
             'exists' => 'Vybrána neexistující fakulta',
         ],
+        'password' => [
+            'confirmed' => 'Hesla se neshodují',
+        ],
+        'languagesToLearn' => [
+            'required' => 'Musíš vybrat alespoň jeden jazyk, který se chceš naučit',
+            'min' => 'Musíš vybrat alespoň jeden jazyk, který se chceš naučit',
+        ],
+        'languagesToTeach' => [
+            'required' => 'Musíš vybrat alespoň jeden jazyk, který chceš někoho naučit',
+            'min' => 'Musíš vybrat alespoň jeden jazyk, který chceš někoho naučit',
+        ],
     ],
 
     'phone' => 'Zadané telefonní číslo není platné',
+    'password' => 'Zadané současné heslo je chybné',
 
     /*
     |--------------------------------------------------------------------------
@@ -125,7 +137,23 @@ return [
         'age' => 'Rok narození',
         'agreement' => 'Zpracování',
         'old_password' => 'Staré heslo',
-        'new_password' => 'Nové heslo'
+        'new_password' => 'Nové heslo',
+        'buddyDbFromDate' => 'Datum otevření Buddy databáze',
+        'buddyDbFromTime' => 'Čas otevření Buddy databáze',
+
+        'hours_json' => [
+            'text' => 'Popis k otevíracím hodinám',
+            'textCs' => 'Popis k otevíracím hodinám (v češtině)',
+            'hours' => [
+                'Monday' => 'Pondělní otevírací hodiny',
+                'Tuesday' => 'Úterní otevírací hodiny',
+                'Wednesday' => 'Středeční otevírací hodiny',
+                'Thursday' => 'Čtvrteční otevírací hodiny',
+                'Friday' => 'Páteční otevírací hodiny',
+                'Saturday' => 'Sobotní otevírací hodiny',
+                'Sunday' => 'Nedělní otevírací hodiny',
+            ],
+        ],
     ],
 
 ];

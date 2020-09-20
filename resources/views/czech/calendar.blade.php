@@ -1,5 +1,5 @@
 @extends('czech.layouts.layout')
-@section('title', 'Kalenář akcí')
+@section('title', 'Kalendář akcí')
 @section('page')
     <section>
         <div class="container">

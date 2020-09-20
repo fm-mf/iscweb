@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\ExchangeStudent;
 use App\Models\Semester;
+use App\Models\TandemUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -31,11 +32,15 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         Route::bind('exchangeStudent', function ($value) {
-            return ExchangeStudent::findOrFail(User::decodeHashId($value)[0]);
+            return ExchangeStudent::findOrFail(User::decodeHashId($value));
         });
 
         Route::bind('semester', function ($value) {
             return Semester::where('semester', $value)->firstOrFail();
+        });
+
+        Route::bind('tandemUser', function (string $value) {
+            return TandemUser::findOrFail(TandemUser::decodeHashId($value));
         });
     }
 
@@ -59,7 +64,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapSafRoutes();
 
         $this->mapPrivacyRoutes();
-        //
+
+        $this->mapTandemRoutes();
     }
 
     /**
@@ -97,7 +103,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapPartakRoutes()
     {
         Route::prefix('partak')
-            ->middleware(['web','checkpartak', 'auth'])
+            ->middleware(['web','checkpartak', 'auth', 'printer'])
             ->namespace($this->namespace . '\Partak')
             ->name('partak.')
             ->group(base_path('routes/partak.php'));
@@ -145,4 +151,12 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
+    protected function mapTandemRoutes()
+    {
+        Route::middleware('web')
+            ->name('tandem.')
+            ->prefix('tandem')
+            ->namespace("{$this->namespace}\\Tandem")
+            ->group(base_path('routes/tandem.php'));
+    }
 }

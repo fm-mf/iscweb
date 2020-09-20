@@ -18,8 +18,9 @@
                             <div class="row">
                                 <div class="col opening-hours">
                                     <h2>Otvírací hodiny</h2>
-                                    <p>{{ $openingHoursText }}</p>
-                                    {!! $openingHoursTable !!}
+                                    {{ $openingHours->html_text }}
+                                    @component('web.components.opening-hours-table', ['openingHours' => $openingHours->hours_json['hours']])
+                                    @endcomponent
                                 </div>
                             </div>
                             <div class="row">

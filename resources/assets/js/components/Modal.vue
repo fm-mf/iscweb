@@ -35,7 +35,7 @@
   </transition>
 </template>
 
-<style>
+<style scoped>
 .modal-body img {
   width: 90px;
   float: left;

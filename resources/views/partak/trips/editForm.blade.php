@@ -7,25 +7,6 @@
     </div>
 </div>
 
-<script>
-    function cover_change(files) {
-        var preview = $('#cover_preview')[0];
-        if (files.length <= 0) {
-            preview.src = preview.getAttribute('href');
-            if (preview.src == '') {
-                preview.style.display = 'none';
-            }
-            return;
-        }
-        var reader = new FileReader();
-        reader.onload = function () {
-            preview.src = reader.result;
-            preview.style.display = 'block';
-        };
-        reader.readAsDataURL(files[0]);
-    }
-</script>
-
 @if(! isset($create) || $create == false)
     @can('acl', 'details.view')
         <div class="form-group row">
@@ -148,39 +129,11 @@
 @section('scripts')
     @parent
 
-    <script src="{{ URL::asset('/js/picker.js') }}"></script>
-    <script src="{{ URL::asset('/js/picker.date.js') }}"></script>
-    <script src="{{ URL::asset('/js/picker.time.js') }}"></script>
+    <script src="{{ URL::asset('/js/picker.js') }}" defer></script>
+    <script src="{{ URL::asset('/js/picker.date.js') }}" defer></script>
+    <script src="{{ URL::asset('/js/picker.time.js') }}" defer></script>
+    <script src="{{ mix('/js/pickers.js') }}" defer></script>
 
-    <script  type="text/javascript">
-
-        var $inputDate = $('.date').pickadate({
-            editable: true,
-            firstDay: 1,
-            format: 'dd mmm yyyy'
-        });
-
-        //var picker = $inputDate.pickadate('picker');
-        //picker.set('view', new Date({!$date}));
-        var $inputTime = $('.time').pickatime({
-            editable: true
-        });
-    </script>
-
-    <script src="{{ URL::asset('/js/tinymce/tinymce.min.js') }}"></script>
-    <script>
-        var editor_config = {
-            path_absolute: "{{ URL::asset('/') }}/",
-            selector: "textarea",
-            plugins: [
-                "advlist autolink lists link",
-                "searchreplace wordcount visualblocks visualchars code fullscreen",
-                "insertdatetime table contextmenu directionality",
-                "paste textpattern"
-            ],
-            toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
-        };
-
-        tinymce.init(editor_config);
-    </script>
+    <script src="{{ URL::asset('/js/tinymce/tinymce.min.js') }}" defer></script>
+    <script src="{{ mix('/js/text-editor.js') }}" defer></script>
 @stop

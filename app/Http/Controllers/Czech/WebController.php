@@ -68,10 +68,11 @@ class WebController extends Controller
         return view('czech.buddy-program', compact('contactBuddy', 'contactHr'));
     }
 
-    function showContactsPage() {
+    function showContactsPage()
+    {
         $contacts = Contact::visibleOnWeb()->get();
-        $openingHoursText = OpeningHoursMode::getCurrentText();
-        $openingHoursTable = OpeningHoursMode::buildHoursTable();
-        return view('czech.contacts', compact('contacts', 'openingHoursText', 'openingHoursTable'));
+        $openingHours = OpeningHoursMode::getCurrentMode();
+
+        return view('czech.contacts', compact('contacts', 'openingHours'));
     }
 }

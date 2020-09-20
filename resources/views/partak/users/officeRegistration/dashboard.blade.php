@@ -11,7 +11,7 @@
             <div class="row row-inner">
                 <div class="col-sm-12 text-center">
                     <a href="{{ url('partak/users/office-registration/create') }}" class="btn btn-warning btn-lg">
-                        <span class="fas fa-plus"></span> Add new student
+                        <span class="fas fa-user-plus"></span> Add new student
                     </a>
                 </div>
                 <div class="col-sm-12 text-center">

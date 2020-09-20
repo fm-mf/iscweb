@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\ExchangeStudentResource;
+use App\Http\Resources\PreregistrationStudentCollection;
 use App\Models\Accommodation;
 use App\Models\Arrival;
 use App\Models\Country;
@@ -25,7 +26,7 @@ class ApiController extends Controller
         'arrival' => 'arrivals.arrival',
         'faculty' => 'faculties.abbreviation',
         'school' => 'school',
-        'accomodation' => 'accommodation.full_name'
+        'accommodation' => 'accommodation.full_name'
     ];
 
     const FILTER_ALIAS = [
@@ -34,14 +35,13 @@ class ApiController extends Controller
         'faculties' => 'exchange_students.id_faculty'
     ];
 
+    const DEFAULT_PREREGISTRATION_LIMIT = 10;
+
     public function load(Request $request)
     {
-        if (!Settings::get('isDatabaseOpen')) {
+        if (Settings::isDatabaseClosed()) {
             return response()->json([]);
         }
-
-        app()->setLocale('cs');
-        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
 
         $page = $request->page;
         if ($page > 1) {
@@ -93,12 +93,9 @@ class ApiController extends Controller
 
     public function loadFilterOptions()
     {
-        if (!Settings::get('isDatabaseOpen')) {
+        if (Settings::isDatabaseClosed()) {
             return response()->json([]);
         }
-
-        app()->setLocale('cs');
-        setlocale(LC_ALL, 'cs_CZ.UTF-8'); // for Carbon formatLocalized method
 
         $currentSemester = Settings::get('currentSemester');
         $arrivalDates = Arrival::withStudents($currentSemester)->select(DB::raw('DATE(`arrival`) AS `arrival`'))->distinct()->pluck('arrival');
@@ -118,48 +115,37 @@ class ApiController extends Controller
         ]);
     }
 
-    public function loadPreregister(Request $request)
+    public function loadPreregister()
     {
         $this->authorize('acl', 'exchangeStudents.register');
 
-        if ($request->lastName == null) {
-            $request->lastName = '';
-        }
+        $lastName = request()->query('lastName') ?? '';
+        $firstName = request()->query('firstName') ?? '';
+        $id = request()->query('id') ?? '';
+        $limit = request()->query('limit') ?? self::DEFAULT_PREREGISTRATION_LIMIT;
+
         $students = ExchangeStudent::with('person.user')
-                ->byUniqueSemester(Settings::get('currentSemester'))
-                ->join('people', 'people.id_user', 'exchange_students.id_user')
-                ->whereNull('esn_card_number')
-                ->whereNull('phone')
-                ->where('exchange_students.id_user', '<>', $request->id - 1)
-                ->whereHas('person', function ($query) use ($request) {
-                    $query->where('last_name', '>=', $request->lastName);
-                })
-                ->orderBy('last_name')
-                ->orderBy('first_name')
-                ->limit($request->limit)->get();
+            ->byUniqueSemester(Settings::get('currentSemester'))
+            ->toPreregister($lastName, $firstName, $id)
+            ->limit($limit)
+            ->get();
 
-        ExchangeStudent::setStaticVisible(['id_user', 'person']);
-        Person::setStaticVisible(['first_name', 'last_name', 'user']);
-        User::setStaticVisible(['email']);
-
-        return response()->json(
-            $students
-        );
+        return new PreregistrationStudentCollection($students);
     }
 
-    public function preregister(Request $request)
+    public function preregister(ExchangeStudent $student)
     {
         $this->authorize('acl', 'exchangeStudents.register');
-        
-        $student = ExchangeStudent::find($request->id);
-        if (!$student) {
-            return false;
-        }
 
-        $student = ExchangeStudent::find($request->id);
-        $student->esn_card_number = $request->esn;
-        $student->phone = $request->phone;
-        $student->save();
-        return $request->id;
+        $data = request()->validate([
+            'phone' => ['required', 'phone:CZ', 'unique:exchange_students'],
+            'esn_card_number' => ['required', 'string', 'unique:exchange_students'],
+        ]);
+
+        $student->update($data);
+
+        return response()->json([
+            'id_user' => $student->id_user
+        ]);
     }
 }

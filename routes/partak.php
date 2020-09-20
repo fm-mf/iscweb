@@ -39,12 +39,8 @@ Route::prefix('/users')
             ->name('registration');
         Route::get('/office-registration/registration/{id}', 'OfficeRegistrationController@showExchangeStudent')
             ->name('registration.user');
-        Route::get(
-            '/office-registration/register/{id}/{phone}/{esnCard}',
-            'OfficeRegistrationController@esnRegistrationNotPreregistered'
-        )->name('registration.register');
-        Route::get('/office-registration/register/{id}', 'OfficeRegistrationController@esnRegistration')
-            ->name('registration.registerEsn');
+        Route::post('/office-registration/register/{student}', 'OfficeRegistrationController@esnRegistration')
+            ->name('registration.register');
         Route::get('/office-registration/create', 'OfficeRegistrationController@showCreateExStudent')
             ->name('registration.create');
         Route::patch('/office-registration/create', 'OfficeRegistrationController@createExStudent')
@@ -102,8 +98,7 @@ Route::prefix('/settings')
 
         Route::get('/opening-hours', 'SettingsController@showOpeningHours')
             ->name('openingHours');
-        Route::patch('/opening-hours', 'SettingsController@submitOpeningHours')
-            ->name('openingHours.save');
+        Route::patch('/opening-hours', 'SettingsController@submitOpeningHours');
 
         Route::get('/coronavirus', 'SettingsController@showCoronavirus')
             ->name('coronavirus');
@@ -125,7 +120,7 @@ Route::prefix('/settings')
             });
     });
 
-Route::get('/openinghours', 'SettingsController@getOpeningHours');
+Route::get('/opening-hours', 'SettingsController@getOpeningHoursData');
 Route::get('/logs', 'LogsController@index')->name('logs');
 
 Route::prefix('/stats')

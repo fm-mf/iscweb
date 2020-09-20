@@ -184,6 +184,10 @@ class Trip extends Model
     public function addParticipant($userId, $data, $allowStandIn = false)
     {
         $prereg = EventReservation::findByUserAndEvent($userId, $this->id_event);
+        $result = (object)[
+            'code' => null,
+            'receipt' => null
+        ];
 
         if ($prereg) {
             $prereg->delete();
@@ -191,7 +195,8 @@ class Trip extends Model
 
         $standIn = $this->isFull() ? 'y' : 'n';
         if ($standIn == 'y' && !$allowStandIn) {
-            return self::TRIP_FULL;
+            $result->code = self::TRIP_FULL;
+            return $result;
         }
 
         if (Auth::id()) {
@@ -202,10 +207,19 @@ class Trip extends Model
 
         $part = $this->participants()->find($userId);
         $deletePart = $this->deletedParticipants()->find($userId);
+
+        $receipt = new Receipt([
+            'created_by' => $registeredBy,
+            'subject' => $this->event->name,
+            'amount' => $data['paid'] ?? 0
+        ]);
+        $receipt->save();
+
         if(isset($deletePart)) {    //if softDeleted, only update row
             $this->deletedParticipants()->updateExistingPivot($userId, [
                 'deleted_at' => null,
                 'deleted_by' => null,
+                'id_receipt' => $receipt->id_receipt,
                 'stand_in' => $standIn,
                 'registered_by' => $registeredBy,
                 'paid' => $data['paid'] ?? 0,
@@ -213,16 +227,21 @@ class Trip extends Model
             ]);
         } elseif(! isset($part)) {  //new participant
             $this->participants()->attach($userId, [
+                'id_receipt' => $receipt->id_receipt,
                 'stand_in' => $standIn,
                 'registered_by' => $registeredBy,
                 'paid' => $data['paid'],
                 'comment' => $data['comment'] ?? null,
             ]);
         } else {
-            return self::PARTICIPANT_ALREADY_IN;
+            $result->code = self::PARTICIPANT_ALREADY_IN;
+            return $result;
         }
 
-        return ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;
+        $result->code = ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;
+        $result->receipt = $receipt; 
+
+        return $result;
     }
 
     public function removeParticipant($idPart)

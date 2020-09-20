@@ -2,11 +2,23 @@
 
 @section('content')
     <div class="container page">
-        <h2 class="text-center">Databáze zahraničních studentů ještě nebyla otevřena. Buddy Program pro zimní semestr 2020/2021 bude spuštěn 25. srpna 2020.</h2>
-        <p class="text-center">Pro více informací sleduj naší Facebookovou skupinu <a href="{{ $fbGroupCzechBuddies }}" target="_blank" rel="noopener">ISC CTU Czech Buddies</a>
-         a také naší Facebookovou stránku <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">ISC CTU in Prague</a>.</p>
+        <h2 class="text-center">
+            @lang('buddy-program.closed-title', [
+                'academicTerm' => $academicTerm,
+                'academicYear' => $academicYear,
+                'buddyDbFromDate' => $buddyDbFrom->formatLocalized(__('formatting.full-date')),
+                'buddyDbFromTime' => $buddyDbFrom->formatLocalized(__('formatting.time-h-m')),
+                'at' => trans_choice('buddy-program.at-time', $buddyDbFrom->hour)
+            ])
+        </h2>
+        <p class="text-center">
+            @lang('buddy-program.closed-follow-fb-group')
+            <a href="{{ $fbGroupCzechBuddies }}" target="_blank" rel="noopener">ISC CTU Czech Buddies</a>
+            @lang('buddy-program.closed-follow-fb-page')
+            <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">ISC CTU in Prague</a>.
+        </p>
         <div class="col">
-            <img src="{{ asset('img/buddyprogram/buddy-databaze-mapa-fall2020.jpg') }}" style="width: 100%" alt="@lang('buddy-program.world-map-alt')" />
+            <img src="{{ asset('img/buddyprogram/buddy-database-map-fall2020-' . app()->getLocale() . '.jpg') }}" style="width: 100%" alt="@lang('buddy-program.world-map-alt')" />
         </div>
     </div>
 @stop
