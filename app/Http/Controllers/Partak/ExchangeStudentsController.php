@@ -36,7 +36,7 @@ class ExchangeStudentsController extends Controller
             'whatsapp' => ['phone:AUTO', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
             'instagram' => ["regex:$instagramRegex", 'nullable'],
-            'quarantined_until' => 'required|date_format:d M Y',
+            'quarantined_until' => ['date_format:d M Y', 'nullable'],
         ]);
 
         return $validator;
