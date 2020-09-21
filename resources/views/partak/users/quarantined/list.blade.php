@@ -2,7 +2,13 @@
 
 @section('inner-content')
 	<div class="container table-responsive">
-		<h3>Quarantined students</h3>
+		<div class="d-flex align-items-center">
+			<h3>Quarantined students</h3>
+			<div class="ml-auto d-flex align-items-center">
+				<div><span class="badge badge-info">{{ $users->count() }}</span> students quarantined</div>
+				<a class="btn btn-primary btn-sm ml-2" target="_blank" href="{{ route('partak.users.quarantined.export') }}"><i class="fas fa-file-excel"></i> Export</a>
+			</div>
+		</div>
 
 		<table class="table p-table">
 			<thead>

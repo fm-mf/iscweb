@@ -51,7 +51,8 @@ Route::prefix('/users')
         Route::get('/preregistrations/{id}', 'OfficeRegistrationController@showPreregistrations')
             ->name('preregistration');
 
-        Route::get('/quarantined', 'QuarantinedController@index')->name('quarantined');
+        Route::get('/quarantined', 'QuarantinedController@list')->name('quarantined');
+        Route::get('/quarantined/export', 'QuarantinedController@export')->name('quarantined.export');
     });
 
 Route::prefix('/trips')
