@@ -7,11 +7,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Exception\NotReadableException;
 use Intervention\Image\Facades\Image;
+use Ramsey\Uuid\Uuid;
 
 class AvatarController extends Controller
 {
@@ -48,14 +48,21 @@ class AvatarController extends Controller
         $img->crop(intval($avatarData->width), intval($avatarData->height), intval($avatarData->x), intval($avatarData->y));
         $img->resize(300, 300);
 
-        $fileName = \Ramsey\Uuid\Uuid::uuid4() . '.jpg';
+        $fileName = Uuid::uuid4() . '.jpg';
         $dst = storage_path() . '/app/avatars/' . $fileName;
         Storage::makeDirectory('avatars');
         $img->save($dst);
 
+        $oldAvatar = $person->avatar;
+
         $person->avatar = $fileName;
         $person->save();
 
+        if (!empty($oldAvatar) && Storage::exists("avatars/{$oldAvatar}")) {
+            Storage::delete("avatars/{$oldAvatar}");
+        } elseif (count($oldAvatars = glob(storage_path("app/avatars/old/{$user->id_user}.*"))) > 0) {
+            Storage::delete($oldAvatars);
+        }
 
         return response()->json([
             'state' => 200,
