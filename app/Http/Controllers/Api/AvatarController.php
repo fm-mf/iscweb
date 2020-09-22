@@ -49,6 +49,9 @@ class AvatarController extends Controller
         $img->resize(300, 300);
 
         $fileName = Uuid::uuid4() . '.jpg';
+        while (Storage::exists("avatars/{$fileName}")) {
+            $fileName = Uuid::uuid4() . '.jpg';
+        }
         $dst = storage_path() . '/app/avatars/' . $fileName;
         Storage::makeDirectory('avatars');
         $img->save($dst);
