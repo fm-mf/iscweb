@@ -33,7 +33,7 @@
         </div>
     @if(isset($exStudent->esn_card_number))
         <div class="row">
-            <div class="col-lg-3 col-md-4 label">ESNCard number</div>
+            <div class="col-lg-3 col-md-4 label">ESNcard number</div>
             <div class="col-lg-9 col-md-6">{{ $exStudent->esn_card_number }}</div>
         </div>
     @endif
