@@ -24,6 +24,8 @@ use App\Models\Receipt;
 use App\Models\Semester;
 use App\Models\Trip;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -342,7 +344,8 @@ class TripController extends Controller
             if ($request->hasFile('cover')) {
                 $file = $request->file('cover');
                 $image_name = $trip->event->id_event . '.' . $file->extension();
-                \File::delete(storage_path() . '/app/events/covers/' . $trip->event->cover);
+                Storage::makeDirectory('events/covers');
+                File::delete(storage_path() . '/app/events/covers/' . $trip->event->cover);
                 Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
                 $data['cover'] = $image_name;
             }
@@ -422,6 +425,7 @@ class TripController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $image_name = $trip->event->id_event . '.' . $file->extension();
+            Storage::makeDirectory('events/covers');
             Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
             $trip->event->cover = $image_name;
         }
