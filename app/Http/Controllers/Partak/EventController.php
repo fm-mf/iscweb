@@ -163,14 +163,17 @@ class EventController extends Controller
     protected function eventValidator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required',
-            'id_semester' => 'required|exists:semesters,id_semester',
+            'name' => 'required|string|max:255',
+            'id_semester' => 'required|exists:semesters',
+            'location' => 'nullable|string|max:255',
+            'location_url' => 'nullable|string|url|max:255',
+            'facebook_url' => 'nullable|string|url|max:255',
             'visible_date' => 'required|date_format:d M Y',
-            'visible_time' => 'required| date_format:g:i A',
+            'visible_time' => 'required|date_format:g:i A',
             'start_date' => 'required|date_format:d M Y',
             'start_time' => 'required|date_format:g:i A',
-            'description' => 'required',
-            'cover' => 'max:307400|mimes:jpg,jpeg,png',
+            'description' => 'required|string',
+            'cover' => 'nullable|file|image|max:307400|mimes:jpg,jpeg,png',
         ]);
     }
 

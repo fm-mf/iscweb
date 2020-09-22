@@ -485,8 +485,11 @@ class TripController extends Controller
     protected function tripValidator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required',
-            'id_semester' => 'required|exists:semesters,id_semester',
+            'name' => 'required|string|max:255',
+            'id_semester' => 'required|exists:semesters',
+            'location' => 'nullable|string|max:255',
+            'location_url' => 'nullable|string|url|max:255',
+            'facebook_url' => 'nullable|string|url|max:255',
             'visible_date' => 'required|date_format:d M Y',
             'visible_time' => 'required|date_format:g:i A',
             'registration_date' => 'required|date_format:d M Y',
@@ -497,10 +500,10 @@ class TripController extends Controller
             'start_time' => 'required|date_format:g:i A',
             'end_date' => 'required|date_format:d M Y',
             'end_time' => 'required|date_format:g:i A',
-            'description' => 'required',
+            'description' => 'required|string',
             'price' => 'required|integer|min:0|max:65535',
             'capacity' => 'required|integer|min:0||max:65535',
-            'cover' => 'max:307400|mimes:jpg,jpeg,png',
+            'cover' => 'nullable|file|image|max:307400|mimes:jpg,jpeg,png',
         ]);
     }
 
