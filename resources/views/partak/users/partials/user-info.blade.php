@@ -82,7 +82,7 @@
             <i class="fas fa-phone fa-fw mr-1"></i>
             @if(isset($buddy->phone))
                 {{ $buddy->phone }}
-            @elseif($exStudent->phone)
+            @elseif(isset($exStudent->phone))
                 {{ $exStudent->phone }}
             @else
                 No Phone
