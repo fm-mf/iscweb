@@ -59,13 +59,15 @@
 
                     {{ Form::bsTextarea('note', 'Internal note') }}
 
-                    {{ Form::bsText(
-                        'quarantined_until',
-                        'Quarantined until',
-                        '',
-                        $exStudent->quarantined_until ? $exStudent->quarantined_until->format('d M Y') : '',
-                        ['class' => 'form-control date']
-                    ) }}
+                    @can('acl', 'quarantined')
+                        {{ Form::bsText(
+                            'quarantined_until',
+                            'Quarantined until',
+                            '',
+                            $exStudent->quarantined_until ? $exStudent->quarantined_until->format('d M Y') : '',
+                            ['class' => 'form-control date']
+                        ) }}
+                    @endcan
 
                     {{ Form::bsSubmit('Update profile') }}
 

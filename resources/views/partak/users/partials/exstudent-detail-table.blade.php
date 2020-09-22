@@ -37,10 +37,12 @@
             <div class="col-lg-9 col-md-6">{{ $exStudent->esn_card_number }}</div>
         </div>
     @endif
-    @if($exStudent->quarantined)
-        <div class="row">
-            <div class="col-lg-3 col-md-4 label">In quarantine until</div>
-            <div class="col-lg-9 col-md-6">{{ $exStudent->quarantined_until->formatLocalized(__('formatting.full-date')) }}</div>
-        </div>
-    @endif
+    @can('acl', 'quarantined')
+        @if($exStudent->quarantined)
+            <div class="row">
+                <div class="col-lg-3 col-md-4 label">In quarantine until</div>
+                <div class="col-lg-9 col-md-6">{{ $exStudent->quarantined_until->formatLocalized(__('formatting.full-date')) }}</div>
+            </div>
+        @endif
+    @endcan
 </div>
