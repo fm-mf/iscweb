@@ -7,6 +7,8 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+$cropper-image-path: '/img/cropper';
+@import "~cropperjs/src/index";
 @import "avatar";
 
 html, body {

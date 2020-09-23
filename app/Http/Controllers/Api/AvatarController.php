@@ -19,6 +19,8 @@ class AvatarController extends Controller
     {
         if (!$request->input('hash')) {
             $user = Auth::user();
+            app()->setlocale('cs');
+            setlocale(LC_ALL, __('web.locale-full'));
         } else {
             $user = User::findByHash($request->input('hash'));
         }
@@ -31,6 +33,10 @@ class AvatarController extends Controller
             ]);
         }
 
+        $request->validate([
+            'avatar_file' => ['required', 'file', 'image', 'max:2048'],
+        ]);
+
         $person = Person::find($user->id_user);
 
         try {
@@ -38,7 +44,7 @@ class AvatarController extends Controller
         } catch (NotReadableException $e) {
             return response()->json([
                 'state' => 400,
-                'message' => 'The selected image file size is too large. Please, select a smaller one (maximum allowed size is 2 MiB)',
+                'message' => __('validation.custom.avatar_file.uploaded'),
                 'result' => ''
             ], 400);
         }

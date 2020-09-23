@@ -114,6 +114,10 @@ return [
             'required' => 'You have to choose at least one language you want to teach someone',
             'min' => 'You have to choose at least one language you want to teach someone',
         ],
+        'avatar_file' => [
+            'uploaded' => 'The selected image file size is too large. Please, select a smaller one (maximum allowed size is 2 MiB)',
+            'max' => 'The selected image file size is too large. Please, select a smaller one (maximum allowed size is 2 MiB)',
+        ],
     ],
 
     'phone' => 'Entered phone number is invalid',
