@@ -86,12 +86,8 @@ class EventController extends Controller
                 }
             }
             if ($request->hasFile('cover')) {
-                $file = $request->file('cover');
-                $image_name = $event->id_event . '.' . $file->extension();
-                Storage::makeDirectory('events/covers');
-                File::delete(storage_path() . '/app/events/covers/' . $event->cover);
-                Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-                $data['cover'] = $image_name;
+                $event->storeCover($request->file('cover'));
+                unset($data['cover']);
             }
             $event->update($data);
             return back()->with([
@@ -143,11 +139,7 @@ class EventController extends Controller
         $data['modified_by'] = Auth::id();
         $event = Event::createEvent($data);
         if ($request->hasFile('cover')) {
-            $file = $request->file('cover');
-            $image_name = $event->id_event . '.' . $file->extension();
-            Storage::makeDirectory('events/covers');
-            Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-            $event['cover'] = $image_name;
+            $event->storeCover($request->file('cover'));
         }
         if ($data['event_type'] == 'integreat') {
             Integreat_party::creatParty($event->id_event, $data);

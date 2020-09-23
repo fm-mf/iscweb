@@ -342,14 +342,9 @@ class TripController extends Controller
             $data['modified_by'] = Auth::id();
 
             if ($request->hasFile('cover')) {
-                $file = $request->file('cover');
-                $image_name = $trip->event->id_event . '.' . $file->extension();
-                Storage::makeDirectory('events/covers');
-                File::delete(storage_path() . '/app/events/covers/' . $trip->event->cover);
-                Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-                $data['cover'] = $image_name;
+                $trip->event->storeCover($request->file('cover'));
+                unset($data['cover']);
             }
-
 
             $data['reservations_enabled'] = $request->input('reservations_enabled') === '1' ? true : false;
             $data['reservations_diet'] = $request->input('reservations_diet') === '1' ? 1 : 0;
@@ -420,17 +415,11 @@ class TripController extends Controller
         }
 
         $trip = Trip::createTrip($data);
-        $trip = Trip::with('event')->find($trip->id_trip);
+        $trip->load('event');
 
         if ($request->hasFile('cover')) {
-            $file = $request->file('cover');
-            $image_name = $trip->event->id_event . '.' . $file->extension();
-            Storage::makeDirectory('events/covers');
-            Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-            $trip->event->cover = $image_name;
+            $trip->event->storeCover($request->file('cover'));
         }
-
-        $trip->event->save();
 
         $this->saveQuestions($trip, $request->input('questions') ?? []);
 
