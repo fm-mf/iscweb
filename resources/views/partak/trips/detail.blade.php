@@ -159,9 +159,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="exportDropdownButton">
                         <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" class="dropdown-item">
-                            <i class="fas fa-file-pdf"></i> Export participants
-                            @if ($trip->event->reservations_enabled) and reservations @endif
-                            (PDF)
+                            <i class="fas fa-file-pdf"></i> Export participants (PDF)
                         </a>
                         <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="dropdown-item">
                             <i class="fas fa-file-excel"></i> Export participants
