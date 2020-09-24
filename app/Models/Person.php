@@ -5,7 +5,11 @@ namespace App\Models;
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Constraint;
+use Intervention\Image\Facades\Image;
+use Ramsey\Uuid\Uuid;
 
 class Person extends Model
 {
@@ -13,6 +17,7 @@ class Person extends Model
 
     const AVATARS_DIR = 'avatars';
     const DEFAULT_AVATAR = 'img/auth/avatar.jpg';
+    const AVATAR_SIZE = 360;
 
     public $timestamps = false;
     protected $primaryKey = 'id_user';
@@ -154,5 +159,52 @@ class Person extends Model
     public function getHashIdAttribute()
     {
         return $this->user->hashId;
+    }
+
+    public function storeAvatar(UploadedFile $file, string $cropData): string
+    {
+        if (!Storage::exists(self::AVATARS_DIR)) {
+            Storage::makeDirectory(self::AVATARS_DIR);
+        }
+
+        $cropData = json_decode(stripslashes($cropData));
+
+        $img = Image::make($file)
+            ->crop(
+                intval($cropData->width),
+                intval($cropData->height),
+                intval($cropData->x),
+                intval($cropData->y)
+            )->resize(
+                self::AVATAR_SIZE,
+                self::AVATAR_SIZE,
+                function (Constraint $constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            );
+
+        $fileExtension = $file->extension();
+        $fileName = Uuid::uuid4() . ".{$fileExtension}";
+        while (Storage::exists(self::AVATARS_DIR . "/{$fileName}")) {
+            $fileName = Uuid::uuid4() . ".{$fileExtension}";
+        }
+        $filePath = Storage::path(self::AVATARS_DIR . "/{$fileName}");
+        $img->save($filePath);
+
+        $oldAvatar = $this->avatar;
+
+        $this->update([
+            'avatar' => $fileName,
+        ]);
+
+        if (
+            !empty($oldAvatar)
+            && Storage::exists(self::AVATARS_DIR . "/{$oldAvatar}")
+        ) {
+            Storage::delete(self::AVATARS_DIR . "/{$oldAvatar}");
+        }
+
+        return $fileName;
     }
 }
