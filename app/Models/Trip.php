@@ -59,7 +59,7 @@ class Trip extends Model
     public function reservations()
     {
         return $this->belongsToMany('\App\Models\Person', 'event_reservations', 'id_event', 'id_user', 'id_event')
-            ->withTimestamps()->withPivot('medical_issues', 'diet', 'notes', 'created_at')
+            ->withTimestamps()->withPivot('id_event_reservation', 'medical_issues', 'diet', 'notes', 'created_at')
             ->wherePivot('deleted_at', null);
     }
 
@@ -83,7 +83,7 @@ class Trip extends Model
 
     public function howIsFillSimple()
     {
-        return $this->howIsfill() .'/'. $this->capacity;
+        return $this->howIsfill() . '/' . $this->capacity;
     }
 
     public function buddyParticipants()
@@ -111,7 +111,7 @@ class Trip extends Model
 
     public function howIsFillPercentage()
     {
-        if($this->capacity == 0) return 0;
+        if ($this->capacity == 0) return 0;
         return ($this->howIsFill() / $this->capacity) * 100;
     }
 
@@ -157,17 +157,17 @@ class Trip extends Model
 
         // Find valid reservation
         $reservation = EventReservation::whereHas('event', function (Builder $query) use ($semesterId) {
-                $query->where('ow', true)
-                    ->where('id_semester', $semesterId);
-            })
+            $query->where('ow', true)
+                ->where('id_semester', $semesterId);
+        })
             ->where('id_user', $id_user)
             ->first();
 
         // Find valid registration
         $registration = Trip::whereHas('event', function (Builder $query) use ($semesterId) {
-                $query->where('ow', true)
-                    ->where('id_semester', $semesterId);
-            })
+            $query->where('ow', true)
+                ->where('id_semester', $semesterId);
+        })
             ->whereHas('participants', function (Builder $query) use ($id_user) {
                 $query->where('trips_participants.id_user', $id_user);
             })
@@ -178,7 +178,7 @@ class Trip extends Model
 
     public function standInParticipants()
     {
-        return $this->participants()->wherePivot('stand_in','y');
+        return $this->participants()->wherePivot('stand_in', 'y');
     }
 
     public function addParticipant($userId, $data, $allowStandIn = false)
@@ -215,7 +215,7 @@ class Trip extends Model
         ]);
         $receipt->save();
 
-        if(isset($deletePart)) {    //if softDeleted, only update row
+        if (isset($deletePart)) {    //if softDeleted, only update row
             $this->deletedParticipants()->updateExistingPivot($userId, [
                 'deleted_at' => null,
                 'deleted_by' => null,
@@ -225,7 +225,7 @@ class Trip extends Model
                 'paid' => $data['paid'] ?? 0,
                 'comment' => $data['comment'] ?? null,
             ]);
-        } elseif(! isset($part)) {  //new participant
+        } elseif (!isset($part)) {  //new participant
             $this->participants()->attach($userId, [
                 'id_receipt' => $receipt->id_receipt,
                 'stand_in' => $standIn,
@@ -239,7 +239,7 @@ class Trip extends Model
         }
 
         $result->code = ($standIn == 'y') ? self::STAND_IN : self::REGULAR_PARTICIPANT;
-        $result->receipt = $receipt; 
+        $result->receipt = $receipt;
 
         return $result;
     }
@@ -267,8 +267,7 @@ class Trip extends Model
     public function update(array $attributes = [], array $options = [])
     {
         $toSync = [];
-        if (array_key_exists('organizers', $attributes))
-        {
+        if (array_key_exists('organizers', $attributes)) {
             $organizers = $attributes['organizers'];
             if (!is_array($organizers)) {
                 $organizers = explode(',', $organizers);
@@ -279,8 +278,8 @@ class Trip extends Model
         }
 
         $this->organizers()->sync($toSync);
-        if(! array_key_exists('price', $attributes)) $attributes['price'] = 0;
-        if(! array_key_exists('capacity', $attributes)) $attributes['capacity'] = 0;
+        if (!array_key_exists('price', $attributes)) $attributes['price'] = 0;
+        if (!array_key_exists('capacity', $attributes)) $attributes['capacity'] = 0;
         //dd($attributes);
 
         return parent::update(self::updateDatetimes($attributes), $options);
@@ -288,7 +287,7 @@ class Trip extends Model
 
     public function isOrganizer($id_user)
     {
-        $organizer = $this->organizers->first(function ($value, $key) use($id_user){
+        $organizer = $this->organizers->first(function ($value, $key) use ($id_user) {
             return $value->id_user == $id_user;
         });
         return isset($organizer);
@@ -309,7 +308,7 @@ class Trip extends Model
         })->exists();
     }
 
-    public static function withParticipants(... $with)
+    public static function withParticipants(...$with)
     {
         return self::with('participants.user', 'participants.exchangeStudent', 'participants.buddy', ...$with);
     }
@@ -348,7 +347,7 @@ class Trip extends Model
             $trip->type = $data['type'];
             $trip->save();
 
-            foreach($organizers as $organizer) {
+            foreach ($organizers as $organizer) {
                 $trip->organizers()->attach($organizer, ['add_by' => $id_user]);
             }
 
@@ -436,9 +435,8 @@ class Trip extends Model
     {
         $data = \DB::select('describe trips type');
         preg_match('/^enum\((.*)\)$/', $data[0]->Type, $matches);
-        foreach( explode(',', $matches[1]) as $value )
-        {
-            $value = trim( $value, "'" );
+        foreach (explode(',', $matches[1]) as $value) {
+            $value = trim($value, "'");
             $enum[$value] = $value;
         }
         return $enum;
@@ -447,14 +445,13 @@ class Trip extends Model
     public function getStatusMessage($messageCode, $part)
     {
         $partName = $part->first_name . ' ' . $part->last_name;
-        switch ($messageCode)
-        {
+        switch ($messageCode) {
             case self::REGULAR_PARTICIPANT:
                 return $partName . ' was successfully added to ' . $this->event->name;
             case self::STAND_IN:
                 return $partName . ' was successfully added in to ' . $this->event->name . ' as stand in';
             case self::TRIP_FULL:
-                return 'Trip '. $this->event->name . 'is FULL!!!';
+                return 'Trip ' . $this->event->name . 'is FULL!!!';
             case self::PARTICIPANT_ALREADY_IN:
                 return $partName . ' is already in ' . $this->event->name;
         }

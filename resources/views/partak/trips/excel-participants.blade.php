@@ -19,7 +19,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>WhatsApp</th>
-                    <th>ESN cart number</th>
+                    <th>ESNcard number</th>
                     <th>Accommodation</th>
                     <th>Comment to payment</th>
                     <th>Paid</th>

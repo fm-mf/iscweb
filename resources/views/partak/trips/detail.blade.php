@@ -159,10 +159,10 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="exportDropdownButton">
                         <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/pdf' ) }}" class="dropdown-item">
-                            <i class="fas fa-file-pdf"></i> Export participants (PDF)
+                            <i class="fas fa-file-pdf"></i> Export participants and reservations (PDF)
                         </a>
                         <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="dropdown-item">
-                            <i class="fas fa-file-excel"></i> Export participants (Excel)
+                            <i class="fas fa-file-excel"></i> Export participants and reservations (Excel)
                         </a>
                     </div>
                 </div>

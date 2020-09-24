@@ -45,6 +45,16 @@ class EventReservation extends Model
         return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
     }
 
+    public function person()
+    {
+        return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
+    }
+
+    public function exchangeStudent()
+    {
+        return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
+    }
+
     public function answers()
     {
         return $this->hasMany(
