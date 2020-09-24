@@ -69,8 +69,6 @@ class AvatarController extends Controller
 
         if (!empty($oldAvatar) && Storage::exists("avatars/{$oldAvatar}")) {
             Storage::delete("avatars/{$oldAvatar}");
-        } elseif (count($oldAvatars = glob(storage_path("app/avatars/old/{$user->id_user}.*"))) > 0) {
-            Storage::delete($oldAvatars);
         }
 
         return response()->json([
