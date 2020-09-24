@@ -15,7 +15,7 @@ class ExchangeStudent extends Model
 
     public $timestamps = false;
     protected $primaryKey = 'id_user';
-    protected $dates = ['buddy_timestamp'];
+    protected $dates = ['buddy_timestamp', 'quarantined_until'];
     public $incrementing = false;
 
     protected $casts = [
@@ -24,7 +24,7 @@ class ExchangeStudent extends Model
 
     protected $fillable = [
         'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation',
-        'whatsapp', 'facebook', 'esn_receipt_id'
+        'whatsapp', 'facebook', 'esn_receipt_id', 'instagram', 'note', 'quarantined_until'
     ];
 
     public function user()
@@ -115,7 +115,7 @@ class ExchangeStudent extends Model
     {
         return url('partak/users/exchange-students/' . $this->id_user);
     }
-/*
+    /*
     public function getEmailAttribute($value)
     {
         return $this->person->email;
@@ -281,7 +281,7 @@ class ExchangeStudent extends Model
                                     });
                             });
                     });
-                })
+            })
             ->orderBy('last_name')
             ->orderBy('first_name')
             ->orderBy('exchange_students.id_user');
@@ -334,6 +334,11 @@ class ExchangeStudent extends Model
         return $query->with('person.user')->whereHas('person.user', function (Builder $query) use ($email) {
             $query->where('email', $email);
         })->first();
+    }
+
+    public function scopeFindQuarantined(Builder $query)
+    {
+        return $query->with(['person', 'user'])->where('quarantined_until', '>', Carbon::now());
     }
 
     public function scopeFindByEsn(Builder $query, string $esn)
@@ -393,5 +398,22 @@ class ExchangeStudent extends Model
     public function getIsNotEsnRegisteredAttribute()
     {
         return $this->esn_registered === 'n';
+    }
+
+    public function getQuarantinedAttribute()
+    {
+        return $this->quarantined_until !== null
+            ? $this->quarantined_until->isAfter(Carbon::now())
+            : false;
+    }
+
+    public function getInstagramLinkAttribute()
+    {
+        return "https://instagram.com/{$this->instagram}";
+    }
+
+    public function getFacebookTrimmedAttribute()
+    {
+        return preg_replace('/^https?:\/\/(www\.)?facebook\.com/i', '...', $this->facebook);
     }
 }

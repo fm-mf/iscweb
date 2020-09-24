@@ -43,6 +43,8 @@
                 </div>
             </div>
 
+            {{ Form::bsText('instagram', 'Instagram', '', null, [], 'Instagram handle without @') }}
+
             <div class="row align-items-center">
                 <div class="col-md-6 px-4">
                     {{ Form::checkbox('esn_registered', 'y', null, ['id' => 'esn_registered'])}}

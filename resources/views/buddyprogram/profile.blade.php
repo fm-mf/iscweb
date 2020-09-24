@@ -188,6 +188,14 @@
                                 </a>
                             </li>
                         @endif
+                        @if ($exchangeStudent->instagram)
+                            <li>
+                                <i class="fab fa-instagram fa-fw" title="Instagram"></i>
+                                <a href="{{ $exchangeStudent->instagram_link }}" target="_blank" rel="noopener">
+                                    {{ "@$exchangeStudent->instagram" }}
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             @else
