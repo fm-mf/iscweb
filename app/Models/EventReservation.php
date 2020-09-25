@@ -37,22 +37,22 @@ class EventReservation extends Model
 
     public function event()
     {
-        return $this->hasOne('\App\Models\Event', 'id_event', 'id_event');
+        return $this->belongsTo('\App\Models\Event', 'id_event', 'id_event');
     }
 
     public function user()
     {
-        return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\User', 'id_user', 'id_user');
     }
 
     public function person()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
     }
 
     public function exchangeStudent()
     {
-        return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
     public function answers()
