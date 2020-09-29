@@ -1,3 +1,5 @@
+import Cropper from 'cropperjs';
+
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as anonymous module.
@@ -33,6 +35,8 @@
 
         this.$avatarWrapper = this.$avatarModal.find('.avatar-wrapper');
         this.$avatarPreview = this.$avatarModal.find('.avatar-preview');
+
+        this.$errorTooBigFile = this.$avatarModal.find('#file-too-big');
 
         this.init();
     }
@@ -141,6 +145,15 @@
                     file = files[0];
 
                     if (this.isImageFile(file)) {
+                        if (file.size > (1 << 21)) {
+                            this.$errorTooBigFile.css('display', 'block');
+                            this.stopCropper();
+                            this.$avatarWrapper.empty();
+                            this.$avatarInput.val(null);
+                            return;
+                        } else {
+                            this.$errorTooBigFile.css('display', 'none');
+                        }
                         if (this.url) {
                             URL.revokeObjectURL(this.url); // Revoke the old one
                         }
@@ -201,6 +214,8 @@
                 var image = document.getElementById('cropped-image');
                 this.cropper = new Cropper(image, {
                     aspectRatio: 1,
+                    viewMode: 1,
+                    zoomable: false,
                     crop: function (e) {
                         var json = [
                             '{"x":' + e.detail.x,
@@ -225,7 +240,7 @@
 
         stopCropper: function () {
             if (this.active) {
-                this.cropper.disable();
+                this.cropper.destroy();
                 this.$img.remove();
                 this.active = false;
             }
@@ -234,7 +249,6 @@
         ajaxUpload: function () {
             var url = this.$avatarForm.attr('action');
 
-            console.log(url);
             var myForm = document.getElementById('avatar-form');
             var data = new FormData(myForm);
             var _this = this;
@@ -244,9 +258,6 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
-            console.log("has" + data.has('avatar_src'));
-            console.log("hash" + data.has('hash'));
 
             $.ajax({
                 type: 'post',
@@ -267,6 +278,8 @@
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     if (XMLHttpRequest.status === 400) {
                         _this.submitFail(XMLHttpRequest.responseJSON.message);
+                    } else if (XMLHttpRequest.status === 422) {
+                        _this.submitFail(XMLHttpRequest.responseJSON.errors.avatar_file[0])
                     } else {
                         _this.submitFail(textStatus || errorThrown);
                     }

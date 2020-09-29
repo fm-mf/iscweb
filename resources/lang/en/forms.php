@@ -5,5 +5,7 @@ return [
     'close' => 'Close',
     'save' => 'Save',
     'file-with-picture' => 'Local file',
-    'profile-picture-change' => 'Your profile picture'
+    'profile-picture-change' => 'Your profile picture',
+    'file-info' => 'The file has to be smaller than 2 MiB.',
+    'file-too-big' => 'The selected file is too big!',
 ];

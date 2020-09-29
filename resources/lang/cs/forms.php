@@ -6,4 +6,6 @@ return [
     'save' => 'Uložit',
     'file-with-picture' => 'Soubor s fotografií',
     'profile-picture-change' => 'Změna profilové fotografie',
+    'file-info' => 'Soubor může být veliký maximálně 2 MiB.',
+    'file-too-big' => 'Zvolený soubor je příliš veliký!',
 ];

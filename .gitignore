@@ -12,6 +12,7 @@ yarn-error.log
 
 /public/css/
 /public/fonts/
+/public/img/cropper/
 /public/js/
 /public/languages
 /public/mix-manifest.json

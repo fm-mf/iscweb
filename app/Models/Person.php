@@ -5,11 +5,19 @@ namespace App\Models;
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Constraint;
+use Intervention\Image\Facades\Image;
+use Ramsey\Uuid\Uuid;
 
 class Person extends Model
 {
     use DynamicHiddenVisible;
+
+    const AVATARS_DIR = 'avatars';
+    const DEFAULT_AVATAR = 'img/auth/avatar.jpg';
+    const AVATAR_SIZE = 360;
 
     public $timestamps = false;
     protected $primaryKey = 'id_user';
@@ -36,26 +44,17 @@ class Person extends Model
         return $this->belongsTo('\App\Models\Buddy', 'id_user', 'id_user');
     }
 
-    public function avatar()
+    public function avatar() {
+        return $this->avatar_url;
+    }
+
+    public function getAvatarUrlAttribute()
     {
-        $avatar = $this->avatar;
-        if (!$avatar) {
-            $path = public_path() . '/avatars/old/' . $this->id_user;
-            $file = url('avatars/old/' . $this->id_user);
-            if (file_exists($path . '.jpg')) {
-                $avatar = $file . '.jpg';
-            } else if (file_exists($path . '.jpeg')) {
-                $avatar = $file . '.jpeg';
-            } else if (file_exists($path . '.png')) {
-                $avatar = $file . '.png';
-            } else {
-                $avatar = url('/img/auth/avatar.jpg');
-            }
-        } else {
-            $avatar = url('avatars/' . $avatar);
+        if (empty($this->avatar)) {
+            return asset(self::DEFAULT_AVATAR);
         }
 
-        return $avatar;
+        return asset(self::AVATARS_DIR . "/{$this->avatar}");
     }
 
     public function setAgeAttribute($age)
@@ -160,5 +159,52 @@ class Person extends Model
     public function getHashIdAttribute()
     {
         return $this->user->hashId;
+    }
+
+    public function storeAvatar(UploadedFile $file, string $cropData): string
+    {
+        if (!Storage::exists(self::AVATARS_DIR)) {
+            Storage::makeDirectory(self::AVATARS_DIR);
+        }
+
+        $cropData = json_decode(stripslashes($cropData));
+
+        $img = Image::make($file)
+            ->crop(
+                intval($cropData->width),
+                intval($cropData->height),
+                intval($cropData->x),
+                intval($cropData->y)
+            )->resize(
+                self::AVATAR_SIZE,
+                self::AVATAR_SIZE,
+                function (Constraint $constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            );
+
+        $fileExtension = $file->extension();
+        $fileName = Uuid::uuid4() . ".{$fileExtension}";
+        while (Storage::exists(self::AVATARS_DIR . "/{$fileName}")) {
+            $fileName = Uuid::uuid4() . ".{$fileExtension}";
+        }
+        $filePath = Storage::path(self::AVATARS_DIR . "/{$fileName}");
+        $img->save($filePath);
+
+        $oldAvatar = $this->avatar;
+
+        $this->update([
+            'avatar' => $fileName,
+        ]);
+
+        if (
+            !empty($oldAvatar)
+            && Storage::exists(self::AVATARS_DIR . "/{$oldAvatar}")
+        ) {
+            Storage::delete(self::AVATARS_DIR . "/{$oldAvatar}");
+        }
+
+        return $fileName;
     }
 }
