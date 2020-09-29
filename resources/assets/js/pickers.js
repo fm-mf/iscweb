@@ -1,5 +1,4 @@
 // TODO: This is shit
-console.log($('.date'));
 
 $('.date').pickadate({
   editable: true,
