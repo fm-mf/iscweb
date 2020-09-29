@@ -42,10 +42,10 @@
 
 <div class="row">
     <div class="col-sm-9">
-    {{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png image/jpg', 'onchange' => 'cover_change(this.files)']) }}
+    {{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png']) }}
     </div>
-    <div class="col-sm-3">
-        <img id="cover_preview" src="{{$event->cover()}}" href="{{$event->cover()}}" style="display: {{$event->hasCover() ? 'block' : 'none'}};"/>
+    <div class="col-sm-3 d-flex justify-content-center align-items-center">
+        <img id="cover_preview" src="{{ $event->cover() }}" data-src="{{ $event->cover() }}" style="display: {{ $event->hasCover() ? 'block' : 'none' }};" alt="" />
     </div>
 </div>
 
@@ -136,4 +136,27 @@
 
     <script src="{{ URL::asset('/js/tinymce/tinymce.min.js') }}" defer></script>
     <script src="{{ mix('/js/text-editor.js') }}" defer></script>
+
+    <script>
+        function handleCoverChange(event) {
+            const coverPreview = document.getElementById('cover_preview');
+            if (event.target.files.length === 0) {
+                coverPreview.src = coverPreview.getAttribute('data-src');
+                if (coverPreview.src === '') {
+                    coverPreview.style.display = 'none';
+                }
+                return;
+            }
+            const fileReader = new FileReader();
+            fileReader.onload = function (event) {
+                coverPreview.src = event.target.result;
+                coverPreview.style.display = 'block';
+            }
+            fileReader.readAsDataURL(event.target.files[0]);
+        }
+
+        window.addEventListener('DOMContentLoaded', function (event) {
+            document.getElementById('cover').addEventListener('change', handleCoverChange);
+        });
+    </script>
 @stop
