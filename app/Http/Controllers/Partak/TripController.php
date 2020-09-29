@@ -111,33 +111,61 @@ class TripController extends Controller
         $trip = Trip::withParticipants('event')->find($id);
         $this->authorize('view', $trip);
 
-        $particip = $trip->participants->sortby(function ($item) {
+        $particip = $trip->participants->sortBy(function ($item) {
             return strtolower($item->last_name);
         });
 
-        $excell = Excel::create(
+        $reservations = $trip->reservations->sortBy(function ($item) {
+            return strtolower($item->last_name);
+        });
+
+        $excel = Excel::create(
             $trip->event->nameWithoutSpaces() . '_participants',
-            function ($excel) use ($particip, $trip) {
+            function ($excel) use ($particip, $reservations, $trip) {
                 $excel->sheet('Participants', function ($sheet) use ($particip, $trip) {
                     $sheet->mergeCells('A1:I1');
 
                     // Columns A and H (order number and phone number) format is set to number
-                    $sheet->setColumnFormat(array(
+                    $sheet->setColumnFormat([
                         'A' => '0',
                         'H' => '0',
-                    ));
-                    $sheet->setHeight(array(
+                    ]);
+                    $sheet->setHeight([
                         1 => 20,
-                    ));
+                    ]);
 
                     // Freeze row with columns description
                     $sheet->setFreeze('A4');
 
-                    $sheet->loadView('partak.trips.excel', ['particip' => $particip, 'trip' => $trip]);
+                    $sheet->loadView('partak.trips.excel-participants', ['particip' => $particip, 'trip' => $trip]);
                 });
+
+                if ($trip->event->reservations_enabled) {
+                    $excel->sheet('Reservations', function ($sheet) use ($reservations, $trip) {
+                        $sheet->mergeCells('A1:I1');
+
+                        // Columns A and H (order number and phone number) format is set to number
+                        $sheet->setColumnFormat([
+                            'A' => '0',
+                            'H' => '0',
+                        ]);
+                        $sheet->setHeight([
+                            1 => 20,
+                        ]);
+
+                        // Freeze row with columns description
+                        $sheet->setFreeze('A4');
+
+                        $sheet->loadView(
+                            'partak.trips.excel-reservations',
+                            ['reservations' => $reservations, 'trip' => $trip]
+                        );
+                    });
+                }
             }
         );
-        return $excell->download('xls');
+
+        return $excel->download('xls');
     }
 
     public function confirmAddParticipant($id_trip, $id_part)
