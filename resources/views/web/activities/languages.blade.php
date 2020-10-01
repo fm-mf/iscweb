@@ -30,7 +30,7 @@
                         Take advantage of our free language courses! The courses are taught by you –
                         Erasmus and exchange students, Czech students and foreigners living in Prague.
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
-                        Language courses for the Fall semester 2020 will start on Monday, March 5th 2020. The schedule
+                        Language courses for the Fall semester 2020 will start on Monday, October 5th 2020. The schedule
                         for Fall semester 2020 will be available during the first week of October 2020. The courses will
                         take place at the Masarykova dormitory and at Strahov, block 8.
                     </p>
