@@ -19,13 +19,13 @@
                         zábavnou formou a není na ně potřeba žádné registrace.
                     </p>
                     <p>
-                        Jazykové kurzy pro letní semestr 2019/2020 začínají v pondělí 2. března 2020.
-                        Rozvrh kurzů bude zveřejněn koncem února. Kurzy probíhají v místonstech ISC
+                        Jazykové kurzy pro zimní semestr 2020/2021 začínají v pondělí 5. října 2020.
+                        Rozvrh kurzů bude zveřejněn začátkem října. Kurzy probíhají v místonstech ISC
                         na Masarykově koleji a na Srahově na bloku 8.
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Podívejte se na <strong>rozvrh pro letní semestr 2019/2020</strong>
+                            Podívejte se na <strong>rozvrh pro zimní semestr 2020/2021</strong>
                         </a>
                     </p>
                     <h3>Kde najdu učebny?</h3>
@@ -62,9 +62,9 @@
                         Zaregistruj se do <a href="{{ url('tandem') }}">Tandem databáze</a> a najdi si svého Tandem partnera!
                     </p>
                     <p>
-                        Zastav se také na <strong>Tandem eveningu v pondělí 10. února</strong> v P.M. klubu!
+                        Zastav se také na <strong>Tandem eveningu v pondělí 14. září</strong> v klubu Storm!
                         Pro více informací sleduj
-                        <a href="https://www.facebook.com/events/563244627556599/" target="_blank" rel="noopener">Facebookovou událos</a>.
+                        <a href="https://www.facebook.com/events/345928639923952/" target="_blank" rel="noopener">Facebookovou událos</a>.
                     </p>
                     <p>
                         <a href="{{ url('/tandem') }}" class="btn btn-primary">
@@ -114,7 +114,7 @@
                     <p>
                         Podívejte se na rozvrh ISC jazykových kurzů pro
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            letní semestr 2019/2020
+                            zimní semestr 2020/2021
                         </a>.
                     </p>{{--
                     <p>
