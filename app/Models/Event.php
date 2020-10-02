@@ -145,7 +145,7 @@ class Event extends Model
      * Returns path to event's cover
      * @return string
      */
-    public function cover()
+    public function getCoverPathAttribute()
     {
         //todo: path to default cover
         return isset($this->cover) ? '/events/covers/' . $this->cover : '';
