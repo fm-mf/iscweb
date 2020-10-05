@@ -185,7 +185,6 @@ export default {
   transform-origin: center center;
   max-width: 600px;
   background: #fff;
-  border-radius: 5px;
   box-shadow: 2px 2px 10px 0px #999;
   max-height: 90%;
   overflow: auto;
