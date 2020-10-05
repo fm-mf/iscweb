@@ -28,7 +28,7 @@
           Drop image here or select it manually
         </div>
         <div class="p-change">
-          <input type="file" @change="handleChange" />
+          <input type="file" accept="image/*" @change="handleChange" />
           <button type="button" class="btn btn-outline-secondary" @click="$emit('cancel')">
             <span class="fas fa-times" /> Cancel
           </button>
