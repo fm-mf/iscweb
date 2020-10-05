@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div class="btn btn-default" @click="show = !show">
+    <button type="button" class="btn btn-outline-primary" @click="show = !show">
+      <span class="fas fa-edit"></span>
       Edit custom questions
-    </div>
+    </button>
 
     <div :class="{ 'p-modal': true, show }">
       <div class="p-content">
@@ -24,12 +25,12 @@
         </div>
 
         <div class="p-actions">
-          <div class="btn btn-primary" @click="add">
-            <span class="glyphicon glyphicon-plus" /> Add question
-          </div>
-          <div class="btn btn-default" @click="show = !show">
-            <span class="glyphicon glyphicon-ok" /> Done
-          </div>
+          <button type="button" class="btn btn-outline-primary" @click="add">
+            <span class="fas fa-plus" /> Add question
+          </button>
+          <button type="button" class="btn btn-primary" @click="show = !show">
+            <span class="fas fa-check" /> Done
+          </button>
         </div>
       </div>
     </div>
