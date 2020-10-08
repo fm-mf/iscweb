@@ -26,6 +26,7 @@ mix
   .js('resources/assets/js/pickers.js', 'public/js')
   .js('resources/assets/js/text-editor.js', 'public/js')
   .js('resources/assets/js/crop-avatar.js', 'public/js')
+  .js('resources/assets/js/profile.js', 'public/js')
   .sass('resources/assets/sass/web/web.scss', 'public/css')
   .sass('resources/assets/sass/czech/czech.scss', 'public/css')
   .sass('resources/assets/sass/czech/alumni.scss', 'public/css')

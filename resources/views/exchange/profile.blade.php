@@ -5,8 +5,13 @@
 @stop
 
 @section('page')
-    <div class="container-small">
-        <h2>Buddy Program Profile</h2>
+    <div class="container-small exchange-profile">
+        <h2 class="my-5">Buddy Program Profile</h2>
+
+        <div class="form-text my-5 text-muted">
+            <p>Once you fill your profile, you'll be added to our Buddy Program database. Buddies will start being assigned on {{ $buddyDbFrom->formatLocalized('%e %B %Y') }} at {{ $buddyDbFrom->formatLocalized('%k:%M') }}.</p>
+            <p>You'll receive an e-mail notification if you get a buddy. It's also likely, that your buddy will attempt to contact you using provided contact methods.</p>
+        </div>
 
         @if (session('success'))
             <div class="row">
@@ -25,12 +30,12 @@
             <div class="form-group col-sm-6">
                 <label class='control-label'>E-mail</label>
                 <input class='form-control' type="text" disabled value="{{$student->user->email}}" />
-                <small class="form-text text-muted">This e-mail will be used whenever we need to contact you. If you want to change it, write us at <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a>.</small>
+                <small class="form-text text-muted">This e-mail will be used whenever we need to contact you. If you want to change it, contact us at <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a>.</small>
             </div>
         </div>
 
-        <fieldset>
-            <legend>🖼️ Profile picture</legend>
+        <fieldset class="my-4">
+            <!--<legend>🖼️ Profile picture</legend>-->
             @include('profile.avatar')
         </fieldset>
 
@@ -55,7 +60,7 @@
                     @if ($errors->has('date'))
                         <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
                     @endif
-                    {{ Form::text('date', $currentDate, ['id' => 'date', 'class' => 'form-control arrival']) }}
+                    {{ Form::text('date', $currentDate, ['id' => 'date', 'class' => 'date form-control arrival']) }}
                     <div id="picker">
                     </div>
                 </div>
@@ -64,7 +69,7 @@
                     @if ($errors->has('time'))
                         <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
                     @endif
-                    {{ Form::text('time', $currentTime, ['id' => 'time', 'class' => 'form-control arrival']) }}
+                    {{ Form::text('time', $currentTime, ['id' => 'time', 'class' => 'time form-control arrival']) }}
                 </div>
                 <div class="col-sm-6 info"></div>
             </div>
@@ -142,36 +147,19 @@
 @section('scripts')
     @parent
 
+    <!-- Required for tooltips and date/time pickers -->
+    <script src="{{ asset('js/jquery.min.js') }}" defer="defer"></script>
+   
+    <!-- Required for the avatar tooltip -->
+    <script src="{{ asset('js/popper.min.js') }}" defer="defer"></script>
+    <script src="{{ asset('js/bootstrap.4.min.js') }}" defer="defer"></script>
+
+    <!-- Required for the date/time pickers -->
     <script src="{{ URL::asset('/js/picker.js') }}" defer="defer"></script>
     <script src="{{ URL::asset('/js/picker.date.js') }}" defer="defer"></script>
     <script src="{{ URL::asset('/js/picker.time.js') }}" defer="defer"></script>
+    <script src="{{ URL::asset('/js/pickers.js') }}" defer="defer"></script>
 
-    <script  type="text/javascript">
-        function change() {
-            if($("#arrival").is(':checked')) {
-                $('.arrival').prop('disabled', true);
-            } else {
-                $('.arrival').prop('disabled', false);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', function () {
-            $('#arrival').change(function () {
-                change();
-            })
-            $(document).ready(function () {
-                change();
-            });
-            var $inputDate = $('#date').pickadate({
-                editable: true,
-                firstDay: 1,
-                container: '#picker',
-                format: 'dd mmm yyyy'
-            });
-            var picker = $inputDate.pickadate('picker');
-            //picker.set('view', new Date({!$date}));
-            var $inputTime = $('#time').pickatime({
-                editable: true
-            });
-        })
-    </script>
+    <!-- Logic for enabling/disabling arrival stuff -->
+    <script src="{{ URL::asset('/js/profile.js') }}" defer="defer"></script>
 @stop

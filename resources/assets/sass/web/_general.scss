@@ -1,0 +1,4 @@
+// Fix bootstrap disabled background
+.form-control:disabled {
+	background-clip: inherit;
+}

@@ -7,7 +7,7 @@
             <img src="{{ asset($avatar) }}" alt="Avatar" id="avatar">
         </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 crop-avatar-text">
         <label for="avatar">{{ trans('forms.profile-picture') }}</label>
         <p class="grey">{{ trans('forms.profile-picture-info') }}</p>
     </div>

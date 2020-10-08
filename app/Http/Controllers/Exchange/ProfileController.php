@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Facades\Settings;
 
 class ProfileController extends Controller
 {
@@ -44,7 +45,7 @@ class ProfileController extends Controller
 
         $avatar = $student->person->avatar();
 
-        //dd($avatar);
+        $buddyDbFrom = Carbon::parse(Settings::get('buddyDbFrom'));
 
         return view('exchange.profile')->with([
             'student' => $student,
@@ -59,6 +60,7 @@ class ProfileController extends Controller
             'optedOut' => $student->want_buddy == 'n',
             'userHash' => $student->person->user->hash,
             'diets' => Person::getAllDiets(),
+            'buddyDbFrom' => $buddyDbFrom
         ]);
     }
 
