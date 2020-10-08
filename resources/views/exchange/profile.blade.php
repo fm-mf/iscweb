@@ -92,6 +92,7 @@
             <small class="help-block form-text text-muted col-sm-12">Your buddy will receive your e-mail as a primary contact. If you want to provide more ways to contact you, you can enter them here.</small>
             {{ Form::bsTel('whatsapp', 'WhatsApp', null, $student->whatsapp, [], 'Full number, with your country prefix') }}
             {{ Form::bsText('facebook', 'Facebook', '', $student->facebook, [], 'Full link to your facebook profile') }}
+            {{ Form::bsText('instagram', 'Instagram', '', $student->instagram, [], 'Your instagram handle without @') }}
         </fieldset>
 
         <fieldset>
@@ -141,19 +142,9 @@
 @section('scripts')
     @parent
 
-    <script>
-        $(".chosen").chosen();
-
-        $(document).ready(function() {
-            $( ".chosen" ).on( "change", function() {
-                window.location.replace("https://isc.cvut.cz/muj-buddy/exchange/"+$(this).attr("name")+"/"+$(this).val());
-            });
-        });
-    </script>
-
-    <script src="{{ URL::asset('/js/picker.js') }}"></script>
-    <script src="{{ URL::asset('/js/picker.date.js') }}"></script>
-    <script src="{{ URL::asset('/js/picker.time.js') }}"></script>
+    <script src="{{ URL::asset('/js/picker.js') }}" defer="defer"></script>
+    <script src="{{ URL::asset('/js/picker.date.js') }}" defer="defer"></script>
+    <script src="{{ URL::asset('/js/picker.time.js') }}" defer="defer"></script>
 
     <script  type="text/javascript">
         function change() {
@@ -163,22 +154,24 @@
                 $('.arrival').prop('disabled', false);
             }
         }
-        $('#arrival').change(function() {
-            change();
+        document.addEventListener('DOMContentLoaded', function () {
+            $('#arrival').change(function () {
+                change();
+            })
+            $(document).ready(function () {
+                change();
+            });
+            var $inputDate = $('#date').pickadate({
+                editable: true,
+                firstDay: 1,
+                container: '#picker',
+                format: 'dd mmm yyyy'
+            });
+            var picker = $inputDate.pickadate('picker');
+            //picker.set('view', new Date({!$date}));
+            var $inputTime = $('#time').pickatime({
+                editable: true
+            });
         })
-        $( document ).ready(function() {
-            change();
-        });
-        var $inputDate = $('#date').pickadate({
-            editable: true,
-            firstDay: 1,
-            container: '#picker',
-            format: 'dd mmm yyyy'
-        });
-        var picker = $inputDate.pickadate('picker');
-        //picker.set('view', new Date({!$date}));
-        var $inputTime = $('#time').pickatime({
-            editable: true
-        });
     </script>
 @stop

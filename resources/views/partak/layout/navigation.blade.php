@@ -19,6 +19,7 @@
                 ['title' => 'Preregistrations', 'icon' => 'user-tag', 'route' => 'partak.users.preregistrations', 'acl' => 'exchangeStudents.register'],
                 ['title' => 'Roles', 'icon' => 'users-cog', 'route' => 'partak.users.roles', 'acl' => 'roles.view'],
                 ['title' => 'Parťáks', 'icon' => 'user-astronaut', 'route' => 'partak.users.partaks', 'acl' => 'roles.view'],
+                ['title' => 'Quarantined', 'icon' => 'user-lock', 'route' => 'partak.users.quarantined', 'acl' => 'quarantined'],
             ]],
             ['title' => 'Trips', 'icon' => 'hiking', 'route' => 'partak.trips', 'items' => [
                 ['title' => 'Active trips', 'icon' => 'list', 'route' => 'partak.trips.upcoming', 'acl' => 'trips.view'],

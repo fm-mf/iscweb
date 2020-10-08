@@ -24,6 +24,8 @@ use App\Models\Receipt;
 use App\Models\Semester;
 use App\Models\Trip;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -109,33 +111,61 @@ class TripController extends Controller
         $trip = Trip::withParticipants('event')->find($id);
         $this->authorize('view', $trip);
 
-        $particip = $trip->participants->sortby(function ($item) {
+        $particip = $trip->participants->sortBy(function ($item) {
             return strtolower($item->last_name);
         });
 
-        $excell = Excel::create(
+        $reservations = $trip->reservations->sortBy(function ($item) {
+            return strtolower($item->last_name);
+        });
+
+        $excel = Excel::create(
             $trip->event->nameWithoutSpaces() . '_participants',
-            function ($excel) use ($particip, $trip) {
+            function ($excel) use ($particip, $reservations, $trip) {
                 $excel->sheet('Participants', function ($sheet) use ($particip, $trip) {
                     $sheet->mergeCells('A1:I1');
 
                     // Columns A and H (order number and phone number) format is set to number
-                    $sheet->setColumnFormat(array(
+                    $sheet->setColumnFormat([
                         'A' => '0',
                         'H' => '0',
-                    ));
-                    $sheet->setHeight(array(
+                    ]);
+                    $sheet->setHeight([
                         1 => 20,
-                    ));
+                    ]);
 
                     // Freeze row with columns description
                     $sheet->setFreeze('A4');
 
-                    $sheet->loadView('partak.trips.excel', ['particip' => $particip, 'trip' => $trip]);
+                    $sheet->loadView('partak.trips.excel-participants', ['particip' => $particip, 'trip' => $trip]);
                 });
+
+                if ($trip->event->reservations_enabled) {
+                    $excel->sheet('Reservations', function ($sheet) use ($reservations, $trip) {
+                        $sheet->mergeCells('A1:I1');
+
+                        // Columns A and H (order number and phone number) format is set to number
+                        $sheet->setColumnFormat([
+                            'A' => '0',
+                            'H' => '0',
+                        ]);
+                        $sheet->setHeight([
+                            1 => 20,
+                        ]);
+
+                        // Freeze row with columns description
+                        $sheet->setFreeze('A4');
+
+                        $sheet->loadView(
+                            'partak.trips.excel-reservations',
+                            ['reservations' => $reservations, 'trip' => $trip]
+                        );
+                    });
+                }
             }
         );
-        return $excell->download('xls');
+
+        return $excel->download('xls');
     }
 
     public function confirmAddParticipant($id_trip, $id_part)
@@ -340,13 +370,9 @@ class TripController extends Controller
             $data['modified_by'] = Auth::id();
 
             if ($request->hasFile('cover')) {
-                $file = $request->file('cover');
-                $image_name = $trip->event->id_event . '.' . $file->extension();
-                \File::delete(storage_path() . '/app/events/covers/' . $trip->event->cover);
-                Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-                $data['cover'] = $image_name;
+                $trip->event->storeCover($request->file('cover'));
+                unset($data['cover']);
             }
-
 
             $data['reservations_enabled'] = $request->input('reservations_enabled') === '1' ? true : false;
             $data['reservations_diet'] = $request->input('reservations_diet') === '1' ? 1 : 0;
@@ -417,16 +443,11 @@ class TripController extends Controller
         }
 
         $trip = Trip::createTrip($data);
-        $trip = Trip::with('event')->find($trip->id_trip);
+        $trip->load('event');
 
         if ($request->hasFile('cover')) {
-            $file = $request->file('cover');
-            $image_name = $trip->event->id_event . '.' . $file->extension();
-            Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-            $trip->event->cover = $image_name;
+            $trip->event->storeCover($request->file('cover'));
         }
-
-        $trip->event->save();
 
         $this->saveQuestions($trip, $request->input('questions') ?? []);
 
@@ -485,8 +506,11 @@ class TripController extends Controller
     protected function tripValidator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required',
-            'id_semester' => 'required|exists:semesters,id_semester',
+            'name' => 'required|string|max:255',
+            'id_semester' => 'required|exists:semesters',
+            'location' => 'nullable|string|max:255',
+            'location_url' => 'nullable|string|url|max:255',
+            'facebook_url' => 'nullable|string|url|max:255',
             'visible_date' => 'required|date_format:d M Y',
             'visible_time' => 'required|date_format:g:i A',
             'registration_date' => 'required|date_format:d M Y',
@@ -497,10 +521,10 @@ class TripController extends Controller
             'start_time' => 'required|date_format:g:i A',
             'end_date' => 'required|date_format:d M Y',
             'end_time' => 'required|date_format:g:i A',
-            'description' => 'required',
+            'description' => 'required|string',
             'price' => 'required|integer|min:0|max:65535',
             'capacity' => 'required|integer|min:0||max:65535',
-            'cover' => 'max:307400|mimes:jpg,jpeg,png',
+            'cover' => 'nullable|file|image|max:307400|mimes:jpg,jpeg,png',
         ]);
     }
 

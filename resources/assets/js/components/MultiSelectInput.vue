@@ -1,6 +1,6 @@
 <template>
     <div class="form-group drop-down">
-        <label v-if="title" :for="randomId">{{ title }}</label>
+        <label v-if="title" :for="formName">{{ title }}</label>
         <multiselect
                 :options="options"
                 :searchable="searchable"
@@ -9,7 +9,7 @@
                 :label="label"
                 placeholder="Select..."
                 :show-labels="true"
-                :id="randomId"
+                :id="formName"
                 v-model="currentValue"
                 :multiple="multiple"
                 v-on:input="onInput"
@@ -87,7 +87,7 @@
                     v.push(this.currentValue[i][track]);
                 }
                 return v;
-            }
+            },
         },
 
         methods: {

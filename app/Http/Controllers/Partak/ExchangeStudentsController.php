@@ -11,6 +11,7 @@ use App\Models\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Faculty;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -19,6 +20,7 @@ class ExchangeStudentsController extends Controller
     protected function profileValidator(array $data, $id)
     {
         $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
+        $instagramRegex = '/^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/';
 
         $validator = Validator::make($data, [
             'phone' => 'max:15',
@@ -33,8 +35,10 @@ class ExchangeStudentsController extends Controller
             'medical_issues' => 'max:255',
             'whatsapp' => ['phone:AUTO', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
+            'instagram' => ["regex:$instagramRegex", 'nullable'],
+            'quarantined_until' => ['date_format:d M Y', 'nullable'],
         ]);
-        
+
         return $validator;
     }
 
@@ -47,7 +51,7 @@ class ExchangeStudentsController extends Controller
     public function showDetailExchangeStudent($id)
     {
         $this->authorize('acl', 'exchangeStudents.view');
-        
+
         $exStudent = ExchangeStudent::with(['person.user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
         if ($exStudent == null) {
             throw new UserDoesntExist("Exchange Student does not exist !!!");
@@ -87,7 +91,11 @@ class ExchangeStudentsController extends Controller
                 $data[$key] = $value;
             }
         }
-        
+
+        if (isset($data['quarantined_until'])) {
+            $data['quarantined_until'] = Carbon::createFromFormat('d M Y', $data['quarantined_until']);
+        }
+
         if (!isset($data['esn_registered'])) {
             $data['esn_registered'] = 'n';
         }

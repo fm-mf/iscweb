@@ -112,6 +112,10 @@ return [
             'required' => 'Musíš vybrat alespoň jeden jazyk, který chceš někoho naučit',
             'min' => 'Musíš vybrat alespoň jeden jazyk, který chceš někoho naučit',
         ],
+        'avatar_file' => [
+            'uploaded' => 'Zvolený soubor je příliš veliký. Zvol, prosím, nějaký menší (maximální povolená velikost je 2 MiB)',
+            'max' => 'Zvolený soubor je příliš veliký. Zvol, prosím, nějaký menší (maximální povolená velikost je 2 MiB)',
+        ],
     ],
 
     'phone' => 'Zadané telefonní číslo není platné',

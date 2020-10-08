@@ -51,8 +51,8 @@ class TandemRegisterController extends Controller
             'lastName' => ['nullable', 'string', 'max:255'],
             'country' => ['nullable', 'integer', 'exists:countries,id_country'],
             'about' => ['nullable', 'string'],
-            'languagesToTeach' => ['required', 'array', 'min:1', 'exists:languages,id_language'],
-            'languagesToLearn' => ['required', 'array', 'min:1', 'exists:languages,id_language'],
+            'languagesToTeach' => ['required', 'array', 'between:1,5', 'exists:languages,id_language'],
+            'languagesToLearn' => ['required', 'array', 'between:1,5', 'exists:languages,id_language'],
         ]);
     }
 

@@ -162,7 +162,9 @@
                             <i class="fas fa-file-pdf"></i> Export participants (PDF)
                         </a>
                         <a href="{{ url('/partak/trips/detail/'. $trip->id_trip . '/excel' ) }}" class="dropdown-item">
-                            <i class="fas fa-file-excel"></i> Export participants (Excel)
+                            <i class="fas fa-file-excel"></i> Export participants
+                            @if ($trip->event->reservations_enabled) and reservations @endif
+                            (Excel)
                         </a>
                     </div>
                 </div>

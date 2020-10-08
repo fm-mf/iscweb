@@ -4,13 +4,17 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-.multiselect.is-invalid {
-  & > .multiselect__tags {
-    border-color: $danger;
-    background-image: escape-svg($form-feedback-icon-invalid);
-    background-repeat: no-repeat;
-    background-position: right calc(#{$input-height-inner-quarter} + 40px) center;
-    background-size: $input-height-inner-half $input-height-inner-half;
+.multiselect {
+  min-height: initial;
+
+  &.is-invalid {
+    & > .multiselect__tags {
+      border-color: $danger;
+      background-image: escape-svg($form-feedback-icon-invalid);
+      background-repeat: no-repeat;
+      background-position: right calc(#{$input-height-inner-quarter} + 40px) center;
+      background-size: $input-height-inner-half $input-height-inner-half;
+    }
   }
 }
 
@@ -19,7 +23,24 @@
   border: $input-border-width solid $input-border-color;
   padding-left: $input-padding-x;
   padding-top: $input-padding-y;
-  height: $input-height;
+  padding-bottom: $input-padding-y;
+  min-height: $input-height;
+}
+
+.multiselect__tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1;
+}
+
+.multiselect__tag {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.multiselect__tag,
+.multiselect__tag-icon {
+  border-radius: 0;
 }
 
 .multiselect__content-wrapper {
@@ -31,6 +52,16 @@
   color: $input-color;
   padding: 0;
   line-height: $input-line-height;
+  margin-bottom: 0;
+}
+
+.multiselect__input::placeholder {
+  color: $input-placeholder-color;
+  opacity: 1;
+}
+
+.multiselect__select {
+  height: 36px;
 }
 
 .multiselect__placeholder {
@@ -38,6 +69,7 @@
   font-size: 1rem;
   padding: 0;
   line-height: $input-line-height;
+  margin-bottom: 0;
 }
 
 label.required::after {
@@ -82,6 +114,15 @@ dl.user-profile {
 
     &:nth-of-type(#{$table-striped-order}) {
       background-color: $table-accent-bg;
+    }
+  }
+}
+
+.navbar {
+  .lang-switcher {
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+      margin-left: 1rem;
     }
   }
 }

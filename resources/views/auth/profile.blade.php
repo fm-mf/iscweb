@@ -19,8 +19,7 @@
         </div>
     </div>
 
-    {{-- TODO fix avatar upload --}}
-    {{-- @include('profile.avatar') --}}
+    @include('profile.avatar')
 
     {{ Form::model($buddy, ['action' => 'Auth\ProfileController@updateProfile', 'method' => 'patch']) }}
 

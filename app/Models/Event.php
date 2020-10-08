@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
-use App\Settings\Settings;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Hashids\Hashids;
+use Ramsey\Uuid\Uuid;
 
 /**
  * @property int $id_event
@@ -38,6 +40,8 @@ use Hashids\Hashids;
 */
 class Event extends Model
 {
+    const COVERS_DIR = 'events/covers';
+
     public $timestamps = true;
     protected $primaryKey = 'id_event';
     //public $incrementing = false;
@@ -141,7 +145,7 @@ class Event extends Model
      * Returns path to event's cover
      * @return string
      */
-    public function cover()
+    public function getCoverPathAttribute()
     {
         //todo: path to default cover
         return isset($this->cover) ? '/events/covers/' . $this->cover : '';
@@ -309,6 +313,23 @@ class Event extends Model
 
             return $event;
         });
+    }
+
+    public function storeCover(UploadedFile $cover)
+    {
+        $coverName = Uuid::uuid4()->toString() . ".{$cover->extension()}";
+        while (Storage::exists(self::COVERS_DIR . "/{$coverName}")) {
+            $coverName = Uuid::uuid4()->toString() . ".{$cover->extension()}";
+        }
+        $cover->storeAs(self::COVERS_DIR, $coverName);
+        $oldCoverName = $this->cover;
+
+        $this->cover = $coverName;
+        $this->save();
+
+        if (!empty($oldCoverName) && Storage::exists(self::COVERS_DIR . "/{$oldCoverName}")) {
+            Storage::delete(self::COVERS_DIR . "/{$oldCoverName}");
+        }
     }
 
     protected static function updateDatetimes($data)

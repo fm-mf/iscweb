@@ -25,6 +25,7 @@ mix
   .js('resources/assets/js/printer.js', 'public/js')
   .js('resources/assets/js/pickers.js', 'public/js')
   .js('resources/assets/js/text-editor.js', 'public/js')
+  .js('resources/assets/js/crop-avatar.js', 'public/js')
   .sass('resources/assets/sass/web/web.scss', 'public/css')
   .sass('resources/assets/sass/czech/czech.scss', 'public/css')
   .sass('resources/assets/sass/czech/alumni.scss', 'public/css')
@@ -44,11 +45,21 @@ mix
     'node_modules/@fortawesome/fontawesome-free/webfonts/*',
     'public/fonts/font-awesome'
   )
+  .copy('node_modules/cropperjs/src/images/*', 'public/img/cropper')
+  .copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
   .copy('node_modules/jquery/dist/jquery.slim.min.js', 'public/js')
   .copy('node_modules/popper.js/dist/umd/popper.min.js', 'public/js')
   .copy(
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'public/js/bootstrap.4.min.js'
+  )
+  .copy(
+    'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+    'public/js'
+  )
+  .copy(
+    'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+    'public/js'
   )
   .options({
     processCssUrls: false

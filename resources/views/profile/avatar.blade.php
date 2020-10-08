@@ -26,13 +26,21 @@
                             <!-- Upload image and data -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p class="alert alert-info"><strong>The file has to be smaller than 2 MiB.</strong></p>
+                                    <p class="alert alert-info">
+                                        <strong>
+                                            @lang('forms.file-info')
+                                        </strong>
+                                    </p>
                                 </div>
                             </div>
 
                             <div class="row" id="file-too-big" style="display: none">
                                 <div class="col-md-12">
-                                    <p class="alert alert-danger">The selected file is too big!</p>
+                                    <p class="alert alert-danger">
+                                        <strong>
+                                            @lang('forms.file-too-big')
+                                        </strong>
+                                    </p>
                                 </div>
                             </div>
 
@@ -67,13 +75,7 @@
     <div class="loading" tabindex="-1" role="img" aria-label="Loading"></div>
 </div><!-- /#crop-avatar -->
 
-@section('stylesheets')
-    @parent
-    <link  href="{{ URL::asset('css/cropper.css') }}" rel="stylesheet">
-@stop
-
 @section('scripts')
     @parent
-    <script src="{{ URL::asset('js/cropper.js') }}"></script>
-    <script src="{{ URL::asset('js/crop-avatar.js') }}"></script>
+    <script src="{{ mix('js/crop-avatar.js') }}" defer="defer"></script>
 @stop

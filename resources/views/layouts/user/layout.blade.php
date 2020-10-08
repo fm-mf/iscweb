@@ -10,7 +10,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
     @section('stylesheets')
-        <link href="{{ URL::asset('css/user.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ mix('css/user.css') }}" rel="stylesheet" type="text/css">
     @show
 </head>
 <body>
@@ -19,17 +19,12 @@
 @yield('page')
 
 @section('scripts')
-    <script
-        src="https://code.jquery.com/jquery-3.1.1.js"
-        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-        crossorigin="anonymous"
-    ></script>
-    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ URL::asset('js/chosen.jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}" defer="defer"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer="defer"></script>
+    <script src="{{ asset('js/chosen.jquery.min.js') }}" defer="defer"></script>
     <script>
-        $(".chosen").chosen();
-
         $(document).ready(function() {
+            $(".chosen").chosen();
             $( ".chosen" ).on( "change", function() {
                 window.location.replace("{include #link1}/"+$(this).attr("name")+"/"+$(this).val());
             });

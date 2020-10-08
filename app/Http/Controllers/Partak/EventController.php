@@ -86,12 +86,8 @@ class EventController extends Controller
                 }
             }
             if ($request->hasFile('cover')) {
-                $file = $request->file('cover');
-                $image_name = $event->id_event . '.' . $file->extension();
-                Storage::makeDirectory('events/covers');
-                File::delete(storage_path() . '/app/events/covers/' . $event->cover);
-                Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-                $data['cover'] = $image_name;
+                $event->storeCover($request->file('cover'));
+                unset($data['cover']);
             }
             $event->update($data);
             return back()->with([
@@ -143,11 +139,7 @@ class EventController extends Controller
         $data['modified_by'] = Auth::id();
         $event = Event::createEvent($data);
         if ($request->hasFile('cover')) {
-            $file = $request->file('cover');
-            $image_name = $event->id_event . '.' . $file->extension();
-            Storage::makeDirectory('events/covers');
-            Image::make($file)->save(storage_path() . '/app/events/covers/' . $image_name);
-            $event['cover'] = $image_name;
+            $event->storeCover($request->file('cover'));
         }
         if ($data['event_type'] == 'integreat') {
             Integreat_party::creatParty($event->id_event, $data);
@@ -163,14 +155,17 @@ class EventController extends Controller
     protected function eventValidator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required',
-            'id_semester' => 'required|exists:semesters,id_semester',
+            'name' => 'required|string|max:255',
+            'id_semester' => 'required|exists:semesters',
+            'location' => 'nullable|string|max:255',
+            'location_url' => 'nullable|string|url|max:255',
+            'facebook_url' => 'nullable|string|url|max:255',
             'visible_date' => 'required|date_format:d M Y',
-            'visible_time' => 'required| date_format:g:i A',
+            'visible_time' => 'required|date_format:g:i A',
             'start_date' => 'required|date_format:d M Y',
             'start_time' => 'required|date_format:g:i A',
-            'description' => 'required',
-            'cover' => 'max:307400|mimes:jpg,jpeg,png',
+            'description' => 'required|string',
+            'cover' => 'nullable|file|image|max:307400|mimes:jpg,jpeg,png',
         ]);
     }
 
