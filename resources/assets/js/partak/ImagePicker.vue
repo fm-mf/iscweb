@@ -13,29 +13,29 @@
       <div class="p-title">Image picker</div>
       <div class="p-body">
         <div v-if="uploading" class="loader">
-          <span class="glyphicon glyphicon-send upload-anim" />
+          <span class="fas fa-paper-plane upload-anim" />
           Uploading
         </div>
         <div v-if="error" class="error">
           <div>Failed to upload image:</div>
           <div>{{ error }}</div>
-          <div class="btn btn-primary" @click="error = null">OK</div>
+          <button type="button" class="btn btn-primary" @click="error = null">OK</button>
         </div>
         <div v-if="rawImage || image" class="p-image">
-          <img :src="rawImage || `${basePath}/${image}`" />
+          <img :src="rawImage || `${basePath}/${image}`" alt="" />
         </div>
         <div v-if="!rawImage && !image" class="no-image">
           Drop image here or select it manually
         </div>
         <div class="p-change">
-          <input type="file" @change="handleChange" />
-          <div v-if="file" class="btn btn-primary" @click="handleOk">
-            <span class="glyphicon glyphicon-send" />
+          <input type="file" accept="image/*" @change="handleChange" />
+          <button type="button" class="btn btn-outline-secondary" @click="$emit('cancel')">
+            <span class="fas fa-times" /> Cancel
+          </button>
+          <button type="button" :disabled="file == null" class="btn btn-primary" @click="handleOk">
+            <span class="fas fa-check" />
             Change
-          </div>
-          <div class="btn btn-default" @click="$emit('cancel')">
-            <span class="glyphicon glyphicon-remove-sign" /> Cancel
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -185,7 +185,6 @@ export default {
   transform-origin: center center;
   max-width: 600px;
   background: #fff;
-  border-radius: 5px;
   box-shadow: 2px 2px 10px 0px #999;
   max-height: 90%;
   overflow: auto;
