@@ -10,6 +10,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
     @section('stylesheets')
+        <link rel="stylesheet" type="text/css" href="{{ mix('css/vendor.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ mix('css/buddyprogram.css') }}" />
     @show
 </head>
@@ -57,8 +58,8 @@
 </main>
 
 @section('scripts')
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery.slim.min.js') }}" defer="defer"></script>
+    <script src="{{ asset('js/bootstrap.4.min.js') }}" defer="defer"></script>
 @show
 </body>
 </html>
