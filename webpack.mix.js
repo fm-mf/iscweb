@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 
 mix
   .js('resources/assets/js/web.js', 'public/js')
-  .js('resources/assets/js/echangestudentslist.js', 'public/js')
+  .js('resources/assets/js/exchange-students-list.js', 'public/js')
   .js('resources/assets/js/partak.js', 'public/js')
   .js('resources/assets/js/reservation.js', 'public/js')
   .js('resources/assets/js/partak-stats.js', 'public/js')
