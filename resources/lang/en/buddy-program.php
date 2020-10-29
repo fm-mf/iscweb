@@ -58,7 +58,6 @@ return [
         'year-of-birth' => 'Year of birth',
         'about-you' => 'About you (for incoming students)',
         'sex' => 'I am',
-        'preferred-language' => 'Preferred language of the database',
         'profile-updated' => 'Profile updated',
         'change-password' => 'Change password',
         'old-password' => 'Old password',
@@ -67,7 +66,7 @@ return [
         'password-changed' => 'Password changed',
         'wrong-old-password' => 'Wrong password',
         'subscribed' => 'I agree to receive occasional information about ISC events (e.g. information about opening of the Buddy database or about other upcoming events).',
-        'note-language' => 'Please note, that Exchange students\' descriptions will be as they have written them regardless of your language choice',
     ],
     'world-map-alt' => 'World map with arrows pointing to the Czech Republic',
+    'change-language' => 'Change language to English',
 ];
