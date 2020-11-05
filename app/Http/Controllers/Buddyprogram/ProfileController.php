@@ -19,8 +19,6 @@ class ProfileController extends Controller
             'faculties' => Faculty::getOptions(),
             'avatar' => $buddy->person->avatar(),
             'buddy' => $buddy,
-            'availableLanguages' => Locale::getAvailableLocalesSelectOptions(),
-            'browserPreferredLanguage' => Locale::getBrowserPreferredLanguage(),
         ]);
     }
 
@@ -33,12 +31,6 @@ class ProfileController extends Controller
             'sex' => ['required', 'string', 'in:M,F'],
             'id_faculty' => ['required', 'integer', 'exists:faculties'],
             'about' => ['nullable', 'string'],
-            'preferred_language' => [
-                'required',
-                'string',
-                'size:2',
-                'in:' . implode(',', Locale::AVAILABLE_LOCALES),
-            ],
         ]);
 
         if (!isset($data['subscribed'])) {
@@ -76,5 +68,27 @@ class ProfileController extends Controller
 
         return redirect()->route('buddy-my-profile')
             ->with(['success' => __('buddy-program.my-profile.password-changed')]);
+    }
+
+    public function changeLanguage()
+    {
+        request()->validate([
+            'language' => [
+                'required',
+                'in:' . implode(',', Locale::AVAILABLE_LOCALES)
+            ],
+        ]);
+
+        if (auth()->check()) {
+            auth()->user()->buddy->update([
+                'preferred_language' => request('language'),
+            ]);
+        }
+
+        session([
+            Locale::SESSION_KEY => request('language'),
+        ]);
+
+        return back();
     }
 }
