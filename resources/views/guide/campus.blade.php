@@ -111,7 +111,7 @@
             <dd>Technická 4, Prague 6, 166 07</dd>
             <dd>Bc. Martina Oravcová, office: A2-49a</dd>
             <dd>Study Department</dd>
-            <dd>Phone: <a href="tel:+420 224 352 656">+420 224 352 587</a></dd>
+            <dd>Phone: <a href="tel:+420 224 352 587">+420 224 352 587</a></dd>
             <dd>Email: <a href="mailto:Martina.Oravcova@fs.cvut.cz">Martina.Oravcova@fs.cvut.cz</a></dd>
         <dt>Faculty of Electrical Engineering</dt>
             <dd><a href="https://www.fel.cvut.cz/en/glance/rooms.html" target="_blank">Map of the faculty</a></dd>
