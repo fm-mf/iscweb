@@ -12,11 +12,17 @@
 
     <h2>Registration</h2>
 
+    <p class="bg-info">
+        Your study department will contact you in the matter of registrations for clases etc. Please, check your e-mail inbox.
+    </p>
+
+    {{--
     <p>Registration is done during the <a href="{{ url('guide/orientation-week') }}">Orientation week</a>,
         a visit to the study department at your faculty will be organized by ISC,
         where you will get to know your classes and your schedule.</p>
     <p>It might take longer than you expect, reserve the whole morning in your calendar for this.</p>
     <p>There is no electronic registration, because you are a non-standard student with an individual study program, and you are not going to graduate from CTU</p>
+    --}}
 
 
     <h2>KOS (Study Information System)</h2>

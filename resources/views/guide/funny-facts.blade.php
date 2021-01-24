@@ -7,11 +7,13 @@
     <p><strong>10 exchange students' commandments</strong></p>
     <ol>
         <li>Learn how to do ISC fishing.</li>
+        {{--
         <li>Visit Vzorkovna at least once a month</li>
         <li>Go to Chapeau Rouge. Why? We don’t know but everyone does!</li>
         <li>Go to Klubovna once a week.</li>
         <li>Do not miss any inteGREAT party!</li>
-        <li>Spend every other evening in bar downstairs in Masarykova</li>
+            <li>Spend every other evening in bar downstairs in Masarykova</li>
+        --}}
         <li>Try things you would never do home.</li>
         <li>Sing Wonderwall!</li>
         <li>Smile at Czechs! </li>

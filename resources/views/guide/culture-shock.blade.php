@@ -10,5 +10,7 @@
         the International Student Club offer a sympathetic ear &ndash; talking it out at length,
         with a &quot;native&quot;, can be very therapeutic.</p>
 
+    {{--
     <p>We have a FB group that's here to help you: <a href="https://www.facebook.com/groups/622379741533482/">How to Live Abroad</a>.
+    --}}
 @stop
