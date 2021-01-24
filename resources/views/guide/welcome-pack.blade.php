@@ -20,6 +20,7 @@
                 <li>and much more</li>
             </ul>
         </li>
+        {{--
         <li>
             Materials from ISC
             <ul>
@@ -27,6 +28,7 @@
                 <li>List of trips</li>
             </ul>
         </li>
+        --}}
         <li>Small gifts</li>
     </ul>
     <h2>How to get to the ISC Point</h2>

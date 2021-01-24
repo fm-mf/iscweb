@@ -13,8 +13,10 @@
                 which will help you to settle in the Czech Republic.
                 <strong>It is strongly recommended to attend this program.</strong>
                 During this week you will get to know the main bureaucratic procedures at CTU.
+                {{--
                 In addition, we will help you to make new local and international friends through parties, games and a lot of trips.
                 You shouldn’t miss this great opportunity!
+                --}}
             </p>
         </div>
     </div>
@@ -25,9 +27,7 @@
     {{--            This is preliminary programme. Events may be moved to another days of the week. Details will be added during September.--}}
     {{--        </p>--}}
             <p>
-                Due to pandemic situation, the schedule and programme can change, please check this page regularly for updates. Definitive programme will be announced on Monday during the presentation. You can also follow the
-                <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a>
-                for up to date information.
+                Due to the pandemic situation, the Orientation Week will be held online. We still want to provide you with a great experience and make it possible to meet each other. Definitive programme and detailed instructions will be provided on Monday during the presentation. You can also follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a> for up to date information.
             </p>
         </div>
     </div>
@@ -45,13 +45,13 @@
             'title' => "Day 2 - $owDay2",
             'items' => [
                 'day-2-registration' => 'Registration at faculties',
-                'trips-meeting' => 'Second information meeting'
+                //'trips-meeting' => 'Second information meeting'
             ]
         ],
         'day-3' => [
             'title' => "Day 3 - $owDay3",
             'items' => [
-                'survival-czech-talk' => 'Survival Czech Talk',
+                // 'survival-czech-talk' => 'Survival Czech Talk',
                 'day-3-registration' => 'Prague Discovery Game',
                 'integreat-party' => 'inteGREATion party'
             ]
@@ -81,7 +81,9 @@
             <h3 id="initial-meeting">Initial information meeting</h3>
             <ul class="list-unstyled">
                 <li>When: <strong>13:00</strong> - 17:30</li>
+                {{--
                 <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>
+                --}}
                 
                 <!--
                 <li>Meeting points:
@@ -96,7 +98,9 @@
                     <ul>
                         <li>Official welcome</li>
                         <li>How to enroll in courses and sports at CTU</li>
+                        {{--
                         <li>Czech language and Czech culture courses</li>
+                        --}}
                         <li>Life in the Czech Republic and how to survive in Prague</li>
                         <li>ESN membership</li>
                         <li>ISC teams and activities</li>
@@ -120,7 +124,7 @@
             <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
 
             <div class="bg-info">
-                <p>Due to pandemic situation, it's uncentrain when and where will this event happen. Please check this page during September for more info.</p>
+                <p>Due to the pandemic situation the Tandem Evening will be held online. Please follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a> for more info.</p>
             </div>
             {{--
             <ul class="list-unstyled">
@@ -162,6 +166,11 @@
         <div class="col-lg-12">
             <h3 id="day-2-registration">Registration at faculties</h3>
 
+            <p>
+                Your faculty should contact you about the online registration and all the steps needed.
+            </p>
+
+            {{--
             <p class="bg-warning">
                 Note: <strong>This is only for Erasmus students and Exchange students</strong>. Self-funding students who are studying for a CTU degree, and also Erasmus Mundus students, please contact Faculty coordinators at your study department.
             </p>
@@ -170,7 +179,7 @@
 
             <p class="bg-info">The schedule will be announced during September</p>
 
-            <ul class="list-unstyled">
+            <ul class="list-unstyled">--}}
                 {{--<li>More information during the Monday presentation</li>--}}
 
                 {{--TBA:
@@ -202,7 +211,7 @@
                 <li><abbr title="Faculty of Civil Engineering">FSv</abbr> has registrations on day 3</li>
                 --}}
 
-                <li class="bg-danger"><strong>You will need:</strong>
+                {{--<li class="bg-danger"><strong>You will need:</strong>
                     <ul>
                         <li>An ID (University ID / Passport)</li>
                         <li>A pen</li>
@@ -216,10 +225,11 @@
                         <li>Your email account</li>
                     </ul>
                 </li>
-            </ul>
+            </ul>--}}
         </div>
     </div>
 
+    {{--
     <div class="row">
         <div class="col-lg-12">
             <h3 id="trips-meeting">Second information meeting</h3>
@@ -235,11 +245,13 @@
             </ul>
         </div>
     </div>
+    --}}
 
     <div class="row">
         <h2 id="day-3">DAY 3 – {{ $owDay3 }}</h2>
     </div>
 
+    {{--
     <div class="row">
         <div class="col-lg-12">
             <h3 id="survival-czech-talk">Survival Czech Talk</h3>
@@ -253,7 +265,9 @@
             </ul>
         </div>
     </div>
+    --}}
 
+    {{--
     <div class="row">
         <div class="col-lg-12">
             <h3 id="day-3-registration">Registration at faculties</h3>
@@ -269,19 +283,26 @@
                 </ul>
             </li>  
             --}}   
-        </div>
+        {{--</div>
     </div>
+    --}}
 
     <div class="row">
         <div class="col-lg-12">
             <h3 id="prague-discovery-game">Prague Discovery Game</h3>
             <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
+
+            <p class="bg-info">
+                The exact time and other instructions will be posted in the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a> and during the Monday initial presentation.
+            </p>
+
+            {{--
             <ul class="list-unstyled">
                 <li>When: <strong>13:00</strong></li>
                 <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
-                {{--<li>When: in the afternoon</li>--}}
-                {{--<li>Where: <abbr title="To be announced">TBA</abbr> soon</li>--}}
+                
             </ul>
+            --}}
         </div>
     </div>
 
@@ -312,6 +333,12 @@
     <div class="row">
         <div class="col-lg-12">
             <h3 id="trips">Trips around the Czech Republic</h3>
+            
+            <p>
+                Due to the pandemic situation and restrictions in Czech Republic we unfortunately can't organize trips for you as we planned. However we will provide you with some tips for trips to interesting places in Prague and nearby surroundings so you can decide on your own if you want to go and explore.
+            </p>
+
+            {{--
             <p>One-day or two-day events introducing you to a lot of interesting places</p>
             <ul class="list-unstyled">
                 <li>When/Where: different times and places for each trip, further information on DAY 2 during the second information meeting</li>
@@ -323,11 +350,12 @@
                     </ul>
                 </li>
             </ul>
+            --}}
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-12 bg-danger">
+        <div class="col-md-12 bg-danger" style="margin-top: 2rem">
             <p>
                 Please keep in mind there are four types of students: Erasmus students,
                 Exchange students, Erasmus Mundus students and Private (self-paying)

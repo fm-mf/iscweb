@@ -75,10 +75,10 @@
             <dd>Room: A-811</dd>
             <dd>Phone: <a href="tel:+420 224 353 465">+420 224 353 465</a></dd>
             <dd>Email: <a href="mailto:volfgang.melecky@cvut.cz">volfgang.melecky@cvut.cz</a></dd>
-        <dt>MSc. Jaroslav Krpec</dt>
+        <dt>Marie Krystýnová</dt>
             <dd>Room: A-801a</dd>
-            <dd>Phone: <a href="tel:+420 224 353 466">+420 224 353 466</a></dd>
-            <dd>Email: <a href="mailto:jaroslav.krpec@cvut.cz">jaroslav.krpec@cvut.cz</a></dd>
+            <dd>Phone: <a href="tel:+420 224 353 495">+420 224 353 495</a></dd>
+            <dd>Email: <a href="mailto:marie.krystynova@cvut.cz">marie.krystynova@cvut.cz</a></dd>
         <dt>Ms. Lucie Bílová</dt>
             <dd>Room: A-802a</dd>
             <dd>Phone: <a href="tel:+420 224 353 467">+420 224 353 467</a></dd>
