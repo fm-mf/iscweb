@@ -33,7 +33,10 @@ Route::prefix('/users')
             ->name('exStudent.edit');
         Route::patch('/exchange-students/edit/{id}', 'ExchangeStudentsController@submitEditFormExStudent')
             ->name('exStudent.doEdit');
-
+        Route::post('/exchange-students/promote/{id_user}', 'ExchangeStudentsController@promoteExchangeStudent')
+            ->name('exStudent.promote');
+        Route::get('/exchange-students/promote/{id_user}/success', 'ExchangeStudentsController@showPromotedExchangeStudent')
+            ->name('exStudent.promoteSuccess');
 
         Route::get('/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard')
             ->name('registration');

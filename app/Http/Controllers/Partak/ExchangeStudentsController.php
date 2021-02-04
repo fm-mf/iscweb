@@ -60,6 +60,51 @@ class ExchangeStudentsController extends Controller
         return view('partak.users.exchangeSudents.detail')->with(['exStudent' => $exStudent,]);
     }
 
+    public function promoteExchangeStudent($id)
+    {
+        $this->authorize('acl', 'exchangeStudents.edit');
+
+        // Verify that id is correct
+        $exStudent = ExchangeStudent::with('person.user')->find($id);
+        if ($exStudent == null) {
+            throw new UserDoesntExist();
+        }
+
+        // Skip if user already has a buddy
+        if ($exStudent->user->buddy !== null) {
+            return redirect()->route('partak.users.exStudent.promoteSuccess', ['id' => $id]);
+        }
+
+        // Create a buddy record
+        $buddy = new Buddy();
+        $buddy->verified = 'y';
+        $buddy->id_user = $id;
+        $buddy->id_faculty = $exStudent->id_faculty;
+        $buddy->id_country = $exStudent->id_country;
+        $buddy->alive = 'y';
+        $buddy->preferred_language = 'en';
+        $buddy->save();
+
+        // Redirect to success page with more info
+        return redirect()->route('partak.users.exStudent.promoteSuccess', ['id' => $id]);
+    }
+
+    public function showPromotedExchangeStudent($id)
+    {
+        $this->authorize('acl', 'exchangeStudents.edit');
+
+        // Load student info
+        $exStudent = ExchangeStudent::with('person.user')->find($id);
+        if ($exStudent == null) {
+            throw new UserDoesntExist();
+        }
+
+        // Display success page
+        return view('partak.users.exchangeSudents.promoted')->with([
+            'exStudent' => $exStudent
+        ]);
+    }
+
     public function showEditFormExchangeStudent($id)
     {
         $this->authorize('acl', 'exchangeStudents.edit');

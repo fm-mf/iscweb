@@ -25,6 +25,18 @@
                 >
                     <i class="fas fa-pen"></i> Edit
                 </a>
+
+                {{ Form::open(['url' => 'partak/users/exchange-students/promote/'. $exStudent->id_user, 'method' => 'post']) }}
+                <protected-submit-button
+                    url="{{ url('partak/users/exchange-students/promote/' . $user->id_user) }}"
+                    protection-title="Promote exchange student"
+                    protection-text="Are you sure you want to promote {{ $user->person->getFullName() }} to be a Buddy?"
+                    classes="btn btn-sm btn-info ml-3"
+                    :form-group="false"
+                >
+                    <i class="fas fa-user-astronaut"></i> Promote to Buddy
+                </protected-submit-button>
+                {{ Form::close() }}
             @endcan
         @endif
     @else
