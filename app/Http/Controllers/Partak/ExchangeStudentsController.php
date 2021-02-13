@@ -45,7 +45,7 @@ class ExchangeStudentsController extends Controller
     public function showExchangeStudentDashboard()
     {
         $this->authorize('acl', 'exchangeStudents.view');
-        return view('partak.users.exchangeSudents.dashboard');
+        return view('partak.users.exchangeStudents.dashboard');
     }
 
     public function showDetailExchangeStudent($id)
@@ -57,7 +57,7 @@ class ExchangeStudentsController extends Controller
             throw new UserDoesntExist("Exchange Student does not exist !!!");
         }
 
-        return view('partak.users.exchangeSudents.detail')->with(['exStudent' => $exStudent,]);
+        return view('partak.users.exchangeStudents.detail')->with(['exStudent' => $exStudent,]);
     }
 
     public function promoteExchangeStudent($id)
@@ -105,7 +105,7 @@ class ExchangeStudentsController extends Controller
         }
 
         // Display success page
-        return view('partak.users.exchangeSudents.promoted')->with([
+        return view('partak.users.exchangeStudents.promoted')->with([
             'exStudent' => $exStudent
         ]);
     }
@@ -119,7 +119,7 @@ class ExchangeStudentsController extends Controller
             throw new UserDoesntExist();
         }
 
-        return view('partak.users.exchangeSudents.edit')->with([
+        return view('partak.users.exchangetudents.edit')->with([
             'exStudent' => $exStudent,
             'faculties' => Faculty::getOptions(),
             'accommodations' => Accommodation::getOptions(),
