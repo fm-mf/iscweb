@@ -62,7 +62,7 @@ class ExchangeStudentsController extends Controller
 
     public function promoteExchangeStudent($id)
     {
-        $this->authorize('acl', 'exchangeStudents.edit');
+        $this->authorize('acl', 'buddy.edit');
 
         // Verify that id is correct
         $exStudent = ExchangeStudent::with('person.user')->find($id);
@@ -91,12 +91,17 @@ class ExchangeStudentsController extends Controller
 
     public function showPromotedExchangeStudent($id)
     {
-        $this->authorize('acl', 'exchangeStudents.edit');
+        $this->authorize('acl', 'buddy.edit');
 
         // Load student info
         $exStudent = ExchangeStudent::with('person.user')->find($id);
         if ($exStudent == null) {
             throw new UserDoesntExist();
+        }
+
+        // Go back to detail if not promoted yet
+        if ($exStudent->user->buddy === null) {
+            return redirect()->route('partak.users.exchangeStudent', ['id' => $id]);
         }
 
         // Display success page
