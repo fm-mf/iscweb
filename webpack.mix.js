@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix
+  .vue({ version: 2 })
   .js('resources/assets/js/web.js', 'public/js')
   .js('resources/assets/js/exchange-students-list.js', 'public/js')
   .js('resources/assets/js/partak.js', 'public/js')
