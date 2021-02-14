@@ -54,7 +54,7 @@
     cd {{ $new_release_dir }}
     yarn install -s
     echo "Compiling JS and CSS assets ..."
-    yarn production -s
+    yarn production
     rm -rf node_modules
 @endtask
 
