@@ -119,7 +119,7 @@ class ExchangeStudentsController extends Controller
             throw new UserDoesntExist();
         }
 
-        return view('partak.users.exchangetudents.edit')->with([
+        return view('partak.users.exchangeStudents.edit')->with([
             'exStudent' => $exStudent,
             'faculties' => Faculty::getOptions(),
             'accommodations' => Accommodation::getOptions(),
