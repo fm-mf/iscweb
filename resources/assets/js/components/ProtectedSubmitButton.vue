@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group">
+  <div :class="{ 'form-group': formGroup }">
     <button
       type="button"
       class="btn"
@@ -10,7 +10,11 @@
       <slot></slot>
     </button>
 
-    <protection-modal :id="modalId" :proceed-classes="proceedClasses" :modal-body-classes="modalBodyClasses">
+    <protection-modal
+      :id="modalId"
+      :proceed-classes="proceedClasses"
+      :modal-body-classes="modalBodyClasses"
+    >
       <template v-slot:modal-title>
         {{ protectionTitle }}
       </template>
@@ -61,11 +65,11 @@ export default {
     },
     proceedClasses: {
       type: String,
-      default: 'btn-primary',
+      default: 'btn-primary'
     },
     modalBodyClasses: {
       type: String,
-      default: 'd-flex align-items-center',
+      default: 'd-flex align-items-center'
     },
     modalId: {
       type: String,
@@ -73,8 +77,12 @@ export default {
     },
     customModalBody: {
       type: Boolean,
-      default: false,
+      default: false
     },
+    formGroup: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     target() {

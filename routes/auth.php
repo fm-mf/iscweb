@@ -25,7 +25,8 @@
 
     Route::get('/thankyou', 'ProfileController@showThanks');
 
-    Route::get('password', 'ForgotPasswordController@showLinkRequestForm');
+    Route::get('password', 'ForgotPasswordController@showLinkRequestForm')
+      ->name('auth.password-reset-form');
     Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
     Route::post('password/reset', 'ResetPasswordController@reset');
     Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm');
