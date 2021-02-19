@@ -5,8 +5,9 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "awobaz/compoships": "^1.1",
         "php": "^7.0.33",
+        "ext-gmp": "*",
+        "ext-imagick": "*",
         "barryvdh/laravel-dompdf": "^0.8.1",
         "fideloper/proxy": "~3.3",
         "hashids/hashids": "^2.0",
@@ -16,7 +17,6 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
         "maatwebsite/excel": "^2.1",
-        "orangehill/iseed": "^2.3",
         "propaganistas/laravel-phone": "^4.1",
         "rap2hpoutre/laravel-log-viewer": "^1.2",
         "s-ichikawa/laravel-sendgrid-driver": "^2.0.2",
@@ -30,6 +30,7 @@
         "fzaninotto/faker": "~1.4",
         "laracasts/generators": "^1.1",
         "mockery/mockery": "~1.0",
+        "orangehill/iseed": "^2.3",
         "phpunit/phpunit": "~6.0",
         "xethron/migrations-generator": "^2.0"
     },
