@@ -5,8 +5,10 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "awobaz/compoships": "^1.1",
         "php": "^7.0.33",
+        "ext-gmp": "*",
+        "ext-imagick": "*",
+        "awobaz/compoships": "^1.1",
         "barryvdh/laravel-dompdf": "^0.8.1",
         "fideloper/proxy": "~3.3",
         "hashids/hashids": "^2.0",
