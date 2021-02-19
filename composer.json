@@ -17,7 +17,6 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
         "maatwebsite/excel": "^2.1",
-        "orangehill/iseed": "^2.3",
         "propaganistas/laravel-phone": "^4.1",
         "rap2hpoutre/laravel-log-viewer": "^1.2",
         "s-ichikawa/laravel-sendgrid-driver": "^2.0.2",
@@ -31,6 +30,7 @@
         "fzaninotto/faker": "~1.4",
         "laracasts/generators": "^1.1",
         "mockery/mockery": "~1.0",
+        "orangehill/iseed": "^2.3",
         "phpunit/phpunit": "~6.0",
         "xethron/migrations-generator": "^2.0"
     },
