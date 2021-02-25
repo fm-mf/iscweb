@@ -373,13 +373,30 @@ class ExchangeStudent extends Model
         return $this->person->hashId;
     }
 
+    public function getPhoneFormattedAttribute()
+    {
+        if ($this->phone === null) {
+            return null;
+        }
+
+        return PhoneNumber::make($this->phone, ['CZ', 'AUTO'])->formatInternational();
+    }
+
     public function getWhatsAppFormattedInternationalAttribute()
     {
+        if ($this->whatsapp === null) {
+            return null;
+        }
+
         return PhoneNumber::make($this->whatsapp)->formatInternational();
     }
 
     public function getWhatsAppFormattedE164Attribute()
     {
+        if ($this->whatsapp === null) {
+            return null;
+        }
+
         return PhoneNumber::make($this->whatsapp)->formatE164();
     }
 

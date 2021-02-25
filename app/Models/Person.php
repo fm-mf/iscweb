@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -206,5 +207,19 @@ class Person extends Model
         }
 
         return $fileName;
+    }
+
+    public function scopeOrderBySurname(Builder $query): Builder
+    {
+        return $query
+            ->orderBy('last_name')
+            ->orderBy('first_name');
+    }
+
+    public function scopeOrderByGivenNames(Builder $query): Builder
+    {
+        return $query
+            ->orderBy('first_name')
+            ->orderBy('last_name');
     }
 }

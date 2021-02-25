@@ -7,10 +7,12 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Propaganistas\LaravelPhone\PhoneNumber;
 
 class Buddy extends Model
 {
     const VERIFICATION_START_DATE = '2017-01-21 00:00:00';
+    const DEFAULT_ACTIVITY_LIMIT_MONTHS = 4;
 
     public $timestamps = false;
     protected $primaryKey = 'id_user';
@@ -201,6 +203,13 @@ class Buddy extends Model
             })->first();
     }
 
+    public function scopeRecentlyActive(Builder $query, Carbon $activeAfter = null): Builder
+    {
+        $activeAfter = $activeAfter ?? Carbon::now()->subMonths(self::DEFAULT_ACTIVITY_LIMIT_MONTHS);
+
+        return $query->where('last_login', '>=', $activeAfter);
+    }
+
     public function agreedPrivacyPartak()
     {
         return $this->privacy_partak;
@@ -222,5 +231,14 @@ class Buddy extends Model
     public function setAgreedPrivacyBuddy() {
         $this->privacy_buddy = true;
         $this->save();
+    }
+
+    public function getPhoneFormattedAttribute()
+    {
+        if ($this->phone === null) {
+            return null;
+        }
+
+        return PhoneNumber::make($this->phone, ['CZ', 'AUTO'])->formatInternational();
     }
 }
