@@ -25,7 +25,7 @@ header("Pragma: no-cache");
 <li><b>Strahov room</b> is located on the 2nd floor in <a href="https://goo.gl/maps/R2wgZidRQ922" target="_blank">block 8</a> (mezzanine), near stairs.
 </ul>
 <p>
-	<strong>Currently, the classes are taught online until the restrictions are lifted. Clicking on any of the classes will let you send an email to the teacher. Contact them so they know about you and can send you a link to the class and share with you any necessary materials.</strong>
+	<strong>Currently, the classes are taught online until the restrictions are lifted. Clicking on any of the classes will give you the contact information the teacher provided (email/link). Contact them so they know about you and can send you a link to the class and share with you any necessary materials.</strong>
 </p>
 
 <?php
