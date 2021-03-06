@@ -32,6 +32,7 @@
                     protection-title="Promote exchange student"
                     protection-text="Are you sure you want to promote {{ $user->person->getFullName() }} to be a Buddy?"
                     classes="btn btn-sm btn-info ml-3"
+                    modal-id="protectionModalPromoteToBuddy"
                     :form-group="false"
                 >
                     <i class="fas fa-user-astronaut"></i> Promote to Buddy
