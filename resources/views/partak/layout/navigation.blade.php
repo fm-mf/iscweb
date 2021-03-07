@@ -27,7 +27,7 @@
                 ['title' => 'Add trip', 'icon' => 'plus', 'route' => 'partak.trips.create', 'acl' => 'trips.add'],
             ]],
             ['title' => 'Events', 'icon' => 'glass-cheers', 'route' => 'partak.events', 'acl' => 'events.view', 'items' => [
-                ['title' => 'Active events', 'icon' => 'list', 'route' => 'partak.events.list'],
+                ['title' => 'Active events', 'icon' => 'list', 'route' => 'partak.events.index'],
                 ['title' => 'Add event', 'icon' => 'plus', 'route' => 'partak.events.create', 'acl' => 'events.add'],
             ]],
             ['title' => 'Stats', 'icon' => 'chart-pie', 'route' => 'partak.stats', 'acl' => 'stats.view', 'items' => [

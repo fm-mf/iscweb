@@ -16,18 +16,24 @@
                 <td>{{ $event->visible_from->toFormattedDateString() }}</td>
                 <td class="text-right">
                     @can('acl', 'events.edit')
-                    <a href="{{ url('partak/events/edit/' . $event->id_event) }}" class="btn btn-success btn-sm">
-                        <i class="fas fa-pen"></i> Edit
-                    </a>
+                        <a href="{{ route('partak.events.edit', $event) }}" class="btn btn-success btn-sm">
+                            <i class="fas fa-pen"></i> Edit
+                        </a>
                     @endcan
                     @can('acl', 'events.remove')
-                    <protectedbutton
-                        url="{{ url('partak/events/delete/'. $event->id_event) }}"
-                        protection-text="Delete event &quot;{{ $event->name }}&quot;?"
-                        button-style="btn-danger btn-sm"
-                    >
-                        <i class="fas fa-times"></i> Delete
-                    </protectedbutton>
+                        {{ Form::open(['route' => ['partak.events.destroy', $event], 'method' => 'DELETE', 'class' => 'd-inline-block']) }}
+                            <protected-submit-button
+                                protection-title="Delete event?"
+                                protection-text="Do you really want to delete &quot;{{ $event->name }}&quot; event? The deletion irreversible!"
+                                proceed-text="Delete"
+                                classes="btn-danger btn-sm"
+                                proceed-classes="btn-danger"
+                                modal-id="delete-event-{{ $event->id_event }}"
+                                :form-group="false"
+                            >
+                                <span class="fas fa-trash"></span> Delete
+                            </protected-submit-button>
+                        {{ Form::close() }}
                     @endcan
                 </td>
             </tr>
