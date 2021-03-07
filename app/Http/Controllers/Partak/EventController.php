@@ -81,7 +81,7 @@ class EventController extends Controller
             }
             $event->update($data);
 
-            return back()->with([
+            return redirect()->route('partak.events.edit', $event)->with([
                 'successUpdate' => 'Event was successfully updated.',
             ]);
         } else {
@@ -139,9 +139,9 @@ class EventController extends Controller
         }
         $event->save();
 
-        return \Redirect::route('partak.events.edit', [
-            'id_event' => $event->id_event,
-        ])->with(['successUpdate' => 'Event was successfully created.',]);
+        return redirect()->route('partak.events.edit', $event)->with([
+            'successUpdate' => 'Event was successfully created.',
+        ]);
     }
 
     public function destroy(Event $event)
@@ -153,6 +153,8 @@ class EventController extends Controller
         $event->Languages_event()->delete();
         $event->delete();
 
-        return back()->with(['eventDeleted' => "Event \"$name\" has been deleted."]);
+        return redirect()->route('partak.events.index')->with([
+            'eventDeleted' => "Event \"$name\" has been deleted."
+        ]);
     }
 }
