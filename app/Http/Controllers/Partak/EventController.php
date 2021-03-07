@@ -11,7 +11,6 @@ use App\Models\Languages_event;
 use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -49,39 +48,30 @@ class EventController extends Controller
 
     public function update(EventRequest $request, Event $event)
     {
-        if (isset($event)) {
-            $data = [];
-            foreach ($request->all() as $key => $value) {
-                if ($value) {
-                    $data[$key] = $value;
-                }
+        $data = $request->all();
+        $data['modified_by'] = auth()->id();
+        if ($data['event_type'] == 'integreat') {
+            if (isset($event->integreat_party)) {
+                $event->integreat_party->update($data);
+            } else {
+                Integreat_party::creatParty($event->id_event, $data);
             }
-            $data['modified_by'] = Auth::id();
-            if ($data['event_type'] == 'integreat') {
-                if (isset($event->integreat_party)) {
-                    $event->integreat_party->update($data);
-                } else {
-                    Integreat_party::creatParty($event->id_event, $data);
-                }
-            } else if ($data['event_type'] == 'languages') {
-                if (isset($event->languages_event)) {
-                    $event->languages_event->update($data);
-                } else {
-                    Languages_event::creatLanguagesEvent($event->id_event, $data);
-                }
+        } else if ($data['event_type'] == 'languages') {
+            if (isset($event->languages_event)) {
+                $event->languages_event->update($data);
+            } else {
+                Languages_event::creatLanguagesEvent($event->id_event, $data);
             }
-            if ($request->hasFile('cover')) {
-                $event->storeCover($request->file('cover'));
-                unset($data['cover']);
-            }
-            $event->update($data);
-
-            return redirect()->route('partak.events.edit', $event)->with([
-                'successUpdate' => 'Event was successfully updated.',
-            ]);
-        } else {
-            return back()->with(['!success' => 'Event wasn\'t updated']);
         }
+        if ($request->hasFile('cover')) {
+            $event->storeCover($request->file('cover'));
+            unset($data['cover']);
+        }
+        $event->update($data);
+
+        return redirect()->route('partak.events.edit', $event)->with([
+            'successUpdate' => 'Event was successfully updated.',
+        ]);
     }
 
     public function create(Request $request)
@@ -116,13 +106,8 @@ class EventController extends Controller
 
     public function store(EventRequest $request)
     {
-        $data = [];
-        foreach ($request->all() as $key => $value) {
-            if ($value) {
-                $data[$key] = $value;
-            }
-        }
-        $data['modified_by'] = Auth::id();
+        $data = $request->all();
+        $data['modified_by'] = auth()->id();
         $event = Event::createEvent($data);
         if ($request->hasFile('cover')) {
             $event->storeCover($request->file('cover'));
