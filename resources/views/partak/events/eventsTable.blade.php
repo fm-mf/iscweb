@@ -1,4 +1,4 @@
-<div class="table-resposible">
+<div class="table-responsive">
     <table class="table p-table">
         <thead>
         <tr>
@@ -9,7 +9,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($Events as $event)
+        @foreach($events as $event)
             <tr>
                 <td>{{ $event->name }}</td>
                 <td>{{ $event->datetime_from->toFormattedDateString() }}</td>
