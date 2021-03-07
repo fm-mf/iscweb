@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Partak;
 
 use App\Facades\Settings;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EventRequest;
 use App\Models\Event;
 use App\Models\Integreat_party;
 use App\Models\Languages_event;
 use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
@@ -52,12 +52,8 @@ class EventController extends Controller
         ]);
     }
 
-    public function update(Request $request, Event $event)
+    public function update(EventRequest $request, Event $event)
     {
-        $this->authorize('acl', 'events.edit');
-
-        $this->eventValidator($request->all())->validate();
-
         if (isset($event)) {
             $data = [];
             foreach ($request->all() as $key => $value) {
@@ -123,11 +119,8 @@ class EventController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
-        $this->authorize('acl', 'events.add');
-
-        $this->eventValidator($request->all())->validate();
         $data = [];
         foreach ($request->all() as $key => $value) {
             if ($value) {
@@ -149,23 +142,6 @@ class EventController extends Controller
         return \Redirect::route('partak.events.edit', [
             'id_event' => $event->id_event,
         ])->with(['successUpdate' => 'Event was successfully created.',]);
-    }
-
-    protected function eventValidator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'id_semester' => 'required|exists:semesters',
-            'location' => 'nullable|string|max:255',
-            'location_url' => 'nullable|string|url|max:255',
-            'facebook_url' => 'nullable|string|url|max:255',
-            'visible_date' => 'required|date_format:d M Y',
-            'visible_time' => 'required|date_format:g:i A',
-            'start_date' => 'required|date_format:d M Y',
-            'start_time' => 'required|date_format:g:i A',
-            'description' => 'required|string',
-            'cover' => 'nullable|file|image|max:307400|mimes:jpg,jpeg,png',
-        ]);
     }
 
     public function destroy(Event $event)
