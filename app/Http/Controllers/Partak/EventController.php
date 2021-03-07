@@ -21,16 +21,11 @@ class EventController extends Controller
 
         $fromDate = Carbon::createFromFormat('d/m/Y', Settings::get('wcFrom'));
 
-        $visibleEvents = Event::findAllNormalActive()->sortby('datetime_from');
-        $integreatEvents = Event::findAllInteGreatInFromDate($fromDate);
-        $languagesEvents = Event::findAllLanguagesFromDate($fromDate);
-        $oldEvents = Event::findMaxYearOld()->sortByDesc('datetime_from');
-
         return view('partak.events.index')->with([
-            'activeEvents' => $visibleEvents,
-            'oldEvents' => $oldEvents,
-            'languagesEvents' => $languagesEvents,
-            'integreatEvents' => $integreatEvents,
+            'activeEvents' => Event::findAllNormalActive(),
+            'oldEvents' => Event::findMaxYearOld(),
+            'languagesEvents' => Event::findAllLanguagesFromDate($fromDate),
+            'integreatEvents' => Event::findAllInteGreatInFromDate($fromDate),
         ]);
     }
 
