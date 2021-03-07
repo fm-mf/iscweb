@@ -135,7 +135,10 @@ class EventController extends Controller
         if ($data['event_type'] == 'integreat') {
             Integreat_party::creatParty($event->id_event, $data);
         } else if ($data['event_type'] == 'languages') {
-            Languages_event::creatLanguagesEvent($event->id_event, $data);
+            Languages_event::creatLanguagesEvent($event->id_event, [
+                'where' => $data['location'],
+                'where_url' => $data['location_url'],
+            ]);
         }
         $event->save();
 
