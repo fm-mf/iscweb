@@ -1,4 +1,5 @@
 @extends('partak.events.layout')
+
 @section('inner-content')
     @if(session('eventDeleted'))
         <div class="success top-message">
@@ -6,32 +7,30 @@
         </div>
     @endif
 
-    <div class="row-grey">
-        <div class="container">
-            <h3>Active events</h3>
-            @if($activeEvents->count() > 0)
-                @include('partak.events.eventsTable', ['events' => $activeEvents])
-            @endif
-        </div>
-        <div class="container">
-            <h4>InteGREAT's events</h4>
-            @if($integreatEvents->count() > 0)
-                @include('partak.events.eventsTable', ['events' => $integreatEvents])
-            @endif
-        </div>
-        <div class="container">
-            <h4>Languages events</h4>
-            @if($languagesEvents->count() > 0)
-                @include('partak.events.eventsTable', ['events' => $languagesEvents])
-            @endif
-        </div>
-        <div class="container">
-            <a data-toggle="collapse" href="#collapseT1"><h3>Old events</h3></a>
-            @if($oldEvents->count() > 0)
-                <div class="panel panel-collapse collapse" id="collapseT1">
-                    @include('partak.events.eventsTable', ['events' => $oldEvents])
-                </div>
-            @endif
+    <div class="container">
+        <h2>Active events</h2>
+        @component('partak.components.events-table', ['events' => $activeEvents])
+            There are no upcoming events :(
+        @endcomponent
+    </div>
+    <div class="container">
+        <h3>InteGREAT events</h3>
+        @component('partak.components.events-table', ['events' => $integreatEvents])
+            There are no upcoming inteGREAT events :(
+        @endcomponent
+    </div>
+    <div class="container">
+        <h3>Languages events</h3>
+        @component('partak.components.events-table', ['events' => $languagesEvents])
+            There are no upcoming Languages events :(
+        @endcomponent
+    </div>
+    <div class="container">
+        <a data-toggle="collapse" href="#collapseT1"><h2>Old events</h2></a>
+        <div class="panel panel-collapse collapse" id="collapseT1">
+            @component('partak.components.events-table', ['events' => $oldEvents])
+                There are no past events :(
+            @endcomponent
         </div>
     </div>
-    @stop
+@stop
