@@ -31,7 +31,7 @@ class EventController extends Controller
 
     public function edit(Event $event)
     {
-        $this->authorize('acl', 'events.view');
+        $this->authorize('acl', 'events.edit');
 
         $event->load(['Integreat_party', 'Languages_event']);
 
