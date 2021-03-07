@@ -40,7 +40,7 @@
 
 
 @section('scripts')
-  <script src="{{ mix('js/reservation.js') }}"></script>
+  <script src="{{ mix('js/reservation.js') }}" defer="defer"></script>
 @show
 
 @include ('footer')
