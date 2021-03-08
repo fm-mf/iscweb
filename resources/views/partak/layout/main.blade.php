@@ -28,7 +28,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenuLink">
-                            <a class="dropdown-item" href="{{ url('user/logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            <a class="dropdown-item" href="{{ url('user/profile') }}"><i class="fas fa-user fa-fw"></i> My profile</a>
+                            <a class="dropdown-item" href="{{ url('user/logout') }}"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a>
                         </div>
                     </div>
                 </div>
