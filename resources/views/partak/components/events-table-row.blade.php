@@ -1,5 +1,9 @@
 <tr>
-    <td>{{ $event->name }}</td>
+    <td>
+        <a href="{{ route('event.show', $event->reservations_hash) }}">
+            {{ $event->name }}
+        </a>
+    </td>
     <td>{{ $event->datetime_from->toFormattedDateString() }}</td>
     <td>{{ $event->visible_from->toFormattedDateString() }}</td>
     <td>
