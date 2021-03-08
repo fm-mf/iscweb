@@ -100,5 +100,5 @@
 @section('scripts')
     @parent
 
-    <script src="{{ mix('/js/blog-rss-feed.js') }}"></script>
+    <script src="{{ mix('/js/blog-rss-feed.js') }}" defer="defer"></script>
 @endsection
