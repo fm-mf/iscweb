@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'ParťákNet')
+
 @section('stylesheets')
     <link href="{{ mix('css/partaknet.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('fa/css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
