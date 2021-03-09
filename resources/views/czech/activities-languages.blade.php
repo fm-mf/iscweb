@@ -14,7 +14,7 @@
                     </p>
                     <p>
                         Využij našich bezplatných jazykových kurzů! Kurzy jsou vyučovány našimi
-                        výmennými studenty z celého světa, českými studenty i cizinci dlouhodobě
+                        výměnnými studenty z celého světa, českými studenty i cizinci dlouhodobě
                         žijícími v Praze. Kurzy jsou <strong>zdarma</strong>, jsou vedeny
                         zábavnou formou a není na ně potřeba žádné registrace.
                     </p>
@@ -51,12 +51,12 @@
 
                     <h2>Tandem</h2>
                     <p>
-                        Tandem je způsob vájemného učení se jazyků. Zjednodušeně, najdeš si partnera, který tě naučí jeho jazyk
-                        a ty ho naoplátku naučíš ten svůj.
+                        Tandem je způsob vzájemného učení se jazyků. Zjednodušeně, najdeš si partnera, který tě naučí jeho jazyk
+                        a ty ho na oplátku naučíš ten svůj.
                     </p>
                     <p>
                         Hlavní výhodou Tandemu je, že to budete jen vy dva, kdo budete určovat čas a intenzitu výuky.
-                        Můžeš si samozřejmě najít více Tandem partnerů, pro stejé i různé jazyky.
+                        Můžeš si samozřejmě najít více Tandem partnerů, pro stejné i různé jazyky.
                     </p>
                     <p>
                         Zaregistruj se do <a href="{{ url('tandem') }}">Tandem databáze</a> a najdi si svého Tandem partnera!
