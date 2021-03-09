@@ -8,6 +8,7 @@
             'route' => $item['route'],
             'acl' => isset($item['acl']) ? $item['acl'] : null,
             'icon' => isset($item['icon']) ? $item['icon'] : null,
+            'iconStyle' => $item['iconStyle'] ?? null,
             'items' => isset($item['items']) ? $item['items'] : null,
             'target' => isset($item['target']) ? $item['target'] : null,
             'id' => isset($item['id']) ? $item['id'] : null,
