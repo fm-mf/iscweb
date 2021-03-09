@@ -57,9 +57,9 @@ class RolesTest extends TestCase
         $this->seeInDatabase('users_roles', ['id_user' => $id_user, 'id_role' => 5]);
 
         $role = \App\Models\Role::find(4);
-        $this->assertTrue($buddy->user()->hasRole($role->title));
+        $this->assertTrue($buddy->user->hasRole($role->title));
 
         $newRole = \App\Models\Role::find(3);
-        $this->assertFalse($buddy->user()->hasRole($newRole->title));
+        $this->assertFalse($buddy->user->hasRole($newRole->title));
     }
 }

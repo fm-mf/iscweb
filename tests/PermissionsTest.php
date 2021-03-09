@@ -17,12 +17,12 @@ class PermissionsTest extends TestCase
         $this->visit('/partak')->seePageIs('/user');
 
         $buddyUnverified = Buddy::find(1); // expects seeded db!
-        $this->actingAs($buddyUnverified->user());
+        $this->actingAs($buddyUnverified->user);
         $this->visit('/partak')->seePageIs('/');
 
         $buddyVerified = Buddy::find(2); // expects seeded db!
-        $buddyVerified->user()->addRole('partak');
-        $this->actingAs($buddyVerified->user());
+        $buddyVerified->user->addRole('partak');
+        $this->actingAs($buddyVerified->user);
         $this->visit('partak')->seePageIs('/partak');
 
     }
@@ -32,12 +32,12 @@ class PermissionsTest extends TestCase
         $this->visit('muj-buddy')->seePageIs('/user');
 
         $buddyUnverified = Buddy::find(1); // expects seeded db!
-        $this->actingAs($buddyUnverified->user());
+        $this->actingAs($buddyUnverified->user);
         $this->visit('/muj-buddy')->seePageIs('/user/verify');
 
         $buddyVerified = Buddy::find(2); // expects seeded db!
 
-        $this->actingAs($buddyVerified->user());
+        $this->actingAs($buddyVerified->user);
         $this->visit('/muj-buddy')->seePageIs('/muj-buddy');
     }
 }

@@ -31,12 +31,12 @@ class Buddy extends Model
 
     public function user()
     {
-        return $this->person->user;
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function person()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
     }
 
     public function exchangeStudents()

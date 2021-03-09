@@ -35,23 +35,22 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /* DO NOT CHANGE THIS, OTHERWISE DUPLICATE hash_id's MAY OCCUR */
     private static $hashIdsSalt = 'eXQ3A9RejnCT7Ul/X3mQ3Writ+CpAVrQEc2hskzCU9E=';
     private static $hashIdsLength = 6;
 
     public function person()
     {
-        return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
     }
 
     public function buddy()
     {
-        return $this->belongsTo('\App\Models\Buddy', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\Buddy', 'id_user', 'id_user');
     }
 
     public function exchangeStudent()
     {
-        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
     static function findByHash($hash)

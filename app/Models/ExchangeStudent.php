@@ -29,12 +29,12 @@ class ExchangeStudent extends Model
 
     public function user()
     {
-        return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\User', 'id_user', 'id_user');
     }
 
     public function person()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
     }
 
     public function semesters()
@@ -115,7 +115,7 @@ class ExchangeStudent extends Model
     {
         return url('partak/users/exchange-students/' . $this->id_user);
     }
-    /*
+/*
     public function getEmailAttribute($value)
     {
         return $this->person->email;

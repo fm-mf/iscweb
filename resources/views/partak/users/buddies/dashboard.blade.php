@@ -29,7 +29,7 @@
                     @foreach($notVerifiedBuddies->get() as $buddy)
                         <li class="row py-2">
                             <div class="col-12 col-sm-4">@include('partak.components.user-link', ['user' => $buddy->person])</div>
-                            <div class="col-12 col-sm-4">{{ $buddy->user()->email }}</div>
+                            <div class="col-12 col-sm-4">{{ $buddy->user->email }}</div>
                             <div class="col-12 col-sm-4 text-right">
                                 <protectedbutton url="{{ url('partak/users/buddies/approve/' . $buddy->id_user) }}"
                                                     protection-text="Approve buddy {{ $buddy->person->getFullName() }}?"
@@ -41,7 +41,7 @@
                             <div class="col-12">
                                 @if($buddy->motivation)
                                     <p class="mb-0"><strong>Motivation:</strong> {{ $buddy->motivation }}</p>
-                                @elseif(hash_equals($buddy->user()->email ?? "", $buddy->verification_email ?? ""))
+                                @elseif(hash_equals($buddy->user->email ?? "", $buddy->verification_email ?? ""))
                                     <p class="mb-0">{{ $buddy->person->first_name }} has used university e-mail for registration</p>
                                 @elseif($buddy->verification_email)
                                     <p class="mb-0">{{ $buddy->person->first_name }} has entered university e-mail for verification: {{ $buddy->verification_email }}</p>

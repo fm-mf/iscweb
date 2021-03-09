@@ -113,7 +113,7 @@ class BuddiesController extends Controller
             throw new UserDoesntExist("Buddy does not exist !!!");
 
         JavaScript::put([
-            'jsoptions' => ['roles' => Role::all(), 'sroles' => $buddy->user()->roles]
+            'jsoptions' => ['roles' => Role::all(), 'sroles' => $buddy->user->roles]
         ]);
         return view('partak.users.buddies.edit')->with([
             'buddy' => $buddy,
@@ -144,7 +144,7 @@ class BuddiesController extends Controller
 
         if ($request->exists('roles')) {
             $roles = explode(',', $request->roles);
-            $user = $buddy->user();
+            $user = $buddy->user;
             if ($roles[0] == "") {
                 $roles = [];
             }

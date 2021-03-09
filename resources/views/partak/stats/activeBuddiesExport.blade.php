@@ -9,7 +9,7 @@
         @foreach($buddies as $buddy)
             <tr>
                 <td>{{ $buddy->person->getFullName(true)}}</td>
-                <td>{{ $buddy->user()->email }}</td>
+                <td>{{ $buddy->user->email }}</td>
             </tr>
         @endforeach
     </tbody>

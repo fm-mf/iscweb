@@ -6,7 +6,7 @@
         <div class="col-xl-6 mt-2">
             @if(isset($exStudent->buddy))
                 @include("partak.users.partials.user-info", [
-                    'user' => $exStudent->buddy->user(),
+                    'user' => $exStudent->buddy->user,
                     'buddyStudent' => $exStudent,
                     'edit' => false
                 ])

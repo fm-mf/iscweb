@@ -32,17 +32,17 @@ class Person extends Model
 
     public function user()
     {
-        return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\User', 'id_user', 'id_user');
     }
 
     public function exchangeStudent()
     {
-        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
     public function Buddy()
     {
-        return $this->belongsTo('\App\Models\Buddy', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\Buddy', 'id_user', 'id_user');
     }
 
     public function avatar() {
