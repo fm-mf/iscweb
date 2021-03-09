@@ -30,7 +30,7 @@
                         Take advantage of our free language courses! The courses are taught by you –
                         Erasmus and exchange students, Czech students and foreigners living in Prague.
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
-                        Languages courses for the Spring semester 2021 will start on <strong>Monday, March 1 2021</strong>. The schedule for Spring semester 2021 will be available during the last week of February 2021. The courses will currently take place online and we will be monitoring the situation, moving to offline classes as soon as possible.
+                        Languages courses for the Spring semester 2021 will start on <strong>Monday, 1 March 2021</strong>. The schedule for Spring semester 2021 will be available during the last week of February 2021. The courses will currently take place online and we will be monitoring the situation, moving to offline classes as soon as possible.
                     </p>
                     <p>
                         Are you interested in teaching a language with the ISC? That's great, we would like to have you! Contact the Languages Coordinator (see the contact information at the bottom of the webpage).
