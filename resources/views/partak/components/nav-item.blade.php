@@ -7,8 +7,11 @@
         Gate::check('acl', $acl)
     )
 )
-<?php $active = strpos(request()->route()->getName(), $route) === 0; ?>
-<?php $navId = str_replace('.', '-', $route) ?>
+
+@php
+    $active = empty($items) ? request()->routeIs($route) : request()->routeIs("{$route}*");
+    $navId = str_replace('.', '-', $route)
+@endphp
 
 <li class="nav-item{{ $active ? " active" : "" }}">
     @if (!$items)<a class="nav-link d-flex align-items-center"@if ($target) target="{{ $target }}"@endif @if ($id) id="{{ $id }}"@endif href="{{ route($route) }}">@endif
