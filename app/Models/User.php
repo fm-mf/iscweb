@@ -8,11 +8,12 @@ use Carbon\Carbon;
 use Hashids\Hashids;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
     use Notifiable, DynamicHiddenVisible;
+
+    const HASH_LENGTH = 32;
 
     /**
      * The attributes that are mass assignable.
@@ -170,27 +171,6 @@ class User extends Authenticatable
     {
         if (is_array($roles)) {
             $this->roles()->sync($roles);
-        }
-    }
-
-    /**
-     * Make sure that when we are inserting a new user to the database, the unique random identifier is generated
-     */
-    public function save(array $options = [])
-    {
-        if (!$this->exists && (!isset($this->hash) || $this->hash == null)) {
-            $this->hash = $this->generateHash();
-        }
-        parent::save($options);
-    }
-
-    protected function generateHash()
-    {
-        $hash =  Str::random(32);
-        if (User::findByHash($hash)) {
-            return $this->generateHash();
-        } else {
-            return $hash;
         }
     }
 
