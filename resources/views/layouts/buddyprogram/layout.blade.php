@@ -35,6 +35,9 @@
                  ['title' => __('buddy-program.available-students'), 'route' => 'buddy-home', 'icon' => 'fas fa-users'],
                  ['title' => __('buddy-program.my-students'), 'route' => 'buddy-my-students', 'icon' => 'fas fa-user-friends'],
                  ['title' => __('buddy-program.my-profile.title'), 'route' => 'buddy-my-profile', 'icon' => 'fas fa-user'],
+                 app()->isLocale('cs')
+                    ? ['title' => __('buddy-program.buddy-handbook'), 'route' => 'buddy-handbook-cs', 'icon' => 'fas fa-file-pdf', 'target' => '_blank']
+                    : null,
                  ['title' => __('buddy-program.logout'), 'route' => 'logout', 'icon' => 'fas fa-sign-out-alt'],
             ]])
             @endcomponent

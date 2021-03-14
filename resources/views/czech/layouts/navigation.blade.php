@@ -31,6 +31,11 @@
                 <li class="nav-item{{ request()->routeIs("czech.contacts") ? " active" : "" }}">
                     <a class="nav-link" href="{{ route('czech.contacts') }}">Kontakty</a>
                 </li>
+                <li class="nav-item d-lg-none mb-1">
+                    <a class="nav-link btn btn-outline-light" href="{{ route('buddy-handbook-cs') }}" target="_blank">
+                        <span class="fas fa-file-pdf"></span>Buddy příručka
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link btn btn-primary" href="{{ route('buddy-home') }}">
                         <span class="fas fa-sign-in-alt"></span>Buddy program
