@@ -37,4 +37,9 @@ class Accommodation extends Model
         }
         return $Accommodations;
     }
+
+    public static function default(): self
+    {
+        return self::find(21);
+    }
 }
