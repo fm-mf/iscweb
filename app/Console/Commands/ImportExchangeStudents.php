@@ -3,13 +3,16 @@
 namespace App\Console\Commands;
 
 use App\Imports\ExchangeStudentsImport;
-use App\Models\Semester;
+use App\Traits\UsersImportConsoleQuestions;
+use App\Traits\ValidatesImportFile;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ImportExchangeStudents extends Command
 {
+    use UsersImportConsoleQuestions;
+    use ValidatesImportFile;
+
     /**
      * The name and signature of the console command.
      *
@@ -31,39 +34,16 @@ class ImportExchangeStudents extends Command
      */
     public function handle()
     {
-        $files = collect(Storage::files('import'))->filter(function ($fileName) {
-            return Str::endsWith($fileName, ['.xls', '.xlsx', '.ods']);
-        })->map(function ($fileName) {
-            return Str::replaceFirst('import/', '', $fileName);
-        })->toArray();
+        $fileName = $this->askForFile();
+        $filePath = Storage::path("import/{$fileName}");
 
-        $answer = $this->choice(
-            'Please, choose from the available files to import',
-            $files
-        );
-        $fileName = $answer;
-        $filePath = Storage::path("import/{$answer}");
+        $headingRowNumber = $this->askForHeadingRowNumber();
 
-        $answer = $this->ask(
-            'Row number of the row with column headings',
-            ExchangeStudentsImport::DEFAULT_HEADING_ROW_NUMBER
-        );
-        while (!($headingRowNumber = filter_var($answer, FILTER_VALIDATE_INT)) || $headingRowNumber < 1) {
-            $answer = $this->ask('Row number has to be a positive integer, try again');
-        }
+        $semester = $this->askForSemester();
 
-        $semesters = Semester::all()->map(function ($semester) {
-            return $semester->name;
-        })->toArray();
+        $fullTime = $this->fullTime ?? $this->askIfFullTime();
 
-        $answer = $this->choice(
-            'Choose a semester in which the students should be imported to',
-            $semesters
-        );
-
-        $semester = Semester::findByName($answer);
-
-        if (($validator = ExchangeStudentsImport::importFileValidator($filePath, $headingRowNumber))->fails()) {
+        if (($validator = self::importFileValidator($filePath, $headingRowNumber))->fails()) {
             $this->error('Selected file does not have necessary structure.');
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);
@@ -73,7 +53,9 @@ class ImportExchangeStudents extends Command
 
         $import = (new ExchangeStudentsImport())
             ->setImportSemester($semester)
-            ->setHeadingRowNumber($headingRowNumber);
+            ->setHeadingRowNumber($headingRowNumber)
+            ->setFullTime($fullTime);
+
         $import->withOutput($this->output)
             ->import($filePath);
 

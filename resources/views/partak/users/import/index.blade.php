@@ -103,6 +103,11 @@
                         </small>
                     </div>
 
+                    <div class="form-group form-check">
+                        <input type="checkbox" name="full_time" id="full-time" value="1" class="form-check-input" />
+                        <label for="full-time">Import users as full-time students</label>
+                    </div>
+
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary" id="submit-import">
                             <i class="fas fa-file-import"></i> Import

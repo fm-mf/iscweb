@@ -3,11 +3,16 @@
 namespace App\Http\Requests;
 
 use App\Imports\ExchangeStudentsImport;
+use App\Traits\ValidatesImportFile;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
 
 class UsersImportRequest extends FormRequest
 {
+    use ValidatesImportFile {
+        importFileValidator as traitImportFileValidator;
+    }
+
     public function authorize(): bool
     {
         return $this->user()->can('acl', 'users.import');
@@ -19,6 +24,7 @@ class UsersImportRequest extends FormRequest
             'semester' => ['required', 'numeric', 'exists:semesters,id_semester'],
             'import_file' => ['required', 'file', 'mimes:xls,xlsx,ods'],
             'heading_row_number' => ['required', 'integer', 'min:1'],
+            'full_time' => ['sometimes', 'boolean'],
         ];
     }
 

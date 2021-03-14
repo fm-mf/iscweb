@@ -7,20 +7,18 @@ use App\Models\Country;
 use App\Models\ExchangeStudent;
 use App\Models\Faculty;
 use App\Models\Person;
+use App\Models\Role;
 use App\Models\Semester;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator as ValidatorFacade;
 use Illuminate\Support\MessageBag;
-use Illuminate\Validation\Validator;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\HeadingRowImport;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class ExchangeStudentsImport implements
@@ -73,6 +71,7 @@ class ExchangeStudentsImport implements
     const MSG_BUDDY_DELETED = 'User was a buddy, but has been deleted, because did not have any Exchange students';
     const MSG_BUDDY_NOT_DELETED = 'User is a buddy and was NOT deleted, because has Exchange students';
     const MSG_ADD_SEMESTERS = 'Adding semesters: %s';
+    const MSG_LABEL_AS_FULL_TIME = 'Label the student as full-time';
 
     const MSG_SEPARATOR = '////////////////////////////////////////////////////////////////////////////////';
 
@@ -90,6 +89,8 @@ class ExchangeStudentsImport implements
     private $nextSemester;
 
     private $semesterMapping;
+
+    private $fullTime = false;
 
     private $currentRowNumber = 0;
 
@@ -119,6 +120,13 @@ class ExchangeStudentsImport implements
     public function setHeadingRowNumber(int $headingRowNumber): self
     {
         $this->headingRowNumber = $headingRowNumber;
+
+        return $this;
+    }
+
+    public function setFullTime(bool $fullTime): self
+    {
+        $this->fullTime = $fullTime;
 
         return $this;
     }
@@ -221,6 +229,11 @@ class ExchangeStudentsImport implements
             ]);
         }
 
+        if ($this->fullTime) {
+            $exchangeStudent->user->roles()->syncWithoutDetaching([Role::fullTime()->id_role]);
+            $this->comment(self::MSG_LABEL_AS_FULL_TIME);
+        }
+
         $semesters = collect(mb_str_split($item[self::SEMESTER_KEY]))->map(function ($value) {
             return $this->semesterMapping[$value];
         });
@@ -272,24 +285,5 @@ class ExchangeStudentsImport implements
         }
 
         $this->getConsoleOutput()->text(self::MSG_SEPARATOR);
-    }
-
-    public static function importFileValidator($file, $headingRowIndex = self::DEFAULT_HEADING_ROW_NUMBER): Validator
-    {
-        $headingRows = (new HeadingRowImport($headingRowIndex))
-            ->toCollection($file);
-
-        return ValidatorFacade::make($headingRows->first()->first()->flip()->all(), [
-            ExchangeStudentsImport::FIRST_NAME_KEY => ['required'],
-            ExchangeStudentsImport::LAST_NAME_KEY => ['required'],
-            ExchangeStudentsImport::NATIONALITY_KEY => ['required'],
-            ExchangeStudentsImport::SEX_KEY => ['required'],
-            ExchangeStudentsImport::SCHOOL_KEY => ['required'],
-            ExchangeStudentsImport::FACULTY_KEY => ['required'],
-            ExchangeStudentsImport::SEMESTER_KEY => ['required'],
-            ExchangeStudentsImport::DATE_OF_BIRTH_KEY => ['required'],
-            ExchangeStudentsImport::EMAIL_KEY => ['required'],
-            ExchangeStudentsImport::NOTE_KEY => ['required'],
-        ]);
     }
 }
