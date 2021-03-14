@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
+use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
@@ -20,9 +21,12 @@ class ActiveBuddiesExport implements
     Responsable,
     ShouldAutoSize,
     WithColumnFormatting,
-    WithStyles
+    WithStyles,
+    WithTitle
 {
     use Exportable;
+
+    const SHEET_TITLE = 'Active Buddies';
 
     protected $buddies;
     protected $fileName;
@@ -64,5 +68,10 @@ class ActiveBuddiesExport implements
                 ]
             ],
         ];
+    }
+
+    public function title(): string
+    {
+        return self::SHEET_TITLE;
     }
 }
