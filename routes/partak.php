@@ -56,6 +56,9 @@ Route::prefix('/users')
 
         Route::get('/quarantined', 'QuarantinedController@list')->name('quarantined');
         Route::get('/quarantined/export', 'QuarantinedController@export')->name('quarantined.export');
+
+        Route::get('/import', 'UsersImportController@index')->name('import.index');
+        Route::post('/import', 'UsersImportController@store')->name('import.store');
     });
 
 Route::prefix('/trips')
