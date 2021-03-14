@@ -28,20 +28,6 @@
 @section('scripts')
     @parent
 
-	<script src="{{ URL::asset('/js/tinymce/tinymce.min.js') }}"></script>
-    <script>
-        var editor_config = {
-            path_absolute: "{{ URL::asset('/') }}/",
-            selector: "textarea",
-            plugins: [
-                "advlist autolink lists link",
-                "searchreplace wordcount visualblocks visualchars code fullscreen",
-                "insertdatetime table contextmenu directionality",
-                "paste textpattern"
-            ],
-            toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
-        };
-
-        tinymce.init(editor_config);
-    </script>
-    @stop
+	<script src="{{ asset('js/tinymce/tinymce.min.js') }}" defer="defer"></script>
+    <script src="{{ mix('js/text-editor.js') }}" defer="defer"></script>
+@endsection

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'ParťákNet')
+
 @section('stylesheets')
     <link href="{{ mix('css/partaknet.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('fa/css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
@@ -26,7 +28,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenuLink">
-                            <a class="dropdown-item" href="{{ url('user/logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            <a class="dropdown-item" href="{{ url('user/profile') }}"><i class="fas fa-user fa-fw"></i> My profile</a>
+                            <a class="dropdown-item" href="{{ url('user/logout') }}"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a>
                         </div>
                     </div>
                 </div>
@@ -58,8 +61,8 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/jquery.slim.min.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.4.min.js') }}"></script>
-    <script src="{{ mix('js/printer.js') }}"></script>
+    <script src="{{ asset('js/jquery.slim.min.js') }}" defer="defer"></script>
+    <script src="{{ asset('js/popper.min.js') }}" defer="defer"></script>
+    <script src="{{ asset('js/bootstrap.4.min.js') }}" defer="defer"></script>
+    <script src="{{ mix('js/printer.js') }}" defer="defer"></script>
 @endsection
