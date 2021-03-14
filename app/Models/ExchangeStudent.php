@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Propaganistas\LaravelPhone\PhoneNumber;
@@ -337,9 +338,16 @@ class ExchangeStudent extends Model
         })->first();
     }
 
-    public function scopeFindQuarantined(Builder $query)
+    public function scopeQuarantined(Builder $query): Builder
     {
-        return $query->with(['person', 'user'])->where('quarantined_until', '>', Carbon::now());
+        return $query->with(['user', 'person.exchangeStudent', 'person.buddy'])
+            ->where('quarantined_until', '>', now())
+            ->orderBy('quarantined_until');
+    }
+
+    public static function findQuarantined(): Collection
+    {
+        return self::quarantined()->get();
     }
 
     public function scopeFindByEsn(Builder $query, string $esn)
