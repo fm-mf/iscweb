@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Imports\ExchangeStudentsImport;
 use App\Traits\ValidatesImportFile;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
@@ -50,6 +49,6 @@ class UsersImportRequest extends FormRequest
         $file = $this->file('import_file');
         $headingRowIndex = $this->get('heading_row_number');
 
-        return ExchangeStudentsImport::importFileValidator($file, $headingRowIndex);
+        return $this->traitImportFileValidator($file, $headingRowIndex);
     }
 }
