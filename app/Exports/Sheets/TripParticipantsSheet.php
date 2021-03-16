@@ -43,9 +43,10 @@ class TripParticipantsSheet implements
     public function columnFormats(): array
     {
         return [
-            'H' => NumberFormat::FORMAT_TEXT,
             'I' => NumberFormat::FORMAT_TEXT,
-            'M' => '# ##0 [$Kč-405];-# ##0 [$Kč-405]',
+            'J' => NumberFormat::FORMAT_TEXT,
+            'K' => NumberFormat::FORMAT_TEXT,
+            'N' => '# ##0 [$Kč-405];-# ##0 [$Kč-405]',
         ];
     }
 

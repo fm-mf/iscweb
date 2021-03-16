@@ -43,8 +43,9 @@ class TripReservationsSheet implements
     public function columnFormats(): array
     {
         return [
-            'H' => NumberFormat::FORMAT_TEXT,
             'I' => NumberFormat::FORMAT_TEXT,
+            'J' => NumberFormat::FORMAT_TEXT,
+            'K' => NumberFormat::FORMAT_TEXT,
         ];
     }
 
