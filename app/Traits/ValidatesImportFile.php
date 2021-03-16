@@ -3,19 +3,26 @@
 namespace App\Traits;
 
 use App\Imports\ExchangeStudentsImport;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator as ValidatorFacade;
 use Illuminate\Validation\Validator;
 use Maatwebsite\Excel\HeadingRowImport;
 
 trait ValidatesImportFile
 {
+    /**
+     * @param  UploadedFile|string  $file  instance of UploadedFile or string path
+     * @param  int  $headingRowIndex
+     *
+     * @return Validator
+     */
     protected static function importFileValidator(
-        string $filePath,
+        $file,
         int $headingRowIndex = ExchangeStudentsImport::DEFAULT_HEADING_ROW_NUMBER
     ): Validator
     {
         $headingRows = (new HeadingRowImport($headingRowIndex))
-            ->toCollection($filePath);
+            ->toCollection($file);
 
         return ValidatorFacade::make($headingRows->first()->first()->flip()->all(), [
             ExchangeStudentsImport::FIRST_NAME_KEY => ['required'],
