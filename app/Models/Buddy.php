@@ -219,8 +219,31 @@ class Buddy extends Model
         return $this->privacy_buddy;
     }
 
-    public function setAgreedPrivacyBuddy() {
+    public function setAgreedPrivacyBuddy()
+    {
         $this->privacy_buddy = true;
         $this->save();
+    }
+
+    public function getRegisteredAgoAttribute()
+    {
+        if ($this->person->user->created_at == null) {
+            return __('auth.long-time-ago');
+        }
+
+        return $this->person->user->created_at->diffForHumans();
+    }
+
+    public function getRegisteredOnAttribute()
+    {
+        $format = __('formatting.full-date') . ' ' . __('formatting.time-h-m');
+
+        if ($this->person->user->created_at == null) {
+            return __('auth.registered-before', [
+                'date' => Carbon::parse(self::VERIFICATION_START_DATE)->formatLocalized($format)
+            ]);
+        }
+
+        return $this->person->user->created_at->formatLocalized($format);
     }
 }
