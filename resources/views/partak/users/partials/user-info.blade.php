@@ -145,6 +145,9 @@
             
         @if($buddy)
             <div class="info-line">
+                <i class="fas fa-fw fa-user-clock mr-1"></i> <span title="{{ $buddy->registered_on }}">{{ $buddy->registered_ago }}</span>
+            </div>
+            <div class="info-line">
                 @if($buddy->verified == 'y')
                     <i class="fas fa-check fa-fw mr-1" style="color: #449D44"></i> Verified
                 @elseif ($buddy->verified == 'n')
