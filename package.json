@@ -33,6 +33,7 @@
         "prettier": "^1.18.2",
         "sass": "^1.32.5",
         "sass-loader": "^11.0.1",
+        "tinymce": "^5.8.1",
         "vue": "^2.5.17",
         "vue-loader": "^15.9.5",
         "vue-multiselect": "^2.1.3",
