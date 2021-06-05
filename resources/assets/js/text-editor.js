@@ -29,7 +29,7 @@ import 'tinymce/skins/ui/oxide/content.css';
 import 'tinymce/plugins/emoticons/js/emojis';
 
 tinymce.init({
-    selector: 'textarea',
+    selector: '.wysiwyg-editor',
     plugins: [
         'advlist',
         'autolink',

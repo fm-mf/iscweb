@@ -118,7 +118,7 @@
 
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
 
-{{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
+{{ Form::bsTextarea('description', 'Description (in English)', 'required', null, ['class' => 'form-control wysiwyg-editor']) }}
 
 
 @section('stylesheets')
