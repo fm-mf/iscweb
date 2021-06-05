@@ -28,6 +28,5 @@
 @section('scripts')
     @parent
 
-	<script src="{{ asset('js/tinymce/tinymce.min.js') }}" defer="defer"></script>
     <script src="{{ mix('js/text-editor.js') }}" defer="defer"></script>
 @endsection

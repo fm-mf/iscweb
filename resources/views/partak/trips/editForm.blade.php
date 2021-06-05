@@ -134,8 +134,7 @@
     <script src="{{ URL::asset('/js/picker.time.js') }}" defer></script>
     <script src="{{ mix('/js/pickers.js') }}" defer></script>
 
-    <script src="{{ URL::asset('/js/tinymce/tinymce.min.js') }}" defer></script>
-    <script src="{{ mix('/js/text-editor.js') }}" defer></script>
+    <script src="{{ mix('/js/text-editor.js') }}" defer="defer"></script>
 
     <script>
         function handleCoverChange(event) {
