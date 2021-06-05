@@ -16,7 +16,7 @@
 
                 {{ Form::bsSelect('coronavirusEnabled', 'Coronavirus alert is', ['1' => 'Enabled', '0' => 'Disabled'], $settings['coronavirusEnabled'] ? '1' : '0')  }}
                 {{ Form::bsText('title', 'Title', 'required')  }}
-                {{ Form::bsTextarea('content', 'Alert content', 'required', null, ['style' => 'height: 500px']) }}
+                {{ Form::bsTextarea('content', 'Alert content', 'required', null, ['style' => 'height: 500px', 'class' => 'form-control wysiwyg-editor']) }}
                 {{ Form::bsSubmit('Update settings') }}
 
                 {{ Form::close() }}
@@ -28,6 +28,5 @@
 @section('scripts')
     @parent
 
-	<script src="{{ asset('js/tinymce/tinymce.min.js') }}" defer="defer"></script>
     <script src="{{ mix('js/text-editor.js') }}" defer="defer"></script>
 @endsection
