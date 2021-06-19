@@ -71,6 +71,16 @@
                         <a href="{{ asset('/files/iscCtuSpiritBook.pdf') }}" alt="Download PDF version of ISC Spirit Book">ISC Spirit Book [PDF]</a>
                         <p>Elektronická verze ISC Spirit Book</p>
                     </li>
+                    <li>
+                        <a href="https://forms.gle/iZn18JujtLD7QmdA8" target="_blank" rel="noreferrer">
+                            Anonymní zpětná vazba
+                        </a>
+                        <p>
+                            Chceš vyjádřit svůj názor? Chceš aby se v ISC něco změnilo?
+                            Vadí ti něco v ISC ale nechceš to říct veřejně? Nebo bys chtěl něco pochválit?
+                            Pak je tento formulář přesně pro tebe.
+                        </p>
+                    </li>
                 </ul>
 
                 <h2>Share your ideas</h2>
