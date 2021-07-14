@@ -88,7 +88,7 @@ class PageController extends Controller
 
     private function owDateFormat(Carbon $date)
     {
-        return $date->format('l (jS F)');
+        return $date->format('l (j F)');
     }
 
     private function owInterval(Carbon $from, Carbon $to)
@@ -96,8 +96,8 @@ class PageController extends Controller
         return $from->format('l') . ' to ' . $to->format('l')
             . ' ('
             . ($from->month !== $to->month
-                ? $from->format('jS F') . ' – ' . $to->format('jS F')
-                : $from->format('jS') . ' – ' . $to->format('jS F'))
+                ? $from->format('j F') . ' – ' . $to->format('j F')
+                : $from->format('j') . '–' . $to->format('j F'))
             . ')';
     }
 

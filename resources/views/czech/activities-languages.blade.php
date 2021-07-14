@@ -14,18 +14,18 @@
                     </p>
                     <p>
                         Využij našich bezplatných jazykových kurzů! Kurzy jsou vyučovány našimi
-                        výmennými studenty z celého světa, českými studenty i cizinci dlouhodobě
+                        výměnnými studenty z celého světa, českými studenty i cizinci dlouhodobě
                         žijícími v Praze. Kurzy jsou <strong>zdarma</strong>, jsou vedeny
                         zábavnou formou a není na ně potřeba žádné registrace.
                     </p>
                     <p>
-                        Jazykové kurzy pro zimní semestr 2020/2021 začínají v pondělí 5. října 2020.
-                        Rozvrh kurzů bude zveřejněn začátkem října. Kurzy probíhají v místonstech ISC
-                        na Masarykově koleji a na Srahově na bloku 8.
+                        Jazykové kurzy pro letní semestr 2020/2021 začínají v <strong>pondělí 1. března 2021</strong>.
+                        Rozvrh kurzů bude zveřejněn koncem února. Kurzy budou momentálně probíhat on-line.
+                        V případě zlepšení situace se budeme snažit kurzy co nejdříve přesunout do prezenční podoby.
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Podívejte se na <strong>rozvrh pro zimní semestr 2020/2021</strong>
+                            Podívejte se na <strong>rozvrh pro letní semestr 2020/2021</strong>
                         </a>
                     </p>
                     <h3>Kde najdu učebny?</h3>
@@ -51,21 +51,21 @@
 
                     <h2>Tandem</h2>
                     <p>
-                        Tandem je způsob vájemného učení se jazyků. Zjednodušeně, najdeš si partnera, který tě naučí jeho jazyk
-                        a ty ho naoplátku naučíš ten svůj.
+                        Tandem je způsob vzájemného učení se jazyků. Zjednodušeně, najdeš si partnera, který tě naučí jeho jazyk
+                        a ty ho na oplátku naučíš ten svůj.
                     </p>
                     <p>
                         Hlavní výhodou Tandemu je, že to budete jen vy dva, kdo budete určovat čas a intenzitu výuky.
-                        Můžeš si samozřejmě najít více Tandem partnerů, pro stejé i různé jazyky.
+                        Můžeš si samozřejmě najít více Tandem partnerů, pro stejné i různé jazyky.
                     </p>
                     <p>
                         Zaregistruj se do <a href="{{ url('tandem') }}">Tandem databáze</a> a najdi si svého Tandem partnera!
                     </p>
-                    <p>
+                    {{--<p>
                         Zastav se také na <strong>Tandem eveningu v pondělí 14. září</strong> v klubu Storm!
                         Pro více informací sleduj
                         <a href="https://www.facebook.com/events/345928639923952/" target="_blank" rel="noopener">Facebookovou událos</a>.
-                    </p>
+                    </p>--}}
                     <p>
                         <a href="{{ url('/tandem') }}" class="btn btn-primary">
                             <span class="fas fa-sign-in-alt"></span> Tandem databáze
@@ -114,7 +114,7 @@
                     <p>
                         Podívejte se na rozvrh ISC jazykových kurzů pro
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            zimní semestr 2020/2021
+                            letní semestr 2020/2021
                         </a>.
                     </p>{{--
                     <p>

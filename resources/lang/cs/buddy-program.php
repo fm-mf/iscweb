@@ -69,4 +69,5 @@ return [
     ],
     'world-map-alt' => 'Mapa světa se šipkami ukazujícími na Českou republiku',
     'change-language' => 'Změnit jazyk stránky na češtinu',
+    'buddy-handbook' => 'Buddy příručka',
 ];
