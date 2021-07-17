@@ -94,6 +94,10 @@ class ExchangeStudentsImport implements
 
     private $currentRowNumber = 0;
 
+    private $countries;
+    private $faculties;
+    private $lastUserIdBeforeImport;
+
     public function __construct()
     {
         $this->messages = new MessageBag();
@@ -101,6 +105,10 @@ class ExchangeStudentsImport implements
         $this->headingRowNumber = self::DEFAULT_HEADING_ROW_NUMBER;
 
         $this->setImportSemester(Semester::getCurrentSemester());
+
+        $this->countries = Country::all(['id_country', 'two_letters']);
+        $this->faculties = Faculty::all(['id_faculty', 'abbreviation']);
+        $this->lastUserIdBeforeImport = User::latest()->first()->id_user;
     }
 
     public function setImportSemester(Semester $semester): self
@@ -198,7 +206,7 @@ class ExchangeStudentsImport implements
 
     private function createPerson(Collection $item, User $user): Person
     {
-        if ($user->person()->exists()) {
+        if ($user->id_user <= $this->lastUserIdBeforeImport && $user->person()->exists()) {
             return $user->person;
         }
 
@@ -214,7 +222,7 @@ class ExchangeStudentsImport implements
 
     private function createExchangeStudent(Collection $item, Person $person): ExchangeStudent
     {
-        if ($person->exchangeStudent()->exists()) {
+        if ($person->id_user <= $this->lastUserIdBeforeImport && $person->exchangeStudent()->exists()) {
             $exchangeStudent = $person->exchangeStudent;
             $this->comment(
                 sprintf(self::MSG_EX_ST, $exchangeStudent->semesters->implode('semester', ', '))
@@ -223,9 +231,9 @@ class ExchangeStudentsImport implements
         } else {
             $exchangeStudent = $person->exchangeStudent()->create([
                 'school' => $item[self::SCHOOL_KEY],
-                'id_country' => Country::where('two_letters', '=', $item[self::NATIONALITY_KEY])->first()->id_country,
-                'id_accommodation' => Accommodation::default()->id_accommodation,
-                'id_faculty' => Faculty::where('abbreviation', '=', $item[self::FACULTY_KEY])->first()->id_faculty,
+                'id_country' => $this->countries->where('two_letters', '=', $item[self::NATIONALITY_KEY])->first()->id_country,
+                'id_accommodation' => Accommodation::DEFAULT_ID,
+                'id_faculty' => $this->faculties->where('abbreviation', '=', $item[self::FACULTY_KEY])->first()->id_faculty,
             ]);
         }
 
@@ -239,9 +247,9 @@ class ExchangeStudentsImport implements
         });
 
         $syncResult = $exchangeStudent->semesters()->syncWithoutDetaching($semesters->pluck('id_semester')->all());
-        $addedSemesterIds = $syncResult['attached'];
+        $addedSemesters = $semesters->whereIn('id_semester', $syncResult['attached']);
         $this->comment(
-            sprintf(self::MSG_ADD_SEMESTERS, Semester::findMany($addedSemesterIds)->implode('semester', ', '))
+            sprintf(self::MSG_ADD_SEMESTERS, $addedSemesters->implode('semester', ', '))
         );
 
         return $exchangeStudent;

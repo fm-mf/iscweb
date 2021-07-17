@@ -6,6 +6,7 @@ use App\Notifications\PasswordReset;
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Hashids\Hashids;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -52,11 +53,6 @@ class User extends Authenticatable
     public function exchangeStudent()
     {
         return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
-    }
-
-    static function findByHash($hash)
-    {
-        return User::where('hash', $hash)->first();
     }
 
     public function roles()
@@ -204,5 +200,15 @@ class User extends Authenticatable
     public function getPreferredLanguageAttribute()
     {
         return $this->buddy ? $this->buddy->preferred_language : null;
+    }
+
+    public static function findByHash($hash)
+    {
+        return User::byHash($hash)->first();
+    }
+
+    public function scopeByHash(Builder $query, string $hash): Builder
+    {
+        return $query->where('hash', '=', $hash);
     }
 }

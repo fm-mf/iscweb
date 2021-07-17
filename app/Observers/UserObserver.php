@@ -10,7 +10,7 @@ class UserObserver
     {
         $hash = str_random(User::HASH_LENGTH);
 
-        while (User::findByHash($hash) !== null) {
+        while (User::byHash($hash)->exists()) {
             $hash = str_random(User::HASH_LENGTH);
         }
 
