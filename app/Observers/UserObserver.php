@@ -6,10 +6,14 @@ use App\Models\User;
 
 class UserObserver
 {
-    public function saved(User $user)
+    public function creating(User $user)
     {
-        if ($user->hash_id == null) {
-            $user->generateHashId();
+        $hash = str_random(User::HASH_LENGTH);
+
+        while (User::byHash($hash)->exists()) {
+            $hash = str_random(User::HASH_LENGTH);
         }
+
+        $user->hash = $hash;
     }
 }

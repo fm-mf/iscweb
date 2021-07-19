@@ -40,7 +40,7 @@ class BuddiesTableSeeder extends Seeder
             'id_country' => 61,
         ]);
         $partak3->setVerified();
-        $partak3->user()->addRole('partak');
+        $partak3->user->addRole('partak');
 
         $partak4 = Buddy::registerBuddy([
             'email' => 'supervisor@isc.cz',
@@ -51,7 +51,7 @@ class BuddiesTableSeeder extends Seeder
             'id_country' => 61,
         ]);
         $partak4->setVerified();
-        $partak4->user()->addRole('partak');
-        $partak4->user()->addRole('supervisor');
+        $partak4->user->addRole('partak');
+        $partak4->user->addRole('supervisor');
     }
 }

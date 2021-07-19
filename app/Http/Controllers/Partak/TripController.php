@@ -9,6 +9,7 @@
 
 namespace App\Http\Controllers\Partak;
 
+use App\Exports\TripParticipantsExport;
 use App\Models\Buddy;
 use App\Models\Event;
 use App\Models\ExchangeStudent;
@@ -24,8 +25,6 @@ use App\Models\Receipt;
 use App\Models\Semester;
 use App\Models\Trip;
 use App\Models\User;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +32,6 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
 use Intervention\Image\Facades\Image;
 use Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -111,61 +109,14 @@ class TripController extends Controller
         $trip = Trip::withParticipants('event')->find($id);
         $this->authorize('view', $trip);
 
-        $particip = $trip->participants->sortBy(function ($item) {
-            return strtolower($item->last_name);
-        });
 
-        $reservations = $trip->reservations->sortBy(function ($item) {
-            return strtolower($item->last_name);
-        });
+//        $participants = $trip->participants()->orderByGivenNames()->get();
+//        return view('partak.trips.excel-participants')->with([
+//            'trip' => $trip,
+//            'participants' => $participants,
+//        ]);
 
-        $excel = Excel::create(
-            $trip->event->nameWithoutSpaces() . '_participants',
-            function ($excel) use ($particip, $reservations, $trip) {
-                $excel->sheet('Participants', function ($sheet) use ($particip, $trip) {
-                    $sheet->mergeCells('A1:I1');
-
-                    // Columns A and H (order number and phone number) format is set to number
-                    $sheet->setColumnFormat([
-                        'A' => '0',
-                        'H' => '0',
-                    ]);
-                    $sheet->setHeight([
-                        1 => 20,
-                    ]);
-
-                    // Freeze row with columns description
-                    $sheet->setFreeze('A4');
-
-                    $sheet->loadView('partak.trips.excel-participants', ['particip' => $particip, 'trip' => $trip]);
-                });
-
-                if ($trip->event->reservations_enabled) {
-                    $excel->sheet('Reservations', function ($sheet) use ($reservations, $trip) {
-                        $sheet->mergeCells('A1:I1');
-
-                        // Columns A and H (order number and phone number) format is set to number
-                        $sheet->setColumnFormat([
-                            'A' => '0',
-                            'H' => '0',
-                        ]);
-                        $sheet->setHeight([
-                            1 => 20,
-                        ]);
-
-                        // Freeze row with columns description
-                        $sheet->setFreeze('A4');
-
-                        $sheet->loadView(
-                            'partak.trips.excel-reservations',
-                            ['reservations' => $reservations, 'trip' => $trip]
-                        );
-                    });
-                }
-            }
-        );
-
-        return $excel->download('xls');
+        return new TripParticipantsExport($trip);
     }
 
     public function confirmAddParticipant($id_trip, $id_part)

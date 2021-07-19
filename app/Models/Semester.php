@@ -18,6 +18,10 @@ class Semester extends Model
         static::addGlobalScope('defaultOrder', function (Builder $builder) {
             $builder->orderBy(DB::raw('`semesters`.`id_semester`'), 'desc');
         });
+
+        static::addGlobalScope('noTest', function (Builder $query) {
+            $query->where(DB::raw('`semesters`.`semester`'), 'NOT LIKE', '%test%');
+        });
     }
 
     public function exchangeStudents()
@@ -81,5 +85,29 @@ class Semester extends Model
     {
         $pos = strlen($this->semester) - 4;
         return substr_replace($this->semester, ' ', $pos, 0);
+    }
+
+    public function getNameAttribute(): string
+    {
+        return ucfirst($this->getFullName());
+    }
+
+    public function isSpringSemester(): bool
+    {
+        return starts_with($this->semester, 'spring');
+    }
+
+    public function isAutumnSemester(): bool
+    {
+        return starts_with($this->semester, 'fall');
+    }
+
+    public static function findByName(string $name): self
+    {
+        return self::where(
+            'semester',
+            '=',
+            strtolower(str_replace(' ', '', $name))
+        )->first();
     }
 }

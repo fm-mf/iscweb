@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -31,17 +32,17 @@ class Person extends Model
 
     public function user()
     {
-        return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\User', 'id_user', 'id_user');
     }
 
     public function exchangeStudent()
     {
-        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
     public function Buddy()
     {
-        return $this->belongsTo('\App\Models\Buddy', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\Buddy', 'id_user', 'id_user');
     }
 
     public function avatar() {
@@ -206,5 +207,19 @@ class Person extends Model
         }
 
         return $fileName;
+    }
+
+    public function scopeOrderBySurname(Builder $query): Builder
+    {
+        return $query
+            ->orderBy('last_name')
+            ->orderBy('first_name');
+    }
+
+    public function scopeOrderByGivenNames(Builder $query): Builder
+    {
+        return $query
+            ->orderBy('first_name')
+            ->orderBy('last_name');
     }
 }

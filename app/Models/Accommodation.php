@@ -9,6 +9,8 @@ class Accommodation extends Model
 {
     use DynamicHiddenVisible;
 
+    const DEFAULT_ID = 21;
+
     protected $table = 'accommodation';
     public $timestamps = false;
     protected $primaryKey = 'id_accommodation';
@@ -36,5 +38,10 @@ class Accommodation extends Model
             $Accommodations[$accommodation->id_accommodation] = $accommodation->full_name_eng;
         }
         return $Accommodations;
+    }
+
+    public static function default(): self
+    {
+        return self::find(self::DEFAULT_ID);
     }
 }

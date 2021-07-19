@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Propaganistas\LaravelPhone\PhoneNumber;
@@ -24,17 +25,18 @@ class ExchangeStudent extends Model
 
     protected $fillable = [
         'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation',
-        'whatsapp', 'facebook', 'esn_receipt_id', 'instagram', 'note', 'quarantined_until'
+        'whatsapp', 'facebook', 'esn_receipt_id', 'id_country', 'school', 'instagram', 'note',
+        'quarantined_until',
     ];
 
     public function user()
     {
-        return $this->hasOne('\App\Models\User', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\User', 'id_user', 'id_user');
     }
 
     public function person()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
     }
 
     public function semesters()
@@ -115,7 +117,7 @@ class ExchangeStudent extends Model
     {
         return url('partak/users/exchange-students/' . $this->id_user);
     }
-    /*
+/*
     public function getEmailAttribute($value)
     {
         return $this->person->email;
@@ -336,9 +338,16 @@ class ExchangeStudent extends Model
         })->first();
     }
 
-    public function scopeFindQuarantined(Builder $query)
+    public function scopeQuarantined(Builder $query): Builder
     {
-        return $query->with(['person', 'user'])->where('quarantined_until', '>', Carbon::now());
+        return $query->with(['user', 'person.exchangeStudent', 'person.buddy'])
+            ->where('quarantined_until', '>', now())
+            ->orderBy('quarantined_until');
+    }
+
+    public static function findQuarantined(): Collection
+    {
+        return self::quarantined()->get();
     }
 
     public function scopeFindByEsn(Builder $query, string $esn)
@@ -373,13 +382,30 @@ class ExchangeStudent extends Model
         return $this->person->hashId;
     }
 
+    public function getPhoneFormattedAttribute()
+    {
+        if ($this->phone === null) {
+            return null;
+        }
+
+        return PhoneNumber::make($this->phone, ['CZ', 'AUTO'])->formatInternational();
+    }
+
     public function getWhatsAppFormattedInternationalAttribute()
     {
+        if ($this->whatsapp === null) {
+            return null;
+        }
+
         return PhoneNumber::make($this->whatsapp)->formatInternational();
     }
 
     public function getWhatsAppFormattedE164Attribute()
     {
+        if ($this->whatsapp === null) {
+            return null;
+        }
+
         return PhoneNumber::make($this->whatsapp)->formatE164();
     }
 

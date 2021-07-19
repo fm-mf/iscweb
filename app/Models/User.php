@@ -6,13 +6,15 @@ use App\Notifications\PasswordReset;
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Hashids\Hashids;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
     use Notifiable, DynamicHiddenVisible;
+
+    const HASH_LENGTH = 32;
 
     /**
      * The attributes that are mass assignable.
@@ -35,28 +37,22 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /* DO NOT CHANGE THIS, OTHERWISE DUPLICATE hash_id's MAY OCCUR */
     private static $hashIdsSalt = 'eXQ3A9RejnCT7Ul/X3mQ3Writ+CpAVrQEc2hskzCU9E=';
     private static $hashIdsLength = 6;
 
     public function person()
     {
-        return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
     }
 
     public function buddy()
     {
-        return $this->belongsTo('\App\Models\Buddy', 'id_user', 'id_user');
+        return $this->hasOne('\App\Models\Buddy', 'id_user', 'id_user');
     }
 
     public function exchangeStudent()
     {
-        return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
-    }
-
-    static function findByHash($hash)
-    {
-        return User::where('hash', $hash)->first();
+        return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
     public function roles()
@@ -174,27 +170,6 @@ class User extends Authenticatable
         }
     }
 
-    /**
-     * Make sure that when we are inserting a new user to the database, the unique random identifier is generated
-     */
-    public function save(array $options = [])
-    {
-        if (!$this->exists && (!isset($this->hash) || $this->hash == null)) {
-            $this->hash = $this->generateHash();
-        }
-        parent::save($options);
-    }
-
-    protected function generateHash()
-    {
-        $hash =  Str::random(32);
-        if (User::findByHash($hash)) {
-            return $this->generateHash();
-        } else {
-            return $hash;
-        }
-    }
-
     public function getEmailAttribute ($value)
     {
         return strtolower($value);
@@ -225,5 +200,15 @@ class User extends Authenticatable
     public function getPreferredLanguageAttribute()
     {
         return $this->buddy ? $this->buddy->preferred_language : null;
+    }
+
+    public static function findByHash($hash)
+    {
+        return User::byHash($hash)->first();
+    }
+
+    public function scopeByHash(Builder $query, string $hash): Builder
+    {
+        return $query->where('hash', '=', $hash);
     }
 }
