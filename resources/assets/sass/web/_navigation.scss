@@ -3,8 +3,8 @@
     font-weight: bold;
   }
 
-  .nav-link {
-    color: white !important;
+  .navbar-nav .nav-link {
+    color: white;
     transition: 0.2s all;
     position: relative;
     text-align: center;
@@ -33,6 +33,10 @@
           transform: scaleX(1);
         }
       }
+    }
+
+    &.btn-outline-light:hover {
+      color: $yiq-text-dark;
     }
   }
 

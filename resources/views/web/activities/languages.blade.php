@@ -30,13 +30,20 @@
                         Take advantage of our free language courses! The courses are taught by you –
                         Erasmus and exchange students, Czech students and foreigners living in Prague.
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
-                        Language courses for the Fall semester 2020 will start on Monday, October 5th 2020. The schedule
-                        for Fall semester 2020 will be available during the first week of October 2020. The courses will
-                        take place at the Masarykova dormitory and at Strahov, block 8.
+                    </p>
+                    <p>
+                        Languages courses for the Spring semester 2021 will start on <strong>Monday, 1 March 2021</strong>.
+                        The schedule for Spring semester 2021 will be available during the last week of February 2021.
+                        The courses will currently take place online and we will be monitoring the situation,
+                        moving to offline classes as soon as possible.
+                    </p>
+                    <p>
+                        Are you interested in teaching a language with the ISC? That's great, we would like to have you!
+                        Contact the Languages Coordinator (see the contact information at the bottom of the webpage).
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Have a look at the <b>Fall 2020 schedule</b>
+                            Have a look at the <b>Spring 2021 schedule</b>
                         </a>
                     </p>
                     <h3>Where are the classrooms?</h3>
@@ -67,8 +74,8 @@
                     <p>The main advantage of Tandem is that it will be just you two who will set the time and the intensity
                         of the courses! You can form as many couples as you wish. </p>
                     <p>Register in the <a href="{{ url('tandem') }}">Tandem database</a> and find your Tandem partner!</p>
-                    <p>Come to the <strong>Tandem evening on Monday 14 October</strong> in the Storm club!
-                        See the <a href="https://www.facebook.com/events/345928639923952/" target="_blank" rel="noopener">facebook event</a>.</p>
+                    <!-- <p>Come to the <strong>Tandem evening on Monday 14 October</strong> in the Storm club!
+                        See the <a href="https://www.facebook.com/events/345928639923952/" target="_blank" rel="noopener">facebook event</a>.</p> -->
                     <p><a href="{{ url('/tandem') }}" class="btn btn-primary"><span class="fas fa-sign-in-alt"></span> Tandem database</a></p>
 
                     <h2>Café Lingea</h2>
@@ -109,7 +116,7 @@
                     <h2>See the schedule</h2>
                     <p>You can have a look at the
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            Fall 2020 schedule
+                            Spring 2021 schedule
                         </a>.
                     </p>{{--
                     <p>

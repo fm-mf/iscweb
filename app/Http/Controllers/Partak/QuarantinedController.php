@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Partak;
 
+use App\Exports\QuarantinedStudentsExport;
 use App\Http\Controllers\Controller;
 use App\Models\ExchangeStudent;
-use Carbon\Carbon;
-use Maatwebsite\Excel\Facades\Excel;
 
 class QuarantinedController extends Controller
 {
@@ -14,34 +13,13 @@ class QuarantinedController extends Controller
         $this->authorize('acl', 'quarantined');
 
         return view('partak.users.quarantined.list')
-            ->with(['users' => $this->quarantinedStudents()]);
+            ->with(['users' => ExchangeStudent::findQuarantined()]);
     }
 
     public function export()
     {
         $this->authorize('acl', 'quarantined');
 
-        $users = $this->quarantinedStudents();
-
-        $excel = Excel::create(
-            'quarantined-students-' . Carbon::now()->format('Y-m-d'),
-            function ($excel) use ($users) {
-                $excel->sheet('Quarantined students', function ($sheet) use ($users) {
-                    $sheet->loadView(
-                        'partak.users.quarantined.excel',
-                        ['users' => $users]
-                    );
-                });
-            }
-        );
-
-        return $excel->download('xls');
-    }
-
-    private function quarantinedStudents()
-    {
-        return ExchangeStudent::findQuarantined()
-            ->orderByDesc('quarantined_until')
-            ->get();
+        return new QuarantinedStudentsExport(ExchangeStudent::findQuarantined());
     }
 }

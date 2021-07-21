@@ -7,10 +7,12 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Propaganistas\LaravelPhone\PhoneNumber;
 
 class Buddy extends Model
 {
     const VERIFICATION_START_DATE = '2017-01-21 00:00:00';
+    const DEFAULT_ACTIVITY_LIMIT_MONTHS = 4;
 
     public $timestamps = false;
     protected $primaryKey = 'id_user';
@@ -29,12 +31,12 @@ class Buddy extends Model
 
     public function user()
     {
-        return $this->person->user;
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function person()
     {
-        return $this->hasOne('\App\Models\Person', 'id_user', 'id_user');
+        return $this->belongsTo('\App\Models\Person', 'id_user', 'id_user');
     }
 
     public function exchangeStudents()
@@ -201,6 +203,13 @@ class Buddy extends Model
             })->first();
     }
 
+    public function scopeRecentlyActive(Builder $query, Carbon $activeAfter = null): Builder
+    {
+        $activeAfter = $activeAfter ?? Carbon::now()->subMonths(self::DEFAULT_ACTIVITY_LIMIT_MONTHS);
+
+        return $query->where('last_login', '>=', $activeAfter);
+    }
+
     public function agreedPrivacyPartak()
     {
         return $this->privacy_partak;
@@ -219,8 +228,40 @@ class Buddy extends Model
         return $this->privacy_buddy;
     }
 
-    public function setAgreedPrivacyBuddy() {
+    public function setAgreedPrivacyBuddy()
+    {
         $this->privacy_buddy = true;
         $this->save();
+    }
+
+    public function getRegisteredAgoAttribute()
+    {
+        if ($this->person->user->created_at == null) {
+            return __('auth.long-time-ago');
+        }
+
+        return $this->person->user->created_at->diffForHumans();
+    }
+
+    public function getRegisteredOnAttribute()
+    {
+        $format = __('formatting.full-date') . ' ' . __('formatting.time-h-m');
+
+        if ($this->person->user->created_at == null) {
+            return __('auth.registered-before', [
+                'date' => Carbon::parse(self::VERIFICATION_START_DATE)->formatLocalized($format)
+            ]);
+        }
+
+        return $this->person->user->created_at->formatLocalized($format);
+    }
+
+    public function getPhoneFormattedAttribute()
+    {
+        if ($this->phone === null) {
+            return null;
+        }
+
+        return PhoneNumber::make($this->phone, ['CZ', 'AUTO'])->formatInternational();
     }
 }

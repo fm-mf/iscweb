@@ -10,58 +10,59 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
     @section('stylesheets')
+        <link rel="stylesheet" type="text/css" href="{{ mix('css/vendor.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ mix('css/buddyprogram.css') }}" />
     @show
 </head>
 <body>
 @include('partials.google-analytics')
 
-<!-- example 7 - center on mobile 2-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="d-flex flex-grow-1">
-        <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-        <a class="navbar-brand" href="{{ route('buddy-home') }}">
-            <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}"  alt="{{ $shortName }}" />
-        </a>
-        <div class="w-100 text-right">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="d-flex flex-grow-1 align-items-center">
+            <span class="w-100 d-lg-none d-block"></span>
+            <a class="navbar-brand" href="{{ route('buddy-home') }}">
+                <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}"  alt="{{ $shortName }}" />
+            </a>
+            <div class="w-100 text-right">
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="collapse navbar-collapse flex-grow-1 " id="navbar">
-        <ul class="navbar-nav ml-auto flex-nowrap">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('buddy-home') }}">
-                    <i class="fas fa-users"></i> @lang('buddy-program.available-students')
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('buddy-my-students') }}">
-                    <i class="fas fa-user-friends"></i> @lang('buddy-program.my-students')
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('buddy-my-profile') }}">
-                    <i class="fas fa-user"></i> @lang('buddy-program.my-profile.title')
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('logout') }}">
-                    <i class="fas fa-sign-out-alt"></i> @lang('buddy-program.logout')
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+        <div class="collapse navbar-collapse flex-grow-1 " id="navbar">
+            @component('web.components.navbar-nav', [ 'navItems' => [
+                 ['title' => __('buddy-program.available-students'), 'route' => 'buddy-home', 'icon' => 'fas fa-users'],
+                 ['title' => __('buddy-program.my-students'), 'route' => 'buddy-my-students', 'icon' => 'fas fa-user-friends'],
+                 ['title' => __('buddy-program.my-profile.title'), 'route' => 'buddy-my-profile', 'icon' => 'fas fa-user'],
+                 app()->isLocale('cs')
+                    ? ['title' => __('buddy-program.buddy-handbook'), 'route' => 'buddy-handbook-cs', 'icon' => 'fas fa-file-pdf', 'target' => '_blank']
+                    : null,
+                 ['title' => __('buddy-program.logout'), 'route' => 'logout', 'icon' => 'fas fa-sign-out-alt'],
+            ]])
+            @endcomponent
+            <ul class="navbar-nav lang-switcher">
+                <li class="nav-item">
+                    <a class="nav-link btn" href="{{ route('buddy.change-language', ['language' => app()->getLocale() === 'en' ? 'cs' : 'en']) }}">
+                        @if(app()->getLocale() === 'en')
+                            <img src="{{ asset('img/flags/flag-cze.svg') }}" alt="@lang('buddy-program.change-language', [], 'cs')" />
+                        @else
+                            <img src="{{ asset('img/flags/flag-gbr.svg') }}" alt="@lang('buddy-program.change-language', [], 'en')" />
+                        @endif
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
 <main class="container-fluid">
     @yield('content')
 </main>
 
 @section('scripts')
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery.slim.min.js') }}" defer="defer"></script>
+    <script src="{{ asset('js/bootstrap.4.min.js') }}" defer="defer"></script>
 @show
 </body>
 </html>

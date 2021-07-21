@@ -113,15 +113,16 @@ a.disabled {
 }
 
 fieldset {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #eee;
-  margin-bottom: 15px;
+  padding: $form-grid-gutter-width;
+  border: 1px solid $gray-200;
+  margin-bottom: $form-group-margin-bottom;
 
   legend {
-    font-size: 100%;
-    border: 0;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+    border: none;
+    margin-bottom: 0;
+    margin-left: -0.25rem;
     display: inline-block;
     width: auto;
   }

@@ -18,7 +18,7 @@
             <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">ISC CTU in Prague</a>.
         </p>
         <div class="col">
-            <img src="{{ asset('img/buddyprogram/buddy-database-map-fall2020-' . app()->getLocale() . '.jpg') }}" style="width: 100%" alt="@lang('buddy-program.world-map-alt')" />
+            <img src="{{ asset('img/buddyprogram/buddy-database-map-spring2021-' . app()->getLocale() . '.jpg') }}" style="width: 100%" alt="@lang('buddy-program.world-map-alt')" />
         </div>
     </div>
 @stop

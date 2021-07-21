@@ -63,15 +63,6 @@
 
                 {{ Form::bsTextarea('about', __('buddy-program.my-profile.about-you'), '', $buddy->about) }}
 
-                {{ Form::bsSelect(
-                    'preferred_language',
-                    __('buddy-program.my-profile.preferred-language'),
-                    $availableLanguages,
-                    $buddy->preferred_language ?? $browserPreferredLanguage,
-                    [],
-                    __('buddy-program.my-profile.note-language')
-                ) }}
-
                 <div class="form-group">
                     @if ($errors->has('subscribed'))
                         <p class="error-block alert-danger">{{ $errors->first('subscribed') }}</p>

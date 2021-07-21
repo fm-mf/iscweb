@@ -25,6 +25,19 @@
                 >
                     <i class="fas fa-pen"></i> Edit
                 </a>
+
+                {{ Form::open(['url' => 'partak/users/exchange-students/promote/'. $exStudent->id_user, 'method' => 'post']) }}
+                <protected-submit-button
+                    url="{{ url('partak/users/exchange-students/promote/' . $user->id_user) }}"
+                    protection-title="Promote exchange student"
+                    protection-text="Are you sure you want to promote {{ $user->person->getFullName() }} to be a Buddy?"
+                    classes="btn btn-sm btn-info ml-3"
+                    modal-id="protectionModalPromoteToBuddy"
+                    :form-group="false"
+                >
+                    <i class="fas fa-user-astronaut"></i> Promote to Buddy
+                </protected-submit-button>
+                {{ Form::close() }}
             @endcan
         @endif
     @else
@@ -131,6 +144,9 @@
         @endif
             
         @if($buddy)
+            <div class="info-line">
+                <i class="fas fa-fw fa-user-clock mr-1"></i> <span title="{{ $buddy->registered_on }}">{{ $buddy->registered_ago }}</span>
+            </div>
             <div class="info-line">
                 @if($buddy->verified == 'y')
                     <i class="fas fa-check fa-fw mr-1" style="color: #449D44"></i> Verified

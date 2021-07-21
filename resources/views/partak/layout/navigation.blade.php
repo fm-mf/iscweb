@@ -20,6 +20,7 @@
                 ['title' => 'Roles', 'icon' => 'users-cog', 'route' => 'partak.users.roles', 'acl' => 'roles.view'],
                 ['title' => 'Parťáks', 'icon' => 'user-astronaut', 'route' => 'partak.users.partaks', 'acl' => 'roles.view'],
                 ['title' => 'Quarantined', 'icon' => 'user-lock', 'route' => 'partak.users.quarantined', 'acl' => 'quarantined'],
+                ['title' => 'Import students', 'icon' => 'file-import', 'route' => 'partak.users.import.index', 'acl' => 'users.import'],
             ]],
             ['title' => 'Trips', 'icon' => 'hiking', 'route' => 'partak.trips', 'items' => [
                 ['title' => 'Active trips', 'icon' => 'list', 'route' => 'partak.trips.upcoming', 'acl' => 'trips.view'],
@@ -27,8 +28,10 @@
                 ['title' => 'Add trip', 'icon' => 'plus', 'route' => 'partak.trips.create', 'acl' => 'trips.add'],
             ]],
             ['title' => 'Events', 'icon' => 'glass-cheers', 'route' => 'partak.events', 'acl' => 'events.view', 'items' => [
-                ['title' => 'Active events', 'icon' => 'list', 'route' => 'partak.events.list'],
+                ['title' => 'Active events', 'icon' => 'list', 'route' => 'partak.events.index'],
                 ['title' => 'Add event', 'icon' => 'plus', 'route' => 'partak.events.create', 'acl' => 'events.add'],
+                ['title' => 'Add inteGREAT event', 'icon' => 'calendar-plus', 'iconStyle' => 'far', 'route' => 'partak.events.create.integreat', 'acl' => 'events.add'],
+                ['title' => 'Add Languages event', 'icon' => 'calendar-plus', 'iconStyle' => 'far', 'route' => 'partak.events.create.languages', 'acl' => 'events.add'],
             ]],
             ['title' => 'Stats', 'icon' => 'chart-pie', 'route' => 'partak.stats', 'acl' => 'stats.view', 'items' => [
                 ['title' => 'Dashboard', 'route' => 'partak.stats.index', 'id' => 'stats-dashboard'],

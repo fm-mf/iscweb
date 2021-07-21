@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Exports\Concerns\WithStyles;
+use App\Exports\Concerns\WithStylesHandler;
 use App\Models\AlumniNewsletter;
 use App\Models\Contact;
 use App\Models\User;
@@ -9,6 +11,8 @@ use App\Observers\AlumniNewsletterObserver;
 use App\Observers\ContactObserver;
 use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
+use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +35,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Excel::extend(WithStyles::class, new WithStylesHandler(), AfterSheet::class);
     }
 }

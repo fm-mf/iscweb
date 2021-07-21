@@ -151,6 +151,22 @@
             magazine from The Economist as a gift.
         </p>
         <p><a href="https://subscription.economist.com/OA/partners/ESN/12420offer" target="_blank">Subscribe here.</a></p>
+
+        <h2>My Conscious Space</h2>
+        <img src="{{ asset('img/guide/partners/my_conscious_space.png') }}" alt="My Conscious Space logo" />
+        <p>
+            My Conscious Space creates a safe online container for your self-development and healing. We offer a space with guidance, where we support each other on our self-discovery journey. Everything is reachable online from the warmth of your home. Choose what suits you the best: yoga, meditation, breathing techniques, deep relaxation, women circles or full/new moon ceremonies. All the events are LIVE, using Zoom platform.
+        </p>
+        <p><a href="https://myconscious.space/isc/" target="_blank" rel="noopener">Enjoy Three Weeks of Unlimited Yoga for 15 euro.</a></p>
+
+        <h2>Loď Pivovar</h2>
+        <img src="{{ asset('img/guide/partners/lod_pivovar.png') }}" alt="Pivolod logo" />
+        <p>
+            Restaurant with its own brewery, where you can enjoy Czech cuisine, beer garden and summer terrace with bar, BBC and relaxing lounge.
+            All this awaits you on three decks of a unique project in Czech waters.
+        </p>
+        <p>Check it out at <a href="https://www.lodpivovar.cz/" target="_blank">www.lodpivovar.cz</a></p>
+        <p>Upon showing your ESNcard you'll get <strong>5% discount</strong> on beer.</p>
     </section>
 
 @stop

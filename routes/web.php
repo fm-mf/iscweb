@@ -17,8 +17,8 @@ if (Request::segment(1) == "user") {
     App::setLocale('cs');
 }
 
-Route::get('/event/{id}/cancel/{hash}', 'Exchange\ReservationController@showForm');
-Route::get('/event/{id}', 'Exchange\ReservationController@showForm');
+Route::get('/event/{id}/cancel/{hash}', 'Exchange\ReservationController@showForm')->name('event.cancel');
+Route::get('/event/{id}', 'Exchange\ReservationController@showForm')->name('event.show');
 
 Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
 {
@@ -39,7 +39,7 @@ Route::get('/visa', function() {
 Route::get('kos-manual', function () { return response()->file('files/KOS_manual_2017.pdf'); });
 
 Route::get('buddy-prirucka', function () {
-    $fileName = 'buddy-prirucka-fall-2020_web.pdf';
+    $fileName = 'buddy-prirucka-spring-2021.pdf';
     return response()
         ->file("files/${fileName}", [
             'Content-Disposition' => "inline; filename=\"${fileName}\"",

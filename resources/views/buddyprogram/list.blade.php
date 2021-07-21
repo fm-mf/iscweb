@@ -110,7 +110,7 @@
 
 @section('scripts')
     @parent
-    <script src="{{ mix('js/echangestudentslist.js') }}"></script>
+    <script src="{{ mix('js/exchange-students-list.js') }}"></script>
 @stop
 
 @include('footer')

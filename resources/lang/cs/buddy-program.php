@@ -58,7 +58,6 @@ return [
         'year-of-birth' => 'Rok narození',
         'about-you' => 'O tobě (pro zahraniční studenty)',
         'sex' => 'Jsem',
-        'preferred-language' => 'Preferovaný jazyk databáze',
         'profile-updated' => 'Profil aktualizován',
         'change-password' => 'Změnit heslo',
         'old-password' => 'Staré heslo',
@@ -67,7 +66,8 @@ return [
         'password-changed' => 'Heslo změněno',
         'wrong-old-password' => 'Špatné heslo',
         'subscribed' => 'Souhlasím s občasným zasíláním informací o dění v ISC (např. informace o otevření Buddy databáze či o nadcházejících akcích).',
-        'note-language' => 'Popis v profilu zahraničního studenta bude zobrazen tak, jak ho napsal, bez ohledu na tvou volbu jazyka',
     ],
     'world-map-alt' => 'Mapa světa se šipkami ukazujícími na Českou republiku',
+    'change-language' => 'Změnit jazyk stránky na češtinu',
+    'buddy-handbook' => 'Buddy příručka',
 ];

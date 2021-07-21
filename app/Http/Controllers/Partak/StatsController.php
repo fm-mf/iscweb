@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Partak;
 
+use App\Exports\ActiveBuddiesExport;
+use App\Exports\CECandidatesExport;
 use App\Facades\Settings;
 use App\Models\Buddy;
 use App\Http\Controllers\Controller;
@@ -14,8 +16,6 @@ use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use Maatwebsite\Excel\Writers\LaravelExcelWriter;
 
 class StatsController extends Controller
 {
@@ -33,7 +33,7 @@ class StatsController extends Controller
         $this->authorize('acl', 'stats.view');
 
         return response()->json(
-            BuddyResource::collection($this->loadActiveBuddies()->get())
+            BuddyResource::collection(Buddy::recentlyActive()->get())
         );
     }
 
@@ -257,50 +257,23 @@ class StatsController extends Controller
         $students = ExchangeStudent::byUniqueSemester($semester->semester)
             ->join('countries', 'exchange_students.id_country', '=', 'countries.id_country')
             ->where('wants_present', '=', 'y')
-            ->orderBy('countries.full_name', 'asc')
+            ->orderBy('countries.full_name')
             ->get();
 
-        $excel = Excel::create(
-            "{$semester->semester}_ce_candidates",
-            function (LaravelExcelWriter $excel) use ($students) {
-                $excel->sheet('Participants', function ($sheet) use ($students) {
-                    $sheet->setFreeze('A2');
-                    $sheet->loadView('partak.stats.ceExport', [ 'students' => $students ]);
-                });
-            }
-        );
-
-        return $excel->download('xls');
+        return new CECandidatesExport($students, $semester);
     }
 
-    public function exportActiveBuddies(Request $request)
+    public function exportActiveBuddies()
     {
         $this->authorize('acl', 'stats.export');
 
-        $months = (int)$request->input('months', 4);
+        $months = (int) request('months', Buddy::DEFAULT_ACTIVITY_LIMIT_MONTHS);
         if (!$months || $months < 0) {
-            $months = 4;
+            $months = Buddy::DEFAULT_ACTIVITY_LIMIT_MONTHS;
         }
 
-        $buddies = $this->loadActiveBuddies($months)
-            ->get();
-            
-        $now = Carbon::now();
-        $excel = Excel::create(
-            "{$now->year}-{$now->month}-{$now->day}-active-buddies",
-            function (LaravelExcelWriter $excel) use ($buddies) {
-                $excel->sheet('Participants', function ($sheet) use ($buddies) {
-                    $sheet->setFreeze('A2');
-                    $sheet->loadView('partak.stats.activeBuddiesExport', [ 'buddies' => $buddies ]);
-                });
-            }
-        );
+        $buddies = Buddy::recentlyActive(Carbon::now()->subMonths($months))->get();
 
-        return $excel->download('xls');
-    }
-
-    private function loadActiveBuddies($months = 4)
-    {
-        return Buddy::where('last_login', '>', Carbon::now()->addMonths(-$months));
+        return new ActiveBuddiesExport($buddies);
     }
 }

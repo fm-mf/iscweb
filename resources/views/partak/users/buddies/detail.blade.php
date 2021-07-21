@@ -9,7 +9,7 @@
     @endif
 
     <div class="container">
-        @include('partak.users.partials.user-info', ['user' => $buddy->user()])
+        @include('partak.users.partials.user-info', ['user' => $buddy->user])
     </div>
 
     @can('acl', 'buddy.verify')
@@ -19,7 +19,7 @@
                     <div class="col-12">
                         @if($buddy->motivation)
                             <p class="mb-0"><strong>Motivation:</strong> {{ $buddy->motivation }}</p>
-                        @elseif(hash_equals($buddy->user()->email ?? "", $buddy->verification_email ?? ""))
+                        @elseif(hash_equals($buddy->user->email ?? "", $buddy->verification_email ?? ""))
                             <p class="mb-0">{{ $buddy->person->first_name }} has used university e-mail for registration</p>
                         @elseif($buddy->verification_email)
                             <p class="mb-0">{{ $buddy->person->first_name }} has entered university e-mail for verification: {{ $buddy->verification_email }}</p>

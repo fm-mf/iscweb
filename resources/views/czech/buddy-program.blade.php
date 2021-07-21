@@ -47,6 +47,7 @@
             </div>
         </div>
     </section>
+    @include('czech.partials.buddy-handbook-section')
     <section>
         <div class="container">
             <div class="row">
@@ -66,7 +67,6 @@
             </div>
         </div>
     </section>
-    @include('czech.partials.buddy-handbook-section')
     <section>
         <div class="container">
             <div class="row">

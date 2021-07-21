@@ -236,8 +236,9 @@ class Event extends Model
     public static function findMaxYearOld()
     {
         return Event::whereDate('datetime_from', '<', Carbon::today())
-                    ->whereDate('datetime_from', '>', Carbon::today()->subYear())
-                    ->get();
+            ->whereDate('datetime_from', '>', Carbon::today()->subYear())
+            ->orderByDesc('datetime_from')
+            ->get();
     }
 
     public static function findAllVisible()
@@ -245,7 +246,7 @@ class Event extends Model
         return Event::with('modifiedBy')
             ->whereDate('datetime_from', '>=', Carbon::today())
             ->where('visible_from','<=', Carbon::now())
-            ->orderBy('datetime_from','asc')
+            ->orderBy('datetime_from')
             ->get();
     }
 
@@ -255,7 +256,8 @@ class Event extends Model
             ->where('event_type', 'normal')
             ->whereDoesntHave('trip')
             ->whereDate('datetime_from', '>=', Carbon::today())
-            ->get()->sortby('datetime_from');
+            ->orderBy('datetime_from')
+            ->get();
     }
 
     public static function findAllInteGreatInFromDate($fromDate)
@@ -264,7 +266,8 @@ class Event extends Model
             ->where('event_type', 'integreat')
             ->whereHas('integreat_party')
             ->whereDate('datetime_from', '>=', $fromDate)
-            ->get()->sortby('datetime_from');
+            ->orderBy('datetime_from')
+            ->get();
     }
 
     public static function findAllLanguagesFromDate($fromDate)
@@ -273,7 +276,8 @@ class Event extends Model
             ->where('event_type', 'languages')
             ->whereHas('Languages_event')
             ->whereDate('datetime_from', '>=', $fromDate)
-            ->get()->sortby('datetime_from');
+            ->orderBy('datetime_from')
+            ->get();
     }
 
     public static function findAll()

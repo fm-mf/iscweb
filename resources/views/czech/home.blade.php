@@ -7,7 +7,13 @@
             <div class="container header">
                 <h1>Chceš potkat nové kamarády z celého světa, zlepšit si cizí jazyk a podílet se na vytváření mezinárodní komunity na ČVUT?</h1>
                 <p class="p-btn">
-                    <a class="btn btn-primary" href="{{ route('register') }}">Staň se Buddym!</a>
+                    <a class="btn btn-primary mb-3 mb-md-0" href="{{ route('register') }}">
+                        <span class="fas fa-user-plus"></span> Staň se Buddym!
+                    </a>
+
+                    <a class="btn btn-secondary ml-md-3" href="{{ route('buddy-handbook-cs') }}" target="_blank">
+                        <span class="fas fa-file-pdf"></span> Buddy příručka
+                    </a>
                 </p>
             </div>
             <div class="play">

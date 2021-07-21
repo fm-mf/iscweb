@@ -2,34 +2,34 @@
   <div class="question">
     <div class="row">
       <div class="form-group col-md-4">
-        <label>Type</label>
-        <select v-model="question.type" class="form-control">
+        <label :for="`q-${question.id}-type`">Type</label>
+        <select v-model="question.type" class="form-control" :id="`q-${question.id}-type`">
           <option value="text">Text input</option>
           <option value="select">Options selection</option>
           <option value="number">Number input</option>
         </select>
       </div>
       <div class="form-group col-md-8">
-        <label>Label</label>
-        <input v-model="question.label" class="form-control" type="text" />
+        <label :for="`q-${question.id}-label`">Label</label>
+        <input v-model="question.label" class="form-control" type="text" :id="`q-${question.id}-label`" />
       </div>
     </div>
 
     <div class="form-group">
-      <label>Description</label>
-      <input v-model="question.description" class="form-control" type="text" />
+      <label :for="`q-${question.id}-description`">Description</label>
+      <input v-model="question.description" class="form-control" type="text" :id="`q-${question.id}-description`" />
     </div>
 
-    <label>
-      <input v-model="question.required" type="checkbox" />
-      Required
-    </label>
+    <div class="form-group form-check">
+      <input v-model="question.required" type="checkbox" class="form-check-input" :id="`q-${question.id}-required`" />
+      <label class="form-check-label" :for="`q-${question.id}-required`">Required</label>
+    </div>
 
-    <div v-if="question.type === 'select'">
-      <label>
-        <input v-model="question.data.multi" type="checkbox" />
-        Allow multiple choices
-      </label>
+    <template v-if="question.type === 'select'">
+      <div class="form-group form-check">
+        <input v-model="question.data.multi" type="checkbox" class="form-check-input" :id="`q-${question.id}-multiple`" />
+        <label class="form-check-label" :for="`q-${question.id}-multiple`">Allow multiple choices</label>
+      </div>
 
       <div
         v-for="(option, index) in options"
@@ -37,49 +37,51 @@
         class="option"
       >
         <input v-model="option.label" type="text" class="form-control" />
-        <div class="action" @click="changeImage(option.value)">
-          <span v-if="option.image" class="has-image">Has image</span>
-          <span class="glyphicon glyphicon-picture" />
-        </div>
-        <div
-          :class="{ action: true, disabled: index === 0 }"
+        <button type="button" class="btn d-flex align-items-center" @click="changeImage(option.value)">
+          <span v-if="option.image" class="has-image mr-2 text-nowrap">Has image</span>
+          <span class="fas fa-image" />
+        </button>
+        <button
+          type="button"
+          class="btn"
+          :disabled="index === 0"
           @click="moveOptionUp(option.value)"
         >
-          <span class="glyphicon glyphicon-arrow-up" />
-        </div>
-        <div
-          :class="{ action: true, disabled: index === options.length - 1 }"
+          <span class="fas fa-arrow-up" />
+        </button>
+        <button
+          type="button"
+          class="btn"
+          :disabled="index === options.length - 1"
           @click="moveOptionDown(option.value)"
         >
-          <span class="glyphicon glyphicon-arrow-down" />
-        </div>
-        <div class="action" @click="removeOption(option.value)">
-          <span class="glyphicon glyphicon-remove-sign" />
-        </div>
+          <span class="fas fa-arrow-down" />
+        </button>
+        <button type="button" class="btn" @click="removeOption(option.value)">
+          <span class="fas fa-trash-alt" />
+        </button>
       </div>
 
-      <div class="btn btn-default btn-sm" @click="addOption">
-        <span class="glyphicon glyphicon-plus" /> Add option
-      </div>
-    </div>
+      <button type="button" class="btn btn-outline-primary btn-sm" @click="addOption">
+        <span class="fas fa-plus" /> Add option
+      </button>
+    </template>
 
-    <div v-if="question.type === 'text'">
-      <label>
-        <input v-model="question.data.multi" type="checkbox" />
-        Multiline input
-      </label>
+    <div v-if="question.type === 'text'" class="form-group form-check">
+      <input v-model="question.data.multi" type="checkbox" class="form-check-input" id="`q-${question.id}-multiline`" />
+      <label class="form-check-label" :for="`q-${question.id}-multiline`">Multiline input</label>
     </div>
 
     <div class="question-actions">
-      <div class="btn btn-default btn-sm" @click="$emit('up', question)">
-        <span class="glyphicon glyphicon-arrow-up" /> Up
-      </div>
-      <div class="btn btn-default btn-sm" @click="$emit('down', question)">
-        <span class="glyphicon glyphicon-arrow-down" /> Down
-      </div>
-      <div class="btn btn-danger btn-sm" @click="$emit('remove', question)">
-        <span class="glyphicon glyphicon-remove-sign" /> Remove
-      </div>
+      <button type="button" class="btn btn-outline-primary btn-sm" @click="$emit('up', question)">
+        <span class="fas fa-arrow-up" /> Up
+      </button>
+      <button type="button" class="btn btn-outline-primary btn-sm" @click="$emit('down', question)">
+        <span class="fas fa-arrow-down" /> Down
+      </button>
+      <button type="button" class="btn btn-danger btn-sm" @click="$emit('remove', question)">
+        <span class="fas fa-trash-alt" /> Remove
+      </button>
     </div>
 
     <image-picker
@@ -198,27 +200,6 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
-
-  input[type='text'] {
-    height: 24px;
-  }
-
-  .action {
-    padding: 0 0.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-
-    .has-image {
-      white-space: nowrap;
-      margin-right: 0.5rem;
-    }
-
-    &.disabled {
-      opacity: 0.1;
-      cursor: inherit;
-    }
-  }
 }
 
 .question-actions {

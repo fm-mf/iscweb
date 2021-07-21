@@ -5,18 +5,18 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "awobaz/compoships": "^1.1",
-        "php": "^7.0.33",
-        "barryvdh/laravel-dompdf": "^0.8.1",
+        "php": "^7.4.3",
+        "ext-gmp": "*",
+        "ext-imagick": "*",
+        "barryvdh/laravel-dompdf": "^0.9.0",
         "fideloper/proxy": "~3.3",
-        "hashids/hashids": "^2.0",
+        "hashids/hashids": "^4.1",
         "intervention/image": "^2.3",
         "laracasts/utilities": "~3.0",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
-        "maatwebsite/excel": "^2.1",
-        "orangehill/iseed": "^2.3",
+        "maatwebsite/excel": "^3.1",
         "propaganistas/laravel-phone": "^4.1",
         "rap2hpoutre/laravel-log-viewer": "^1.2",
         "s-ichikawa/laravel-sendgrid-driver": "^2.0.2",
@@ -30,8 +30,7 @@
         "fzaninotto/faker": "~1.4",
         "laracasts/generators": "^1.1",
         "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0",
-        "xethron/migrations-generator": "^2.0"
+        "phpunit/phpunit": "~6.0"
     },
     "autoload": {
         "classmap": [
@@ -70,7 +69,7 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "7.0.33"
+            "php": "7.4.3"
         }
     }
 }

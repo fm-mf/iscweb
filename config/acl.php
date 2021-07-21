@@ -101,6 +101,7 @@ return [
             'id' => 7,
             'inheritsFrom' => ['hr', 'integreatCoordinator'],
             'resources' => [
+                'users' => ['import'],
                 'roles' => ['board', 'admin'],
                 'settings' => ['edit'],
                 'alumniNewsletter' => ['create', 'update', 'delete'],

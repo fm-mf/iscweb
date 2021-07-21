@@ -118,7 +118,7 @@
 
 {{ Form::bsUrl('facebook_url', 'Facebook event (url)') }}
 
-{{ Form::bsTextarea('description', 'Description (in English)', 'required') }}
+{{ Form::bsTextarea('description', 'Description (in English)', 'required', null, ['class' => 'form-control wysiwyg-editor']) }}
 
 
 @section('stylesheets')
@@ -134,8 +134,7 @@
     <script src="{{ URL::asset('/js/picker.time.js') }}" defer></script>
     <script src="{{ mix('/js/pickers.js') }}" defer></script>
 
-    <script src="{{ URL::asset('/js/tinymce/tinymce.min.js') }}" defer></script>
-    <script src="{{ mix('/js/text-editor.js') }}" defer></script>
+    <script src="{{ mix('/js/text-editor.js') }}" defer="defer"></script>
 
     <script>
         function handleCoverChange(event) {

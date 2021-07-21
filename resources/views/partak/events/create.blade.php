@@ -10,7 +10,7 @@
     <div class="container" id="form">
         <div class="col-xl-8">
             <h2>Create event</h2>
-            {{ Form::model($event, ['route' => 'partak.events.create', 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
+            {{ Form::model($event, ['route' => 'partak.events.store', 'method' => 'post', 'id' => 'form', 'files' => true]) }}
 
             @include('partak.trips.editForm',['trips' => false])
 

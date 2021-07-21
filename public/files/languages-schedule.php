@@ -24,7 +24,9 @@ header("Pragma: no-cache");
 <li><b>R404</b> is located on the 4th floor of the <a href="https://goo.gl/maps/1h6dDpSfseR2" target="_blank">Masarykova dormitory</a>, same place as ISC Point, just one floor higher.
 <li><b>Strahov room</b> is located on the 2nd floor in <a href="https://goo.gl/maps/R2wgZidRQ922" target="_blank">block 8</a> (mezzanine), near stairs.
 </ul>
-<h1> </h1>
+<p>
+	<strong>Currently, the classes are taught online until the restrictions are lifted. Clicking on any of the classes will give you the contact information the teacher provided (email/link). Contact them so they know about you and can send you a link to the class and share with you any necessary materials.</strong>
+</p>
 
 <?php
 	echo file_get_contents('https://www.isc.cvut.cz/languages/schedule.htm');

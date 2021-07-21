@@ -33,7 +33,10 @@ Route::prefix('/users')
             ->name('exStudent.edit');
         Route::patch('/exchange-students/edit/{id}', 'ExchangeStudentsController@submitEditFormExStudent')
             ->name('exStudent.doEdit');
-
+        Route::post('/exchange-students/promote/{id_user}', 'ExchangeStudentsController@promoteExchangeStudent')
+            ->name('exStudent.promote');
+        Route::get('/exchange-students/promote/{id_user}/success', 'ExchangeStudentsController@showPromotedExchangeStudent')
+            ->name('exStudent.promoteSuccess');
 
         Route::get('/office-registration', 'OfficeRegistrationController@showOfficeRegistrationDashboard')
             ->name('registration');
@@ -53,6 +56,9 @@ Route::prefix('/users')
 
         Route::get('/quarantined', 'QuarantinedController@list')->name('quarantined');
         Route::get('/quarantined/export', 'QuarantinedController@export')->name('quarantined.export');
+
+        Route::get('/import', 'UsersImportController@index')->name('import.index');
+        Route::post('/import', 'UsersImportController@store')->name('import.store');
     });
 
 Route::prefix('/trips')
@@ -80,18 +86,10 @@ Route::prefix('/trips')
         Route::get('/{id_event}/payment/{id_payment}', 'TripController@showPaymentDetail')->name('pariticpant.detail');
     });
 
-Route::prefix('/events')
-    ->name('events.')
-    ->group(function () {
-        Route::get('/', 'EventController@showDashboard')->name('list');
-        Route::get('/edit/{id_event}', 'EventController@showEditForm')->name('edit');
-        Route::patch('/edit/{id_event}', 'EventController@submmitEditForm')->name('doEdit');
-        Route::get('/create', 'EventController@showCreateForm')->name('create');
-        Route::get('/create/integreat', 'EventController@showCreateForm')->name('integreat');
-        Route::get('/create/languages', 'EventController@showCreateForm')->name('languages');
-        Route::patch('/create', 'EventController@submitCreateForm')->name('doCreate');
-        Route::get('/delete/{id_event}', 'EventController@deleteEvent')->name('delete');
-    });
+
+Route::get('/events/create/integreat', 'EventController@create')->name('events.create.integreat');
+Route::get('/events/create/languages', 'EventController@create')->name('events.create.languages');
+Route::resource('/events', 'EventController')->except(['show']);
 
 Route::prefix('/settings')
     ->name('settings.')
