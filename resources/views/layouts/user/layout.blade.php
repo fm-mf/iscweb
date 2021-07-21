@@ -21,15 +21,6 @@
 @section('scripts')
     <script src="{{ asset('js/jquery.min.js') }}" defer="defer"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" defer="defer"></script>
-    <script src="{{ asset('js/chosen.jquery.min.js') }}" defer="defer"></script>
-    <script>
-        $(document).ready(function() {
-            $(".chosen").chosen();
-            $( ".chosen" ).on( "change", function() {
-                window.location.replace("{include #link1}/"+$(this).attr("name")+"/"+$(this).val());
-            });
-        });
-    </script>
 @show
 
 </body>

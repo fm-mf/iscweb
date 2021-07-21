@@ -4,5 +4,5 @@
         <p class="error-block alert-danger">{{ $errors->first($name) }}</p>
     @endif
     {{ Form::tel($name, $value, array_merge($required ? ['class' => 'form-control', 'required' => ''] : ['class' => 'form-control'], $attributes)) }}
-    <small class="form-text text-muted">{{ $info }}</small>
+    <div class="info">{{ $info }}</div>
 </div>

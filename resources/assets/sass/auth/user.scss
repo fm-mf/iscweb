@@ -5,7 +5,7 @@
 @import "variables";
 
 // Bootstrap
-@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 $cropper-image-path: '/img/cropper';
 @import "~cropperjs/src/index";
@@ -15,57 +15,210 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  background: #eee;
 }
 
-header {
-  margin-bottom: 2rem;
-}
-
-footer {
-  text-align: center;
-  margin-top: 2rem;
-
-  p {
-    margin: 0;
-    color: #999;
-    font-size: 75%;
-  }
+* {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
 .errors {
-  color: #ca0f0f;
+  color: #ca0f0f !important;
 }
 
-.logo {
-  max-width: 20rem;
+.statistics {
+  padding-top:30px;
+  text-align: center;
 }
 
-.title-container {
-  font-size: 150%;
+.statistics strong {
+  font-size: 200%;
 }
 
-.register-wrapper {
-  margin: 2rem 0;
+h1 {
+  font-size: 30px;
+  margin-bottom: 0px !important;
+}
 
-  .form-wrapper {
-    max-width: 700px;
-    background: #fff;
-    padding: 1rem;
-    box-shadow: 0 0 5px #999;
+h2 {
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 10px;
+}
 
-    fieldset {
-      margin-bottom: 1rem;
-    }
+label {
+  font-weight: normal;
+  margin-bottom: 1px;
+  margin-left: 3px;
+}
 
-    .btn-submit {
-      display: block;
-      width: 100%;
-      padding: 1rem;
-    }
+$margin-left-default: 0;
+$margin-left-sm: 200px;
+$margin-left-md: 300px;
+$show-left-column-sm: 640px;
+$show-left-column-md: 767px;
+
+.left-column {
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width: $margin-left-default;
+  height: 100%;
+  background-image: url($baseUrl + "background-reg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right top;
+
+
+  @media (min-width: $show-left-column-sm) {
+    display: block;
+    width: ($margin-left-sm);
+  }
+  @media (min-width: $show-left-column-md) {
+    width: $margin-left-md;
+  }
+
+}
+.container {
+  margin: 0 auto;
+
+  max-width: 430px;
+  padding: 15px 30px 0;
+
+
+  @media (min-width: $show-left-column-sm) {
+    padding-top: 40px;
+    padding: 15px;
+    margin-left: ($margin-left-sm + 30px);
+  }
+  @media (min-width: $show-left-column-md) {
+    margin-left: ($margin-left-md + 30px);
   }
 }
 
-.help-block {
-  margin-bottom: 1rem;
+.container-thanks {
+  margin: 0 auto;
+
+  padding: 15px 30px 0;
+
+
+  @media (min-width: $show-left-column-sm) {
+    padding-top: 40px;
+    padding: 15px;
+    margin-left: ($margin-left-sm + 30px);
+  }
+  @media (min-width: $show-left-column-md) {
+    margin-left: ($margin-left-md + 30px);
+  }
+}
+
+.lab {
+  margin-bottom: 10px;
+}
+
+.grey {
+  color: #959595;
+}
+
+.description {
+  margin: 30px 0px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 200px;
+}
+
+$padding-inputs: 5px;
+.left {margin-bottom: 10px;}
+@media (min-width: $screen-sm) {
+  .left {
+    padding-right: $padding-inputs;
+    margin-bottom: 0;
+  }
+  .right {
+    padding-left: $padding-inputs;
+  }
+}
+
+.btn-submit {
+  width: 100%;
+}
+
+
+#picker {
+  @media (min-width: $screen-sm) {
+    position: absolute;
+    width: 200%;
+  }
+}
+
+/* Titles */
+h3 {
+  position: relative;
+  font-size: 14px;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  color: #7c7c7c;
+}
+h3:before, h3:after {
+  position: absolute;
+  top: 51%;
+  overflow: hidden;
+  width: 50%;
+  height: 1px;
+  content: '\a0';
+  background-color: #7c7c7c;
+}
+h3:before {
+  margin-left: -50%;
+  text-align: right;
+
+}
+
+h3 span {
+  padding:0 10px;
+  background:#fff;
+}
+
+.footer > div {
+  text-align: center;
+  border-top: 1px solid #7c7c7c;
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  font-size: 13px;
+}
+
+.success {
+  margin-top: 30px;
+  background: #98ba0b;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  text-shadow: 0px 1px 2px #8d8b8b;
+
+}
+
+.alert-danger {
+  padding: 5px;
+  padding-left: 12px;
+
+}
+
+.checkbox {
+  padding-bottom: 30px;
+}
+
+.form-group {
+  .info {
+    color: #737373;
+    margin-left: 1rem;
+    margin-top: 0.25rem;
+  }
 }
