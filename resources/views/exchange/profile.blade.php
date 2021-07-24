@@ -36,12 +36,12 @@
 
         <fieldset class="my-4">
             <legend>🖼️ @lang('forms.profile-picture')</legend>
-            @include('profile.avatar_bs4')
+            @include('profile.avatar_bs4', [
+                'userHash' => $student->user->hash,
+            ])
         </fieldset>
 
-        {{ Form::model($student, ['url' => 'exchange/', 'method' => 'patch']) }}
-
-        <input type="hidden" name="hash" value="{{ $hash }}">
+        {{ Form::model($student, ['route' => ['exchange.update', $student->user->hash], 'method' => 'patch']) }}
 
         <fieldset>
             <legend>✈️ Arrival information</legend>

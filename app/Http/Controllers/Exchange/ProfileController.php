@@ -18,11 +18,8 @@ use App\Facades\Settings;
 
 class ProfileController extends Controller
 {
-    public function showProfileForm($hash)
+    public function show(ExchangeStudent $student)
     {
-        $user = User::findByHash($hash);
-        $student = ExchangeStudent::with('person')->find($user->id_user);
-
         $accommodations = [];
         foreach (Accommodation::all() as $accommodation) {
             $accommodations[$accommodation->id_accommodation] = $accommodation->full_name_eng;
@@ -49,7 +46,6 @@ class ProfileController extends Controller
 
         return view('exchange.profile')->with([
             'student' => $student,
-            'hash' => $hash,
             'avatar' => $avatar,
             'accommodations' => $accommodations,
             'transportations' => $transportations,
@@ -64,16 +60,10 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function updateProfile(Request $request)
+    public function update(Request $request, ExchangeStudent $student)
     {
         $this->profileValidator($request->all())->validate();
-        $user = User::findByHash($request->hash);
 
-        if ($user === null) {
-            return redirect('/');
-        }
-
-        $student = ExchangeStudent::find($user->id_user);
         $student->about = $request->about;
         $student->id_accommodation = $request->accommodation;
         $student->whatsapp = $request->whatsapp;
@@ -84,7 +74,7 @@ class ProfileController extends Controller
             $arrival = $student->arrival;
             if (!$arrival) {
                 $arrival = new Arrival();
-                $arrival->id_user = $user->id_user;
+                $arrival->id_user = $student->id_user;
             }
             $arrival->id_transportation = $request->transportation;
             $time = $request->time ? $request->time : "00:00 AM";
@@ -115,7 +105,7 @@ class ProfileController extends Controller
             'diet' => $request->diet == '' ? null : $request->diet,
         ]);
 
-        return redirect('/exchange/' . $request->hash)->with('success', true);
+        return redirect()->route('exchange.show', [$student->user->hash])->with('success', true);
     }
 
     public function showFlagParade($hash)

@@ -6,6 +6,7 @@ use App\Models\ExchangeStudent;
 use App\Models\Semester;
 use App\Models\TandemUser;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -33,6 +34,14 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('exchangeStudent', function ($value) {
             return ExchangeStudent::findOrFail(User::decodeHashId($value));
+        });
+
+        Route::bind('student', function ($hash) {
+            return ExchangeStudent::with(['person.user', 'user', 'arrival.transportation'])
+                ->whereHas('user', function (Builder $query) use ($hash) {
+                    $query->where('hash', $hash);
+                })
+                ->firstOrFail();
         });
 
         Route::bind('semester', function ($value) {
