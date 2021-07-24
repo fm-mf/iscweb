@@ -35,8 +35,8 @@
         </div>
 
         <fieldset class="my-4">
-            <!--<legend>🖼️ Profile picture</legend>-->
-            @include('profile.avatar')
+            <legend>🖼️ @lang('forms.profile-picture')</legend>
+            @include('profile.avatar_bs4')
         </fieldset>
 
         {{ Form::model($student, ['url' => 'exchange/', 'method' => 'patch']) }}
