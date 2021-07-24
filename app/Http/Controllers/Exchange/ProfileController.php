@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Exchange;
 
+use App\Http\Requests\ExchangeProfileUpdateRequest;
 use App\Models\Accommodation;
 use App\Models\Arrival;
 use App\Models\ExchangeStudent;
@@ -59,10 +60,8 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function update(Request $request, ExchangeStudent $student)
+    public function update(ExchangeProfileUpdateRequest $request, ExchangeStudent $student)
     {
-        $this->profileValidator($request->all())->validate();
-
         $student->about = $request->about;
         $student->id_accommodation = $request->accommodation;
         $student->whatsapp = $request->whatsapp;
@@ -141,23 +140,6 @@ class ProfileController extends Controller
         $trip->removeParticipant($user->id_user);
         return \redirect()->action('Exchange\ProfileController@showFlagParade', [
             'hash' => $user->hash,
-        ]);
-    }
-
-    protected function profileValidator(array $data)
-    {
-        $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
-        $instagramRegex = '/^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/';
-
-        return Validator::make($data, [
-            'date' => 'required_without_all:arrival_skipped,opt_out|date_format:d M Y',
-            'time' => 'date_format:g:i A',
-            'transportation' => 'required_without_all:arrival_skipped,opt_out',
-            'privacy_policy' => 'accepted',
-            'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
-            'whatsapp' => ['phone:AUTO', 'nullable'],
-            'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
-            'instagram' => ["regex:$instagramRegex", 'nullable']
         ]);
     }
 }
