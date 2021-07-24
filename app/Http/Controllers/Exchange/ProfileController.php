@@ -55,7 +55,6 @@ class ProfileController extends Controller
             'wantsPresent' => $student->wants_present == 'y',
             'optedOut' => $student->want_buddy == 'n',
             'userHash' => $student->person->user->hash,
-            'diets' => Person::getAllDiets(),
             'buddyDbFrom' => $buddyDbFrom
         ]);
     }
@@ -100,10 +99,6 @@ class ProfileController extends Controller
         $student->privacy_policy = $request->privacy_policy;
 
         $student->save();
-        $student->person->updateWithIssuesAndDiet([
-            'medical_issues' => $request->medical_issues,
-            'diet' => $request->diet == '' ? null : $request->diet,
-        ]);
 
         return redirect()->route('exchange.show', [$student->user->hash])->with('success', true);
     }

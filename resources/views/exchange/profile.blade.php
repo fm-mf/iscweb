@@ -87,9 +87,6 @@
             <small class="help-block form-text text-muted col-sm-12">Tell your potential buddy about your hobbies, interests, favourite movies or anything that you find important about yourself.</small>
 
             {{ Form::bsTextarea('about', null, '', null, ['placeholder' => 'Hobbies, interests, favourite movies...']) }}
-
-            <!-- {{ Form::bsText('medical_issues', 'Medical issues','', $student->person->medical_issues) }} -->
-            {{ Form::bsSelect('diet', 'Food preference', $diets, $student->person->diet, ['placeholder' => 'No preference'])  }}
         </fieldset>
 
         <fieldset>
