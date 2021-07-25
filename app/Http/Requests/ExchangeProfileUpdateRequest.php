@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Arrival;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ExchangeProfileUpdateRequest extends FormRequest
@@ -17,14 +18,18 @@ class ExchangeProfileUpdateRequest extends FormRequest
         $instagramRegex = '/^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/';
 
         return [
-            'date' => 'required_without_all:arrival_skipped,opt_out|date_format:d M Y',
-            'time' => 'date_format:g:i A',
-            'transportation' => 'required_without_all:arrival_skipped,opt_out',
-            'privacy_policy' => 'accepted',
+            'arrival_skipped' => ['nullable', 'boolean'],
+            'arrival_date' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_DATE_FORMAT],
+            'arrival_time' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_TIME_FORMAT],
+            'transportation' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'exists:transportation,id_transportation'],
             'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
-            'whatsapp' => ['phone:AUTO', 'nullable'],
-            'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
-            'instagram' => ["regex:$instagramRegex", 'nullable']
+            'about' => ['nullable', 'string', 'max:16383'],
+            'whatsapp' => ['nullable', 'phone:AUTO'],
+            'facebook' => ['nullable', "regex:$fbProfileUrlRegex"],
+            'instagram' => ['nullable', "regex:$instagramRegex"],
+            'willing_to_present' => ['nullable', 'boolean'],
+            'opt_out' => ['nullable', 'boolean'],
+            'privacy_policy' => ['accepted'],
         ];
     }
 }

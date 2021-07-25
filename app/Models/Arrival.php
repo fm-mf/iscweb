@@ -3,11 +3,15 @@
 namespace App\Models;
 
 use App\Traits\DynamicHiddenVisible;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Arrival extends Model
 {
     use DynamicHiddenVisible;
+
+    const FORM_DATE_FORMAT = 'd M Y';
+    const FORM_TIME_FORMAT = 'g:i A';
 
     protected $table = 'arrivals';
     public $timestamps = false;
@@ -16,6 +20,12 @@ class Arrival extends Model
     protected $dates = ['arrival'];
 
     protected $appends = ['arrivalFormatted'];
+
+    protected $fillable = [
+        'arrival_date',
+        'arrival_time',
+        'transportation',
+    ];
 
     public function exchangeStudent()
     {
@@ -46,5 +56,30 @@ class Arrival extends Model
         return $query->whereHas('exchangeStudent', function ($query) use ($semester) {
             $query->availableToPick($semester);
         })->orderBy('arrival');
+    }
+
+    public function setTransportationAttribute(int $value)
+    {
+        $this->id_transportation = $value;
+    }
+
+    public function setArrivalDateAttribute(string $value)
+    {
+        if ($this->arrival == null) {
+            $this->arrival = Carbon::parse($value);
+            return;
+        }
+
+        $this->arrival = Carbon::parse($value)->setTimeFrom($this->arrival);
+    }
+
+    public function setArrivalTimeAttribute(string $value)
+    {
+        if ($this->arrival == null) {
+            $this->arrival = Carbon::parse($value);
+            return;
+        }
+
+        $this->arrival = Carbon::parse($value)->setDateFrom($this->arrival);
     }
 }

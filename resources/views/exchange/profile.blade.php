@@ -37,6 +37,7 @@
         <fieldset class="my-4">
             <legend>🖼️ @lang('forms.profile-picture')</legend>
             @include('profile.avatar_bs4', [
+                'avatar' => $student->person->avatar_url,
                 'userHash' => $student->user->hash,
             ])
         </fieldset>
@@ -49,37 +50,38 @@
             <small class="help-block form-text text-muted col-sm-12">Arrival information is important information for our Buddies. If you don't know the information now, you can also update the arrival information later.</small>
 
             <div class="form-group">
+                <input type="hidden" name="arrival_skipped" value="0" />
                 <label>
-                    <input type="checkbox" name="arrival_skipped" id="arrival"> I don't know when I'll arrive yet.
+                    <input type="checkbox" name="arrival_skipped" id="arrival" value="1"> I don't know when I'll arrive yet.
                 </label>
             </div>
 
             <div class="form-group row">
                 <div class="col-sm-6 left">
-                    {{ Form::label('date', 'Day of arrival', ['class' => 'control-label']) }}
-                    @if ($errors->has('date'))
-                        <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
+                    {{ Form::label('arrival_date', 'Day of arrival', ['class' => 'control-label']) }}
+                    @if ($errors->has('arrival_date'))
+                        <p class="error-block alert-danger">{{ $errors->first('arrival_date') }}</p>
                     @endif
-                    {{ Form::text('date', $currentDate, ['id' => 'date', 'class' => 'date form-control arrival']) }}
+                    {{ Form::text('arrival_date', null, ['id' => 'arrival_date', 'class' => 'date form-control arrival']) }}
                     <div id="picker">
                     </div>
                 </div>
                 <div class="col-sm-6 right">
-                    {{ Form::label('time', 'Time of arrival', ['class' => 'control-label']) }}
-                    @if ($errors->has('time'))
-                        <p class="error-block alert-danger">{{ $errors->first('time') }}</p>
+                    {{ Form::label('arrival_time', 'Time of arrival', ['class' => 'control-label']) }}
+                    @if ($errors->has('arrival_time'))
+                        <p class="error-block alert-danger">{{ $errors->first('arrival_time') }}</p>
                     @endif
-                    {{ Form::text('time', $currentTime, ['id' => 'time', 'class' => 'time form-control arrival']) }}
+                    {{ Form::text('arrival_time', null, ['id' => 'arrival_time', 'class' => 'time form-control arrival']) }}
                 </div>
                 <div class="col-sm-6 info"></div>
             </div>
 
-            {{ Form::bsSelect('transportation', 'Means of transport', $transportations, $currentTransportation, ['placeholder' => 'Select transportation...', 'class' => 'arrival']) }}
+            {{ Form::bsSelect('transportation', 'Means of transport', $transportations, null, ['placeholder' => 'Select transportation...', 'class' => 'arrival']) }}
         </fieldset>
 
         <fieldset>
             <legend>🏢 Accommodation</legend>
-            {{ Form::bsSelect('accommodation', null, $accommodations, $student->id_accommodation, ['placeholder' => 'Select accommodation...']) }}
+            {{ Form::bsSelect('accommodation', null, $accommodations, null, ['placeholder' => 'Select accommodation...']) }}
         </fieldset>
 
         <fieldset>
@@ -103,8 +105,9 @@
             <small class="help-block form-text text-muted col-sm-12">One of the events we organize during semester is Culture Evening, where students get a chance to present their country of origin and even cook their national food. We'd like to know if you're interested in presenting your country at this event. Expressing your interest here is not binding.</small>
 
             <div class="form-group">
+                <input type="hidden" name="willing_to_present" value="0" />
                 <label>
-                    {{ Form::checkbox('wants_present', null, $wantsPresent) }} I would like to present my country in any of ISC events.
+                    {{ Form::checkbox('willing_to_present') }} I would like to present my country in any of ISC events.
                 </label>
             </div>
         </fieldset>
@@ -112,8 +115,9 @@
         <fieldset>
             <legend>Out out</legend>
             <div class="form-group">
+                <input type="hidden" name="opt_out" value="0" />
                 <label>
-                    {{ Form::checkbox('opt_out', null, $optedOut) }} I don't wish to have a buddy
+                    {{ Form::checkbox('opt_out') }} I don't wish to have a buddy
                 </label>
             </div>
         </fieldset>

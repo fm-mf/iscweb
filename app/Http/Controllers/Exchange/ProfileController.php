@@ -2,102 +2,36 @@
 
 namespace App\Http\Controllers\Exchange;
 
+use App\Facades\Settings;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ExchangeProfileUpdateRequest;
 use App\Models\Accommodation;
-use App\Models\Arrival;
 use App\Models\ExchangeStudent;
-use App\Models\Person;
 use App\Models\Transportation;
 use App\Models\Trip;
 use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Facades\Settings;
 
 class ProfileController extends Controller
 {
     public function show(ExchangeStudent $student)
     {
-        $accommodations = [];
-        foreach (Accommodation::all() as $accommodation) {
-            $accommodations[$accommodation->id_accommodation] = $accommodation->full_name_eng;
-        }
-
-        $transportations = [];
-        foreach (Transportation::all() as $transportation) {
-            $transportations[$transportation->id_transportation] = $transportation->eng;
-        }
-
-        $currentTransportation = null;
-        $currentTime = null;
-        $currentDate = null;
-        if ($student->arrival) {
-            $currentTransportation = $student->arrival->transportation->id_transportation;
-            $date = $student->arrival->arrival;
-            $currentTime = $date->format('g:i A');
-            $currentDate = $date->format('d M Y');
-        }
-
-        $avatar = $student->person->avatar();
-
-        $buddyDbFrom = Carbon::parse(Settings::get('buddyDbFrom'));
-
         return view('exchange.profile')->with([
             'student' => $student,
-            'avatar' => $avatar,
-            'accommodations' => $accommodations,
-            'transportations' => $transportations,
-            'currentTransportation' => $currentTransportation,
-            'currentDate' => $currentDate,
-            'currentTime' => $currentTime,
-            'wantsPresent' => $student->wants_present == 'y',
-            'optedOut' => $student->want_buddy == 'n',
-            'userHash' => $student->person->user->hash,
-            'buddyDbFrom' => $buddyDbFrom
+            'accommodations' => Accommodation::getOptions(),
+            'transportations' => Transportation::getSelectOptionsArray(),
+            'buddyDbFrom' => Settings::buddyDbFrom(),
         ]);
     }
 
     public function update(ExchangeProfileUpdateRequest $request, ExchangeStudent $student)
     {
-        $student->about = $request->about;
-        $student->id_accommodation = $request->accommodation;
-        $student->whatsapp = $request->whatsapp;
-        $student->facebook = $request->facebook;
-        $student->instagram = $request->instagram;
+        $student->update($request->validated());
 
-        if (!$request->arrival_skipped && $request->date && $request->transportation) {
-            $arrival = $student->arrival;
-            if (!$arrival) {
-                $arrival = new Arrival();
-                $arrival->id_user = $student->id_user;
-            }
-            $arrival->id_transportation = $request->transportation;
-            $time = $request->time ? $request->time : "00:00 AM";
-            $arrival->arrival = Carbon::createFromFormat('d M Y g:i A', $request->date . ' ' . $time);
-
-            $arrival->save();
-        } elseif ($student->arrival) {
-            $student->arrival->delete();
+        if ($request->arrival_skipped) {
+            $student->arrival()->delete();
+        } elseif (!$request->opt_out) {
+            $student->arrival()->updateOrCreate([], $request->validated());
         }
-
-        if ($request->wants_present) {
-            $student->wants_present = 'y';
-        } else {
-            $student->wants_present = 'n';
-        }
-
-        if ($request->opt_out) {
-            $student->want_buddy = 'n';
-        } else {
-            $student->want_buddy = 'y';
-        }
-
-        $student->privacy_policy = $request->privacy_policy;
-
-        $student->save();
 
         return redirect()->route('exchange.show', [$student->user->hash])->with('success', true);
     }
