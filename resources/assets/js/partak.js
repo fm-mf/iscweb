@@ -1,11 +1,4 @@
-/* global jsoptions:readonly */
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-import './bootstrap';
+import axios from "axios";
 import Vue from 'vue';
 import Autocomplete from './components/Autocomplete';
 import MultiSelectInput from './components/MultiSelectInput';
@@ -17,12 +10,6 @@ import ContactsOrder from './components/ContactsOrder';
 import BarcodeButton from './partak/BarcodeButton';
 import ShareButton from './partak/ShareButton';
 import ProtectedSubmitButton from './components/ProtectedSubmitButton';
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 Vue.component('auto-complete', Autocomplete);
 Vue.component('multiselectinput', MultiSelectInput);
@@ -44,6 +31,8 @@ new Vue({
   },
   methods: {}
 });
+
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 setTimeout(() => {
   $('#alert-success-wrapper > .alert').alert('close');
