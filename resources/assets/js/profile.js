@@ -1,13 +1,21 @@
+const arrivalCheckbox = document.getElementById('arrival_skipped');
+const optOutCheckbox = document.getElementById('opt_out');
+
 function checkArrival() {
-  if ($('#arrival').is(':checked')) {
-    $('.arrival').prop('disabled', true);
-  } else {
-    $('.arrival').prop('disabled', false);
-  }
+    const arrivalInputs = Array.from(document.getElementsByClassName('arrival'));
+
+    arrivalInputs.forEach((input) => {
+        const inputRequired = !arrivalCheckbox.checked && !optOutCheckbox.checked;
+
+        input.disabled = arrivalCheckbox.checked;
+        input.required = inputRequired;
+        inputRequired
+            ? input.labels[0]?.classList.add('required')
+            : input.labels[0]?.classList.remove('required');
+    });
 }
 
-$('#arrival').on('change', () => {
-  checkArrival();
-});
+arrivalCheckbox.addEventListener('change', checkArrival)
+optOutCheckbox.addEventListener('change', checkArrival)
 
 checkArrival();

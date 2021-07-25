@@ -52,7 +52,7 @@
             <div class="form-group">
                 <input type="hidden" name="arrival_skipped" value="0" />
                 <label>
-                    <input type="checkbox" name="arrival_skipped" id="arrival" value="1"> I don't know when I'll arrive yet.
+                    <input type="checkbox" name="arrival_skipped" id="arrival_skipped" value="1"> I don't know when I'll arrive yet.
                 </label>
             </div>
 
@@ -117,7 +117,7 @@
             <div class="form-group">
                 <input type="hidden" name="opt_out" value="0" />
                 <label>
-                    {{ Form::checkbox('opt_out') }} I don't wish to have a buddy
+                    {{ Form::checkbox('opt_out', 1, null, ['id' => 'opt_out']) }} I don't wish to have a buddy
                 </label>
             </div>
         </fieldset>
