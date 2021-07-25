@@ -1,0 +1,34 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+#exchange-profile-form {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: left;
+
+  .fas {
+    line-height: inherit;
+  }
+
+  &.container {
+    max-width: 640px;
+  }
+
+  fieldset {
+    margin-top: 1rem;
+  }
+
+  label.required::after {
+    display: inline;
+    content: '*';
+    color: hsla(0, 100%, 50%, 1.0);
+    margin-left: 0.25em;
+  }
+
+  .form-group .info {
+    @include font-size(80%);
+    margin-top: $form-text-margin-top;
+    color: $text-muted;
+  }
+}

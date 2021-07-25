@@ -4,7 +4,7 @@
         <div class="avatar-view avatar-edit">
             <img src="{{ $avatar }}" alt="Avatar" id="avatar" title="Change the avatar">
         </div>
-        <small class="form-text text-muted">{{ trans('forms.profile-picture-help') }}</small>
+        <small class="form-text text-muted text-center">{{ trans('forms.profile-picture-help') }}</small>
     </div>
 
     <!-- Cropping modal -->
@@ -21,13 +21,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="alert alert-info">
+                        <p class="alert alert-info" role="alert">
                             <i class="fas fa-info-circle fa-fw float-left"></i>
                             <strong class="d-block ml-4">
                                 @lang('forms.file-info')
                             </strong>
                         </p>
-                        <p class="alert alert-danger" id="file-too-big" style="display: none">
+                        <p class="alert alert-danger" id="file-too-big" role="alert" style="display: none">
                             <i class="fas fa-exclamation-triangle fa-fw float-left"></i>
                             <strong class="d-block ml-4">
                                 @lang('forms.file-too-big')

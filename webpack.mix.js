@@ -43,6 +43,7 @@ mix
   .sass('resources/assets/sass/tandem/tandem.scss', 'public/css')
   .sass('resources/assets/sass/form/form.scss', 'public/css')
   .sass('resources/assets/sass/components/avatar.scss', 'public/css')
+  .sass('resources/assets/sass/exchange-profile.scss', 'public/css')
   .sass('resources/assets/sass/vendor.scss', 'public/css')
   .copy(
     'node_modules/@fortawesome/fontawesome-free/webfonts/*',
