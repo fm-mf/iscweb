@@ -10,9 +10,11 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\DB;
 
-class RegistrationMail extends Mailable
+class RegistrationMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
+
+    const SUBJECT = 'Buddy programme ISC CTU in Prague';
 
     public $exchangeStudent;
 
@@ -24,6 +26,7 @@ class RegistrationMail extends Mailable
     public function __construct(ExchangeStudent $exchangeStudent)
     {
         $this->exchangeStudent = $exchangeStudent;
+        $this->queue = 'emails';
     }
 
     /**
@@ -33,10 +36,12 @@ class RegistrationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.registrationsmail')
-                ->from('buddy@isc.cvut.cz', 'ISC CTU in Prague')
-                ->subject('Buddy Program ISC CTU in Prague')
-                ->with('hash', $this->exchangeStudent->person->user->hash)
-                ->with('settings', Settings::all());
+        return $this
+            ->from('buddy@isc.cvut.cz', 'ISC CTU in Prague')
+            ->to($this->exchangeStudent->user->email, $this->exchangeStudent->person->full_name)
+            ->subject(self::SUBJECT)
+            ->view('emails.exchange-registration-email')
+            ->text('emails.exchange-registration-email_plain')
+            ->with('subject', self::SUBJECT);
     }
 }

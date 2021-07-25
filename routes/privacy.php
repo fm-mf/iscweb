@@ -8,7 +8,7 @@
  */
 
 Route::get('/', 'PrivacyController@showTree');
-Route::get('/notice', 'PrivacyController@showPrivacyNotice');
+Route::get('/notice', 'PrivacyController@showPrivacyNotice')->name('privacy.notice');
 Route::get('/policy', 'PrivacyController@showPrivacyPolicy')->name('privacy.policy');
 Route::get('/agreements-cs', 'PrivacyController@showAgreementCS');
 Route::post('/partak', 'PrivacyController@privacyPartak')->middleware('auth');
