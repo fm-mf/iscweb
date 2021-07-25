@@ -1,9 +1,11 @@
 @extends('partak.layout.main')
 @section('page')
     <div class="dashboard-header">
-        <img src="{{ asset('img/partak/team-photo.jpg') }}" alt="Team photo" />
+        <picture>
+            <source type="image/webp" srcset="{{ asset('img/partak/team-photo.webp') }}" />
+            <img src="{{ asset('img/partak/team-photo.jpg') }}" alt="Team photo" />
+        </picture>
     </div>
 
     @yield('subpage')
 @stop
-

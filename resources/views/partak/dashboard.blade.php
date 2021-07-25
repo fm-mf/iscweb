@@ -38,7 +38,10 @@
                 <p>Asana je nástroj pro teamovou (a meziteamovou) komunikaci - v zásadě se jedná o sdílený todo list. Jestli do této aplikace zatím nemáš přístup, popros koordinátora některého teamku, aby tě do naší skupiny pozval.</p>
                 <p>Tady je krátký obrázkový návod, jak aplikaci používat. Detailnější příručka je na <a href="http://asana.com/guide">http://asana.com/guide</a></p>
 
-                <img src="{{ URL::asset('img/partak/asana-guide.jpg') }}" id="asana-img">                
+                <picture class="d-block">
+                    <source type="image/webp" srcset="{{ asset('img/partak/asana-guide.webp') }}" />
+                    <img src="{{ asset('img/partak/asana-guide.jpg') }}" id="asana-img" alt="Asana quick guide" />
+                </picture>
             </div>
             <div class="col-md-4">
                 <h2>Důležité odkazy</h2>

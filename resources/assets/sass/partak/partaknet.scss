@@ -58,9 +58,12 @@ html, body {
 .dashboard-header {
   margin-bottom: 3rem;
 
-  > img {
-    margin: auto;
-    max-width: 100%;
+  > picture {
+    display: block;
+
+    > img {
+      width: 100%;
+    }
   }
 }
 
