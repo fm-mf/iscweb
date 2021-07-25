@@ -1,19 +1,8 @@
-// Fonts
-// @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&subset=latin-ext');
-
-// Variables
 @import "variables";
 
-// Bootstrap
-@import "~bootstrap/scss/bootstrap";
-
-// Font Awesome
-$fa-font-path: "/fonts/font-awesome";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-
-@import "../common/columns";
-
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 html, body {
   width: 100%;
@@ -69,9 +58,12 @@ html, body {
 .dashboard-header {
   margin-bottom: 3rem;
 
-  > img {
-    margin: auto;
-    max-width: 100%;
+  > picture {
+    display: block;
+
+    > img {
+      width: 100%;
+    }
   }
 }
 
@@ -87,8 +79,6 @@ a.disabled {
 
 .autocomplete-input {
   border-radius: 0 !important;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
 }
 
 .success {
@@ -96,7 +86,7 @@ a.disabled {
   color: #fff;
   text-align: center;
   padding: 15px;
-  text-shadow: 0px 1px 2px #8d8b8b;
+  text-shadow: 0 1px 2px #8d8b8b;
 
 }
 
@@ -107,9 +97,9 @@ a.disabled {
 }
 
 .required:after {
-  content:'*';
-  color:red;
-  padding-left:5px;
+  content: '*';
+  color: red;
+  padding-left: 5px;
 }
 
 fieldset {
