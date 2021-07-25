@@ -130,4 +130,8 @@ class Settings implements ConfigContract
         return !$this->isDatabaseOpen();
     }
 
+    public function buddyDbFrom(): Carbon
+    {
+        return Carbon::parse($this->get('buddyDbFrom'));
+    }
 }

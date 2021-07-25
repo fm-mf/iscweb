@@ -11,8 +11,6 @@
 |
 */
 
-use App\Facades\Contacts;
-
 if (Request::segment(1) == "user") {
     App::setLocale('cs');
 }
@@ -20,12 +18,9 @@ if (Request::segment(1) == "user") {
 Route::get('/event/{id}/cancel/{hash}', 'Exchange\ReservationController@showForm')->name('event.cancel');
 Route::get('/event/{id}', 'Exchange\ReservationController@showForm')->name('event.show');
 
-Route::group(['namespace' => 'Exchange', 'prefix' => 'exchange'], function()
-{
-    Route::get('/{hash}', 'ProfileController@showProfileForm');
-    Route::patch('/', 'ProfileController@updateProfile');
-});
-
+Route::resource('exchange', 'Exchange\ProfileController', [
+    'parameters' => ['exchange' => 'student'],
+])->only(['show', 'update']);
 
 Route::get('/stats', 'Stats\StatsController@showStatistics');
 Route::get('/owstats', 'Stats\StatsController@showOwTripsStatistics');

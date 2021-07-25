@@ -12,10 +12,6 @@
     @section('stylesheets')
         <link href="{{ mix('css/user.css') }}" rel="stylesheet" type="text/css">
     @show
-
-{{-- We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
-    <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>--}}
 </head>
 <body>
 @include('partials.google-analytics')

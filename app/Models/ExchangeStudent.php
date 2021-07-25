@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
+use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ use Propaganistas\LaravelPhone\PhoneNumber;
 class ExchangeStudent extends Model
 {
     use DynamicHiddenVisible;
+    use FormAccessible;
 
     public $timestamps = false;
     protected $primaryKey = 'id_user';
@@ -27,6 +29,10 @@ class ExchangeStudent extends Model
         'id_faculty', 'about', 'phone', 'esn_registered', 'esn_card_number', 'id_accommodation',
         'whatsapp', 'facebook', 'esn_receipt_id', 'id_country', 'school', 'instagram', 'note',
         'quarantined_until',
+        'accommodation',
+        'willing_to_present',
+        'opt_out',
+        'privacy_policy',
     ];
 
     public function user()
@@ -441,5 +447,56 @@ class ExchangeStudent extends Model
     public function getFacebookTrimmedAttribute()
     {
         return preg_replace('/^https?:\/\/(www\.)?facebook\.com/i', '...', $this->facebook);
+    }
+
+    public function getWillingToPresentAttribute(): bool
+    {
+        return $this->wants_present === 'y';
+    }
+
+    public function setWillingToPresentAttribute(bool $value)
+    {
+        $this->wants_present = $value ? 'y' : 'n';
+    }
+
+    public function getOptOutAttribute(): bool
+    {
+        return $this->want_buddy !== 'y';
+    }
+
+    public function setOptOutAttribute(bool $value)
+    {
+        $this->want_buddy = !$value ? 'y' : 'n';
+    }
+
+    public function setAccommodationAttribute(int $value)
+    {
+        $this->id_accommodation = $value;
+    }
+
+    public function formArrivalDateAttribute(): ?string
+    {
+        return $this->arrival == null
+            ? null
+            : $this->arrival->arrival->format(Arrival::FORM_DATE_FORMAT);
+    }
+
+    public function formArrivalTimeAttribute(): ?string
+    {
+        return $this->arrival == null
+            ? null
+            : $this->arrival->arrival->format(Arrival::FORM_TIME_FORMAT);
+    }
+
+    public function formTransportationAttribute(): ?int
+    {
+        return $this->arrival == null
+            ? null
+            : $this->arrival->id_transportation;
+    }
+
+    public function formAccommodationAttribute(): int
+    {
+        return $this->id_accommodation;
     }
 }
