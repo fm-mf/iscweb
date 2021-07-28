@@ -16,7 +16,6 @@
     link_essentials
     run_composer
     run_npm
-    link_other_sections
     run_migrations
     update_symlinks
     update_cache
@@ -58,17 +57,6 @@
     rm -rf node_modules
 @endtask
 
-@task('link_other_sections')
-    echo "Linking other web sections ..."
-    ln -sr "{{ $web_home }}/blog" "{{ $new_release_dir }}/public/blog"
-    ln -sr "{{ $web_home }}/blog" "{{ $new_release_dir }}/public/press"
-    ln -sr "{{ $web_home }}/czechculturecourse" "{{ $new_release_dir }}/public/czechculturecourse"
-    ln -sr "{{ $web_home }}/iscproisc" "{{ $new_release_dir }}/public/iscproisc"
-    ln -sr "{{ $web_home }}/languages" "{{ $new_release_dir }}/public/languages"
-    ln -sr "{{ $web_home }}/pw" "{{ $new_release_dir }}/public/pw"
-    ln -sr "{{ $web_home }}/wiki" "{{ $new_release_dir }}/public/wiki"
-@endtask
-
 @task('run_migrations')
     echo "Running migrations ..."
     cd {{ $new_release_dir }}
@@ -89,8 +77,12 @@
 @task('update_cache')
     echo 'Updating cache ...'
     cd {{ $new_release_dir }}
+    php artisan clear-compiled || echo "Config caching failed"
+    php artisan cache:clear || echo "Clearing cache failed"
     php artisan config:cache || echo "Config caching failed"
+    php artisan event:cache || echo "Events & listeners caching failed"
     php artisan route:cache || echo "Routes caching failed"
-    php artisan queue:restart
+    php artisan view:cache || echo "Views caching failed"
+    sudo systemctl restart isc.cvut.cz-queue-workers.target || echo "Restarting the queue workers failed"
     php artisan up
 @endtask
