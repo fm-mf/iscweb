@@ -6,6 +6,7 @@ use App\Facades\Settings;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class Semester extends Model
 {
@@ -94,12 +95,12 @@ class Semester extends Model
 
     public function isSpringSemester(): bool
     {
-        return starts_with($this->semester, 'spring');
+        return Str::startsWith($this->semester, 'spring');
     }
 
     public function isAutumnSemester(): bool
     {
-        return starts_with($this->semester, 'fall');
+        return Str::startsWith($this->semester, 'fall');
     }
 
     public static function findByName(string $name): self
