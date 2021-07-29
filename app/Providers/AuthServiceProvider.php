@@ -6,7 +6,7 @@ use App\Models\Trip;
 use App\Policies\TripPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-use Zend\Permissions\Acl\Acl;
+use Laminas\Permissions\Acl\Acl;
 
 class AuthServiceProvider extends ServiceProvider
 {
