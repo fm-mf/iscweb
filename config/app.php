@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        // App\Providers\AclServiceProvider::class,
+        App\Providers\AclServiceProvider::class,
         App\Providers\FormServiceProvider::class,
         App\Providers\SettingsProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
