@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Models\Buddy;
 use App\Models\Country;
+use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -52,13 +51,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'id_country' => 'required',
-            'password' => 'required|string|min:8|confirmed',
-            'kodex' => 'accepted',
-            'agreement' => 'accepted'
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'id_country' => ['required', 'integer', 'exists:countries'],
+            'kodex' => ['accepted'],
+            'agreement' => ['accepted'],
         ]);
     }
 
@@ -66,24 +65,19 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
         $data['password'] = $this->encryptPassword($data);
         $buddy = Buddy::registerBuddy($data);
-        return $buddy->person->user;
 
+        return $buddy->person->user;
     }
 
     private function encryptPassword($credentials)
     {
-        return bcrypt(hash("sha512", $credentials['email'] . '@' . $credentials['password']));
-    }
-
-    protected function registered(Request $request, $user)
-    {
-        //
+        return Hash::make(hash("sha512", $credentials['email'] . '@' . $credentials['password']));
     }
 
     public function showRegistrationForm()

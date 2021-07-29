@@ -1,14 +1,20 @@
 <?php
 
-use Faker\Generator as Faker;
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-$factory->define(App\Models\User::class, function (Faker $faker) {
+use App\Models\User;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
+$factory->define(User::class, function (Faker $faker) {
     static $password;
 
     return [
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('password'),
-        'hash' => str_random(32),
-        'remember_token' => str_random(10),
+        // 'email_verified_at' => now(),
+        'password' => $password ?: $password = Hash::make('password'),
+        'hash' => Str::random(32),
+        'remember_token' => Str::random(10),
     ];
 });

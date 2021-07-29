@@ -17,6 +17,16 @@ use Maatwebsite\Excel\Facades\Excel;
 class AppServiceProvider extends ServiceProvider
 {
     /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        Excel::extend(WithStyles::class, new WithStylesHandler(), AfterSheet::class);
+    }
+
+    /**
      * Bootstrap any application services.
      *
      * @return void
@@ -26,15 +36,5 @@ class AppServiceProvider extends ServiceProvider
         AlumniNewsletter::observe(AlumniNewsletterObserver::class);
         Contact::observe(ContactObserver::class);
         User::observe(UserObserver::class);
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        Excel::extend(WithStyles::class, new WithStylesHandler(), AfterSheet::class);
     }
 }

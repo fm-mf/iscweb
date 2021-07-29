@@ -4,9 +4,9 @@ namespace App\Providers;
 
 use App\Models\Trip;
 use App\Policies\TripPolicy;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 use Zend\Permissions\Acl\Acl as Acl;
 use Zend\Permissions\Acl\Role\GenericRole as Role;
@@ -20,7 +20,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        // 'App\Model' => 'App\Policies\ModelPolicy',
         Trip::class => TripPolicy::class,
     ];
 

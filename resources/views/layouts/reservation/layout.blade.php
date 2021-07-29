@@ -9,7 +9,7 @@
     <title>@yield('title')</title>
     <meta property="og:title" content="@yield('title')" />
 
-    @section('description', str_limit(strip_tags($event->description), 160, "…"))
+    @section('description', Str::limit(strip_tags($event->description), 160, "…"))
     <meta name="description" content="@yield('description')" />
     <meta property="og:description" content="@yield('description')" />
 

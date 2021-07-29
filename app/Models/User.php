@@ -6,9 +6,10 @@ use App\Notifications\PasswordReset;
 use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Hashids\Hashids;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -35,6 +36,15 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        // 'email_verified_at' => 'datetime',
     ];
 
     private static $hashIdsSalt = 'eXQ3A9RejnCT7Ul/X3mQ3Writ+CpAVrQEc2hskzCU9E=';
