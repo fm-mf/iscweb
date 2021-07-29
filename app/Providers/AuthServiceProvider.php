@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Trip;
+use App\Models\User;
 use App\Policies\TripPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -29,22 +30,19 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('acl', function($user, $resource) use($acl) {
-            $resource = explode('.', $resource);
-            if (count($resource) == 2) {
-                $action = $resource[1];
-                $resource = $resource[0];
-            } else {
+        Gate::define('acl', function(User $user, string $resource) use ($acl): bool {
+            try {
+                [$resource, $action] = explode('.', $resource);
+            } catch (\Throwable $e) {
                 $action = null;
-                $resource = $resource[0];
             }
 
             foreach ($user->roles as $role) {
-                $isAllowed = $acl->isAllowed($role->title, $resource, $action);
-                if ($isAllowed) {
+                if ($acl->isAllowed($role->title, $resource, $action)) {
                     return true;
                 }
             }
+
             return false;
         });
     }

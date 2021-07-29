@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Laminas\Permissions\Acl\Acl;
-use Laminas\Permissions\Acl\Role\GenericRole as Role;
 
 class AclServiceProvider extends ServiceProvider
 {
@@ -34,32 +33,20 @@ class AclServiceProvider extends ServiceProvider
 
     protected function setupAcl(Acl $acl)
     {
-        $roles = config('acl.roles');
+        foreach (config('acl.roles') as $roleName => $roleConfig) {
+            $acl->addRole($roleName, $roleConfig['inheritsFrom'] ?? null);
 
-        foreach ($roles as $roleName => $role) {
-            if (key_exists('inheritsFrom', $role)) {
-                $inheritsFrom = $role['inheritsFrom'];
-            } else {
-                $inheritsFrom = [];
-            }
-
-            $acl->addRole(new Role($roleName), $inheritsFrom);
-
-            $resources = $role['resources'];
-            foreach ($resources as $resourceName => $resource) {
-                if (is_array($resource)) {
-                    if (!$acl->hasResource($resourceName)) {
-                        $acl->addResource($resourceName);
-                    }
-
-                    $acl->allow($roleName, $resourceName, $resource);
-
-                } else {
-                    if (!$acl->hasResource($resource)) {
-                        $acl->addResource($resource);
-                    }
-                    $acl->allow($roleName, $resource);
+            foreach ($roleConfig['resources'] as $resourceName => $resourcePrivileges) {
+                if (!is_array($resourcePrivileges)) {
+                    $resourceName = $resourcePrivileges;
+                    $resourcePrivileges = null;
                 }
+
+                if (!$acl->hasResource($resourceName)) {
+                    $acl->addResource($resourceName);
+                }
+
+                $acl->allow($roleName, $resourceName, $resourcePrivileges);
             }
         }
     }
