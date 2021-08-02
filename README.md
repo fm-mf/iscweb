@@ -26,7 +26,18 @@ Installation
 ### Linux
 
 1. Install and configure Apache + MySQL + PHP (see [this guide][do-setup-lamp-20.04] for Ubuntu 20.04 instructions)
-	- In step 6 when creating a user and a database, use `isc` for the database name, user name and password
+	- After step 3, when finished installing PHP, install the following PHP extensions:
+		`mbstring`,
+		`xml`,
+		`gd`,
+		`zip`,
+		`gmp`
+
+			sudo apt install php-{mbstring,xml,gd,zip,gmp}
+
+	- Skip steps 4 and 5
+	- In step 6, when creating a user and a database, use `isc` for the database name, user name and password
+		- You do not have to create any tables or insert any data
 
 2. Then install:
 	- [Git][git]
@@ -98,16 +109,15 @@ Installation
 
 1. Download and install:
 	1. Visual C++ Redistributable for Visual Studio 2012 [64-bit][vc2012x64] / [32-bit][vc2012x86]
-	2. Visual C++ Redistributable for Visual Studio 2013 [64-bit][vc2013x64] / [32-bit][vc2013x86]
-	3. Visual C++ Redistributable for Visual Studio 2015-2019 [64-bit][vc2015x64] / [32-bit][vc2015x86]
-	4. [WampServer][wamp]
+	2. Visual C++ Redistributable for Visual Studio 2015-2019 [64-bit][vc2015x64] / [32-bit][vc2015x86]
+	3. [WampServer][wamp]
 		- For PHP versions, make sure, PHP 7.4 is selected to install
 		- For MySQL version, select version 8.0
-	5. [Git][git]
-	6. [Composer][composer-download]
+	4. [Git][git]
+	5. [Composer][composer-download]
 		- When asked which PHP version to use, select version 7.4 (or any newer if 7.4 is not available)
-	7. [Node.js][nodejs] – current LTS release is recommended
-	8. [Yarn package manager v1][yarn-install]
+	6. [Node.js][nodejs] – current LTS release is recommended
+	7. [Yarn package manager v1][yarn-install]
 
 2. Open Git Bash and run the following command to generate SSH key pair:
 
@@ -144,7 +154,7 @@ Installation
 	2. Switch the PHP version to PHP 7.4
 		1. Left-click on a WAMP icon in the system tray
 		2. PHP -> Version -> 7.4.x
-		3. Right click on a WAMP icon in the system tray
+		3. Right-click on a WAMP icon in the system tray
 		4. Tools -> Change PHP CLI version -> 7.4.x
 	3. Open your Internet browser
 	4. Into the address bar enter `localhost`
@@ -155,7 +165,7 @@ Installation
 	9. Tools -> Restart DNS
 
 8. Create the ISC database
-	1. In Windows Explorer navigate to the `C:\wamp64\apps\adminerX.X.X\` direcotry
+	1. In Windows Explorer navigate to the `C:\wamp64\apps\adminerX.X.X\` directory
 	2. Open file `index.php` and at the beginning of the file change the line
 
 			$AcceptEmptyPassword = false;
@@ -165,13 +175,13 @@ Installation
 			$AcceptEmptyPassword = true;
 
 	3. Save the file
-	4. Open browser and navigate to `localhost/adminer`
-	5. Login to the database using the default credentials (username = `root`, no password)
+	4. Open your Internet browser and navigate to `localhost/adminer`
+	5. Log in to the database using the default credentials (username = `root`, no password)
 	6. Click 'Create database' and enter the name of the new database (e.g. `isc`), for collation select `utf8mb4_unicode_520_ci` and click on 'Save'
 	7. Change default storage engine of MySQL from MYISAM to InnoDB
-		1. Left click on the WAMP icon in the system tray
+		1. Left-click on the WAMP icon in the system tray
 		2. MySQL -> my.ini
-		3. In the file which opens, chage the following line
+		3. In the file which opens, change the following line
 
 				default-storage-engine=MYISAM
 
@@ -180,7 +190,7 @@ Installation
 				default-storage-engine=InnoDB
 
 			and save the file
-		4. Left click on the WAMP icon in the system tray
+		4. Left-click on the WAMP icon in the system tray
 		5. MySQL -> Service administration 'wampmysqld64' -> Restart service
 
 9. To populate the ISC database, open Git Bash in the project directory and run the following command
@@ -204,8 +214,6 @@ Installation
 [php]: https://www.php.net 'PHP: Hypertext preprocessor'
 [vc2012x64]: https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe 'Visual C++ Redistributable for Visual Studio 2012 (64-bit)'
 [vc2012x86]: https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x86.exe 'Visual C++ Redistributable for Visual Studio 2012 (32-bit)'
-[vc2013x64]: https://aka.ms/highdpimfc2013x64enu 'Visual C++ Redistributable for Visual Studio 2013 (64-bit)'
-[vc2013x86]: https://aka.ms/highdpimfc2013x86enu 'Visual C++ Redistributable for Visual Studio 2013 (32-bit)'
 [vc2015x64]: https://aka.ms/vs/16/release/vc_redist.x64.exe 'Visual C++ Redistributable for Visual Studio 2015-2019 (64-bit)'
 [vc2015x86]: https://aka.ms/vs/16/release/VC_redist.x86.exe 'Visual C++ Redistributable for Visual Studio 2015-2019 (32-bit)'
 [vuejs]: https://vuejs.org 'Vue.js – The progressive JavaScript framework'
