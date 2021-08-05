@@ -11,6 +11,8 @@
 |
 */
 
+use Symfony\Component\HttpFoundation\Response;
+
 if (Request::segment(1) == "user") {
     App::setLocale('cs');
 }
@@ -93,8 +95,11 @@ Route::group(['namespace' => 'Guide', 'prefix' => 'guide'], function() {
      * Redirect from the old Survival guide URLs
      */
     Route::get('/sg.php', function () {
-        $page = Request::get('page');
-        return redirect(route('guide-page', ['page' => $page]), 301);
+        $page = request()->query('page');
+        if (empty($page)) {
+            return redirect()->route('guide', null, Response::HTTP_MOVED_PERMANENTLY);
+        }
+        return redirect()->route('guide-page', ['page' => $page], Response::HTTP_MOVED_PERMANENTLY);
     });
 
     Route::get('/{page}', 'PageController@showPage')->name('guide-page');
