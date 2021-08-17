@@ -72,7 +72,7 @@ class ExchangeStudentsController extends Controller
 
         // Skip if user already has a buddy
         if ($exStudent->user->buddy !== null) {
-            return redirect()->route('partak.users.exStudent.promoteSuccess', ['id' => $id]);
+            return redirect()->route('partak.users.exStudent.promoteSuccess', ['id_user' => $id]);
         }
 
         // Create a buddy record
@@ -86,7 +86,7 @@ class ExchangeStudentsController extends Controller
         $buddy->save();
 
         // Redirect to success page with more info
-        return redirect()->route('partak.users.exStudent.promoteSuccess', ['id' => $id]);
+        return redirect()->route('partak.users.exStudent.promoteSuccess', ['id_user' => $id]);
     }
 
     public function showPromotedExchangeStudent($id)
@@ -101,7 +101,7 @@ class ExchangeStudentsController extends Controller
 
         // Go back to detail if not promoted yet
         if ($exStudent->user->buddy === null) {
-            return redirect()->route('partak.users.exchangeStudent', ['id' => $id]);
+            return redirect()->route('partak.users.exchangeStudent', ['id_user' => $id]);
         }
 
         // Display success page
