@@ -238,15 +238,22 @@ class ExchangeStudent extends Model
             ->join('accommodation', 'accommodation.id_accommodation', '=', 'exchange_students.id_accommodation');
     }
 
-    public function scopeWithFilledProfile($query, $semester)
+    public function scopeWithFilledProfile(Builder $query, string $semester): Builder
     {
-        return $query->byUniqueSemester($semester)
+        return $query
+            ->byUniqueSemester($semester)
             ->where(function (Builder $query) {
-                $query->wantBuddy()
+                $query
+                    ->wantBuddy()
                     ->orWhereHas('buddy');
             })
             ->where(function ($query) {
-                $query->whereNotNull('about')
+                $query
+                    ->whereNotNull('about')
+                    ->orWhereNotNull('facebook')
+                    ->orWhereNotNull('whatsapp')
+                    ->orWhereNotNull('instagram')
+                    ->orWhere('id_accommodation', '<>', Accommodation::DEFAULT_ID)
                     ->orWhereHas('arrival')
                     ->orWhereHas('person', function ($query) {
                         $query->whereNotNull('avatar');
