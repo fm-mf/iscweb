@@ -32,17 +32,35 @@
         </div>
         <div class="collapse navbar-collapse flex-grow-1 " id="navbar">
             @component('web.components.navbar-nav', [ 'navItems' => [
-                 ['title' => __('buddy-program.available-students'), 'route' => 'buddy-home', 'icon' => 'fas fa-users'],
-                 ['title' => __('buddy-program.my-students'), 'route' => 'buddy-my-students', 'icon' => 'fas fa-user-friends'],
-                 ['title' => __('buddy-program.my-profile.title'), 'route' => 'buddy-my-profile', 'icon' => 'fas fa-user'],
+                 ['title' => __('buddy-program.available-students'), 'route' => 'buddy-home', 'icon' => 'fas fa-fw fa-users'],
+                 ['title' => __('buddy-program.my-students'), 'route' => 'buddy-my-students', 'icon' => 'fas fa-fw fa-user-friends'],
                  app()->isLocale('cs')
-                    ? ['title' => __('buddy-program.buddy-handbook'), 'route' => 'buddy-handbook-cs', 'icon' => 'fas fa-file-pdf', 'target' => '_blank']
+                    ? ['title' => __('buddy-program.buddy-handbook'), 'route' => 'buddy-handbook-cs', 'icon' => 'fas fa-fw fa-file-pdf', 'target' => '_blank']
                     : null,
-                 auth()->user()->isPartak()
-                    ? ['title' => 'ParťákNet', 'route' => 'partak.index', 'icon' => 'fas fa-external-link-alt', 'target' => '_blank']
-                    : null,
-                 ['title' => __('buddy-program.logout'), 'route' => 'logout', 'icon' => 'fas fa-sign-out-alt'],
             ]])
+                <li class="nav-item dropdown{{ request()->routeIs('buddy-my-profile') ? ' active' : '' }}">
+                    <a href="#" class="nav-link dropdown-toggle" id="userMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="{{ auth()->user()->person->avatar_url }}" alt="" class="user-menu-avatar" />
+                        {{ auth()->user()->person->first_name }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenuLink">
+                        <a href="{{ route('buddy-my-profile') }}" class="dropdown-item{{ request()->routeIs('buddy-my-profile') ? ' active' : '' }}">
+                            <i class="fas fa-fw fa-user"></i>
+                            @lang('buddy-program.my-profile.title')
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        @if(auth()->user()->isPartak())
+                            <a href="{{ route('partak.index') }}" target="_blank" class="dropdown-item">
+                                <i class="fas fa-fw fa-external-link-alt"></i>
+                                ParťákNet
+                            </a>
+                        @endif
+                        <a href="{{ route('logout') }}" class="dropdown-item">
+                            <i class="fas fa-fw fa-sign-out-alt"></i>
+                            @lang('buddy-program.logout')
+                        </a>
+                    </div>
+                </li>
             @endcomponent
             <ul class="navbar-nav lang-switcher">
                 <li class="nav-item">
