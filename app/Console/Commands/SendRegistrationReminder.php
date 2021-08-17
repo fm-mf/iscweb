@@ -23,6 +23,8 @@ class SendRegistrationReminder extends Command
      */
     protected $description = 'Sends email to not yet registered exchange students';
 
+    private $count = 0;
+
     /**
      * Create a new command instance.
      *
@@ -41,14 +43,16 @@ class SendRegistrationReminder extends Command
     public function handle()
     {
         $semester = $this->argument('semester');
-        $exchangeStudents = ExchangeStudent::with('person.user')->whereNull('about')
-            ->byUniqueSemester($semester)->get();
-        $emailsSent = 0;
-        foreach ($exchangeStudents as $student) {
-            $this->info("Sending email to " . $student->person->email);
-            Mail::to($student->person->email)->send(new RegistrationReminderMail($student));
-            ++$emailsSent;
-        }
-        $this->info($emailsSent . " emails sent");
+        $exchangeStudents = ExchangeStudent::with(['person', 'user'])
+            ->withoutFilledProfile($semester)
+            ->get();
+
+        $exchangeStudents->each(function (ExchangeStudent $student) {
+            Mail::send(new RegistrationReminderMail($student));
+            $this->info("Sending email to {$student->user->email}");
+            $this->count++;
+        });
+
+        $this->info("{$this->count} emails sent");
     }
 }

@@ -23,6 +23,8 @@ class SendRegistrationMailToSpecificExchangeStudents extends Command
      */
     protected $description = 'Sends an exchange student\'s registration email to specified email addresses';
 
+    private $count = 0;
+
     /**
      * Create a new command instance.
      *
@@ -41,14 +43,14 @@ class SendRegistrationMailToSpecificExchangeStudents extends Command
     public function handle()
     {
         $emails = $this->argument('email');
-        $count = 0;
-        $students = ExchangeStudent::getByEmails($emails);
-        foreach ($students as $student) {
-            $email = $student->person->user->email;
-            Mail::to($email)->send(new RegistrationMail($student));
-            $this->info("Sending email to " . $email);
-            $count++;
-        }
-        $this->info($count);
+        $students = ExchangeStudent::with(['person', 'user'])->getByEmails($emails);
+
+        $students->each(function (ExchangeStudent $student) {
+            Mail::send(new RegistrationMail($student));
+            $this->info("Sending email to {$student->user->email}");
+            $this->count++;
+        });
+
+        $this->info($this->count);
     }
 }
