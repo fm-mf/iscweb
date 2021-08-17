@@ -38,6 +38,9 @@
                  app()->isLocale('cs')
                     ? ['title' => __('buddy-program.buddy-handbook'), 'route' => 'buddy-handbook-cs', 'icon' => 'fas fa-file-pdf', 'target' => '_blank']
                     : null,
+                 auth()->user()->isPartak()
+                    ? ['title' => 'ParťákNet', 'route' => 'partak.index', 'icon' => 'fas fa-external-link-alt', 'target' => '_blank']
+                    : null,
                  ['title' => __('buddy-program.logout'), 'route' => 'logout', 'icon' => 'fas fa-sign-out-alt'],
             ]])
             @endcomponent
