@@ -254,6 +254,23 @@ class ExchangeStudent extends Model
             });
     }
 
+    public function scopeWithoutFilledProfile(Builder $query, $semester): Builder
+    {
+        return $query
+            ->byUniqueSemester($semester)
+            ->wantBuddy()
+            ->whereDoesntHave('buddy')
+            ->whereNull('about')
+            ->whereNull('facebook')
+            ->whereNull('whatsapp')
+            ->whereNull('instagram')
+            ->whereDoesntHave('arrival')
+            ->where('id_accommodation', Accommodation::DEFAULT_ID)
+            ->whereHas('person', function ($query) {
+                $query->whereNull('avatar');
+            });
+    }
+
     public function scopeWithFilledArrival($query, $semester)
     {
         $query->byUniqueSemester($semester)
