@@ -253,7 +253,7 @@ class ExchangeStudent extends Model
                     ->orWhereNotNull('facebook')
                     ->orWhereNotNull('whatsapp')
                     ->orWhereNotNull('instagram')
-                    ->orWhere('id_accommodation', '<>', Accommodation::DEFAULT_ID)
+                    ->orWhere(DB::raw('exchange_students.id_accommodation'), '<>', Accommodation::DEFAULT_ID)
                     ->orWhereHas('arrival')
                     ->orWhereHas('person', function ($query) {
                         $query->whereNotNull('avatar');
@@ -272,7 +272,7 @@ class ExchangeStudent extends Model
             ->whereNull('whatsapp')
             ->whereNull('instagram')
             ->whereDoesntHave('arrival')
-            ->where('id_accommodation', Accommodation::DEFAULT_ID)
+            ->where(DB::raw('exchange_students.id_accommodation'), Accommodation::DEFAULT_ID)
             ->whereHas('person', function ($query) {
                 $query->whereNull('avatar');
             });

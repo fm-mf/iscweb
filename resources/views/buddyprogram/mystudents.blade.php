@@ -20,7 +20,7 @@
                     @foreach($myStudents as $exchangeStudent)
                         <tr>
                             <td>
-                                <a href="{{ route('buddy-profile', ['$exchangeStudent' => $exchangeStudent->hash_id]) }}">
+                                <a href="{{ route('buddy-profile', ['exchangeStudent' => $exchangeStudent->hash_id]) }}">
                                     {{ $exchangeStudent->person->first_name }}
                                     <span class="last-name">{{ $exchangeStudent->person->last_name }}</span>
                                 </a>
