@@ -323,7 +323,14 @@ class ExchangeStudent extends Model
     {
         return $this->hasSemester(Semester::getCurrentSemester())
             && !$this->hasSemester(Semester::getCurrentSemester()->previousSemester())
-            && ($this->about != null || $this->arrival != null || $this->person->avatar != null)
+            && ($this->about != null
+                || $this->arrival != null
+                || $this->person->avatar != null
+                || $this->facebook != null
+                || $this->whatsapp != null
+                || $this->instagram != null
+                || $this->id_accommodation != Accommodation::DEFAULT_ID
+            )
             && $this->wantBuddy()
             && !$this->hasBuddy();
     }
