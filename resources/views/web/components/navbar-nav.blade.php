@@ -11,4 +11,5 @@
             @endcomponent
         @endisset
     @endforeach
+    {{ $slot }}
 </ul>

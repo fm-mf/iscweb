@@ -1,0 +1,26 @@
+$avatarYMarginLg: 0.25rem;
+$avatarSize: 1rem * $line-height-base;
+$avatarSizeLg: 1rem * $line-height-base + 2 * $avatarYMarginLg;
+
+.navbar {
+    .user-menu-avatar {
+        width: $avatarSize;
+        border-radius: $avatarSize;
+        margin-right: 0.5rem;
+
+        @include media-breakpoint-up($navbarExpand) {
+            width: $avatarSizeLg;
+            border-radius: $avatarSizeLg;
+            margin-top: -$avatarYMarginLg;
+            margin-bottom: -$avatarYMarginLg;
+        }
+    }
+
+    .dropdown-item {
+        text-align: center;
+
+        @include media-breakpoint-up($navbarExpand) {
+            text-align: inherit;
+        }
+    }
+}

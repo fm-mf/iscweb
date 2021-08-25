@@ -1,3 +1,5 @@
+$navbarExpand: lg !default;
+
 .navbar {
   .nav-item.active {
     font-weight: bold;
@@ -10,7 +12,7 @@
     text-align: center;
 
     &:not(.btn) {
-      &::after {
+      &::before {
         content: "";
         position: absolute;
         width: 100%;
@@ -27,7 +29,7 @@
         color: white !important;
         transition: 0.2s all;
 
-        &::after {
+        &::before {
           visibility: visible;
           transition: all 0.3s ease-out;
           transform: scaleX(1);
@@ -43,7 +45,7 @@
   .lang-switcher {
     margin-top: 1rem;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up($navbarExpand) {
       margin-top: 0;
       margin-left: 1rem;
     }
@@ -60,8 +62,7 @@
   }
 
   .fas {
-    width: 1.5rem;
-    text-align: initial;
+    margin-right: 0.25rem;
   }
 }
 

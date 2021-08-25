@@ -50,6 +50,7 @@
             ['title' => 'Alumni Newsletters', 'icon' => 'newspaper', 'route' => 'alumni.newsletters.index', 'acl' => ['alumniNewsletter.create', 'alumniNewsletter.update', 'alumniNewsletter.delete']],
             ['title' => 'Logs', 'icon' => 'file', 'route' => 'partak.logs', 'acl' => 'logs'],
             ['spacer' => true],
+            ['title' => 'Buddy database', 'icon' => 'user-friends', 'route' => 'buddy-home', 'target' => '_blank'],
             ['title' => 'Wiki', 'icon' => 'question-circle', 'route' => 'wiki', 'target' => '_blank'],
             ['title' => 'NAS', 'icon' => 'photo-video', 'route' => 'nas', 'target' => '_blank'],
         ]])
