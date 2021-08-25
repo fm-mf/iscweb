@@ -29,24 +29,24 @@
 
     <p>
         Once you arrive, you should obtain following cards:
-        <ul>
-            <li><a href="#university-id">University ID</a>
-                <ul>
-                    <li>Allows access to university buildings, library, cafiteria and more</li>
-                </ul>
-            </li>
-            <li><a href="#transportation-card">Prague City public transportation card</a>
-                <ul>
-                    <li>Public transport is essential in Prague and you get a big discount as a student</li>
-                </ul>
-            </li>
-            <li><a href="#ehic">(for EU citizens) Register for health care on the basis of your EHIC card</a>
-                <ul>
-                    <li>Required if you want to use your european insurance</li>
-                </ul>
-            </li>
-        </ul>
     </p>
+    <ul>
+        <li><a href="#university-id">University ID</a>
+            <ul>
+                <li>Allows access to university buildings, library, cafeteria and more</li>
+            </ul>
+        </li>
+        <li><a href="#transportation-card">Prague City public transport card</a>
+            <ul>
+                <li>Public transport is essential in Prague and you get a big discount as a student</li>
+            </ul>
+        </li>
+        <li><a href="#ehic">(for EU citizens) Register for health care on the basis of your EHIC card</a>
+            <ul>
+                <li>Required if you want to use your european insurance</li>
+            </ul>
+        </li>
+    </ul>
 
     <h2 id="university-id">University ID card</h2>
     <p>For your University ID card, you can choose from two options:</p>
@@ -77,7 +77,7 @@
                 <li>Borrowing books from university libraries</li>
                 <li>Borrowing books from National Technical Library (for a fee)</li>
                 <li>Discount card for CTU buffets and dining halls</li>
-                <li>Confirmation of your student status (e.g. for a public transport season ticket and for discounts)</li>
+                <li>Confirmation of your student status (e.g. for a public transport season ticket (in Prague only) and for discounts)</li>
             </ul>
         </li>
     </ul>
@@ -87,25 +87,51 @@
         <li><img src="{{ asset('img/guide/isic.jpg') }}" alt="International Student Identity Card with the CTU logo" title="International Student Identity Card with the CTU logo" /></li>
         <li><strong>Price: CZK 380</strong>, in  the case of loss, a fee of CZK 200 is charged for a duplicate</li>
         <li>Covers all services stated above</li>
-        <li>In addition, serves as the only accepted international student identity card in 116 countries and offers many discounts (for further information visit <a href="https://www.isic.org" target="_blank">www.isic.org</a></li>
+        <li>Confirmation of your student status for any public transport ticket in the Czech Republic (i.e. trains and busses around the country)</li>
+        <li>In addition, serves as the only accepted international student identity card in 116 countries and offers many discounts (for further information visit <a href="https://www.isic.org" target="_blank">www.isic.org</a>)</li>
     </ul>
 
     <h3 id="where-to-get-ctu-id">Where to get it</h3>
     <p>Identity Card Publishing House</p>
+    <p class="bg-warning">Your personal visit is necessary!</p>
+    <p class="bg-info">Bring with you your ID or passport, and a passport-sized photo.</p>
     <dl>
         <dt>Webpage</dt>
             <dd><a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">ist.cvut.cz</a></dd>
         <dt>Address</dt>
              <dd><a href="https://goo.gl/maps/PcZMkQ6UZRn" target="_blank">Bechyňova 2571/3, Praha 6</a></dd>
         <dt>Phone</dt>
-            <dd><a href="tel:+420 224 358 472">+420 224 358 472</a></dd>
-            <dd><a href="tel:+420 224 358 471">+420 224 358 471</a></dd>
-            <dd><a href="tel:+420 224 358 467">+420 224 358 467</a></dd>
-        <dt>Opending hours</dt>
-            <dd>Mo &ndash; Thu: 8:00 &ndash; 15:30</dd>
-            <dd>Fr: 8:00 &ndash; 15:00</dd>
+            <dd>See <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a></dd>
+        <dt>Opening hours</dt>
+            <dd>See <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a></dd>
     </dl>
-    <p>To avoid long queues you can register yourself for specific date and time via <a href="http://ke.customer.decent.cz/a021/obj/index.php?lang=en" target="_blank">the electronic reservation system</a>.</p>
+    <div class="bg-info">
+        <p>
+            To avoid waiting in a long queue, you can make a reservation for a specific date and time via Electronic reservation system available at
+            <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a>.
+        </p>
+        <p>
+            Unfortunately, the reservation system itself is in Czech only, but here is a quick guide how to make the reservation:
+        </p>
+        <ol>
+            <li>Click on ‘Objednat se na pobočku’</li>
+            <li>Select
+                <ul>
+                    <li>‘první průkaz ČVUT’ if you want the CTU Student Identity Card, or</li>
+                    <li>‘první průkaz ISIC’ if you want the International Student Identity Card with the CTU logo</li>
+                </ul>
+            </li>
+            <li>Pick date and time</li>
+            <li>
+                Fill in the required fields
+                <ul>
+                    <li>‘Jméno a příjmení’ means Given names and Surname</li>
+                </ul>
+            </li>
+            <li>Click on ‘Odeslat objednávku’ to submit the form and create the reservation</li>
+        </ol>
+    </div>
+
 
     <h2 id="transportation-card">Public transportation card</h2>
     <p>When you're buying seasonal Prague public transport ticket, you have multiple choices how to do it:</p>

@@ -18,7 +18,6 @@
                 'motol' => 'Motol University Hospital',
                 'military' => 'Military University Hospital Prague &ndash; Střešovice',
                 'polyclinic' => 'Městská poliklinika Praha',
-                'student-center' => 'Student Health Centre'
             ]
         ],
         'vocab' => 'Helpful vocab'
@@ -181,32 +180,7 @@
         <li><address>Spálená 12, Praha 1</address></li>
         <li><a href="tel:+420 222 924 211">+420 222 924 211</a></li>
         <li>For students, contract with CTU</li>
-        <li>Most of the doctors are English-speaking. For contacts and office hours see <a hre="http://www.prahamp.cz/index.php?oid=1262545" target="_blank">their website (only in CZ -> ask your buddy to help you with translation)</a></li>
-    </ul>
-
-    <h3 id='student-center'>Student Health Centre</h3>
-    <ul>
-        <li>Bechyňova 3, Praha 6, 2nd floor</li>
-        <li>
-            <dl>
-                <dt>MUDr. Sadílková</dt>
-                <dd><a href="tel:+420 212 243 144">+420 212 243 144</a></dd>
-                <dd>room 411</dd>
-                <dd>Mon, Wed: 8-15</dd>
-                <dd>Tue: 12-18</dd>
-                <dd>Thu: 8-12</dd>
-                <dd>Fri: 8-14</dd>
-                <dt>MUDr. Jitka Adámková</dt>
-                <dd><a href="tel:+420 234 606 163">+420 234 606 163</a></dd>
-                <dd>room 431</dd>
-                <dt>MUDr. Šulcová &ndash; dentist</dt>
-                <dd><a href="tel:+420 233 320 229">+420 233 320 229</a></dd>
-                <dd>Mon: 8:00-16:00</dd>
-                <dd>Tue: 8:00 - 18:00</dd>
-                <dd>Wed, Thu: 8:00 - 14:00</dd>
-                <dd>Fri: 8:00 - 13:00</dd>
-            </dl>
-        </li>
+        <li>Most of the doctors are English-speaking. For contacts and office hours see <a href="https://www.prahamp.cz/" target="_blank">their website</a> (only in Czech -> you ask your Buddy to help you with translation)</li>
     </ul>
 
     <h2 id="vocab">Helpful vocab</h2>
