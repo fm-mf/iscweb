@@ -92,6 +92,8 @@
 
     <h3 id="where-to-get-ctu-id">Where to get it</h3>
     <p>Identity Card Publishing House</p>
+    <p class="bg-warning">Your personal visit is necessary!</p>
+    <p class="bg-info">Bring with you your ID or passport, and a passport-sized photo.</p>
     <dl>
         <dt>Webpage</dt>
             <dd><a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">ist.cvut.cz</a></dd>
