@@ -29,24 +29,24 @@
 
     <p>
         Once you arrive, you should obtain following cards:
-        <ul>
-            <li><a href="#university-id">University ID</a>
-                <ul>
-                    <li>Allows access to university buildings, library, cafiteria and more</li>
-                </ul>
-            </li>
-            <li><a href="#transportation-card">Prague City public transportation card</a>
-                <ul>
-                    <li>Public transport is essential in Prague and you get a big discount as a student</li>
-                </ul>
-            </li>
-            <li><a href="#ehic">(for EU citizens) Register for health care on the basis of your EHIC card</a>
-                <ul>
-                    <li>Required if you want to use your european insurance</li>
-                </ul>
-            </li>
-        </ul>
     </p>
+    <ul>
+        <li><a href="#university-id">University ID</a>
+            <ul>
+                <li>Allows access to university buildings, library, cafeteria and more</li>
+            </ul>
+        </li>
+        <li><a href="#transportation-card">Prague City public transport card</a>
+            <ul>
+                <li>Public transport is essential in Prague and you get a big discount as a student</li>
+            </ul>
+        </li>
+        <li><a href="#ehic">(for EU citizens) Register for health care on the basis of your EHIC card</a>
+            <ul>
+                <li>Required if you want to use your european insurance</li>
+            </ul>
+        </li>
+    </ul>
 
     <h2 id="university-id">University ID card</h2>
     <p>For your University ID card, you can choose from two options:</p>
