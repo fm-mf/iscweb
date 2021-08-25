@@ -77,7 +77,7 @@
                 <li>Borrowing books from university libraries</li>
                 <li>Borrowing books from National Technical Library (for a fee)</li>
                 <li>Discount card for CTU buffets and dining halls</li>
-                <li>Confirmation of your student status (e.g. for a public transport season ticket and for discounts)</li>
+                <li>Confirmation of your student status (e.g. for a public transport season ticket (in Prague only) and for discounts)</li>
             </ul>
         </li>
     </ul>
@@ -87,7 +87,8 @@
         <li><img src="{{ asset('img/guide/isic.jpg') }}" alt="International Student Identity Card with the CTU logo" title="International Student Identity Card with the CTU logo" /></li>
         <li><strong>Price: CZK 380</strong>, in  the case of loss, a fee of CZK 200 is charged for a duplicate</li>
         <li>Covers all services stated above</li>
-        <li>In addition, serves as the only accepted international student identity card in 116 countries and offers many discounts (for further information visit <a href="https://www.isic.org" target="_blank">www.isic.org</a></li>
+        <li>Confirmation of your student status for any public transport ticket in the Czech Republic (i.e. trains and busses around the country)</li>
+        <li>In addition, serves as the only accepted international student identity card in 116 countries and offers many discounts (for further information visit <a href="https://www.isic.org" target="_blank">www.isic.org</a>)</li>
     </ul>
 
     <h3 id="where-to-get-ctu-id">Where to get it</h3>
