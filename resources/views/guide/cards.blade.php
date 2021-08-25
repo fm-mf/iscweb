@@ -100,14 +100,37 @@
         <dt>Address</dt>
              <dd><a href="https://goo.gl/maps/PcZMkQ6UZRn" target="_blank">Bechyňova 2571/3, Praha 6</a></dd>
         <dt>Phone</dt>
-            <dd><a href="tel:+420 224 358 472">+420 224 358 472</a></dd>
-            <dd><a href="tel:+420 224 358 471">+420 224 358 471</a></dd>
-            <dd><a href="tel:+420 224 358 467">+420 224 358 467</a></dd>
-        <dt>Opending hours</dt>
-            <dd>Mo &ndash; Thu: 8:00 &ndash; 15:30</dd>
-            <dd>Fr: 8:00 &ndash; 15:00</dd>
+            <dd>See <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a></dd>
+        <dt>Opening hours</dt>
+            <dd>See <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a></dd>
     </dl>
-    <p>To avoid long queues you can register yourself for specific date and time via <a href="http://ke.customer.decent.cz/a021/obj/index.php?lang=en" target="_blank">the electronic reservation system</a>.</p>
+    <div class="bg-info">
+        <p>
+            To avoid waiting in a long queue, you can make a reservation for a specific date and time via Electronic reservation system available at
+            <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a>.
+        </p>
+        <p>
+            Unfortunately, the reservation system itself is in Czech only, but here is a quick guide how to make the reservation:
+        </p>
+        <ol>
+            <li>Click on ‘Objednat se na pobočku’</li>
+            <li>Select
+                <ul>
+                    <li>‘první průkaz ČVUT’ if you want the CTU Student Identity Card, or</li>
+                    <li>‘první průkaz ISIC’ if you want the International Student Identity Card with the CTU logo</li>
+                </ul>
+            </li>
+            <li>Pick date and time</li>
+            <li>
+                Fill in the required fields
+                <ul>
+                    <li>‘Jméno a příjmení’ means Given names and Surname</li>
+                </ul>
+            </li>
+            <li>Click on ‘Odeslat objednávku’ to submit the form and create the reservation</li>
+        </ol>
+    </div>
+
 
     <h2 id="transportation-card">Public transportation card</h2>
     <p>When you're buying seasonal Prague public transport ticket, you have multiple choices how to do it:</p>
