@@ -25,19 +25,22 @@
 
     <div class="row">
         <div class="col-md-12 bg-warning">
+            {{--
             <p>
                 This is preliminary programme. Events may be moved to another days of the week.
                 Details will be added during September.
             </p>
+            --}}
             <p>
-                Due to the pandemic situation, the Orientation Week might be held on-line.
+                As of 1 September, all events are planned in-person, but if the pandemic
+                situation gets worse, the Orientation week might be held on-line.
                 We will try to provide you with a great experience and make it possible to meet each other.
-{{--                You can also follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a> for up to date information.--}}
+                You can also follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a> for up to date information.
             </p>
         </div>
     </div>
 
-    
+
     @component('guide.section-nav', ['items' => [
         'day-1' => [
             'title' => "Day 1 – $owDay1",
@@ -69,13 +72,13 @@
         ],
     ]])
     @endcomponent
-
+{{--
     <div class="row">
         <div class="col-md-12 bg-info">
             <p><strong>The schedule of the Orientation Week will be announced soon. Stay tuned!</strong></p>
         </div>
     </div>
-
+--}}
     <div class="row">
         <h2 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h2>
     </div>
@@ -83,10 +86,10 @@
         <div class="col-lg-12">
             <h3 id="initial-meeting">Initial information meeting</h3>
             <ul class="list-unstyled">
+                <li>When: <strong>13:30</strong> – 17:00</li>
+{{--                <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>--}}
+                <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
                 {{--
-                <li>When: <strong>13:00</strong> - 17:30</li>
-                <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>
-
                 <li>Meeting points:
                     <ul>
                         <li>13:00 at Strahov (bus stop Koleje Strahov)</li>
@@ -99,7 +102,7 @@
                     <ul>
                         <li>Official welcome</li>
                         <li>How to enroll in courses and sports at CTU</li>
-                        <li>Czech language and Czech culture courses</li>
+{{--                        <li>Czech language and Czech culture courses</li>--}}
                         <li>Life in the Czech Republic and how to survive in Prague</li>
                         <li>ESN membership</li>
                         <li>ISC teams and activities</li>
@@ -128,9 +131,10 @@
             </div>
             --}}
             <ul class="list-unstyled">
-                {{--
+
                 <li>When: <strong>21:00</strong></li>
                 <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
+                {{--
                 <li>Meeting points:
                     <ul>
                         <li>20:00 in the lobby of the Masarykova dormitory</li>
@@ -173,60 +177,64 @@
             --}}
 
             <p class="bg-warning">
-                Note: <strong>This is only for Erasmus students and Exchange students</strong>. Self-funding students who are studying for a CTU degree, and also Erasmus Mundus students, please contact Faculty coordinators at your study department.
+                Note: <strong>This is only for Erasmus students and Exchange students</strong>.
+                Degree students (those who are studying for a CTU degree), and also Erasmus Mundus students,
+                please contact your Faculty coordinators at your study department.
             </p>
 
-            <p class="bg-danger">Registration at your faculty is <strong>mandatory</strong>. If you can't attend this registration, you need to inform your faculty!</p>
+            <div class="bg-danger">
+                <p>
+                    Registration at your faculty is <strong>mandatory</strong>.
+                    If you can't attend this registration, you need to inform your faculty!
+                </p>
+                <p class="mt-2">
+                    For the registration at faculties, you need to have the University ID username and password already.
+                    See <a href="{{ route('guide-page', ['page' => 'kos#kos']) }}">KOS (Study information system)</a>.
+                </p>
+            </div>
 
-            <p class="bg-info">The schedule will be announced during September</p>
+            <p class="bg-info">
+                Detailed instructions and schedule for faculties with in-person registration will be announced on Monday, 13 September,
+                during the <a href="#initial-meeting">Initial information meeting</a>.
+            </p>
 
-            {{--
+            <p class="bg-info">
+                <strong>Note:</strong> Even if you have courses at multiple faculties, you only need to attend
+                the registration at the ‘main’ faculty you have in your learning agreement.
+            </p>
+
             <ul class="list-unstyled">
-                <li>More information during the Monday presentation</li>
-
-                <li><strong>When:</strong>
+                <li>
+                    <strong>In-person registration:</strong>
                     <ul>
-                        <li>9:00 &ndash; <abbr title="Faculty of Transportation">FD</abbr>,
-                            <abbr title="Faculty of Mechanical Engineering">FS</abbr>,
-                            <abbr title="Faculty of Electrical Engineering">FEL</abbr>,
-                            <abbr title="Faculty of Nuclear Sciences and Physical Engineering">FJFI</abbr>,
-                            <abbr title="Faculty of Biomedical Engineering">FBMI</abbr>,
-                            <abbr title="Masaryk Institute of Advanced Studies">MÚVS</abbr></li>
-                        <li>9:30 &ndash; <abbr title="Faculty of Architecture">FA</abbr></li>
-                        <li>10:00 &ndash; <abbr title="Faculty of Information Technology">FIT</abbr></li>
+                        <li>Faculty of Electrical Engineering (FEL)</li>
+                        <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI)</li>
+                        <li>Faculty of Transportation (FD)</li>
+                        <li>Faculty of Biomedical Engineering (FBMI)</li>
+                        <li>Faculty of Architecture (FA)</li>
                     </ul>
                 </li>
-
-                <li><strong>Where:</strong> At your faculty (more information in the presentations on the first day)</li>
-                
-                <li>Meeting points:
+                <li>
+                    <strong>On-line registration:</strong>
+                    (faculty coordinator should contact you via e-mail with instructions)
                     <ul>
-                        <li>FBMI &ndash; 7:45 in the lobby of the Masarykova dormitory</li>
-                        <li>FD &ndash; 8:45 at Entrance to Národní Třída metro station</li>
-                        <li>FS &ndash; 8:45 in front of the faculty</li>
-                        <li>FEL &ndash; 8:45 in front of the faculty</li>
-                        <li>FIT &ndash; 9:50 by the entrance door FA</li>
+                        <li>Faculty of Information Technology (FIT)</li>
                     </ul>
                 </li>
-
-                <li><abbr title="Faculty of Civil Engineering">FSv</abbr> has registrations on day 3</li>
-
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
-                        <li>An ID (University ID / Passport)</li>
+                        <li>A government-issued ID (e.g. passport)</li>
+                        <li>University ID username and password (a.k.a. KOS login information)</li>
                         <li>A pen</li>
-                        <li>Check the meeting points</li>
                     </ul>
                 </li>
-                <li>You will get:
+                <li>You will receive:
                     <ul>
                         <li>The list of your classes</li>
                         <li>Your schedule</li>
-                        <li>Your email account</li>
                     </ul>
                 </li>
             </ul>
-            --}}
         </div>
     </div>
 
@@ -235,10 +243,8 @@
             <h3 id="trips-meeting">Second information meeting</h3>
 
             <ul class="list-unstyled">
-                {{--
-                <li>When: <strong>13:30</strong></li>
+                <li>When: <strong>13:30</strong> – 15:00</li>
                 <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
-                --}}
                 <li>Topics:
                     <ul>
                         <li>Presentation of ISC trips</li>
@@ -262,48 +268,50 @@
 
                 <li>When: <strong>9:00 - 10:30</strong> OR <strong>11:00 - 12:30</strong></li>
                 <li>Where: <strong><a href="https://goo.gl/maps/qN4e4UDXfeAkVw1b7" target="_blank">CTU Rectorate</a>, building B, CIIRC Red Room</strong></li>
-                
+
                 <li>If you want to attend the Survival Czech Talk <a href="https://cvut.us20.list-manage.com/track/click?u=9b8d409b5e6e6e9214f58de33&id=691692a15d&e=6858531003" target="_blank">register in the form</a> and choose which time you want to attend. If the situation about Covid-19 gets worse, the course will be held online via Zoom or some similar platform.</li>
             </ul>
         </div>
     </div>
     --}}
 
-    {{--
     <div class="row">
         <div class="col-lg-12">
             <h3 id="day-3-registration">Registration at faculties</h3>
 
-            <p class="bg-info">The schedule will be announced during September</p>
-
-            <p>When: <strong>10:00</strong> &ndash; <abbr title="Faculty of Civil Engineering">FSv</abbr></p>
-        
-            <li>Meeting points:
-                <ul>
-                    <li>FSv &ndash; 9:50 in front of the faculty</li>
-                </ul>
-            </li>
+            <ul class="list-unstyled">
+                <li>
+                    <strong>In-person registration:</strong>
+                    <ul>
+                        <li>Faculty of Mechanical Engineering (FS)</li>
+                        <li>Masaryk Institute of Advanced Studies (MÚVS)</li>
+                    </ul>
+                </li>
+                <li class="bg-info">
+                    <strong>See <a href="#day-2-registration">Registration on Tuesday</a> for further information</strong>
+                </li>
+            </ul>
         </div>
     </div>
-    --}}
 
     <div class="row">
         <div class="col-lg-12">
             <h3 id="prague-discovery-game">Prague Discovery Game</h3>
             <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
 
-            {{--
             <p class="bg-info">
-                The exact time and other instructions will be posted in the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a> and during the Monday initial presentation.
+                The exact time and other instructions will be posted in the
+                <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener">OW FB event</a>
+                and on Monday, 13 September, during the Initial information meeting.
             </p>
-            --}}
 
-            {{--
+
             <ul class="list-unstyled">
                 <li>When: <strong>13:00</strong></li>
-                <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
+{{--                <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>--}}
+                <li>Where: <strong><a href="https://goo.gl/maps/Uxdt3bXSf9NwVk5M6" target="_blank">Masarykova dormitory</a>, Congress hall</strong></li>
             </ul>
-            --}}
+
         </div>
     </div>
 
@@ -311,18 +319,18 @@
         <div class="col-lg-12">
             <h3 id="integreation-party">inteGREATion party</h3>
             <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
-            {{--
             <ul class="list-unstyled">
                 <li>When: <strong>21:00</strong></li>
-                <li>Where: <a href="https://goo.gl/maps/ebTnpr9oMqtAWj4a9" target="_blank" rel="noopener"><strong>Chapeau Rouge Bar</strong> (Jakubská 2, 110 00 Staré Město)</a></li>
+                <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>
+                {{--
                 <li>Meeting points:
                     <ul>
                         <li>19:30 at bus stop Koleje Strahov</li>
                         <li>19:30 in the lobby of the Masarykova dormitory</li>
                     </ul>
                 </li>
+                --}}
             </ul>
-            --}}
         </div>
     </div>
 
@@ -352,7 +360,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12 bg-danger" style="margin-top: 2rem">
+        <div class="col-md-12 bg-danger mt-5">
             <p>
                 Please keep in mind there are four types of students: Erasmus students,
                 Exchange students, Erasmus Mundus students and Private (self-paying)
