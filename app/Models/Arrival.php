@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Arrival extends Model
 {
-    use DynamicHiddenVisible;
-
     const FORM_DATE_FORMAT = 'd M Y';
     const FORM_TIME_FORMAT = 'g:i A';
 

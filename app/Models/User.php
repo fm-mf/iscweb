@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Notifications\PasswordReset;
-use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Hashids\Hashids;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -13,7 +12,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable, DynamicHiddenVisible;
+    use Notifiable;
 
     const HASH_LENGTH = 32;
 

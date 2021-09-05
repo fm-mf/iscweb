@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Builder;
@@ -13,7 +12,6 @@ use Propaganistas\LaravelPhone\PhoneNumber;
 
 class ExchangeStudent extends Model
 {
-    use DynamicHiddenVisible;
     use FormAccessible;
 
     public $timestamps = false;

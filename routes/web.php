@@ -148,14 +148,3 @@ Route::prefix('api')->namespace('Api')->name('api.')->group(function() {
     Route::get('/preregister', 'ApiController@loadPreregister')->middleware('auth', 'checkpartak')->name('preregister');
     Route::patch('/preregister/{student}', 'ApiController@preregister')->middleware('auth', 'checkpartak');
 });
-
-
-Route::get('/pizza', function () {
-    return redirect(route('ochutnej-evropu.index'), 301);
-});
-
-Route::prefix('ochutnej-evropu')->namespace('OchutnejEvropu')->name('ochutnej-evropu.')->group(function () {
-    Route::get('/', 'OchutnejEvropuController@index')->name('index');
-    Route::post('/', 'OchutnejEvropuController@evaluate')->name('evaluate');
-    Route::get('/result', 'OchutnejEvropuController@result')->name('result');
-});

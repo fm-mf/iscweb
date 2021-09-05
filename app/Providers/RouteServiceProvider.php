@@ -77,8 +77,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAuthRoutes();
 
-        $this->mapSafRoutes();
-
         $this->mapPrivacyRoutes();
 
         $this->mapTandemRoutes();
@@ -143,16 +141,6 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'user'
         ], function ($router) {
             require base_path('routes/auth.php');
-        });
-    }
-
-    protected  function mapSafRoutes()
-    {
-        Route::group([
-                'namespace' => $this->namespace . '\Saf',
-                'prefix' => 'scvutdosveta'
-        ], function ($router) {
-            require base_path('routes/saf.php');
         });
     }
 

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Traits\DynamicHiddenVisible;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -14,8 +13,6 @@ use Ramsey\Uuid\Uuid;
 
 class Person extends Model
 {
-    use DynamicHiddenVisible;
-
     const AVATARS_DIR = 'avatars';
     const DEFAULT_AVATAR = 'img/auth/avatar.jpg';
     const AVATAR_SIZE = 360;
