@@ -1,24 +1,50 @@
-{{ Form::bsText('email', 'E-mail','', old('email'), []) }}
-
-<div class="form-group row">
-    <div class="col-sm-6 left">
-        {{ Form::label('first_name', 'Jméno', ['class' => 'control-label']) }}
-        @if ($errors->has('first_name'))
-            <p class="error-block alert-danger">{{ $errors->first('first_name') }}</p>
-        @endif
-        {{ Form::text('first_name', old('first_name'), ['class' => 'form-control']) }}
+<fieldset>
+    <legend>@lang('auth.registration')</legend>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            @php
+                $isInvalid = $errors->has('first_name') ? ' is-invalid' : '';
+            @endphp
+            {{ Form::label('first_name', __('auth.profile.given-names'), ['class' => 'required']) }}
+            {{ Form::text('first_name', null, ['class' => 'form-control' . $isInvalid, 'required' => 'required', 'placeholder' => __('auth.profile.placeholder.given-names'), 'autofocus' => 'autofocus', 'autocomplete' => 'given-name']) }}
+            @error('first_name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group col-sm-6">
+            @php
+                $isInvalid = $errors->has('last_name') ? ' is-invalid' : '';
+            @endphp
+            {{ Form::label('last_name', __('auth.profile.surname'), ['class' => 'required']) }}
+            {{ Form::text('last_name', null, ['class' => 'form-control' . $isInvalid, 'required' => 'required', 'placeholder' => __('auth.profile.placeholder.surname'), 'autocomplete' => 'family-name']) }}
+            @error('last_name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
     </div>
-    <div class="col-sm-6 right">
-        {{ Form::label('last_name', 'Příjmení', ['class' => 'control-label']) }}
-        @if ($errors->has('last_name'))
-            <p class="error-block alert-danger col-sm-12">{{ $errors->first('last_name') }}</p>
-        @endif
-        {{ Form::text('last_name', old('last_name'), ['class' => 'form-control']) }}
+    <div class="form-group">
+        @php
+            $isInvalid = $errors->has('email') ? ' is-invalid' : '';
+        @endphp
+        {{ Form::label('email', __('auth.e-mail'), ['class' => 'required']) }}
+        {{ Form::email('email', null, ['class' => 'form-control' . $isInvalid, 'required' => 'required', 'placeholder' => __('auth.placeholder.e-mail'), 'autocomplete' => 'username']) }}
+        @error('email')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
     </div>
-    <div class="col-sm-6 info"></div>
-
-</div>
-
-{{ Form::bsPassword('password', 'Heslo', [], 'Heslo musí obsahovat alespoň 8 znaků.') }}
-{{ Form::bsPassword('password_confirmation', 'Potvrzení hesla', []) }}
-{{ Form::bsSelect('id_country', 'Země původu', $countries, ['placeholder' => 'Vyber zemi...', 'default' => $id_cz]) }}
+    <div class="form-group">
+        @php
+            $isInvalid = $errors->has('password') ? ' is-invalid' : '';
+        @endphp
+        {{ Form::label('password', __('auth.password'), ['class' => 'required']) }}
+        {{ Form::password('password', ['class' => 'form-control' . $isInvalid, 'required' => 'required', 'min' => 8, 'placeholder' => __('auth.placeholder.password'), 'autocomplete' => 'new-password']) }}
+        @error('password')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+        <small class="form-text text-muted">@lang('auth.password-note')</small>
+    </div>
+    <div class="form-group">
+        {{ Form::label('password_confirmation', __('auth.password-confirmation'), ['class' => 'required']) }}
+        {{ Form::password('password_confirmation', ['class' => 'form-control', 'required' => 'required', 'min' => 8, 'placeholder' => __('auth.placeholder.password-confirmation'), 'autocomplete' => 'new-password']) }}
+    </div>
+</fieldset>

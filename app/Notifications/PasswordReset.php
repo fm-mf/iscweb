@@ -7,10 +7,15 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class PasswordReset extends Notification
+class PasswordReset extends Notification implements ShouldQueue
 {
     use Queueable;
 
+    /**
+     * The password reset token.
+     *
+     * @var string
+     */
     public $token;
 
     /**
@@ -21,13 +26,14 @@ class PasswordReset extends Notification
     public function __construct($token)
     {
         $this->token = $token;
+        $this->queue = 'emails';
     }
 
     /**
-     * Get the notification's delivery channels.
+     * Get the notification's channels.
      *
      * @param  mixed  $notifiable
-     * @return array
+     * @return array|string
      */
     public function via($notifiable)
     {
@@ -35,7 +41,7 @@ class PasswordReset extends Notification
     }
 
     /**
-     * Get the mail representation of the notification.
+     * Build the mail representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
@@ -43,24 +49,9 @@ class PasswordReset extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('Ahoj')
-                    ->subject('Reset hesla')
-                    ->from('buddy@isc.cvut.cz')
-                    ->line('Tento email Ti byl zaslán, protože sis vyžádal(a) reset hesla.')
-                    ->action('Resetovat heslo', url('user/password/reset', $this->token))
-                    ->line('Pokud jsi o reset hesla nežádal(a), můžeš tento email ignorovat.');
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+            ->subject(__('buddy-program.title') . ' – ' . __('auth.passwords.title'))
+            ->line(__('passwords.email.line-1'))
+            ->action(__('passwords.email.action'), route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()]))
+            ->line(__('passwords.email.line-2'));
     }
 }

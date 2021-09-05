@@ -219,4 +219,12 @@ class Person extends Model
             ->orderBy('first_name')
             ->orderBy('last_name');
     }
+
+    public static function getSexOptions(): array
+    {
+        return [
+            'M' => __('auth.profile.sex-m'),
+            'F' => __('auth.profile.sex-f'),
+        ];
+    }
 }

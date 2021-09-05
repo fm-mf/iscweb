@@ -1,67 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('auth.layouts.layout')
 
-    <title>Přihlášení | ISC CTU in Prague</title>
+@section('title', __('auth.login'))
 
-    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
+@section('page')
+    @component('components.alert-success', ['sessionKey' => 'status']) @endcomponent
 
-    <link href="{{ URL::asset('css/login.css') }}" rel="stylesheet" type="text/css">
+    <blockquote class="blockquote" lang="en">
+        <p class="mb-0">‘We can’t help everyone, but everyone can help someone.’</p>
+        <footer class="blockquote-footer">Ronald Reagan</footer>
+    </blockquote>
+    @if(Str::startsWith(session()->get('url.intended'), route('partak.index')))
+        <h1>@lang('auth.login-heading-partak')</h1>
+    @else
+        <h1>@lang('auth.login-heading-buddy')</h1>
+    @endif
 
-{{-- We do not use Proxima Nova or Myriad Pro fonts from Typekit anymore
-    <script type="text/javascript" src="//use.typekit.net/aav2ndi.js"></script>
-    <script type="text/javascript">try{ Typekit.load();}catch(e){}</script>--}}
-</head>
-<body>
-@include('partials.google-analytics')
-
-<div class="login-wrapper">
-    <div class="center">
-        <blockquote><p>"We can't help everyone, but everyone can help someone."</p><p><small>Ronald Reagan</small></p></blockquote>
-        @if(str_contains(Session::get('url.intended', action('Buddyprogram\ListingController@listExchangeStudents')), action('Partak\DashboardController@index')))
-            <h1>Přihlášení na ParťákNET</h1>
-        @else
-            <h1>PŘIHLÁŠENÍ DO BUDDY PROGRAMU</h1>
-        @endif
-
-
-        @if(count($errors))
-        <div class="err-msgs">
-            @foreach($errors->all() as $error)
-                <p><span class="glyphicon glyphicon-remove-circle"></span>{{ $error }}</p>
-            @endforeach
+    {{ Form::open(['route' => 'login']) }}
+        <div class="form-group">
+            @php
+                $isInvalid = $errors->has('email') ? ' is-invalid' : '';
+            @endphp
+            {{ Form::label('email', __('auth.e-mail'), ['class' => 'required']) }}
+            {{ Form::email('email', null, ['required' => 'required', 'class' => 'form-control' . $isInvalid, 'placeholder' => __('auth.placeholder.e-mail'), 'autofocus' => 'autofocus', 'autocomplete' => 'username']) }}
+            @error('email')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-        @endif
-
-        {{ Form::open(['url' => '/user']) }}
-
-            {{ Form::bsText('email', 'E-mail', '', null, ['placeholder' => 'E-mail']) }}
-            {{ Form::bsPassword('password', 'Heslo', ['placeholder' => 'Heslo']) }}
-            {{ Form::bsSubmit('Přihlásit') }}
-
-        {{ Form::close() }}
-
-        <div class="login-links">
-            <p>Ješte nemáš účet? <a href="{{ url('user/register') }}">Zaregistruj se</a>!<br>
-                <a href="{{ url('user/password') }}">Zapomněl jsi heslo</a>?
-            </p>
+        <div class="form-group">
+            {{ Form::label('password', __('auth.password'), ['class' => 'required']) }}
+            {{ Form::password('password', ['required' => 'required', 'class' => 'form-control', 'placeholder' => __('auth.placeholder.password'), 'autocomplete' => 'current-password']) }}
         </div>
-    </div>
-</div>
+        <div class="form-group">
+            {{ Form::button(__('auth.log-in'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
+        </div>
+    {{ Form::close() }}
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-    $(".chosen").chosen();
-
-    $(document).ready(function() {
-        $( ".chosen" ).on( "change", function() {
-            window.location.replace("{include #link1}/"+$(this).attr("name")+"/"+$(this).val());
-        });
-    });
-</script>
-
-</body>
-</html>
+    <p>
+        @lang('auth.no-account-yet')
+        <a class="font-weight-bold" href="{{ route('register') }}">@lang('auth.register-imp')</a>
+    </p>
+    <p>
+        <a class="font-weight-bold" href="{{ route('auth.password-reset-form') }}">@lang('auth.forgot-your-password')</a>
+    </p>
+@endsection

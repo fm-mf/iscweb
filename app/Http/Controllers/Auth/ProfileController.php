@@ -5,38 +5,36 @@ namespace App\Http\Controllers\Auth;
 use App\Events\BuddyRegistered;
 use App\Events\BuddyVerified;
 use App\Events\BuddyWithoutEmailRegistered;
-use App\Mail\LetHRKnow;
-use App\Mail\VerifyUser;
-use App\Models\Buddy;
-use App\Models\Faculty;
-use App\Models\User;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
+use App\Models\Country;
+use App\Models\Faculty;
+use App\Models\Person;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Validator as ValidatorFacade;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 
 class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'verifyBuddy']);
+        $this->middleware('auth', ['except' => ['verifyBuddy', 'showThanks']]);
     }
 
     public $allowedDomains = [
         /*********** CVUT **************/
-        'cvut.cz' => 'cvut.cz',
-        'fsv.cvut.cz' => 'fsv.cvut.cz',
-        'fs.cvut.cz' => 'fs.cvut.cz',
-        'fel.cvut.cz' => 'fel.cvut.cz',
-        'fjfi.cvut.cz' => 'fjfi.cvut.cz',
         'fa.cvut.cz' => 'fa.cvut.cz',
-        'fd.cvut.cz' => 'fd.cvut.cz',
         'fbmi.cvut.cz' => 'fbmi.cvut.cz',
+        'fd.cvut.cz' => 'fd.cvut.cz',
+        'fel.cvut.cz' => 'fel.cvut.cz',
         'fit.cvut.cz' => 'fit.cvut.cz',
+        'fjfi.cvut.cz' => 'fjfi.cvut.cz',
+        'fs.cvut.cz' => 'fs.cvut.cz',
+        'fsv.cvut.cz' => 'fsv.cvut.cz',
         'muvs.cvut.cz' => 'muvs.cvut.cz',
+        'cvut.cz' => 'cvut.cz',
 
         /*********** VSCHT **************/
         'vscht.cz' => 'vscht.cz',
@@ -59,6 +57,7 @@ class ProfileController extends Controller
         'prf.cuni.cz' => 'prf.cuni.cz',
         'htf.cuni.cz' => 'htf.cuni.cz',
         'etf.cuni.cz' => 'etf.cuni.cz',
+
         /*********** CULS ****************/
         'af.czu.cz' => 'af.czu.cz',
         'pef.czu.cz' => 'pef.czu.cz',
@@ -69,136 +68,158 @@ class ProfileController extends Controller
         'ivp.czu.cz' => 'ivp.czu.cz'
     ];
 
-    protected function profileValidator(array $data)
+    public function showProfileForm()
     {
-        return Validator::make($data, [
-            'phone' => 'max:20',
-            'age' => 'integer|min:1901|max:2155|nullable'
+        return view('auth.profile')->with([
+            'buddy' => auth()->user()->buddy->load(['person', 'user']),
+            'sexOptions' => Person::getSexOptions(),
+            'countries' => Country::getOptions(),
+            'faculties' => Faculty::getOptions(),
         ]);
-    }
-
-    protected function emailValidator(array $data)
-    {
-        $validator =  Validator::make($data, [
-            'email' => 'required|max:255'
-        ]);
-
-        $validator->after(function ($validator) use ($data) {
-            if (!in_array($data['domain'], $this->allowedDomains)) {
-                $validator->errors()->add('domain', 'Nepovolená doména');
-            }
-            if (strpos($data['email'], '@') !== false) {
-                $validator->errors()->add('email', 'Zadej prosím správný formát');
-            }
-        });
-
-        return $validator;
-    }
-
-    protected function motivationValidator(array $data)
-    {
-        $validator = Validator::make($data, [
-            'motivation' => ['required', 'string', 'max:65535'],
-        ]);
-        return $validator;
-    }
-
-    public function showProfileForm(Request $request)
-    {
-
-        $buddy = Buddy::with('person')->find(Auth::id());
-
-        return view('auth.profile')->with(['faculties' => Faculty::getOptions(), 'avatar' => $buddy->person->avatar(), 'buddy' => $buddy]);
     }
 
     public function updateProfile(Request $request)
     {
-        $this->profileValidator($request->all())->validate();
+        $validated = $this->profileValidator($request->all())->validate();
+        $validated['subscribed'] ??= false;
 
-        $user = Auth::user();
-        $buddy = Buddy::with('person')->find(Auth::id());
+        $user = auth()->user();
+        $buddy = $user->buddy;
 
-        $data = ['subscribed' => false];
-        foreach ($request->all() as $key => $value) {
-            $data[$key] = $value;
-        }
+        $buddy->person->update(Arr::only($validated, ['age', 'sex']));
+        $buddy->update(Arr::except($validated, ['age', 'sex']));
 
-        $buddy->person->update($data);
-        $buddy->update($data);
-
-        if ($user->isBuddy()) {
-            return Redirect::to('/user/profile')->with('success', true);
-        } else if ($this->isEmailVerifiable($user->email)) {
-            $buddy->update([
-                'verification_email' => $user->email,
+        if ($buddy->isVerified()) {
+            return redirect()->route('auth.profile.edit')->with([
+                'success' => __('auth.profile.updated-successfully')
             ]);
-            event(new BuddyRegistered($buddy));
-            return Redirect::to('user/verification-info')->with(['email' => $user->email]);
-        } else {
-            return Redirect::to('user/verify');
         }
+
+        return $this->skipToVerification();
     }
 
-    public function showVerificationForm(Request $request)
+    public function skipToVerification()
     {
-        return view('auth.verify')->with(['allowedDomains' => $this->allowedDomains]);
+        if ($this->attemptEmailVerification(auth()->user())) {
+            $with = [
+                'verification_mail_sent' => __('auth.verification.mail-sent', ['email' => auth()->user()->email]),
+            ];
+        }
+
+        return redirect()->route('auth.verification.request')->with($with ?? []);
+    }
+
+    public function showVerificationForm()
+    {
+        return view('auth.verification.verify')->with([
+            'allowedDomains' => $this->allowedDomains,
+        ]);
     }
 
     public function processVerificationForm(Request $request)
     {
         $this->emailValidator($request->all())->validate();
 
-        $email = $request->email . '@' . $request->domain;
-        auth()->user()->buddy->update([
-            'verification_email' => $email,
-        ]);
-        event(new BuddyRegistered(auth()->user()->buddy));
+        $buddy = auth()->user()->buddy;
 
-        return redirect('/user/verification-info')->with(['email' => $email]);
+        $buddy->update([
+            'verification_email' => "{$request->input('email')}@{$request->input('domain')}",
+        ]);
+
+        event(new BuddyRegistered($buddy));
+
+        return redirect()->route('auth.verification.request')->with([
+            'verification_mail_sent' => __('auth.verification.mail-sent', ['email' => $buddy->user->email]),
+        ]);
     }
 
     public function processNoEmail(Request $request)
     {
-        $buddy = auth()->user()->buddy;
         $this->motivationValidator($request->all())->validate();
+
+        $buddy = auth()->user()->buddy;
+
         $buddy->update([
             'motivation' => $request->motivation,
         ]);
+
         event(new BuddyWithoutEmailRegistered($buddy));
-        return redirect('/user/thankyou')->with('verified', false);
+
+        return redirect()->route('auth.verification.verified')->with([
+            'verified' => false
+        ]);
     }
 
-    public function showVerificationInfo(Request $request)
-    {
-        return view('auth.verificationsent')->with(['email' => $request->session()->get('email')]);
-    }
-
-    public function verifyBuddy($hash)
+    public function verifyBuddy(string $hash)
     {
         $user = User::findByHash($hash);
-        if ($user) {
-            $buddy = Buddy::findBuddy($user->id_user);
-            $buddy->setVerified();
-            event(new BuddyVerified($buddy));
-            return redirect('/user/thankyou')->with('verified', true);
-        } else {
-            return view('auth.invalidhash');
+        if (empty($user)) {
+            return view('auth.verification.invalid-hash');
         }
+
+        $user->buddy->setVerified();
+
+        event(new BuddyVerified($user->buddy));
+
+        return redirect()->route('auth.verification.verified')->with([
+            'verified' => true,
+        ]);
     }
 
     public function showThanks(Request $request)
     {
-        return view('auth.thanks')->with('verified', $request->session()->get('verified'));
+        return view('auth.verification.thanks')->with([
+            'verified' => $request->session()->get('verified'),
+        ]);
     }
 
-    private function isEmailVerifiable($email)
+    protected function isEmailVerifiable(string $email): bool
     {
         $emailDomain = explode('@', $email)[1];
 
-        if (in_array($emailDomain, $this->allowedDomains)) {
-            return true;
+        return in_array($emailDomain, $this->allowedDomains);
+    }
+
+    protected function attemptEmailVerification(User $user): bool
+    {
+        if (!$this->isEmailVerifiable($user->email)) {
+            return false;
         }
 
-        return false;
+        $user->buddy->update([
+            'verification_email' => $user->email,
+        ]);
+
+        event(new BuddyRegistered($user->buddy));
+
+        return true;
+    }
+
+    protected function profileValidator(array $data): Validator
+    {
+        return ValidatorFacade::make($data, [
+            'sex' => ['nullable', 'string', 'in:M,F'],
+            'age' => ['nullable', 'integer', 'min:1901', 'max:2155'],
+            'id_country' => ['nullable', 'integer', 'exists:countries'],
+            'id_faculty' => ['nullable', 'integer', 'exists:faculties'],
+            'phone' => ['nullable', 'phone:AUTO,CZ,SK', 'max:255'],
+            'about' => ['nullable', 'string', 'max:16383'],
+            'subscribed' => ['nullable', 'boolean'],
+        ]);
+    }
+
+    protected function emailValidator(array $data): Validator
+    {
+        return ValidatorFacade::make($data, [
+            'email' => ['required', 'max:200', 'regex:/^[^@]+$/'],
+            'domain' => ['required', Rule::in($this->allowedDomains)]
+        ]);
+    }
+
+    protected function motivationValidator(array $data): Validator
+    {
+        return ValidatorFacade::make($data, [
+            'motivation' => ['required', 'string', 'max:16383'],
+        ]);
     }
 }

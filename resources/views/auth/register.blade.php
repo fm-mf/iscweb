@@ -1,81 +1,61 @@
-@extends('layouts.user.user')
+@extends('auth.layouts.layout')
 
-@section('content')
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>Registrace do Buddy Programu</h1>
-        </div>
-    </div>
-    <div class="row alert alert-danger" lang="en">
-        <div class="col-sm-12">
-            <p class="description">
-                <strong>Warning:</strong> This registration is for Czech students only!
-                If you are an exchange student, please, <strong>do not register here</strong>.
-                We will contact you through email with more information about how to get a buddy.
-            </p>
-            <p class="description">
-                If you are a full-time student, please, contact us at
-                <a href="mailto:buddy@isc.cvut.cz" class="alert-link">buddy@isc.cvut.cz</a>.
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <p class="description">
-                Registrací získáš přístup do databáze přijíždějících zahraničních studentů.
-            </p>
-            <p class="description">
-                V&nbsp;případě, že ses již registroval(a), pokračuj na
-                <a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}">přihlašovací stránku</a>.
-            </p>
-        </div>
+@section('title', __('auth.registration'))
+
+@section('page')
+    <h1>
+        @lang('auth.registration-heading')
+    </h1>
+    <div class="alert alert-danger mb-5" lang="en" role="alert">
+        <h4 class="alert-heading">
+            Warning!
+        </h4>
+        <p>
+            <strong>This registration is for local (Czech) students only!</strong>
+        </p>
+        <p>
+            If you are an exchange student, please, <strong>do not register here</strong>.
+            We will contact you through e-mail with more information about how to get a Buddy.
+        </p>
+        <p class="mb-0">
+            If you are a degree student, please, contact us at
+            <a href="mailto:buddy@isc.cvut.cz" class="alert-link">buddy@isc.cvut.cz</a>.
+        </p>
     </div>
 
-    {!! Form::open(['action' => 'Auth\RegisterController@register']) !!}
+    @lang('auth.registration-info', ['href' => route('buddy-home')])
+
+    {{ Form::open(['route' => 'register', 'class' => 'mt-4']) }}
         @include('auth.partials.user')
 
-    <div class="row">
-        <div class="col-sm-12">
-            <h2>Buddy Kodex</h2>
-            {{--<p class="grey">--}}
-            <p>Ke své úloze se stavíme zodpovědně a zahraničním studentům se snažíme pomáhat –
-                to však neznamená, že jsme jejich sluhy. Naše vztahy by měly být převážně
-                kamarádské. Zároveň si však uvědomujeme, že naše jednání ovlivňuje pověst ISC,
-                ČVUT a potažmo celé České republiky. Proto se chováme tak, abychom ji nepoškozovali.</p>
-            <p>Nebojíme se komunikovat i v&nbsp;případě, že cizí jazyky nejsou naší silnou
-                stránkou. Naopak, v&nbsp;poznávání zahraničních studentů vidíme obrovskou
-                příležitost a sami se od nich chceme něco naučit. V&nbsp;žádném případě je však
-                nezneužíváme k&nbsp;vlastnímu prospěchu, ani ke komerčním účelům.</p>
-            <p>Stává se, že si s&nbsp;nějakou situací nevíme rady. Jsme však jeden tým, a vždy
-                se můžeme obrátit na ISC s&nbsp;žádostí o pomoc
-                (<a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>).</p>
+        <fieldset>
+            <legend>@lang('auth.code-of-conduct.title')</legend>
+
+            @lang('auth.code-of-conduct.text')
+
+            <div class="form-group form-check">
+                @php
+                    $isInvalid = $errors->has('code_of_conduct') ? ' is-invalid' : '';
+                @endphp
+                {{ Form::checkbox('code_of_conduct', 1, null, ['class' => 'form-check-input' . $isInvalid, 'required' => 'required', 'id' => 'code_of_conduct']) }}
+                {{ Form::label('code_of_conduct', __('auth.code-of-conduct.approval'), ['class' => 'form-check-label required']) }}
+                @error('code_of_conduct')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+        </fieldset>
+        <div class="form-group form-check">
+            @php
+                $isInvalid = $errors->has('agreement') ? ' is-invalid' : '';
+            @endphp
+            {{ Form::checkbox('agreement', 1, null, ['class' => 'form-check-input' . $isInvalid, 'required' => 'required', 'id' => 'agreement']) }}
+            {{ Form::label('agreement', __('auth.privacy-approval', ['href' => route('privacy.agreement-cs')]), ['class' => 'form-check-label required'], false) }}
+            @error('agreement')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-
-    </div>
-
-    <div class="checkbox">
-        @if ($errors->has('kodex'))
-            <p class="error-block alert-danger">{{ $errors->first('kodex') }}</p>
-        @endif
-        <label class="col-sm-12">
-            {{ Form::checkbox('kodex') }} Slibuji, že se budu držet Buddy kodexu.
-        </label>
-    </div>
-    <div class="checkbox">
-        @if ($errors->has('agreement'))
-            <p class="error-block alert-danger">Souhlas se zpracováním musí být udělen.</p>
-        @endif
-        <label class="col-sm-12">
-            {{ Form::checkbox('agreement') }} Souhlasím se <a href="{{ url('privacy/agreements-cs') }}" target="_blank", title="Souhlas se zpracováním osobních údajů">zpracováním osobních údajů.</a>
-        </label>
-    </div>
-        {{ Form::bsSubmit('Registrovat') }}
-    {!! Form::close() !!}
-
-    <div class="footer row">
-        <div class="col-sm-12">
-            <p>V&nbsp;případě technických potíží nás kontaktuj na <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a></p>
-            <p>&copy;&nbsp;{{ \Carbon\Carbon::today()->year }} | International Student Club CTU in Prague, z.&nbsp;s.</p>
+        <div class="form-group">
+            {{ Form::button(__('auth.register'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
         </div>
-    </div>
+    {{ Form::close() }}
 @endsection

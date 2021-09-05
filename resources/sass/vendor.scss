@@ -1,6 +1,10 @@
 $enable-rounded: false;
 $fa-font-path: "/fonts/font-awesome";
 
+$custom-file-text: (
+    cs: "Procházet",
+);
+
 @import "~bootstrap/scss/bootstrap";
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";

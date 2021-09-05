@@ -6,11 +6,12 @@ use App\Notifications\PasswordReset;
 use Carbon\Carbon;
 use Hashids\Hashids;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasLocalePreference
 {
     use Notifiable;
 
@@ -219,5 +220,10 @@ class User extends Authenticatable
     public function scopeByHash(Builder $query, string $hash): Builder
     {
         return $query->where('hash', '=', $hash);
+    }
+
+    public function preferredLocale()
+    {
+        return $this->preferred_language;
     }
 }

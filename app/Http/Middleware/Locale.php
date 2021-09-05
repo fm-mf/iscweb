@@ -17,35 +17,25 @@ class Locale
      */
     public function handle(Request $request, Closure $next)
     {
-        // Apply the locale only for Buddy DB & Tandem database,
-        // otherwise there will be a mix of languages on non-translated pages
-        if (!$request->is('muj-buddy')
-            && !$request->is('muj-buddy/*')
+        // Do not change the locale for parts without multi-language support,
+        // otherwise there would be a mix of languages on non-translated pages
+        if (
+            !$request->is('muj-buddy', 'muj-buddy/*')
             && !$request->routeIs('tandem.*')
+            && !$request->is('user', 'user/*')
         ) {
             return $next($request);
         }
 
-        $browserPreferredLanguage = LocaleHelper::getBrowserPreferredLanguage();
-
         if ($request->routeIs('tandem.*')) {
-            $language = $this->handleTandemLocale($browserPreferredLanguage);
-        } else {
-            if (auth()->guest() && session(LocaleHelper::SESSION_KEY) !== $browserPreferredLanguage) {
-                session([
-                    LocaleHelper::SESSION_KEY => $browserPreferredLanguage,
-                ]);
-            } elseif (auth()->user() && session(LocaleHelper::SESSION_KEY, $browserPreferredLanguage) !== auth()->user()->preferred_language) {
-                session([
-                    LocaleHelper::SESSION_KEY => auth()->user()->preferred_language ?? $browserPreferredLanguage,
-                ]);
-            }
-
-            $language = session(
-                LocaleHelper::SESSION_KEY,
-                $browserPreferredLanguage
-            );
+            $sessionKey = LocaleHelper::SESSION_KEY_TANDEM;
+            $guard = 'tandem';
         }
+
+        $language = $this->handleLocale(
+            $sessionKey ?? LocaleHelper::SESSION_KEY,
+            $guard ?? null
+        );
 
         app()->setLocale($language);
         setlocale(LC_ALL, __('web.locale-full'));
@@ -53,18 +43,20 @@ class Locale
         return $next($request);
     }
 
-    public function handleTandemLocale(string $browserPreferredLanguage) : string
+    protected function handleLocale(string $sessionKey, ?string $guard = null): string
     {
-        if (auth('tandem')->guest() && !session()->has(LocaleHelper::SESSION_KEY_TANDEM)) {
+        $browserPreferredLanguage = LocaleHelper::getBrowserPreferredLanguage();
+        $sessionLanguage = session($sessionKey, $browserPreferredLanguage);
+
+        if (
+            auth($guard)->check()
+            && ($userPreferredLanguage = auth($guard)->user()->preferred_language) !== $sessionLanguage
+        ) {
             session([
-                LocaleHelper::SESSION_KEY_TANDEM => $browserPreferredLanguage,
-            ]);
-        } elseif (auth('tandem')->check() && auth('tandem')->user()->preferred_language !== session(LocaleHelper::SESSION_KEY_TANDEM, $browserPreferredLanguage)) {
-            session([
-                LocaleHelper::SESSION_KEY_TANDEM => auth('tandem')->user()->preferred_language ?? session(LocaleHelper::SESSION_KEY_TANDEM, $browserPreferredLanguage),
+                $sessionKey => $userPreferredLanguage ?? $sessionLanguage,
             ]);
         }
 
-        return session(LocaleHelper::SESSION_KEY_TANDEM, $browserPreferredLanguage);
+        return session($sessionKey, $browserPreferredLanguage);
     }
 }

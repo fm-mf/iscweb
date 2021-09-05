@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Hash;
@@ -25,17 +23,6 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
-    /**
-     * Where to redirect users after resetting their password.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * @param $user User
-     * @param $password string
-     */
     protected function resetPassword($user, $password)
     {
         $user->forceFill([
@@ -44,8 +31,11 @@ class ResetPasswordController extends Controller
         ])->save();
 
         event(new PasswordReset($user));
+    }
 
-        $this->guard()->login($user);
+    protected function redirectTo(): string
+    {
+        return route('login');
     }
 
     private function encryptPassword($email, $password)

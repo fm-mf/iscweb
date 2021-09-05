@@ -29,4 +29,6 @@ return [
     ],
 
     'closed' => 'Closed',
+
+    'change-language' => 'Switch to English',
 ];

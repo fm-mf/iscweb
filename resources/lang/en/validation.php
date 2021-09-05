@@ -148,6 +148,13 @@ return [
             'uploaded' => 'The selected image file size is too large. Please, select a smaller one (maximum allowed size is 2 MiB)',
             'max' => 'The selected image file size is too large. Please, select a smaller one (maximum allowed size is 2 MiB)',
         ],
+        'agreement' => [
+            'accepted' => 'The :attribute must be given.',
+        ],
+        'registration_type' => [
+            'required' => 'No option has been selected.',
+            'in' => 'The selected option is invalid.',
+        ],
     ],
 
     'phone' => 'Entered phone number is invalid',
@@ -165,7 +172,12 @@ return [
     */
 
     'attributes' => [
+        'first_name' => 'given names',
+        'last_name' => 'surname',
+        'email' => 'e-mail',
+        'code_of_conduct' => 'Buddy code of conduct',
         'age' => 'year of birth',
+        'agreement' => 'Consent to the processing of personal data',
         'buddyDbFromDate' => 'Buddy database opening date',
         'buddyDbFromTime' => 'Buddy database opening time',
 

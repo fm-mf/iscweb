@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -24,6 +25,12 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+    const REGISTRATION_TYPES = [
+        'local' => 'auth.register',
+        'exchange' => 'auth.register-exchange',
+        'degree' => 'auth.register-degree',
+    ];
 
     /**
      * Where to redirect users after registration.
@@ -55,8 +62,7 @@ class RegisterController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'id_country' => ['required', 'integer', 'exists:countries'],
-            'kodex' => ['accepted'],
+            'code_of_conduct' => ['accepted'],
             'agreement' => ['accepted'],
         ]);
     }
@@ -70,9 +76,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $data['password'] = $this->encryptPassword($data);
+
         $buddy = Buddy::registerBuddy($data);
 
-        return $buddy->person->user;
+        return $buddy->user;
     }
 
     private function encryptPassword($credentials)
@@ -82,6 +89,23 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('auth.register')->with(['countries' => Country::getOptions(), 'id_cz' => Country::getCountryIdFromTwoLetter('CZ')]);
+        if (!session()->has('registrationType') && !session()->hasOldInput()) {
+            return view('auth.preregister-check')->with([
+                'registrationTypes' => array_keys(self::REGISTRATION_TYPES),
+            ]);
+        }
+
+        return view(self::REGISTRATION_TYPES[session('registrationType', 'local')]);
+    }
+
+    public function registerCheck()
+    {
+        request()->validate([
+            'registration_type' => ['required', 'string', Rule::in(array_keys(self::REGISTRATION_TYPES))],
+        ]);
+
+        return redirect()->route('register')->with([
+            'registrationType' => request()->get('registration_type')
+        ]);
     }
 }

@@ -10,6 +10,6 @@
 Route::get('/', 'PrivacyController@showTree');
 Route::get('/notice', 'PrivacyController@showPrivacyNotice')->name('privacy.notice');
 Route::get('/policy', 'PrivacyController@showPrivacyPolicy')->name('privacy.policy');
-Route::get('/agreements-cs', 'PrivacyController@showAgreementCS');
+Route::get('/agreements-cs', 'PrivacyController@showAgreementCS')->name('privacy.agreement-cs');
 Route::post('/partak', 'PrivacyController@privacyPartak')->middleware('auth');
-Route::post('/buddy', 'PrivacyController@privacyBuddy')->middleware('auth');
+Route::post('/buddy', 'PrivacyController@privacyBuddy')->name('privacy.buddy')->middleware('auth');

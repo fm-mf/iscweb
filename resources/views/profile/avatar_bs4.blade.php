@@ -50,7 +50,7 @@
                                     accept="image/*"
                                     required="required"
                                 />
-                                <label for="avatarInput" class="custom-file-label text-left">
+                                <label for="avatarInput" class="custom-file-label text-left" lang="{{ app()->getLocale() }}">
                                     @lang('forms.profile-picture-input-label')
                                 </label>
                             </div>

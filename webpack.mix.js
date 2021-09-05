@@ -26,10 +26,10 @@ mix.vue({ version: 2 })
     .js('resources/js/text-editor.js', 'public/js')
     .js('resources/js/crop-avatar.js', 'public/js')
     .js('resources/js/profile.js', 'public/js')
+    .sass('resources/sass/auth.scss', 'public/css')
     .sass('resources/sass/web/web.scss', 'public/css')
     .sass('resources/sass/czech/czech.scss', 'public/css')
     .sass('resources/sass/czech/alumni.scss', 'public/css')
-    .sass('resources/sass/auth/user.scss', 'public/css')
     .sass('resources/sass/auth/login.scss', 'public/css')
     .sass('resources/sass/partak/partaknet.scss', 'public/css')
     .sass('resources/sass/partak/pdf.scss', 'public/css')
@@ -40,6 +40,7 @@ mix.vue({ version: 2 })
     .sass('resources/sass/form/form.scss', 'public/css')
     .sass('resources/sass/components/avatar.scss', 'public/css')
     .sass('resources/sass/exchange-profile.scss', 'public/css')
+    .sass('resources/sass/general.scss', 'public/css')
     .sass('resources/sass/vendor.scss', 'public/css')
     .copy(
         'node_modules/@fortawesome/fontawesome-free/webfonts/*',
@@ -52,14 +53,6 @@ mix.vue({ version: 2 })
     .copy(
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'public/js/bootstrap.4.min.js'
-    )
-    .copy(
-        'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
-        'public/js'
-    )
-    .copy(
-        'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-        'public/js'
     )
     .options({
         processCssUrls: false

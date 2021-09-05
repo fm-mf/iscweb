@@ -13,7 +13,7 @@ class Locale
 
     const SESSION_KEY_TANDEM = 'locale_tandem';
 
-    public static function getAvailableLocalesSelectOptions()
+    public static function getAvailableLocalesSelectOptions(): array
     {
         return [
             'cs' => __('formatting.lang-select-option', [
@@ -24,7 +24,7 @@ class Locale
         ];
     }
 
-    public static function getBrowserPreferredLanguage()
+    public static function getBrowserPreferredLanguage(): string
     {
         $browserPreferredLanguage = request()->getPreferredLanguage(self::AVAILABLE_LOCALES);
 
@@ -37,5 +37,18 @@ class Locale
         }
 
         return $browserPreferredLanguage;
+    }
+
+    public static function setUserPreferredLanguage(string $language)
+    {
+        session([
+            self::SESSION_KEY => $language,
+        ]);
+
+        if (auth()->check()) {
+            auth()->user()->buddy->update([
+                'preferred_language' => $language,
+            ]);
+        }
     }
 }

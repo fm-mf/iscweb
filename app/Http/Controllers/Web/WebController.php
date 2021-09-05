@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers\Web;
 
+use App\Helpers\Locale;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\Event;
@@ -17,6 +18,7 @@ use App\Models\OpeningHoursMode;
 use App\Facades\Settings;
 use App\Models\Page;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class WebController extends Controller
@@ -136,5 +138,19 @@ class WebController extends Controller
         $page = Page::findByType('coronavirus')->firstOrFail();
 
         return view('web.coronavirus', ['page' => $page]);
+    }
+
+    public function changeLanguage()
+    {
+        request()->validate([
+            'language' => [
+                'required',
+                Rule::in(Locale::AVAILABLE_LOCALES),
+            ],
+        ]);
+
+        Locale::setUserPreferredLanguage(request()->query('language'));
+
+        return back();
     }
 }

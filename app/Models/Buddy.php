@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Propaganistas\LaravelPhone\PhoneNumber;
 
@@ -23,6 +23,7 @@ class Buddy extends Model
         'about',
         'phone',
         'subscribed',
+        'agreement',
         'id_country',
         'motivation',
         'verification_email',
@@ -73,19 +74,24 @@ class Buddy extends Model
         $this->save();
     }
 
-    public function isVerified()
+    public function isVerified(): bool
     {
         return $this->verified === 'y'
             || (
                 (
-                    $this->person->user->created_at === null
-                    || $this->person->user->created_at->lessThan(Carbon::parse(self::VERIFICATION_START_DATE))
+                    $this->user->created_at === null
+                    || $this->user->created_at->lessThan(Carbon::parse(self::VERIFICATION_START_DATE))
                 )
                 && (
                     $this->active === 'y'
                     || $this->subscribed === 1
                 )
             );
+    }
+
+    public function isNotVerified(): bool
+    {
+        return !$this->isVerified();
     }
 
     public function isDenied()
@@ -137,27 +143,22 @@ class Buddy extends Model
         return Buddy::with('person.user');
     }
 
-    public static function registerBuddy($data)
+    public static function registerBuddy(array $data): self
     {
         return DB::transaction(function () use ($data) {
-            $user = new User;
-            $user->email = $data['email'];
-            $user->password = $data['password'];
-            $user->save();
+            $user = User::create(Arr::only($data, [
+                'email',
+                'password',
+            ]));
 
-            $person = new Person;
-            $person->id_user = $user->id_user;
-            $person->first_name = $data['first_name'];
-            $person->last_name = $data['last_name'];
-            $person->save();
+            $user->person()->create(Arr::only($data, [
+                'first_name',
+                'last_name',
+            ]));
 
-            $buddy = new Buddy;
-            $buddy->id_user = $user->id_user;
-            $buddy->agreement = $data['agreement'];
-            $buddy->id_country = $data['id_country'];
-            $buddy->save();
-
-            return $buddy;
+            return $user->buddy()->create(Arr::only($data, [
+                'agreement',
+            ]));
         });
     }
 

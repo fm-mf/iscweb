@@ -8,4 +8,6 @@ return [
     'profile-picture-change' => 'Změna profilové fotografie',
     'file-info' => 'Soubor může být veliký maximálně 2 MiB.',
     'file-too-big' => 'Zvolený soubor je příliš veliký!',
+    'profile-picture-help' => 'Pro změnu profilové fotografie klikni na obrázek výše.',
+    'profile-picture-input-label' => 'Vyber soubor s profilovou fotografií…',
 ];

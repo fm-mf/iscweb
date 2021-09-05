@@ -25,4 +25,6 @@ return [
     ],
 
     'closed' => 'zavřeno',
+
+    'change-language' => 'Přepnout do češtiny',
 ];

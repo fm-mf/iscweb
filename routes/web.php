@@ -13,10 +13,6 @@
 
 use Symfony\Component\HttpFoundation\Response;
 
-if (Request::segment(1) == "user") {
-    App::setLocale('cs');
-}
-
 Route::get('/event/{id}/cancel/{hash}', 'Exchange\ReservationController@showForm')->name('event.cancel');
 Route::get('/event/{id}', 'Exchange\ReservationController@showForm')->name('event.show');
 
@@ -148,3 +144,5 @@ Route::prefix('api')->namespace('Api')->name('api.')->group(function() {
     Route::get('/preregister', 'ApiController@loadPreregister')->middleware('auth', 'checkpartak')->name('preregister');
     Route::patch('/preregister/{student}', 'ApiController@preregister')->middleware('auth', 'checkpartak');
 });
+
+Route::get('change-language', 'Web\WebController@changeLanguage')->name('change-language');

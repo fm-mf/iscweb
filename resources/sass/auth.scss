@@ -1,0 +1,49 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.auth {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .container {
+        @include media-breakpoint-up(md) {
+            max-width: 37.5rem;
+        }
+    }
+
+    .blockquote {
+        padding: 0.5em 1em;
+        border-left: 0.25em solid $blockquote-small-color;
+        margin-top: 0.4em;
+        margin-bottom: 2em;
+
+        @include media-breakpoint-up(md) {
+            margin-top: 1.4em;
+            margin-bottom: 3em;
+        }
+    }
+
+    h1 {
+        margin: 1em 0;
+    }
+
+    label.required::after {
+        display: inline;
+        content: '*';
+        color: $red;
+        margin-left: 0.25em;
+    }
+
+    fieldset {
+        margin-top: 1rem;
+    }
+
+    .fas {
+        line-height: inherit;
+    }
+
+    .at-symbol {
+        line-height: $input-height;
+    }
+}

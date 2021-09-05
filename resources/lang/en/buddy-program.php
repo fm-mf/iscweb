@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title' => 'Buddy programme',
     'arrival-not-filled' => 'Not filled',
     'phone' => 'Phone',
     'faculty' => 'Faculty',
