@@ -3,9 +3,10 @@
 <auto-complete
     url="{{ url('api/autocomplete/buddies') }}"
     :fields="[
-        {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email']},
+        {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email', 'phone']},
         {title: 'Name', columns: ['person.first_name', 'person.last_name']},
-        {title: 'Email', columns: ['person.user.email']},
+        {title: 'E-mail', columns: ['person.user.email']},
+        {title: 'Phone', columns: ['phone']},
     ]"
     :topline="['person.first_name', 'person.last_name']"
     :subline="['person.user.email']"

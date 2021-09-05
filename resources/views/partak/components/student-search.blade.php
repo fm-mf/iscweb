@@ -4,10 +4,12 @@
     url="{{ url('api/autocomplete/exchange-students') }}"
     @if (!isset($create) || $create) create-url="{{ url('partak/users/office-registration/create') }}" @endif
     :fields="[
-        {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email', 'esn_card_number']},
+        {title: 'All', columns: ['person.first_name', 'person.last_name', 'person.user.email', 'esn_card_number', 'phone', 'whatsapp']},
         {title: 'Name', columns: ['person.first_name', 'person.last_name']},
-        {title: 'Email', columns: ['person.user.email']},
-        {title: 'Esn card', columns: ['esn_card_number']},
+        {title: 'E-mail', columns: ['person.user.email']},
+        {title: 'ESNcard', columns: ['esn_card_number']},
+        {title: 'Phone', columns: ['phone']},
+        {title: 'WhatsApp', columns: ['whatsapp']},
     ]"
     :topline="['person.first_name', 'person.last_name']"
     :subline="['person.user.email']"
