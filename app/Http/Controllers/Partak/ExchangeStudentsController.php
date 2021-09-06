@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Partak;
 use App\Exceptions\UserDoesntExist;
 use App\Models\Buddy;
 use App\Models\Country;
+use App\Models\EventReservation;
 use App\Models\ExchangeStudent;
 use App\Models\Accommodation;
 use App\Models\Person;
@@ -52,12 +53,21 @@ class ExchangeStudentsController extends Controller
     {
         $this->authorize('acl', 'exchangeStudents.view');
 
-        $exStudent = ExchangeStudent::with(['person.user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
+        $exStudent = ExchangeStudent::with(['person.user', 'user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
         if ($exStudent == null) {
             throw new UserDoesntExist("Exchange Student does not exist !!!");
         }
 
-        return view('partak.users.exchangeStudents.detail')->with(['exStudent' => $exStudent,]);
+        $reservedTrips = $exStudent->user->reservations()->with('event.trip')->get()
+            ->map(function (EventReservation $reservation) {
+                return $reservation->event->trip;
+            });
+
+        return view('partak.users.exchangeStudents.detail')->with([
+            'exStudent' => $exStudent,
+            'attendedTrips' => $exStudent->trips()->with('event')->get(),
+            'reservedTrips' => $reservedTrips,
+        ]);
     }
 
     public function promoteExchangeStudent($id)

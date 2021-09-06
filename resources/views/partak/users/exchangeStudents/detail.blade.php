@@ -20,4 +20,16 @@
     </div>
 
     @include('partak.users.partials.exstudent-detail-table')
-@stop
+
+    @component('components.attended-trips', ['studentName' => $exStudent->person->first_name, 'trips' => $attendedTrips])
+    @endcomponent
+
+    @component('components.attended-trips', ['trips' => $reservedTrips])
+        @slot('title')
+            Active trip reservations
+        @endslot
+        @slot('emptyMessage')
+            {{ $exStudent->person->first_name }} does not have any active trip reservations.
+        @endslot
+    @endcomponent
+@endsection

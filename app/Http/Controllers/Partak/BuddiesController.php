@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Partak;
 use App\Events\BuddyVerified;
 use App\Exceptions\UserDoesntExist;
 use App\Models\Buddy;
+use App\Models\EventReservation;
 use App\Models\ExchangeStudent;
 use App\Models\Role;
 use App\Models\Semester;
@@ -82,10 +83,18 @@ class BuddiesController extends Controller
         $semester = Semester::getCurrentSemester();
         $myStudents = $buddy->exchangeStudents()->bySemester($semester->semester)->with('person.user')->get();
         $semester = ucfirst($semester->getFullName());
+
+        $reservedTrips = $buddy->user->reservations()->with('event.trip')->get()
+            ->map(function (EventReservation $reservation) {
+                return $reservation->event->trip;
+            });
+
         return view('partak.users.buddies.detail')->with([
             'buddy' => $buddy,
             'myStudents' => $myStudents,
-            'currentSemester' => $semester
+            'currentSemester' => $semester,
+            'attendedTrips' => $buddy->trips()->with('event')->get(),
+            'reservedTrips' => $reservedTrips,
         ]);
     }
 

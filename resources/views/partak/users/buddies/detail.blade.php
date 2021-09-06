@@ -82,4 +82,16 @@
             </div>
         </div>
     @endif
-@stop
+
+    @component('components.attended-trips', ['studentName' => $buddy->person->first_name, 'trips' => $attendedTrips])
+    @endcomponent
+
+    @component('components.attended-trips', ['trips' => $reservedTrips])
+        @slot('title')
+            Active trip reservations
+        @endslot
+        @slot('emptyMessage')
+            {{ $buddy->person->first_name }} does not have any active trip reservations.
+        @endslot
+    @endcomponent
+@endsection
