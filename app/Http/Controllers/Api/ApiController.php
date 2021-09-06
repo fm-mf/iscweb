@@ -133,7 +133,7 @@ class ApiController extends Controller
         return new PreregistrationStudentCollection($students);
     }
 
-    public function preregister(ExchangeStudent $student)
+    public function preregister(ExchangeStudent $exchangeStudent)
     {
         $this->authorize('acl', 'exchangeStudents.register');
 
@@ -142,10 +142,10 @@ class ApiController extends Controller
             'esn_card_number' => ['required', 'string', 'unique:exchange_students'],
         ]);
 
-        $student->update($data);
+        $exchangeStudent->update($data);
 
         return response()->json([
-            'id_user' => $student->id_user
+            'id_user' => $exchangeStudent->id_user
         ]);
     }
 }

@@ -45,7 +45,7 @@ class OfficeRegistrationController extends Controller
         ]);
     }
 
-    public function esnRegistration(ExchangeStudent $student)
+    public function esnRegistration(ExchangeStudent $exchangeStudent)
     {
         $this->authorize('acl', 'exchangeStudents.register');
 
@@ -67,7 +67,7 @@ class OfficeRegistrationController extends Controller
         ]);
         $data['esn_receipt_id'] = $receipt->id_receipt;
 
-        $student->update($data);
+        $exchangeStudent->update($data);
 
         return back()->with([
             'receipt' => $receipt->id_receipt,

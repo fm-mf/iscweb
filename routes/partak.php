@@ -42,7 +42,7 @@ Route::prefix('/users')
             ->name('registration');
         Route::get('/office-registration/registration/{id}', 'OfficeRegistrationController@showExchangeStudent')
             ->name('registration.user');
-        Route::post('/office-registration/register/{student}', 'OfficeRegistrationController@esnRegistration')
+        Route::post('/office-registration/register/{exchange_student}', 'OfficeRegistrationController@esnRegistration')
             ->name('registration.register');
         Route::get('/office-registration/create', 'OfficeRegistrationController@showCreateExStudent')
             ->name('registration.create');

@@ -142,7 +142,7 @@ Route::prefix('api')->namespace('Api')->name('api.')->group(function() {
     Route::get('/filter-options', 'ApiController@loadFilterOptions')->middleware('auth', 'checkbuddy');
 
     Route::get('/preregister', 'ApiController@loadPreregister')->middleware('auth', 'checkpartak')->name('preregister');
-    Route::patch('/preregister/{student}', 'ApiController@preregister')->middleware('auth', 'checkpartak');
+    Route::patch('/preregister/{exchange_student}', 'ApiController@preregister')->middleware('auth', 'checkpartak');
 });
 
 Route::get('change-language', 'Web\WebController@changeLanguage')->name('change-language');
