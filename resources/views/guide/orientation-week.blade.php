@@ -219,7 +219,11 @@
                     (faculty coordinator should contact you via e-mail with instructions)
                     <ul>
                         <li>Faculty of Information Technology (FIT)</li>
+                        <li>Faculty of Civil Engineering (FSv)</li>
                     </ul>
+                </li>
+                <li>
+                    <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
                 </li>
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
