@@ -24,7 +24,6 @@ import 'tinymce/plugins/visualchars';
 import 'tinymce/plugins/wordcount';
 
 import 'tinymce/skins/ui/oxide/skin.css';
-import 'tinymce/skins/ui/oxide/content.css';
 
 import 'tinymce/plugins/emoticons/js/emojis';
 
