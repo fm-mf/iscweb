@@ -169,3 +169,6 @@ Route::prefix('/stats')
                     });
             });
     });
+
+Route::resource('esn-card-labels', 'EsnCardLabelsController')
+    ->only(['index', 'store']);

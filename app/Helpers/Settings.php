@@ -134,4 +134,9 @@ class Settings implements ConfigContract
     {
         return Carbon::parse($this->get('buddyDbFrom'));
     }
+
+    public function welcomePacksFrom(): Carbon
+    {
+        return Carbon::createFromFormat('d/m/Y', $this->get('wcFrom'));
+    }
 }

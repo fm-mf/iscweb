@@ -24,6 +24,7 @@ class Locale
             && !$request->routeIs('tandem.*')
             && !$request->is('user', 'user/*')
         ) {
+            setlocale(LC_ALL, __('web.locale-full'));
             return $next($request);
         }
 

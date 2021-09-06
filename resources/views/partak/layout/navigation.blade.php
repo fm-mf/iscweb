@@ -48,7 +48,10 @@
                 ['title' => 'Coronavirus', 'route' => 'partak.settings.coronavirus', 'acl' => 'settings.edit'],
             ]],
             ['title' => 'Alumni Newsletters', 'icon' => 'newspaper', 'route' => 'alumni.newsletters.index', 'acl' => ['alumniNewsletter.create', 'alumniNewsletter.update', 'alumniNewsletter.delete']],
-            ['title' => 'Logs', 'icon' => 'file', 'route' => 'partak.logs', 'acl' => 'logs'],
+            ['title' => 'Tools', 'icon' => 'tools', 'route' => 'partak.tools', 'acl' => ['users.import', 'partak.logs'], 'items' => [
+                ['title' => 'ESNcard labels generator', 'icon' => 'id-card', 'route' => 'partak.esn-card-labels.index', 'acl' => 'users.import'],
+                ['title' => 'Logs', 'icon' => 'file', 'route' => 'partak.logs', 'acl' => 'logs'],
+            ]],
             ['spacer' => true],
             ['title' => 'Buddy database', 'icon' => 'user-friends', 'route' => 'buddy-home', 'target' => '_blank'],
             ['title' => 'Wiki', 'icon' => 'question-circle', 'route' => 'wiki', 'target' => '_blank'],

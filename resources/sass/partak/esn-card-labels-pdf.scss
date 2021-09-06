@@ -1,0 +1,115 @@
+@use "sass:math";
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 300;
+    src: url(https://github.com/google/fonts/raw/main/apache/roboto/static/RobotoCondensed-Light.ttf) format('truetype');
+}
+
+$lineHeight: 4.875mm;
+$fontSize: 8pt;
+$pageMarginX: 7mm;
+$pageMarginY: 11mm;
+$rowSpacing: 2mm;
+$labelWidth: 46mm;
+$labelBorderThickness: 0.125pt;
+$labelXPadding: 1.5mm - math.div($labelBorderThickness, 2);
+$labelYTPadding: 0;
+$labelYBPadding: 1.25mm;
+
+$dateLetterSpacing: 0.75mm;
+$longNameLetterSpacing: -1em * math.div(5, 256);
+$extraLongNameLetterSpacing: -1em * math.div(11, 256);
+
+* {
+    page-break-before: avoid;
+    page-break-after: avoid;
+}
+
+html, body, p, div, td {
+    margin: 0;
+    padding: 0;
+}
+
+p, div, td {
+    overflow: hidden;
+}
+
+html {
+    font-size: $fontSize;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 300;
+}
+
+body {
+    margin: $pageMarginY $pageMarginX;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+tr {
+    page-break-after: auto;
+}
+
+.student {
+    width: $labelWidth;
+    min-width: $labelWidth;
+    max-width: $labelWidth;
+    border: $labelBorderThickness solid black;
+    padding: $labelYTPadding $labelXPadding $labelYBPadding;
+
+    p {
+        line-height: $lineHeight;
+        vertical-align: middle;
+        max-width: 100%;
+    }
+}
+
+.row {
+    height: $lineHeight;
+}
+
+div.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+div.row,
+.row.universityName {
+    margin-top: $rowSpacing;
+}
+
+.nationality,
+.sectionName {
+    width: 29mm;
+    float: left;
+}
+
+.dateOfBirth,
+.dateValidFrom {
+    width: 15mm + $dateLetterSpacing;
+    letter-spacing: $dateLetterSpacing;
+    margin-right: math.div(-$dateLetterSpacing, 2);
+    float: right;
+    text-align: right;
+}
+
+.longName {
+    letter-spacing: $longNameLetterSpacing;
+    //background-color: yellow;
+}
+
+.extraLongName {
+    letter-spacing: $extraLongNameLetterSpacing;
+    //background-color: orange;
+}
+
+.tooLongName {
+    letter-spacing: $extraLongNameLetterSpacing;
+    background-color: red;
+}
