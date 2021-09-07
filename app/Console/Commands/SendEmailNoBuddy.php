@@ -24,6 +24,8 @@ class SendEmailNoBuddy extends Command
      */
     protected $description = 'Sends an email to Exchange students without Buddy';
 
+    private $count = 0;
+
     /**
      * Create a new command instance.
      *
@@ -42,18 +44,16 @@ class SendEmailNoBuddy extends Command
     public function handle()
     {
         $semester = Settings::get('currentSemester');
-        $exchangeStudents = ExchangeStudent::with('person.user')
-                ->wantBuddy()
-                ->whereNotNull('about')
-                ->whereDoesntHave('buddy')
-                ->byUniqueSemester($semester)
-                ->get();
-        $emailsSent = 0;
-        foreach ($exchangeStudents as $student) {
-            $this->info("Sending email to " . $student->person->email);
-            Mail::to($student->person->email)->send(new NoBuddyEmail());
-            ++$emailsSent;
-        }
-        $this->info($emailsSent . " emails sent");
+        $exchangeStudents = ExchangeStudent::with(['person', 'user'])
+            ->availableToPick($semester)
+            ->get();
+
+        $exchangeStudents->each(function (ExchangeStudent $exchangeStudent) {
+            Mail::send(new NoBuddyEmail($exchangeStudent));
+            $this->info("Sending email to {$exchangeStudent->user->email}");
+            $this->count++;
+        });
+
+        $this->info("$this->count emails sent");
     }
 }
