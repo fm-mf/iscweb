@@ -52,7 +52,16 @@
     </ul>
 
     <div class="bg-info" style="margin-top: 4rem">
-        <p>Note: If you don't buy a public transport card immediately after your arrival, you need to buy and validate a <strong>24&nbsp;CZK</strong> single ticket (you can buy a ticket from an orange ticket machine or from a stand operated by DPP = the Prague Public Transport Company).</p>
-        <p>For further information, visit <a href="https://pid.cz/en/" target="_blank">pid.cz/en</a></p>
+        <p>
+            Note: If you don’t buy a public transport pass immediately after your arrival,
+            you need to buy and validate <strong>a single ticket for 90 minutes</strong>.
+            You can buy the ticket from a ticket machine, or in application <a href="https://app.pidlitacka.cz" target="_blank">‘PID Lítačka’</a>
+            (available for <a href="https://play.google.com/store/apps/details?id=cz.dpp.praguepublictransport&hl=en" target="_blank">Android</a>
+            and <a href="https://itunes.apple.com/cz/app/pid-litacka/id983071129" target="_blank">iOS</a>).
+        </p>
+        <p>
+            For current prices and further information, visit
+            <a href="https://pid.cz/en/travelling-around-prague/" target="_blank">pid.cz/en</a>.
+        </p>
     </div>
 @stop
