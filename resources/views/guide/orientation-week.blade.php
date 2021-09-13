@@ -110,6 +110,21 @@
                         <li>Visa regulations</li>
                     </ul>
                 </li>
+                <li>
+                    <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_registrations-at-faculties.pdf') }}" target="_blank">
+                        <i class="fas fa-file-pdf"></i> Registration at faculties
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_FAQ.pdf') }}" target="_blank">
+                        <i class="fas fa-file-pdf"></i> FAQ
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_sports.pdf') }}" target="_blank">
+                        <i class="fas fa-file-pdf"></i> Sports at CTU
+                    </a>
+                </li>
                 {{--
                 <li>
                     <a class="btn btn-primary" href="{{ asset('files/ow-fall-2019/ow-fall-2019-complete.pdf') }}">
@@ -207,11 +222,11 @@
                 <li>
                     <strong>In-person registration:</strong>
                     <ul>
-                        <li>Faculty of Electrical Engineering (FEL)</li>
-                        <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI)</li>
-                        <li>Faculty of Transportation (FD)</li>
-                        <li>Faculty of Biomedical Engineering (FBMI)</li>
-                        <li>Faculty of Architecture (FA)</li>
+                        <li>Faculty of Electrical Engineering (FEL) – 9:00, Room T2:D3-209</li>
+                        <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI) – 9:00, Room 10 at Břehová 7 building</li>
+                        <li>Faculty of Transportation (FD) – 9:00, at Konviktská 20 buillding</li>
+                        <li>Faculty of Biomedical Engineering (FBMI) – 9:00 in Kladno building (náměstí Sítná 3105), room KL:B-435</li>
+                        <li>Faculty of Architecture (FA) – 10:00, in front of the faculty</li>
                     </ul>
                 </li>
                 <li>
@@ -224,6 +239,11 @@
                 </li>
                 <li>
                     <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
+                </li>
+                <li>
+                    <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_registrations-at-faculties.pdf') }}" target="_blank">
+                        <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation from Monday
+                    </a>
                 </li>
                 <li class="bg-danger"><strong>You will need:</strong>
                     <ul>
@@ -287,8 +307,8 @@
                 <li>
                     <strong>In-person registration:</strong>
                     <ul>
-                        <li>Faculty of Mechanical Engineering (FS)</li>
-                        <li>Masaryk Institute of Advanced Studies (MÚVS)</li>
+                        <li>Faculty of Mechanical Engineering (FS) – 9:00, Room T4:D1-366</li>
+                        <li>Masaryk Institute of Advanced Studies (MÚVS) – 10:00, Room 104</li>
                     </ul>
                 </li>
                 <li class="bg-info">
