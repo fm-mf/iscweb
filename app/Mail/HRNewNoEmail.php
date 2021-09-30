@@ -4,13 +4,16 @@ namespace App\Mail;
 
 use App\Models\Buddy;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class HRNewNoEmail extends Mailable
+class HRNewNoEmail extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
+
+    const SUBJECT = 'Nový buddy bez univerzitního e-mailu';
 
     public $buddy;
 
@@ -22,6 +25,7 @@ class HRNewNoEmail extends Mailable
     public function __construct(Buddy $buddy)
     {
         $this->buddy = $buddy;
+        $this->queue = 'emails';
     }
 
     /**
@@ -31,8 +35,12 @@ class HRNewNoEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.noEmail')
-                    ->from('it.support@isc.cvut.cz')
-                    ->subject('Nový buddy bez univerzitního e-mailu');
+        return $this
+            ->from('it.support@isc.cvut.cz', 'IT Support ISC CTU in Prague')
+            ->to('hr@isc.cvut.cz', 'HR ISC CTU in Prague')
+            ->subject(self::SUBJECT)
+            ->view('emails.buddy-without-email')
+            ->text('emails.buddy-without-email_plain')
+            ->with('subject', self::SUBJECT);
     }
 }

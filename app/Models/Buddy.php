@@ -115,7 +115,7 @@ class Buddy extends Model
 
     public function getDetailLink()
     {
-        return url('partak/users/buddies/' . $this->id_user);
+        return route('partak.users.buddies.show', ['buddy' => $this]);
     }
 
     public function whoAmI($who)

@@ -20,8 +20,8 @@
                     <a href="{{ $buddy->getDetailLink() }}" class="btn btn-primary btn-sm ml-3">
                         <i class="fas fa-address-card"></i> Detail
                     </a>
-                </div>    
-            
+                </div>
+
                 <div class="info-line">
                     @if($buddy->verified == 'y')
                         <i class="fas fa-check fa-fw mr-1"></i> Verified
@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row row-inner">
             <div class="col-md-7">
-                {{ Form::model($buddy, ['url' => 'partak/users/buddies/edit/'. $buddy->id_user, 'method' => 'patch', 'id' => 'roles']) }}
+                {{ Form::model($buddy, ['route' => ['partak.users.buddies.update', ['buddy' => $buddy]], 'method' => 'patch', 'id' => 'roles']) }}
                     {{ Form::bsText('email', 'Email','required', $buddy->person->user->email) }}
                     {{ Form::bsText('phone', 'Phone') }}
                     {{ Form::bsSelect('id_country', 'Country', $countries, $buddy->id_country, ['placeholder' => 'Choose country...']) }}
@@ -82,4 +82,4 @@
             </div>
         </div>
     </div>
-@stop
+@endsection

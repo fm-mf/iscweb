@@ -13,7 +13,7 @@
         @include('partak.components.nav', ['items' => [
             ['title' => 'Dashboard', 'icon' => 'columns', 'route' => 'partak.index'],
             ['title' => 'Users', 'icon' => 'users', 'route' => 'partak.users', 'acl' => 'users.view', 'items' => [
-                ['title' => 'Buddies', 'icon' => 'user-graduate', 'route' => 'partak.users.buddies', 'acl' => 'buddy.view'],
+                ['title' => 'Buddies', 'icon' => 'user-graduate', 'route' => 'partak.users.buddies.index', 'acl' => 'buddy.view'],
                 ['title' => 'Exchange students', 'icon' => 'exchange-alt', 'route' => 'partak.users.exchangeStudents', 'acl' => 'exchangeStudents.view'],
                 ['title' => 'Office registration', 'icon' => 'user-plus', 'route' => 'partak.users.registration', 'acl' => 'exchangeStudents.register'],
                 ['title' => 'Preregistrations', 'icon' => 'user-tag', 'route' => 'partak.users.preregistrations', 'acl' => 'exchangeStudents.register'],

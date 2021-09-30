@@ -28,6 +28,6 @@ class NotifyHRNoEmail
      */
     public function handle(BuddyWithoutEmailRegistered $event)
     {
-        Mail::to('hr@isc.cvut.cz')->send(new HRNewNoEmail($event->buddy));
+        Mail::send(new HRNewNoEmail($event->buddy));
     }
 }

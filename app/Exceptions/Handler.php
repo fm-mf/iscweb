@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -62,6 +63,13 @@ class Handler extends ExceptionHandler
         if ($exception instanceof UserDoesntExist) {
             if ($request->is('partak') || $request->is('partak/*')) {
                 return back()->with(['AlertMessage' => $exception->getMessage()]);
+            }
+        }
+        if ($exception instanceof ModelNotFoundException) {
+            if ($request->routeIs('partak.users.buddies.*')) {
+                return redirect()->route('partak.users.buddies.index')->with([
+                    'AlertMessage' => 'Buddy does not exist !!!',
+                ]);
             }
         }
         return parent::render($request, $exception);

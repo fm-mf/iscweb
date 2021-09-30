@@ -11,7 +11,7 @@
         @if($buddy)
         @can('acl', 'buddy.edit')
             <a
-                href="{{ url('partak/users/buddies/edit/' . $user->id_user) }}"
+                href="{{ route('partak.users.buddies.edit', ['buddy' => $buddy]) }}"
                 class="btn btn-sm btn-success ml-4"
             >
                 <i class="fas fa-pen"></i> Edit
@@ -44,7 +44,7 @@
         @if($buddy)
         @can('acl', 'buddy.view')
             <a
-                href="{{ url('partak/users/buddies/' . $user->id_user) }}"
+                href="{{ route('partak.users.buddies.show', ['buddy' => $user->id_user]) }}"
                 class="btn btn-sm btn-primary ml-4"
             >
                 <i class="fas fa-address-card"></i> Detail
@@ -127,7 +127,7 @@
                             $sem = $exStudent->semesters[$i]->semester;
                             $semester = ucfirst(substr($sem, 0, -4)) . " " . substr($sem, -4);
                     @endphp
-                    {{ 
+                    {{
                         $i === count($exStudent->semesters) - 1
                             ? $semester
                             : $semester . ", "
@@ -142,7 +142,7 @@
                 @endif
             </div>
         @endif
-            
+
         @if($buddy)
             <div class="info-line">
                 <i class="fas fa-fw fa-user-clock mr-1"></i> <span title="{{ $buddy->registered_on }}">{{ $buddy->registered_ago }}</span>
@@ -159,13 +159,7 @@
         @endif
 
         @if(isset($buddyStudent))
-            <protectedbutton
-                url="{{ url('partak/users/buddies/'. $buddy->id_user .'/remove/' .$buddyStudent->id_user) }}"
-                protection-text="Remove buddy {{ $buddy->person->getFullName() }}?"
-                button-style="btn btn-danger btn-sm mt-2"
-            >
-                <i class="fas fa-times"></i> Remove
-            </protectedbutton>
+            @include('partak.users.partials._remove-buddy-button', ['exStudent' => $buddyStudent, 'classes' => 'mt-2'])
         @endif
     </div>
 </div>

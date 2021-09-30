@@ -15,15 +15,10 @@ Route::prefix('/users')
         Route::get('/roles', 'RolesController@showDashboard')->name('roles');
         Route::get('/roles/remove/{id_user}/{id_role}', 'RolesController@removeRole')->name('roles.remove');
         Route::get('/partaks', 'RolesController@showPartaks')->name('partaks');
-        Route::get('/buddies', 'BuddiesController@showBuddiesDashboard')->name('buddies');
-        Route::get('/buddies/{id}', 'BuddiesController@showBuddyDetail')->name('buddy');
-        Route::get('/buddies/{id_buddy}/remove/{id_exStudent}', 'BuddiesController@removeExStudentFromBuddy')
-            ->name('buddy.remove');
-        Route::get('/buddies/edit/{id}', 'BuddiesController@showEditFormBuddy')->name('buddy.edit');
-        Route::patch('/buddies/edit/{id}', 'BuddiesController@submitEditFormBuddy')->name('buddy.doEdit');
 
-        Route::get('/buddies/approve/{id}', 'BuddiesController@approveBuddy')->name('buddy.approve');
-        Route::get('/buddies/deny/{id}', 'BuddiesController@denyBuddy')->name('buddy.deny');
+        Route::resource('buddies', 'BuddiesController')->except(['create', 'store', 'destroy']);
+        Route::patch('buddies/{buddy}/approval', 'BuddyApprovalController@update')->name('buddies.approval.update');
+        Route::resource('buddies.exchange-students', 'BuddyExchangeStudentsController')->only(['destroy']);
 
         Route::get('/exchange-students', 'ExchangeStudentsController@showExchangeStudentDashboard')
             ->name('exchangeStudents');
