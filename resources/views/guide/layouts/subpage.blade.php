@@ -1,7 +1,7 @@
 @extends('web.layouts.layout')
 
 @section('header')
-    <div class="header-wrapper guide-wrapper subpage-wrapper">
+    <div class="header-wrapper guide">
         <header>
             @include('web.layouts.navigation')
             <h1>Survival Guide</h1>
@@ -10,14 +10,19 @@
 @endsection
 
 @section('page')
-  <div class="guide-content guide-subpage">
-    @include('guide.layouts.navigation')
-    <div class="guide-subpage-content">
-      @yield('subpage')
+    <div class="container text-left guide-subpage">
+        @include('guide.layouts.navigation')
+        <div class="guide-subpage-content">
+            @yield('subpage')
+        </div>
     </div>
-  </div>
 @stop
 
 @section('title')
-  @yield('subtitle') – Survival Guide
+    @yield('subtitle') – Survival Guide
+@endsection
+
+@section('stylesheets')
+    @parent
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/guide.css') }}"/>
 @endsection

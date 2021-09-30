@@ -1,0 +1,176 @@
+@mixin guide-nav-item($color) {
+    border-left-color: $color;
+
+    a {
+        color: $color;
+    }
+
+    & > a:hover,
+    & > a.expanded {
+        background: $color !important;
+    }
+}
+
+.guide-nav {
+    flex-shrink: 0;
+    height: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+    padding: 0;
+    width: 16rem;
+
+    // Move the guide nav under the website nav - this is hackish, but works
+    @include media-breakpoint-down(sm) {
+        background: #eee;
+        position: absolute;
+        left: 0;
+        top: 72px;
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+
+        // Fixes warning boxes being rendered over guide nav
+        z-index: 1;
+
+        .navbar-brand {
+            display: block;
+        }
+
+        .guide-nav-items {
+            margin-top: 1rem;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .navbar-brand {
+            display: none;
+        }
+    }
+
+    .search {
+        width: 100%;
+
+        /* placeholder, that prevents nav flickering */
+        .gcse-search {
+            height: 47px;
+        }
+
+        .gsc-control-cse {
+            padding: 0 0 0.25rem 0;
+            background-color: transparent;
+            border: 0;
+
+            .gsc-input {
+                padding-right: 0;
+            }
+
+            .gsc-input-box {
+                border-right: 0;
+                border-radius: 0;
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+
+            td.gsc-search-button {
+                width: 1px;
+
+                .gsc-search-button-v2 {
+                    padding: 12px;
+                    margin: 0;
+                    border-radius: 0;
+                    border: 0;
+
+                    svg {
+                        width: 16px;
+                    }
+                }
+            }
+
+            .gsc-results-wrapper-overlay {
+                top: 100px;
+            }
+        }
+    }
+
+    > .navbar-collapse {
+        padding: 0;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+
+    .nav {
+        display: block;
+
+        &.collapse {
+            display: none;
+        }
+
+        &.show {
+            display: block;
+        }
+    }
+
+    .guide-nav-items {
+        > .nav {
+            background: #eee;
+            width: 100%;
+        }
+
+        & > ul > li {
+            border-left: 0.625rem solid;
+
+            a {
+                display: block;
+                padding: 0.6rem;
+            }
+
+            & > a {
+                &.expanded,
+                &:hover {
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
+
+            & > ul {
+                padding-left: 1rem;
+
+                & > li > a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    &.active {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        .green {
+            @include guide-nav-item($guide-green);
+        }
+
+        .blue {
+            @include guide-nav-item($guide-blue);
+        }
+
+        .purple {
+            @include guide-nav-item($guide-magenta);
+        }
+
+        .orange {
+            @include guide-nav-item($guide-orange);
+        }
+    }
+}

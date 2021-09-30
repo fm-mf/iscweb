@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Guide;
 
+use App\Facades\Settings;
+use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Carbon\Carbon;
-use App\Http\Controllers\Controller;
-use App\Facades\Settings;
-use App\Models\ExchangeStudent;
-use Illuminate\Support\Facades\View;
+use Symfony\Component\HttpFoundation\Response;
 
 class PageController extends Controller
 {
@@ -16,37 +15,26 @@ class PageController extends Controller
     private $czechItOutSubpages = ['visa', 'visa-example-pictures', 'health-care', 'living-in-prague', 'transportation', 'money-exchange', 'post-office', 'phone', 'culture-shock', 'czech-phrases', 'funny-facts'];
     private $iscEsnSubpages = ['isc-intro', 'esn-intro', 'esn-partners'];
 
-    public function showPage($page = "")
+    public function showPage(string $page = '')
     {
-        // dd(Contacts::getContactByPosition('President'));
         $with = [
-            'shortName' => Settings::get('shortName'),
-            'officialName' => Settings::get('officialName'),
-            'year' => Carbon::now()->year,
+            'active' => $page,
+            'year' => now()->year,
         ];
+
         switch ($page) {
-            case "about-ctu":
-                $with += ['rector' => Settings::get('rector')];
-                break;
-            case "":
+            case 'ow':
+                return redirect()->route('guide-page', ['page' => 'orientation-week'], Response::HTTP_MOVED_PERMANENTLY);
+            case '':
                 $with += [
                     'president' => Contact::byPosition('President')->first(),
-                    'fullName' => Settings::get('fullName'),
                 ];
-                $page = "home";
+                $page = 'home';
                 break;
-            case "first-steps":
-                $with += [
-                    'wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
-                    'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
-                    'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
-                ];
-                break;
-            case "orientation-week":
-                $owFrom = Carbon::createFromFormat('d/m/Y', Settings::get('owFrom'));
+            case 'orientation-week':
+                $owFrom = Settings::owFrom();
 
                 $with += [
-                    'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
                     'owDay1' => $this->owDateFormat($owFrom),
                     'owDay2' => $this->owDateFormat($owFrom->copy()->addDay(1)),
                     'owDay3' => $this->owDateFormat($owFrom->copy()->addDay(2)),
@@ -56,23 +44,13 @@ class PageController extends Controller
                     ),
                 ];
                 break;
-                /* Temporary */
-            case "about-CTU":
-                $with += ['rector' => Settings::get('rector')];
-                break;
-            case "basic-information":
-                $with = [
-                    'wcFrom' => $this->dateToCorrectFormat(Settings::get('wcFrom')),
-                    'owFrom' => $this->dateToCorrectFormat(Settings::get('owFrom')),
-                    'owFromTo' => $this->dateToCorrectFormat(Settings::get('owFrom'), Settings::get('owTo')),
-                ];
-                break;
-                /* /Temporary */
         }
-        $viewName = 'guide.' . $page;
-        if (!View::exists($viewName)) {
+
+        $viewName = "guide.$page";
+        if (!view()->exists($viewName)) {
             abort(404);
         }
+
         if (in_array($page, $this->firstStepsSubpages)) {
             $with += ['firstSteps' => ''];
         } elseif (in_array($page, $this->aboutCtuSubpages)) {
@@ -82,16 +60,16 @@ class PageController extends Controller
         } elseif (in_array($page, $this->iscEsnSubpages)) {
             $with += ['iscEsn' => ''];
         }
-        $with += ['active' => $page];
+
         return view($viewName)->with($with);
     }
 
-    private function owDateFormat(Carbon $date)
+    private function owDateFormat(Carbon $date): string
     {
         return $date->format('l (j F)');
     }
 
-    private function owInterval(Carbon $from, Carbon $to)
+    private function owInterval(Carbon $from, Carbon $to): string
     {
         return $from->format('l') . ' to ' . $to->format('l')
             . ' ('
@@ -99,32 +77,5 @@ class PageController extends Controller
                 ? $from->format('j F') . ' – ' . $to->format('j F')
                 : $from->format('j') . '–' . $to->format('j F'))
             . ')';
-    }
-
-    private function dateToCorrectFormat($from, $to = null)
-    {
-        $dateFrom = $from instanceof Carbon
-            ? $from
-            : Carbon::createFromFormat('d/m/Y', $from);
-
-        $result = '';
-        if ($to == null) {
-            $result = $dateFrom->format('l, j F');
-        } else {
-            $dateTo = $to instanceof Carbon
-                ? $to
-                : Carbon::createFromFormat('d/m/Y', $to);
-            
-            if ($dateFrom->year == $dateTo->year) {
-                if ($dateFrom->month != $dateTo->month) {
-                    $result = $dateFrom->format('j F') . ' – ' . $dateTo->format('j F Y');
-                } else {
-                    $result = $dateFrom->format('j') . ' – ' . $dateTo->format('j F Y');
-                }
-            } else {
-                $result = $dateFrom->format('j F Y') . ' – ' . $dateTo->format('j F Y');
-            }
-        }
-        return $result;
     }
 }

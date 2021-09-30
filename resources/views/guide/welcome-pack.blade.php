@@ -3,35 +3,42 @@
 @section('subtitle', 'Welcome pack')
 
 @section('subpage')
-    <h1>Welcome pack</h1>
+    <h2>Welcome pack</h2>
     <ul>
         <li>Before the Orientation Week starts you should get your Welcome Pack.</li>
-        <li>You can ask your Buddy or you can get it in the <strong>ISC point</strong>, which is located in room R304 in Masarykova dormitory (Address: <a href="https://goo.gl/maps/tuJqTxMwnWy" target="_blank">Thákurova 550/1, Prague 6, 160 00</a>, Phone: <a href="tel:+420 233 051 111">+420 233 051 111</a>).</li>
+        <li>
+            You can ask your Buddy or you can get it in the <strong>ISC point</strong>,
+            which is located in room R304 in Masarykova dormitory
+            (Address: <a href="https://goo.gl/maps/tuJqTxMwnWy" target="_blank">Thákurova 550/1, Prague 6, 160 00</a>,
+            Phone: <a href="tel:+420 233 051 111">+420 233 051 111</a>).
+        </li>
     </ul>
-    <h2>What is in the Welcome pack</h2>
+
+    <h3>What is in the Welcome pack?</h3>
     <ul>
         <li>
             Materials from CTU
             <ul>
                 <li>Dorm regulations</li>
                 <li>Confirmation of study</li>
-                <li>How to connect to EDUROAM</li>
+                <li>How to connect to Eduroam</li>
                 <li>Health and safety regulations</li>
                 <li>and much more</li>
             </ul>
         </li>
-        {{--
         <li>
             Materials from ISC
             <ul>
                 <li>Printed Survival Guide</li>
+                {{--
                 <li>List of trips</li>
+                --}}
             </ul>
         </li>
-        --}}
         <li>Small gifts</li>
     </ul>
-    <h2>How to get to the ISC Point</h2>
+
+    <h3>How to get to the ISC Point?</h3>
     <ul>
         <li>From airport:
             <ol>
@@ -51,7 +58,7 @@
         </li>
     </ul>
 
-    <div class="bg-info" style="margin-top: 4rem">
+    <div class="alert alert-info mt-5">
         <p>
             Note: If you don’t buy a public transport pass immediately after your arrival,
             you need to buy and validate <strong>a single ticket for 90 minutes</strong>.
@@ -59,7 +66,7 @@
             (available for <a href="https://play.google.com/store/apps/details?id=cz.dpp.praguepublictransport&hl=en" target="_blank">Android</a>
             and <a href="https://itunes.apple.com/cz/app/pid-litacka/id983071129" target="_blank">iOS</a>).
         </p>
-        <p>
+        <p class="mb-0">
             For current prices and further information, visit
             <a href="https://pid.cz/en/travelling-around-prague/" target="_blank">pid.cz/en</a>.
         </p>

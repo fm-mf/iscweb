@@ -1,0 +1,15 @@
+@use "sass:math";
+
+@import "home-navigation";
+
+.guide-home-page {
+    padding-bottom: 4rem;
+
+    .president-img {
+        display: block;
+        width: $guide-president-avatar-size;
+        margin: math.div(-$guide-president-avatar-size, 2) auto 3rem;
+        border: $guide-president-avatar-border-width solid white;
+        border-radius: math.div($guide-president-avatar-size, 2);
+    }
+}

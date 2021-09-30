@@ -3,7 +3,7 @@
 @section('subtitle', 'Culture shock')
 
 @section('subpage')
-    <h1>Culture shock</h1>
+    <h2>Culture shock</h2>
     <p>Most likely, you will experience some level of culture shock. After all, it is normal
         to miss the comforts and familiarity of home in the course of one of your first extended
         stays abroad. If you are getting low, do seek help. The International Office and

@@ -3,14 +3,14 @@
 @section('subtitle', 'Eduroam')
 
 @section('subpage')
-    <h1>Eduroam</h1>
+    <h2>Eduroam</h2>
     <p>Eduroam (education roaming) is an international roaming service for users in research,
         higher education and further education. It provides researchers, teachers and students
         with an easy and secure network access.</p>
 
-    <h2>How to connect to Wi-Fi eduroam</h2>
+    <h3>How to connect to Wi-Fi eduroam</h3>
 
-    <h3>Eduroam username</h3>
+    <h4>Eduroam username</h4>
     <p>The username for eduroam consists of the CTU username supplemented with the realm of your faculty.</p>
     <p>Depending on your faculty, use these realms:</p>
     <dl>
@@ -37,7 +37,7 @@
         <strong>Faculty of Electrical Engineering</strong>, your eduroam unique username will be
         <strong>novakj99@fel.cvut.cz</strong>.</p>
 
-    <h3>Eduroam password</h3>
+    <h4>Eduroam password</h4>
     <p>Before using the wireless network, you should set a password for wireless network access
         (eduroam password). You can set the password through the <a href="https://usermap.cvut.cz" target="_blank">Usermap</a>.</p>
     <ol>
@@ -49,7 +49,7 @@
         <li>set your new eduroam password</li>
     </ol>
 
-    <h3>Find eduroam Wi-Fi and connect yourself</h3>
+    <h4>Find eduroam Wi-Fi and connect yourself</h4>
     <p>Most operating systems allow you to log in just by typing the eduroam username
         and the eduroam password, however there can be ones that need additional settings
         such as certificates.</p>

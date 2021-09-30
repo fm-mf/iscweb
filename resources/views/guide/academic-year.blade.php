@@ -3,12 +3,12 @@
 @section('subtitle', 'Academic year')
 
 @section('subpage')
-    <h1>Academic year</h1>
+    <h2>Academic year</h2>
     <p><a href="https://international.cvut.cz/for-incomers/academic-calendar/">Full Academic calendar for CTU</a></p>
     <p>The academic calendar may vary from faculty to faculty.</p>
     <p>If there is a Dean's Day announced for your faculty, it means a day off.</p>
 
-{{--    <h2>Winter Semester 2018/2019</h2>
+{{--    <h3>Winter Semester 2018/2019</h3>
     <dl>
         <dt>20 September 2018</dt>
             <dd>Suggested date of arrival</dd>
@@ -22,7 +22,7 @@
             <dd>Examination period</dd>
     </dl>--}}
 
-    {{--<h2>Spring Semester 2018/2019</h2>--}}
+    {{--<h3>Spring Semester 2018/2019</h3>--}}
     {{--<dl>--}}
     {{--    <dt>8 February 2019</dt>--}}
     {{--        <dd>Suggested date of arrival</dd>--}}
@@ -34,7 +34,7 @@
     {{--        <dd>Examination period</dd>--}}
     {{--</dl>--}}
 
-    <h2>Faculty specific calendars</h2>
+    <h3>Faculty specific calendars</h3>
     <ul class="list-unstyled">
         <li><a href="https://www.fsv.cvut.cz/hlavnien/akrok.php" target="_blank">Faculty of Civil Engineering</a> (PDF)</li>
         <li><a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/schedule-of-academic-year/" target="_blank">Faculty of Mechanical Engineering</a></li>
@@ -47,7 +47,7 @@
     </ul>
 
     {{--
-    <h2>Public and university holidays</h2>
+    <h3>Public and university holidays</h3>
     <dl>
         <dt>28 September</dt>
             <dd>St. Wenceslas' Day (Czech Statehood Day)</dd>

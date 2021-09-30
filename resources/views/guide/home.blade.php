@@ -3,40 +3,63 @@
 @section('title', 'Survival Guide')
 
 @section('header')
-    <div class="header-wrapper guide-wrapper">
+    <div class="header-wrapper guide guide-home">
         <header>
             @include('web.layouts.navigation')
-            <h1>Survival Guide</h1>
+            <div class="container">
+                <h1>Survival Guide</h1>
+                <nav class="guide-navigation">
+                    <ul class="row list-unstyled">
+                        <li class="col-md-3"><a href="{{ route('guide-page', ['page' => 'introduction']) }}" id="link-aya">First steps</a></li>
+                        <li class="col-md-3"><a href="{{ route('guide-page', ['page' => 'academic-year']) }}" id="link-sac">CTU &amp; Useful information</a></li>
+                        <li class="col-md-3"><a href="{{ route('guide-page', ['page' => 'visa']) }}" id="link-lip">Czech it out!</a></li>
+                        <li class="col-md-3"><a href="{{ route('guide-page', ['page' => 'isc-intro']) }}" id="link-esn">ISC &amp; ESN</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
     </div>
 @endsection
 
 @section('page')
 
-<div class="guide-content">
-    <div class="home-screen">
-        <div class="guide-navigation">
-            <ul class="list-unstyled row">
-                <li class="col-sm-3"><a href="{{ action('Guide\PageController@showPage', ['page' => 'introduction']) }}" id="link-aya">First steps</a></li>
-                <li class="col-sm-3"><a href="{{ action('Guide\PageController@showPage', ['page' => 'academic-year']) }}" id="link-sac">CTU &amp; Useful information</a></li>
-                <li class="col-sm-3"><a href="{{ action('Guide\PageController@showPage', ['page' => 'visa']) }}" id="link-lip">Czech it out!</a></li>
-                <li class="col-sm-3"><a href="{{ action('Guide\PageController@showPage', ['page' => 'isc-intro']) }}" id="link-esn">ISC &amp; ESN</a></li>
-            </ul>
-        </div>
-
-        <img src="{{ $president['avatar'] }}" class="img-circle" alt="">
-        <p>
-            Dear international students,<br />welcome to the Czech Republic and to the Czech Technical University&#x21;<br /><br />
-            Whether you are an Erasmus student, an Exchange student, an Erasmus Mundus student or a self-paying &#x28;private&#x29; student, we hope you will have a great time&#x21;<br /><br />
-            Maybe you are not aware of it yet, but you are the luckiest people in the world. Your study stay is just starting, and you can explore a brand new world&#x21; Try to get the best from your stay here&#x21; Let me introduce the International Student Club. ISC is a bunch of volunteers who do not hesitate to help other students. We do this in our leisure time – we want to meet international people, make friends, we want to learn foreign languages, we want to grow personally and much more. We strive to be the best in our field.<br /><br />
-            There are hundreds of incoming international students this semester. Please, keep in mind that the buddy program is a voluntary service. If you need help or advice, ask your Czech Buddy or come to the ISC point, and we will try to help.
-            <br /><br />
-            Together we conquer the world&#x21;
-        </p>
-        <p>{{ $president['name'] }}<br>
-            President of the {{ $fullName }}
-        </p>
-    </div>
+<div class="container text-left guide-home-page">
+    <img src="{{ $president['avatar'] }}" class="president-img" alt="Photo of ISC President" />
+    <p>
+        Dear international students,<br />
+        welcome to the Czech Republic and to the Czech Technical University in Prague!
+    </p>
+    <p>
+        Whether you are an Erasmus student, an Exchange student, an Erasmus Mundus student,
+        or a degree student, we hope you will have a great time!
+    </p>
+    <p>
+        Maybe you are not aware of it yet, but you are the luckiest people in the world.
+        Your study stay is just starting, and you can explore a brand new world!
+        Try to get the best from your stay here! Let me introduce the {{ $fullName }}.
+        <abbr title="{{ $fullName }}">ISC</abbr> is a bunch of volunteers who do not hesitate
+        to help other students. We do this in our leisure time – we want to meet international people,
+        make friends, we want to learn foreign languages, we want to grow personally and much more.
+        We strive to be the best in our field.
+    </p>
+    <p>
+        There are hundreds of incoming international exchange students every semester.
+        Please, keep in mind that the Buddy programme is a voluntary service.
+        If you need help or advice, ask your Czech Buddy or come to the ISC Point,
+        and we will try to help.
+    </p>
+    <p>
+        <q class="font-italic">Together we conquer the world!</q>
+    </p>
+    <p>
+        <strong>{{ $president['name'] }}</strong><br />
+        <em>President of the {{ $fullName }}</em>
+    </p>
 </div>
 
 @stop
+
+@section('stylesheets')
+    @parent
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/guide.css') }}"/>
+@endsection

@@ -139,4 +139,9 @@ class Settings implements ConfigContract
     {
         return Carbon::createFromFormat('d/m/Y', $this->get('wcFrom'));
     }
+
+    public function owFrom(): Carbon
+    {
+        return Carbon::createFromFormat('d/m/Y', $this->get('owFrom'));
+    }
 }

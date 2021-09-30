@@ -3,7 +3,7 @@
 @section('subtitle', 'Dormitories')
 
 @section('subpage')
-    <h1>Dormitories</h1>
+    <h2>Dormitories</h2>
     <p>There are CTU dormitories (in Czech ”Kolej”) all around Prague. They are shown on the map below.</p>
     <p>Usually Erasmus+ students live in one of the two biggest, Masarykova kolej and Strahov. They are marked in red rectangles on the map.</p>
     <p>Rooms in the dormitories are usually inexpensive, conveniently located and all have high-speed internet access.
@@ -23,7 +23,7 @@
     <p><a href="https://www.suz.cvut.cz/files/su_2019_2020_en.pdf" target="_blank">How the application for a place in a dorm works, important dates.</a></p>
     <p><a href="https://www.suz.cvut.cz/files/hu_2019_2020_en.pdf">Schedule of Accommodation at CTU Dorms, important dates.</a></p>
 
-    <h2>Insurance agreement for your property</h2>
+    <h3>Insurance agreement for your property</h3>
     <p>The insurance agreement covers only the most basic items.
         <strong>Any major items, e.g., laptops, must be SPECIFIED in writing in the agreement,
             otherwise they are not covered.</strong>
@@ -31,7 +31,7 @@
         If windows have been left open or doors have been left unlocked, or if the occupier of the property is negligent,
         the insurance company will not pay out. The university does not accept liability for loss of students’ property.</p>
 
-    <h2>Dorm Regulations</h2>
+    <h3>Dorm Regulations</h3>
     <p>You must follow the dorm regulations, otherwise you risk serious disciplinary measures that can lead to exclusion from the dormitory!!!</p>
     <ul>
         <li>Observe silence between 22:00 and 6:00</li>
@@ -45,7 +45,7 @@
         for major or persistent infringements against the dorm regulations. It takes the view that dormitory
         residents should be protected from students who behave without due respect for other residents.</p>
 
-    <h2>Internet</h2>
+    <h3>Internet</h3>
     <ul>
         <li>The Internet access in the dormitories is in the hands of the Dormitories Student Clubs</li>
         <li>To get it you need to join this club and the membership fee serves as the payment.</li>
@@ -54,7 +54,7 @@
         <li>Wifi access is widely available, e.g. in the foyer of Masarykova dorm.</li>
     </ul>
 
-    <h2>More information about the student clubs:</h2>
+    <h3>More information about the student clubs:</h3>
     <dl>
         <dt>Masarykova dorm</dt>
             <dd><a href="http://www.mk.cvut.cz" target="_blank">www.mk.cvut.cz</a></dd>

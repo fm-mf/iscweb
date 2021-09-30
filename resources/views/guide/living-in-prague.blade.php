@@ -3,9 +3,9 @@
 @section('subtitle', 'Living in Prague')
 
 @section('subpage')
-    <h1>Living in Prague</h1>
+    <h2>Living in Prague</h2>
 
-    <h2>Customs and traditions</h2>
+    <h3>Customs and traditions</h3>
     <ul>
         <li>Easter (Spring)</li>
         <li>Burning of Witches (30 April)</li>
@@ -15,7 +15,7 @@
     </ul>
     <p>See <a href="https://www.facebook.com/pg/isc.ctu.prague/events/" target="_blank">ISC Facebook page events</a> to get to know Czech traditions</p>
 
-    <h2>Local Cuisine</h2>
+    <h3>Local Cuisine</h3>
     <ul>
         <li>Similar to German and Austrian</li>
         <li>Typically: meat + side dish (potatoes/dumplings) + sauce</li>
@@ -45,42 +45,42 @@
         </li>
     </ul>
 
-    <h2>Drinks</h2>
+    <h3>Drinks</h3>
 
-    <h3>Beer (pivo)</h3>
+    <h4>Beer (pivo)</h4>
     <ul>
         <li>Is recognized as world's best</li>
         <li>Over 60 breweries (Pilsner Urquell, Budvar, Velkopopovický kozel, Staropramen (Prague))</li>
         <li>part of the Czech lifestyle</li>
     </ul>
 
-    <h3>Wine</h3>
+    <h4>Wine</h4>
     <ul>
         <li>Moravia</li>
         <li>taking top honors at competitions around Central Europe</li>
         <li>Burčák - grape juice that separates from the crop as it is pressed, season: mid August till the end of November, try it at one of the annual wine festivals in September (&quot;Vinobraní&quot;)</li>
     </ul>
 
-    <h3>Slivovice</h3>
+    <h4>Slivovice</h4>
     <ul>
         <li>Plum brandy (strong spirit)</li>
         <li>South Moravia</li>
     </ul>
 
-    <h3>Becherovka</h3>
+    <h4>Becherovka</h4>
     <ul>
         <li>Typical Czech herbal liquor</li>
         <li>Karlovy Vary</li>
     </ul>
 
-    <h2>Tipping</h2>
+    <h3>Tipping</h3>
     <ul>
         <li>5-10% (in any restaurant with table service)</li>
         <li>The usual system: the waiter announces the amount as he hands over the bill and customers announce how much they wish to pay (with the tip included) while settling their tab.</li>
         <li>It is usual to tip hairdressers, barbers and people providing other services.</li>
     </ul>
 
-    <h2>Hiking</h2>
+    <h3>Hiking</h3>
     <ul>
         <li>Long-lasting tradition in the Czech Republic</li>
         <li>Czech Hiking Club (Klub českých turistů) has made coloured signs to mark hiking trails</li>

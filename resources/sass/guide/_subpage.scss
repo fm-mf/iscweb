@@ -1,0 +1,114 @@
+.guide-subpage {
+    display: flex;
+
+    @import "subpage-navigation";
+
+    .guide-subpage-content {
+        flex: 1;
+        padding-bottom: 0.5rem;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    h3, h4, h5, h6 {
+        margin-bottom: 0.5rem;
+    }
+
+    .alert {
+        border: none;
+        border-left: 0.25rem solid;
+        margin-bottom: 2rem;
+    }
+
+    .alert-danger {
+        border-left-color: $danger;
+    }
+
+    .alert-warning {
+        border-left-color: $warning;
+    }
+
+    .alert-info {
+        border-left-color: $info;
+    }
+
+    .list-unstyled {
+        & > li {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+    }
+
+    ul > li {
+        margin-bottom: 0.5rem;
+
+        ul > li {
+            margin-bottom: 0;
+        }
+    }
+
+    .section-navigation {
+        list-style-type: none;
+        padding-left: 0.5rem;
+        margin-bottom: 2rem;
+
+        .section-navigation {
+            padding-left: 1rem;
+            margin-bottom: 0;
+
+            a {
+                color: #4bafe6;
+            }
+        }
+
+        a {
+            &::before {
+                content: '# ';
+                opacity: 0.5;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    #isc-intro > img,
+    #esn-cz-intro > img {
+        display: block;
+        width: 20rem;
+        margin: 1rem auto;
+    }
+
+    #partners {
+        & > img {
+            margin: 0 auto 1rem;
+            display: block;
+            width: 12rem;
+
+            &.square-logo {
+                width: 9rem;
+            }
+        }
+
+        @include media-breakpoint-up(sm) {
+            h3 {
+                clear: both;
+                margin-top: 3rem;
+            }
+
+            & > img {
+                float: right;
+                margin-left: 1rem;
+            }
+        }
+    }
+}

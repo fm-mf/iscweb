@@ -3,9 +3,9 @@
 @section('subtitle', 'Visa')
 
 @section('subpage')
-    <h1>Visa</h1>
+    <h2>Visa</h2>
 
-     @component('guide.section-nav', ['items' => [
+     @component('guide.components.section-nav', ['items' => [
         'first' => 'First',
         'duration' => [
             'title' => 'Day duration',
@@ -36,7 +36,7 @@
     <p>Full and official information available at <a href="http://www.mvcr.cz/mvcren/information-for-schools.aspx" target="_blank">Ministry of the interior website</a>.</p>
     <p>Useful information in the <a href="http://www.mvcr.cz/mvcren/file/immigration-documents-information-for-students.aspx" target="_blank">Ministry of the interior document</a> (PDF).</p>
 
-    <h2 id="first">First</h2>
+    <h3 id="first">First</h3>
     <ul>
         <li>Regarding the right to move and reside freely, there is no visa required for students
             from the following countries: the European Union, Norway, Switzerland, Liechtenstein and Iceland.
@@ -48,7 +48,7 @@
         <li>If you are in any doubt, or if anything is not clear to you, please contact our <a href="mailto:visa@isc.cvut.cz">Visa Coordinator (visa@isc.cvut.cz)</a>.</li>
     </ul>
 
-    <h2 id="duration">Day duration</h2>
+    <h3 id="duration">Day duration</h3>
     <ul>
         <li>The important information is not only <strong>until when your visa is valid</strong> but also <strong>&quot;duration of stay&quot;</strong></li>
         <li>Duration of stay is the number of days your visa is applicable from the moment you crossed the border of the Schengen area</li>
@@ -56,7 +56,7 @@
     </ul>
     <img src="{{ asset('img/guide/visa.jpg') }}" alt="Visa example" title="Visa example" />
 
-    <h3 id="duration-schengen-area">Schengen area</h3>
+    <h4 id="duration-schengen-area">Schengen area</h4>
     <ul>
         <li>The duration of your stay is counted from when you arrived in the Schengen area, not only in the Czech Republic!</li>
         <li>If you travel outside of the Schengen area, days from &quot;duration of stay&quot; are not counted during that time, but make sure the immigration officer stamps your passport with leaving and entering dates!</li>
@@ -64,8 +64,8 @@
     </ul>
     <p>This is very important! Please double check that your &quot;duration of stay&quot; covers your whole stay in the Schengen area.</p>
 
-    <h2 id="before-arrival">Before arrival</h2>
-    <h3 id="visa-application">Visa application</h3>
+    <h3 id="before-arrival">Before arrival</h3>
+    <h4 id="visa-application">Visa application</h4>
     <p>Standard documents required:</p>
     <ul>
         <li>Passport</li>
@@ -80,10 +80,10 @@
     <p>List of Czech consulates you can contact for specific information at the <a href="http://www.mzv.cz/jnp/en/diplomatic_missions/czech_missions_abroad/index.html" target="_blank">Ministry of Foreign Affairs website</a></p>
     <p>Pay attention to the kind of visa you will be issued! Depending on the type and duration, some other procedures upon arrival will be necessary!</p>
 
-    <h2 id="after-arrival">After arrival</h2>
+    <h3 id="after-arrival">After arrival</h3>
     <p>There are plenty of obligations you have to fulfill. Please check this very carefully.</p>
 
-    <h3 id="reporting">Reporting duty at the Foreign Police Office</h3>
+    <h4 id="reporting">Reporting duty at the Foreign Police Office</h4>
     <ul>
         <li>Obligation to register <strong>within 3 working days</strong>! (after arrival in the Czech Republic) for non-EU students</li>
         <li>Within 30 working days for EU students, but as exchange student, you don't need residence permit</li>
@@ -94,7 +94,7 @@
     </ul>
     <p>More information at the <a href="http://www.mvcr.cz/mvcren/article/information-for-schools-and-students.aspx?q=Y2hudW09Mg%3d%3d" target="_blank">Ministry of Foreign Affairs website</a>.</p>
 
-    <h2 id="moi">Ministry of the Interior’s office (MOI/OAMP)</h2>
+    <h3 id="moi">Ministry of the Interior’s office (MOI/OAMP)</h3>
     <ul>
         <li>All foreign students arriving on a Visa for collection of residence permit or &quot;<strong>DV/R</strong>&quot; &ndash; entering visa; <a href="{{ url('guide/visa-example-pictures') }}" target="_blank">see visa example pictures</a></li>
         <li><strong>Within 3 working days!</strong> (after arrival in the Czech Republic)</li>
@@ -112,7 +112,7 @@
         <dd>Fri: 8:00 &ndash; 12:00 (only after booking)</dd>
     </dl>
 
-    <h2 id="extending">Extending your stay</h2>
+    <h4 id="extending">Extending your stay</h4>
     <ul>
         <li>Contact our <a href="mailto:visa@isc.cvut.cz">Visa Coordinator (visa@isc.cvut.cz)</a></li>
         <li>90 &ndash; 14 days before expiration, Ministry of the Interior's office</li>
@@ -135,6 +135,6 @@
     </ul>
     <p>More information at the <a href="http://www.mvcr.cz/mvcren/file/quicknsimple-presentation-en.aspx" target="_blank">Ministry of the interrior website</a>.</p>
 
-    <h2 id="other-obligations">Other obligations</h2>
+    <h3 id="other-obligations">Other obligations</h3>
     <p>To report a change of address or a change of travel document, visit the <a href="http://www.mvcr.cz/mvcren/article/contacts-alien-police-alien-police.aspx" target="_blank">Foreign Police</a>.</p>
 @stop

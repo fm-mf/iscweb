@@ -3,9 +3,9 @@
 @section('subtitle', 'Cards')
 
 @section('subpage')
-    <h1>Cards</h1>
+    <h2>Cards</h2>
 
-    @component('guide.section-nav', ['items' => [
+    @component('guide.components.section-nav', ['items' => [
         'university-id' => [
             'title' => 'University ID card',
             'items' => [
@@ -48,7 +48,7 @@
         </li>
     </ul>
 
-    <h2 id="university-id">University ID card</h2>
+    <h3 id="university-id">University ID card</h3>
     <p>For your University ID card, you can choose from two options:</p>
 
     <ul>
@@ -67,7 +67,7 @@
         </li>
     </ul>
 
-    <h3 id="ctu-id">CTU Student Identity Card</h3>
+    <h4 id="ctu-id">CTU Student Identity Card</h4>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/cvut-student.jpg') }}" alt="CTU Student Identity Card" title="CTU Student Identity Card" /></li>
         <li><strong>Price: for free</strong>, in  the case of loss, a fee of CZK 200 is charged for a duplicate</li>
@@ -82,7 +82,7 @@
         </li>
     </ul>
 
-    <h3 id="ctu-isic-id">International Student Identity Card with the CTU logo</h3>
+    <h4 id="ctu-isic-id">International Student Identity Card with the CTU logo</h4>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/isic.jpg') }}" alt="International Student Identity Card with the CTU logo" title="International Student Identity Card with the CTU logo" /></li>
         <li><strong>Price: CZK 380</strong>, in  the case of loss, a fee of CZK 200 is charged for a duplicate</li>
@@ -91,10 +91,10 @@
         <li>In addition, serves as the only accepted international student identity card in 116 countries and offers many discounts (for further information visit <a href="https://www.isic.org" target="_blank">www.isic.org</a>)</li>
     </ul>
 
-    <h3 id="where-to-get-ctu-id">Where to get it</h3>
+    <h4 id="where-to-get-ctu-id">Where to get it</h4>
     <p>Identity Card Publishing House</p>
-    <p class="bg-warning">Your personal visit is necessary!</p>
-    <p class="bg-info">Bring with you your ID or passport, and a passport-sized photo.</p>
+    <p class="alert alert-warning">Your personal visit is necessary!</p>
+    <p class="alert alert-info">Bring with you your ID or passport, and a passport-sized photo.</p>
     <dl>
         <dt>Webpage</dt>
             <dd><a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">ist.cvut.cz</a></dd>
@@ -105,15 +105,15 @@
         <dt>Opening hours</dt>
             <dd>See <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a></dd>
     </dl>
-    <div class="bg-info">
+    <div class="alert alert-info">
         <p>
             To avoid waiting in a long queue, you can make a reservation for a specific date and time via Electronic reservation system available at
-            <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a>.
+            <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank" class="alert-link">IST CTU website</a>.
         </p>
         <p>
             Unfortunately, the reservation system itself is in Czech only, but here is a quick guide how to make the reservation:
         </p>
-        <ol>
+        <ol class="mb-0">
             <li>Click on ‘Objednat se na pobočku’</li>
             <li>Select
                 <ul>
@@ -133,7 +133,7 @@
     </div>
 
 
-    <h2 id="transportation-card">Public transportation card</h2>
+    <h3 id="transportation-card">Public transportation card</h3>
     <p>When you're buying seasonal Prague public transport ticket, you have multiple choices how to do it:</p>
 
     <ul>
@@ -150,7 +150,7 @@
         <li><a href="#litacka">Lítačka card</a></li>
     </ul>
 
-    <h3 id="pid-paper">Paper version</h3>
+    <h4 id="pid-paper">Paper version</h4>
 
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/pid-pass-vs.jpg') }}" alt="PID pass" title="PID pass" /> + <img src="{{ asset('img/guide/season-paper-ticket-30-days.jpg') }}" alt="PID season ticket" title="PID season ticket" /></li>
@@ -168,7 +168,7 @@
     </ul>
     <p>Then you can just come to any <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a> and ask them for student seasonal ticket. </p>
 
-    <h3 id="pid-electro">Electronic version</h3>
+    <h4 id="pid-electro">Electronic version</h4>
     <p><strong>Price:</strong> only <a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></p>
 
     <p>You can also obtain electronic seasonal ticket on the web.</p>
@@ -193,7 +193,7 @@
         </li>
     </ol>
 
-    <h3 id="litacka">Lítačka card</h3>
+    <h4 id="litacka">Lítačka card</h4>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/litacka.jpg') }}" alt="Lítačka" title="Lítačka" /></li>
         <li><strong>Price: CZK 200</strong> (for &quot;Lítačka&quot;) + <strong><a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></strong></li>
@@ -201,10 +201,10 @@
 
     <p>You can also obtain Lítačka card, which takes around 2 weeks to be made and costs CZK 200. Once you have this card,  you can either buy the seasonal ticket online, or go to any <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a> and but it there.</p>
 
-    <h3 id="pid-student-discount">Student discount</h3>
+    <h4 id="pid-student-discount">Student discount</h4>
     <p>To obtain a student discount you have to bring, and keep all the time with you, the Confirmation of your student status (the little orange-coloured confirmation document from your Welcome Pack), or your University ID card.</p>
 
-    <h2 id="ehic">Health insurance card (<abbr title="European Health Insurance Card">EHIC</abbr>)</h2>
+    <h3 id="ehic">Health insurance card (<abbr title="European Health Insurance Card">EHIC</abbr>)</h3>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/ehic.jpg') }}" alt="European Health Insurance Card" title="European Health Insurance Card" /></li>
         <li>EHIC (= European Health Insurance Card) is for students from the EU, Norway, Switzerland, Liechtenstein and Iceland</li>
@@ -212,6 +212,6 @@
         <li>Without this documentation, you have to pay for standard medical care in the Czech Republic and treatment may be refused to you</li>
         <li>How to get it: Visit and register in VZP (Všeobecná zdravotní pojišťovna České republiky) at Na Perštýně 6, Prague 1 to obtain an official document providing you the same health service as for local citizens</li>
         <li><strong>ISC will offer to take you to register during Orientation Week. It is important to register without delay.</strong></li>
-        <li class="bg-info">Note: Students not from EU countries are required to have health insurance from an <strong>authorized insurance company</strong> and the original contract has to be written in the Czech language. You can, usually, arrange this online.</li>
+        <li class="alert alert-info">Note: Students not from EU countries are required to have health insurance from an <strong>authorized insurance company</strong> and the original contract has to be written in the Czech language. You can, usually, arrange this online.</li>
     </ul>
 @stop

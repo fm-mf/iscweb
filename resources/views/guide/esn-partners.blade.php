@@ -4,7 +4,7 @@
 
 @section('subpage')
     <section id="partners">
-        <h1>ESN & ISC partners</h1>
+        <h2>ESN & ISC partners</h2>
         <p>
             Use your ESNcard and take advantage of these offers.
             For more discounts all over Europe check the
@@ -16,7 +16,7 @@
             <a href="https://isc.cvut.cz/guide/isc-intro" target="_blank">ISC member</a>!
         </p>
 
-        <h2>Vodafone</h2>
+        <h3>Vodafone</h3>
         <img src="{{ asset('img/guide/partners/vodafone.png') }}" alt="Vodafone logo" class="square-logo" />
         <p>
             Stay in touch with your Erasmus friends and obtain a SIMcard with a favorable
@@ -42,7 +42,7 @@
             <li>Vodafone shops</li>
         </ul>
 
-        <h2>SmartGuide</h2>
+        <h3>SmartGuide</h3>
         <img src="{{ asset('img/guide/partners/smart-guide.png') }}" alt="SmartGuide logo" class="square-logo" />
         <p>
             Discover Prague in an interactive and fun way! SmartGuide turns your smart phone
@@ -54,7 +54,7 @@
             and activate the <strong>premium account for free with the CVUTVIP promo code!</strong>
         </p>
 
-        <h2>Ryanair</h2>
+        <h3>Ryanair</h3>
         <img src="{{ asset('img/guide/partners/ryanair.svg') }}" alt="Ryanair logo" />
         <p><a href="https://esn.org/ryanair-faq" target="_blank" rel="noopener">https://esn.org/ryanair-faq</a></p>
         <p>
@@ -85,7 +85,7 @@
             </li>
         </ul>
 
-        <h2>FlixBus</h2>
+        <h3>FlixBus</h3>
         <img src="{{ asset('img/guide/partners/flixbus.svg') }}" alt="FlixBus logo" />
         <p>
             FlixBus is a young mobility provider that has been changing the way millions of people travel in Europe.
@@ -95,8 +95,8 @@
         <p><a href="https://esncard.org/flixbus" target="_blank" rel="noopener">Enjoy 10% discount with your voucher.</a></p>
         <p>*You can claim up to 12 vouchers per ESNcard.</p>
 
-        <!--
-        <h2>Revolut</h2>
+        {{--
+        <h3>Revolut</h3>
         <img src="{{ asset('img/guide/partners/revolut.svg') }}" alt="Revolut logo" />
         <p>
             Revolut is an online bank that provides its customers with
@@ -114,8 +114,9 @@
         <p>
             Use <a href="https://revolut.ngih.net/kGWO3">this link</a> to order the Revolut card for FREE!
         </p>
-        -->
-        <h2>Grammarly</h2>
+        --}}
+
+        <h3>Grammarly</h3>
         <img src="{{ asset('img/guide/partners/grammarly.jpg') }}" alt="Grammarly logo" />
         <p>
             Grammarly’s AI-powered products help people communicate more effectively.
@@ -128,7 +129,7 @@
             and enjoy Grammarly Premium for one year.
         </p>
 
-        <h2>Eurosender</h2>
+        <h3>Eurosender</h3>
         <img src="{{ asset('img/guide/partners/eurosender.svg') }}" alt="Eurosender logo" />
         <p>
             Travelling with only four T-Shirts, two pairs of Jeans and one pair of shoes. Sounds unrealistic? It is not,
@@ -142,7 +143,7 @@
             <a href="https://www.eurosender.com" target="_blank">Book now here</a>
         </p>
 
-        <h2>The Economist</h2>
+        <h3>The Economist</h3>
         <img src="{{ asset('img/guide/partners/economist.png') }}" alt="The Economist logo" />
         <p>
             As an ESN member, you can take advantage of this offer and save 20%
@@ -152,15 +153,15 @@
         </p>
         <p><a href="https://subscription.economist.com/OA/partners/ESN/12420offer" target="_blank">Subscribe here.</a></p>
 
-        <h2>My Conscious Space</h2>
+        <h3>My Conscious Space</h3>
         <img src="{{ asset('img/guide/partners/my_conscious_space.png') }}" alt="My Conscious Space logo" />
         <p>
             My Conscious Space creates a safe online container for your self-development and healing. We offer a space with guidance, where we support each other on our self-discovery journey. Everything is reachable online from the warmth of your home. Choose what suits you the best: yoga, meditation, breathing techniques, deep relaxation, women circles or full/new moon ceremonies. All the events are LIVE, using Zoom platform.
         </p>
         <p><a href="https://myconscious.space/isc/" target="_blank" rel="noopener">Enjoy Three Weeks of Unlimited Yoga for 15 euro.</a></p>
 
-        <h2>Loď Pivovar</h2>
-        <img src="{{ asset('img/guide/partners/lod_pivovar.png') }}" alt="Pivolod logo" />
+        <h3>Loď Pivovar</h3>
+        <img src="{{ asset('img/guide/partners/lod_pivovar.png') }}" alt="Loď Pivovar logo" />
         <p>
             Restaurant with its own brewery, where you can enjoy Czech cuisine, beer garden and summer terrace with bar, BBC and relaxing lounge.
             All this awaits you on three decks of a unique project in Czech waters.

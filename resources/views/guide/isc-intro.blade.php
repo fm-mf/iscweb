@@ -4,9 +4,9 @@
 
 @section('subpage')
     <section id="isc-intro">
-        <h1>ISC</h1>
+        <h2>{{ $shortName }}</h2>
 
-         @component('guide.section-nav', ['items' => [
+         @component('guide.components.section-nav', ['items' => [
             'activities' => [
                 'title' => 'Activities and events you can participate in with ISC',
                 'items' => [
@@ -37,14 +37,13 @@
             through creating a unique partnership among university students
             and sustaining the mutual understanding of our cultural differences.</p>
 
-            <p><strong>Since 2003, International Student Club CTU in Prague is a proud member of ESN Czech Republic.</strong></p>
+        <p><strong>Since 2003, {{ $fullName }} is a proud member of ESN Czech Republic.</strong></p>
         <img src="{{ asset('img/logos/isc-logo-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" title="Logo ISC CTU in Prague" />
-
     </section>
 
-    <h2 id="activities">Activities and events you can participate in with ISC</h2>
+    <h3 id="activities">Activities and events you can participate in with ISC</h3>
 
-    <h3 id="languages">Languages</h3>
+    <h4 id="languages">Languages</h4>
     <dl>
         <dt>Language courses</dt>
             <dd><a href="https://www.isc.cvut.cz/activities/language-programs" target="_blank">https://www.isc.cvut.cz/activities/language-programs</a></dd>
@@ -55,14 +54,14 @@
             <dd>you can sign up for the Tandem language programme by signing up at <a href="https://isc.cvut.cz/tandem/" target="_blank">https://isc.cvut.cz/tandem/</a></dd>
     </dl>
 
-    <h3 id="sports">Sports</h3>
+    <h4 id="sports">Sports</h4>
     <ul>
         <li>We organise regular sports activities for you - football, floorball, tennis, basketball, volleyball and much more</li>
         <li>For more information visit <a href="https://www.isc.cvut.cz/activities/sports" target="_blank">https://www.isc.cvut.cz/activities/sports</a></li>
     </ul>
 
 
-    <h3 id="activities-trips">Activities and trips</h3>
+    <h4 id="activities-trips">Activities and trips</h4>
     <ul>
         <li>Trips in the Czech Republic and abroad during all the semester</li>
         <li>Hiking trips in the Czech countryside</li>
@@ -70,7 +69,7 @@
         <li><a href="https://www.facebook.com/pg/isc.ctu.prague/events/" target="_blank">ISC events on Facebook</a></li>
     </ul>
 
-    <h3 id="culture-evenings">inteGREAT parties &amp; presentations</h3>
+    <h4 id="culture-evenings">inteGREAT parties &amp; presentations</h4>
     <ul>
         <li>Do you wanna discover the beauty of other countries, traditional cuisines and dances?</li>
         <li>Once per week or two we organise inteGREAT parties where you, the international students at CTU,
@@ -79,18 +78,18 @@
         <li>Parties are held in various clubs in Prague</li>
     </ul>
 
-    <h2 id="membership">ISC membership</h2>
+    <h3 id="membership">ISC membership</h3>
     <p>You can get your membership in the ISC Point at any time in the semester. This membership
         enables you to get many opportunities through ISC. ISC is a voluntary organisation,
         and this small fee helps it to be self-sufficient. </p>
 
-    <h3 id="membership-requirements">What do you need?</h3>
+    <h4 id="membership-requirements">What do you need?</h4>
     <ul>
         <li>CZK 500<strong> (cash, no credit card accepted, no foreign currencies accepted)</strong></li>
         <li>1 photo (27 x 35 mm)</li>
     </ul>
 
-    <h3 id="membership-benefits">What do you get?</h3>
+    <h4 id="membership-benefits">What do you get?</h4>
     <ul>
         <li>The possibility to join all ISC activities prepared for international students (for free or at a favourable price)</li>
         <li>The possibility to join ISC trips (in Orientation Week and throughout the year)</li>
@@ -99,7 +98,7 @@
         <li>insurance for ISC activities</li>
     </ul>
 
-    <h3 id="membership-gifts">Free gifts for joining</h3>
+    <h4 id="membership-gifts">Free gifts for joining</h4>
     <ul>
         <li>a Czech Data SIM card with a favorable student tariff</li>
         <li>a unique &quot;I WAS THERE&quot; T-shirt</li>

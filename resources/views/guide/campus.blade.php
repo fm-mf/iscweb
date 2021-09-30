@@ -3,9 +3,9 @@
 @section('subtitle', 'Campus')
 
 @section('subpage')
-    <h1>Campus</h1>
+    <h2>Campus</h2>
 
-     @component('guide.section-nav', ['items' => [
+     @component('guide.components.section-nav', ['items' => [
         'main-campus' => 'The main Campus',
         'satellite-campuses' => [
             'title' => 'The satellite Campuses',
@@ -17,7 +17,7 @@
             'title' => 'Important contacts &amp; addresses',
             'items' => [
                 'ctu-international-office' => 'CTU International Office',
-                'faculty-contacts' => 'Faculties, Institutes &amp; Contact persons'
+                'faculty-contacts' => 'Faculties, Institutes & Contact persons'
             ]
         ]
     ]])
@@ -27,7 +27,7 @@
         where the Student administration and most of the faculties are located,
         there are some smaller buildings dotted around Prague and Kladno.</p>
 
-    <h2 id="main-campus">The main Campus</h2>
+    <h3 id="main-campus">The main Campus</h3>
     <ul class="list-unstyled">
         <li>Located in the north western suburbs of Prague, next to Dejvická metro station, see the area on the map below</li>
         <li>The offices of the CTU rectorate (including the International Office) as well as the faculties of Civil, Mechanical and Electrical Engineering, the Faculty of Information Technology, the Faculty of Architecture and Masaryk Institute of Advanced Studies</li>
@@ -35,14 +35,14 @@
         <li><a href="{{ asset('img/guide/map-ctu-campus-dejvice-2017.png') }}" target="_blank"><img src="{{ asset('img/guide/map-ctu-campus-dejvice-2017.png') }}" alt="Map of the CTU main campus in Dejvice" title="Map of the CTU main campus in Dejvice" /></a></li>
     </ul>
 
-    <h2 id="satellite-campuses">The satellite Campuses</h2>
+    <h3 id="satellite-campuses">The satellite Campuses</h3>
     <ul>
         <li>Finding your classroom can be difficult when everything is not on one spot</li>
         <li>See the <a href="#important-contacts">Important contacts</a> - faculty contacts, <strong>links</strong> to pages with maps of satellite campuses as well as an explanation of the room numbering</li>
         <li>You can also find the map in the Welcome Pack or at the <a href="https://www.cvut.cz/en/ctu-map" target="_blank">CTU website</a></li>
     </ul>
 
-    <h3 id="locations">Locations</h3>
+    <h4 id="locations">Locations</h4>
     <dl class="contactsList">
         <dt>Faculty of Mechanical Engineering</dt>
             <dd>Charles' square (Karlovo naměstí) & Horská</dd>
@@ -56,9 +56,9 @@
             <dd>Kladno, Náměstí Sítná (25 km from Prague)</dd>
     </dl>
 
-    <h2 id="important-contacts">Important contacts &amp; addresses</h2>
+    <h3 id="important-contacts">Important contacts &amp; addresses</h3>
 
-    <h3 id="ctu-international-office">CTU International Office</h3>
+    <h4 id="ctu-international-office">CTU International Office</h4>
     <p>The International Office of CTU is located on the 8th floor of the Rectorate building
         (Address: <a href="https://goo.gl/maps/pGbmkgxfb772" target="_blank">Jugoslávských partyzánů 1580/3, Praha 6, 160 00</a>)
         (The entrance with the water fountain)</p>
@@ -69,7 +69,7 @@
         you can contact <strong>Mgr. Kateřina Bošková</strong>. These lessons are offered by CTU for ECTS credits.
         For further information visit <a href="https://international.cvut.cz" target="_blank">CTU International Office website</a></p>
 
-    <h4 id="ctu-international-office-contacts">Contacts</h4>
+    <h5 id="ctu-international-office-contacts">Contacts</h5>
     <dl class="contactsList">
         <dt>Ing. Volfgang Melecký, Ph.D.</dt>
             <dd>Room: A-811</dd>
@@ -85,7 +85,7 @@
             <dd>Email: <a href="mailto:lucie.bilova@cvut.cz">lucie.bilova@cvut.cz</a></dd>
     </dl>
 
-    <h4 id="lucie-bilova-office-hours">Lucie Bílová's office hours</h4>
+    <h5 id="lucie-bilova-office-hours">Lucie Bílová's office hours</h5>
     <dl class="contactsList">
         <dt>Monday &ndash; Thursday</dt>
             <dd>8:00 &ndash; 11:00</dd>
@@ -95,9 +95,9 @@
             <dd>13:00 &ndash; 15:00</dd>
     </dl>
 
-    <p class="bg-info">Note : If you are studying for a degree awarded by CTU, your contact person is always your Faculty coordinator.</p>
+    <p class="alert alert-info">Note: If you are studying for a degree awarded by CTU, your contact person is always your Faculty coordinator.</p>
 
-   <h3 id="faculty-contacts">Faculties, Institutes &amp; Contact persons</h3>
+   <h4 id="faculty-contacts">Faculties, Institutes &amp; Contact persons</h4>
     <dl class="contactsList">
         <dt>Faculty of Civil Engineering</dt>
             <dd><a href="http://stuk.fsv.cvut.cz/wp-content/uploads/2016/03/plánek-fakulty-se-studijními-prostory.jpg" target="_blank">Map of the faculty</a></dd>

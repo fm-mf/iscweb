@@ -3,7 +3,7 @@
 @section('subtitle', 'Important numbers')
 
 @section('subpage')
-    <h1>Important numbers</h1>
+    <h2>Important numbers</h2>
     <ul>
         <li><strong>European Emergency Number: 112</strong></li>
         <li>Ambulance (Emergency): 155</li>
