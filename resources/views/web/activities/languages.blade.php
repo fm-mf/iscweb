@@ -32,10 +32,8 @@
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
                     </p>
                     <p>
-                        Languages courses for the Spring semester 2021 will start on <strong>Monday, 1 March 2021</strong>.
-                        The schedule for Spring semester 2021 will be available during the last week of February 2021.
-                        The courses will currently take place online and we will be monitoring the situation,
-                        moving to offline classes as soon as possible.
+                        Languages courses for the Autumn semester 2021 will start on <strong>Monday, 11 October 2021</strong>.
+                        The courses are finally offline.
                     </p>
                     <p>
                         Are you interested in teaching a language with the ISC? That's great, we would like to have you!
@@ -43,7 +41,7 @@
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Have a look at the <b>Spring 2021 schedule</b>
+                            Have a look at the <b>Autumn 2021 schedule</b>
                         </a>
                     </p>
                     <h3>Where are the classrooms?</h3>
@@ -116,7 +114,7 @@
                     <h2>See the schedule</h2>
                     <p>You can have a look at the
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            Spring 2021 schedule
+                            Autumn 2021 schedule
                         </a>.
                     </p>{{--
                     <p>
