@@ -19,13 +19,12 @@
                         zábavnou formou a není na ně potřeba žádné registrace.
                     </p>
                     <p>
-                        Jazykové kurzy pro letní semestr 2020/2021 začínají v <strong>pondělí 1. března 2021</strong>.
-                        Rozvrh kurzů bude zveřejněn koncem února. Kurzy budou momentálně probíhat on-line.
-                        V případě zlepšení situace se budeme snažit kurzy co nejdříve přesunout do prezenční podoby.
+                        Jazykové kurzy pro zimní semestr 2021/2022 začínají v <strong>pondělí 11. října 2021</strong>.
+                        A jsou konečně offline.
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Podívejte se na <strong>rozvrh pro letní semestr 2020/2021</strong>
+                            Podívejte se na <strong>rozvrh pro zimní semestr 2021/2022</strong>
                         </a>
                     </p>
                     <h3>Kde najdu učebny?</h3>
@@ -114,7 +113,7 @@
                     <p>
                         Podívejte se na rozvrh ISC jazykových kurzů pro
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            letní semestr 2020/2021
+                            zimní semestr 2021/2022
                         </a>.
                     </p>{{--
                     <p>
