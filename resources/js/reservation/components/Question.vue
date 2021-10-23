@@ -19,13 +19,13 @@
             "
             :type="question.type"
             :value="value"
-            :required="question.required"
+            :required="question.required !== 0"
             @input="handleInput"
         />
         <textarea
             v-if="question.type === 'text' && data.multi"
             :value="value"
-            :required="question.required"
+            :required="question.required !== 0"
             @input="handleInput"
         >
         </textarea>
@@ -98,7 +98,8 @@ export default {
         },
         validate() {
             const errors = [];
-            if (!this.isFilled()) {
+
+            if (this.required && !this.isFilled()) {
                 errors.push('Please answer this question');
             }
 
