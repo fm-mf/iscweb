@@ -6,10 +6,10 @@ import Exports from './pages/Exports';
 import History from './pages/History';
 
 export default [
-  { path: '/', component: Dashboard },
-  { path: '/arrivals', component: Arrivals },
-  { path: '/buddies', component: Buddies },
-  { path: '/students', component: Students },
-  { path: '/exports', component: Exports },
-  { path: '/history', component: History }
+    { path: '/', component: Dashboard },
+    { path: '/arrivals', component: Arrivals },
+    { path: '/buddies', component: Buddies },
+    { path: '/students', component: Students },
+    { path: '/exports', component: Exports },
+    { path: '/history', component: History }
 ];

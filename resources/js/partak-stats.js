@@ -5,16 +5,16 @@ import VueRouter from 'vue-router';
 import routes from './partak-stats/routes';
 
 Vue.use(VueRouter);
-Vue.component('loader', Loader);
+Vue.component('Loader', Loader);
 
 const router = new VueRouter({
-  mode: 'history',
-  base: '/partak/stats',
-  routes
+    mode: 'history',
+    base: '/partak/stats',
+    routes
 });
 
 new Vue({
-  el: '#stats-app',
-  router,
-  components: { PartakStats }
+    el: '#stats-app',
+    router,
+    components: { PartakStats }
 });

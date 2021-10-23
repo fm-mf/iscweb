@@ -1,6 +1,6 @@
 import Cropper from 'cropperjs';
 
-(function (factory) {
+(function(factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as anonymous module.
         define(['jquery'], factory);
@@ -11,11 +11,10 @@ import Cropper from 'cropperjs';
         // Browser globals.
         factory(jQuery);
     }
-})(function ($) {
-
+})(function($) {
     'use strict';
 
-    var console = window.console || { log: function () {} };
+    var console = window.console || { log: function() {} };
 
     function CropAvatar($element) {
         this.$container = $element;
@@ -50,8 +49,9 @@ import Cropper from 'cropperjs';
             formData: !!window.FormData
         },
 
-        init: function () {
-            this.support.datauri = this.support.fileList && this.support.blobURLs;
+        init: function() {
+            this.support.datauri =
+                this.support.fileList && this.support.blobURLs;
 
             if (!this.support.formData) {
                 this.initIframe();
@@ -62,33 +62,33 @@ import Cropper from 'cropperjs';
             this.addListener();
         },
 
-        addListener: function () {
+        addListener: function() {
             this.$avatarView.on('click', $.proxy(this.click, this));
             this.$avatarInput.on('change', $.proxy(this.change, this));
             this.$avatarForm.on('submit', $.proxy(this.submit, this));
             this.$avatarBtns.on('click', $.proxy(this.rotate, this));
         },
 
-        initTooltip: function () {
+        initTooltip: function() {
             this.$avatarView.tooltip({
                 placement: 'bottom'
             });
         },
 
-        initModal: function () {
+        initModal: function() {
             this.$avatarModal.modal({
                 show: false
             });
         },
 
-        initPreview: function () {
+        initPreview: function() {
             var url = this.$avatar.attr('src');
 
             this.$avatarPreview.html('<img src="' + url + '">');
         },
 
-        initIframe: function () {
-            var target = 'upload-iframe-' + (new Date()).getTime();
+        initIframe: function() {
+            var target = 'upload-iframe-' + new Date().getTime();
             var $iframe = $('<iframe>').attr({
                 name: target,
                 src: ''
@@ -96,14 +96,16 @@ import Cropper from 'cropperjs';
             var _this = this;
 
             // Ready ifrmae
-            $iframe.one('load', function () {
-
+            $iframe.one('load', function() {
                 // respond response
-                $iframe.on('load', function () {
+                $iframe.on('load', function() {
                     var data;
 
                     try {
-                        data = $(this).contents().find('body').text();
+                        data = $(this)
+                            .contents()
+                            .find('body')
+                            .text();
                     } catch (e) {
                         console.log(e.message);
                     }
@@ -121,7 +123,6 @@ import Cropper from 'cropperjs';
                     }
 
                     _this.submitEnd();
-
                 });
             });
 
@@ -129,12 +130,12 @@ import Cropper from 'cropperjs';
             this.$avatarForm.attr('target', target).after($iframe.hide());
         },
 
-        click: function () {
+        click: function() {
             this.$avatarModal.modal('show');
             this.initPreview();
         },
 
-        change: function () {
+        change: function() {
             var files;
             var file;
 
@@ -145,7 +146,7 @@ import Cropper from 'cropperjs';
                     file = files[0];
 
                     if (this.isImageFile(file)) {
-                        if (file.size > (1 << 21)) {
+                        if (file.size > 1 << 21) {
                             this.$errorTooBigFile.css('display', 'block');
                             this.stopCropper();
                             this.$avatarWrapper.empty();
@@ -171,7 +172,7 @@ import Cropper from 'cropperjs';
             }
         },
 
-        submit: function () {
+        submit: function() {
             if (!this.$avatarSrc.val() && !this.$avatarInput.val()) {
                 return false;
             }
@@ -182,7 +183,7 @@ import Cropper from 'cropperjs';
             }
         },
 
-        rotate: function (e) {
+        rotate: function(e) {
             var data;
 
             if (this.active) {
@@ -194,7 +195,7 @@ import Cropper from 'cropperjs';
             }
         },
 
-        isImageFile: function (file) {
+        isImageFile: function(file) {
             if (file.type) {
                 return /^image\/\w+$/.test(file.type);
             } else {
@@ -202,21 +203,23 @@ import Cropper from 'cropperjs';
             }
         },
 
-        startCropper: function () {
+        startCropper: function() {
             var _this = this;
 
             if (this.active) {
                 //this.$img.cropper('replace', this.url);
                 this.cropper.replace(this.url);
             } else {
-                this.$img = $('<img src="' + this.url + '" id="cropped-image">');
+                this.$img = $(
+                    '<img src="' + this.url + '" id="cropped-image">'
+                );
                 this.$avatarWrapper.empty().html(this.$img);
                 var image = document.getElementById('cropped-image');
                 this.cropper = new Cropper(image, {
                     aspectRatio: 1,
                     viewMode: 1,
                     zoomable: false,
-                    crop: function (e) {
+                    crop: function(e) {
                         var json = [
                             '{"x":' + e.detail.x,
                             '"y":' + e.detail.y,
@@ -232,13 +235,13 @@ import Cropper from 'cropperjs';
                 this.active = true;
             }
 
-            this.$avatarModal.one('hidden.bs.modal', function () {
+            this.$avatarModal.one('hidden.bs.modal', function() {
                 _this.$avatarPreview.empty();
                 _this.stopCropper();
             });
         },
 
-        stopCropper: function () {
+        stopCropper: function() {
             if (this.active) {
                 this.cropper.destroy();
                 this.$img.remove();
@@ -246,7 +249,7 @@ import Cropper from 'cropperjs';
             }
         },
 
-        ajaxUpload: function () {
+        ajaxUpload: function() {
             var url = this.$avatarForm.attr('action');
 
             var myForm = document.getElementById('avatar-form');
@@ -267,39 +270,41 @@ import Cropper from 'cropperjs';
                 processData: false,
                 contentType: false,
 
-                beforeSend: function () {
+                beforeSend: function() {
                     _this.submitStart();
                 },
 
-                success: function (data) {
+                success: function(data) {
                     _this.submitDone(data);
                 },
 
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
                     if (XMLHttpRequest.status === 400) {
                         _this.submitFail(XMLHttpRequest.responseJSON.message);
                     } else if (XMLHttpRequest.status === 422) {
-                        _this.submitFail(XMLHttpRequest.responseJSON.errors.avatar_file[0])
+                        _this.submitFail(
+                            XMLHttpRequest.responseJSON.errors.avatar_file[0]
+                        );
                     } else {
                         _this.submitFail(textStatus || errorThrown);
                     }
                 },
 
-                complete: function () {
+                complete: function() {
                     _this.submitEnd();
                 }
             });
         },
 
-        syncUpload: function () {
+        syncUpload: function() {
             this.$avatarSave.click();
         },
 
-        submitStart: function () {
+        submitStart: function() {
             this.$loading.fadeIn();
         },
 
-        submitDone: function (data) {
+        submitDone: function(data) {
             console.log(data);
 
             if ($.isPlainObject(data) && data.state === 200) {
@@ -324,22 +329,22 @@ import Cropper from 'cropperjs';
             }
         },
 
-        submitFail: function (msg) {
+        submitFail: function(msg) {
             this.alert(msg);
         },
 
-        submitEnd: function () {
+        submitEnd: function() {
             this.$loading.fadeOut();
         },
 
-        cropDone: function () {
+        cropDone: function() {
             this.$avatarForm.get(0).reset();
             this.$avatar.attr('src', this.url);
             this.stopCropper();
             this.$avatarModal.modal('hide');
         },
 
-        alert: function (msg) {
+        alert: function(msg) {
             var $alert = [
                 '<div class="alert alert-danger avatar-alert alert-dismissable">',
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>',
@@ -351,8 +356,7 @@ import Cropper from 'cropperjs';
         }
     };
 
-    $(function () {
+    $(function() {
         return new CropAvatar($('#crop-avatar'));
     });
-
 });

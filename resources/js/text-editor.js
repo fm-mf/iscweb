@@ -48,19 +48,19 @@ tinymce.init({
         'textpattern',
         'visualblocks',
         'visualchars',
-        'wordcount',
+        'wordcount'
     ],
     toolbar:
         'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | link emoticons',
     skin: false,
     content_css: [
         `${window.location.origin}/css/vendor.css`,
-        `${window.location.origin}/css/web.css`,
+        `${window.location.origin}/css/web.css`
     ],
     body_class: 'container-fluid my-3',
     contextmenu: false,
     browser_spellcheck: true,
     default_link_target: '_blank',
     link_default_protocol: 'https',
-    branding: false,
+    branding: false
 });

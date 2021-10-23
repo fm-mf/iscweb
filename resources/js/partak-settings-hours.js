@@ -21,15 +21,16 @@ function onPageLoad() {
 }
 
 function onSelectChange(event) {
-    axios.get(BASE_URL, {
-        params: {
-            mode: event.target.value,
-        },
-    })
-        .then((response) => {
+    axios
+        .get(BASE_URL, {
+            params: {
+                mode: event.target.value
+            }
+        })
+        .then(response => {
             updateForm(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
             console.error(error);
         });
 }
@@ -43,8 +44,10 @@ function updateForm(data) {
     textCs.value = data.hours_json.textCs ?? '';
     showOpeningHours.checked = data.show_hours;
 
-    DAYS_OF_WEEK.forEach((item) => {
-        const openingHoursData = document.getElementById(`hours_json[hours][${item}]`);
+    DAYS_OF_WEEK.forEach(item => {
+        const openingHoursData = document.getElementById(
+            `hours_json[hours][${item}]`
+        );
         openingHoursData.value = data.hours_json.hours[item];
     });
 }

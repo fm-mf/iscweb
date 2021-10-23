@@ -3,7 +3,7 @@ import axios from 'axios';
 import OrderableColumn from './components/OrderableColumn';
 import VueMultiselect from 'vue-multiselect';
 
-Vue.component('multiselect', VueMultiselect);
+Vue.component('Multiselect', VueMultiselect);
 
 /** Which keys are used to identify selected option in filters list */
 const filterToKey = {
@@ -116,7 +116,7 @@ new Vue({
                 this.arrivals = response.data.days;
                 this.accommodation = response.data.accommodation;
             } catch (error) {
-                console.error("Failed to load filter options");
+                console.error('Failed to load filter options');
                 console.error(error);
             }
         },
@@ -191,7 +191,7 @@ new Vue({
                 const res = await axios.post('/api/liststudents', {
                     filters: simplifyFilters(this.filters),
                     page: this.page,
-                    sortBy: this.sortBy,
+                    sortBy: this.sortBy
                 });
                 const data = res.data;
 

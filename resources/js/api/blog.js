@@ -6,18 +6,20 @@ import axios from 'axios';
  * @param {string} text
  */
 const normalizeText = text =>
-  text.replace(/&#8230;/g, '\u2026').replace(/<a [^>]*>.*<\/a>/gm, '');
+    text.replace(/&#8230;/g, '\u2026').replace(/<a [^>]*>.*<\/a>/gm, '');
 
 export const getBlogFeed = async () => {
-  const res = await axios.get('/blog/?feed=rss2');
-  const rss = new DOMParser().parseFromString(res.data, 'text/xml');
+    const res = await axios.get('/blog/?feed=rss2');
+    const rss = new DOMParser().parseFromString(res.data, 'text/xml');
 
-  return Array.from(rss.querySelectorAll('item')).map(item => {
-    return {
-      title: item.querySelector('title').textContent,
-      link: item.querySelector('link').textContent,
-      description: normalizeText(item.querySelector('description').textContent),
-      pubDate: new Date(item.querySelector('pubDate').textContent)
-    };
-  });
+    return Array.from(rss.querySelectorAll('item')).map(item => {
+        return {
+            title: item.querySelector('title').textContent,
+            link: item.querySelector('link').textContent,
+            description: normalizeText(
+                item.querySelector('description').textContent
+            ),
+            pubDate: new Date(item.querySelector('pubDate').textContent)
+        };
+    });
 };
