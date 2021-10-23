@@ -62,6 +62,7 @@
         :is-ow="!!{{ $event->ow }}"
         :show-medical-issues="!!{{ $event->reservations_medical ?: '0' }}"
         :show-diet="!!{{ $event->reservations_diet ?: '0' }}"
+        type="{{ $event->trip ? $event->trip->type : 'event' }}"
         v-on:cancel="toggleRegistration(false)"
       ></reservation>
     </div>

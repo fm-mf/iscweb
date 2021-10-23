@@ -9,6 +9,7 @@
                 :loaded="loaded"
                 :event="eventHash"
                 :is-ow="isOw"
+                :type="type"
                 @loaded="handleLoaded"
                 @auth="handleAuth"
                 @cancel="$emit('cancel')"
@@ -70,6 +71,7 @@ export default {
             type: String,
             required: true
         },
+        type: String,
         isOw: Boolean,
         showMedicalIssues: Boolean,
         showDiet: Boolean

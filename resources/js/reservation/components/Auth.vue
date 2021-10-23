@@ -1,6 +1,15 @@
 <template>
-    <tabs class="auth-step" @change="resetError">
-        <tab id="exchange" title="Exchange student" selected>
+    <tabs
+        class="auth-step"
+        :default-id="type === 'buddy' ? 'buddy' : 'exchange'"
+        @change="resetError"
+    >
+        <tab
+            v-if="type !== 'buddy'"
+            id="exchange"
+            title="Exchange student"
+            selected
+        >
             <error :error="error" />
             <form class="form" @submit.prevent="handleExchangeAuth">
                 <div v-if="!isOw" class="form-group">
@@ -15,7 +24,7 @@
                 <cancel @click="$emit('cancel')" />
             </form>
         </tab>
-        <tab id="buddy" title="Buddy">
+        <tab v-if="type !== 'exchange'" id="buddy" title="Buddy">
             <error :error="error" />
             <form class="form" @submit.prevent="handleBuddyAuth">
                 <div class="form-group">
@@ -30,7 +39,7 @@
                 <cancel @click="$emit('cancel')" />
             </form>
         </tab>
-        <tab id="other" title="Other">
+        <tab v-if="type !== 'buddy'" id="other" title="Other">
             <p>
                 If you don't have an ESN Card and still want to join this event,
                 come to the <a href="/contact" target="blank">ISC Point</a> and
@@ -62,17 +71,19 @@ export default {
     props: {
         loaded: Boolean,
         event: String,
-        isOw: Boolean
+        isOw: Boolean,
+        type: String
     },
-    data: () => ({
-        error: null,
+    data: function() {
+        return {
+            error: null,
 
-        tab: 'exchange',
-        esn: '',
-        esnEmail: '',
-        buddyEmail: '',
-        password: ''
-    }),
+            esn: '',
+            esnEmail: '',
+            buddyEmail: '',
+            password: ''
+        };
+    },
     methods: {
         handleExchangeAuth() {
             if (!this.loaded) return;

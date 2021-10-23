@@ -19,6 +19,9 @@
 
 <script>
 export default {
+    props: {
+        defaultId: String
+    },
     data() {
         return {
             tabs: []
@@ -26,6 +29,11 @@ export default {
     },
     created() {
         this.tabs = this.$children;
+    },
+    mounted() {
+        if (this.$props.defaultId) {
+            this.select(this.$props.defaultId);
+        }
     },
     methods: {
         select(id) {
