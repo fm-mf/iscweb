@@ -146,3 +146,15 @@ Route::prefix('api')->namespace('Api')->name('api.')->group(function() {
 });
 
 Route::get('change-language', 'Web\WebController@changeLanguage')->name('change-language');
+
+Route::group(
+    [
+        'prefix' => 'auth',
+        'namespace' => 'Auth',
+        'as' => 'auth.',
+    ],
+    function () {
+        Route::get('{provider}', 'LoginController@redirectToProvider')->name('provider');
+        Route::get('{provider}/callback', 'LoginController@handleProviderCallback')->name('provider.callback');
+    }
+);

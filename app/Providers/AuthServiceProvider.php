@@ -45,5 +45,19 @@ class AuthServiceProvider extends ServiceProvider
 
             return false;
         });
+
+        $this->bootCvutAuthSocialiteProvider();
+    }
+
+    private function bootCvutAuthSocialiteProvider()
+    {
+        $socialite = $this->app->make('Laravel\Socialite\Contracts\Factory');
+        $socialite->extend(
+            'cvut',
+            function ($app) use ($socialite) {
+                $config = $app['config']['services.cvut'];
+                return $socialite->buildProvider(CvutAuthProvider::class, $config);
+            }
+        );
     }
 }

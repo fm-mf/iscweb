@@ -135,5 +135,13 @@
                 {{ Form::close() }}
             </div>
         @endif
+        @if(session()->has('social-auth'))
+            <div class="form-group col-auto">
+                <a href="{{ session('social-auth') }}" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-right"></i>
+                    @lang('auth.profile.skip-profile')
+                </a>
+            </div>
+        @endif
     </div>
 @endsection

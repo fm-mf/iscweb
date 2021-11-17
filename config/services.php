@@ -35,4 +35,10 @@ return [
         'version' => 'v3',
     ],
 
+    'cvut' => [
+        'client_id' => env('CVUT_CLIENT_ID'),
+        'client_secret' => env('CVUT_CLIENT_SECRET'),
+        'redirect' => env('CVUT_CALLBACK_URL'),
+    ],
+
 ];

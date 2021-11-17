@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\BuddyRegistered;
+use App\Events\BuddyVerified;
 use App\Helpers\Locale;
 use App\Http\Controllers\Controller;
+use App\Models\SocialAuthProvider;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LoginController extends Controller
 {
@@ -31,6 +37,10 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    protected $availableAuthProviders = [
+        'cvut',
+    ];
 
     /**
      * Create a new controller instance.
@@ -73,5 +83,74 @@ class LoginController extends Controller
         $localeTandem === null ?: session([Locale::SESSION_KEY_TANDEM => $localeTandem]);
 
         return $return;
+    }
+
+    public function redirectToProvider(string $provider)
+    {
+        if (!in_array($provider, $this->availableAuthProviders)) {
+            throw new NotFoundHttpException();
+        }
+
+        if (!config('services.' . $provider . '.client_id')
+            || !config('services.' . $provider . '.client_secret')
+            || !config('services.' . $provider . '.redirect')) {
+            throw new NotFoundHttpException('Config not set properly');
+        }
+
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback(string $provider)
+    {
+        if (!in_array($provider, $this->availableAuthProviders)) {
+            throw new NotFoundHttpException();
+        }
+
+        $user = $this->getUserFromSocialProvider($provider);
+
+        auth()->login($user);
+
+        return $user->wasRecentlyCreated
+            ? redirect()->route('auth.profile.edit')
+                ->with('social-auth', session('url.intended') ?? route('buddy-home'))
+            : redirect()->intended(route('buddy-home'));
+    }
+
+    protected function getUserFromSocialProvider(string $provider): User
+    {
+        $socialiteUser = Socialite::driver($provider)->stateless()->user();
+
+        $socialProvider = SocialAuthProvider::where([
+            'provider' => $provider,
+            'provider_id' => $socialiteUser->getId(),
+        ])->first();
+
+        if ($socialProvider) {
+            return $socialProvider->user;
+        }
+
+        $user = User::firstOrCreate([
+            'email' => $socialiteUser->getEmail(),
+        ]);
+
+        $user->person()->updateOrCreate([], [
+            'first_name' => $socialiteUser->firstName,
+            'last_name' => $socialiteUser->lastName,
+        ]);
+
+        $user->buddy()->updateOrCreate([], [
+            'verification_email' => $socialiteUser->getEmail(),
+            'agreement' => 1,
+        ]);
+        $user->buddy->setVerified();
+        event(new BuddyRegistered($user->buddy));
+        event(new BuddyVerified($user->buddy));
+
+        $user->socialAuthProviders()->create([
+            'provider' => $provider,
+            'provider_id' => $socialiteUser->getId(),
+        ]);
+
+        return $user;
     }
 }

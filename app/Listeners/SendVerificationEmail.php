@@ -28,6 +28,10 @@ class SendVerificationEmail
      */
     public function handle(BuddyRegistered $event)
     {
+        if ($event->buddy->isVerified() || $event->buddy->isDenied()) {
+            return;
+        }
+
         Mail::to($event->buddy->verification_email)
             ->send(new VerifyUser($event->buddy->person));
     }

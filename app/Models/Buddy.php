@@ -99,6 +99,11 @@ class Buddy extends Model
         return $this->verified === 'd';
     }
 
+    public function isNotDenied()
+    {
+        return !$this->isDenied();
+    }
+
     public function isSubscribed()
     {
         return $this->subscribed === 1;

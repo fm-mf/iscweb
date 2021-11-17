@@ -21,7 +21,10 @@ return [
 
     'login' => 'Přihlášení',
     'log-in' => 'Přihlásit se',
+    'log-in-ctu' => 'Přihlásit se pomocí ČVUT účtu',
     'log-out' => 'Odhlásit se',
+
+    'ctu-symbol' => 'Symbol ČVUT',
 
     'login-heading-buddy' => 'Přihlášení do Buddy programu',
     'login-heading-partak' => 'Přihlášení na ParťákNet',
@@ -36,6 +39,13 @@ return [
 
     'registration' => 'Registrace',
     'register' => 'Zaregistrovat se',
+    'register-with-ctu' => [
+        'btn-title' => 'Zaregistrovat se pomocí ČVUT účtu',
+        'notice' => '
+            Kliknutím na tlačítko „:btnTitle“ slibuješ, že se budeš držet <a href=":hrefCode">Buddy kodexu</a>
+            a souhlasíš se <a href=":hrefPrivacy" target="_blank" title="Souhlas se zpracováním osobních údajů">zpracováním osobních údajů</a>.
+        ',
+    ],
     'registration-heading' => 'Registrace do Buddy programu',
     'registration-info' => '
         <p>
@@ -97,6 +107,7 @@ return [
 
         'update' => 'Aktualizovat profil',
         'skip-to-verification' => 'Přejít na ověření',
+        'skip-profile' => 'Přeskočit …',
 
         'updated-successfully' => 'Tvůj profil byl úspěšně aktualizován.',
 

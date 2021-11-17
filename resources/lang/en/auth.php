@@ -21,7 +21,10 @@ return [
 
     'login' => 'Login',
     'log-in' => 'Log in',
+    'log-in-ctu' => 'Log in with CTU account',
     'log-out' => 'Log out',
+
+    'ctu-symbol' => 'CTU symbol',
 
     'login-heading-buddy' => 'Login to Buddy programme',
     'login-heading-partak' => 'Login to ParťákNet',
@@ -36,6 +39,13 @@ return [
 
     'registration' => 'Registration',
     'register' => 'Register',
+    'register-with-ctu' => [
+        'btn-title' => 'Register using CTU account',
+        'notice' => '
+            By clicking the ‘:btnTitle’ button you promise to follow the <a href=":hrefCode">Buddy code of conduct</a>
+            and you agree to the <a href=":hrefPrivacy" target="_blank" title="Consent to the processing of personal data">processing of your personal data</a>.
+        ',
+    ],
     'registration-heading' => 'Registration to the Buddy programme',
     'registration-info' => '
         <p>
@@ -97,6 +107,7 @@ return [
 
         'update' => 'Update profile',
         'skip-to-verification' => 'Skip to verification',
+        'skip-profile' => 'Skip…',
 
         'updated-successfully' => 'Your profile has been successfully updated.',
 

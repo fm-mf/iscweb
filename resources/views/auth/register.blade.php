@@ -25,10 +25,22 @@
 
     @lang('auth.registration-info', ['href' => route('buddy-home')])
 
+    @component('components.btn-auth-ctu')
+    @endcomponent
+    <p>
+        <em>
+            @lang('auth.register-with-ctu.notice', [
+                'btnTitle' => __('auth.register-with-ctu.btn-title'),
+                'hrefCode' => '#buddy-code-of-conduct',
+                'hrefPrivacy' => route('privacy.agreement-cs')
+            ])
+        </em>
+    </p>
+
     {{ Form::open(['route' => 'register', 'class' => 'mt-4']) }}
         @include('auth.partials.user')
 
-        <fieldset>
+        <fieldset id="buddy-code-of-conduct">
             <legend>@lang('auth.code-of-conduct.title')</legend>
 
             @lang('auth.code-of-conduct.text')

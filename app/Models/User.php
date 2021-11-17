@@ -75,6 +75,11 @@ class User extends Authenticatable implements HasLocalePreference
         return $this->hasMany('\App\Models\EventReservation', 'id_user', 'id_user');
     }
 
+    public function socialAuthProviders()
+    {
+        return $this->hasMany('App\Models\SocialAuthProvider', 'id_user');
+    }
+
     public function reservationByEvent(int $id_event)
     {
         return $this->reservations()

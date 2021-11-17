@@ -15,6 +15,9 @@
         <h1>@lang('auth.login-heading-buddy')</h1>
     @endif
 
+    @component('components.btn-auth-ctu')
+    @endcomponent
+
     {{ Form::open(['route' => 'login']) }}
         <div class="form-group">
             @php
