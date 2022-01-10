@@ -41,8 +41,9 @@ Volunteers of {{ $fullName }}
 Web: {{ route('web.lang-select') }}
 FB page: {{ $fbPageUrl }}
 FB group: {{ Settings::get('fbGroupLink') }}
-WhatsApp Announcements group: {{ Settings::get('whatsAppAnnoucementsLink') }}
-WhatsApp General group: {{ Settings::get('whatsAppGeneralLink') }}
+{{--WhatsApp Announcements group: {{ Settings::get('whatsAppAnnoucementsLink') }}--}}
+{{--WhatsApp General group: {{ Settings::get('whatsAppGeneralLink') }}--}}
+Discord: {{ Settings::get('esnPragueDiscord') }}
 Instagram: {{ $igProfileUrl }}
 
 This Privacy notice is to let you know how we promise to look after your personal information:
