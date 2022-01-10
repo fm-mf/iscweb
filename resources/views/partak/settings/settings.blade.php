@@ -93,6 +93,14 @@
 
             {{ Form::bsText('whatsAppGeneralLink', 'Link to General WhatsApp group', '', @$settings['whatsAppGeneralLink']) }}
 
+            <div class="form-group">
+                {{ Form::label('esnPragueDiscord', 'ESN Prague Discord invite link') }}
+                @if ($errors->has('esnPragueDiscord'))
+                    <p class="error-block alert-danger">{{ $errors->first('esnPragueDiscord') }}</p>
+                @endif
+                {{ Form::url('esnPragueDiscord', $settings['esnPragueDiscord'], ['class' => 'form-control']) }}
+            </div>
+
             {{ Form::bsCheckbox('owTripsEnabled', 'Enable OW trips registration', '', '1', @$settings['owTripsEnabled']) }}
 
             {{ Form::bsCheckbox('owTripsRestricted', 'Allow only one OW trip per person', '', '1', @$settings['owTripsRestricted']) }}
