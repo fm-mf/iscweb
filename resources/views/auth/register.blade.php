@@ -25,8 +25,10 @@
 
     @lang('auth.registration-info', ['href' => route('buddy-home')])
 
+{{--
     @component('components.btn-auth-ctu')
     @endcomponent
+--}}
     <p>
         <em>
             @lang('auth.register-with-ctu.notice', [
