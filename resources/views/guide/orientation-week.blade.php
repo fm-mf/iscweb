@@ -25,7 +25,7 @@
         </p>
         --}}
         <p class="mb-0">
-            As of 8 January 2022, all events are planned in-person, but if the pandemic
+            As of 5 February 2022, all events are still planned in-person, but if the pandemic
             situation gets worse, the Orientation week might be held on-line.
             We will try to provide you with a great experience and make it possible to meet each other.
             You can also follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener" class="alert-link">OW FB event</a> for up to date information.
@@ -75,7 +75,7 @@
 
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
-        <li>When: <strong>13:30</strong> – 16:30</li>
+        <li>When: <strong>13:30</strong> – 17:00</li>
 {{--        <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>--}}
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>--}}
         <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>
@@ -91,7 +91,7 @@
             <ul>
                 <li>Official welcome</li>
                 <li>How to enroll in courses and sports at CTU</li>
-{{--                        <li>Czech language and Czech culture courses</li>--}}
+                <li>Czech language and Czech culture courses</li>
                 <li>Life in the Czech Republic and how to survive in Prague</li>
                 <li>ESN membership</li>
                 <li>ISC teams and activities</li>
@@ -133,8 +133,8 @@
     </div>
     --}}
     <ul class="list-unstyled">
-        <li>When: <strong>21:00</strong></li>
-        <li>Where: <em>TBA</em></li>
+        <li>When: <strong>20:00</strong></li>
+        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>
 {{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
         {{--
         <li>Meeting points:
@@ -295,8 +295,8 @@
     <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
     <ul class="list-unstyled">
         <li>When: <strong>21:00</strong></li>
+        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
 {{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
-        <li>Where: <em>TBA</em></li>
         {{--
         <li>Meeting points:
             <ul>
