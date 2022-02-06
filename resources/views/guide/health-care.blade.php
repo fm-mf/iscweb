@@ -178,7 +178,7 @@
     <h4 id="polyclinic">Městská poliklinika Praha</h4>
     <ul>
         <li><address>Spálená 12, Praha 1</address></li>
-        <li><a href="tel:+420 222 924 211">+420 222 924 211</a></li>
+        <li><a href="tel:+420 222 924 246">+420 222 924 246</a></li>
         <li>For students, contract with CTU</li>
         <li>Most of the doctors are English-speaking. For contacts and office hours see <a href="https://www.prahamp.cz/" target="_blank">their website</a> (only in Czech -> you ask your Buddy to help you with translation)</li>
     </ul>
