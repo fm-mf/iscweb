@@ -99,6 +99,11 @@
                 <li>Visa regulations</li>
             </ul>
         </li>
+        <li>
+            <a href="{{ asset('files/OW_2022_handout.pdf') }}" target="_blank">
+                <i class="fas fa-file-pdf"></i> Slides from the presentation OW Spring 2022
+            </a>
+        </li>
         {{--
         <li>
             <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_registrations-at-faculties.pdf') }}" target="_blank">
@@ -190,31 +195,31 @@
         <strong>Note:</strong> Even if you have courses at multiple faculties, you only need to attend
         the registration at the ‘main’ faculty you have in your learning agreement.
     </p>
-    {{--
     <ul class="list-unstyled">
         <li>
             <strong>In-person registration:</strong>
             <ul>
-                <li>Faculty of Electrical Engineering (FEL) – 9:00, Room T2:D3-209</li>
-                <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI) – 9:00, Room 10 at Břehová 7 building</li>
-                <li>Faculty of Transportation (FD) – 9:00, at Konviktská 20 buillding</li>
+                <li>Faculty of Mechanical Engineering (FS) – 9:00, Room T4:D1-366</li>
+                <li>Faculty of Electrical Engineering (FEL) – 9:00, Room T2:C3-132</li>
+                <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI) – 10:00, Room 10 at Břehová 7 building</li>
+                <li>Faculty of Transportation (FD) – 9:00, Room 204 at Konviktská 20 building</li>
                 <li>Faculty of Biomedical Engineering (FBMI) – 9:00 in Kladno building (náměstí Sítná 3105), room KL:B-435</li>
-                <li>Faculty of Architecture (FA) – 10:00, in front of the faculty</li>
+                <li>Faculty of Architecture (FA) – 13:45, Room T9:155</li>
             </ul>
         </li>
         <li>
             <strong>On-line registration:</strong>
-            (faculty coordinator should contact you via e-mail with instructions)
+            (faculty coordinator have already contacted you via e-mail with instructions)
             <ul>
-                <li>Faculty of Information Technology (FIT)</li>
                 <li>Faculty of Civil Engineering (FSv)</li>
+                <li>Faculty of Information Technology (FIT)</li>
             </ul>
         </li>
         <li>
             <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
         </li>
         <li>
-            <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_registrations-at-faculties.pdf') }}" target="_blank">
+            <a href="{{ asset('files/OW_2022_handout.pdf') }}" target="_blank">
                 <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation from Monday
             </a>
         </li>
@@ -232,7 +237,6 @@
             </ul>
         </li>
     </ul>
-    --}}
 
     <h4 id="trips-meeting">Second information meeting</h4>
     <ul class="list-unstyled">
@@ -263,15 +267,12 @@
 
     <h4 id="day-3-registration">Registration at faculties</h4>
     <ul class="list-unstyled">
-        {{--
         <li>
             <strong>In-person registration:</strong>
             <ul>
-                <li>Faculty of Mechanical Engineering (FS) – 9:00, Room T4:D1-366</li>
                 <li>Masaryk Institute of Advanced Studies (MÚVS) – 10:00, Room 104</li>
             </ul>
         </li>
-        --}}
         <li class="alert alert-info">
             <strong>See <a href="#day-2-registration" class="alert-link">Registration on Tuesday</a> for further information</strong>
         </li>
@@ -279,11 +280,13 @@
 
     <h4 id="prague-discovery-game">Prague Discovery Game</h4>
     <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
+    {{--
     <p class="alert alert-info">
         The exact time and other instructions will be posted in the
         <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener" class="alert-link">OW FB event</a>
         and on Monday, 13 September, during the Initial information meeting.
     </p>
+    --}}
     <ul class="list-unstyled">
         <li>When: <strong>14:15</strong></li>
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>--}}
