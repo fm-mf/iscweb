@@ -85,6 +85,7 @@ export default {
 
                 element.parentElement.classList.add('active');
 
+                $('#navbarNav').collapse('toggle');
                 this.$router.push(url);
             });
         });
