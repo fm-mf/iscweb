@@ -45,10 +45,12 @@
         }
     }
 
-    ul > li {
+    ul > li,
+    ol > li {
         margin-bottom: 0.5rem;
 
-        ul > li {
+        ul > li,
+        ol > li {
             margin-bottom: 0;
         }
     }

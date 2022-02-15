@@ -33,6 +33,7 @@
                     <ul id="about-ctu" class="nav collapse @if(isset($aboutCtu)) in show @endif">
                         @component('guide.components.nav-item', ['page' => 'academic-year', 'title' => 'Academic year calendar', 'active' => $active])@endcomponent
                         @component('guide.components.nav-item', ['page' => 'campus', 'title' => 'Campus', 'active' => $active])@endcomponent
+                        @component('guide.components.nav-item', ['page' => 'classrooms', 'title' => 'Classrooms location', 'active' => $active])@endcomponent
                         @component('guide.components.nav-item', ['page' => 'dormitories', 'title' => 'Dormitories', 'active' => $active])@endcomponent
                     </ul>
                 </li>
