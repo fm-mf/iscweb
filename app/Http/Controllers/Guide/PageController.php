@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guide;
 
 use App\Facades\Settings;
 use App\Http\Controllers\Controller;
+use App\Models\Building;
 use App\Models\Contact;
 use Carbon\Carbon;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class PageController extends Controller
 {
     private $firstStepsSubpages = ['introduction', 'welcome-pack', 'orientation-week', 'cards', 'kos', 'eduroam'];
-    private $aboutCtuSubpages = ['academic-year', 'campus', 'dormitories'];
+    private $aboutCtuSubpages = ['academic-year', 'campus', 'classrooms', 'dormitories'];
     private $czechItOutSubpages = ['visa', 'visa-example-pictures', 'health-care', 'living-in-prague', 'transportation', 'money-exchange', 'post-office', 'phone', 'culture-shock', 'czech-phrases', 'funny-facts'];
     private $iscEsnSubpages = ['isc-intro', 'esn-intro', 'esn-partners'];
 
@@ -42,6 +43,11 @@ class PageController extends Controller
                         $owFrom->copy()->addDay(3),
                         $owFrom->copy()->addDay(6)
                     ),
+                ];
+                break;
+            case 'classrooms':
+                $with += [
+                    'buildings' => Building::orderByCode()->get(),
                 ];
                 break;
         }
