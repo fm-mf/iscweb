@@ -54,7 +54,7 @@
     </p>
     <p>
         <strong>Faculty of Transportation Sciences (FD / FTS)</strong>
-        does not use the common room naming scheme. For information about location of ist rooms see the
+        does not use the common room naming scheme. For information about location of its rooms see the
         <a href="http://www.its.fd.cvut.cz/ms-en/for-students/timetable" target="_blank" rel="noopener">faculty website</a>.
     </p>
 
