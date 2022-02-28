@@ -19,12 +19,12 @@
                         zábavnou formou a není na ně potřeba žádné registrace.
                     </p>
                     <p>
-                        Jazykové kurzy pro zimní semestr 2021/2022 začínají v <strong>pondělí 11. října 2021</strong>.
-                        A jsou konečně offline.
+                        Jazykové kurzy pro letní semestr 2021/2022 začínají v <strong>pondělí 28. února 2022</strong>.
+                        A jsou offline.
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Podívejte se na <strong>rozvrh pro zimní semestr 2021/2022</strong>
+                            Podívejte se na <strong>rozvrh pro letní semestr 2021/2022</strong>
                         </a>
                     </p>
                     <h3>Kde najdu učebny?</h3>
@@ -113,16 +113,16 @@
                     <p>
                         Podívejte se na rozvrh ISC jazykových kurzů pro
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            zimní semestr 2021/2022
+                            letní semestr 2021/2022
                         </a>.
                     </p>{{--
                     <p>
                         The only language course running during the exam period is the Czech course on Wednesday.
                         The schedule for the spring courses will be published at the beginning of October 2019.
                     </p>--}}
-                    <p>
+                    {{-- <p>
                         Rozvrh pro následující semestr bude zveřejněn během druhého týdne semestru.
-                    </p>
+                    </p> --}}
                     {{--<p>
                         Our currently offered courses will end according to every teachers' wish or latest at the end of June.
                         Schedule for the autumn courses shall be published in October 2018.

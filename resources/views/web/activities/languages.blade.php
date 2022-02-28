@@ -32,8 +32,8 @@
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
                     </p>
                     <p>
-                        Languages courses for the Autumn semester 2021 will start on <strong>Monday, 11 October 2021</strong>.
-                        The courses are finally offline.
+                        Languages courses for the Spring semester 2022 will start on <strong>Monday, 28 February 2022</strong>.
+                        The courses are offline.
                     </p>
                     <p>
                         Are you interested in teaching a language with the ISC? That's great, we would like to have you!
@@ -41,7 +41,7 @@
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Have a look at the <b>Autumn 2021 schedule</b>
+                            Have a look at the <b>Spring 2022 schedule</b>
                         </a>
                     </p>
                     <h3>Where are the classrooms?</h3>
@@ -114,19 +114,19 @@
                     <h2>See the schedule</h2>
                     <p>You can have a look at the
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            Autumn 2021 schedule
+                            Spring 2022 schedule
                         </a>.
                     </p>{{--
                     <p>
                         The only language course running during the exam period is the Czech course on Wednesday.
                         The schedule for the spring courses will be published at the beginning of October 2019.
                     </p>--}}
-                    <p>
+                    {{-- <p>
                         Schedule for upcoming semester will be available in the second week of the semester.
-                    </p>
+                    </p> --}}
                     {{--<p>
                         Our currently offered courses will end according to every teachers' wish or latest at the end of June.
-                        Schedule for the autumn courses shall be published in October 2018.
+                        Schedule for the Spring courses shall be published in October 2018.
                         Please note that during summer holidays there are no language classes provided by ISC.
                     </p>--}}
                     <p>
