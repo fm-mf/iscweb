@@ -31,7 +31,7 @@ class ReservationController extends Controller
 
         return view('exchange.reservation', [
             'event' => $event,
-            'canReserve' => $event->trip ? $event->trip->canRegister() : false,
+            'canReserve' => $event->trip ? ($event->trip->reservations_enabled && $event->trip->canRegister()) : false,
             'cancellationHash' => $cancelHash,
             'isCancellation' => $cancelHash !== null
         ]);
