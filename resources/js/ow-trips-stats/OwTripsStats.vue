@@ -1,5 +1,6 @@
 <template>
     <div class="ow-trips">
+        <h1>Orientation week trips</h1>
         <trip v-for="trip in trips" :key="trip.id" :trip="trip" />
     </div>
 </template>
@@ -47,5 +48,10 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    & > h1 {
+        flex: 0 0 100%;
+        text-align: center;
+    }
 }
 </style>

@@ -22,6 +22,8 @@ class OwTripResource extends Resource
             'capacity' => $this->capacity,
             'cover' => $this->event->cover_url,
             'full' => $this->isFull(),
+            'dateInterval' => $this->dateInterval,
+            'dayInterval' => $this->dayInterval,
         ];
     }
 }

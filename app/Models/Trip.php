@@ -383,6 +383,35 @@ class Trip extends Model
         return $result;
     }
 
+    public function getDayIntervalAttribute() {
+        if ($this->event->datetime_from->isSameDay($this->trip_date_to)) {
+            return $this->trip_date_to->format('l');
+        }
+
+        return $this->event->datetime_from->format('l')
+            . $this->trip_date_to->format('–l');
+    }
+
+    public function getDateIntervalAttribute() {
+        if ($this->event->datetime_from->isSameDay($this->trip_date_to)) {
+            return $this->trip_date_to->format('j F Y');
+        }
+
+        if ($this->event->datetime_from->isSameMonth($this->trip_date_to)) {
+                return $this->event->datetime_from->format('j')
+                . $this->trip_date_to->format('–j')
+                . $this->event->datetime_from->format(' F Y');
+        }
+
+        if ($this->event->datetime_from->isSameYear($this->trip_date_to)) {
+            return $this->event->datetime_from->format('j F')
+                . $this->trip_date_to->format(' – j F Y');
+        }
+
+        return $this->event->datetime_from->format('j F Y')
+            . $this->trip_date_to->format(' – j F Y');
+    }
+
     private function formatDateTime(Carbon $datetime)
     {
         return $this->formatDate($datetime) . ', ' . $this->formatTime($datetime);

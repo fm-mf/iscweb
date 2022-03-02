@@ -4,7 +4,13 @@
             class="trip-card"
             :style="{ backgroundImage: `url('${trip.cover}')` }"
         >
-            <div class="trip-head">{{ trip.name }}</div>
+            <div class="trip-head">
+                <h2>{{ trip.name }}</h2>
+                <div class="date">
+                    <p>{{ trip.dayInterval }}</p>
+                    <p>({{ trip.dateInterval }})</p>
+                </div>
+            </div>
             <div class="trip-body">
                 <div
                     :class="{ 'trip-free': !trip.full, 'trip-full': trip.full }"
@@ -47,18 +53,27 @@ export default {
 .trip-card {
     background-position: center center;
     position: relative;
-    font-size: 200%;
+    font-size: 2rem;
     text-align: center;
 
     .trip-head {
         background: rgba(255, 255, 255, 0.9);
         padding: 0.5rem 1rem;
-        font-weight: bold;
-        /*
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    */
+
+        & > h2 {
+            font-weight: bold;
+        }
+
+        & > .date {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 1.2rem;
+
+            & > p {
+                margin: 0 0.25rem;
+            }
+        }
     }
 
     .trip-body {
