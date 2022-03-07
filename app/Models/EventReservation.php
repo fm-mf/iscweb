@@ -100,6 +100,10 @@ class EventReservation extends Model
 
     public static function findExpired()
     {
-        return EventReservation::where('expires_at', '<=', Carbon::now());
+        return EventReservation::where('expires_at', '<=', Carbon::now())
+            ->whereHas('event', function ($query) {
+                // Skips reservations for events that already passed
+                return $query->where('datetime_from', '>', Carbon::now());
+            });
     }
 }

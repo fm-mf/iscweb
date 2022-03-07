@@ -29,7 +29,6 @@ class CheckReservations extends Command
      */
     public function handle()
     {
-        /** @var EventReservation[] */
         $expired = EventReservation::findExpired();
         
         $expired->each(function ($reservation) {
