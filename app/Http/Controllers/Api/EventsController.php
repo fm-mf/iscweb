@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Events\StudentReservedSpot;
 use App\Facades\Settings;
-use App\Models\Buddy;
 use App\Models\ExchangeStudent;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TripAuthUserResource;
@@ -12,7 +11,6 @@ use App\Models\Event;
 use App\Models\EventReservation;
 use App\Models\EventReservationAnswer;
 use App\Models\Person;
-use App\Models\Trip;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -79,10 +77,10 @@ class EventsController extends Controller
             $reservation->deleted_at = null;
         }
 
+        $reservation->is_confirmed = false;
         $reservation->expires_at = (new Carbon())
             ->now()
-            ->addDays($event->reservations_removal_limit)
-            ->setTime(0, 0);
+            ->addMinutes(20);
         $reservation->save();
 
         return response()->json($reservation);
@@ -103,6 +101,12 @@ class EventsController extends Controller
         /** @var EventReservation */
         $reservation = EventReservation::findByUserAndEvent($user->id_user, $event->id_event)
             ->firstOrFail();
+
+        $data['is_confirmed'] = true;
+        $data['expires_at'] = (new Carbon())
+            ->now()
+            ->addDays($event->reservations_removal_limit)
+            ->setTime(0, 0);
 
         $reservation->update($data);
 

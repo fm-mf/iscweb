@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // Check reservations for expired ones
-        $schedule->command('events:reservations')->dailyAt('00:15');
+        $schedule->command('events:reservations')->everyFiveMinutes();
     }
 
     /**

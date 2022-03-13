@@ -11,10 +11,12 @@ export const getBuddy = (event, email, password) =>
         .then(res => res.data);
 
 export const createReservation = (event, id_user) =>
-    axios.post('/api/events/reservation', {
-        event,
-        id_user
-    });
+    axios
+        .post('/api/events/reservation', {
+            event,
+            id_user
+        })
+        .then(res => res.data);
 
 export const confirmReservation = (
     event,

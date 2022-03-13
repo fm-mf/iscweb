@@ -95,6 +95,7 @@ class Event extends Model
         return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
     }
     */
+
     public function hasTrip()
     {
         return Trip::where('id_event', $this->id_event)->exists();

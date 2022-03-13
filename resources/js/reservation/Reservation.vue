@@ -45,7 +45,11 @@
 <script>
 /* global EVENT_QUESTIONS:readonly */
 
-import { confirmReservation, createReservation } from '../api';
+import {
+    cancelReservation,
+    confirmReservation,
+    createReservation
+} from '../api';
 import Loader from '../components/Loader';
 import Auth from './components/Auth';
 import UserInfo from './components/UserInfo';
@@ -83,7 +87,8 @@ export default {
         loaded: true,
         userData: null,
         error: null,
-        questions: EVENT_QUESTIONS
+        questions: EVENT_QUESTIONS,
+        reservation: null
     }),
     methods: {
         handleLoaded(loaded) {
@@ -95,8 +100,9 @@ export default {
             this.loaded = false;
 
             createReservation(this.eventHash, this.userData.id_user).then(
-                () => {
+                reservation => {
                     this.loaded = true;
+                    this.reservation = reservation;
                     this.nextStep();
                 },
                 e => {
@@ -114,6 +120,10 @@ export default {
         },
 
         handleLogout() {
+            if (this.reservation) {
+                cancelReservation(this.reservation.hash);
+            }
+
             this.userData = null;
             this.error = null;
             this.goToStep(STEPS.AUTH);

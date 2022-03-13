@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Console\Commands;
 
 use App\Mail\ReservationCancelledMail;
@@ -30,16 +31,20 @@ class CheckReservations extends Command
     public function handle()
     {
         $expired = EventReservation::findExpired();
-        
+
         $expired->each(function ($reservation) {
+            /** @var EventReservation $reservation */
+
             $reservation->delete();
 
-            try {
-                Mail::to($reservation->user->email)
-                    ->send(new ReservationCancelledMail($reservation));
-            } catch (\Exception $ex) {
-                $this->error("Failed to send email to {$reservation->user->email}");
-                $this->error($ex);
+            if ($reservation->is_confirmed) {
+                try {
+                    Mail::to($reservation->user->email)
+                        ->send(new ReservationCancelledMail($reservation));
+                } catch (\Exception $ex) {
+                    $this->error("Failed to send email to {$reservation->user->email}");
+                    $this->error($ex);
+                }
             }
         });
     }

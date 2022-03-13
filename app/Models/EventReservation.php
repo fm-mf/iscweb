@@ -17,6 +17,7 @@ use Illuminate\Support\Carbon;
  * @property string $notes
  * @property string $hash
  * @property Carbon $expires_at
+ * @property boolean $is_confirmed
  * @property \App\Models\User $user
  * @property \App\Models\Event $event
  * @property \App\Models\EventReservationAnswer[] $answers
@@ -32,7 +33,7 @@ class EventReservation extends Model
     protected $dates = ['expires_at'];
 
     protected $fillable = [
-        'id_event', 'id_user', 'diet', 'medical_issues', 'notes', 'hash', 'deleted_by'
+        'id_event', 'id_user', 'diet', 'medical_issues', 'notes', 'hash', 'deleted_by', 'expires_at', 'is_confirmed'
     ];
 
     public function event()
