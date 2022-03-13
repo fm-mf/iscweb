@@ -1,5 +1,5 @@
 <template>
-    <a class="card" :href="href" target="_blank" @click="$emit('click')">
+    <a class="card" :href="href" target="_blank" @click="onClick">
         <div class="c-title">
             {{ title }}
         </div>
@@ -19,6 +19,14 @@ export default {
         description: { type: String, required: false, default: null },
         icon: { type: String, required: false, default: null },
         href: { type: String, required: false, default: undefined }
+    },
+    methods: {
+        onClick(e) {
+            if (!this.href || this.href === '#') {
+                e.preventDefault();
+                this.$emit('click');
+            }
+        }
     }
 };
 </script>

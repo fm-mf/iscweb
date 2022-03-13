@@ -15,7 +15,6 @@
             icon="fas fa-file-excel"
             title="Export active buddies"
             description="Export list of buddies who logged into buddy database in last months"
-            href="#"
             @click="exportActiveBuddies = true"
         />
 
