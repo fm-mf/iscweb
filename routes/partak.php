@@ -167,3 +167,7 @@ Route::prefix('/stats')
 
 Route::resource('esn-card-labels', 'EsnCardLabelsController')
     ->only(['index', 'store']);
+
+Route::resource('products', 'ProductsController');
+Route::resource('products.sales', 'ProductSalesController')
+    ->only(['create', 'store']);

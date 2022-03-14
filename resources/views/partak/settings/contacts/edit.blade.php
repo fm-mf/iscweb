@@ -21,7 +21,7 @@
             {{ Form::bsText('name', 'Name') }}
             {{ Form::bsTel('phone', 'Phone') }}
             {{ Form::bsSelect('photo', 'Photo', $photoTypes) }}
-            {{ Form::bsFile('custom_photo_input', "Select custom photo", ["accept" => "image/jpeg"]) }}
+            {{ Form::bsFile('custom_photo_input', "Select custom photo", '', ["accept" => "image/jpeg"]) }}
             <div class="form-group" id="photo-preview-wrapper">
                 @isset($photoSrc)
                     <img src="{{ $photoSrc }}" alt="Contact photo preview" />

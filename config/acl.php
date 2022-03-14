@@ -42,6 +42,8 @@ return [
                 'trips' => ['view', 'view_payment'],
                 'participant' => ['add', 'remove'],
                 'users' => ['view'],
+                'products' => ['view'],
+                'productSales' => ['view', 'add'],
             ],
         ],
 
@@ -85,7 +87,8 @@ return [
                 'details' => ['view'],
                 'events' => ['remove'],
                 'trips' => ['remove'],
-                'quarantined'
+                'quarantined',
+                'products' => ['add', 'edit', 'remove'],
             ],
         ],
 

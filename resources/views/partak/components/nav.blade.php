@@ -12,6 +12,7 @@
             'items' => isset($item['items']) ? $item['items'] : null,
             'target' => isset($item['target']) ? $item['target'] : null,
             'id' => isset($item['id']) ? $item['id'] : null,
+            'activeRoute' => isset($item['active']) ? $item['active'] : $item['route']
         ])
         @endisset
     @endforeach

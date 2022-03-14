@@ -33,6 +33,7 @@
                 ['title' => 'Add inteGREAT event', 'icon' => 'calendar-plus', 'iconStyle' => 'far', 'route' => 'partak.events.create.integreat', 'acl' => 'events.add'],
                 ['title' => 'Add Languages event', 'icon' => 'calendar-plus', 'iconStyle' => 'far', 'route' => 'partak.events.create.languages', 'acl' => 'events.add'],
             ]],
+            ['title' => 'Merchandise', 'icon' => 'shopping-cart', 'route' => 'partak.products.index', 'acl' => 'products.view', 'active' => 'partak.products.*'],
             ['title' => 'Stats', 'icon' => 'chart-pie', 'route' => 'partak.stats', 'acl' => 'stats.view', 'items' => [
                 ['title' => 'Dashboard', 'route' => 'partak.stats.index', 'id' => 'stats-dashboard'],
                 ['title' => 'Arrivals', 'route' => 'partak.stats.arrivals', 'id' => 'stats-arrivals'],

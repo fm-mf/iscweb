@@ -9,7 +9,7 @@
 )
 
 @php
-    $active = empty($items) ? request()->routeIs($route) : request()->routeIs("{$route}*");
+    $active = empty($items) ? request()->routeIs($activeRoute) : request()->routeIs("{$activeRoute}*");
     $navId = str_replace('.', '-', $route)
 @endphp
 

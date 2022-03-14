@@ -42,7 +42,7 @@
 
 <div class="row">
     <div class="col-sm-9">
-    {{ Form::bsFile('cover', 'Cover', ['accept' => 'image/jpeg, image/png']) }}
+    {{ Form::bsFile('cover', 'Cover', '', ['accept' => 'image/jpeg, image/png']) }}
     </div>
     <div class="col-sm-3 d-flex justify-content-center align-items-center">
         <img id="cover_preview" src="{{ $event->cover_path }}" data-src="{{ $event->cover_path }}" style="display: {{ $event->hasCover() ? 'block' : 'none' }};" alt="" />
