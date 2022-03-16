@@ -19,7 +19,7 @@
 
             {{ Form::bsNumber('paid', 'Paid', 'required', $product->price, ['min' => 0]) }}
 
-            {{ Form::bsSubmit('Sale') }}
+            {{ Form::bsSubmit('Sell') }}
             {{ Form::close() }}
         </div>
     </div>
