@@ -25,6 +25,6 @@ class ProductSale extends Model
 
     public function receipt()
     {
-        return $this->hasOne('\App\Models\Receipt', 'id_receipt');
+        return $this->belongsTo('\App\Models\Receipt', 'id_receipt');
     }
 }

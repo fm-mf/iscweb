@@ -32,7 +32,7 @@ class Receipt extends Model
 
     public function productSale()
     {
-        return $this->belongsTo('\App\Models\ProductSale', 'id_receipt');
+        return $this->hasOne('\App\Models\ProductSale', 'id_receipt');
     }
 
     public function trip()
