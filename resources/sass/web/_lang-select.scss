@@ -60,7 +60,7 @@
 
     @include media-breakpoint-up(md) {
       position: absolute;
-      right: $grid-gutter-width / 2;
+      right: $grid-gutter-width * .5;
       bottom: 0;
     }
 
