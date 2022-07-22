@@ -182,17 +182,6 @@
         </p>
         <p><a href="https://subscription.economist.com/OA/partners/ESN/12420offer" target="_blank">Subscribe here.</a></p>
 
-        <h3>My Conscious Space</h3>
-        <img src="{{ asset('img/guide/partners/my_conscious_space.png') }}" alt="My Conscious Space logo" />
-        <p>
-            My Conscious Space creates a safe online container for your self-development and healing.
-            We offer a space with guidance, where we support each other on our self-discovery journey.
-            Everything is reachable online from the warmth of your home. Choose what suits you the best:
-            yoga, meditation, breathing techniques, deep relaxation, women circles or full/new moon ceremonies.
-            All the events are LIVE, using Zoom platform.
-        </p>
-        <p><a href="https://myconscious.space/isc/" target="_blank" rel="noopener">Enjoy Three Weeks of Unlimited Yoga for 15 euro.</a></p>
-
         <h3>Loď Pivovar</h3>
         <img src="{{ asset('img/guide/partners/lod_pivovar.png') }}" alt="Loď Pivovar logo" />
         <p>
