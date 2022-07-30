@@ -18,14 +18,12 @@
         </p>
     </div>
     <div class="alert alert-warning">
-        {{--
         <p>
             This is preliminary programme. Events may be moved to another days of the week.
             Details will be added during September.
         </p>
-        --}}
         <p class="mb-0">
-            As of 5 February 2022, all events are still planned in-person, but if the pandemic
+            As of 30 July 2022, all events are still planned in-person, but if the pandemic
             situation gets worse, the Orientation week might be held on-line.
             We will try to provide you with a great experience and make it possible to meet each other.
             You can also follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener" class="alert-link">OW FB event</a> for up to date information.
@@ -75,10 +73,10 @@
 
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
-        <li>When: <strong>13:30</strong> – 17:00</li>
+{{--        <li>When: <strong>13:30</strong> – 17:00</li>--}}
 {{--        <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>--}}
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>--}}
-        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>
+{{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
         {{--
         <li>Meeting points:
             <ul>
@@ -99,12 +97,12 @@
                 <li>Visa regulations</li>
             </ul>
         </li>
+        {{--
         <li>
             <a href="{{ asset('files/OW_2022_handout.pdf') }}" target="_blank">
                 <i class="fas fa-file-pdf"></i> Slides from the presentation OW Spring 2022
             </a>
         </li>
-        {{--
         <li>
             <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_registrations-at-faculties.pdf') }}" target="_blank">
                 <i class="fas fa-file-pdf"></i> Registration at faculties
@@ -138,8 +136,8 @@
     </div>
     --}}
     <ul class="list-unstyled">
-        <li>When: <strong>20:00</strong></li>
-        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>
+{{--        <li>When: <strong>20:00</strong></li>--}}
+{{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
 {{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
         {{--
         <li>Meeting points:
@@ -196,6 +194,7 @@
         the registration at the ‘main’ faculty you have in your learning agreement.
     </p>
     <ul class="list-unstyled">
+        {{--
         <li>
             <strong>In-person registration:</strong>
             <ul>
@@ -223,6 +222,7 @@
                 <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation from Monday
             </a>
         </li>
+        --}}
         <li class="alert alert-danger"><strong>You will need:</strong>
             <ul>
                 <li>A government-issued ID (e.g. passport)</li>
@@ -240,9 +240,9 @@
 
     <h4 id="trips-meeting">Second information meeting</h4>
     <ul class="list-unstyled">
-        <li>When: <strong>14:15</strong> – 15:45</li>
+{{--        <li>When: <strong>14:15</strong> – 15:45</li>--}}
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>--}}
-        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>
+{{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
         <li>Topics:
             <ul>
                 <li>Presentation of ISC trips</li>
@@ -267,12 +267,14 @@
 
     <h4 id="day-3-registration">Registration at faculties</h4>
     <ul class="list-unstyled">
+        {{--
         <li>
             <strong>In-person registration:</strong>
             <ul>
                 <li>Masaryk Institute of Advanced Studies (MÚVS) – 10:00, Room 104</li>
             </ul>
         </li>
+        --}}
         <li class="alert alert-info">
             <strong>See <a href="#day-2-registration" class="alert-link">Registration on Tuesday</a> for further information</strong>
         </li>
@@ -288,17 +290,17 @@
     </p>
     --}}
     <ul class="list-unstyled">
-        <li>When: <strong>14:15</strong></li>
+{{--        <li>When: <strong>14:15</strong></li>--}}
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>--}}
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Uxdt3bXSf9NwVk5M6" target="_blank">Masarykova dormitory</a>, Congress hall</strong></li>--}}
-        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>
+{{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
     </ul>
 
     <h4 id="integreation-party">inteGREATion party</h4>
     <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
     <ul class="list-unstyled">
-        <li>When: <strong>21:00</strong></li>
-        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
+{{--        <li>When: <strong>21:00</strong></li>--}}
+{{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
 {{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
         {{--
         <li>Meeting points:
