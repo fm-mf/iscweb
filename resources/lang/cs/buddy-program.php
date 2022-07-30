@@ -49,6 +49,8 @@ return [
     'closed-title' => 'Databáze zahraničních studentů ještě nebyla otevřena. Buddy program pro :academicTerm semestr :academicYear bude spuštěn :buddyDbFromDate :at :buddyDbFromTime',
     'closed-follow-fb-group' => 'Pro více informací sleduj naší Facebookovou skupinu',
     'closed-follow-fb-page' => 'a také naší Facebookovou stránku',
+    'closed-join-discord-text' => 'Pokud preferuješ jiné sítě než Facebook, máme taky Discord server, kde můžeš být v kontaktu nejen s námi, s ostatními Buddíky, ale i se zahraničními studenty.',
+    'closed-join-discord-btn' => 'Připojit se na Discord',
     'access-denied' => 'Nemáte oprávnění k prohlížení zvoleného záznamu',
     'already-has-buddy' => 'Student již má Buddyho',
     'my-profile' => [

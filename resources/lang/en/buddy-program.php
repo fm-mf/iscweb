@@ -49,6 +49,8 @@ return [
     'closed-title' => 'Database of incoming students had not been open yet. Buddy programme for :AcademicTerm semester :academicYear is going to be open on :buddyDbFromDate :at :buddyDbFromTime',
     'closed-follow-fb-group' => 'For more information follow our Facebook group',
     'closed-follow-fb-page' => 'and also our main Facebook page',
+    'closed-join-discord-text' => 'If you prefer social networks other than Facebook, we also have Discord server, where you can stay in contact with us, with other Buddies and also with exchange students.',
+    'closed-join-discord-btn' => 'Join Discord',
     'access-denied' => 'You don\'t have permission to access this record',
     'already-has-buddy' => 'Student already has a Buddy',
     'my-profile' => [

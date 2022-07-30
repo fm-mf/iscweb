@@ -27,6 +27,7 @@ class ViewComposerServiceProvider extends ServiceProvider
                 'fbGroupCzechBuddies' => 'https://www.facebook.com/groups/isc.ctu.buddies',
                 'pointPhoneNo' => '+420775198605',
                 'pointPhoneNoFormatted' => '+420 775 198 605',
+                'buddyDiscordLink' => 'https://discord.gg/zdPVvATXJU',
             ]);
         });
     }
