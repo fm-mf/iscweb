@@ -16,8 +16,7 @@
 
 <p>
     To register to the Buddy programme, please fill out the
-    <a href="{{ route('exchange.show', [$exchangeStudent->user->hash]) }}">following form</a>.<br>
-    <small>{{ route('exchange.show', [$exchangeStudent->user->hash]) }}</small>
+    <a href="{{ route('exchange.show', [$exchangeStudent->user->hash]) }}">following form</a>.
 </p>
 
 <p>
@@ -77,7 +76,7 @@
 <p>
     <a href="{{ route('web.lang-select') }}">Web</a>: {{ route('web.lang-select') }}<br>
     <a href="{{ $fbPageUrl }}">FB page</a>: {{ $fbPageUrl }}<br>
-    <a href="{{ Settings::get('fbGroupLink') }}/">FB group</a>: {{ Settings::get('fbGroupLink') }}<br>
+{{--    <a href="{{ Settings::get('fbGroupLink') }}/">FB group</a>: {{ Settings::get('fbGroupLink') }}<br>--}}
 {{--    <a href="{{ Settings::get('whatsAppAnnoucementsLink') }}">WhatsApp Announcements group</a>: {{ Settings::get('whatsAppAnnoucementsLink') }}<br>--}}
 {{--    <a href="{{ Settings::get('whatsAppGeneralLink') }}">WhatsApp General group</a>: {{ Settings::get('whatsAppGeneralLink') }}<br>--}}
     <a href="{{ Settings::get('esnPragueDiscord') }}/">Discord</a>: {{ Settings::get('esnPragueDiscord') }}<br>
@@ -85,8 +84,7 @@
 </p>
 
 <p>
-    This <a href="{{ route('privacy.notice') }}">Privacy notice</a> is to let you know how we promise to look after your personal information.<br>
-    <small>{{ route('privacy.notice') }}</small>
+    This <a href="{{ route('privacy.notice') }}">Privacy notice</a> is to let you know how we promise to look after your personal information.
 </p>
 </body>
 </html>
