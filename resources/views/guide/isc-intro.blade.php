@@ -85,7 +85,7 @@
 
     <h4 id="membership-requirements">What do you need?</h4>
     <ul>
-        <li>CZK 500<strong> (cash, no credit card accepted, no foreign currencies accepted)</strong></li>
+        <li>CZK {{ $membershipFee }}<strong> (cash, no credit card accepted, no foreign currencies accepted)</strong></li>
         <li>1 photo (27 x 35 mm)</li>
     </ul>
 

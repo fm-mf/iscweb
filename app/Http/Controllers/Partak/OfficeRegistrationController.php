@@ -62,8 +62,7 @@ class OfficeRegistrationController extends Controller
         $receipt = Receipt::create([
             'created_by' => auth()->id(),
             'subject' => 'ESN Membership',
-            // TODO: Configurable amount
-            'amount' => 500,
+            'amount' => Settings::membershipFee(),
         ]);
         $data['esn_receipt_id'] = $receipt->id_receipt;
 

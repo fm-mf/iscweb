@@ -144,4 +144,9 @@ class Settings implements ConfigContract
     {
         return Carbon::createFromFormat('d/m/Y', $this->get('owFrom'));
     }
+
+    public function membershipFee(): int
+    {
+        return $this->get('membershipFee');
+    }
 }

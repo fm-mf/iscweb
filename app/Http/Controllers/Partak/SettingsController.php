@@ -124,7 +124,8 @@ class SettingsController extends Controller
             'fbGroupLink' => 'nullable|url',
             'whatsAppAnnoucementsLink' => 'nullable|url',
             'whatsAppGeneralLink' => 'nullable|url',
-            'receiptPrinterUrl' => 'url'
+            'receiptPrinterUrl' => 'url',
+            'membershipFee' => ['required', 'integer', 'min:0'],
         ]);
     }
 

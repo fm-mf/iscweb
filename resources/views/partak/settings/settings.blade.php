@@ -111,6 +111,19 @@
             @endif
             {{ Form::url('receiptPrinterUrl', @$settings['receiptPrinterUrl'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
+            <div class="form-group">
+                {{ Form::label('membershipFee', 'Membership fee') }}
+                <div class="input-group @error('membershipFee') is-invalid @enderror">
+                    {{ Form::number('membershipFee', null, ['class' => 'form-control' . ($errors->has('membershipFee') ? ' is-invalid' : '')]) }}
+                    <div class="input-group-append">
+                        <span class="input-group-text">CZK</span>
+                    </div>
+                </div>
+                @error('membershipFee')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
             <div style="margin-bottom: 15px;">
             <input type="submit" value="Update settings" class="btn btn-primary btn-submit">
             </div>

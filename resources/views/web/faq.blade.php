@@ -100,7 +100,7 @@
                                 an <a href="{{ route('guide-page', ['page' => 'esn-partners']) }}">ESNcard</a>,
                                 <a href="https://www.esncz.org/partners/vodafone" target="_blank" rel="noopener">Vodafone SIM card</a>
                                 with a student plan (with 50% discount) and an "I was there" T-shirt. If you want to buy
-                                the membership, just bring 500 CZK in cash and a passport-format photo (for the ESNcard).
+                                the membership, just bring {{ $membershipFee }} CZK in cash and a passport-format photo (for the ESNcard).
                             </p>
                         </dd>
 
@@ -159,7 +159,7 @@
                                 Sure you can. There are the same rules for all the students. To join our parties and other
                                 events which don't require the registration everybody is free to come. If you want to join
                                 the trips you need to get an ISC Membership Package (it includes ESNcard, Vodafone SIM card,
-                                and a T-shirt and costs 500 CZK).
+                                and a T-shirt and costs {{ $membershipFee }} CZK).
                             </p>
                         </dd>
 
