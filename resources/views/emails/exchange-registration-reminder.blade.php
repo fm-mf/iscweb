@@ -49,7 +49,7 @@
 <p>
     <a href="{{ route('web.lang-select') }}">Web</a>: {{ route('web.lang-select') }}<br>
     <a href="{{ $fbPageUrl }}">FB page</a>: {{ $fbPageUrl }}<br>
-    <a href="{{ Settings::get('fbGroupLink') }}/">FB group</a>: {{ Settings::get('fbGroupLink') }}<br>
+{{--    <a href="{{ Settings::get('fbGroupLink') }}/">FB group</a>: {{ Settings::get('fbGroupLink') }}<br>--}}
 {{--    <a href="{{ Settings::get('whatsAppAnnoucementsLink') }}">WhatsApp Announcements group</a>: {{ Settings::get('whatsAppAnnoucementsLink') }}<br>--}}
 {{--    <a href="{{ Settings::get('whatsAppGeneralLink') }}">WhatsApp General group</a>: {{ Settings::get('whatsAppGeneralLink') }}<br>--}}
     <a href="{{ Settings::get('esnPragueDiscord') }}/">Discord</a>: {{ Settings::get('esnPragueDiscord') }}<br>
