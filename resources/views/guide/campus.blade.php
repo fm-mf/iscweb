@@ -75,10 +75,10 @@
             <dd>Room: A-811</dd>
             <dd>Phone: <a href="tel:+420 224 353 465">+420 224 353 465</a></dd>
             <dd>Email: <a href="mailto:volfgang.melecky@cvut.cz">volfgang.melecky@cvut.cz</a></dd>
-        <dt>Marie Krystýnová</dt>
-            <dd>Room: A-801a</dd>
+        <dt>Lucie Berkmanová</dt>
+            <dd>Room: A-802</dd>
             <dd>Phone: <a href="tel:+420 224 353 495">+420 224 353 495</a></dd>
-            <dd>Email: <a href="mailto:marie.krystynova@cvut.cz">marie.krystynova@cvut.cz</a></dd>
+            <dd>Email: <a href="mailto:lucie.berkmanova@cvut.cz">lucie.berkmanova@cvut.cz</a></dd>
         <dt>Ms. Lucie Bílová</dt>
             <dd>Room: A-802a</dd>
             <dd>Phone: <a href="tel:+420 224 353 467">+420 224 353 467</a></dd>
@@ -109,10 +109,10 @@
         <dt>Faculty of Mechanical Engineering</dt>
             <dd><a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">Map of the faculty</a></dd>
             <dd>Technická 4, Prague 6, 166 07</dd>
-            <dd>Bc. Martina Oravcová, office: A2-49a</dd>
+            <dd>Martina Pavlíčková, office: A2-43</dd>
             <dd>Study Department</dd>
-            <dd>Phone: <a href="tel:+420 224 352 587">+420 224 352 587</a></dd>
-            <dd>Email: <a href="mailto:Martina.Oravcova@fs.cvut.cz">Martina.Oravcova@fs.cvut.cz</a></dd>
+            <dd>Phone: <a href="tel:+420 224 352 656">+420 224 352 656</a></dd>
+            <dd>Email: <a href="mailto:martina.pavlickova@fs.cvut.cz">martina.pavlickova@fs.cvut.cz</a></dd>
         <dt>Faculty of Electrical Engineering</dt>
             <dd><a href="https://www.fel.cvut.cz/en/glance/rooms.html" target="_blank">Map of the faculty</a></dd>
             <dd>Technicka 2, Prague 6, 166 27</dd>

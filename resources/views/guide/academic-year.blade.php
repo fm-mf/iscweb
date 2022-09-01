@@ -36,12 +36,12 @@
 
     <h3>Faculty specific calendars</h3>
     <ul class="list-unstyled">
-        <li><a href="https://www.fsv.cvut.cz/hlavnien/akrok.php" target="_blank">Faculty of Civil Engineering</a> (PDF)</li>
+        <li><a href="https://www.fsv.cvut.cz/hlavnien/akrok.php" target="_blank">Faculty of Civil Engineering</a></li>
         <li><a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/schedule-of-academic-year/" target="_blank">Faculty of Mechanical Engineering</a></li>
-        <li><a href="https://www.fel.cvut.cz/en/education/calendar.html" target="_blank">Faculty of Electronical Engineering</a></li>
+        <li><a href="https://www.fel.cvut.cz/en/education/calendar.html" target="_blank">Faculty of Electrical Engineering</a></li>
         <li><a href="https://www.fa.cvut.cz/en/study/general/academic-calendar" target="_blank">Faculty of Architecture</a></li>
         <li><a href="http://www.its.fd.cvut.cz/ms-en/for-students/copy_of_academic-year-schedule" target="_blank">Faculty of Transportation Sciences</a></li>
-        <li><a href="https://old.fit.cvut.cz/sites/default/files/STO/timetable-2020-2021.pdf" target="_blank">Faculty of Information Technologies (PDF)</a></li>
+        <li><a href="https://fit.cvut.cz/en/studies/information-service/schedule" target="_blank">Faculty of Information Technologies</a></li>
         <li><a href="https://www.fbmi.cvut.cz/en/students/academic-schedule" target="_blank">Faculty of Biomedical Engineering</a></li>
         <li><a href="https://www.fjfi.cvut.cz/en/education/study-programmes-and-regulations" target="_blank">Faculty of Nuclear Sciences and Physical Engineering</a></li>
     </ul>
