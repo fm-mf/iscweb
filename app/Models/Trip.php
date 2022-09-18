@@ -489,7 +489,7 @@ class Trip extends Model
     public function hasUser($id_user)
     {
         return $this->participants()->where('trips_participants.id_user', $id_user)->count() > 0
-            || $this->reservations()->where('event_reservations.id_user', $id_user)->count() > 0;
+            || $this->reservations()->where('event_reservations.id_user', $id_user)->where('event_reservations.is_confirmed', true)->count() > 0;
     }
 
     public function getReservationsEnabledAttribute(): bool
