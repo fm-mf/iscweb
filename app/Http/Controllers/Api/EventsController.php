@@ -103,10 +103,18 @@ class EventsController extends Controller
             ->firstOrFail();
 
         $data['is_confirmed'] = true;
+        
+        // Calculate reservation deadline
         $data['expires_at'] = (new Carbon())
             ->now()
             ->addDays($event->reservations_removal_limit)
             ->setTime(0, 0);
+        
+        // Make sure the deadline is before the event start
+        $minDate = $event->datetime_from->subHour();
+        if ($minDate->lt($data['expires_at'])) {
+            $data['expires_at'] = $minDate;
+        }
 
         $reservation->update($data);
 
