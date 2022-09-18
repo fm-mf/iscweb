@@ -1,5 +1,7 @@
-<div class="d-flex">
-    <img class="image-preview" src="{{ $product->image_url }}" />
+<div class="d-flex product-info">
+    <a href="{{ $product->image_url }}" target="_blank">
+        <img class="image-preview" src="{{ $product->image_url }}" />
+    </a>
     <div class="ml-4">
         <div class="d-flex">
             <h2>{{ $product->name }}</h2>
