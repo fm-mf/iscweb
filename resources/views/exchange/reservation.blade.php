@@ -1,6 +1,21 @@
-@extends('layouts.reservation.layout')
+@extends('web.layouts.layout')
 
-@section('content')
+@section('title', "$event->name – Events")
+@section('description', Str::limit(strip_tags($event->description), 160, "…"))
+@section('og-image')
+  @if($event->hasCover())
+    <meta property="og:image" content="{{ $event->coverUrl }}" />
+    <meta property="og:image:width" content="{{ getimagesize(public_path($event->coverPath))[0] }}" />
+    <meta property="og:image:height" content="{{ getimagesize(public_path($event->coverPath))[1] }}" />
+  @endif
+@endsection
+
+@section('stylesheets')
+  @parent
+  <link rel="stylesheet" type="text/css" href="{{ mix('css/form.css') }}" />
+@endsection
+
+@section('page')
   <div id="form-app">
     <div class="header">
       @isset($event->cover)
@@ -74,4 +89,11 @@
     </div>
     @endif
   </div>
+
+  @include ('footer')
 @stop
+
+@section('scripts')
+  @parent
+  <script src="{{ mix('js/reservation.js') }}" defer="defer"></script>
+@endsection

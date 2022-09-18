@@ -27,10 +27,13 @@
 
         <meta property="og:url" content="{{ url()->current() }}" />
 
-        {{-- TODO: add posibility to change image for each page --}}
-        <meta property="og:image" content="{{ asset('img/web/isc-web-20.jpg') }}" />
-        <meta property="og:image:width" content="{{ getimagesize(public_path('img/web/isc-web-20.jpg'))[0] }}" />
-        <meta property="og:image:height" content="{{ getimagesize(public_path('img/web/isc-web-20.jpg'))[1] }}" />
+        @hassection('og-image')
+            @yield('og-image')
+        @else
+            <meta property="og:image" content="{{ asset('img/web/isc-web-20.jpg') }}" />
+            <meta property="og:image:width" content="{{ getimagesize(public_path('img/web/isc-web-20.jpg'))[0] }}" />
+            <meta property="og:image:height" content="{{ getimagesize(public_path('img/web/isc-web-20.jpg'))[1] }}" />
+        @endif
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
