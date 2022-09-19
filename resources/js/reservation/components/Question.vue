@@ -9,9 +9,6 @@
     >
         <label>{{ question.label }}</label>
         <div class="description">{{ question.description }}</div>
-        <div v-for="(error, index) in errors" :key="index" class="error">
-            {{ error }}
-        </div>
         <input
             v-if="
                 (question.type === 'text' && !data.multi) ||
@@ -47,6 +44,9 @@
                 <div class="selector"><div class="inner" /></div>
                 <div class="label">{{ option.label }}</div>
             </div>
+        </div>
+        <div v-for="(error, index) in errors" :key="index" class="error">
+            {{ error }}
         </div>
     </div>
 </template>
@@ -99,8 +99,12 @@ export default {
         validate() {
             const errors = [];
 
-            if (this.required && !this.isFilled()) {
-                errors.push('Please answer this question');
+            if (this.question.required && !this.isFilled()) {
+                if (this.question.type === 'select') {
+                    errors.push('Please select an option');
+                } else {
+                    errors.push('Please answer this question');
+                }
             }
 
             this.errors = errors;
@@ -145,7 +149,7 @@ export default {
 }
 
 .error {
-    color: #990000;
+    color: #b70000;
 }
 
 .question {
