@@ -93,6 +93,21 @@ class Semester extends Model
         return ucfirst($this->getFullName());
     }
 
+    public function getNameLocalizedAttribute(): string
+    {
+        $y1 = intval(substr($this->semester, -4, 4));
+        $y2 = $y1 + 1;
+        $key = 'buddy-program.autumn-semester';
+
+        if ($this->isSpringSemester()) {
+            $y2 = $y1;
+            $y1 -= 1;
+            $key = 'buddy-program.spring-semester';
+        }
+
+        return __($key, ['y1' => $y1, 'y2' => $y2]);
+    }
+
     public function isSpringSemester(): bool
     {
         return Str::startsWith($this->semester, 'spring');

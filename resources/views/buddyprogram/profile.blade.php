@@ -72,6 +72,11 @@
                             <strong>@lang('buddy-program.accommodation')</strong>:
                             {{ $exchangeStudent->accommodation->full_name }}
                             <br>
+
+                            <strong>{{ trans_choice('buddy-program.semester', $exchangeStudent->semesters->count()) }}</strong>:
+                            @foreach($exchangeStudent->semesters->sortBy('id_semester') as $semester)
+                                {{ $semester->name_localized }}@if(!$loop->last),@endif
+                            @endforeach
                         </div>
                     </div>
                 </div>
