@@ -20,7 +20,7 @@
                     proceed-text="Delete"
                     classes="btn-danger btn-sm"
                     proceed-classes="btn-danger"
-                    modal-id="delete-product-{{ $product->id_event }}"
+                    modal-id="delete-product-{{ $product->id_product }}"
                     :form-group="false"
                 >
                     <span class="fas fa-trash"></span> Delete
