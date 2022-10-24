@@ -12,7 +12,6 @@ namespace App\Http\Controllers\Partak;
 use App\Exports\TripParticipantsExport;
 use App\Models\Buddy;
 use App\Models\Event;
-use App\Models\ExchangeStudent;
 use App\Models\Person;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -21,7 +20,6 @@ use App\Mail\ReservationCancelledMail;
 use App\Models\EventReservation;
 use App\Models\EventReservationAnswer;
 use App\Models\EventReservationQuestion;
-use App\Models\Receipt;
 use App\Models\Semester;
 use App\Models\Trip;
 use App\Models\User;
@@ -33,27 +31,46 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Intervention\Image\Facades\Image;
-use Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class TripController extends Controller
 {
+    public function list()
+    {
+        $this->authorize('acl', 'trips.view');
+
+        $trips = Trip::getOrderedByTime('DESC')
+            ->paginate(20);
+
+        return view('partak.trips.list')->with([
+            'trips' => $trips
+        ]);
+    }
+
+
     public function showUpcoming()
     {
         $this->authorize('acl', 'trips.view');
-        $visibleTrips = Trip::findAllUpcoming()->sortby('event.datetime_from');
-        $oldTrips = Trip::findMaxYearOld()->sortByDesc('event.datetime_from');
-        return view('partak.trips.dashboard')->with([
+
+        $visibleTrips = Trip::findAllUpcoming()
+            ->paginate(20);
+
+        return view('partak.trips.upcoming')->with([
             'visibleTrips' => $visibleTrips,
-            'oldTrips' => $oldTrips,
         ]);
     }
 
     public function showMyTrips()
     {
-        return view('partak.trips.mytrips')
+        return view('partak.trips.my')
             ->with([
-                'myTrips' => Buddy::with('organizedTrips')->find(Auth::id())->organizedTrips
+                'myTrips' => Buddy::with('organizedTrips')
+                    ->find(Auth::id())
+                    ->organizedTrips()
+                    ->join('events', 'trips.id_event', '=', 'events.id_event')
+                    ->orderBy('events.datetime_from', 'DESC')
+                    ->with('event')
+                    ->paginate(20)
             ]);
     }
 
@@ -110,11 +127,11 @@ class TripController extends Controller
         $this->authorize('view', $trip);
 
 
-//        $participants = $trip->participants()->orderByGivenNames()->get();
-//        return view('partak.trips.excel-participants')->with([
-//            'trip' => $trip,
-//            'participants' => $participants,
-//        ]);
+        //        $participants = $trip->participants()->orderByGivenNames()->get();
+        //        return view('partak.trips.excel-participants')->with([
+        //            'trip' => $trip,
+        //            'participants' => $participants,
+        //        ]);
 
         return new TripParticipantsExport($trip);
     }

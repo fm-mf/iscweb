@@ -59,7 +59,7 @@ Route::prefix('/users')
 Route::prefix('/trips')
     ->name('trips.')
     ->group(function () {
-        Route::get('/', 'DashboardController@trips')->name('list');
+        Route::get('/', 'TripController@list')->name('list');
         Route::post('/upload-option', 'TripController@uploadOptionImage')->name('uploadOption');
         Route::get('/upcoming', 'TripController@showUpcoming')->name('upcoming');
         Route::get('/mytrips', 'TripController@showMyTrips')->name('my');

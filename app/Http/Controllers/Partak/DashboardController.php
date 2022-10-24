@@ -14,19 +14,6 @@ class DashboardController extends Controller
         return view('partak.dashboard')->with(['user' => $request->user()]);
     }
 
-    public function trips(Request $request)
-    {
-
-        if($request->user()->can('acl', 'trips.view'))
-        {
-            return redirect()->action('Partak\TripController@showUpcoming');
-        }
-        else
-        {
-            return redirect()->action('Partak\TripController@showMyTrips');
-        }
-    }
-
     public function users(Request $request)
     {
         if($request->user()->can('acl', 'buddy.view'))

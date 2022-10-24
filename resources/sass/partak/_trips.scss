@@ -16,7 +16,7 @@
   cursor: pointer;
   display: block;
   font-weight: normal;
-  
+
   &.with-image {
     margin-bottom: 2rem;
     box-shadow: 1px 1px 5px #999;
@@ -35,6 +35,121 @@
 
     .q-input {
       padding: 1rem;
+    }
+  }
+}
+
+.trips-list {
+  margin-bottom: 1rem;
+
+  .div-cell {
+    &.name {
+      flex: 2;
+    }
+
+    &.semester {
+      flex: 1.2;
+    }
+
+    &.from,
+    &.to {
+      $width: 120px;
+      flex: 0;
+      min-width: $width;
+      max-width: $width;
+      width: $width;
+      text-align: right;
+    }
+
+    &.price {
+      $width: 80px;
+      flex: 0;
+      min-width: $width;
+      max-width: $width;
+      width: $width;
+      text-align: right;
+    }
+
+    &.capacity {
+      $width: 100px;
+      flex: 0;
+      min-width: $width;
+      max-width: $width;
+      width: $width;
+      text-align: right;
+    }
+
+    &.actions {
+      $width: 200px;
+      flex: 0;
+      min-width: $width;
+      max-width: $width;
+      width: $width;
+      text-align: right;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .div-cell {
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 0.2rem 0.5rem;
+
+      &.name {
+        min-width: 30%;
+        order: 0;
+      }
+
+      &.semester {
+        min-width: 20%;
+        order: 1;
+      }
+
+      &.from,
+      &.to {
+        min-width: 25%;
+        order: 3;
+        text-align: left;
+      }
+
+      &.price,
+      &.capacity {
+        order: 2;
+        text-align: left;
+      }
+
+      &.actions {
+        margin-left: auto;
+        order: 4;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .div-cell {
+      &.name {
+        min-width: 70%;
+      }
+
+      &.semester {
+        min-width: 30%;
+      }
+
+      &.from,
+      &.to {
+        min-width: 50%;
+        order: 2;
+      }
+
+      &.price,
+      &.capacity {
+        order: 3;
+        min-width: 50%;
+      }
+
+      &.actions {
+        min-width: 100%;
+      }
     }
   }
 }

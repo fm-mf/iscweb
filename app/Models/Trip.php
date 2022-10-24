@@ -440,24 +440,10 @@ class Trip extends Model
 
     public static function findAllUpcoming()
     {
-        return Trip::with('event')
+        return Trip::getOrderedByTime('ASC')
             ->whereHas('event', function ($query) {
                 $query->whereDate('trip_date_to', '>=', Carbon::today());
-            })->get();
-    }
-    public static function findMaxYearOld()
-    {
-        return Trip::with('event')
-            ->whereHas('event', function ($query) {
-                $query->whereDate('trip_date_to', '<', Carbon::today())
-                    ->whereDate('trip_date_to', '>', Carbon::today()->subYear());
-            })->get();
-    }
-
-
-    public static function findAll()
-    {
-        return Event::get();
+            });
     }
 
     public static function getAllTypes()
@@ -495,5 +481,15 @@ class Trip extends Model
     public function getReservationsEnabledAttribute(): bool
     {
         return $this->event->reservations_enabled;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function getOrderedByTime($direction = 'DESC')
+    {
+        return Trip::with('event')
+            ->join('events', 'trips.id_event', '=', 'events.id_event')
+            ->orderBy('events.datetime_from', $direction);
     }
 }

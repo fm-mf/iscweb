@@ -23,9 +23,10 @@
                 ['title' => 'Import students', 'icon' => 'file-import', 'route' => 'partak.users.import.index', 'acl' => 'users.import'],
             ]],
             ['title' => 'Trips', 'icon' => 'hiking', 'route' => 'partak.trips', 'items' => [
-                ['title' => 'Active trips', 'icon' => 'list', 'route' => 'partak.trips.upcoming', 'acl' => 'trips.view'],
+                ['title' => 'Upcoming trips', 'icon' => 'list', 'route' => 'partak.trips.upcoming', 'acl' => 'trips.view'],
                 ['title' => 'My trips', 'icon' => 'star', 'route' => 'partak.trips.my'],
-                ['title' => 'Add trip', 'icon' => 'plus', 'route' => 'partak.trips.create', 'acl' => 'trips.add'],
+                ['title' => 'All trips', 'icon' => 'hiking', 'route' => 'partak.trips.list'],
+                ['title' => 'Add trip', 'icon' => 'plus', 'route' => 'partak.trips.create'],
             ]],
             ['title' => 'Events', 'icon' => 'glass-cheers', 'route' => 'partak.events', 'acl' => 'events.view', 'items' => [
                 ['title' => 'Active events', 'icon' => 'list', 'route' => 'partak.events.index'],

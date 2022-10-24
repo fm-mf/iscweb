@@ -4,7 +4,8 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   min-height: 100%;
@@ -37,7 +38,7 @@ html, body {
 }
 
 .footer {
-  background: #0079C1;
+  background: #0079c1;
   color: #fff;
 }
 
@@ -87,7 +88,6 @@ a.disabled {
   text-align: center;
   padding: 15px;
   text-shadow: 0 1px 2px #8d8b8b;
-
 }
 
 .alert-danger {
@@ -97,7 +97,7 @@ a.disabled {
 }
 
 .required:after {
-  content: '*';
+  content: "*";
   color: red;
   padding-left: 5px;
 }
@@ -125,7 +125,13 @@ fieldset {
   }
 }
 
+/* fix pagination on smaller screens */
+.pagination {
+  flex-wrap: wrap;
+}
+
 @import "general";
+@import "list-table";
 @import "header";
 @import "users";
 @import "contacts-settings";
