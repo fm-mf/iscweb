@@ -59,7 +59,7 @@ class Trip extends Model
     public function reservations()
     {
         return $this->belongsToMany('\App\Models\Person', 'event_reservations', 'id_event', 'id_user', 'id_event')
-            ->withTimestamps()->withPivot('id_event_reservation', 'medical_issues', 'diet', 'notes', 'created_at')
+            ->withTimestamps()->withPivot('id_event_reservation', 'medical_issues', 'diet', 'notes', 'created_at', 'expires_at')
             ->wherePivot('deleted_at', null);
     }
 

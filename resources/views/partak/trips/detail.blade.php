@@ -226,6 +226,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Expires</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -238,6 +239,15 @@
                                     </td>
                                     <td>{{ $item->user->email }}</td>
                                     <td>{{ $item->exchangeStudent->phone ?? $participant->buddy->phone ?? '-' }}</td>
+                                    <td>
+                                        @if ($item->pivot->expires_at)
+                                            <span title="{{ \Carbon\Carbon::parse($item->pivot->expires_at)->toDayDateTimeString() }}">
+                                                {{ \Carbon\Carbon::parse($item->pivot->expires_at)->diffForHumans() }}
+                                            </span>
+                                        @else
+                                            <span title="Student is expected to pay at the event">Never</span>
+                                        @endif
+                                    </td>
                                     <td class="text-right">
                                         @can('addParticipant', $trip)
                                             <a href="{{ '/partak/trips/detail/'. $trip->id_trip .'/add/' . $item->user->id_user }}" role="button" class="btn btn-primary btn-sm">Register</a>

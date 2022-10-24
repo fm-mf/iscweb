@@ -12,11 +12,19 @@
                 by paying the trip price. If you don't do this, your reservation will be cancelled!
             </p>
         @else
-            <p>
-                You've successfully reserved your spot for {{ $event->name }}.
-                Now you have until <strong>{{ $response->expirationDate() }}</strong> to go to <a href="https://isc.cvut.cz/contact" target="_blank">ISC Point</a> and pay to confirm your spot.
-                If you don't confirm your spot until {{ $response->expirationDate() }}, your reservation will be cancelled.
-            </p>
+            @if ($event->reservations_payment_on_spot)
+                <p>
+                    You've successfully reserved your spot for {{ $event->name }}.
+                    @if ($event->trip->price) You'll be expected to pay when you arrive.@endif
+                </p>
+            @else
+                <p>
+                    You've successfully reserved your spot for {{ $event->name }}.
+                    Now you have until <strong>{{ $response->expirationDate() }}</strong> to go to <a href="https://isc.cvut.cz/contact" target="_blank">ISC Point</a>@if ($event->trip->price) and pay @endif to confirm your spot.
+                    If you don't confirm your spot until {{ $response->expirationDate() }}, your reservation will be cancelled.
+                </p>
+            @endif
+
             <p>If you can't participate and you didn't already confirm your reservation, please use following link to cancel it:</p>
             <p><strong><a href="{{ url("/event/{$event->reservations_hash}/cancel/{$response->hash}") }}">Cancel reservation</a></strong></p>
             <p>If you've already confirmed your reservation, contact organizers or ISC to let us know you're not coming.</p>

@@ -55,4 +55,5 @@
     :p-expiration="{{$event->reservations_removal_limit ?: 5}}"
     :p-medical="{{$event->reservations_medical ? 'true' : 'false'}}"
     :p-diet="{{$event->reservations_diet ? 'true' : 'false'}}"
+    :p-payment-on-spot="{{$event->reservations_payment_on_spot ? 'true' : 'false'}}"
 ></reservation>

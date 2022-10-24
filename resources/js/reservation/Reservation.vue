@@ -36,6 +36,7 @@
             <finish
                 v-if="step >= STEPS.DONE"
                 :is-ow="isOw"
+                :payment-on-spot="paymentOnSpot"
                 @back="$emit('cancel')"
             />
         </div>
@@ -78,7 +79,8 @@ export default {
         type: String,
         isOw: Boolean,
         showMedicalIssues: Boolean,
-        showDiet: Boolean
+        showDiet: Boolean,
+        paymentOnSpot: Boolean
     },
     data: () => ({
         STEPS,

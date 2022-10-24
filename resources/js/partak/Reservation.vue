@@ -16,7 +16,28 @@
 
         <fieldset v-show="enabled">
             <legend>Reservations</legend>
-            <div class="form-group">
+
+            <div class="form-group form-check">
+                <input
+                    id="reservations_payment_on_spot"
+                    v-model="paymentOnSpot"
+                    name="reservations_payment_on_spot"
+                    type="checkbox"
+                    value="1"
+                    class="form-check-input"
+                />
+                <label
+                    for="reservations_payment_on_spot"
+                    class="form-check-label"
+                >
+                    Payment on the spot
+                </label>
+                <div class="form-text text-muted">
+                    Reservations won't have expiry date and students are
+                    expected to pay on the spot, when event is starting.
+                </div>
+            </div>
+            <div v-show="!paymentOnSpot" class="form-group">
                 <label for="reservations_removal_limit" class="required">
                     Reservation expires after (days)
                 </label>
@@ -85,7 +106,8 @@ export default {
         pEnabled: Boolean,
         pExpiration: { type: Number, required: true },
         pDiet: Boolean,
-        pMedical: Boolean
+        pMedical: Boolean,
+        pPaymentOnSpot: Boolean
     },
     data() {
         return {
@@ -93,6 +115,7 @@ export default {
             expiration: this.pExpiration,
             diet: this.pDiet,
             medical: this.pMedical,
+            paymentOnSpot: this.pPaymentOnSpot,
             questions: jsoptions.questions.map(q => ({
                 ...q,
                 id: q.id_question,

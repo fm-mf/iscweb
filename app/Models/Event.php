@@ -12,32 +12,6 @@ use Illuminate\Support\Facades\Storage;
 use Hashids\Hashids;
 use Ramsey\Uuid\Uuid;
 
-/**
- * @property int $id_event
- * @property int $id_semester
- * @property Carbon $datetime_from
- * @property Carbon $visible_from
- * @property string $name
- * @property string $location
- * @property string $location_url
- * @property string $facebook_url
- * @property string $description
- * @property Carbon $created_at
- * @property \App\Models\Buddy $created_by
- * @property Carbon $updated_at
- * @property \App\Models\Buddy $modified_by
- * @property string $cover
- * @property string $event_type
- * @property boolean $ow
- * @property boolean $reservations_enabled
- * @property string $reservations_hash
- * @property int $reservations_removal_limit
- * @property boolean $reservations_diet
- * @property boolean $reservations_medical
- * @property \App\Models\Trip $trip
- * @property \App\Models\EventReservationQuestion[] $questions
- * @property \App\Models\Semester $semester
-*/
 class Event extends Model
 {
     const COVERS_DIR = 'events/covers';
@@ -51,7 +25,8 @@ class Event extends Model
     protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at',
         'visible_from', 'cover', 'created_by', 'modified_by', 'event_type', 'location', 'location_url',
         'reservations_enabled', 'reservations_medical', 'reservations_diet',
-        'reservations_removal_limit', 'reservations_hash', 'id_semester', 'ow'];
+        'reservations_removal_limit', 'reservations_hash', 'id_semester', 'ow',
+        'reservations_payment_on_spot'];
 
     public function questions()
     {
@@ -302,6 +277,7 @@ class Event extends Model
             $event->location_url = $data['location_url'] ?? '';
             $event->ow = isset($data['ow']) && $data['ow'] === '1' ? 1 : 0;
             $event->reservations_enabled = $data['reservations_enabled'] ?? 0;
+            $event->reservations_payment_on_spot = $data['reservations_payment_on_spot'] ?? 0;
             $event->reservations_medical = $data['reservations_medical'] ?? null;
             $event->reservations_diet = $data['reservations_diet'] ?? null;
             $event->reservations_removal_limit = $data['reservations_removal_limit'] ?? null;

@@ -342,6 +342,7 @@ class TripController extends Controller
                 unset($data['cover']);
             }
 
+            $data['reservations_payment_on_spot'] = $request->input('reservations_payment_on_spot') === '1' ? true : false;
             $data['reservations_enabled'] = $request->input('reservations_enabled') === '1' ? true : false;
             $data['reservations_diet'] = $request->input('reservations_diet') === '1' ? 1 : 0;
             $data['reservations_medical'] = $request->input('reservations_medical') === '1' ? 1 : 0;
