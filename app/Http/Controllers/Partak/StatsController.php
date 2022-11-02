@@ -22,7 +22,7 @@ class StatsController extends Controller
     public function showIndex()
     {
         $this->authorize('acl', 'stats.view');
-        
+
         $semester = Settings::get('currentSemester');
 
         return view('partak.stats.index', ['semester' => $semester]);
@@ -172,7 +172,7 @@ class StatsController extends Controller
         $this->authorize('acl', 'stats.view');
 
         $facultyAbbrevation = $request->input('faculty');
-        
+
         $faculty = Faculty::getFacultyFromAbbreviation($facultyAbbrevation);
 
         $currentStudents = ExchangeStudent::byUniqueSemester($semester->semester);
@@ -194,12 +194,12 @@ class StatsController extends Controller
             ->orderBy('count', 'desc')
             ->groupBy('people.sex')
             ->get();
-        
+
         $withWhatsapp = (clone $currentStudents)
             ->whereNotNull('whatsapp')
             ->where('whatsapp', '!=', '')
             ->count();
-        
+
         $withFb = (clone $currentStudents)
             ->whereNotNull('facebook')
             ->where('facebook', '!=', '')
@@ -210,7 +210,7 @@ class StatsController extends Controller
                 $query->whereNotNull('avatar');
             })
             ->count();
-    
+
         $withAbout = (clone $currentStudents)
             ->whereNotNull('about')
             ->where('about', '!=', '')
@@ -272,7 +272,9 @@ class StatsController extends Controller
             $months = Buddy::DEFAULT_ACTIVITY_LIMIT_MONTHS;
         }
 
-        $buddies = Buddy::recentlyActive(Carbon::now()->subMonths($months))->get();
+        $buddies = Buddy::verified()
+            ->subscribed()
+            ->recentlyActive(Carbon::now()->subMonths($months))->get();
 
         return new ActiveBuddiesExport($buddies);
     }

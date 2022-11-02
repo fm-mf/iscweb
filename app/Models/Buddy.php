@@ -172,6 +172,22 @@ class Buddy extends Model
         return $this->exchangeStudents()->pickedToday()->count();
     }
 
+    public function scopeVerified(Builder $query): Builder
+    {
+        $applicableDate = Carbon::parse(self::VERIFICATION_START_DATE)->toDateTimeString();
+
+        return $query->where('verified', '=', 'y')
+            ->orWhere(function (Builder $query) use ($applicableDate) {
+                $query->whereHas('user', function (Builder $query) use ($applicableDate) {
+                    $query->whereNull('created_at')
+                        ->orWhere('created_at', '<', $applicableDate);
+                })->where(function (Builder $query) {
+                    $query->where('active', '=', 'y')
+                        ->orWhere('subscribed', '=', 1);
+                });
+            });
+    }
+
     public static function scopeNotVerified($query)
     {
         $applicableDate = Carbon::parse(self::VERIFICATION_START_DATE)->toDateTimeString();
@@ -190,6 +206,11 @@ class Buddy extends Model
     public static function scopeNotDenied($query)
     {
         return $query->where('verified', '!=', 'd');
+    }
+
+    public function scopeSubscribed(Builder $query): Builder
+    {
+        return $query->where('subscribed', '=', 1);
     }
 
     public static function scopePartak($query)

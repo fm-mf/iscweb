@@ -13,14 +13,14 @@
 
         <card
             icon="fas fa-file-excel"
-            title="Export active buddies"
-            description="Export list of buddies who logged into buddy database in last months"
+            title="Export active Buddies"
+            description="Export list of verified Buddies who logged into Buddy database in last months and agreed to receive information e-mails"
             @click="exportActiveBuddies = true"
         />
 
         <modal v-if="exportActiveBuddies" @cancel="exportActiveBuddies = false">
             <template slot="header">
-                Export active buddies
+                Export active Buddies
             </template>
             <template slot="footer">
                 <a
@@ -41,10 +41,10 @@
                     Export
                 </a>
             </template>
-            Export active buddies active in last
+            Export verified Buddies active in the last
             <select v-model="months">
                 <option v-for="item in monthsOptions" :key="item" :value="item">
-                    {{ item }} months
+                    {{ item }} {{ item === 1 ? 'month' : 'months' }}
                 </option>
             </select>
         </modal>
