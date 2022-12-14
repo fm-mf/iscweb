@@ -32,7 +32,7 @@ Route::get('/visa', function() {
 Route::get('kos-manual', function () { return response()->file('files/KOS_manual_2017.pdf'); });
 
 Route::get('buddy-prirucka', function () {
-    $fileName = 'buddy_prirucka-zs_2022_2023.pdf';
+    $fileName = 'buddy_prirucka-ls_2022_2023.pdf';
     return response()
         ->file("files/${fileName}", [
             'Content-Disposition' => "inline; filename=\"${fileName}\"",
