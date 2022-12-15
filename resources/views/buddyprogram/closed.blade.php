@@ -26,8 +26,8 @@
             </a>
         </p>
         <picture class="d-block">
-            <source type="image/webp" srcset="{{ asset(asset('img/buddyprogram/buddy-database-map-autumn2022-' . app()->getLocale() . '.webp')) }}" />
-            <img src="{{ asset('img/buddyprogram/buddy-database-map-autumn2022-' . app()->getLocale() . '.jpg') }}" class="w-100" alt="@lang('buddy-program.world-map-alt')" />
+            <source type="image/webp" srcset="{{ asset(asset('img/buddyprogram/buddy_database_map-spring_2023-' . app()->getLocale() . '.webp')) }}" />
+            <img src="{{ asset('img/buddyprogram/buddy_database_map-spring_2023-' . app()->getLocale() . '.jpg') }}" class="w-100" alt="@lang('buddy-program.world-map-alt')" />
         </picture>
     </div>
 @stop
