@@ -10,8 +10,8 @@
 </p>
 
 <p>
-    It's only a few weeks until your arrival and we are doing our best to set up the Buddy programme for you!<br>
-    But we need your input now!
+    It's only a few weeks until your arrival, and we are doing our best to set up the Buddy programme for you!<br>
+    This is the time when we need your input.
 </p>
 
 <p>
@@ -26,22 +26,25 @@
 </p>
 
 <p>
-    Please note that it's <strong>very important to complete the form</strong> in order
-    <strong>to get a Buddy</strong>. The information you include will be later shared with Czech
-    Buddies, and they will choose based on the <strong>time of your arrival</strong> (their time
-    constraints) and the things you might have in common.
+    <strong>Completing the form</strong> is necessary in order to get a Buddy. <br>
+    You can fill out the date of your arrival and type of accommodation you will be staying at (dorm/private).
+    In the "About yourself" section, you can write something about your <strong>hobbies</strong>, your
+    <strong>field of study</strong>, or what do you expect from your stay in Prague :). If you're coming together with
+    some friends, please mention that too – it makes the planning much easier for us.
 </p>
 
 <p>
-    You can write something about your <strong>hobbies</strong>, about your <strong>field of study</strong>,
-    or what do you expect from your stay in Prague :). If you're coming together with some friends,
-    please mention that too – it makes the planning much easier for us.
+    The information you include will be later shared with our local Buddies. They usually choose their International Buddy
+    based on the <strong>time of your arrival</strong> (their time constraints), <strong>similar hobbies</strong>, or
+    the things you might have in common. <br>
+    <strong>Filling up your profile</strong> with all the information and <strong>attaching a photo</strong>
+    will give you a pretty high chance of getting a Buddy. <br>
 </p>
 
 <p>
-    Please note that we're not able to guarantee that everyone gets their Czech Buddy
-    (we're all volunteers after all), but by filling out the form properly and by attaching a photo
-    you will have a pretty high chance to get one.
+    Please note that we're not able to guarantee that everyone gets their Buddy
+    (we're all volunteers after all), but a properly filled out profile can greatly increase your chances of getting
+    one.
 </p>
 
 <p>
@@ -51,7 +54,7 @@
 
 <p>
     <small>
-        If (for any reason) you don't wish to have a Czech Buddy, you can take your name out of the
+        If (for any reason) you don't wish to have a Buddy, you can opt out of the
         Buddy programme by checking the "I don't wish to have a Buddy" option in the form.<br>
         But remember that taking part in the Buddy programme is the best way to meet Czech people,
         learn something about us and our culture and, above all, it can make your first days
@@ -76,15 +79,18 @@
 <p>
     <a href="{{ route('web.lang-select') }}">Web</a>: {{ route('web.lang-select') }}<br>
     <a href="{{ $fbPageUrl }}">FB page</a>: {{ $fbPageUrl }}<br>
-{{--    <a href="{{ Settings::get('fbGroupLink') }}/">FB group</a>: {{ Settings::get('fbGroupLink') }}<br>--}}
-{{--    <a href="{{ Settings::get('whatsAppAnnoucementsLink') }}">WhatsApp Announcements group</a>: {{ Settings::get('whatsAppAnnoucementsLink') }}<br>--}}
-{{--    <a href="{{ Settings::get('whatsAppGeneralLink') }}">WhatsApp General group</a>: {{ Settings::get('whatsAppGeneralLink') }}<br>--}}
+    {{-- <a href="{{ Settings::get('fbGroupLink') }}/">FB group</a>: {{ Settings::get('fbGroupLink') }}<br>--}}
+    {{-- <a href="{{ Settings::get('whatsAppAnnoucementsLink') }}">WhatsApp Announcements group</a>: {{
+    Settings::get('whatsAppAnnoucementsLink') }}<br>--}}
+    {{-- <a href="{{ Settings::get('whatsAppGeneralLink') }}">WhatsApp General group</a>: {{
+    Settings::get('whatsAppGeneralLink') }}<br>--}}
     <a href="{{ Settings::get('esnPragueDiscord') }}/">Discord</a>: {{ Settings::get('esnPragueDiscord') }}<br>
     <a href="{{ $igProfileUrl }}">Instagram</a>: {{ $igProfileUrl }}
 </p>
 
 <p>
-    This <a href="{{ route('privacy.notice') }}">Privacy notice</a> is to let you know how we promise to look after your personal information.
+    This <a href="{{ route('privacy.notice') }}">Privacy notice</a> is to let you know how we promise to look after your
+    personal information.
 </p>
 </body>
 </html>
