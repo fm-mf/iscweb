@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Facades\Settings;
 use App\Models\ExchangeStudent;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -40,6 +41,7 @@ class RegistrationReminderMail extends Mailable implements ShouldQueue
             ->subject(self::SUBJECT)
             ->view('emails.exchange-registration-reminder')
             ->text('emails.exchange-registration-reminder_plain')
-            ->with('subject', self::SUBJECT);
+            ->with('subject', self::SUBJECT)
+            ->with('buddyDbFrom', Settings::buddyDbFrom());
     }
 }

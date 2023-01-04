@@ -1,8 +1,8 @@
 Hi {{ $exchangeStudent->person->first_name }},
 
 we hope you’re looking forward to your study abroad in Prague!
-We’ll soon start assigning Buddies to Exchange students
-and since you haven’t filled out your registration form,
+The Buddy database, where CTU students will be able to chose their international Buddies
+will be open from {{ $buddyDbFrom->format('l, j F Y') }} and since you haven’t filled out your registration form,
 we would just like to remind you that now it is the right time to do it.
 
 So if you want to take an advantage of having a local Buddy
