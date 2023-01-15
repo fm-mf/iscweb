@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <p>Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="{{ url('/wiki') }}">wiki</a>. Pro přihlášení použij uživatelské jméno <strong>User</strong> a heslo <strong>Vzdy*VIS*viC</strong>.</p>
+                <p>Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="{{ url('/wiki') }}">wiki</a>. Pro přihlášení použij přihlašovací údaje do parťák netu.</p>
 
                 <h2>Co se děje v ISC?</h2>
 
