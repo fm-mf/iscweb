@@ -20,7 +20,7 @@
                 </ul>
 
                 <h2>Core Values</h2>
-                <p>Kultura ISC stojí na jistých hodnotách od kterých se odvíjí to jak spolupracujeme, komunikujeme a jak se k sobě chováme. Tady je seznam těch nejdůležitějších hodnot, kterými se snažíme řídit:</p>
+                <p>Kultura ISC stojí na jistých hodnotách, od kterých se odvíjí to, jak spolupracujeme, komunikujeme a jak se k sobě chováme. Tady je seznam těch nejdůležitějších hodnot, kterými se snažíme řídit:</p>
                 <ol class="list-colored">
                     <li>Share your ideas.</li>
                     <li>Be active, Creative and open-minded.</li>
