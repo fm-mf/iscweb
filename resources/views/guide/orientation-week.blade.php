@@ -18,15 +18,9 @@
         </p>
     </div>
     <div class="alert alert-warning">
-        <p>
-            This is preliminary programme. Events may be moved to another days of the week.
-            Details will be added during September.
-        </p>
         <p class="mb-0">
-            As of 1 September 2022, all events are still planned in-person, but if the pandemic
-            situation gets worse, the Orientation week might be held on-line.
-            We will try to provide you with a great experience and make it possible to meet each other.
-            You can also follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener" class="alert-link">OW FB event</a> for up to date information.
+            This is preliminary programme. Events may be moved to another days of the week.
+            Details will be added during January.
         </p>
     </div>
 
@@ -74,8 +68,8 @@
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
         <li>When: <strong>13:30</strong> – 16:30 (room opens at 13:10)</li>
-        <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>
-{{--        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>--}}
+{{--        <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>--}}
+        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
 {{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
         {{--
         <li>Meeting points:
@@ -136,8 +130,9 @@
     </div>
     --}}
     <ul class="list-unstyled">
-        <li>When: <strong>21:00</strong></li>
-        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>
+        <li>When: <strong>TBA</strong></li>
+        <li>Where: <strong>TBA</strong></li>
+{{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
 {{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
         {{--
         <li>Meeting points:
@@ -148,6 +143,7 @@
         --}}
         <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
     </ul>
+    {{--
     <h4>Slides from the Initial information meeting</h4>
     <ul class="list-unstyled">
         <li>
@@ -155,7 +151,6 @@
                 <i class="fas fa-file-pdf"></i> Registrations at faculties
             </a>
         </li>
-        {{--
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/ctu-czech-courses-fall-2018.pdf') }}" target="_blank">CTU &amp; Czech courses</a></li>
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/ctu-sports-fall-2018.pdf') }}" target="_blank">Sport at CTU</a></li>
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/visa-fall-2018.pdf') }}" target="_blank">Visa</a></li>
@@ -163,8 +158,8 @@
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/culture-fatigue-fall-2018.pdf') }}" target="_blank">Culture Shock</a></li>
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/esn-fall-2018.pdf') }}" target="_blank">ESN</a></li>
         <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}" target="_blank">KOS manual</a></li>
-        --}}
     </ul>
+    --}}
 
     <h3 id="day-2">DAY 2 – {{ $owDay2 }}</h3>
 
@@ -198,6 +193,7 @@
         the registration at the ‘main’ faculty you have in your learning agreement.
     </p>
     <ul class="list-unstyled">
+        {{--
         <li>
             <a href="{{ asset('files/ow-autumn_2022/OW-autumn_2022-registrations_at_faculties.pdf') }}" target="_blank">
                 <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation
@@ -225,6 +221,7 @@
         <li>
             <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
         </li>
+        --}}
         <li class="alert alert-danger"><strong>You will need:</strong>
             <ul>
                 <li>A government-issued ID (e.g. passport)</li>
@@ -243,9 +240,9 @@
     <h4 id="trips-meeting">Second information meeting</h4>
     <ul class="list-unstyled">
         <li>When: <strong>13:30</strong> – 15:00 (room opens at 13:15)</li>
-{{--        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>--}}
+        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
 {{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
-        <li>Where: <strong><a href="https://goo.gl/maps/Uxdt3bXSf9NwVk5M6" target="_blank">Masarykova dormitory</a>, Congress hall</strong></li>
+{{--        <li>Where: <strong><a href="https://goo.gl/maps/Uxdt3bXSf9NwVk5M6" target="_blank">Masarykova dormitory</a>, Congress hall</strong></li>--}}
         <li>Topics:
             <ul>
                 <li>Presentation of ISC trips</li>
@@ -269,6 +266,7 @@
     --}}
 
     <h4 id="day-3-registration">Registration at faculties</h4>
+    {{--
     <ul class="list-unstyled">
         <li>
             <strong>In-person registration:</strong>
@@ -280,6 +278,7 @@
             <strong>See <a href="#day-2-registration" class="alert-link">Registration on Tuesday</a> for further information</strong>
         </li>
     </ul>
+    --}}
 
     <h4 id="prague-discovery-game">Prague Discovery Game</h4>
     <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
@@ -300,8 +299,9 @@
     <h4 id="integreation-party">inteGREATion party</h4>
     <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
     <ul class="list-unstyled">
-        <li>When: <strong>21:00</strong></li>
-        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
+        <li>When: <strong>TBA</strong></li>
+        <li>Where: <strong>TBA</strong></li>
+{{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
 {{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
         {{--
         <li>Meeting points:

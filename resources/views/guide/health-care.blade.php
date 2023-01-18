@@ -17,7 +17,7 @@
             'items' => [
                 'motol' => 'Motol University Hospital',
                 'military' => 'Military University Hospital Prague &ndash; Střešovice',
-                'polyclinic' => 'Městská poliklinika Praha',
+                'doctor-prague' => 'Health centre Prague',
             ]
         ],
         'vocab' => 'Helpful vocab'
@@ -175,12 +175,18 @@
         <li><a href="https://www.uvn.cz/index.php?option=com_content&view=article&id=5082&Itemid=2032&lang=en" target="_blank">Military University Hospital Prague website</a></li>
     </ul>
 
-    <h4 id="polyclinic">Městská poliklinika Praha</h4>
+    <h4 id="doctor-prague">Doctor Prague – Health center Prague</h4>
     <ul>
-        <li><address>Spálená 12, Praha 1</address></li>
-        <li><a href="tel:+420 222 924 246">+420 222 924 246</a></li>
-        <li>For students, contract with CTU</li>
-        <li>Most of the doctors are English-speaking. For contacts and office hours see <a href="https://www.prahamp.cz/" target="_blank">their website</a> (only in Czech -> you ask your Buddy to help you with translation)</li>
+        <li><address><a href="https://goo.gl/maps/MeFhx2QiSNAni2zU8" target="_blank" rel="noopener">Vodičkova 699/28, Praha 1 – Nové Město</a></address></li>
+        <li>Appointments: <a href="tel:+420 224 220 040">+420 224 220 040</a> (Mo–Fri 8:30–17:00)</li>
+        <li>24-hour phones:
+            <ul>
+                <li><a href="tel:+420 603 433 833">+420 603 433 833</a></li>
+                <li><a href="tel:+420 603 481 361">+420 603 481 361</a></li>
+            </ul>
+        </li>
+        <li>All doctors speak English and many also speak some other foreign language</li>
+        <li>For more details visit <a href="http://doctor-prague.cz/" target="_blank" rel="noopener">their website</a></li>
     </ul>
 
     <h3 id="vocab">Helpful vocab</h3>

@@ -20,11 +20,12 @@
         <img src="{{ asset('img/guide/partners/vodafone.png') }}" alt="Vodafone logo" class="square-logo" />
         <p>
             Stay in touch with your Erasmus friends and obtain a SIM card with a favorable
-            Erasmus student tariff together with an ISC membership! First month free with 3 GB data
-            and free SMS to Vodafone. Then you get a 50% discount, so it's just 174.50 CZK (about € 7).
+            Erasmus student tariff together with an ISC membership! The first month is for free
+            with 6 GB data and free SMS to Vodafone network. Then you get a 50% discount for the next 5 months,
+            so it's just 174.50 CZK (about € 7).
         </p>
         <p class="mb-0">
-            <strong>Every month you can activate in the app My Vodafone additional 5 GB of data for a total of 8 GB / month.</strong>
+            <strong>Every month you can activate additional 5 GB of data for a total of 11 GB / month in the app My Vodafone.</strong>
             The My Vodafone app is available for
         </p>
         <ul>
@@ -46,10 +47,18 @@
         </p>
         <ul>
             <li class="mb-0">Tobacco shops (with Sazka terminal)</li>
-            <li class="mb-0">ATM machines (works with foreign debit card)</li>
-            <li class="mb-0">Online (works with Czech debit card)</li>
+            <li class="mb-0">ATM machines (works with foreign debit/credit card)</li>
+            <li class="mb-0">Online (works only with Czech debit/credit card)</li>
             <li class="mb-0">Vodafone shops</li>
         </ul>
+        <p>
+            Check the
+            <a href="https://www.vodafone.cz/pece/en/payments-and-credit/credit/how-and-where-recharge-credit/" target="_blank" rel="noopener">
+                Vodafone website
+            </a>
+            for more details on how to top up your account.
+        </p>
+
 
         <h3>SmartGuide</h3>
         <img src="{{ asset('img/guide/partners/smart-guide.png') }}" alt="SmartGuide logo" class="square-logo" />
