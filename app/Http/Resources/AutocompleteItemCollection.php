@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class AutocompleteItemCollection extends ResourceCollection
@@ -15,7 +15,7 @@ class AutocompleteItemCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        Resource::withoutWrapping();
+        JsonResource::withoutWrapping();
 
         return [
             'items' => AutocompleteItemResource::collection($this->collection),

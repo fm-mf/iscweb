@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,8 @@ use Ramsey\Uuid\Uuid;
 
 class Person extends Model
 {
+    use HasFactory;
+
     const AVATARS_DIR = 'avatars';
     const DEFAULT_AVATAR = 'img/auth/avatar.jpg';
     const AVATAR_SIZE = 360;

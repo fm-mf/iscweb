@@ -96,12 +96,12 @@ export default {
             return toStatsCollection(
                 Object.values(
                     dates.reduce((acc, date) => {
-                        const day = date.arrival.split(' ')[0];
+                        const day = date.arrival.split('T')[0];
                         let item = acc[day];
 
                         if (!item) {
                             item = acc[day] = {
-                                arrival: this.formatDate(day),
+                                arrival: this.formatDate(date.arrival),
                                 count: 0,
                                 children: [],
                                 childrenMax: 0

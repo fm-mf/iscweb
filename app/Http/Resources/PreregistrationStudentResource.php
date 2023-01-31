@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class PreregistrationStudentResource extends Resource
+class PreregistrationStudentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

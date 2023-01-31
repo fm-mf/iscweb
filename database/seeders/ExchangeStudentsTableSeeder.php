@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\ExchangeStudent;
 use App\Models\Semester;
 use Illuminate\Database\Seeder;

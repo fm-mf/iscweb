@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +12,8 @@ use Propaganistas\LaravelPhone\PhoneNumber;
 
 class Buddy extends Model
 {
+    use HasFactory;
+
     const VERIFICATION_START_DATE = '2017-01-21 00:00:00';
     const DEFAULT_ACTIVITY_LIMIT_MONTHS = 4;
 

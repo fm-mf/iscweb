@@ -4,7 +4,7 @@ ISC web
 Technologies used
 -----------------
 
-- [Laravel framework v6.x][laravel]
+- [Laravel framework v8.x][laravel]
 - [Bootstrap v4.x][bootstrap]
 - [Vue.js v2][vuejs]
 
@@ -16,7 +16,7 @@ Requirements
 - [MySQL 5.7.7][mysql] or higher (or [Maria DB 10.2.2][mariadb] or newer)
 - [PHP 7.4][php]
 - [Composer][composer]
-- [Node.js 14][nodejs] or higher (current LTS release is recommended)
+- [Node.js 16][nodejs] or higher (current LTS release is recommended)
 - [Yarn package manager v1 (Classic)][yarn]
 
 
@@ -205,7 +205,7 @@ Installation
 [do-setup-lamp-20.04]: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04 'How to install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 20.04'
 [git]: https://git-scm.com 'Git'
 [github-new-ssh]: https://github.com/settings/ssh/new 'Add new SSH keys | GitHub'
-[laravel]: https://laravel.com/docs/6.x 'Laravel – The PHP framework for web artisans'
+[laravel]: https://laravel.com/docs/8.x 'Laravel – The PHP framework for web artisans'
 [mariadb]: https://mariadb.org/ 'MariaDB Server: The open source relational database'
 [mysql]: https://www.mysql.com 'MySQL'
 [nginx]: https://www.nginx.com 'Nginx – High Performance Load Balancer, Web Server, & Reverse Proxy'

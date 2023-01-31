@@ -1,13 +1,16 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Models\Buddy;
 use App\Models\Person;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Buddy::class, function (Faker $faker) {
-    return [
-        'id_user' => factory(Person::class)->create()->id_user,
-    ];
-});
+class BuddyFactory extends Factory
+{
+    public function definition()
+    {
+        return [
+            'id_user' => Person::factory()->create()->id_user,
+        ];
+    }
+}

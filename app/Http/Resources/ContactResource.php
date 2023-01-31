@@ -2,10 +2,10 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Propaganistas\LaravelPhone\PhoneNumber;
 
-class ContactResource extends Resource
+class ContactResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

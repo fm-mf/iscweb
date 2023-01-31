@@ -1,16 +1,19 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Models\Person;
 use App\Models\User;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Person::class, function (Faker $faker) {
-    return [
-        'id_user' => factory(User::class)->create()->id_user,
-        'first_name' => $faker->firstName,
-        'last_name' => $faker->lastName,
-        'sex' => 'M',
-    ];
-});
+class PersonFactory extends Factory
+{
+    public function definition()
+    {
+        return [
+            'id_user' => User::factory()->create()->id_user,
+            'first_name' => $this->faker->firstName,
+            'last_name' => $this->faker->lastName,
+            'sex' => 'M',
+        ];
+    }
+}

@@ -1,20 +1,42 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Models\User;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-$factory->define(User::class, function (Faker $faker) {
-    static $password;
+class UserFactory extends Factory
+{
+    protected static $password;
 
-    return [
-        'email' => $faker->unique()->safeEmail,
-        // 'email_verified_at' => now(),
-        'password' => $password ?: $password = Hash::make('password'),
-        'hash' => Str::random(32),
-        'remember_token' => Str::random(10),
-    ];
-});
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'email' => $this->faker->unique()->safeEmail,
+            // 'email_verified_at' => now(),
+            'password' => self::$password ?: self::$password = Hash::make('password'),
+            'hash' => Str::random(32),
+            'remember_token' => Str::random(10),
+        ];
+    }
+
+    /**
+     * Indicate that the model's email address should be unverified.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function unverified()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'email_verified_at' => null,
+            ];
+        });
+    }
+}

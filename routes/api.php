@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +21,13 @@ use Illuminate\Http\Request;
  * Prefix: api
  */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
+Route::get('/trips', 'TripsAppController@index');
+Route::post('/trips', 'TripsAppController@index');
 
-    Route::get('/trips', 'TripsAppController@index');
-    Route::post('/trips', 'TripsAppController@index');
+Route::post('/events/getExchangeStudent', 'EventsController@getExchangeStudent');
+Route::post('/events/getBuddy', 'EventsController@login');
+Route::post('/events/reservation', 'EventsController@createReservation');
+Route::put('/events/reservation', 'EventsController@confirmReservation');
+Route::delete('/events/reservation/{hash}', 'EventsController@deleteReservation');
 
-    Route::post('/events/getExchangeStudent', 'EventsController@getExchangeStudent');
-    Route::post('/events/getBuddy', 'EventsController@login');
-    Route::post('/events/reservation', 'EventsController@createReservation');
-    Route::put('/events/reservation', 'EventsController@confirmReservation');
-    Route::delete('/events/reservation/{hash}', 'EventsController@deleteReservation');
-
-    Route::get('/ow-trips', 'StatsController@getOwTrips');
+Route::get('/ow-trips', 'StatsController@getOwTrips');
