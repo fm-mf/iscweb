@@ -32,8 +32,7 @@
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
                     </p>
                     <p>
-                        Languages courses for the Autumn semester 2022 will start on <strong>Monday, 3 October 2022</strong>.
-                        The courses are offline.
+                        Languages courses for the Spring semester 2022/2023 will start on<strong>Monday, 6 March 2023</strong>.
                     </p>
                     <p>
                         Are you interested in teaching a language with the ISC? That's great, we would like to have you!
@@ -41,7 +40,7 @@
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Have a look at the <b>Autumn 2022 schedule</b>
+                            Have a look at the <b>Spring 2023 schedule</b>
                         </a>
                     </p>
                     <h3>Where are the classrooms?</h3>
@@ -114,7 +113,7 @@
                     <h2>See the schedule</h2>
                     <p>You can have a look at the
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            Autumn 2022 schedule
+                            Spring 2023 schedule
                         </a>.
                     </p>{{--
                     <p>
