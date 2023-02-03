@@ -90,7 +90,7 @@
                 <p>Máš nějaký nápad? Chceš posunout ISC ještě dále? Nelíbí se ti něco? Dej nám o tom vědět! Buď osobně nebo můžeš napsat
                     na <a href="mailto:ideas@isc.cvut.cz">ideas@isc.cvut.cz</a></p>
 
-                <h2>Použávání štítků (tagů)</h2>
+                <h2>Používání štítků (tagů)</h2>
                 <p>Na FB skupině, asaně i v mailech všichni často používáme štítky. Rozhodli jsme se proto sjednoti pravidla jejich používání.</p>
                 <ul>
                     <li>BEZ MEZER, používat jen (pomlčka '-', podtržítko '_', tečka '.')</li>
