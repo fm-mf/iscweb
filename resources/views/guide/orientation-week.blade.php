@@ -67,13 +67,18 @@
     <h3 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h3>
 
     <h4  id="day-1-registration">Registration at faculties</h4>
-    <p>Only for the <strong>Faculty of Architecture</strong> at 13:00 (presentation of atelier works)</p>
+    <p>Only for the <strong>Faculty of Architecture (FA)</strong> at 13:00 (presentation of atelier works)</p>
 
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
         <li>When: <strong>13:30</strong> – 16:30 (room opens at 13:10)</li>
 {{--        <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>--}}
-        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
+        <li>
+            Where: <strong>
+                <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>,
+                <a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">room T4:D2-256</a>
+            </strong>
+        </li>
 {{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
         {{--
         <li>Meeting points:
@@ -94,6 +99,11 @@
                 <li>Health and property insurance</li>
                 <li>Visa regulations</li>
             </ul>
+        </li>
+        <li>
+            <a href="{{ asset('files/ow-2023_spring/ow-2O23_spring-registrations_at_faculties.pdf') }}" target="_blank">
+                <i class="fas fa-file-pdf"></i> Registration at faculties
+            </a>
         </li>
         {{--
         <li>
@@ -147,14 +157,14 @@
         --}}
         {{-- <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li> --}}
     {{-- </ul> --}}
-    {{--
     <h4>Slides from the Initial information meeting</h4>
     <ul class="list-unstyled">
         <li>
-            <a href="{{ asset('/files/ow-autumn_2022/OW-autumn_2022-registrations_at_faculties.pdf') }}" target="_blank">
+            <a href="{{ asset('files/ow-2023_spring/ow-2023_spring-registrations_at_faculties.pdf') }}" target="_blank">
                 <i class="fas fa-file-pdf"></i> Registrations at faculties
             </a>
         </li>
+        {{--
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/ctu-czech-courses-fall-2018.pdf') }}" target="_blank">CTU &amp; Czech courses</a></li>
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/ctu-sports-fall-2018.pdf') }}" target="_blank">Sport at CTU</a></li>
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/visa-fall-2018.pdf') }}" target="_blank">Visa</a></li>
@@ -162,8 +172,8 @@
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/culture-fatigue-fall-2018.pdf') }}" target="_blank">Culture Shock</a></li>
         <li><a href="{{ asset('/files/ow-presentations-fall-2018/esn-fall-2018.pdf') }}" target="_blank">ESN</a></li>
         <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}" target="_blank">KOS manual</a></li>
+        --}}
     </ul>
-    --}}
 
     <h3 id="day-2">DAY 2 – {{ $owDay2 }}</h3>
 
@@ -197,19 +207,18 @@
         the registration at the ‘main’ faculty you have in your learning agreement.
     </p>
     <ul class="list-unstyled">
-        {{--
         <li>
-            <a href="{{ asset('files/ow-autumn_2022/OW-autumn_2022-registrations_at_faculties.pdf') }}" target="_blank">
+            <a href="{{ asset('files/ow-2023_spring/ow-2023_spring-registrations_at_faculties.pdf') }}" target="_blank">
                 <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation
             </a>
         </li>
         <li>
             <strong>In-person registration:</strong>
             <ul>
-                <li>Faculty of Architecture (FA) – 10:00, Room T9:147</li>
                 <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, Room T2:C3-132</li>
-                <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 10:00, Room 10 at Břehová 7 building</li>
-                <li>Faculty of Transportation (FD / FT) – 10:00, Room 205 at Konviktská 20 building</li>
+                <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 10:00, building Břehová 7, Prague 1</li>
+                <li>Faculty of Transportation (FD / FT) – 9:00, building Konviktská 20, Prague 1</li>
+                <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
             </ul>
         </li>
         <li>
@@ -218,14 +227,11 @@
             <ul>
                 <li>Faculty of Civil Engineering (FSv / FCE)</li>
                 <li>Faculty of Information Technology (FIT)</li>
-                <li>Faculty of Mechanical Engineering (FS / FME)</li>
-                <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS)</li>
             </ul>
         </li>
         <li>
             <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
         </li>
-        --}}
         <li class="alert alert-danger"><strong>You will need:</strong>
             <ul>
                 <li>A government-issued ID (e.g. passport)</li>
@@ -244,7 +250,12 @@
     <h4 id="trips-meeting">Second information meeting</h4>
     <ul class="list-unstyled">
         <li>When: <strong>13:30</strong> – 15:00 (room opens at 13:15)</li>
-        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
+        <li>
+            Where: <strong>
+                <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>,
+                <a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">room T4:D2-256</a>
+            </strong>
+        </li>
 {{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Uxdt3bXSf9NwVk5M6" target="_blank">Masarykova dormitory</a>, Congress hall</strong></li>--}}
         <li>Topics:
@@ -270,19 +281,18 @@
     --}}
 
     <h4 id="day-3-registration">Registration at faculties</h4>
-    {{--
     <ul class="list-unstyled">
         <li>
             <strong>In-person registration:</strong>
             <ul>
-                <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
+                <li>Faculty of Mechanical Engineering (FS / FME) – 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-133</a></li>
+                <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 10:00, room 102 (at the ground floor)</li>
             </ul>
         </li>
         <li class="alert alert-info">
             <strong>See <a href="#day-2-registration" class="alert-link">Registration on Tuesday</a> for further information</strong>
         </li>
     </ul>
-    --}}
 
     <h4 id="prague-discovery-game">Prague Discovery Game</h4>
     <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
@@ -295,7 +305,12 @@
     --}}
     <ul class="list-unstyled">
         <li>When: <strong>13:30</strong> (room opens at 13:15)</li>
-        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, <a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">room T4:D2-256</a></strong></li>
+        <li>
+            Where: <strong>
+                <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>,
+                <a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">room T4:D2-256</a>
+            </strong>
+        </li>
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Uxdt3bXSf9NwVk5M6" target="_blank">Masarykova dormitory</a>, Congress hall</strong></li>--}}
 {{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
     </ul>
