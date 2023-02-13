@@ -29,10 +29,8 @@
         <li>
             Materials from ISC
             <ul>
-                <li>Printed Survival Guide</li>
-                {{--
+                {{-- <li>Printed Survival Guide</li> --}}
                 <li>List of trips</li>
-                --}}
             </ul>
         </li>
         <li>Small gifts</li>

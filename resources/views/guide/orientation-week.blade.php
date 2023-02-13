@@ -28,8 +28,9 @@
         'day-1' => [
             'title' => "Day 1 – $owDay1",
             'items' => [
+                'day-1-registration' => 'Registration at faculties',
                 'initial-meeting' => 'Initial information meeting',
-                'tandem-evening' => 'Tandem evening',
+                // 'tandem-evening' => 'Tandem evening',
             ]
         ],
         'day-2' => [
@@ -64,6 +65,9 @@
 --}}
 
     <h3 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h3>
+
+    <h4  id="day-1-registration">Registration at faculties</h4>
+    <p>Only for the <strong>Faculty of Architecture</strong> at 13:00 (presentation of atelier works)</p>
 
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
@@ -122,16 +126,16 @@
         --}}
     </ul>
 
-    <h4 id="tandem-evening">Tandem Evening</h4>
-    <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
+    {{-- <h4 id="tandem-evening">Tandem Evening</h4> --}}
+    {{-- <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p> --}}
     {{--
     <div class="alert alert-info">
         <p class="mb-0">Due to the pandemic situation the Tandem Evening will be held online. Please follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener" class="alert-link">OW FB event</a> for more info.</p>
     </div>
     --}}
-    <ul class="list-unstyled">
-        <li>When: <strong>TBA</strong></li>
-        <li>Where: <strong>TBA</strong></li>
+    {{-- <ul class="list-unstyled"> --}}
+        {{-- <li>When: <strong>TBA</strong></li> --}}
+        {{-- <li>Where: <strong>TBA</strong></li> --}}
 {{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
 {{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
         {{--
@@ -141,8 +145,8 @@
             </ul>
         </li>
         --}}
-        <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
-    </ul>
+        {{-- <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li> --}}
+    {{-- </ul> --}}
     {{--
     <h4>Slides from the Initial information meeting</h4>
     <ul class="list-unstyled">
@@ -290,8 +294,8 @@
     </p>
     --}}
     <ul class="list-unstyled">
-        <li>When: <strong>13:30</strong> (room opens at 13:15</li>
-        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, room T4:D2-256</strong></li>
+        <li>When: <strong>13:30</strong> (room opens at 13:15)</li>
+        <li>Where: <strong><a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>, <a href="https://www.fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">room T4:D2-256</a></strong></li>
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Uxdt3bXSf9NwVk5M6" target="_blank">Masarykova dormitory</a>, Congress hall</strong></li>--}}
 {{--        <li>Where: <strong><a href="https://g.page/stavarnacvut?share" target="_blank">Faculty of Civil Engineering</a>, room TH:D-1122</strong></li>--}}
     </ul>
@@ -299,10 +303,11 @@
     <h4 id="integreation-party">inteGREATion party</h4>
     <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
     <ul class="list-unstyled">
-        <li>When: <strong>TBA</strong></li>
-        <li>Where: <strong>TBA</strong></li>
-{{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
-{{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
+        {{-- <li>When: <strong>TBA</strong></li> --}}
+        {{-- <li>Where: <strong>TBA</strong></li> --}}
+        <li>When: <strong>21:00</strong></li>
+        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
+        {{-- <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li> --}}
         {{--
         <li>Meeting points:
             <ul>
