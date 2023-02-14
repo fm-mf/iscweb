@@ -100,63 +100,25 @@
                 <li>Visa regulations</li>
             </ul>
         </li>
-        <li>
-            <a href="{{ asset('files/ow-2023_spring/ow-2O23_spring-registrations_at_faculties.pdf') }}" target="_blank">
-                <i class="fas fa-file-pdf"></i> Registration at faculties
-            </a>
-        </li>
-        {{--
-        <li>
-            <a href="{{ asset('files/OW_2022_handout.pdf') }}" target="_blank">
-                <i class="fas fa-file-pdf"></i> Slides from the presentation OW Spring 2022
-            </a>
-        </li>
-        <li>
-            <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_registrations-at-faculties.pdf') }}" target="_blank">
-                <i class="fas fa-file-pdf"></i> Registration at faculties
-            </a>
-        </li>
-        <li>
-            <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_FAQ.pdf') }}" target="_blank">
-                <i class="fas fa-file-pdf"></i> FAQ
-            </a>
-        </li>
-        <li>
-            <a href="{{ asset('files/ow-autumn-2021/OW_2O21_Autumn_sports.pdf') }}" target="_blank">
-                <i class="fas fa-file-pdf"></i> Sports at CTU
-            </a>
-        </li>
-        --}}
-        {{--
-        <li>
-            <a class="btn btn-primary" href="{{ asset('files/ow-fall-2019/ow-fall-2019-complete.pdf') }}">
-                <span class="glyphicon glyphicon-file"></span> Download presentation
-            </a>
-        </li>
-        --}}
     </ul>
 
-    {{-- <h4 id="tandem-evening">Tandem Evening</h4> --}}
-    {{-- <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p> --}}
     {{--
-    <div class="alert alert-info">
-        <p class="mb-0">Due to the pandemic situation the Tandem Evening will be held online. Please follow the <a href="{{ $linkOwFbEvent }}" target="_blank" rel="noopener" class="alert-link">OW FB event</a> for more info.</p>
-    </div>
-    --}}
-    {{-- <ul class="list-unstyled"> --}}
-        {{-- <li>When: <strong>TBA</strong></li> --}}
-        {{-- <li>Where: <strong>TBA</strong></li> --}}
-{{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
-{{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
-        {{--
+    <h4 id="tandem-evening">Tandem Evening</h4>
+    <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
+    <ul class="list-unstyled">
+        <li>When: <strong>TBA</strong></li>
+        <li>Where: <strong>TBA</strong></li>
+        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>
+        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
         <li>Meeting points:
             <ul>
                 <li>20:00 in the lobby of the Masarykova dormitory</li>
             </ul>
         </li>
-        --}}
-        {{-- <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li> --}}
-    {{-- </ul> --}}
+        <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
+    </ul>
+    --}}
+
     <h4>Slides from the Initial information meeting</h4>
     <ul class="list-unstyled">
         <li>
@@ -164,15 +126,11 @@
                 <i class="fas fa-file-pdf"></i> Registrations at faculties
             </a>
         </li>
-        {{--
-        <li><a href="{{ asset('/files/ow-presentations-fall-2018/ctu-czech-courses-fall-2018.pdf') }}" target="_blank">CTU &amp; Czech courses</a></li>
-        <li><a href="{{ asset('/files/ow-presentations-fall-2018/ctu-sports-fall-2018.pdf') }}" target="_blank">Sport at CTU</a></li>
-        <li><a href="{{ asset('/files/ow-presentations-fall-2018/visa-fall-2018.pdf') }}" target="_blank">Visa</a></li>
-        <li><a href="{{ asset('/files/ow-presentations-fall-2018/isc-fall-2018.pdf') }}" target="_blank">ISC &amp; ESN</a></li>
-        <li><a href="{{ asset('/files/ow-presentations-fall-2018/culture-fatigue-fall-2018.pdf') }}" target="_blank">Culture Shock</a></li>
-        <li><a href="{{ asset('/files/ow-presentations-fall-2018/esn-fall-2018.pdf') }}" target="_blank">ESN</a></li>
-        <li><a href="{{ asset('/files/ow-presentations-fall-2017/kos-manual-ctu-fall-2017.pdf') }}" target="_blank">KOS manual</a></li>
-        --}}
+        <li>
+            <a href="{{ asset('files/ow-2023_spring/ow-2023_spring-handout.pdf') }}" target="_blank">
+                <i class="fas fa-file-pdf"></i> Slides from the presentation OW Spring 2023
+            </a>
+        </li>
     </ul>
 
     <h3 id="day-2">DAY 2 – {{ $owDay2 }}</h3>
@@ -318,9 +276,8 @@
     <h4 id="integreation-party">inteGREATion party</h4>
     <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
     <ul class="list-unstyled">
-        {{-- <li>When: <strong>TBA</strong></li> --}}
-        {{-- <li>Where: <strong>TBA</strong></li> --}}
         <li>When: <strong>21:00</strong></li>
+        {{-- <li>Where: <strong>TBA</strong></li> --}}
         <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
         {{-- <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li> --}}
         {{--
@@ -336,11 +293,6 @@
     <h3 id="day-4-7">DAY 4–7 – {{ $owTripsDays }} </h3>
 
     <h4 id="trips">Trips around the Czech Republic</h4>
-    {{--
-    <p>
-        Due to the pandemic situation and restrictions in Czech Republic we unfortunately can't organize trips for you as we planned. However we will provide you with some tips for trips to interesting places in Prague and nearby surroundings so you can decide on your own if you want to go and explore.
-    </p>
-    --}}
     <p>One-day or two-day events introducing you to a lot of interesting places</p>
     <ul class="list-unstyled">
         <li>When/Where: different times and places for each trip, further information on DAY 2 during the <a href="#trips-meeting">Second information meeting</a></li>
