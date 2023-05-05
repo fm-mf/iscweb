@@ -28,7 +28,6 @@
 {{--
     @component('components.btn-auth-ctu')
     @endcomponent
---}}
     <p>
         <em>
             @lang('auth.register-with-ctu.notice', [
@@ -38,6 +37,7 @@
             ])
         </em>
     </p>
+--}}
 
     {{ Form::open(['route' => 'register', 'class' => 'mt-4']) }}
         @include('auth.partials.user')
