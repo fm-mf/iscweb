@@ -96,7 +96,7 @@
                 <div class="row">
                     <div class="container">
                         <h3>@lang('buddy-program.details')</h3>
-                        <p>{{ $exchangeStudent->about }}</p>
+                        {{ $exchangeStudent->about_html }}
                     </div>
                 </div>
             </div>

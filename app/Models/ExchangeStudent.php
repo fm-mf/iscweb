@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\HtmlString;
 use Propaganistas\LaravelPhone\PhoneNumber;
 
 class ExchangeStudent extends Model
@@ -529,5 +530,14 @@ class ExchangeStudent extends Model
     public function formAccommodationAttribute(): int
     {
         return $this->id_accommodation;
+    }
+
+    public function getAboutHtmlAttribute(): HtmlString
+    {
+        $aboutText = "<p>$this->about</p>";
+        $aboutText = preg_replace("/\r\n(\r\n)+/", '</p><p>', $aboutText);
+        $aboutText = preg_replace("/\r\n/", '<br />', $aboutText);
+
+        return new HtmlString($aboutText);
     }
 }
