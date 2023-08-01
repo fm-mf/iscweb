@@ -19,6 +19,8 @@ type StudentCounts = {
 type Students = {
   by_faculty: { faculty: string; count: number }[]
   by_gender: { sex: string; count: number }[]
+  by_accommodation: { full_name: string; count: number}[]
+  with_accommodation: number
   with_facebook: number
   with_whatsapp: number
   with_about: number

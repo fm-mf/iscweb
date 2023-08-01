@@ -5,26 +5,32 @@
         absolute
     >
         <div class="row">
-            <div class="col-md-6 fill-height">
-                <h2>By faculty</h2>
-
-                <stats-table :data="byFaculty" key-field="faculty" />
-            </div>
             <div class="col-md-6">
-                <h2>By gender</h2>
+                <h2>Profile stats</h2>
+                <stats-table
+                    :data="profileStats"
+                    key-field="label"
+                    :show-histogram="false"
+                />
 
+                <h2>By gender</h2>
                 <stats-table
                     :data="byGender"
                     key-field="sex"
                     :show-histogram="false"
                 />
-
-                <h2>Profile stats</h2>
-
+            </div>
+            <div class="col-md-6">
+                <h2>By faculty</h2>
                 <stats-table
-                    :data="profileStats"
-                    key-field="label"
-                    :show-histogram="false"
+                    :data="byFaculty"
+                    key-field="faculty"
+                />
+
+                <h2>By accommodation</h2>
+                <stats-table
+                    :data="byAccommodation"
+                    key-field="full_name"
                 />
             </div>
         </div>
@@ -52,11 +58,13 @@ export default {
     data: () => ({
         byFaculty: null,
         byGender: null,
+        byAccommodation: null,
         withFacebook: null,
         withWhatsapp: null,
         withAbout: null,
         withPhoto: null,
         withArrival: null,
+        withAccommodation: null,
         withProfile: null,
         students: emptyPromised(),
         counts: emptyPromised()
@@ -79,6 +87,7 @@ export default {
                 items: [
                     { label: 'Filled profile', count: this.withProfile },
                     { label: 'With arrival', count: this.withArrival },
+                    { label: 'With accommodation', count: this.withAccommodation },
                     { label: 'With about', count: this.withAbout },
                     { label: 'With photo', count: this.withPhoto },
                     { label: 'With Whatsapp', count: this.withWhatsapp },
@@ -105,6 +114,8 @@ export default {
             ).then(data => {
                 this.byFaculty = this.updateFaculties(data.by_faculty);
                 this.byGender = toStatsCollection(data.by_gender);
+                this.byAccommodation = toStatsCollection(data.by_accommodation);
+                this.withAccommodation = data.with_accommodation;
                 this.withFacebook = data.with_facebook;
                 this.withWhatsapp = data.with_whatsapp;
                 this.withAbout = data.with_about;

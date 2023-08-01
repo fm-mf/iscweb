@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Partak;
 use App\Exports\ActiveBuddiesExport;
 use App\Exports\CECandidatesExport;
 use App\Facades\Settings;
+use App\Models\Accommodation;
 use App\Models\Buddy;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BuddyResource;
@@ -16,6 +17,7 @@ use App\Models\Semester;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StatsController extends Controller
 {
@@ -195,6 +197,18 @@ class StatsController extends Controller
             ->groupBy('people.sex')
             ->get();
 
+        $accommodations = (clone $currentStudents)
+            ->join('accommodation', 'exchange_students.id_accommodation', 'accommodation.id_accommodation')
+            ->select('full_name', DB::raw('count(*) as count'))
+            ->where('accommodation.id_accommodation' ,'!=', Accommodation::DEFAULT_ID)
+            ->orderBy('count', 'desc')
+            ->groupBy('full_name')
+            ->get();
+
+        $withAccommodation = $accommodations->sum(function ($accommodation) {
+            return $accommodation->count;
+        });
+
         $withWhatsapp = (clone $currentStudents)
             ->whereNotNull('whatsapp')
             ->where('whatsapp', '!=', '')
@@ -219,6 +233,8 @@ class StatsController extends Controller
         return response()->json([
             'by_faculty' => $faculties,
             'by_gender' => $genders,
+            'by_accommodation' => $accommodations,
+            'with_accommodation' => $withAccommodation,
             'with_whatsapp' => $withWhatsapp,
             'with_facebook' => $withFb,
             'with_photo' => $withPhoto,
