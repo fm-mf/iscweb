@@ -37,7 +37,7 @@
             $isInvalid = $errors->has('password') ? ' is-invalid' : '';
         @endphp
         {{ Form::label('password', __('auth.password'), ['class' => 'required']) }}
-        {{ Form::password('password', ['class' => 'form-control' . $isInvalid, 'required' => 'required', 'min' => 8, 'placeholder' => __('auth.placeholder.password'), 'autocomplete' => 'new-password']) }}
+        {{ Form::password('password', ['class' => 'form-control' . $isInvalid, 'required' => 'required', 'minlength' => 8, 'placeholder' => __('auth.placeholder.password'), 'autocomplete' => 'new-password']) }}
         @error('password')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -45,6 +45,6 @@
     </div>
     <div class="form-group">
         {{ Form::label('password_confirmation', __('auth.password-confirmation'), ['class' => 'required']) }}
-        {{ Form::password('password_confirmation', ['class' => 'form-control', 'required' => 'required', 'min' => 8, 'placeholder' => __('auth.placeholder.password-confirmation'), 'autocomplete' => 'new-password']) }}
+        {{ Form::password('password_confirmation', ['class' => 'form-control', 'required' => 'required', 'minlength' => 8, 'placeholder' => __('auth.placeholder.password-confirmation'), 'autocomplete' => 'new-password']) }}
     </div>
 </fieldset>
