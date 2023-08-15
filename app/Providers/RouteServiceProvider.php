@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\DegreeStudent;
 use App\Models\ExchangeStudent;
 use App\Models\Semester;
 use App\Models\TandemUser;
@@ -43,7 +44,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         Route::bind('exchangeStudent', function ($value) {
-            return ExchangeStudent::findOrFail(User::decodeHashId($value));
+            $value = User::decodeHashId($value);
+            return auth()->user()->isDegreeBuddy() ? DegreeStudent::findOrFail($value) : ExchangeStudent::findOrFail($value);
         });
 
         Route::bind('student', function ($hash) {

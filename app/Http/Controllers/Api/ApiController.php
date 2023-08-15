@@ -7,6 +7,7 @@ use App\Http\Resources\PreregistrationStudentCollection;
 use App\Models\Accommodation;
 use App\Models\Arrival;
 use App\Models\Country;
+use App\Models\DegreeStudent;
 use App\Models\ExchangeStudent;
 use App\Models\Faculty;
 use App\Models\Person;
@@ -50,7 +51,13 @@ class ApiController extends Controller
             });
         }
 
-        $students = ExchangeStudent::withAll()
+        if (auth()->user()->isDegreeBuddy()) {
+            $students = DegreeStudent::withAll();
+        } else {
+            $students = ExchangeStudent::withAll();
+        }
+
+        $students
             ->joinAll()
             ->availableToPick(Settings::get('currentSemester'))
             ->select('exchange_students.*');

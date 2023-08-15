@@ -30,12 +30,12 @@ class RedirectIfAuthenticated
 
                 if ($user->isPartak()) {
                     return redirect('/partak');
-                } else {
-                    if ($user->isBuddy()) {
+                } elseif ($user->isDegreeStudent()) {
+                    return redirect()->route('auth.profile.edit');
+                } elseif ($user->isBuddy() || $user->isDegreeBuddy()) {
                         return redirect('/muj-buddy');
-                    } else {
-                        return redirect('/user/verify');
-                    }
+                } else {
+                    return redirect('/user/verify');
                 }
             }
         }

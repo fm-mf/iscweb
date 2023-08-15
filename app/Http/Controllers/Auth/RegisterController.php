@@ -26,10 +26,16 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    const REGISTRATION_LOCAL = 'local';
+    const REGISTRATION_EXCHANGE = 'exchange';
+    const REGISTRATION_DEGREE_STUDENT = 'degree-student';
+    const REGISTRATION_DEGREE_BUDDY = 'degree-buddy';
+
     const REGISTRATION_TYPES = [
-        'local' => 'auth.register',
-        'exchange' => 'auth.register-exchange',
-        'degree' => 'auth.register-degree',
+        self::REGISTRATION_LOCAL => 'register',
+        self::REGISTRATION_EXCHANGE => 'register.exchange-student',
+        self::REGISTRATION_DEGREE_STUDENT => 'register.degree-student',
+        self::REGISTRATION_DEGREE_BUDDY => 'register.degree-buddy',
     ];
 
     /**
@@ -64,6 +70,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'code_of_conduct' => ['accepted'],
             'agreement' => ['accepted'],
+            'degree_buddy' => ['sometimes', 'accepted'],
         ]);
     }
 
@@ -95,7 +102,16 @@ class RegisterController extends Controller
             ]);
         }
 
-        return view(self::REGISTRATION_TYPES[session('registrationType', 'local')]);
+        if (!hash_equals(session()->get('registrationType'), self::REGISTRATION_LOCAL)) {
+            return redirect()->route(self::REGISTRATION_TYPES[session()->get('registrationType')]);
+        }
+
+        return view('auth.register');
+    }
+
+    public function showDegreeBuddyRegistrationForm()
+    {
+        return view('auth.register')->with(['degreeBuddy' => true]);
     }
 
     public function registerCheck()

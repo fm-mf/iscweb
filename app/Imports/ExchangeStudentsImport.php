@@ -238,7 +238,7 @@ class ExchangeStudentsImport implements
         }
 
         if ($this->fullTime) {
-            $exchangeStudent->user->roles()->syncWithoutDetaching([Role::fullTime()->id_role]);
+            $exchangeStudent->markAsDegreeStudent();
             $this->comment(self::MSG_LABEL_AS_FULL_TIME);
         }
 

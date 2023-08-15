@@ -14,6 +14,9 @@
                     </h2>
                     <div class="row">
                         <div class="col">
+                            @if($exchangeStudent->degree_student)
+                                <span class="badge badge-secondary">Degree student</span><br />
+                            @endif
                             @if($exchangeStudent->country)
                                 <strong>@lang('buddy-program.country')</strong>:
                                 {{ $exchangeStudent->country->full_name }}
@@ -44,14 +47,6 @@
                                 {{ $exchangeStudent->faculty->faculty }}
                                 <br>
                             @endif
-
-                            <strong>@lang('buddy-program.full-time-student')</strong>:
-                            @if($exchangeStudent->isSelfPaying())
-                                @lang('buddy-program.yes')
-                            @else
-                                @lang('buddy-program.no')
-                            @endif
-                            <br>
 
                             <strong>@lang('buddy-program.arrival-date')</strong>:
                             @if($exchangeStudent->arrival)

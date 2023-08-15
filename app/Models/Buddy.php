@@ -31,6 +31,11 @@ class Buddy extends Model
         'motivation',
         'verification_email',
         'preferred_language',
+        'degree_buddy',
+    ];
+
+    protected $casts = [
+        'degree_buddy' => 'boolean',
     ];
 
     public function user()
@@ -46,6 +51,11 @@ class Buddy extends Model
     public function exchangeStudents()
     {
         return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_buddy');
+    }
+
+    public function degreeStudents()
+    {
+        return $this->hasMany(DegreeStudent::class, 'id_buddy');
     }
 
     public function organizedTrips()
@@ -121,6 +131,18 @@ class Buddy extends Model
         return $this->welcome_mail_sent == 1;
     }
 
+    public function markAsDegreeBuddy(bool $degreeBuddy = true)
+    {
+        $this->update([
+            'degree_buddy' => $degreeBuddy,
+        ]);
+    }
+
+    public function unmarkAsDegreeBuddy()
+    {
+        $this->markAsDegreeBuddy(false);
+    }
+
     public function getDetailLink()
     {
         return route('partak.users.buddies.show', ['buddy' => $this]);
@@ -166,6 +188,7 @@ class Buddy extends Model
 
             return $user->buddy()->create(Arr::only($data, [
                 'agreement',
+                'degree_buddy',
             ]));
         });
     }

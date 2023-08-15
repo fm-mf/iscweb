@@ -24,6 +24,7 @@ class ExchangeStudent extends Model
 
     protected $casts = [
         'privacy_policy' => 'boolean',
+        'degree_student' => 'boolean',
     ];
 
     protected $fillable = [
@@ -34,7 +35,19 @@ class ExchangeStudent extends Model
         'willing_to_present',
         'opt_out',
         'privacy_policy',
+        'degree_student',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::addGlobalScope('onlyExchangeStudents', function (Builder $query) {
+            $query->whereDoesntHave('user.roles', function (Builder $query) {
+                $query->where('roles.id_role', Role::ID_FULL_TIME);
+            })->where('degree_student', false);
+        });
+    }
 
     public function user()
     {
@@ -90,7 +103,19 @@ class ExchangeStudent extends Model
 
     public function isSelfPaying()
     {
-        return $this->person->user->hasRole('samoplatce');
+        return $this->degree_student;
+    }
+
+    public function markAsDegreeStudent(bool $degreeStudent = true)
+    {
+        $this->update([
+            'degree_student' => $degreeStudent,
+        ]);
+    }
+
+    public function unmarkAsDegreeStudent()
+    {
+        $this->markAsDegreeStudent(false);
     }
 
     public function hasBuddy()
@@ -527,7 +552,7 @@ class ExchangeStudent extends Model
             : $this->arrival->id_transportation;
     }
 
-    public function formAccommodationAttribute(): int
+    public function formAccommodationAttribute(): ?int
     {
         return $this->id_accommodation;
     }

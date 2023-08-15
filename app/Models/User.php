@@ -72,6 +72,16 @@ class User extends Authenticatable implements HasLocalePreference
         return $this->hasOne('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
+    public function degreeStudent()
+    {
+        return $this->hasOne(DegreeStudent::class, 'id_user');
+    }
+
+    public function degreeBuddy()
+    {
+        return $this->hasOne(DegreeBuddy::class, 'id_user');
+    }
+
     public function roles()
     {
         return $this->belongsToMany('\App\Models\Role', 'users_roles', 'id_user', 'id_role');
@@ -111,6 +121,16 @@ class User extends Authenticatable implements HasLocalePreference
                     });
 
             })->exists();
+    }
+
+    public function isDegreeStudent()
+    {
+        return $this->degreeStudent()->exists();
+    }
+
+    public function isDegreeBuddy()
+    {
+        return $this->degreeBuddy()->exists();
     }
 
     public function isUnverifiedBuddy()

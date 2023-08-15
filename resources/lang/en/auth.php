@@ -71,7 +71,8 @@ return [
         'label' => 'To continue, please, select an appropriate option:',
         'label-local' => ' I am <strong>a local (Czech) student</strong> and I would like to be a Buddy and help the international students.',
         'label-exchange' => 'I am <strong>an international exchange student</strong> and I would like to get a Buddy.',
-        'label-degree' => 'I am <strong>an international degree student</strong> and I would like to get a Buddy.',
+        'label-degree-student' => 'I am <strong>a new international degree student</strong> and I would like to <strong>get a Buddy</strong>.',
+        'label-degree-buddy' => 'I am <strong>an international degree student</strong> and I would like to <strong>be a Buddy</strong> and help the new students.',
         'continue' => 'Continue…',
         'exchange' => 'International exchange student',
         'degree' => 'International degree student',
@@ -230,5 +231,17 @@ return [
         'reset' => 'Reset password',
         'send-link' => 'Send password reset link',
     ],
+
+    'degree-student' => [
+        'registration-info' => '
+            <p>
+                After registration you will be added to a database of incoming international exchange students have a chance to get a Buddy.
+            </p>
+            <p>
+                If you have already registered, please, continue to the
+                <a href=":href">login page</a> to update your profile.
+            </p>
+        ',
+    ]
 
 ];

@@ -6,9 +6,13 @@ use App\Exports\Concerns\WithStyles;
 use App\Exports\Concerns\WithStylesHandler;
 use App\Models\AlumniNewsletter;
 use App\Models\Contact;
+use App\Models\DegreeBuddy;
+use App\Models\DegreeStudent;
 use App\Models\User;
 use App\Observers\AlumniNewsletterObserver;
 use App\Observers\ContactObserver;
+use App\Observers\DegreeBuddyObserver;
+use App\Observers\DegreeStudentObserver;
 use App\Observers\UserObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -39,5 +43,7 @@ class AppServiceProvider extends ServiceProvider
         AlumniNewsletter::observe(AlumniNewsletterObserver::class);
         Contact::observe(ContactObserver::class);
         User::observe(UserObserver::class);
+        DegreeStudent::observe(DegreeStudentObserver::class);
+        DegreeBuddy::observe(DegreeBuddyObserver::class);
     }
 }

@@ -45,6 +45,16 @@ class Person extends Model
         return $this->hasOne('\App\Models\Buddy', 'id_user', 'id_user');
     }
 
+    public function degreeStudent()
+    {
+        return $this->hasOne(DegreeStudent::class, 'id_user');
+    }
+
+    public function degreeBuddy()
+    {
+        return $this->hasOne(DegreeBuddy::class, 'id_user');
+    }
+
     public function avatar() {
         return $this->avatar_url;
     }

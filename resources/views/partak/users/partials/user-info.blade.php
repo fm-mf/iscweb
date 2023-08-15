@@ -83,6 +83,14 @@
         </div>
         @endif
 
+        @if(isset($buddy) && $buddy->degree_buddy)
+            <span class="badge badge-secondary">Degree buddy</span>
+        @endif
+
+        @if(isset($exStudent) && $exStudent->degree_student)
+            <span class="badge badge-secondary">Degree student</span>
+        @endif
+
         @if($country)
         <div class="info-line">
             <i class="fas fa-globe-europe fa-fw mr-1"></i> {{ $country->full_name }}

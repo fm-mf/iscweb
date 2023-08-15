@@ -8,9 +8,9 @@ function checkArrival() {
 
     arrivalInputs.forEach(input => {
         const inputRequired =
-            !arrivalCheckbox.checked && !optOutCheckbox.checked;
+            !arrivalCheckbox?.checked && !optOutCheckbox?.checked;
 
-        input.disabled = arrivalCheckbox.checked;
+        input.disabled = arrivalCheckbox?.checked;
         input.required = inputRequired;
         inputRequired
             ? input.labels[0]?.classList.add('required')
@@ -18,7 +18,7 @@ function checkArrival() {
     });
 }
 
-arrivalCheckbox.addEventListener('change', checkArrival);
-optOutCheckbox.addEventListener('change', checkArrival);
+arrivalCheckbox?.addEventListener('change', checkArrival);
+optOutCheckbox?.addEventListener('change', checkArrival);
 
 checkArrival();

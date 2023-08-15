@@ -25,6 +25,7 @@ class BuddyUpdateRequest extends FormRequest
             'sex' => ['nullable', 'string', 'in:M,F'],
             'age' => ['nullable', 'integer', 'min:1901', 'max:2155'],
             'about' => ['nullable', 'string', 'max:16383'],
+            'degree_buddy' => ['sometimes', 'accepted'],
         ];
     }
 

@@ -11,15 +11,16 @@
             Warning!
         </h4>
         <p>
-            <strong>This registration is for local (Czech) students only!</strong>
+            <strong>This registration is only for local students who want to become a Buddy!</strong>
         </p>
         <p>
             If you are an exchange student, please, <strong>do not register here</strong>.
-            We will contact you through e-mail with more information about how to get a Buddy.
+            We will contact you through e-mail approximately 2–3 months before the start of the semester
+            with more information about how to get a Buddy.
         </p>
         <p class="mb-0">
-            If you are a degree student, please, contact us at
-            <a href="mailto:buddy@isc.cvut.cz" class="alert-link">buddy@isc.cvut.cz</a>.
+            If you are a <strong>new degree student who wants to get a Buddy</strong>, please, continue to
+            <a href="{{ route('register.degree-student') }}" class="alert-link">separate registration form</a>.
         </p>
     </div>
 
@@ -39,7 +40,7 @@
     </p>
 --}}
 
-    {{ Form::open(['route' => 'register', 'class' => 'mt-4']) }}
+    {{ Form::open(['route' => (($degreeBuddy ?? false) ? 'register.degree-buddy' : 'register'), 'class' => 'mt-4']) }}
         @include('auth.partials.user')
 
         <fieldset id="buddy-code-of-conduct">
@@ -68,6 +69,9 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
+        @if($degreeBuddy ?? false)
+            {{ Form::hidden('degree_buddy', true) }}
+        @endif
         <div class="form-group">
             {{ Form::button(__('auth.register'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
         </div>

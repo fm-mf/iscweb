@@ -42,7 +42,13 @@ class ListingController extends Controller
     {
         $me = Buddy::find(Auth::user()->id_user);
 
-        $myStudents = $me->exchangeStudents()->with('person.user')->bySemester(Settings::get('currentSemester'))->get();
+        if ($me->degree_buddy) {
+            $myStudents = $me->degreeStudents();
+        } else {
+            $myStudents = $me->exchangeStudents();
+        }
+
+        $myStudents = $myStudents->with('person.user')->bySemester(Settings::get('currentSemester'))->get();
 
         return view('buddyprogram.mystudents')->with([
                 'myStudents' => $myStudents

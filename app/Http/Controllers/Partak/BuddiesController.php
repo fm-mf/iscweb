@@ -29,7 +29,12 @@ class BuddiesController extends Controller
         $this->authorize('acl', 'buddy.view');
 
         $semester = Semester::getCurrentSemester();
-        $myStudents = $buddy->exchangeStudents()->bySemester($semester->semester)->with('person.user')->get();
+        if ($buddy->degree_buddy) {
+            $myStudents = $buddy->degreeStudents();
+        } else {
+            $myStudents = $buddy->exchangeStudents();
+        }
+        $myStudents = $myStudents->bySemester($semester->semester)->with('person.user')->get();
         $semester = ucfirst($semester->getFullName());
 
         $reservedTrips = $buddy->user->reservations()->with('event.trip')->get()
@@ -65,12 +70,10 @@ class BuddiesController extends Controller
     {
         $buddy->load('person.user');
 
-        $data = [];
-        foreach ($request->all() as $key => $value) {
-            if ($value) {
-                $data[$key] = $value;
-            }
-        }
+        $data = $request->validated();
+
+        $data['degree_buddy'] ??= false;
+
         $buddy->person->user->update($data);
         $buddy->person->updateWithIssuesAndDiet($data);
         $buddy->update($data);

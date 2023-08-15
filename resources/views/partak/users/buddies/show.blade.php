@@ -48,6 +48,9 @@
                         <tr>
                             <td>
                                 @include("partak.components.user-link", ['user' => $exStudent->person])
+                                @if($exStudent->degree_student)
+                                    <span class="badge badge-secondary">Degree student</span>
+                                @endif
                             </td>
                             <td>{{ $exStudent->person->user->email }}</td>
                             <td>

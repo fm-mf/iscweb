@@ -100,15 +100,14 @@ class OfficeRegistrationController extends Controller
         }
         $exStudent = ExchangeStudent::registerExStudent($data);
         $exStudent = ExchangeStudent::with('person.user')->find($exStudent->id_user);
+
+        $data['degree_student'] = array_key_exists('fullTime', $data) && $data['fullTime'] === 'y';
+
         $exStudent->update($data);
         $exStudent->person->updateWithIssuesAndDiet($data);
 
         $semester = Semester::where('semester', Settings::get('currentSemester'))->first();
         $exStudent->semesters()->attach($semester->id_semester);
-
-        if (array_key_exists('fullTime', $data) && $data['fullTime'] == 'y') {
-            $exStudent->person->user->addRole('samoplatce');
-        }
 
         return redirect()
             ->route('partak.users.exStudent.edit', ['id_user' => $exStudent->id_user]);

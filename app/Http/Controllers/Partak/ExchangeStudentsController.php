@@ -160,15 +160,7 @@ class ExchangeStudentsController extends Controller
             $data['esn_registered'] = 'n';
         }
 
-        if (!isset($data['fullTime'])) {
-            if ($exStudent->user->hasRole('samoplatce')) {
-                $exStudent->user->removeRole('samoplatce');
-            }
-        } else {
-            if (!$exStudent->user->hasRole('samoplatce')) {
-                $exStudent->user->addRole('samoplatce');
-            }
-        }
+        $data['degree_student'] = array_key_exists('fullTime', $data) && $data['fullTime'] === 'y';
 
         $exStudent->person->user->update($data);
         $exStudent->person->updateWithIssuesAndDiet($data);

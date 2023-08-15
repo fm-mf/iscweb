@@ -6,7 +6,9 @@
                 @component('components.nav-item', ['title' => __('auth.log-out'), 'route' => 'logout', 'icon' => 'fas fa-sign-out-alt'])@endcomponent
             @endauth
         @endcomponent
-        @component('components.navbar-lang-switcher')
-        @endcomponent
+        @if(auth()->guest() || (!auth()->user()->isDegreeStudent() && !auth()->user()->isDegreeBuddy()))
+            @component('components.navbar-lang-switcher')
+            @endcomponent
+        @endif
     @endcomponent
 </header>

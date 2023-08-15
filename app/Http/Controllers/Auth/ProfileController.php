@@ -6,9 +6,13 @@ use App\Events\BuddyRegistered;
 use App\Events\BuddyVerified;
 use App\Events\BuddyWithoutEmailRegistered;
 use App\Http\Controllers\Controller;
+use App\Models\Accommodation;
+use App\Models\Arrival;
 use App\Models\Country;
 use App\Models\Faculty;
 use App\Models\Person;
+use App\Models\Semester;
+use App\Models\Transportation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -70,6 +74,10 @@ class ProfileController extends Controller
 
     public function showProfileForm()
     {
+        if (auth()->user()->isDegreeStudent()) {
+            return $this->showDegreeStudentProfileForm();
+        }
+
         return view('auth.profile')->with([
             'buddy' => auth()->user()->buddy->load(['person', 'user']),
             'sexOptions' => Person::getSexOptions(),
@@ -78,8 +86,34 @@ class ProfileController extends Controller
         ]);
     }
 
+    private function showDegreeStudentProfileForm()
+    {
+        if (!auth()->user()->hasVerifiedEmail()) {
+            return redirect()->route('verification.notice');
+        }
+
+        app()->setLocale('en');
+
+        $student = auth()->user()->degreeStudent;
+
+        if ($student->about === null) {
+            $student->id_accommodation = null;
+        }
+
+        return view('auth.profile-degree-student')->with([
+            'student' => $student,
+            'sexOptions' => Person::getSexOptions(),
+            'accommodations' => Accommodation::getOptions(),
+            'transportations' => Transportation::getSelectOptionsArray(),
+        ]);
+    }
+
     public function updateProfile(Request $request)
     {
+        if (auth()->user()->isDegreeStudent()) {
+            return $this->updateDegreeStudentProfile($request);
+        }
+
         $validated = $this->profileValidator($request->all())->validate();
         $validated['subscribed'] ??= false;
 
@@ -96,6 +130,30 @@ class ProfileController extends Controller
         }
 
         return $this->skipToVerification();
+    }
+
+    public function updateDegreeStudentProfile(Request $request)
+    {
+        app()->setLocale('en');
+
+        $validated = $this->degreeStudentProfileValidator($request->all())->validate();
+        $student = auth()->user()->degreeStudent;
+
+        $student->update(Arr::except($validated, ['age', 'sex', 'arrival_skipped', 'arrival_date', 'arrival_time', 'transportation']));
+
+        $student->semesters()->syncWithoutDetaching(Semester::getCurrentSemester());
+
+        $student->person()->update(Arr::only($validated, ['age', 'sex']));
+
+        if ($request->arrival_skipped) {
+            $student->arrival()->delete();
+        } elseif (!$request->opt_out) {
+            $student->arrival()->updateOrCreate([], Arr::only($validated, ['arrival_skipped', 'arrival_date', 'arrival_time', 'transportation']));
+        }
+
+        return redirect()->route('auth.profile.edit')->with([
+            'success' => 'Your profile has been successfully updated.',
+        ]);
     }
 
     public function skipToVerification()
@@ -205,6 +263,27 @@ class ProfileController extends Controller
             'phone' => ['nullable', 'phone:AUTO,CZ,SK', 'max:255'],
             'about' => ['nullable', 'string', 'max:16383'],
             'subscribed' => ['nullable', 'boolean'],
+        ]);
+    }
+
+    protected function degreeStudentProfileValidator(array $data): Validator
+    {
+        $fbProfileUrlRegex = '/^(https?:\/\/)?((www|m)\.)?(facebook|fb)(\.(com|me))\/(profile\.php\?id=[0-9]+(&[^&]*)*|(?!profile\.php\?)([a-zA-Z0-9][.]*){4,}[a-zA-Z0-9]+\/?(\?.*)?)$/';
+        $instagramRegex = '/^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/';
+
+        return ValidatorFacade::make($data, [
+            'sex' => ['required', 'string', 'in:M,F'],
+            'age' => ['required', 'integer', 'min:1901', 'max:2155'],
+            'about' => ['required', 'string', 'max:16383'],
+            'arrival_skipped' => ['nullable', 'boolean'],
+            'arrival_date' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_DATE_FORMAT],
+            'arrival_time' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_TIME_FORMAT],
+            'transportation' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'exists:transportation,id_transportation'],
+            'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
+            'whatsapp' => ['nullable', 'max:255', 'phone:AUTO'],
+            'facebook' => ['nullable', 'max:255', "regex:$fbProfileUrlRegex"],
+            'instagram' => ['nullable', 'max:255', "regex:$instagramRegex"],
+            'privacy_policy' => ['accepted'],
         ]);
     }
 

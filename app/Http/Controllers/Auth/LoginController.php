@@ -31,13 +31,6 @@ class LoginController extends Controller
         logout as traitLogout;
     }
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
     protected $availableAuthProviders = [
         'cvut',
     ];
@@ -83,6 +76,19 @@ class LoginController extends Controller
         $localeTandem === null ?: session([Locale::SESSION_KEY_TANDEM => $localeTandem]);
 
         return $return;
+    }
+
+    protected function redirectTo()
+    {
+        if (auth()->user()->isDegreeStudent()) {
+            return route('auth.profile.edit');
+        } elseif (auth()->user()->isPartak()) {
+            return route('partak.index');
+        } elseif (auth()->user()->isBuddy() || auth()->user()->isDegreeBuddy()) {
+            return route('buddy-home');
+        }
+
+        return route('web.index');
     }
 
     public function redirectToProvider(string $provider)
