@@ -559,7 +559,8 @@ class ExchangeStudent extends Model
 
     public function getAboutHtmlAttribute(): HtmlString
     {
-        $aboutText = "<p>$this->about</p>";
+        $aboutText = htmlspecialchars($this->about);
+        $aboutText = "<p>$aboutText</p>";
         $aboutText = preg_replace("/\r\n(\r\n)+/", '</p><p>', $aboutText);
         $aboutText = preg_replace("/\r\n/", '<br />', $aboutText);
 
