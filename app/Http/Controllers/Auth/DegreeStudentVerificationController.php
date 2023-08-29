@@ -31,6 +31,8 @@ class DegreeStudentVerificationController extends Controller
     {
         $request->user()->sendEmailVerificationNotification();
 
-        return redirect()->route('verification.notice')->with('message', 'Verification link sent!');
+        return redirect()->route('verification.notice')->with([
+            'resent' => true,
+        ]);
     }
 }
