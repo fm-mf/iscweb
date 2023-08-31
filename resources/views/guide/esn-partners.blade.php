@@ -21,12 +21,13 @@
         <p>
             Stay in touch with your Erasmus friends and obtain a SIM card with a favorable
             Erasmus student tariff together with an ISC membership! The first month is for free
-            with 6 GB data and free SMS to Vodafone network. Then you get a 50% discount for the next 5 months,
-            so it's just 174.50 CZK (about € 7).
+            with 10 GB of data and free unlimited SMS within the Vodafone network and then for 399 CZK / month.
+            This offer is the best offer for students at the market right now.
+            So keep it simple, stay online and reach everyone you need.
         </p>
         <p class="mb-0">
-            <strong>Every month you can activate additional 5 GB of data for a total of 11 GB / month in the app My Vodafone.</strong>
-            The My Vodafone app is available for
+            <strong>Every month you can activate additional 5 GB of data for a total of 15 GB / month in the <em>My Vodafone</em> app.</strong>
+            The <em>My Vodafone</em> app is available for
         </p>
         <ul>
             <li class="mb-0"><a href="https://play.google.com/store/apps/details?id=com.zentity.vodafone" target="_blank" rel="noopener">Android (Google Play)</a></li>
@@ -39,8 +40,8 @@
             </a>
         </p>
         <p>
-            Do not forget that you should have enough balance on your account. Otherwise you will
-            not be able to pay 174.50 CZK after each 30 days and the discount will be lost.
+            In the following months you can choose the same prepaid value bundle as in the first month for 399 CZK / month
+            or different bundles proposed by Vodafone. Do not forget that you always have to top-up your card with credit to get a bundle.
         </p>
         <p class="mb-0">
             How to top up your account? You have several options:
@@ -113,26 +114,6 @@
         <p><a href="https://esncard.org/flixbus" target="_blank" rel="noopener">Enjoy 10% discount with your voucher.</a></p>
         <p>* You can claim up to 12 vouchers per ESNcard.</p>
 
-        <h3>Uniqway</h3>
-        <img src="{{ asset('img/guide/partners/uniqway.svg') }}" alt="Uniqway logo" />
-        <p>
-            Uniqway is carsharing made by students of ČVUT, ČZU and VŠE for students and employees
-            of all universities in the Czech Republic (Exchange students included).
-            In our fleet there are many different cars - ŠKODA FABIA, ŠKODA SCALA, electric ŠKODA CITIGOᵉ iV
-            and ŠKODA ENYAQ iV. Many of them have automatic transitions.
-        </p>
-        <p>
-            To enjoy a 200 CZK discount with your ESNcard, register your ESNcard on
-            <a href="https://esncard.org" target="_blank" rel="noopener">esncard.org</a>
-            and generate your discount code. Enter the code when registering for Uniqway.
-        </p>
-        <p>
-            No ESNcard? You can still enjoy a 100 CZK discount with our code <strong>ESNCZ</strong>. (Note: You can only use one of these codes.)
-        </p>
-        <p>
-            <a href="https://esncz.org/partners/uniqway">More information about the Uniqway partnership</a>
-        </p>
-
         <h3>HoppyGo</h3>
         <img src="{{ asset('img/guide/partners/hoppygo.png') }}" alt="HoppyGo logo" />
         <p>
@@ -154,19 +135,6 @@
             The discount applies to car rental in the Czech Republic.
         </p>
 
-        <h3>Grammarly</h3>
-        <img src="{{ asset('img/guide/partners/grammarly.jpg') }}" alt="Grammarly logo" />
-        <p>
-            Grammarly’s AI-powered products help people communicate more effectively.
-            Millions of users rely on Grammarly every day to make their messages, documents,
-            and social media posts clear, mistake-free, and impactful.
-        </p>
-        <p>
-            With ESN Czech Republic you have a special <strong>50 % discount on the Premium account</strong>.
-            Just use this <a href="https://irbis.grammarly.com/api/discounts/CeYPkK" target="_blank" rel="noopener">link</a>
-            and enjoy Grammarly Premium for one year.
-        </p>
-
         <h3>Eurosender</h3>
         <img src="{{ asset('img/guide/partners/eurosender.svg') }}" alt="Eurosender logo" />
         <p>
@@ -184,21 +152,12 @@
         <h3>The Economist</h3>
         <img src="{{ asset('img/guide/partners/economist.png') }}" alt="The Economist logo" />
         <p>
-            As an ESN member, you can take advantage of this offer and save 20%
+            As an ESN member, you can take advantage of this offer and save 20 %
             on the annual student subscription rate of The Economist. You will
             also receive one copy of Intelligent Life, the bi-monthly lifestyle
             magazine from The Economist as a gift.
         </p>
-        <p><a href="https://subscription.economist.com/OA/partners/ESN/12420offer" target="_blank">Subscribe here.</a></p>
-
-        <h3>Loď Pivovar</h3>
-        <img src="{{ asset('img/guide/partners/lod_pivovar.png') }}" alt="Loď Pivovar logo" />
-        <p>
-            Restaurant with its own brewery, where you can enjoy Czech cuisine, beer garden and summer terrace with bar,
-            BBC and relaxing lounge. All this awaits you on three decks of a unique project in Czech waters.
-        </p>
-        <p>Check it out at <a href="https://www.lodpivovar.cz/" target="_blank">www.lodpivovar.cz</a></p>
-        <p>Upon showing your ESNcard you'll get <strong>5% discount</strong> on beer.</p>
+        <p><a href="https://subscription.economist.com/OA/partners/ESN/CzechRepublic" target="_blank">Subscribe here.</a></p>
     </section>
 
 @stop

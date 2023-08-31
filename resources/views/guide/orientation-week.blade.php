@@ -58,11 +58,11 @@
     ]])
     @endcomponent
 
-{{--
+
     <div class="alert alert-info">
         <p class="mb-0"><strong>The schedule of the Orientation Week will be announced soon. Stay tuned!</strong></p>
     </div>
---}}
+
 
     <h3 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h3>
 
@@ -118,7 +118,7 @@
         <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
     </ul>
     --}}
-
+{{--
     <h4>Slides from the Initial information meeting</h4>
     <ul class="list-unstyled">
         <li>
@@ -132,7 +132,7 @@
             </a>
         </li>
     </ul>
-
+--}}
     <h3 id="day-2">DAY 2 – {{ $owDay2 }}</h3>
 
     <h4 id="day-2-registration">Registration at faculties</h4>
@@ -165,6 +165,7 @@
         the registration at the ‘main’ faculty you have in your learning agreement.
     </p>
     <ul class="list-unstyled">
+        {{--
         <li>
             <a href="{{ asset('files/ow-2023_spring/ow-2023_spring-registrations_at_faculties.pdf') }}" target="_blank">
                 <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation
@@ -190,6 +191,7 @@
         <li>
             <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
         </li>
+        --}}
         <li class="alert alert-danger"><strong>You will need:</strong>
             <ul>
                 <li>A government-issued ID (e.g. passport)</li>
@@ -237,7 +239,7 @@
         <li>If you want to attend the Survival Czech Talk <a href="https://cvut.us20.list-manage.com/track/click?u=9b8d409b5e6e6e9214f58de33&id=691692a15d&e=6858531003" target="_blank">register in the form</a> and choose which time you want to attend. If the situation about Covid-19 gets worse, the course will be held online via Zoom or some similar platform.</li>
     </ul>
     --}}
-
+{{--
     <h4 id="day-3-registration">Registration at faculties</h4>
     <ul class="list-unstyled">
         <li>
@@ -251,7 +253,7 @@
             <strong>See <a href="#day-2-registration" class="alert-link">Registration on Tuesday</a> for further information</strong>
         </li>
     </ul>
-
+--}}
     <h4 id="prague-discovery-game">Prague Discovery Game</h4>
     <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
     {{--
