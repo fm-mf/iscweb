@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="UTF-8" />
-        <title>ISC CTU Buddy program</title>
+        <title>@lang('emails.verification.title')</title>
     </head>
     <body>
-        <p>Ahoj!</p>
-        <p>Děkujeme za registraci do Buddy Programu.</p>
-        <p>Pro přístup do databáze zahraničních studentů klikni na následující odkaz:<br>
-            <a href="{{ url('user/verify/' . $person->user->hash) }}">Ověřit</a>,<br>
-            případně zkopíruj do adresního řádku prohlížeče následující odkaz:<br>
-            {{ url('user/verify/' . $person->user->hash) }}</p>
+        <h1>@lang('emails.verification.title')</h1>
+        @lang('emails.verification.body', [
+            'url' => route('auth.verification.verify', ['hash' => $person->user->hash]),
+        ])
     </body>
 </html>

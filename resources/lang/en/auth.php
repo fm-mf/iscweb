@@ -185,13 +185,13 @@ return [
         'heading' => 'Thank you for you registration to Buddy programme!',
         'verified' => '
             <p>Verification has been successful.</p>
-            <p>You can now pick your first exchange student. Have fun!</p>
+            <p>You can now pick your first international student. Have fun!</p>
             <p>To access the database of incoming students use the link <a href=":href">:href</a>.</p>
         ',
         'not-verified' => '
             <p>
                 Thank you for your answer. We will get back to you soon. Meanwhile,
-                you can chek our upcoming events where we will be happy to see you.
+                you can check our upcoming events where we will be happy to see you.
             </p>
             <p>You can find all the upcoming events in the <a href=":href">Calendar</a>.</p>
         ',

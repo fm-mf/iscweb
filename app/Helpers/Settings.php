@@ -119,20 +119,40 @@ class Settings implements ConfigContract
         DB::table(self::TABLE)->where('key', $key)->delete();
     }
 
-    public function isDatabaseOpen() {
+    public function isDatabaseOpen(): bool
+    {
         $now = Carbon::now();
         $buddyDbFrom = Carbon::parse($this->get('buddyDbFrom'));
 
         return $now->greaterThanOrEqualTo($buddyDbFrom);
     }
 
-    public function isDatabaseClosed() {
+    public function isDegreeDatabaseOpen(): bool
+    {
+        $now = Carbon::now();
+        $degreeDbFrom = Carbon::parse($this->get('degreeBuddyDbFrom'));
+
+        return $now->greaterThanOrEqualTo($degreeDbFrom);
+    }
+
+    public function isDatabaseClosed(): bool
+    {
         return !$this->isDatabaseOpen();
+    }
+
+    public function isDegreeDatabaseClosed(): bool
+    {
+        return !$this->isDegreeDatabaseOpen();
     }
 
     public function buddyDbFrom(): Carbon
     {
         return Carbon::parse($this->get('buddyDbFrom'));
+    }
+
+    public function degreeBuddyDbFrom(): Carbon
+    {
+        return Carbon::parse($this->get('degreeBuddyDbFrom'));
     }
 
     public function welcomePacksFrom(): Carbon

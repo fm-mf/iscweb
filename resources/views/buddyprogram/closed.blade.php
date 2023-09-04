@@ -4,8 +4,7 @@
     <div class="container page">
         <h2 class="text-center">
             @lang('buddy-program.closed-title', [
-                'academicTerm' => $academicTerm,
-                'academicYear' => $academicYear,
+                'semester' => $semester->name_localized_long,
                 'buddyDbFromDate' => $buddyDbFrom->formatLocalized(__('formatting.full-date')),
                 'buddyDbFromTime' => $buddyDbFrom->formatLocalized(__('formatting.time-h-m')),
                 'at' => trans_choice('buddy-program.at-time', $buddyDbFrom->hour)
@@ -25,9 +24,19 @@
                 @lang('buddy-program.closed-join-discord-btn')
             </a>
         </p>
-        <picture class="d-block">
-            <source type="image/webp" srcset="{{ asset(asset('img/buddyprogram/buddy_database_map-autumn_2023-' . app()->getLocale() . '.webp')) }}" />
-            <img src="{{ asset('img/buddyprogram/buddy_database_map-autumn_2023-' . app()->getLocale() . '.jpg') }}" class="w-100" alt="@lang('buddy-program.world-map-alt')" />
+        <picture class="closed-map">
+            <source type="image/webp" srcset="{{ asset(asset('img/buddyprogram/buddy_database_map.webp')) }}" />
+            <img src="{{ asset('img/buddyprogram/buddy_database_map.jpg') }}" alt="@lang('buddy-program.world-map-alt')" />
+            <span class="map-text">
+                @lang('buddy-program.closed-map-text', [
+                    'studentsCnt' => $incomingStudentsCnt,
+                    'countriesCnt' => $countriesCnt,
+                    'students' => trans_choice('buddy-program.students', $incomingStudentsCnt),
+                    'countries' => trans_choice('buddy-program.countries', $countriesCnt),
+                    'from' => trans_choice('buddy-program.from', $countriesCnt),
+                    'are' => trans_choice('buddy-program.are', $incomingStudentsCnt),
+                ])
+            </span>
         </picture>
     </div>
 @stop

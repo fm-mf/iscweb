@@ -23,11 +23,18 @@ class AutocompleteItemResource extends JsonResource
             $link = preg_replace('/{.*}/', $targetColumnValue, $linkTemplate);
         }
 
+        if ($this->degree_buddy) {
+            $badge = 'Degree buddy';
+        } elseif ($this->degree_student) {
+            $badge = 'Degree student';
+        }
+
         return [
             'topline' => $this->getLine($this, $request->topline),
             'subline' => $this->getLine($this, $request->subline),
             'link' => $link,
             'image' => $this->person->avatar(),
+            'badge' => $badge ?? null,
         ];
     }
 

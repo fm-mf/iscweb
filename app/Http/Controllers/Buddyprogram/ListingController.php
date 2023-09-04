@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Buddyprogram;
 use App\Facades\Settings;
 use App\Models\Buddy;
 use App\Http\Controllers\Controller;
+use App\Models\Country;
+use App\Models\DegreeStudent;
+use App\Models\ExchangeStudent;
+use App\Models\Semester;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -13,25 +17,31 @@ class ListingController extends Controller
 {
     public function showClosed()
     {
-        $currentSemester = Settings::get('currentSemester');
-        $buddyDbFrom = Carbon::parse(Settings::get('buddyDbFrom'));
-        $semester = substr($currentSemester, 0, -4);
-        $currYear = intval(substr($currentSemester, -4));
-        $academicTerm = $semester === "fall" ? __('web.term-winter') : __('web.term-summer');
-        $academicYear = $semester === "fall"
-            ? $currYear . "/" . ($currYear + 1)
-            : ($currYear - 1) . "/" . $currYear;
+        $currentSemester = Semester::getCurrentSemester()->semester;
+
+        $isDegreeBuddy = auth()->user()->isDegreeBuddy();
+
+        $countriesCnt = Country::withCount([($isDegreeBuddy ? 'degreeStudents' : 'exchangeStudents') => function ($query) use ($currentSemester) {
+            $query->byUniqueSemester($currentSemester);
+        }])->having(($isDegreeBuddy ? 'degree_students_count' : 'exchange_students_count'), '>', 0)
+            ->count();
+
+        $studentsCnt = $isDegreeBuddy
+            ? DegreeStudent::query()
+            : ExchangeStudent::query();
+        $studentsCnt = $studentsCnt->byUniqueSemester($currentSemester)->count();
 
         return view('buddyprogram.closed')->with([
-            'academicTerm' => $academicTerm,
-            'academicYear' => $academicYear,
-            'buddyDbFrom' => $buddyDbFrom,
+            'semester' => Semester::getCurrentSemester(),
+            'buddyDbFrom' => $this->dbOpenFrom(),
+            'countriesCnt' => $countriesCnt,
+            'incomingStudentsCnt' => $studentsCnt,
         ]);
     }
 
     public function listExchangeStudents()
     {
-        if (Settings::isDatabaseClosed()) {
+        if ($this->dbIsClosed()) {
             return $this->showClosed();
         }
 
@@ -53,5 +63,24 @@ class ListingController extends Controller
         return view('buddyprogram.mystudents')->with([
                 'myStudents' => $myStudents
             ]);
+    }
+
+    private function dbOpenFrom(): Carbon
+    {
+        return auth()->user()->isDegreeBuddy()
+            ? Settings::degreeBuddyDbFrom()
+            : Settings::buddyDbFrom();
+    }
+
+    private function dbIsOpen(): bool
+    {
+        return auth()->user()->isDegreeBuddy()
+            ? Settings::isDegreeDatabaseOpen()
+            : Settings::isDatabaseOpen();
+    }
+
+    private function dbIsClosed(): bool
+    {
+        return !$this->dbIsOpen();
     }
 }

@@ -27,7 +27,7 @@ class WelcomeToBuddyProgramme extends Mailable
     public function build()
     {
         return $this->view('emails.welcomeToBuddyProgramme')
-                ->subject('ISC Buddy Program')
+                ->subject(__('emails.welcome.subject'))
                 ->from('buddy@isc.cvut.cz', 'Buddy ISC CTU in Prague');
     }
 }

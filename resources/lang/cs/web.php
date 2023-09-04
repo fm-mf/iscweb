@@ -10,8 +10,7 @@ return [
         'online-reservation' => 'Online rezervace!',
         'detail' => 'Detail!'
     ],
-    'term-winter' => 'zimní',
-    'term-summer' => 'letní',
+
     'locale-full' => 'cs_CZ.UTF-8',
 
     'days' => [

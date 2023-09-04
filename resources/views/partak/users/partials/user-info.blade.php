@@ -1,5 +1,5 @@
 <?php $buddy = $user->buddy ?>
-<?php $exStudent = $user->exchangeStudent ?>
+<?php $exStudent = $user->exchangeStudent ?? $user->degreeStudent ?>
 
 @if(!isset($noTitle) || !$noTitle)
 @if(isset($buddyStudent))

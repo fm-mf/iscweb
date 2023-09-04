@@ -79,6 +79,26 @@ main {
       font-weight: bold;
     }
   }
+
+  .closed-map {
+    display: block;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    .map-text {
+      position: absolute;
+      bottom: 0.5rem;
+      left: calc(680 / 1920 * 100%);
+      font-size: clamp(0px, 2vw, 2rem);
+      line-height: 1.2;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+  }
 }
 
 .table-loader {

@@ -18,7 +18,7 @@ class AutocompleteController extends Controller
 
         $filter = (object) $this->validateRequest($request);
 
-        $search = ExchangeStudent::findAll();
+        $search = ExchangeStudent::includingDegreeStudents()->withAll();
         if (!$filter->allSemesters) {
             $search = $search->bySemester(Settings::get('currentSemester'));
         }

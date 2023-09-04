@@ -20,6 +20,11 @@ class Country extends Model
         return $this->hasMany('\App\Models\ExchangeStudent', 'id_country', 'id_country');
     }
 
+    public function degreeStudents()
+    {
+        return $this->hasMany(DegreeStudent::class, 'id_country');
+    }
+
     public function buddy()
     {
         return $this->belongsTo('\App\Models\Buddy', 'id_country', 'id_country');

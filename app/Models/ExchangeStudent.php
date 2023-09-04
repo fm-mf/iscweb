@@ -440,6 +440,11 @@ class ExchangeStudent extends Model
         return $query->byEmails($emails)->get();
     }
 
+    public function scopeIncludingDegreeStudents(Builder $query): Builder
+    {
+        return $query->withoutGlobalScope('onlyExchangeStudents');
+    }
+
     public function getHashIdAttribute()
     {
         return $this->person->hashId;

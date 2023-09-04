@@ -69,7 +69,8 @@
                     <img :src="item.image" class="img-circle" />
                 </span>
                 <a :href="item.link">
-                    {{ item.topline }} <br />
+                    {{ item.topline }}
+                    <span v-if="item.badge !== null" class="badge badge-secondary">{{ item.badge }}</span><br />
                     <small>{{ item.subline }}</small>
                 </a>
             </li>

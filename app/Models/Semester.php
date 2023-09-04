@@ -93,19 +93,24 @@ class Semester extends Model
         return ucfirst($this->getFullName());
     }
 
-    public function getNameLocalizedAttribute(): string
+    public function getNameLocalizedAttribute($long = ''): string
     {
         $y1 = intval(substr($this->semester, -4, 4));
         $y2 = $y1 + 1;
-        $key = 'buddy-program.autumn-semester';
+        $key = "buddy-program.autumn-semester$long";
 
         if ($this->isSpringSemester()) {
             $y2 = $y1;
             $y1 -= 1;
-            $key = 'buddy-program.spring-semester';
+            $key = "buddy-program.spring-semester$long";
         }
 
         return __($key, ['y1' => $y1, 'y2' => $y2]);
+    }
+
+    public function getNameLocalizedLongAttribute(): string
+    {
+        return $this->getNameLocalizedAttribute('-long');
     }
 
     public function isSpringSemester(): bool

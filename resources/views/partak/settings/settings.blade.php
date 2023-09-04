@@ -24,34 +24,17 @@
 
             {{ Form::bsSelect('currentSemester', 'Current Semester', $semesters, $settings['currentSemester']) }}
 
-            <div class="form-group">
-                {{ Form::label('buddyDbFromDate', 'Buddy database open from', ['class' => 'control-label']) }}
-                @if ($errors->hasAny(['buddyDbFromDate', 'buddyDbFromTime']))
-                    <p class="error-block alert-danger">
-                        @if($errors->has('buddyDbFromDate'))
-                            {{ $errors->first('buddyDbFromDate') }}
-                        @else
-                            {{ $errors->first('buddyDbFromTime') }}
-                        @endif
-                    </p>
-                @endif
-                <div class="row">
-                    <div class="col-sm-6 mb-2 mb-sm-0">
-                        {{ Form::text(
-                            'buddyDbFromDate',
-                            $settings['buddyDbFrom']->format('d M Y'),
-                            ['id' => 'buddyDbFromDate', 'class' => 'form-control date']
-                        ) }}
-                    </div>
-                    <div class="col-sm-6">
-                        {{ Form::text(
-                            'buddyDbFromTime',
-                            $settings['buddyDbFrom']->format('H:i'),
-                            ['id' => 'buddyDbFromTime', 'class' => 'form-control time']
-                        ) }}
-                    </div>
-                </div>
-            </div>
+            <x-settings.date-time-select
+                :date-time="$settings['buddyDbFrom']"
+                key="buddyDbFrom"
+                label="Buddy database open from"
+            />
+
+            <x-settings.date-time-select
+                :date-time="$settings['degreeBuddyDbFrom']"
+                key="degreeDbFrom"
+                label="Degree Buddy database open from"
+            />
 
             {{ Form::label('date', 'Welcome package from', ['class' => 'control-label']) }}
             @if ($errors->has('date'))

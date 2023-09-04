@@ -25,6 +25,7 @@ class SettingsController extends Controller
 
         $settings = Settings::all();
         $settings['buddyDbFrom'] = Carbon::parse($settings['buddyDbFrom']);
+        $settings['degreeBuddyDbFrom'] = Carbon::parse($settings['degreeBuddyDbFrom']);
         $settings['wcFrom'] = Carbon::createFromFormat('d/m/Y', $settings['wcFrom']);
         $settings['owFrom'] = Carbon::createFromFormat('d/m/Y', $settings['owFrom']);
         $settings['owTo'] = Carbon::createFromFormat('d/m/Y', $settings['owTo']);
@@ -50,6 +51,11 @@ class SettingsController extends Controller
         $data['buddyDbFrom'] = Carbon::parse("{$data['buddyDbFromDate']} {$data['buddyDbFromTime']}");
         unset($data['buddyDbFromDate']);
         unset($data['buddyDbFromTime']);
+
+        $data['degreeBuddyDbFrom'] = Carbon::parse("{$data['degreeDbFromDate']} {$data['degreeDbFromTime']}");
+        unset($data['degreeDbFromDate']);
+        unset($data['degreeDbFromTime']);
+
         $data['wcFrom'] = Carbon::createFromFormat('d M Y', $data['wcFrom'])->format('d/m/Y');
         $data['owFrom'] = Carbon::createFromFormat('d M Y', $data['owFrom'])->format('d/m/Y');
         $data['owTo'] = Carbon::createFromFormat('d M Y', $data['owTo'])->format('d/m/Y');
@@ -117,6 +123,8 @@ class SettingsController extends Controller
             'limitPerDay' => 'required|digits:1',
             'buddyDbFromDate' => 'required|date_format:d M Y',
             'buddyDbFromTime' => 'required|date_format:H:i',
+            'degreeDbFromDate' => 'required|date_format:d M Y',
+            'degreeDbFromTime' => 'required|date_format:H:i',
             'wcFrom' => 'required|date_format:d M Y',
             'owFrom' => 'date_format:d M Y',
             'owTo' => 'required|date_format:d M Y',

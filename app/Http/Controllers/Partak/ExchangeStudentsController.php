@@ -53,7 +53,7 @@ class ExchangeStudentsController extends Controller
     {
         $this->authorize('acl', 'exchangeStudents.view');
 
-        $exStudent = ExchangeStudent::with(['person.user', 'user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
+        $exStudent = ExchangeStudent::includingDegreeStudents()->with(['person.user', 'user', 'buddy.person.user', 'country', 'accommodation', 'faculty', 'arrival'])->find($id);
         if ($exStudent == null) {
             throw new UserDoesntExist("Exchange Student does not exist !!!");
         }
@@ -75,7 +75,7 @@ class ExchangeStudentsController extends Controller
         $this->authorize('acl', 'buddy.edit');
 
         // Verify that id is correct
-        $exStudent = ExchangeStudent::with('person.user')->find($id);
+        $exStudent = ExchangeStudent::includingDegreeStudents()->with('person.user')->find($id);
         if ($exStudent == null) {
             throw new UserDoesntExist();
         }
@@ -93,6 +93,7 @@ class ExchangeStudentsController extends Controller
         $buddy->id_country = $exStudent->id_country;
         $buddy->alive = 'y';
         $buddy->preferred_language = 'en';
+        $buddy->degree_buddy = $exStudent->degree_student;
         $buddy->save();
 
         // Redirect to success page with more info
@@ -104,7 +105,7 @@ class ExchangeStudentsController extends Controller
         $this->authorize('acl', 'buddy.edit');
 
         // Load student info
-        $exStudent = ExchangeStudent::with('person.user')->find($id);
+        $exStudent = ExchangeStudent::includingDegreeStudents()->with('person.user')->find($id);
         if ($exStudent == null) {
             throw new UserDoesntExist();
         }
@@ -124,7 +125,7 @@ class ExchangeStudentsController extends Controller
     {
         $this->authorize('acl', 'exchangeStudents.edit');
 
-        $exStudent = ExchangeStudent::with('person.user')->find($id);
+        $exStudent = ExchangeStudent::includingDegreeStudents()->with('person.user')->find($id);
         if ($exStudent == null) {
             throw new UserDoesntExist();
         }
@@ -143,7 +144,7 @@ class ExchangeStudentsController extends Controller
         $this->authorize('acl', 'exchangeStudents.edit');
         $this->profileValidator($request->all(), $id)->validate();
 
-        $exStudent = ExchangeStudent::with('person.user')->find($id);
+        $exStudent = ExchangeStudent::includingDegreeStudents()->with('person.user')->find($id);
 
         $data = [];
         foreach ($request->all() as $key => $value) {
