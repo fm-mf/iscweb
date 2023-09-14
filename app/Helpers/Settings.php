@@ -169,4 +169,14 @@ class Settings implements ConfigContract
     {
         return $this->get('membershipFee');
     }
+
+    public function discordInviteBuddy(): string
+    {
+        return $this->get('discordInviteBuddy');
+    }
+
+    public function discordInviteExchange(): string
+    {
+        return $this->get('discordInviteExchange');
+    }
 }

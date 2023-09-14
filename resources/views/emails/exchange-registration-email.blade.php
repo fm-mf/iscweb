@@ -84,7 +84,7 @@
     Settings::get('whatsAppAnnoucementsLink') }}<br>--}}
     {{-- <a href="{{ Settings::get('whatsAppGeneralLink') }}">WhatsApp General group</a>: {{
     Settings::get('whatsAppGeneralLink') }}<br>--}}
-    <a href="{{ Settings::get('esnPragueDiscord') }}/">Discord</a>: {{ Settings::get('esnPragueDiscord') }}<br>
+    <a href="{{ $exchangeDiscordLink }}">Discord</a>: {{ $exchangeDiscordLink }}<br>
     <a href="{{ $igProfileUrl }}">Instagram</a>: {{ $igProfileUrl }}
 </p>
 

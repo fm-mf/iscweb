@@ -28,8 +28,8 @@ class ViewComposerServiceProvider extends ServiceProvider
                 'pointPhoneNo' => '+420775198605',
                 'pointPhoneNoFormatted' => '+420 775 198 605',
                 'membershipFee' => Settings::membershipFee(),
-                'buddyDiscordLink' => 'https://discord.gg/UMa2N7MZQh',
-                'exchangeDiscordLink' => 'https://discord.gg/WDDXMqHXVF',
+                'buddyDiscordLink' => Settings::discordInviteBuddy(),
+                'exchangeDiscordLink' => Settings::discordInviteExchange(),
             ]);
         });
     }

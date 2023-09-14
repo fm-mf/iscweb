@@ -77,11 +77,19 @@
             {{ Form::bsText('whatsAppGeneralLink', 'Link to General WhatsApp group', '', @$settings['whatsAppGeneralLink']) }}
 
             <div class="form-group">
-                {{ Form::label('esnPragueDiscord', 'ESN Prague Discord invite link') }}
-                @if ($errors->has('esnPragueDiscord'))
-                    <p class="error-block alert-danger">{{ $errors->first('esnPragueDiscord') }}</p>
-                @endif
-                {{ Form::url('esnPragueDiscord', $settings['esnPragueDiscord'], ['class' => 'form-control']) }}
+                {{ Form::label('discordInviteBuddy', 'ISC Discord invite link for Buddies') }}
+                @error('discordInviteBuddy')
+                    <p class="error-block alert-danger">{{ $message }}</p>
+                @enderror
+                {{ Form::url('discordInviteBuddy', $settings['discordInviteBuddy'], ['class' => 'form-control']) }}
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('discordInviteExchange', 'ISC Discord invite link for Exchange students') }}
+                @error('discordInviteExchange')
+                    <p class="error-block alert-danger">{{ $message }}</p>
+                @enderror
+                {{ Form::url('discordInviteExchange', $settings['discordInviteExchange'], ['class' => 'form-control']) }}
             </div>
 
             {{ Form::bsCheckbox('owTripsEnabled', 'Enable OW trips registration', '', '1', @$settings['owTripsEnabled']) }}
