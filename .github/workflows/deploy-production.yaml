@@ -22,4 +22,4 @@ jobs:
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > "$HOME/.ssh/config"
           ssh-add "$HOME/.ssh/id_ed25519"
       - name: Deploy using Laravel Envoy
-        run: $HOME/.composer/vendor/bin/envoy run deploy-production --commit="$GITHUB_SHA" --reponame="$GITHUB_REPOSITORY" --branch=master
+        run: $HOME/.composer/vendor/bin/envoy run deploy-production --commit="$GITHUB_SHA" --reponame="$GITHUB_REPOSITORY" --branch=master --database=${{ secrets.DB_NAME }}

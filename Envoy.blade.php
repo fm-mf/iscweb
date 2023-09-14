@@ -7,7 +7,7 @@
     $releases_dir = "{$app_dir}/releases";
     $release = date('Y-m-d_H-i-s') . "_{$commit}";
     $new_release_dir = "{$releases_dir}/{$release}";
-    $db_name = 'isc';
+    $db_name = $database ?? 'isc';
     $db_backups_dir = "{$app_dir}/db_backups";
 @endsetup
 
