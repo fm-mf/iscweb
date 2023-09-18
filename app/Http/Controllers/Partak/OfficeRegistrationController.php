@@ -39,15 +39,17 @@ class OfficeRegistrationController extends Controller
         $this->authorize('acl', 'exchangeStudents.register');
 
         return view('partak.users.officeRegistration.register')->with([
-            'exStudent' => ExchangeStudent::with('person.user')->find($id),
+            'exStudent' => ExchangeStudent::includingDegreeStudents()->with('person.user')->find($id),
             'faculties' => Faculty::getOptions(),
             'accommodations' => Accommodation::getOptions(),
         ]);
     }
 
-    public function esnRegistration(ExchangeStudent $exchangeStudent)
+    public function esnRegistration(int $id)
     {
         $this->authorize('acl', 'exchangeStudents.register');
+
+        $exchangeStudent = ExchangeStudent::includingDegreeStudents()->findOrFail($id);
 
         if (request()->has('phone') && substr(request('phone'), 0, 3) === '420') {
             request()->merge(['phone' => '+' . request('phone')]);
