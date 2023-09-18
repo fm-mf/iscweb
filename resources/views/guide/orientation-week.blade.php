@@ -67,7 +67,7 @@
     <h3 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h3>
 
     <h4  id="day-1-registration">Registration at faculties</h4>
-    <p>Only for the <strong>Faculty of Architecture (FA)</strong> at 13:00 (presentation of atelier works)</p>
+    <p>Only for the <strong>Faculty of Architecture (FA)</strong> at 13:00 (presentation of atelier works) in the auditorium T9:155 (Gočár)</p>
 
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
