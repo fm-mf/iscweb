@@ -6,6 +6,7 @@ use App\Facades\Settings;
 use App\Http\Controllers\Controller;
 use App\Models\Building;
 use App\Models\Contact;
+use App\Models\Trip;
 use Carbon\Carbon;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -43,6 +44,7 @@ class PageController extends Controller
                         $owFrom->copy()->addDay(3),
                         $owFrom->copy()->addDay(6)
                     ),
+                    'owTrips' => Trip::getCurrentOwTrips(),
                 ];
                 break;
             case 'classrooms':

@@ -179,4 +179,9 @@ class Settings implements ConfigContract
     {
         return $this->get('discordInviteExchange');
     }
+
+    public function currentSemester(): string
+    {
+        return $this->get('currentSemester');
+    }
 }

@@ -2,6 +2,11 @@
 
 @section('subtitle', 'Orientation week')
 
+@php
+    $finalProgramme = true;
+    $showSlidesAndRegistrations = true;
+@endphp
+
 @section('subpage')
     <h2>Orientation Week</h2>
     <div class="alert alert-danger">
@@ -17,12 +22,15 @@
             through parties, games and a lot of trips. You shouldn’t miss this great opportunity!
         </p>
     </div>
-    <div class="alert alert-warning">
-        <p class="mb-0">
-            This is preliminary programme. Events may be moved to another days of the week.
-            Details will be added during January.
-        </p>
-    </div>
+
+    @if(!$finalProgramme)
+        <div class="alert alert-warning">
+            <p class="mb-0">
+                This is preliminary programme. Events may be moved to another days of the week.
+                Details will be added during January.
+            </p>
+        </div>
+    @endif
 
     @component('guide.components.section-nav', ['items' => [
         'day-1' => [
@@ -59,9 +67,11 @@
     @endcomponent
 
 
-    <div class="alert alert-info">
-        <p class="mb-0"><strong>The schedule of the Orientation Week will be announced soon. Stay tuned!</strong></p>
-    </div>
+    @if(!$finalProgramme)
+        <div class="alert alert-info">
+            <p class="mb-0"><strong>The schedule of the Orientation Week will be announced soon. Stay tuned!</strong></p>
+        </div>
+    @endif
 
 
     <h3 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h3>
@@ -118,21 +128,22 @@
         <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
     </ul>
     --}}
-{{--
-    <h4>Slides from the Initial information meeting</h4>
-    <ul class="list-unstyled">
-        <li>
-            <a href="{{ asset('files/ow-2023_spring/ow-2023_spring-registrations_at_faculties.pdf') }}" target="_blank">
-                <i class="fas fa-file-pdf"></i> Registrations at faculties
-            </a>
-        </li>
-        <li>
-            <a href="{{ asset('files/ow-2023_spring/ow-2023_spring-handout.pdf') }}" target="_blank">
-                <i class="fas fa-file-pdf"></i> Slides from the presentation OW Spring 2023
-            </a>
-        </li>
-    </ul>
---}}
+    @if($showSlidesAndRegistrations)
+        <h4>Slides from the Initial information meeting</h4>
+        <ul class="list-unstyled">
+            <li>
+                <a href="{{ asset('files/ow-2023_autumn/ow-2023_autumn-registrations_at_faculties.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Registrations at faculties (Autumn 2023)
+                </a>
+            </li>
+            <li>
+                <a href="{{ asset('files/ow-2023_autumn/ow-2023_autumn-handout.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Slides from the presentation OW Autumn 2023
+                </a>
+            </li>
+        </ul>
+    @endif
+
     <h3 id="day-2">DAY 2 – {{ $owDay2 }}</h3>
 
     <h4 id="day-2-registration">Registration at faculties</h4>
@@ -156,42 +167,46 @@
             See <a href="{{ route('guide-page', ['page' => 'kos#kos']) }}" class="alert-link">KOS (Study information system)</a>.
         </p>
     </div>
-    <p class="alert alert-info">
-        Detailed instructions and schedule for faculties with in-person registration will be announced on {{ $owDay1 }},
-        during the <a href="#initial-meeting" class="alert-link">Initial information meeting</a>.
-    </p>
+    @if(!$showSlidesAndRegistrations)
+        <p class="alert alert-info">
+            Detailed instructions and schedule for faculties with in-person registration will be announced on {{ $owDay1 }},
+            during the <a href="#initial-meeting" class="alert-link">Initial information meeting</a>.
+        </p>
+    @endif
     <p class="alert alert-info">
         <strong>Note:</strong> Even if you have courses at multiple faculties, you only need to attend
         the registration at the ‘main’ faculty you have in your learning agreement.
     </p>
     <ul class="list-unstyled">
-        {{--
-        <li>
-            <a href="{{ asset('files/ow-2023_spring/ow-2023_spring-registrations_at_faculties.pdf') }}" target="_blank">
-                <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation
-            </a>
-        </li>
-        <li>
-            <strong>In-person registration:</strong>
-            <ul>
-                <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, Room T2:C3-132</li>
-                <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 10:00, building Břehová 7, Prague 1</li>
-                <li>Faculty of Transportation (FD / FT) – 9:00, building Konviktská 20, Prague 1</li>
-                <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
-            </ul>
-        </li>
-        <li>
-            <strong>On-line registration:</strong>
-            (faculty coordinator have already contacted you via e-mail with instructions)
-            <ul>
-                <li>Faculty of Civil Engineering (FSv / FCE)</li>
-                <li>Faculty of Information Technology (FIT)</li>
-            </ul>
-        </li>
-        <li>
-            <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
-        </li>
-        --}}
+        @if($showSlidesAndRegistrations)
+            <li>
+                <a href="{{ asset('files/ow-2023_autumn/ow-2023_autumn-registrations_at_faculties.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation (Autumn 2023)
+                </a>
+            </li>
+            <li>
+                <strong>In-person registration:</strong>
+                <ul>
+                    <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, Room T2:C3-340</li>
+                    <li>Faculty of Mechanical Engineering (FS / FME) – 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
+                    <li>Faculty of Transportation (FD / FT) – 9:00, building Konviktská 20, Prague 1; room 205</li>
+                    <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
+                    <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 10:00, room 103 (at the ground floor)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>On-line registration:</strong>
+                (faculty coordinator have already contacted you via e-mail with instructions)
+                <ul>
+                    <li>Faculty of Civil Engineering (FSv / FCE)</li>
+                    <li>Faculty of Information Technology (FIT)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>For Faculty of Architecture (FA) see <a href="#day-1">Day 1</a></strong>
+                <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
+            </li>
+        @endif
         <li class="alert alert-danger"><strong>You will need:</strong>
             <ul>
                 <li>A government-issued ID (e.g. passport)</li>
@@ -239,21 +254,22 @@
         <li>If you want to attend the Survival Czech Talk <a href="https://cvut.us20.list-manage.com/track/click?u=9b8d409b5e6e6e9214f58de33&id=691692a15d&e=6858531003" target="_blank">register in the form</a> and choose which time you want to attend. If the situation about Covid-19 gets worse, the course will be held online via Zoom or some similar platform.</li>
     </ul>
     --}}
-{{--
-    <h4 id="day-3-registration">Registration at faculties</h4>
-    <ul class="list-unstyled">
-        <li>
-            <strong>In-person registration:</strong>
-            <ul>
-                <li>Faculty of Mechanical Engineering (FS / FME) – 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-133</a></li>
-                <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 10:00, room 102 (at the ground floor)</li>
-            </ul>
-        </li>
-        <li class="alert alert-info">
-            <strong>See <a href="#day-2-registration" class="alert-link">Registration on Tuesday</a> for further information</strong>
-        </li>
-    </ul>
---}}
+
+    @if($showSlidesAndRegistrations)
+        <h4 id="day-3-registration">Registration at faculties</h4>
+        <ul class="list-unstyled">
+            <li>
+                <strong>In-person registration:</strong>
+                <ul>
+                    <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 9:30, building Břehová 7, Prague 1; room B-111</li>
+                </ul>
+            </li>
+            <li class="alert alert-info">
+                <strong>See <a href="#day-2-registration" class="alert-link">Registration on Tuesday</a> for further information</strong>
+            </li>
+        </ul>
+    @endif
+
     <h4 id="prague-discovery-game">Prague Discovery Game</h4>
     <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
     {{--
@@ -306,6 +322,18 @@
             </ul>
         </li>
     </ul>
+
+    @if(empty($owTrips) || $owTrips->isEmpty())
+        <p>
+            The Orientation week trips have not been published yet. Stay tuned!
+        </p>
+    @else
+        <ul class="list-unstyled events">
+            @foreach($owTrips as $trip)
+                @include('partials.calendar-event', ['event' => $trip->event])
+            @endforeach
+        </ul>
+    @endif
 
     <div class="alert alert-danger mt-5">
         <p class="mb-0">

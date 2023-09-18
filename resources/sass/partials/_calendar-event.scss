@@ -30,6 +30,7 @@
     justify-content: center;
     flex-wrap: nowrap;
     min-width: 7rem;
+    text-align: center;
 
     @include media-breakpoint-down(xs) {
       line-height: 1;

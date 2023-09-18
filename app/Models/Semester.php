@@ -71,10 +71,14 @@ class Semester extends Model
         }
     }
 
+    public function scopeCurrentSemester(Builder $query): Builder
+    {
+        return $query->where('semester', Settings::currentSemester());
+    }
+
     public static function getCurrentSemester(): Semester
     {
-        $semesterName = Settings::get('currentSemester');
-        return Semester::where('semester', $semesterName)->first();
+        return self::currentSemester()->first();
     }
 
     public function __toString()

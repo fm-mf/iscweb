@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Facades\Settings;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -491,5 +492,31 @@ class Trip extends Model
         return Trip::with('event')
             ->join('events', 'trips.id_event', '=', 'events.id_event')
             ->orderBy('events.datetime_from', $direction);
+    }
+
+    public function scopeInCurrentSemester(Builder $query): Builder
+    {
+        return $query->whereHas(
+            'event',
+            fn(Builder $query): Builder => $query->inCurrentSemester()
+        );
+    }
+
+    public function scopeOwTrips(Builder $query): Builder
+    {
+        return $query->whereHas(
+            'event',
+            fn(Builder $query): Builder => $query->owEvents()
+        );
+    }
+
+    public function scopeCurrentOwTrips(Builder $query): Builder
+    {
+        return $query->inCurrentSemester()->owTrips();
+    }
+
+    public static function getCurrentOwTrips(): Collection
+    {
+        return self::currentOwTrips()->with('event')->get();
     }
 }

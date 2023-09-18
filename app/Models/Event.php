@@ -89,6 +89,16 @@ class Event extends Model
             ->where('reservations_hash', $hash);
     }
 
+    public function scopeInCurrentSemester(Builder $query): Builder
+    {
+        return $query->whereHas('semester', fn(Builder $query) => $query->currentSemester());
+    }
+
+    public function scopeOwEvents(Builder $query): Builder
+    {
+        return $query->where('ow', 1);
+    }
+
     /**
      * @param array $attributes
      * @param array $options
