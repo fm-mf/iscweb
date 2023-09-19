@@ -36,8 +36,8 @@ class EventsController extends Controller
         try {
             /** @var ExchangeStudent */
             $student = ($event->ow
-                ? ExchangeStudent::findByEsn($data['esn'])
-                : ExchangeStudent::findByEmailAndEsn($data['email'], $data['esn'])
+                ? ExchangeStudent::includingDegreeStudents()->findByEsn($data['esn'])
+                : ExchangeStudent::includingDegreeStudents()->findByEmailAndEsn($data['email'], $data['esn'])
             )->firstOrFail();
         } catch (\Exception $e) {
             throw new NotFoundHttpException('Invalid e-mail and ESNcard number combination');
