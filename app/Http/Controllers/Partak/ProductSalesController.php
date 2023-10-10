@@ -35,6 +35,10 @@ class ProductSalesController extends Controller
             throw new BadRequestHttpException('user or customer details have to be defined');
         }
 
+        if ($product->isSoldOut) {
+            throw new BadRequestHttpException('Sold out product cannot be sold');
+        }
+
         $receipt = Receipt::create([
             'subject' => $product->name,
             'amount' => $data['paid'],

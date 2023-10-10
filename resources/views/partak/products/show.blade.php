@@ -5,36 +5,40 @@
        @component('partak.components.product-info', ['product' => $product, 'showActions' => true])
        @endcomponent
 
-        <div class="container my-3">
-            <div class="row">
-                <div class="form-group col-md-9 col-lg-8 col-xl-6 mx-auto">
-                    @include('partak.components.student-search',[
-                        'label' => 'Sell to Exchange student',
-                        'target' => route('partak.products.sales.create', $product) . '?id_user={id_user}',
-                        'create' => false
-                    ])
+        @if($product->isSoldOut)
+            <p><strong>This product is no longer available for sale.</strong></p>
+        @else
+            <div class="container my-3">
+                <div class="row">
+                    <div class="form-group col-md-9 col-lg-8 col-xl-6 mx-auto">
+                        @include('partak.components.student-search',[
+                            'label' => 'Sell to Exchange student',
+                            'target' => route('partak.products.sales.create', $product) . '?id_user={id_user}',
+                            'create' => false
+                        ])
+                    </div>
+                    <div class="form-group col-md-9 col-lg-8 col-xl-6 mx-auto">
+                        @include('partak.components.buddy-search',[
+                            'label' => 'Sell to Buddy',
+                            'target' => route('partak.products.sales.create', $product) . '?id_user={id_user}'
+                        ])
+                    </div>
                 </div>
-                <div class="form-group col-md-9 col-lg-8 col-xl-6 mx-auto">
-                    @include('partak.components.buddy-search',[
-                        'label' => 'Sell to Buddy',
-                        'target' => route('partak.products.sales.create', $product) . '?id_user={id_user}'
-                    ])
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-12 text-center form-group">
-                    <a
-                        href="{{ route('partak.products.sales.create', $product) }}"
-                        role="button"
-                        class="btn btn-primary"
-                    >
-                        <i class="fas fa-cart-plus"></i>
-                        Sell to un-registered person
-                    </a>
+                <div class="row">
+                    <div class="col-md-12 text-center form-group">
+                        <a
+                            href="{{ route('partak.products.sales.create', $product) }}"
+                            role="button"
+                            class="btn btn-primary"
+                        >
+                            <i class="fas fa-cart-plus"></i>
+                            Sell to un-registered person
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
 
         <div class="container">
             <h2>Sales</h2>

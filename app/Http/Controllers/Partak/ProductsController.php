@@ -18,9 +18,13 @@ class ProductsController extends Controller
     {
         $this->authorize('acl', 'products.view');
 
-        $products = Product::paginate(20);
+        $products = Product::available()->paginate(20, ['*'], 'available');
+        $soldOut = Product::soldOut()->paginate(20, ['*'], 'soldOut');
 
-        return view('partak.products.index', ['products' => $products]);
+        return view('partak.products.index', [
+            'products' => $products,
+            'soldOut' => $soldOut,
+        ]);
     }
 
     /**

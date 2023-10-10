@@ -6,7 +6,7 @@
     <div class="col-sm-8">
         {{ Form::bsNumber('price', 'Price', 'required', $product->price, ['min' => 0]) }}
     </div>
-    
+
     <div class="col-sm-9">
         {{ Form::bsFile('image', 'Image', $product->id_product ? '' : 'required', ['accept' => 'image/jpeg, image/png']) }}
     </div>
@@ -18,6 +18,10 @@
 
 {{ Form::bsTextarea('description', 'Description', 'required', null, ['class' => 'form-control wysiwyg-editor']) }}
 
+<div class="col-sm-8">
+    <input type="hidden" name="sold_out" value="0" />
+    {{ Form::bsCheckbox('sold_out', 'Sold out', null, true) }}
+</div>
 
 @section('scripts')
     @parent
@@ -46,4 +50,3 @@
         });
     </script>
 @stop
-

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\UploadedFile;
@@ -18,7 +19,11 @@ class Product extends Model
     protected $primaryKey = 'id_product';
 
     protected $fillable = [
-        'name', 'type', 'description', 'price', 'image'
+        'name', 'type', 'description', 'price', 'image', 'sold_out'
+    ];
+
+    protected $casts = [
+        'sold_out' => 'boolean',
     ];
 
     public function sales()
@@ -55,5 +60,25 @@ class Product extends Model
         if (!empty($oldImageName) && Storage::exists(self::IMAGES_DIR . "/{$oldImageName}")) {
             Storage::delete(self::IMAGES_DIR . "/{$oldImageName}");
         }
+    }
+
+    public function scopeAvailable(Builder $query): Builder
+    {
+        return $query->where('sold_out', false);
+    }
+
+    public function scopeSoldOut(Builder $query): Builder
+    {
+        return $query->where('sold_out', true);
+    }
+
+    public function getIsAvailableAttribute(): bool
+    {
+        return !$this->sold_out;
+    }
+
+    public function getIsSoldOutAttribute(): bool
+    {
+        return $this->sold_out;
     }
 }

@@ -3,7 +3,7 @@
 @section('subpage')
    <div class="container">
         <div class="d-flex">
-            <h2>Merchandise</h2>
+            <h2>Available merchandise</h2>
             @can('acl', 'products.add')
             <div class="ml-4">
                 <a href="{{ route('partak.products.create') }}" class="btn btn-success btn-sm">
@@ -20,7 +20,16 @@
         @endif
 
         @component('partak.products.components.list', ['products' => $products])
-            There is no merchandise :(
+            There is no available merchandise :(
+        @endcomponent
+    </div>
+    <div class="container">
+        <div class="d-flex">
+            <h2>Sold out merchandise</h2>
+        </div>
+
+        @component('partak.products.components.list', ['products' => $soldOut])
+            There is no sold out merchandise :(
         @endcomponent
     </div>
 @stop
