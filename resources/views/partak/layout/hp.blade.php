@@ -3,9 +3,8 @@
 @php
     $photoPaths = [
         'img/partak/team_photo-0',
-        'img/partak/team_photo-1',
     ];
-    $photoPath = $photoPaths[rand(1,100) % 2];
+    $photoPath = $photoPaths[0];
 @endphp
 
 @section('page')

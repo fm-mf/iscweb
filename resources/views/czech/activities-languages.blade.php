@@ -19,11 +19,11 @@
                         zábavnou formou a není na ně potřeba žádné registrace.
                     </p>
                     <p>
-                        Jazykové kurzy pro letní semestr 2022/2023 začínají v <strong>pondělí 6. března 2023</strong>.
+                        Jazykové kurzy pro zimní semestr 2023/2024 začínají v <strong>pondělí 16. října 2023</strong>.
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Podívejte se na <strong>rozvrh pro letní semestr 2022/2023</strong>
+                            Podívejte se na <strong>rozvrh pro zimní semestr 2023/2024</strong>
                         </a>
                     </p>
                     <h3>Kde najdu učebny?</h3>
@@ -112,7 +112,7 @@
                     <p>
                         Podívejte se na rozvrh ISC jazykových kurzů pro
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            letní semestr 2022/2023
+                            zimní semestr 2023/2024
                         </a>.
                     </p>{{--
                     <p>
