@@ -13,6 +13,21 @@
                     <span class="fas fa-pen"></span> Edit
                 </a>
             @endcan
+            @can('acl', 'events.add')
+                {{ Form::open(['route' => ['partak.events.duplicate', $event], 'method' => 'POST', 'class' => 'd-inline-block ml-1']) }}
+                    <protected-submit-button
+                        protection-title="Duplicate event?"
+                        protection-text="Do you really want to duplicate &quot;{{ $event->name }}&quot; event?"
+                        proceed-text="Duplicate"
+                        classes="btn-info btn-sm"
+                        proceed-classes="btn-info"
+                        modal-id="duplicate-event-{{ $event->id_event }}"
+                        :form-group="false"
+                    >
+                        <span class="fas fa-copy"></span> Duplicate
+                    </protected-submit-button>
+                {{ Form::close() }}
+            @endcan
             @can('acl', 'events.remove')
                 {{ Form::open(['route' => ['partak.events.destroy', $event], 'method' => 'DELETE', 'class' => 'd-inline-block ml-1']) }}
                 <protected-submit-button

@@ -140,4 +140,15 @@ class EventController extends Controller
             'eventDeleted' => "Event \"$name\" has been deleted."
         ]);
     }
+
+    public function duplicate(Event $event)
+    {
+        $this->authorize('acl', 'events.add');
+
+        $newEvent = $event->duplicate();
+
+        return redirect()->route('partak.events.edit', $newEvent)->with([
+            'successUpdate' => 'Event was successfully duplicated.',
+        ]);
+    }
 }

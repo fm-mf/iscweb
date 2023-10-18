@@ -84,6 +84,7 @@ Route::prefix('/trips')
 
 Route::get('/events/create/integreat', 'EventController@create')->name('events.create.integreat');
 Route::get('/events/create/languages', 'EventController@create')->name('events.create.languages');
+Route::post('/events/{event}/duplicate', 'EventController@duplicate')->name('events.duplicate');
 Route::resource('/events', 'EventController')->except(['show']);
 
 Route::prefix('/settings')

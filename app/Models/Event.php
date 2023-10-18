@@ -11,10 +11,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Hashids\Hashids;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\HttpFoundation\File\UploadedFile as SymfonyUploadedFile;
 
 class Event extends Model
 {
     const COVERS_DIR = 'events/covers';
+
+    const TYPE_NORMAL = 'normal';
+    const TYPE_INTEGREAT = 'integreat';
+    const TYPE_LANGUAGES = 'languages';
 
     public $timestamps = true;
     protected $primaryKey = 'id_event';
@@ -321,6 +326,35 @@ class Event extends Model
         if (!empty($oldCoverName) && Storage::exists(self::COVERS_DIR . "/{$oldCoverName}")) {
             Storage::delete(self::COVERS_DIR . "/{$oldCoverName}");
         }
+    }
+
+    public function duplicate(): self
+    {
+        $now = Carbon::now();
+        $start = $this->datetime_from;
+        $newEvent = Event::createEvent(array_merge($this->getAttributes(), [
+            'visible_date' => $now->format('d M Y'),
+            'visible_time' => $now->format('g:i A'),
+            'start_date' => $start->format('d M Y'),
+            'start_time' => $start->format('g:i A'),
+        ]));
+
+        $newEvent->storeCover(UploadedFile::createFromBase(
+            new SymfonyUploadedFile(Storage::path($this->getCoverPathAttribute()),
+            $this->cover
+        )));
+
+        if ($this->event_type == self::TYPE_INTEGREAT) {
+            $newEvent->Integreat_party()->create(
+                $this->Integreat_party->getAttributes()
+            );
+        } elseif ($this->event_type == self::TYPE_LANGUAGES) {
+            $newEvent->Languages_event()->create(
+                $this->Languages_event->getAttributes()
+            );
+        }
+
+        return $newEvent;
     }
 
     protected static function updateDatetimes($data)
