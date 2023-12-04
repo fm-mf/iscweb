@@ -20,8 +20,8 @@
                                 in the morning every day and the whole day on Friday, Saturday, and Sunday.
                             </p>
                             <p>
-                                If you want to come outside of the office hours you can check if we are open by calling
-                                the phone number <a href="tel:{{ $pointPhoneNo }}" target="_blank">{{ $pointPhoneNoFormatted }}</a>.
+{{--                                If you want to come outside of the office hours you can check if we are open by calling--}}
+{{--                                the phone number <a href="tel:{{ $pointPhoneNo }}" target="_blank">{{ $pointPhoneNoFormatted }}</a>.--}}
                                 There is a chance you can find somebody in the ISC Point if you come in the evening
                                 when the language courses and other activities are happening.
                             </p>

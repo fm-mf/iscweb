@@ -68,10 +68,10 @@
                     <dt><span class="fas fa-envelope"></span> @lang('web.Email')</dt>
                     <dd><a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a></dd>
                 </div>
-                <div class="col-md-6 col-xl-4 d-flex">
-                    <dt><span class="fas fa-phone-alt"></span> @lang('web.Phone')</dt>
-                    <dd><a href="tel:{{ $pointPhoneNo }}">{{ $pointPhoneNoFormatted }}</a></dd>
-                </div>
+{{--                <div class="col-md-6 col-xl-4 d-flex">--}}
+{{--                    <dt><span class="fas fa-phone-alt"></span> @lang('web.Phone')</dt>--}}
+{{--                    <dd><a href="tel:{{ $pointPhoneNo }}">{{ $pointPhoneNoFormatted }}</a></dd>--}}
+{{--                </div>--}}
             </dl>
         </div>
     </section>
