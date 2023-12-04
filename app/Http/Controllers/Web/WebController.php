@@ -19,6 +19,7 @@ use App\Facades\Settings;
 use App\Models\Page;
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class WebController extends Controller
@@ -125,8 +126,14 @@ class WebController extends Controller
 
     public function redirectToElectionStream()
     {
-        $streamUrl = Settings::get('electionStreamUrl');
-        return redirect($streamUrl == "" ? url('/') : $streamUrl);
+        $streamUrl = Settings::gaStreamUrl();
+
+        return redirect($streamUrl == '' ? route('web.index') : $streamUrl);
+    }
+
+    public function redirectToBaseGaUrl()
+    {
+        return redirect()->route('ga-stream', [], Response::HTTP_MOVED_PERMANENTLY);
     }
 
     public function showCoronavirusPage()

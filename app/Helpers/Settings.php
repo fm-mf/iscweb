@@ -184,4 +184,9 @@ class Settings implements ConfigContract
     {
         return $this->get('currentSemester');
     }
+
+    public function gaStreamUrl(): string
+    {
+        return $this->get('electionStreamUrl', '');
+    }
 }

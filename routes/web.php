@@ -72,16 +72,13 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/voting/{hash}', 'VotingController@showVotingForm');
     Route::get('/voting-test', 'VotingController@showTestEmail');
 
-    Route::get('/volba', 'WebController@redirectToElectionStream');
-    Route::get('/president', function() {
-        return redirect(url('/volba'), 301);
-    });
-    Route::get('/volbapresidenta', function() {
-      return redirect(url('/volba'), 301);
-    });
-    Route::get('/volba-presidenta', function() {
-        return redirect(url('/volba'), 301);
-    });
+    Route::get('/ga', 'WebController@redirectToElectionStream')->name('ga-stream');
+    Route::get('/volba', 'WebController@redirectToBaseGaUrl');
+    Route::get('/president', 'WebController@redirectToBaseGaUrl');
+    Route::get('/volba-presidenta', 'WebController@redirectToBaseGaUrl');
+    Route::get('/valna-hromada', 'WebController@redirectToBaseGaUrl');
+    Route::get('/general-assembly', 'WebController@redirectToBaseGaUrl');
+
     Route::get('/coronavirus', 'WebController@showCoronavirusPage')->name('coronavirus');
 });
 
