@@ -100,7 +100,8 @@
             </div>
             <div class="row">
                 <ol class="col-auto mx-auto list-unstyled billing-info">
-                    <li class="font-weight-bold">{{ $officialName }}</li>
+                    <!-- <li class="font-weight-bold">{{ $officialName }}</li> TODO change back after renaming -->
+                    <li class="font-weight-bold">Erasmus Student Network CTU in Prague, z. s.</li>
                     <li><address>Thákurova 550/1, 160 00, Praha 6 – Dejvice</address></li>
                     <li>IČO: 228 41 032</li>
                 </ol>
