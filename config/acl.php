@@ -55,7 +55,7 @@ return [
                 'users' => ['view'],
                 'exchangeStudents' => ['view'],
                 'roles' => ['view', 'partak', 'samoplatce'],
-                'stats' => ['view', 'export'],
+                'stats' => ['view', 'export_buddy'],
             ],
         ],
 
@@ -77,6 +77,7 @@ return [
             'inheritsFrom' => ['team'],
             'resources' => [
                 'votingResults' => ['view'],
+                'stats' => ['export_ce'],
             ],
         ],
 
