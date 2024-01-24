@@ -268,7 +268,7 @@ class StatsController extends Controller
 
     public function exportCultureEveningCandidates(Semester $semester)
     {
-        $this->authorize('acl', 'stats.export');
+        $this->authorize('acl', 'stats.export_ce');
 
         $students = ExchangeStudent::byUniqueSemester($semester->semester)
             ->join('countries', 'exchange_students.id_country', '=', 'countries.id_country')
@@ -281,7 +281,7 @@ class StatsController extends Controller
 
     public function exportActiveBuddies()
     {
-        $this->authorize('acl', 'stats.export');
+        $this->authorize('acl', 'stats.export_buddy');
 
         $months = (int) request('months', Buddy::DEFAULT_ACTIVITY_LIMIT_MONTHS);
         if (!$months || $months < 0) {
