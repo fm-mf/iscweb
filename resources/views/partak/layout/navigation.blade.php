@@ -41,7 +41,7 @@
                 ['title' => 'Buddies', 'route' => 'partak.stats.buddies', 'id' => 'stats-buddies'],
                 ['title' => 'Students', 'route' => 'partak.stats.students', 'id' => 'stats-students'],
                 ['title' => 'History', 'route' => 'partak.stats.history', 'id' => 'stats-history'],
-                ['title' => 'Exports', 'route' => 'partak.stats.exports', 'id' => 'stats-exports'],
+                ['title' => 'Exports', 'route' => 'partak.stats.exports', 'id' => 'stats-exports', 'acl' => ['stats.export_buddy', 'stats.export_ce']],
             ]],
             ['title' => 'Settings', 'icon' => 'cog', 'route' => 'partak.settings', 'acl' => ['settings.openingHours', 'settings.edit'], 'items' => [
                 ['title' => 'General', 'route' => 'partak.settings.general', 'acl' => 'settings.edit'],
