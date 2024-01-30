@@ -1,7 +1,7 @@
 @if ((!isset($acl) || $acl === null) || (
         is_array($acl) &&
-        collect($acl)->first(function ($item) {
-            return Gate::check('acl', $item);
+        collect($acl)->first(function ($item) use($acl) {
+            return Gate::check('acl', $acl);
         })) || (
         !is_array($acl) &&
         Gate::check('acl', $acl)
