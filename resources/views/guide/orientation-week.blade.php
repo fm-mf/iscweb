@@ -77,7 +77,14 @@
     <h3 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h3>
 
     <h4  id="day-1-registration">Registration at faculties</h4>
-    <p>Only for the <strong>Faculty of Architecture (FA)</strong> at 13:00 (presentation of atelier works) in the auditorium T9:155 (Gočár)</p>
+    <ul class="list-unstyled">
+        <li>
+            <ul>
+                <li>For the <strong>Faculty of Architecture (FA)</strong> at 13:30 (presentation of atelier works) {{--in the auditorium T9:155 (Gočár)-}}</li>
+                <li>For the <strong>Faculty of Mechanical Engineering (FS / FME)</strong> at 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
+            </ul>
+        </li>
+    </ul>
 
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
@@ -102,7 +109,7 @@
             <ul>
                 <li>Official welcome</li>
                 <li>How to enroll in courses and sports at CTU</li>
-                <li>Czech language and Czech culture courses</li>
+                {{--<li>Czech language and Czech culture courses</li>--}}
                 <li>Life in the Czech Republic and how to survive in Prague</li>
                 <li>ESN membership</li>
                 <li>ISC teams and activities</li>
@@ -129,18 +136,18 @@
     </ul>
     --}}
     @if($showSlidesAndRegistrations)
-        <h4>Slides from the Initial information meeting</h4>
+    {{--<h4>Slides from the Initial information meeting</h4>
         <ul class="list-unstyled">
             <li>
-                <a href="{{ asset('files/ow-2023_autumn/ow-2023_autumn-registrations_at_faculties.pdf') }}" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Registrations at faculties (Autumn 2023)
+                <a href="{{ asset('files/ow-2024_spring/ow-2024_Spring-registrations_at_faculties.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Registrations at faculties (Spring 2024)
                 </a>
             </li>
             <li>
                 <a href="{{ asset('files/ow-2023_autumn/ow-2023_autumn-handout.pdf') }}" target="_blank">
                     <i class="fas fa-file-pdf"></i> Slides from the presentation OW Autumn 2023
                 </a>
-            </li>
+            </li>--}}
         </ul>
     @endif
 
@@ -180,17 +187,10 @@
     <ul class="list-unstyled">
         @if($showSlidesAndRegistrations)
             <li>
-                <a href="{{ asset('files/ow-2023_autumn/ow-2023_autumn-registrations_at_faculties.pdf') }}" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Slides with information about registration at faculties from Monday’s presentation (Autumn 2023)
-                </a>
-            </li>
-            <li>
                 <strong>In-person registration:</strong>
                 <ul>
                     <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, Room T2:C3-340</li>
-                    <li>Faculty of Mechanical Engineering (FS / FME) – 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
                     <li>Faculty of Transportation (FD / FT) – 9:00, building Konviktská 20, Prague 1; room 205</li>
-                    <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
                     <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 10:00, room 103 (at the ground floor)</li>
                 </ul>
             </li>
@@ -203,7 +203,7 @@
                 </ul>
             </li>
             <li>
-                <strong>For Faculty of Architecture (FA) see <a href="#day-1">Day 1</a></strong>
+                <strong>For Faculty of Architecture (FA) and Faculty of Mechanical Engineering (FS) see <a href="#day-1">Day 1</a></strong>
                 <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
             </li>
         @endif
@@ -262,6 +262,7 @@
                 <strong>In-person registration:</strong>
                 <ul>
                     <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 9:30, building Břehová 7, Prague 1; room B-111</li>
+                    <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
                 </ul>
             </li>
             <li class="alert alert-info">
