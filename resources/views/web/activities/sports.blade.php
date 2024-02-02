@@ -26,10 +26,12 @@
                         participation and propositions.</p>
                     <p>To enroll to any sport, follow partial instructions or just contact
                         the supervising person (instructor).
-                        Some of the sports are for free, some are payed.</p>
+                        Some of the sports are for free, some are paid.</p>
+                    @isset($contact)
                     <p>You can as well contact the Sports coordinator, <strong>{{ $contact['name'] }}</strong>
                         (<a href="mailto:{{ $contact['email']}}">{{ $contact['email'] }}</a>).
                         If you don't receive an answer, just write once again, please.</p>
+                    @endisset
                     <p>If you are missing a sport in the list of available sports,
                         please contact the sport coordinator.</p>
                     <p>In order to assess the interest in a sport,
