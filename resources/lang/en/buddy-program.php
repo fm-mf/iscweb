@@ -35,7 +35,7 @@ return [
     'become-buddy-m' => 'Become his Buddy',
     'become-buddy-confirm-title-f' => 'Become :Name\'s Buddy?',
     'become-buddy-confirm-title-m' => 'Become :Name\'s Buddy?',
-    'become-buddy-confirm-description-f' => ':Name will receive an e‑mail notifying her that she has a Buddy and providing him with some basic information about you (e.g. your name, your e‑mail address).',
+    'become-buddy-confirm-description-f' => ':Name will receive an e‑mail notifying her that she has a Buddy and providing her with some basic information about you (e.g. your name, your e‑mail address).',
     'become-buddy-confirm-description-m' => ':Name will receive an e‑mail notifying him that he has a Buddy and providing him with some basic information about you (e.g. your name, your e‑mail address).',
     'is-your-buddy' => 'is your Buddy!',
     'you-can-write-him' => 'Now you can contact him!',
