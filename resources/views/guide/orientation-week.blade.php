@@ -80,7 +80,7 @@
     <ul class="list-unstyled">
         <li>
             <ul>
-                <li>For the <strong>Faculty of Architecture (FA)</strong> at 13:30 (presentation of atelier works) {{--in the auditorium T9:155 (Gočár)-}}</li>
+                <li>For the <strong>Faculty of Architecture (FA)</strong> at 13:30 (presentation of atelier works) {{--in the auditorium T9:155 (Gočár)--}}</li>
                 <li>For the <strong>Faculty of Mechanical Engineering (FS / FME)</strong> at 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
             </ul>
         </li>
@@ -88,7 +88,7 @@
 
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
-        <li>When: <strong>13:30</strong> – 16:30 (room opens at 13:10)</li>
+        <li>When: <strong>13:30</strong> – 16:30 (room opens at 13:15)</li>
 {{--        <li>Where: <a href="https://goo.gl/maps/wM3StYxDz8x3ipKx8" target="_blank"><strong>Bethelem Chappel</strong></a> (Betlémské nám. 255/4, 110 00 Staré Město)</li>--}}
         <li>
             Where: <strong>
@@ -189,9 +189,11 @@
             <li>
                 <strong>In-person registration:</strong>
                 <ul>
-                    <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, Room T2:C3-340</li>
+                    <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, Room T2:C3-132</li>
                     <li>Faculty of Transportation (FD / FT) – 9:00, building Konviktská 20, Prague 1; room 205</li>
                     <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 10:00, room 103 (at the ground floor)</li>
+                    <li>Faculty of Architecture (FA) – Possible consultations at room T9:147, Thákurova 9</li>
+
                 </ul>
             </li>
             <li>
@@ -203,8 +205,8 @@
                 </ul>
             </li>
             <li>
-                <strong>For Faculty of Architecture (FA) and Faculty of Mechanical Engineering (FS) see <a href="#day-1">Day 1</a></strong>
-                <strong>For other faculties see <a href="#day-3">Day 3</a></strong>
+{{--                <strong>For Faculty of Architecture (FA) and Faculty of Mechanical Engineering (FS) see <a href="#day-1">Day 1</a></strong>--}}
+{{--                <strong>For other faculties see <a href="#day-3">Day 3</a></strong>--}}
             </li>
         @endif
         <li class="alert alert-danger"><strong>You will need:</strong>
