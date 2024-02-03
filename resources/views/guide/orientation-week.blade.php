@@ -261,7 +261,7 @@
             <li>
                 <strong>In-person registration:</strong>
                 <ul>
-                    <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 9:30, building Břehová 7, Prague 1; room B-111</li>
+                    <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 9:30, meetup at 9:15 in the lobby, building Trojanova 339/13, Praha 2</li>
                     <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
                 </ul>
             </li>
