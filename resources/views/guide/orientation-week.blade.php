@@ -80,7 +80,7 @@
     <ul class="list-unstyled">
         <li>
             <ul>
-                <li>For the <strong>Faculty of Architecture (FA)</strong> at 13:30 (presentation of atelier works) {{--in the auditorium T9:155 (Gočár)--}}</li>
+                <li>For the <strong>Faculty of Architecture (FA)</strong> - For students of majors "Architecture and Urbanism" and "Landscape Architecture" at 12:30 (presentation of atelier works) in the auditorium T9:107. Students of the design major will be contacted by the faculty.</li>
                 <li>For the <strong>Faculty of Mechanical Engineering (FS / FME)</strong> at 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
             </ul>
         </li>
