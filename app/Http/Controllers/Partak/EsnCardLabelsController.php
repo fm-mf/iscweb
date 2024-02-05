@@ -51,7 +51,7 @@ class EsnCardLabelsController extends Controller
         File::put(
             $fontPath = storage_path('fonts/RobotoCondensed-Light.ttf'),
             (new Client())
-                ->get('https://github.com/google/fonts/raw/main/apache/roboto/static/RobotoCondensed-Light.ttf')
+                ->get('https://github.com/google/fonts/raw/ff11ed915971ee26c88f442f37308142d4217979/apache/roboto/static/RobotoCondensed-Light.ttf')
                 ->getBody()
         );
 
