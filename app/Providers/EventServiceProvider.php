@@ -19,7 +19,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         'App\Events\BuddyRegistered' => [
-//            'App\Listeners\NotifyHRNewRegistration',
+            'App\Listeners\NotifyHRNewRegistration',
 //            'App\Listeners\AsanaNewRegistration',
             'App\Listeners\SendVerificationEmail',
         ],
