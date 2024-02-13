@@ -16,12 +16,12 @@ class ExchangeStudentsTableSeeder extends Seeder
     public function run()
     {
         $semester = Semester::where('semester', 'fall2016')->first();
-        factory(ExchangeStudent::class, 15)->create()->each(function ($s) use ($semester) {
+        ExchangeStudent::factory()->count(15)->create()->each(function ($s) use ($semester) {
             $s->semesters()->sync([$semester->id_semester]);
         });
 
         $semester = Semester::where('semester', 'spring2017')->first();
-        factory(ExchangeStudent::class, 10)->create()->each(function ($s) use ($semester) {
+        ExchangeStudent::factory()->count(10)->create()->each(function ($s) use ($semester) {
             $s->semesters()->sync([$semester->id_semester]);
         });
     }
