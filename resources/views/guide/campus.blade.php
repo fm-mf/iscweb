@@ -62,7 +62,7 @@
     <p>The International Office of CTU is located on the 8th floor of the Rectorate building
         (Address: <a href="https://goo.gl/maps/pGbmkgxfb772" target="_blank">Jugoslávských partyzánů 1580/3, Praha 6, 160 00</a>)
         (The entrance with the water fountain)</p>
-    <p>The head of the Department for International Relations is <strong>Ing. Volfgang Melecký, Ph.D.</strong>
+    <p>The head of the Department for International Relations is <strong>Oleg Fetisov, Ph.D.</strong>
         The key contact person for Erasmus &amp; Exchange students is <strong>Lucie Bílová</strong>.
         She will help you to fulfill the requirements for your Erasmus+ or Exchange study program, and to deal with any problems that arise.</p>
     <p>If you are interested attending a <em>Czech Language Course</em> and/or the <em>Czech Culture Course</em>
@@ -71,10 +71,10 @@
 
     <h5 id="ctu-international-office-contacts">Contacts</h5>
     <dl class="contactsList">
-        <dt>Ing. Volfgang Melecký, Ph.D.</dt>
+        <dt>Oleg Fetisov, Ph.D.</dt>
             <dd>Room: A-811</dd>
             <dd>Phone: <a href="tel:+420 224 353 465">+420 224 353 465</a></dd>
-            <dd>Email: <a href="mailto:volfgang.melecky@cvut.cz">volfgang.melecky@cvut.cz</a></dd>
+            <dd>Email: <a href="mailto:oleg.fetisov@cvut.cz">oleg.fetisov@cvut.cz</a></dd>
         <dt>Lucie Berkmanová</dt>
             <dd>Room: A-802</dd>
             <dd>Phone: <a href="tel:+420 224 353 495">+420 224 353 495</a></dd>
