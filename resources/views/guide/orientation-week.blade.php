@@ -136,7 +136,7 @@
     </ul>
     --}}
     @if($showSlidesAndRegistrations)
-    {{--<h4>Slides from the Initial information meeting</h4>
+    <h4>Slides from the Initial information meeting</h4>
         <ul class="list-unstyled">
             <li>
                 <a href="{{ asset('files/ow-2024_spring/ow-2024_Spring-registrations_at_faculties.pdf') }}" target="_blank">
@@ -144,10 +144,10 @@
                 </a>
             </li>
             <li>
-                <a href="{{ asset('files/ow-2023_autumn/ow-2023_autumn-handout.pdf') }}" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Slides from the presentation OW Autumn 2023
+                <a href="{{ asset('files/ow-2024_spring/ow-2024_spring-handout.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Slides from the presentation OW Spring 2024
                 </a>
-            </li>--}}
+            </li>
         </ul>
     @endif
 
