@@ -164,7 +164,7 @@
                 <dd>9:00 - 14:00</dd>
             </dl>
         </li>
-        <li><a href="https://www.fnmotol.cz/en/samoplatci/health-care-services-for-foreigners/" target="_blank">www.fnmotol.cz/en/samoplatci/health-care-services-for-foreigners/</a></li>
+        <li><a href="https://www.fnmotol.cz/en/oddeleni-pece-o-samoplatce/" target="_blank">www.fnmotol.cz/en/oddeleni-pece-o-samoplatce/</a></li>
     </ul>
 
     <h4 id="military">Military University Hospital Prague &ndash; Střešovice</h4>

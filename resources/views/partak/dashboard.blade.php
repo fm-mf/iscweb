@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <p>Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="{{ url('/wiki') }}">wiki</a>. Pro přihlášení použij přihlašovací údaje do parťák netu.</p>
+                <p>Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="https://esnctu.notion.site/68b32fcf9ad24350a81c354e076dc747?v=c0009ed9bdb04a08b7b9d0f881b2dfef&pvs=4">wiki</a>. Pro přihlášení použij přihlašovací údaje do parťák netu.</p>
 
                 <h2>Co se děje v ISC?</h2>
 
@@ -13,8 +13,8 @@
 
                 <ul class="list-unstyled list-colored">
                     <li>
-                        <p><h3><strong>Plníme ISC DokuWiki!</strong></h3></p>
-                        <p>Naše DokuWiki pomalu začíná ožívat. Podívej se na <a href="{{ url('/wiki') }}">{{ url('/wiki') }}</a> a připiš co tam ještě není.</p>
+                        <p><h3><strong>Plníme ISC Wiki!</strong></h3></p>
+                        <p>Naše Wiki (Notion) pomalu začíná ožívat. Podívej se na <a href="https://esnctu.notion.site/68b32fcf9ad24350a81c354e076dc747?v=c0009ed9bdb04a08b7b9d0f881b2dfef&pvs=4">notion.com</a> a připiš co tam ještě není.</p>
                     </li>
 
                 </ul>
@@ -34,22 +34,22 @@
                     <li><strong>Believe in ISC Spirit. Pass it on.</strong></li>
                 </ol>
 
-                <h2>Asana</h2>
-                <p>Asana je nástroj pro teamovou (a meziteamovou) komunikaci - v zásadě se jedná o sdílený todo list. Jestli do této aplikace zatím nemáš přístup, popros koordinátora některého teamku, aby tě do naší skupiny pozval.</p>
-                <p>Tady je krátký obrázkový návod, jak aplikaci používat. Detailnější příručka je na <a href="http://asana.com/guide">http://asana.com/guide</a></p>
+{{--                <h2>Asana</h2>--}}
+{{--                <p>Asana je nástroj pro teamovou (a meziteamovou) komunikaci - v zásadě se jedná o sdílený todo list. Jestli do této aplikace zatím nemáš přístup, popros koordinátora některého teamku, aby tě do naší skupiny pozval.</p>--}}
+{{--                <p>Tady je krátký obrázkový návod, jak aplikaci používat. Detailnější příručka je na <a href="http://asana.com/guide">http://asana.com/guide</a></p>--}}
 
-                <picture class="d-block">
-                    <source type="image/webp" srcset="{{ asset('img/partak/asana-guide.webp') }}" />
-                    <img src="{{ asset('img/partak/asana-guide.jpg') }}" id="asana-img" alt="Asana quick guide" />
-                </picture>
+{{--                <picture class="d-block">--}}
+{{--                    <source type="image/webp" srcset="{{ asset('img/partak/asana-guide.webp') }}" />--}}
+{{--                    <img src="{{ asset('img/partak/asana-guide.jpg') }}" id="asana-img" alt="Asana quick guide" />--}}
+{{--                </picture>--}}
             </div>
             <div class="col-md-4">
                 <h2>Důležité odkazy</h2>
                 <ul class="list-unstyled list-colored">
-                    <li><a href="{{ url('/wiki') }}">DokuWiki</a>
+                    <li><a href="https://esnctu.notion.site/68b32fcf9ad24350a81c354e076dc747?v=c0009ed9bdb04a08b7b9d0f881b2dfef&pvs=4">Wiki (Notion)</a>
                         <p>Studnice všech vědomostí o projektech a aktivitách.</p>
                     </li>
-                    
+
                     <li><a href="https://www.google.com/calendar/embed?src=bnn2dkobab8l6p4n6jtot9gmd8%40group.calendar.google.com&ctz=Europe/Prague">Vnitřní kalendář</a>
                         <p>Kalendář všech pro ISC důležitých událostí</p>
                     </li>
@@ -90,18 +90,18 @@
                 <p>Máš nějaký nápad? Chceš posunout ISC ještě dále? Nelíbí se ti něco? Dej nám o tom vědět! Buď osobně nebo můžeš napsat
                     na <a href="mailto:ideas@isc.cvut.cz">ideas@isc.cvut.cz</a></p>
 
-                <h2>Používání štítků (tagů)</h2>
-                <p>Na FB skupině, asaně i v mailech všichni často používáme štítky. Rozhodli jsme se proto sjednoti pravidla jejich používání.</p>
-                <ul>
-                    <li>BEZ MEZER, používat jen (pomlčka '-', podtržítko '_', tečka '.')</li>
-                    <li>ideálně malá písmena</li>
-                    <li>bez diakritiky</li>
-                    <li>slova v jednodušším tvaru (upřednostňujeme angličtinu)</li>
-                </ul>
+{{--                <h2>Používání štítků (tagů)</h2>--}}
+{{--                <p>Na FB skupině, asaně i v mailech všichni často používáme štítky. Rozhodli jsme se proto sjednoti pravidla jejich používání.</p>--}}
+{{--                <ul>--}}
+{{--                    <li>BEZ MEZER, používat jen (pomlčka '-', podtržítko '_', tečka '.')</li>--}}
+{{--                    <li>ideálně malá písmena</li>--}}
+{{--                    <li>bez diakritiky</li>--}}
+{{--                    <li>slova v jednodušším tvaru (upřednostňujeme angličtinu)</li>--}}
+{{--                </ul>--}}
 
-                <h3>Příklady používaných štítků</h3>
-                <p><strong>Obecné</strong>: urgent, workshop, idea, housing, trip,</p>
-                <p><strong>ISC</strong>: BW, PW, SAF, PR, HR, languages, languageCourses, salsa, movieNight, tandem</p>
+{{--                <h3>Příklady používaných štítků</h3>--}}
+{{--                <p><strong>Obecné</strong>: urgent, workshop, idea, housing, trip,</p>--}}
+{{--                <p><strong>ISC</strong>: BW, PW, SAF, PR, HR, languages, languageCourses, salsa, movieNight, tandem</p>--}}
             </div>
         </div>
 

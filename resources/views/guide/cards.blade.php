@@ -99,7 +99,7 @@
         <dt>Webpage</dt>
             <dd><a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">ist.cvut.cz</a></dd>
         <dt>Address</dt>
-             <dd><a href="https://goo.gl/maps/PcZMkQ6UZRn" target="_blank">Bechyňova 2571/3, Praha 6</a></dd>
+             <dd><a href="https://maps.app.goo.gl/3QTfRvGRHrUBWXte9" target="_blank">Jugoslávských partyzánů 3, entrance B3, Praha 6</a></dd>
         <dt>Phone</dt>
             <dd>See <a href="https://ist.cvut.cz/en/our-services/category-of-services/id-cards/" target="_blank">IST CTU website</a></dd>
         <dt>Opening hours</dt>
@@ -173,7 +173,7 @@
 
     <p>You can also obtain electronic seasonal ticket on the web.</p>
     <ol>
-        <li>Create an account at <a href="https://www.pidlitacka.cz/home">www.pidlitacka.cz</a></li>
+        <li>Create an account at <a href="https://www.pidlitacka.cz/en">www.pidlitacka.cz</a></li>
         <li>Upload your photo
             <ul>
                 <li>If you don't do this, your account will be marked as "shared" and the ticket will be more expensive</li>
@@ -211,7 +211,7 @@
         <li>Why: you <strong>have to</strong> show your EHIC card and a special paper from the VZP state insurance organisation to prove you have health insurance cover whenever you visit a doctor or any medical institution.</li>
         <li>Without this documentation, you have to pay for standard medical care in the Czech Republic and treatment may be refused to you</li>
         <li>How to get it: Visit and register in VZP (Všeobecná zdravotní pojišťovna České republiky) at Na Perštýně 6, Prague 1 to obtain an official document providing you the same health service as for local citizens</li>
-        <li><strong>ISC will offer to take you to register during Orientation Week. It is important to register without delay.</strong></li>
+        <li><strong>{{--ISC will offer to take you to register during Orientation Week. --}}It is important to register without delay.</strong></li>
         <li class="alert alert-info">Note: Students not from EU countries are required to have health insurance from an <strong>authorized insurance company</strong> and the original contract has to be written in the Czech language. You can, usually, arrange this online.</li>
     </ul>
 @stop

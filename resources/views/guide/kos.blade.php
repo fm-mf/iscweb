@@ -35,7 +35,7 @@
 
     <h3 id="kos">KOS (Study information system)</h3>
     <ul class="list-unstyled">
-        <li>First you have to get your <strong>login information</strong> in the VIC centre (Student House, <a href="https://goo.gl/maps/PcZMkQ6UZRn" target="_blank">Bechyňova 2571/3, Praha 6</a>, the same place where you get your University ID card)
+        <li>First you have to get your <strong>login information</strong> in the VIC centre (<a href="https://maps.app.goo.gl/3QTfRvGRHrUBWXte9" target="_blank">Jugoslávských partyzánů 3, entrance B3, Praha 6</a>, the same place where you get your University ID card)
             <ul>
                 <li>You will get it together with the <a href="{{ route('guide-page', ['page' => 'cards#university-id']) }}">University ID card</a>.</li>
                 <li>You can get it from Friday, 10 September 2021</li>
