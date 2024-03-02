@@ -77,7 +77,7 @@ return [
         'new-password-again' => 'Nové heslo znovu',
         'password-changed' => 'Heslo změněno',
         'wrong-old-password' => 'Špatné heslo',
-        'subscribed' => 'Souhlasím s občasným zasíláním informací o dění v ISC (např. informace o otevření Buddy databáze či o nadcházejících akcích).',
+        'subscribed' => 'Souhlasím s občasným zasíláním informací o dění v ESN (např. informace o otevření Buddy databáze či o nadcházejících akcích).',
     ],
     'world-map-alt' => 'Mapa světa se šipkami ukazujícími na Českou republiku',
     'change-language' => 'Změnit jazyk stránky na češtinu',

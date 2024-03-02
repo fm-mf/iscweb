@@ -1,10 +1,10 @@
 @extends('guide.layouts.subpage')
 
-@section('subtitle', 'ESN & ISC Partners')
+@section('subtitle', 'ESN Partners')
 
 @section('subpage')
     <section id="partners">
-        <h2>ESN & ISC partners</h2>
+        <h2>ESN partners</h2>
         <p>
             Use your ESNcard and take advantage of these offers.
             For more discounts all over Europe check the
@@ -13,14 +13,14 @@
         </p>
         <p>
             You do not have your ESNcard yet? Become an
-            <a href="https://isc.cvut.cz/guide/isc-intro" target="_blank">ISC member</a>!
+            <a href="https://esn.cvut.cz/guide/esn-ctu-intro" target="_blank">ESN member</a>!
         </p>
 
         <h3>Vodafone</h3>
         <img src="{{ asset('img/guide/partners/vodafone.png') }}" alt="Vodafone logo" class="square-logo" />
         <p>
             Stay in touch with your Erasmus friends and obtain a SIM card with a favorable
-            Erasmus student tariff together with an ISC membership! The first month is for free
+            Erasmus student tariff together with an ESN membership! The first month is for free
             with 10 GB of data and free unlimited SMS within the Vodafone network and then for 399 CZK / month.
             This offer is the best offer for students at the market right now.
             So keep it simple, stay online and reach everyone you need.

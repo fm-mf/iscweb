@@ -43,7 +43,7 @@ export async function printReceipt(contents) {
             .getAttribute('success');
     } catch (e) {
         console.error(
-            "Failed to print receipt - this is normal if you're not at ISC Point",
+            "Failed to print receipt - this is normal if you're not at ESN Point",
             e
         );
     }

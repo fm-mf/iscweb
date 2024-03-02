@@ -10,7 +10,7 @@
             for supporting and developing student exchange.
             It is present in more than 900 Higher Education Institutions from 40 countries.
             The network is constantly developing and expanding.
-            We have around 15,000 active members that are in many sections (ISC CTU in Prague is one of them)
+            We have around 15,000 active members that are in many sections (ESN CTU in Prague is one of them)
             supported by so called buddies taking care of international students.
             Thus, ESN involves around 40,000 young people offering its services to around 220,000 international students every year.</p>
     </section>

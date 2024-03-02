@@ -53,7 +53,7 @@ class InformAboutPick extends Mailable
                 ->with('buddyEmail', $buddyEmail)
                 ->with('s', $s)
                 ->to($exStudEmail, $exStudFullName)
-                ->from('noreply@isc.cvut.cz', 'ISC CTU in Prague')
+                ->from('noreply@esn.cvut.cz', 'ESN CTU in Prague')
                 ->replyTo($buddyEmail, $buddyName)
                 ->subject('You have a buddy!');
     }

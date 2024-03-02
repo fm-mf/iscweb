@@ -13,7 +13,7 @@ class RegistrationReminderMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    const SUBJECT = 'Buddy programme ISC CTU in Prague';
+    const SUBJECT = 'Buddy programme ESN CTU in Prague';
 
     public $exchangeStudent;
 
@@ -36,7 +36,7 @@ class RegistrationReminderMail extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->from('buddy@isc.cvut.cz', 'ISC CTU in Prague')
+            ->from('buddy@esn.cvut.cz', 'ESN CTU in Prague')
             ->to($this->exchangeStudent->user->email, $this->exchangeStudent->person->full_name)
             ->subject(self::SUBJECT)
             ->view('emails.exchange-registration-reminder')

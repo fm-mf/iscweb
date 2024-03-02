@@ -34,7 +34,7 @@ in Prague significantly easier.
 
 You can find more information about the {{ $fullName }} and our activities on our website:
 {{ route('web.lang-select') }}
-And if you have any questions, feel free to ask us at buddy@isc.cvut.cz.
+And if you have any questions, feel free to ask us at buddy@esn.cvut.cz.
 
 Thank you and see you in Prague!
 
@@ -45,7 +45,7 @@ FB page: {{ $fbPageUrl }}
 {{--FB group: {{ Settings::get('fbGroupLink') }}--}}
 {{--WhatsApp Announcements group: {{ Settings::get('whatsAppAnnoucementsLink') }}--}}
 {{--WhatsApp General group: {{ Settings::get('whatsAppGeneralLink') }}--}}
-Discord: {{ $exchangeDiscordLink }}
+{{--Discord: {{ $exchangeDiscordLink }}--}}
 Instagram: {{ $igProfileUrl }}
 
 This Privacy notice is to let you know how we promise to look after your personal information:

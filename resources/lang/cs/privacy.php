@@ -21,7 +21,7 @@ return [
             </ul>
             <p>
                 Tato pravidla se vztahují i na všechny údaje získané z Buddy programu.
-                Obdobná pravidla se vztahují i na ostatní systémy ISC.
+                Obdobná pravidla se vztahují i na ostatní systémy ESN CTU.
             </p>
             <p>
                 Kliknutím na tlačítko „Rozumím a souhlasím“ se zavazuješ k dodržování těchto pravidel.

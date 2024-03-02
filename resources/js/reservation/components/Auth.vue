@@ -42,13 +42,13 @@
         <tab v-if="type !== 'buddy'" id="other" title="Other">
             <p>
                 If you don't have an ESN Card and still want to join this event,
-                come to the <a href="/contact" target="blank">ISC Point</a> and
+                come to the <a href="/contact" target="blank">ESN Point</a> and
                 register there.
             </p>
             <p>
                 Beware that trips require you to have ESN Card, which you can
                 also obtain at the
-                <a href="/contact" target="blank">ISC Point</a>.
+                <a href="/contact" target="blank">ESN Point</a>.
             </p>
         </tab>
     </tabs>

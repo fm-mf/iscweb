@@ -31,7 +31,7 @@ class ReservationMail extends Mailable
                 'event' => $this->response->event,
                 'response' => $this->response
             ])
-            ->from('events@isc.cvut.cz', 'ISC CTU in Prague')
+            ->from('events@esn.cvut.cz', 'ESN CTU in Prague')
             ->subject("You've registered for {$this->response->event->name}");
     }
 }

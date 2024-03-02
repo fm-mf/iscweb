@@ -31,7 +31,7 @@
     <ul class="list-unstyled">
         <li>Located in the north western suburbs of Prague, next to Dejvická metro station, see the area on the map below</li>
         <li>The offices of the CTU rectorate (including the International Office) as well as the faculties of Civil, Mechanical and Electrical Engineering, the Faculty of Information Technology, the Faculty of Architecture and Masaryk Institute of Advanced Studies</li>
-        <li>National Technical Library, several of the dormitories, the Student house (Student IDs, Canteen, etc.) and the ISC Point</li>
+        <li>National Technical Library, several of the dormitories, the Student house (Student IDs, Canteen, etc.) and the ESN Point</li>
         <li><a href="{{ asset('img/guide/map-ctu-campus-dejvice-2017.png') }}" target="_blank"><img src="{{ asset('img/guide/map-ctu-campus-dejvice-2017.png') }}" alt="Map of the CTU main campus in Dejvice" title="Map of the CTU main campus in Dejvice" /></a></li>
     </ul>
 
@@ -173,7 +173,7 @@
     </dl>
 
     <dl class="contactsList">
-        <dt>The ISC Point</dt>
+        <dt>The ESN Point</dt>
             <dd>The Masarykova dormitory</dd>
             <dd>3rd floor, follow the arrows</dd>
         <dt>International Office of CTU</dt>

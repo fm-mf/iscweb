@@ -23,7 +23,7 @@
                         Nebo znáš bezva hospodu ve svém rodném městě?
                     </p>
                     <p>
-                        Fantazii se meze nekladou a v ISC se vždycky najde někdo,
+                        Fantazii se meze nekladou a v ESN se vždycky najde někdo,
                         kdo ti s přípravou výletu pomůže. Nebo můžeš napst našemu
                         <strong>Trips koordinátorovi</strong> a přidat se
                         k organizačnímu týmu některého z již naplánovaných výletů
@@ -39,9 +39,9 @@
                     <p>
                         Na každý výlet jsou celkem čtyři organizátoři a vždy se nechává
                         jedno nebo dvě místa pro nováčky. Co to znamená? Většina zodpovědnosti
-                        leží na zkušenáých členech ISC a ty se můžeš připojit, s něčím pomoct,
+                        leží na zkušených členech ESN a ty se můžeš připojit, s něčím pomoct,
                         užit si den nebo dva se zahraňáky, podívat se někam, kde jsi třeba
-                        ještě nebyl a vyzkoušet si, jak to v ISC vypadá z organizátorské strany.
+                        ještě nebyl a vyzkoušet si, jak to v ESN vypadá z organizátorské strany.
                     </p>
                     <p>
                         Chtěl by ses zapojit? Náš <strong>Activities koordinátor</strong> ti určitě poradí!

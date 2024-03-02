@@ -11,4 +11,4 @@ Here is {{ $s }} profile:
  - Email: {{ $buddyEmail }}
 
 Looking forward to seeing you in Prague!
-ISC Buddy Team
+ESN Buddy Team

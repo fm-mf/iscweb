@@ -4,7 +4,7 @@
             <div class="d-flex flex-grow-1 align-items-center">
                 <span class="w-100 d-md-none"></span>
                 <a class="navbar-brand" href="{{ route('tandem.index') }}">
-                    <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo {{ $shortName }}" />
+                    <img src="{{ asset('img/logos/esn-ctu-logo-white.svg') }}" alt="Logo {{ $shortName }}" />
                 </a>
                 <span class="w-100 text-right">
                     <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

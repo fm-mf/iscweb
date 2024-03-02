@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'ISC CTU in Prague'),
+    'name' => env('APP_NAME', 'ESN CTU in Prague'),
 
     /*
     |--------------------------------------------------------------------------

@@ -9,7 +9,7 @@
             <ul class="list-unstyled">
                 <li><a href="{{ route('partak.index') }}">ParťákNet</a></li>
                 <li><a href="{{ route('buddy-home') }}">Buddy Program</a></li>
-                <li><a href="{{ url('blog') }}">ISC Blog</a></li>
+                <li><a href="{{ url('blog') }}">ESN CTU Blog</a></li>
             </ul>
         </div>
         <div class="col-12" style="text-align: center">

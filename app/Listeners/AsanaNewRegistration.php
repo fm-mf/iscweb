@@ -38,7 +38,7 @@ class AsanaNewRegistration
         asana()->createTask([
             'projects' => '251802217416353',
             'name' => $event->buddy->person->first_name . ' ' . $event->buddy->person->last_name . ' [Nový buddík]',
-            'assignee' => 'it.support@isc.cvut.cz',
+            'assignee' => 'it.support@esn.cvut.cz',
             'notes' => $note,
         ]);
     }

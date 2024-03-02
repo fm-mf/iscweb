@@ -65,7 +65,7 @@
 <p>
     You can find more information about the {{ $fullName }} and our activities on our
     <a href="{{ route('web.lang-select') }}">website</a>.
-    And if you have any questions, feel free to ask at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>
+    And if you have any questions, feel free to ask at <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>
 </p>
 
 <p>
@@ -84,7 +84,7 @@
     Settings::get('whatsAppAnnoucementsLink') }}<br>--}}
     {{-- <a href="{{ Settings::get('whatsAppGeneralLink') }}">WhatsApp General group</a>: {{
     Settings::get('whatsAppGeneralLink') }}<br>--}}
-    <a href="{{ $exchangeDiscordLink }}">Discord</a>: {{ $exchangeDiscordLink }}<br>
+{{--    <a href="{{ $exchangeDiscordLink }}">Discord</a>: {{ $exchangeDiscordLink }}<br>--}}
     <a href="{{ $igProfileUrl }}">Instagram</a>: {{ $igProfileUrl }}
 </p>
 

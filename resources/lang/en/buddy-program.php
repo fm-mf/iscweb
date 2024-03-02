@@ -77,7 +77,7 @@ return [
         'new-password-again' => 'New password again',
         'password-changed' => 'Password changed',
         'wrong-old-password' => 'Wrong password',
-        'subscribed' => 'I agree to receive occasional information about ISC events (e.g. information about opening of the Buddy database or about other upcoming events).',
+        'subscribed' => 'I agree to receive occasional information about ESN CTU events (e.g. information about opening of the Buddy database or about other upcoming events).',
     ],
     'world-map-alt' => 'World map with arrows pointing to the Czech Republic',
     'change-language' => 'Change language to English',

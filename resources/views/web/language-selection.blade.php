@@ -16,7 +16,7 @@
                 <div class="d-flex flex-grow-1 align-items-center">
                     <span class="w-100 d-lg-none"></span>
                     <a class="navbar-brand" href="{{ route('web.lang-select') }}">
-                        <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
+                        <img src="{{ asset('img/logos/esn-ctu-logo-white.svg') }}" alt="Logo ESN CTU in Prague" />
                     </a>
                     <span class="w-100 text-right"></span>
                 </div>
@@ -48,6 +48,11 @@
                         </a>
                     </li>
                 </ul>
+                <div class="row">
+                    <div class="col">
+                        <h5>Formally named International Student Club CTU in Prague</h5>
+                    </div>
+                </div>
             </div>
         </nav>
         <div class="container">

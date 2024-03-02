@@ -37,7 +37,7 @@ class ReservationCancelledMail extends Mailable
                 'response' => $this->response,
                 'cancelledBy' => $this->cancelledBy
             ])
-            ->from('events@isc.cvut.cz', 'ISC CTU in Prague')
+            ->from('events@esn.cvut.cz', 'ESN CTU in Prague')
             ->subject("Your reservation for {$this->response->event->name} was cancelled");
     }
 }

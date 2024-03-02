@@ -11,7 +11,7 @@
                 <li>
                     <a href="{{ action('Buddyprogram\ListingController@listExchangeStudents') }}">Buddy Program</a>
                 </li>
-                <li><a href="{{ url('blog') }}">ISC Blog</a></li>
+                <li><a href="{{ url('blog') }}">ESN CTU Blog</a></li>
             </ul>
         </div>
         <div class="col-12" style="text-align: center">

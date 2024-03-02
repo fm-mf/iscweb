@@ -54,9 +54,9 @@
                     </ul>
                 </li>
                 <li class="orange">
-                    <a data-toggle="collapse" data-target="#isc-esn" @if(isset($iscEsn)) class="expanded" @endif>ISC & ESN</a>
+                    <a data-toggle="collapse" data-target="#isc-esn" @if(isset($iscEsn)) class="expanded" @endif>ESN</a>
                     <ul id="isc-esn" class="nav collapse @if(isset($iscEsn)) in show @endif">
-                        @component('guide.components.nav-item', ['page' => 'isc-intro', 'title' => 'ISC', 'active' => $active])@endcomponent
+                        @component('guide.components.nav-item', ['page' => 'esn-ctu-intro', 'title' => 'ESN CTU', 'active' => $active])@endcomponent
                         @component('guide.components.nav-item', ['page' => 'esn-intro', 'title' => 'ESN', 'active' => $active])@endcomponent
                         @component('guide.components.nav-item', ['page' => 'esn-partners', 'title' => 'Our partners', 'active' => $active])@endcomponent
                     </ul>

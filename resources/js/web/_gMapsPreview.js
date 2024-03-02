@@ -20,6 +20,6 @@ export default function initGMapsPreview() {
         position: myLatlng,
         map: map,
         icon: image,
-        title: 'ISC Point'
+        title: 'ESN Point'
     });
 }

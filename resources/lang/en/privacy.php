@@ -21,7 +21,7 @@ return [
             </ul>
             <p>
                 These rules also apply to all data obtained from the Buddy programme.
-                Similar rules apply to other ISC systems.
+                Similar rules apply to other ESN systems.
             </p>
             <p>
                 By clicking on the ‘I understand and agree’ button, you agree to abide by these rules.

@@ -103,7 +103,7 @@ return [
         'about-me' => 'About me',
         'newsletter' => 'Newsletter',
         'newsletter-approval' => '
-            I agree to receive occasional e-mails with information about current ISC events
+            I agree to receive occasional e-mails with information about current ESN CTU events
             (e.g., opening the Buddy database, or important upcoming events).
         ',
 
@@ -167,7 +167,7 @@ return [
             <p>
                 Ooops. The verification link is invalid. Please, check,
                 if it matches the link we have sent you, and if necessary contact us at
-                <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>.
+                <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>.
             </p>
             <p>
                 We apologize for the inconvenience. :)
@@ -208,7 +208,7 @@ return [
             <p>
                 We take our mission responsibly, and we try to help the exchange students –
                 but it does not mean we are their servants. Our relationships should be
-                mostly friendly. However, we realise that our actions affect the name of ISC,
+                mostly friendly. However, we realise that our actions affect the name of ESN,
                 the University and the entire Czech Republic. So we behave in such way to not
                 cause any damage to it.
             </p>
@@ -220,8 +220,8 @@ return [
             </p>
             <p>
                 Sometimes it happens that we find ourselves in a situation where we do not know
-                what to do. However, we are one team, and we can always ask ISC for help
-                (<a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>).
+                what to do. However, we are one team, and we can always ask ESN for help
+                (<a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>).
             </p>
         ',
     ],

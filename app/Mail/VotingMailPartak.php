@@ -31,7 +31,7 @@ class VotingMailPartak extends Mailable
     public function build()
     {
         return $this->view('emails.votingPartak')->with([
-            'hash' => $this->buddy->person->user->hash,        
-        ])->subject('ISC inteGREAT - Vote for the best presentations')->from('integreat@isc.cvut.cz');
+            'hash' => $this->buddy->person->user->hash,
+        ])->subject('ESN inteGREAT - Vote for the best presentations')->from('integreat@esn.cvut.cz');
     }
 }

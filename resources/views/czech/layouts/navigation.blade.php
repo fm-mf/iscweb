@@ -3,7 +3,7 @@
         <div class="d-flex flex-grow-1 align-items-center">
             <span class="w-100 d-lg-none"></span>
             <a class="navbar-brand" href="{{ route('czech.index') }}">
-                <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
+                <img src="{{ asset('img/logos/esn-ctu-logo-white.svg') }}" alt="Logo ESN CTU in Prague" />
             </a>
             <span class="w-100 text-right">
                 <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

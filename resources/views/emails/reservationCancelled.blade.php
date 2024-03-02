@@ -16,7 +16,7 @@
         </p>
         @endif
         <p>With kind regards</p>
-        <p>ISC CTU in Prague</p>
-        <img src="{{ asset('img/logos/isc-esn-email-signature.png') }}" width="250" />
+        <p>ESN CTU in Prague</p>
+        <img src="{{ asset('img/logos/esn-ctu-email-signature.png') }}" width="250" />
     </body>
 </html>

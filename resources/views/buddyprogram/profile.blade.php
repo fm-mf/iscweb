@@ -208,7 +208,7 @@
             <div class="card-body">
                 <p class="show-info">
                     @lang('buddy-program.buddy-removal-info')
-                    <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>
+                    <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>
                 </p>
             </div>
         @endif

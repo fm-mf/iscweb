@@ -16,7 +16,7 @@
             Thank you for reserving your spot.
             <span v-if="!paymentOnSpot">
                 You can now go to the
-                <a href="/contact" target="blank">ISC Point</a> and pay the fee
+                <a href="/contact" target="blank">ESN Point</a> and pay the fee
                 to get your spot.
             </span>
         </p>

@@ -28,6 +28,6 @@ class WelcomeToBuddyProgramme extends Mailable
     {
         return $this->view('emails.welcomeToBuddyProgramme')
                 ->subject(__('emails.welcome.subject'))
-                ->from('buddy@isc.cvut.cz', 'Buddy ISC CTU in Prague');
+                ->from('buddy@esn.cvut.cz', 'Buddy ESN CTU in Prague');
     }
 }

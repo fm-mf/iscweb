@@ -42,7 +42,7 @@
                             Večer pak můžete společně dorazit na Tandem evening.
                         </dd>
                         <dd>
-                            V úterý a středu dopoledne budou registrace na fakultách organizované ISC,
+                            V úterý a středu dopoledne budou registrace na fakultách organizované ESN,
                             nemusíš tedy zahraňáka doprovázet, jen se ujisti, že už má svůj Welcome pack.
                             Středa odpoledne bude věnovaná Prague discovery game, které se můžeš zúčastnit
                             v roli organizátora, a výsledky hry budou vyhlášené večer na inteGREATion party.
@@ -60,27 +60,27 @@
 
                         <dt>Kde a kdy můžu Welcome pack vyzvednout a musí u toho být i zahraňák?</dt>
                         <dd>
-                            Welcome packy je možné vyzvednout v <a href="{{ route('czech.contacts') }}">ISC Pointu</a>
+                            Welcome packy je možné vyzvednout v <a href="{{ route('czech.contacts') }}">ESN Pointu</a>
                             většinou od středy týden před začátkem Orientation weeku. Pro přesné datum sleduj aktuality
-                            na naší <a href="https://www.facebook.com/isc.ctu.prague" target="_blank" rel="noopener">FB stránce</a>
-                            a v <a href="https://www.facebook.com/groups/isc.ctu.buddies" target="_blank" rel="noopener">Buddy skupině</a>.
+                            na naší <a href="https://www.facebook.com/esn.ctu.prague" target="_blank" rel="noopener">FB stránce</a>
+                            a v <a href="https://www.facebook.com/groups/esn.ctu.buddies" target="_blank" rel="noopener">Buddy skupině</a>.
                             Welcome pack si můžeš vyzvednout pro svého zahraňáka i ty ještě před jeho příjezdem,
                             nebo pro něj můžete zajít společně cestou z letiště.
                         </dd>
 
-                        <dt>Jak se mohu více zapojit do ISC?</dt>
+                        <dt>Jak se mohu více zapojit do ESN?</dt>
                         <dd>
-                            Napiš nám na <a href="mailto:hr@isc.cvut.cz">hr@isc.cvut.cz</a>
-                            nebo se rovnou stav do našeho <a href="{{ route('czech.contacts') }}">ISC Pointu</a>.
+                            Napiš nám na <a href="mailto:hr@esn.cvut.cz">hr@esn.cvut.cz</a>
+                            nebo se rovnou stav do našeho <a href="{{ route('czech.contacts') }}">ESN Pointu</a>.
                             Každého aktivního studenta vítáme a možností zapojení je celá řada.
                             Taky si můžeš projít naše stránky a uvidíš, co vše děláme.
                         </dd>
 
-                        <dt>Kde se dozvím aktuální informace o dění v ISC?</dt>
+                        <dt>Kde se dozvím aktuální informace o dění v ESN?</dt>
                         <dd>
                             Informace najdeš tady na webu v záložce kalendáře. Také nás můžeš sledovat na
-                            <a href="https://www.facebook.com/isc.ctu.prague" target="_blank" rel="noopener">Facebooku</a>
-                            a přidat se do naší <a href="https://www.facebook.com/groups/isc.ctu.buddies" target="_blank" rel="noopener">skupiny pro české Buddíky</a>.
+                            <a href="https://www.facebook.com/esn.ctu.prague" target="_blank" rel="noopener">Facebooku</a>
+                            a přidat se do naší <a href="https://www.facebook.com/groups/esn.ctu.buddies" target="_blank" rel="noopener">skupiny pro české Buddíky</a>.
                         </dd>
 
                         <dt>Kde můžu získat ESN kartičku, pokud odjíždím na Erasmus a na mé univerzitě není sekce ESN?</dt>
@@ -88,7 +88,7 @@
                             Pokud tvoje přijímající univerzita nemá místní sekci, můžeš kontaktovat
                             některou další sekci ve stejném městě. ESN kartička tě většinou opravňuje k tomu,
                             aby ses účastnil aktivit sekcí pořádaných. Máš další otázky?
-                            Napiš nám e-mail na <a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a>.
+                            Napiš nám e-mail na <a href="mailto:isc@esn.cvut.cz">isc@esn.cvut.cz</a>.
                         </dd>
                     </dl>
                 </div>

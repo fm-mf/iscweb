@@ -20,7 +20,7 @@ return [
     'user' => 'Nepodařilo se najít uživatele s touto e-mailovou adresou.',
 
     'email' => [
-        'line-1' => 'Tento e-mail dostáváš, protože jsme obdrželi žádost o obnovu hesla k tvému účtu v ISC Buddy programu',
+        'line-1' => 'Tento e-mail dostáváš, protože jsme obdrželi žádost o obnovu hesla k tvému účtu v ESN Buddy programu',
         'action' => 'Obnovit heslo',
         'line-2' => 'Pokud jsi o obnovu nežádal/a, můžeš tento e-mail ignorovat.',
     ],

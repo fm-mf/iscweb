@@ -19,11 +19,11 @@
                         zábavnou formou a není na ně potřeba žádné registrace.
                     </p>
                     <p>
-                        Jazykové kurzy pro zimní semestr 2023/2024 začínají v <strong>pondělí 16. října 2023</strong>.
+                        Jazykové kurzy pro jarní semestr 2023/2024 začínají v <strong>pondělí 11. března 2024</strong>.
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Podívejte se na <strong>rozvrh pro zimní semestr 2023/2024</strong>
+                            Podívejte se na <strong>rozvrh pro jarní semestr 2023/2024</strong>
                         </a>
                     </p>
                     <h3>Kde najdu učebny?</h3>
@@ -32,13 +32,13 @@
                         <dd>
                             se nachází ve 3. patře v červené chodbě na
                             <a href="https://goo.gl/maps/au5lF" target="_blank" rel="noopener">Masarykově koleji</a>,
-                            vedle ISC Pointu.
+                            vedle ESN Pointu.
                         </dd>
                         <dt>R404</dt>
                         <dd>
                             se nachází ve 3. patře v červené chodbě na
                             <a href="https://goo.gl/maps/au5lF" target="_blank" rel="noopener">Masarykově koleji</a>,
-                            přímo nad ISC Pointem.
+                            přímo nad ESN Pointem.
                         </dd>
                         <dt>Strahovská učebna</dt>
                         <dd>
@@ -70,15 +70,15 @@
                         </a>
                     </p>
 
-                    <h2>Café Lingea</h2>
-                    <p>
-                        Café Lingea je akce, při které se sejdeme a povídáme si v různých jazycích (obvykle anglicky
-                        + v nějakém dalším zvoleném jazyce). Café Lingea probíhá nejčastěji v různých kavárnách,
-                        případně v restauracích, takže je to také skvělý způsob, jak v Praze poznat nová místa.
-                        Připoj se do Facebookové skupiny
-                        <a href="https://www.facebook.com/groups/125659680939345" target="_blank" rel="noopener">ISC Café Lingea</a>!
-                    </p>
-                    <p>Café Lingey se konají každé dva týdny!</p>
+{{--                  <h2>Café Lingea</h2>--}}{{-- TODO delete or update?--}}
+{{--                    <p>--}}
+{{--                        Café Lingea je akce, při které se sejdeme a povídáme si v různých jazycích (obvykle anglicky--}}
+{{--                        + v nějakém dalším zvoleném jazyce). Café Lingea probíhá nejčastěji v různých kavárnách,--}}
+{{--                        případně v restauracích, takže je to také skvělý způsob, jak v Praze poznat nová místa.--}}
+{{--                        Připoj se do Facebookové skupiny--}}
+{{--                        <a href="https://www.facebook.com/groups/125659680939345" target="_blank" rel="noopener">ESN Café Lingea</a>!--}}
+{{--                    </p>--}}
+{{--                    <p>Café Lingey se konají každé dva týdny!</p>--}}
 
                     {{---------------- rozvrh languages eventů ----------------}}
                     @if(isset($langEvents) && $langEvents->count() > 0)
@@ -110,9 +110,9 @@
                 <div class="col-md-4 schedule">
                     <h2>Rozvrh jazykových kurzů</h2>
                     <p>
-                        Podívejte se na rozvrh ISC jazykových kurzů pro
+                        Podívejte se na rozvrh ESN jazykových kurzů pro
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            zimní semestr 2023/2024
+                            jarní semestr 2023/2024
                         </a>.
                     </p>{{--
                     <p>
@@ -125,7 +125,7 @@
                     {{--<p>
                         Our currently offered courses will end according to every teachers' wish or latest at the end of June.
                         Schedule for the autumn courses shall be published in October 2018.
-                        Please note that during summer holidays there are no language classes provided by ISC.
+                        Please note that during summer holidays there are no language classes provided by ESN.
                     </p>--}}
                     <p>
                         <a href="{{ url('files/languages-schedule.php') }}">

@@ -77,7 +77,7 @@
             {{ Form::bsText('whatsAppGeneralLink', 'Link to General WhatsApp group', '', @$settings['whatsAppGeneralLink']) }}
 
             <div class="form-group">
-                {{ Form::label('discordInviteBuddy', 'ISC Discord invite link for Buddies') }}
+                {{ Form::label('discordInviteBuddy', 'ESN Discord invite link for Buddies') }}
                 @error('discordInviteBuddy')
                     <p class="error-block alert-danger">{{ $message }}</p>
                 @enderror
@@ -85,7 +85,7 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('discordInviteExchange', 'ISC Discord invite link for Exchange students') }}
+                {{ Form::label('discordInviteExchange', 'ESN Discord invite link for Exchange students') }}
                 @error('discordInviteExchange')
                     <p class="error-block alert-danger">{{ $message }}</p>
                 @enderror

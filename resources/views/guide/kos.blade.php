@@ -19,7 +19,7 @@
 
     <p>
         Registration is done during the <a href="{{ route('guide-page', ['page' => 'orientation-week#day-2-registration']) }}">Orientation week</a>,
-        a visit to the study department at your faculty will be organized by ISC (except faculties with on-line registration),
+        a visit to the study department at your faculty will be organized by ESN (except faculties with on-line registration),
         where you will get to know your classes and your schedule.
     </p>
     <p>

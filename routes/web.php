@@ -59,7 +59,7 @@ Route::group(['namespace' => 'Web', 'prefix' => ''], function()
     Route::get('/buddy', function() { return redirect(route('czech.index'), 301); });
     // Global IP when it is plugged in its public port -- not working now
     //Route::get('/nas', function () { return redirect('https://147.32.97.62:5001'); })->name('nas');
-    // Local IP when it is plugged in the router -- works only in ISC Point
+    // Local IP when it is plugged in the router -- works only in ESN Point
     //Route::get('/nas', function () { return redirect('https://192.168.0.102:5001'); })->name('nas');
     // Proxy using DDNS (and VPN?) -- should work always
     Route::get('/nas', function () { return redirect('http://quickconnect.to/ISCCTU'); })->name('nas');

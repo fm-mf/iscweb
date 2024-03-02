@@ -2,7 +2,7 @@
 
 return [
     'verification' => [
-        'title' => 'Buddy programme ISC CTU in Prague',
+        'title' => 'Buddy programme ESN CTU in Prague',
         'subject' => 'Buddy programme – E-mail verification',
         'body' => '
             <p>Hello!</p>
@@ -22,15 +22,15 @@ return [
             <p>We are happy that you have decided to join the international community at CTU!</p>
             <p>To get into the Buddy database, please, follow <a href=":buddyDbUrl">this link</a>.</p>
             <p>
-                You can also join our Facebook group <a href="https://www.facebook.com/groups/isc.ctu.buddies/">ISC CTU Czech Buddies</a>,
+                You can also join our Facebook group <a href="https://www.facebook.com/groups/esn.ctu.buddies/">ESN CTU Czech Buddies</a>,
                 where you can get the latest updates about the Buddy programme.
-                And to have all the information about other events and activities organised by ISC,
-                follow also our Facebook page <a href="https://www.facebook.com/isc.ctu.prague/">ISC CTU in Prague</a>.
+                And to have all the information about other events and activities organised by ESN,
+                follow also our Facebook page <a href="https://www.facebook.com/esn.ctu.prague/">ESN CTU in Prague</a>.
                 If you have any questions, do not hesitate to ask in the FB group <em>Czech Buddies</em>
-                or contact our Buddy coordinator via e-mail <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>.
+                or contact our Buddy coordinator via e-mail <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>.
             </p>
             <p>We wish you good luck in choosing your International students. :)</p>
-            <p>ISC Buddy team</p>
+            <p>ESN Buddy team</p>
         ',
     ],
 ];

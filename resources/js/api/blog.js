@@ -2,7 +2,7 @@ import axios from 'axios';
 
 /**
  * Remove html entities - this function was written
- * specifically for ISC Blog output and is not universal.
+ * specifically for ESN Blog output and is not universal.
  * @param {string} text
  */
 const normalizeText = text =>

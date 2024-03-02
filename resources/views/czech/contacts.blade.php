@@ -54,19 +54,19 @@
             <dl class="row justify-content-center">
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fa-brands fa-instagram"></span> Instagram</dt>
-                    <dd><a href="{{ $igProfileUrl }}" target="_blank" rel="noopener">@isc.ctu</a></dd>
+                    <dd><a href="{{ $igProfileUrl }}" target="_blank" rel="noopener">@esn.ctu</a></dd>
                 </div>
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fa-brands fa-facebook"></span> Facebook</dt>
-                    <dd><a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">isc.ctu.prague</a></dd>
+                    <dd><a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">esn.ctu.prague</a></dd>
                 </div>
-                <div class="col-md-6 col-xl-4 d-flex">
-                    <dt><span class="fa-brands fa-discord"></span> Discord</dt>
-                    <dd><a href="{{ $buddyDiscordLink }}" target="_blank" rel="noopener">ISC CTU in Prague</a></dd>
-                </div>
+{{--                <div class="col-md-6 col-xl-4 d-flex">--}}
+{{--                    <dt><span class="fa-brands fa-discord"></span> Discord</dt>--}}
+{{--                    <dd><a href="{{ $buddyDiscordLink }}" target="_blank" rel="noopener">ESN CTU in Prague</a></dd>--}}
+{{--                </div>--}}
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fas fa-envelope"></span> @lang('web.Email')</dt>
-                    <dd><a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a></dd>
+                    <dd><a href="mailto:isc@esn.cvut.cz">isc@esn.cvut.cz</a></dd>
                 </div>
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fas fa-phone-alt"></span> @lang('web.Phone')</dt>
@@ -100,8 +100,7 @@
             </div>
             <div class="row">
                 <ol class="col-auto mx-auto list-unstyled billing-info">
-                    <!-- <li class="font-weight-bold">{{ $officialName }}</li> TODO change back after renaming -->
-                    <li class="font-weight-bold">Erasmus Student Network CTU in Prague, z. s.</li>
+                    <li class="font-weight-bold">{{ $officialName }}</li>
                     <li><address>Thákurova 550/1, 160 00, Praha 6 – Dejvice</address></li>
                     <li>IČO: 228 41 032</li>
                 </ol>

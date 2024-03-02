@@ -10,7 +10,7 @@
                     po příjezdu studenta potřebovat, ale i do dalších dní Ti dá pár rad.
                     Neváhej a čerpej z ní informace, aby jsi na nic důležitého nezapomněl(a).
                     Věříme, že v ní najdeš odpovědi na své otázky, a pokud ne, tak se ptej na
-                    <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>.
+                    <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>.
                 </p>
                 <p>
                     <a href="{{ route('buddy-handbook-cs') }}" class="btn btn-outline-dark">

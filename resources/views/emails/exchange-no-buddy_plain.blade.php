@@ -9,11 +9,11 @@ Our Survival Guide ({{ route('guide') }})
 on our web site gives you all the information and dates needed for the first days of your stay in Prague.
 
 Welcome Packs ({{ route('guide-page', ['page' => 'welcome-pack']) }})
-are prepared for you in our ISC Point (https://goo.gl/maps/MrjEDKdCTUm)
+are prepared for you in our ESN Point (https://goo.gl/maps/MrjEDKdCTUm)
 at Masarykova dormitory – it is very useful because it includes a confirmation of study
 (needed for student discount in Prague public transport), info about registration
 at your new faculty, orientation week etc. Be sure to pick it up.
-The Welcome Pack is waiting for you at Masarykova dormitory, room R304, 3rd floor (ISC Point).
+The Welcome Pack is waiting for you at Masarykova dormitory, room R304, 3rd floor (ESN Point).
 Check our website({{ route('web.contacts') }}) for opening hours.
 
 What do you need to do after your arrival:
@@ -37,9 +37,9 @@ What do you need to do after your arrival:
      • Go to the terminal station ‘Nádraží Veleslavín’ and change to the metro line A (green)
         in the direction of ‘Depo Hostivař’. Go to the station ‘Dejvická’.
 
- 3. Go to the Masarykova dormitory (https://goo.gl/maps/uAb8pHV6kkWvjSXDA) to the 3rd floor to ISC Point and get:
+ 3. Go to the Masarykova dormitory (https://goo.gl/maps/uAb8pHV6kkWvjSXDA) to the 3rd floor to ESN Point and get:
      • Welcome pack ({{ route('guide-page', ['page' => 'welcome-pack']) }})
-        ISC membership ({{ route('guide-page', ['page' => 'isc-intro#membership']) }}) (optional) with ESNcard & SIM card & T-shirt
+        ESN membership ({{ route('guide-page', ['page' => 'esn-ctu-intro#membership']) }}) (optional) with ESNcard & SIM card & T-shirt
 
  4. Go to the metro station Hradčanská or Nádraží Veleslavín and get:
      • 1-month or 3-months student public transport pass (don’t forget
@@ -53,4 +53,4 @@ What do you need to do after your arrival:
 
 In case you have any questions or difficulties, don’t hesitate to contact us!
 
-Your ISC CTU in Prague
+Your ESN CTU in Prague

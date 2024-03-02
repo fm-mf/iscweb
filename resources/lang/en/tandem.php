@@ -4,12 +4,12 @@ return [
     'page-title' => 'Tandem Database',
 
     'index' => [
-        'heading' => 'ISC Tandem Database',
+        'heading' => 'ESN Tandem Database',
         'desc-p1' => 'Tandem is a way of mutual learning and teaching languages. You will find someone'
             . ' who would teach you a foreign language and you would teach yours in return',
         'desc-p2' => 'The main advantage of Tandem is that it will be just you two, who will set'
             . ' the time and the intensity of the courses! You can form as many couples as you wish.',
-        'desc-p3' => 'If you join the ISC Tandem Database, you will get the access to the list of students'
+        'desc-p3' => 'If you join the ESN Tandem Database, you will get the access to the list of students'
             . ' looking for a Tandem partner and other students will be able to find you.',
 
         'already-registered' => 'Already registered?',
@@ -29,7 +29,7 @@ return [
         'login' => 'Login',
         'log-out' => 'Log out',
 
-        'login-heading' => 'Login to ISC Tandem Database',
+        'login-heading' => 'Login to ESN Tandem Database',
 
         'e-mail' => 'E-mail',
         'password' => 'Password',
@@ -96,12 +96,12 @@ return [
             . ' so a new student will surely register soon and contact you!',
 
         'all-users-info' => 'The following table shows all students'
-            . ' registered in the ISC Tandem Database.',
+            . ' registered in the ESN Tandem Database.',
 
         'list-instructions' => 'Click on the name, see details about them'
             . ' and contact them by e-mail to arrange Tandem!',
 
-        'show-all-users' => 'Show all students in the ISC Tandem Database',
+        'show-all-users' => 'Show all students in the ESN Tandem Database',
         'show-only-potential-partners' => 'Show only students that match my language preferences',
     ],
 

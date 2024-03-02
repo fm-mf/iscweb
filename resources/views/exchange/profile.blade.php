@@ -37,7 +37,7 @@
                 <input type="email" id="input_email" class="form-control" value="{{ $student->user->email }}" />
                 <small class="form-text text-muted">
                     This e-mail address will be used whenever we need to contact you.
-                    If you want to change it, contact us at <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a>.
+                    If you want to change it, contact us at <a href="mailto:it@esn.cvut.cz">it@esn.cvut.cz</a>.
                 </small>
             </div>
         </fieldset>
@@ -140,7 +140,7 @@
             <div class="form-group">
                 <input type="hidden" name="willing_to_present" value="0" />
                 <label>
-                    {{ Form::checkbox('willing_to_present') }} I would like to present my country at any of the ISC events.
+                    {{ Form::checkbox('willing_to_present') }} I would like to present my country at any of the ESN events.
                 </label>
             </div>
         </fieldset>
@@ -188,7 +188,7 @@
 
     <!-- Required for modal, tooltips and date/time pickers -->
     <script src="{{ asset('js/jquery.min.js') }}" defer="defer"></script>
-   
+
     <!-- Required for the avatar modal & tooltip -->
     <script src="{{ asset('js/popper.min.js') }}" defer="defer"></script>
     <script src="{{ asset('js/bootstrap.4.min.js') }}" defer="defer"></script>

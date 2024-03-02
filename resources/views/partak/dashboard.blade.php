@@ -5,22 +5,22 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <p>Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ISC aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="https://esnctu.notion.site/68b32fcf9ad24350a81c354e076dc747?v=c0009ed9bdb04a08b7b9d0f881b2dfef&pvs=4">wiki</a>. Pro přihlášení použij přihlašovací údaje do parťák netu.</p>
+                <p>Ahoj Parťáku! Následující stránka shrnuje na jednom místě ty nejdůležitější informace pro každého, kdo se chce do ESN aktivněji zapojit. Podrobnější informace pak najdeš v naší <a href="https://esnctu.notion.site/68b32fcf9ad24350a81c354e076dc747?v=c0009ed9bdb04a08b7b9d0f881b2dfef&pvs=4">wiki</a>. Pro přihlášení použij přihlašovací údaje do parťák netu.</p>
 
-                <h2>Co se děje v ISC?</h2>
+                <h2>Co se děje v ESN?</h2>
 
                 <div id="rss-feed"></div>
 
                 <ul class="list-unstyled list-colored">
                     <li>
-                        <p><h3><strong>Plníme ISC Wiki!</strong></h3></p>
+                        <p><h3><strong>Plníme ESN CTU Wiki!</strong></h3></p>
                         <p>Naše Wiki (Notion) pomalu začíná ožívat. Podívej se na <a href="https://esnctu.notion.site/68b32fcf9ad24350a81c354e076dc747?v=c0009ed9bdb04a08b7b9d0f881b2dfef&pvs=4">notion.com</a> a připiš co tam ještě není.</p>
                     </li>
 
                 </ul>
 
                 <h2>Core Values</h2>
-                <p>Kultura ISC stojí na jistých hodnotách, od kterých se odvíjí to, jak spolupracujeme, komunikujeme a jak se k sobě chováme. Tady je seznam těch nejdůležitějších hodnot, kterými se snažíme řídit:</p>
+                <p>Kultura ESN CTU stojí na jistých hodnotách, od kterých se odvíjí to, jak spolupracujeme, komunikujeme a jak se k sobě chováme. Tady je seznam těch nejdůležitějších hodnot, kterými se snažíme řídit:</p>
                 <ol class="list-colored">
                     <li>Share your ideas.</li>
                     <li>Be active, Creative and open-minded.</li>
@@ -51,24 +51,24 @@
                     </li>
 
                     <li><a href="https://www.google.com/calendar/embed?src=bnn2dkobab8l6p4n6jtot9gmd8%40group.calendar.google.com&ctz=Europe/Prague">Vnitřní kalendář</a>
-                        <p>Kalendář všech pro ISC důležitých událostí</p>
+                        <p>Kalendář všech pro ESN CTU důležitých událostí</p>
                     </li>
                     <li>
                         <a href="{{ route('nas') }}">Fotogalerie (NAS)</a>
-                        <p>Naleznete zde spoustu nových i starých fotek z akcí ISC</p>
+                        <p>Naleznete zde spoustu nových i starých fotek z akcí ESN</p>
                         <p><strong>Login: partak</strong></p><p><strong>Heslo: Quentinamakazdyrad</strong></p>
                     </li>
                     <li>
-                        <a href="https://drive.google.com/folderview?id=0B7kiw4knduMXOWxRcjhZZGR5Nm8&usp=sharing">Podklady a materiály ISC</a>
-                        <p>Loga, šablony, obrázky ISC</p>
+                        <a href="https://drive.google.com/folderview?id=0B7kiw4knduMXOWxRcjhZZGR5Nm8&usp=sharing">Podklady a materiály ESN</a>
+                        <p>Loga, šablony, obrázky ESN</p>
                     </li>
                     <li>
                         <a href="https://drive.google.com/folderview?id=0B2sebxB3kcgYfnNyd3J2U28xMWtXdHVDQVFhZGJyZGQyU1hWcmttNS1FWnNSZzJOUm5HZGc&usp=drive_web">Podklady a materiály ESN</a>
                         <p>Aktuální loga, šablony ESN</p>
                     </li>
                     {{--<li>
-                        <a href="https://drive.google.com/drive/folders/0B6FVYAfC-ldzOU9vUC1ZS050cTA?usp=sharing">ISC tiskoviny</a>
-                        <p>Zde nejdete všechna čísla ISC zpravodaje a Diary of ISC (DISC)</p>
+                        <a href="https://drive.google.com/drive/folders/0B6FVYAfC-ldzOU9vUC1ZS050cTA?usp=sharing">ESN tiskoviny</a>
+                        <p>Zde nejdete všechna čísla ESN zpravodaje a Diary of ESN (DISC)</p>
                     </li>--}}
                     <li>
                         <a href="{{ asset('/files/iscCtuSpiritBook.pdf') }}" alt="Download PDF version of ISC Spirit Book">ISC Spirit Book [PDF]</a>
@@ -79,16 +79,16 @@
                             Anonymní zpětná vazba
                         </a>
                         <p>
-                            Chceš vyjádřit svůj názor? Chceš aby se v ISC něco změnilo?
-                            Vadí ti něco v ISC ale nechceš to říct veřejně? Nebo bys chtěl něco pochválit?
+                            Chceš vyjádřit svůj názor? Chceš aby se v ESN něco změnilo?
+                            Vadí ti něco v ESN ale nechceš to říct veřejně? Nebo bys chtěl něco pochválit?
                             Pak je tento formulář přesně pro tebe.
                         </p>
                     </li>
                 </ul>
 
                 <h2>Share your ideas</h2>
-                <p>Máš nějaký nápad? Chceš posunout ISC ještě dále? Nelíbí se ti něco? Dej nám o tom vědět! Buď osobně nebo můžeš napsat
-                    na <a href="mailto:ideas@isc.cvut.cz">ideas@isc.cvut.cz</a></p>
+                <p>Máš nějaký nápad? Chceš posunout ESN ještě dále? Nelíbí se ti něco? Dej nám o tom vědět! Buď osobně nebo můžeš napsat
+                    na <a href="mailto:ideas@esn.cvut.cz">ideas@esn.cvut.cz</a></p>
 
 {{--                <h2>Používání štítků (tagů)</h2>--}}
 {{--                <p>Na FB skupině, asaně i v mailech všichni často používáme štítky. Rozhodli jsme se proto sjednoti pravidla jejich používání.</p>--}}
@@ -101,7 +101,7 @@
 
 {{--                <h3>Příklady používaných štítků</h3>--}}
 {{--                <p><strong>Obecné</strong>: urgent, workshop, idea, housing, trip,</p>--}}
-{{--                <p><strong>ISC</strong>: BW, PW, SAF, PR, HR, languages, languageCourses, salsa, movieNight, tandem</p>--}}
+{{--                <p><strong>ESN</strong>: BW, PW, SAF, PR, HR, languages, languageCourses, salsa, movieNight, tandem</p>--}}
             </div>
         </div>
 

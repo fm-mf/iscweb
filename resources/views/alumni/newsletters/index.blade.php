@@ -14,7 +14,7 @@
                 <div class="col">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('czech.index') }}">ISC</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('czech.index') }}">ESN</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('alumni.index') }}">Alumni</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Archiv Newsletterů</li>
                         </ol>

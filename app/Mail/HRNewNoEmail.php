@@ -36,8 +36,8 @@ class HRNewNoEmail extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->from('it.support@isc.cvut.cz', 'IT Support ISC CTU in Prague')
-            ->to('hr@isc.cvut.cz', 'HR ISC CTU in Prague')
+            ->from('it.support@esn.cvut.cz', 'IT Support ESN CTU in Prague')
+            ->to('hr@esn.cvut.cz', 'HR ESN CTU in Prague')
             ->subject(self::SUBJECT)
             ->view('emails.buddy-without-email')
             ->text('emails.buddy-without-email_plain')

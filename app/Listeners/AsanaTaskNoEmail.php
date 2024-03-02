@@ -38,7 +38,7 @@ class AsanaTaskNoEmail
 
         asana()->createTask([
             'name' => $event->buddy->person->first_name . ' ' . $event->buddy->person->last_name . ' [Buddy bez univerzitniho emailu]',
-            'assignee' => 'it.support@isc.cvut.cz',
+            'assignee' => 'it.support@esn.cvut.cz',
             'notes' => $note,
         ]);
     }

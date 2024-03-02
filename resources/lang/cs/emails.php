@@ -2,7 +2,7 @@
 
 return [
     'verification' => [
-        'title' => 'Buddy program ISC CTU in Prague',
+        'title' => 'Buddy program ESN CTU in Prague',
         'subject' => 'Buddy program – Dokončení registrace',
         'body' => '
             <p>Ahoj!</p>
@@ -22,15 +22,15 @@ return [
             <p>Jsme moc rádi, že ses rozhodl/a zapojit do mezinárodní komunity na ČVUT!</p>
             <p>Do Buddy Databáze se dostaneš <a href=":buddyDbUrl">zde</a>.</p>
             <p>
-                Přidej se také do FB skupiny <a href="https://www.facebook.com/groups/isc.ctu.buddies/">ISC CTU Czech Buddies</a>,
+                Přidej se také do FB skupiny <a href="https://www.facebook.com/groups/esn.ctu.buddies/">ESN CTU Czech Buddies</a>,
                 kde získáš nejčerstvější novinky.
-                A co se týká ostatních informací o ISC a všech akcích,
-                sleduj i naší FB stránku <a href="https://www.facebook.com/isc.ctu.prague/">ISC CTU in Prague</a>.
+                A co se týká ostatních informací o ESN a všech akcích,
+                sleduj i naší FB stránku <a href="https://www.facebook.com/esn.ctu.prague/">ESN CTU in Prague</a>.
                 Pokud bys měl/a jakékoliv dotazy, neváhej se zeptat ve FB skupině <em>Czech Buddies</em>
-                nebo kontaktovat našeho Buddy koordinátora na e-mailu <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>.
+                nebo kontaktovat našeho Buddy koordinátora na e-mailu <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>.
             </p>
             <p>Přejeme hodně štěstí při vybírání „zahraňáka“. :)</p>
-            <p>ISC Buddy team</p>
+            <p>ESN Buddy team</p>
         ',
     ],
 ];

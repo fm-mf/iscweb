@@ -4,12 +4,12 @@ return [
     'page-title' => 'Tandem databáze',
 
     'index' => [
-        'heading' => 'ISC Tandem databáze',
+        'heading' => 'ESN Tandem databáze',
         'desc-p1' => 'Tandem je způsob vzájemného učení se jazyků. Vybereš si někoho,'
             . ' kdo tě bude učit cizí jazyk, a ty zas na oplátku budeš učit ten svůj.',
         'desc-p2' => 'Hlavní výhodnou Tandemu je, že jste to jen vy dva, kteří budou určovat,'
             . ' kdy se budete učit a jak intenzivně. Samozřejmě můžeš utvořit dvojic, kolik jen chceš.',
-        'desc-p3' => 'Když se připojíš do ISC Tandem databáze, získáš přístup ke studentům, kteří hledají'
+        'desc-p3' => 'Když se připojíš do ESN Tandem databáze, získáš přístup ke studentům, kteří hledají'
             . ' Tandem partnera, a zároveň ostatní budou moci najít tebe.',
 
         'already-registered' => 'Už máš účet?',
@@ -29,7 +29,7 @@ return [
         'login' => 'Přihlášení',
         'log-out' => 'Odhlásit se',
 
-        'login-heading' => 'Přihlášení do ISC Tandem databáze',
+        'login-heading' => 'Přihlášení do ESN Tandem databáze',
 
         'e-mail' => 'E-mail',
         'password' => 'Heslo',
@@ -60,7 +60,7 @@ return [
 
         'email' => [
             'greeting' => 'Ahoj',
-            'line-1' => 'Tento e-mail dostáváš, protože jsme obdrželi žádost o obnovu hesla k tvému účtu v ISC Tandem databázi',
+            'line-1' => 'Tento e-mail dostáváš, protože jsme obdrželi žádost o obnovu hesla k tvému účtu v ESN Tandem databázi',
             'action' => 'Obnovit heslo',
             'line-2' => 'Pokud jsi o obnovu nežádal/a, můžeš tento e-mail ignorovat.',
             'salutation' => 'S pozdravem,'
@@ -96,12 +96,12 @@ return [
             . ' a až se zaregistruje někdo, kdo vyhovuje tvým preferencím, určitě tě brzy kontaktuje.',
 
         'all-users-info' => 'Následující tabulka obsahuje všechny studenty'
-            . ' zaregistrované v ISC Tandem databázi.',
+            . ' zaregistrované v ESN Tandem databázi.',
 
         'list-instructions' => 'Klikni na jejich jméno, aby ses o nich dozvěděl více,'
             . ' pak je můžeš kontaktovat e-mailem a vytvořit tak dvojici.',
 
-        'show-all-users' => 'Ukázat všechny studenty zaregistrované v ISC Tandem databázi',
+        'show-all-users' => 'Ukázat všechny studenty zaregistrované v ESN Tandem databázi',
         'show-only-potential-partners' => 'Ukázat jen studenty vyhovující mým jazykovým preferencím',
     ],
 

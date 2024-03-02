@@ -20,8 +20,8 @@ Artisan::command('inspire', function () {
 
 Artisan::command('test', function () {
     $emails = [
-        'president@isc.cvut.cz',
-        'vicepresident@isc.cvut.cz',
+        'president@esn.cvut.cz',
+        'vicepresident@esn.cvut.cz',
     ];
     $student = \App\Models\ExchangeStudent::with('person.user')->where('id_user', 4777)->first();
     foreach ($emails as $email) {

@@ -12,18 +12,18 @@
         </h2>
         <p class="text-center">
             @lang('buddy-program.closed-follow-fb-group')
-            <a href="{{ $fbGroupCzechBuddies }}" target="_blank" rel="noopener">ISC CTU Czech Buddies</a>
+            <a href="{{ $fbGroupCzechBuddies }}" target="_blank" rel="noopener">ESN CTU Czech Buddies</a>
             @lang('buddy-program.closed-follow-fb-page')
-            <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">ISC CTU in Prague</a>.
+            <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">ESN CTU in Prague</a>.
         </p>
         <p class="text-center">
             @lang('buddy-program.closed-join-discord-text')
         </p>
-        <p class="text-center">
-            <a href="{{ $buddyDiscordLink }}" target="_blank" rel="noopener" class="btn btn-primary">
-                @lang('buddy-program.closed-join-discord-btn')
-            </a>
-        </p>
+{{--        <p class="text-center">--}}
+{{--            <a href="{{ $buddyDiscordLink }}" target="_blank" rel="noopener" class="btn btn-primary">--}}
+{{--                @lang('buddy-program.closed-join-discord-btn')--}}
+{{--            </a>--}}
+{{--        </p>--}}
         <picture class="closed-map">
             <source type="image/webp" srcset="{{ asset(asset('img/buddyprogram/buddy_database_map.webp')) }}" />
             <img src="{{ asset('img/buddyprogram/buddy_database_map.jpg') }}" alt="@lang('buddy-program.world-map-alt')" />

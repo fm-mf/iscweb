@@ -25,7 +25,7 @@
             <input type="email" id="input_email" class="form-control" value="{{ $buddy->user->email }}" />
             <small class="form-text text-muted">
                 @lang('auth.profile.email-info')
-                <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a>.
+                <a href="mailto:it@esn.cvut.cz">it@esn.cvut.cz</a>.
             </small>
         </div>
     </fieldset>

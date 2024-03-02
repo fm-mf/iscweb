@@ -30,7 +30,7 @@
             <input type="email" id="input_email" class="form-control" value="{{ $student->user->email }}" />
             <small class="form-text text-muted">
                 This e-mail address will be used whenever we need to contact you.
-                If you want to change it, contact us at <a href="mailto:it@isc.cvut.cz">it@isc.cvut.cz</a>.
+                If you want to change it, contact us at <a href="mailto:it@esn.cvut.cz">it@esn.cvut.cz</a>.
             </small>
         </div>
         <div class="form-group col-12">

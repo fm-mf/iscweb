@@ -211,7 +211,7 @@
         <li>Why: you <strong>have to</strong> show your EHIC card and a special paper from the VZP state insurance organisation to prove you have health insurance cover whenever you visit a doctor or any medical institution.</li>
         <li>Without this documentation, you have to pay for standard medical care in the Czech Republic and treatment may be refused to you</li>
         <li>How to get it: Visit and register in VZP (Všeobecná zdravotní pojišťovna České republiky) at Na Perštýně 6, Prague 1 to obtain an official document providing you the same health service as for local citizens</li>
-        <li><strong>{{--ISC will offer to take you to register during Orientation Week. --}}It is important to register without delay.</strong></li>
+        <li><strong>{{--ESN will offer to take you to register during Orientation Week. --}}It is important to register without delay.</strong></li>
         <li class="alert alert-info">Note: Students not from EU countries are required to have health insurance from an <strong>authorized insurance company</strong> and the original contract has to be written in the Czech language. You can, usually, arrange this online.</li>
     </ul>
 @stop

@@ -7,7 +7,7 @@
     <ul>
         <li>Before the Orientation Week starts you should get your Welcome Pack.</li>
         <li>
-            You can ask your Buddy or you can get it in the <strong>ISC point</strong>,
+            You can ask your Buddy or you can get it in the <strong>ESN point</strong>,
             which is located in room R304 in Masarykova dormitory
             (Address: <a href="https://goo.gl/maps/tuJqTxMwnWy" target="_blank">Thákurova 550/1, Prague 6, 160 00</a>,
             Phone: <a href="tel:+420 233 051 111">+420 233 051 111</a>).
@@ -27,7 +27,7 @@
             </ul>
         </li>
         <li>
-            Materials from ISC
+            Materials from ESN
             <ul>
                 {{-- <li>Printed Survival Guide</li> --}}
                 <li>List of trips</li>
@@ -36,7 +36,7 @@
         <li>Small gifts</li>
     </ul>
 
-    <h3>How to get to the ISC Point?</h3>
+    <h3>How to get to the ESN Point?</h3>
     <ul>
         <li>From airport:
             <ol>

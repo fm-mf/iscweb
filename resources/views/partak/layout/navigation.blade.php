@@ -1,7 +1,7 @@
 <nav class="partak-nav navbar navbar-dark bg-dark navbar-expand-lg">
     <div class="top-wrapper">
         <a class="logo" href="{{ route('partak.index') }}">
-            <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}" alt="Logo ISC CTU in Prague" />
+            <img src="{{ asset('img/logos/esn-ctu-logo-white.svg') }}" alt="Logo ESN CTU in Prague" />
         </a>
 
         <a class="toggle-button btn" data-toggle="collapse" href="#navbarNav" role="button" aria-expanded="false" aria-controls="navbarNav">

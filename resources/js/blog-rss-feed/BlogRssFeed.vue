@@ -13,7 +13,7 @@
 
         <div class="text-center">
             <a href="/blog" target="_blank" class="btn btn-primary">
-                <i class="fas fa-external-link-alt"></i> Více na ISC Blogu
+                <i class="fas fa-external-link-alt"></i> Více na ESN Blogu
             </a>
         </div>
     </div>

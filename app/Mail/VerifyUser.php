@@ -34,6 +34,6 @@ class VerifyUser extends Mailable
         return $this->view('emails.verification')
                     ->with('person', $this->person)
                     ->subject(__('emails.verification.subject'))
-                    ->from('buddy@isc.cvut.cz', 'Buddy ISC CTU in Prague');
+                    ->from('buddy@esn.cvut.cz', 'Buddy ESN CTU in Prague');
     }
 }

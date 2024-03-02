@@ -52,7 +52,7 @@ class TandemResetPassword extends Notification implements ShouldQueue
         app()->setLocale($notifiable->preferred_language);
 
         return (new MailMessage)
-            ->from('no-reply@isc.cvut.cz', config('app.name'))
+            ->from('no-reply@esn.cvut.cz', config('app.name'))
             ->subject(__('tandem.index.heading') . ' – ' . __('tandem.passwords.password-reset'))
             ->greeting(__('tandem.passwords.email.greeting'))
             ->line(__('tandem.passwords.email.line-1'))

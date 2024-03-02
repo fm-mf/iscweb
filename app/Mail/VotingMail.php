@@ -31,7 +31,7 @@ class VotingMail extends Mailable
     public function build()
     {
         return $this->view('emails.voting')->with([
-            'hash' => $this->exchangeStudent->person->user->hash,        
-        ])->subject('ISC inteGREAT - Vote for the best presentations')->from('integreat@isc.cvut.cz');
+            'hash' => $this->exchangeStudent->person->user->hash,
+        ])->subject('ESN inteGREAT - Vote for the best presentations')->from('integreat@esn.cvut.cz');
     }
 }

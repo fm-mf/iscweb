@@ -103,7 +103,7 @@ return [
         'about-me' => 'O mě',
         'newsletter' => 'Odběr novinek',
         'newsletter-approval' => '
-            Souhlasím s občasným zasíláním informačních e-mailů o dění v ISC
+            Souhlasím s občasným zasíláním informačních e-mailů o dění v ESN
             (např. informace o otevření Buddy databáze či o důležitých nadcházejících akcích).
         ',
 
@@ -166,7 +166,7 @@ return [
             <p>
                 Ooops. Použitý ověřovací odkaz není platný. Zkontroluj prosím,
                 jestli opravdu koresponduje s doručeným odkazem, a případně nás kontaktuj na
-                <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>.
+                <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>.
             </p>
             <p>
                 Omlouváme se za komplikace. :)
@@ -204,7 +204,7 @@ return [
             <p>
                 Ke své úloze se stavíme zodpovědně a zahraničním studentům se snažíme pomáhat –
                 to však neznamená, že jsme jejich sluhy. Naše vztahy by měly být převážně
-                kamarádské. Zároveň si však uvědomujeme, že naše jednání ovlivňuje pověst ISC,
+                kamarádské. Zároveň si však uvědomujeme, že naše jednání ovlivňuje pověst ESN,
                 ČVUT a potažmo celé České republiky. Proto se chováme tak, abychom ji nepoškozovali.
             </p>
             <p>
@@ -215,8 +215,8 @@ return [
             </p>
             <p>
                 Stává se, že si s nějakou situací nevíme rady. Jsme však jeden tým, a vždy
-                se můžeme obrátit na ISC s žádostí o pomoc
-                (<a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a>).
+                se můžeme obrátit na ESN s žádostí o pomoc
+                (<a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>).
             </p>
         ',
     ],

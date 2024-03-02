@@ -31,7 +31,7 @@ class VotingMailPartak_whereHashIsNull extends Mailable
     public function build()
     {
         return $this->view('emails.votingPartakFixHashIsNull')->with([
-            'hash' => $this->buddy->person->user->hash,        
-        ])->subject('ISC inteGREAT - Vote for the best presentations (link fix)')->from('integreat@isc.cvut.cz');
+            'hash' => $this->buddy->person->user->hash,
+        ])->subject('ESN inteGREAT - Vote for the best presentations (link fix)')->from('integreat@esn.cvut.cz');
     }
 }

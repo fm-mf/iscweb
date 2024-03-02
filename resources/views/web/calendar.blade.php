@@ -27,7 +27,7 @@
                         </p>
                     @endif
                     <p>
-                        <a href="https://www.facebook.com/isc.ctu.prague/events" target="_blank" rel="noopener">
+                        <a href="https://www.facebook.com/esn.ctu.prague/events" target="_blank" rel="noopener">
                             <span class="fab fa-facebook-square fa-lg"></span>
                             Subscribe for more information
                         </a>

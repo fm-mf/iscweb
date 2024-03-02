@@ -14,4 +14,4 @@ Believe in ISC Spirit. Pass it on.
 Duch ISC.
 
 
-Tento e-mail odeslal kybernetický klon Ducha ISC, kterého do kódu implementoval tvůrce ParťákNetu.
+Tento e-mail odeslal kybernetický klon Ducha ESN, kterého do kódu implementoval tvůrce ParťákNetu.

@@ -1,4 +1,4 @@
-ISC web
+ESN web
 =======
 
 Technologies used
@@ -52,7 +52,7 @@ Installation
 
 	2. Add content of the created `id_rsa.pub` SSH key to your [GitHub account][github-new-ssh]
 
-4. In terminal navigate to the directory in which you want the ISC web sources to be downloaded
+4. In terminal navigate to the directory in which you want the ESN CTU web sources to be downloaded
 
 5. Then run the following commands in terminal:
 
@@ -99,7 +99,7 @@ Installation
 		sudo systemctl restart apache2
 
 
-9. Populate the ISC database by running the following command in terminal from your project directory
+9. Populate the ESN database by running the following command in terminal from your project directory
 
 		php artisan migrate --seed
 
@@ -164,7 +164,7 @@ Installation
 	8. Right-click on a WAMP icon in the system tray
 	9. Tools -> Restart DNS
 
-8. Create the ISC database
+8. Create the ESN database
 	1. In Windows Explorer navigate to the `C:\wamp64\apps\adminerX.X.X\` directory
 	2. Open file `index.php` and at the beginning of the file change the line
 
@@ -193,7 +193,7 @@ Installation
 		4. Left-click on the WAMP icon in the system tray
 		5. MySQL -> Service administration 'wampmysqld64' -> Restart service
 
-9. To populate the ISC database, open Git Bash in the project directory and run the following command
+9. To populate the ESN database, open Git Bash in the project directory and run the following command
 
 		php artisan migrate --seed
 

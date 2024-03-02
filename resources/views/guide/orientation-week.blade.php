@@ -11,7 +11,7 @@
     <h2>Orientation Week</h2>
     <div class="alert alert-danger">
         <p>
-            Orientation Week is held by ISC one week before the semester starts
+            Orientation Week is held by ESN one week before the semester starts
             and it provides you a lot of important information
             which will help you to settle in the Czech Republic.
             <strong>It is strongly recommended to attend this program.</strong>
@@ -112,7 +112,7 @@
                 {{--<li>Czech language and Czech culture courses</li>--}}
                 <li>Life in the Czech Republic and how to survive in Prague</li>
                 <li>ESN membership</li>
-                <li>ISC teams and activities</li>
+                <li>ESN teams and activities</li>
                 <li>Health and property insurance</li>
                 <li>Visa regulations</li>
             </ul>
@@ -121,7 +121,7 @@
 
     {{--
     <h4 id="tandem-evening">Tandem Evening</h4>
-    <p>A unique program for improving your language learning and teaching skills organized by ISC Languages team</p>
+    <p>A unique program for improving your language learning and teaching skills organized by ESN Languages team</p>
     <ul class="list-unstyled">
         <li>When: <strong>TBA</strong></li>
         <li>Where: <strong>TBA</strong></li>
@@ -237,7 +237,7 @@
 {{--        <li>Where: <strong><a href="https://goo.gl/maps/Uxdt3bXSf9NwVk5M6" target="_blank">Masarykova dormitory</a>, Congress hall</strong></li>--}}
         <li>Topics:
             <ul>
-                <li>Presentation of ISC trips</li>
+                <li>Presentation of ESN trips</li>
                 <li>Registrations for trips organized for <a href="#day-4-7">days 4–7</a> (<strong>ESNcard + cash needed</strong>)</li>
             </ul>
         </li>
@@ -274,7 +274,7 @@
     @endif
 
     <h4 id="prague-discovery-game">Prague Discovery Game</h4>
-    <p>A great treasure hunt across Prague organized by the ISC Activities team</p>
+    <p>A great treasure hunt across Prague organized by the ESN Activities team</p>
     {{--
     <p class="alert alert-info">
         The exact time and other instructions will be posted in the
@@ -295,7 +295,7 @@
     </ul>
 
     <h4 id="integreation-party">inteGREATion party</h4>
-    <p>Get to know each other at the very first ISC inteGREAT party and have fun!</p>
+    <p>Get to know each other at the very first ESN inteGREAT party and have fun!</p>
     <ul class="list-unstyled">
         <li>When: <strong>21:00</strong></li>
         {{-- <li>Where: <strong>TBA</strong></li> --}}

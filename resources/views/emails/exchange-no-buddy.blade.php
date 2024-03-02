@@ -18,11 +18,11 @@
         </p>
         <p>
             <a href="{{ route('guide-page', ['page' => 'welcome-pack']) }}" target="_blank">Welcome Packs</a>
-            are prepared for you in our <a href="https://goo.gl/maps/MrjEDKdCTUm" target="_blank">ISC Point</a>
+            are prepared for you in our <a href="https://goo.gl/maps/MrjEDKdCTUm" target="_blank">ESN Point</a>
             at Masarykova dormitory – it is very useful because it includes a confirmation of study
             (needed for student discount in Prague public transport), info about registration
             at your new faculty, orientation week etc. Be sure to pick it up.
-            <strong>The Welcome Pack is waiting for you at Masarykova dormitory, room R304, 3rd floor (ISC Point).
+            <strong>The Welcome Pack is waiting for you at Masarykova dormitory, room R304, 3rd floor (ESN Point).
             Check <a href="{{ route('web.contacts') }}" target="_blank">our website</a> for opening hours.</strong>
         </p>
         <p><strong>What do you need to do after your arrival:</strong></p>
@@ -62,10 +62,10 @@
                     </li>
                 </ul>
             </li>
-            <li>Go to the <a href="https://goo.gl/maps/uAb8pHV6kkWvjSXDA" target="_blank">Masarykova dormitory</a> to the 3rd floor to ISC Point and get:
+            <li>Go to the <a href="https://goo.gl/maps/uAb8pHV6kkWvjSXDA" target="_blank">Masarykova dormitory</a> to the 3rd floor to ESN Point and get:
                 <ul>
                     <li><a href="{{ route('guide-page', ['page' => 'welcome-pack']) }}">Welcome pack</a></li>
-                    <li><a href="{{ route('guide-page', ['page' => 'isc-intro#membership']) }}">ISC membership</a> (optional) with ESNcard &amp; SIM card &amp; T-shirt</li>
+                    <li><a href="{{ route('guide-page', ['page' => 'esn-ctu-intro#membership']) }}">ESN membership</a> (optional) with ESNcard &amp; SIM card &amp; T-shirt</li>
                 </ul>
             </li>
             <li>Go to the metro station Hradčanská or Nádraží Veleslavín and get:
@@ -88,6 +88,6 @@
             </li>
         </ol>
         <p>In case you have any questions or difficulties, don’t hesitate to contact us!</p>
-        <p>Your ISC CTU in Prague</p>
+        <p>Your ESN CTU in Prague</p>
     </body>
 </html>

@@ -103,7 +103,7 @@
                             <img src="{{ asset('img/web/sergio.jpg') }}" alt="Sergio Martín" />
                         </div>
                         <div class="col-md-8">
-                            <p>I have a lot of good memories of the Czech Technical University (CTU), but the first thing I have to emphasize is the International Student Club (ISC). Due to the nice and friendly atmosphere I could feel since the beginning.</p>
+                            <p>I have a lot of good memories of the Czech Technical University (CTU), but the first thing I have to emphasize is the Erasmus Student Network (ESN). Due to the nice and friendly atmosphere I could feel since the beginning.</p>
                             <p>I decided to help them with the organization of some activities like the orientation week, language meetings, sport events or trips. I’ve also been teaching my Spanish language to other students!</p>
                             <p>It has been an unbelievable experience for me that I recommend to every Erasmus student for sure!</p>
                             <p><strong>Sergio Martín</strong>, Spain</p>
@@ -116,9 +116,9 @@
                             <img src="{{ asset('img/web/mikel.jpg') }}" alt="Mikel Ogueata" />
                         </div>
                         <div class="col-md-8">
-                            <p>Joining ISC CTU in Prague allowed me many things. At the beginning of the semester, it helped me with getting to know new people from all over the world. I started learning German (with a very nice teacher) in the Masarykova dormitory, I discovered lots of new places in Prague by attending the Café Lingea meetings, where my language skills were tested, and I learned to play voleyball.</p>
+                            <p>Joining ESN CTU in Prague allowed me many things. At the beginning of the semester, it helped me with getting to know new people from all over the world. I started learning German (with a very nice teacher) in the Masarykova dormitory, I discovered lots of new places in Prague by attending the Café Lingea meetings, where my language skills were tested, and I learned to play voleyball.</p>
                             <p>I still keep many friends who I have visited/hosted after my Erasmus. That's one of the things I am most proud of &ndash; to be able to keep these friendships through time.</p>
-                            <p>My advice for those starting an Erasmus is clear: Join ISC as soon as you get there, you won't regret it.</p>
+                            <p>My advice for those starting an Erasmus is clear: Join ESN as soon as you get there, you won't regret it.</p>
                             <p><strong>Mikel Ogueta</strong>, Spain</p>
                         </div>
                     </div>

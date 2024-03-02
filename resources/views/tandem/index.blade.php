@@ -68,7 +68,7 @@
                         <strong>
                             <span class="fas fa-envelope"></span> @lang('tandem.auth.e-mail'):
                         </strong>
-                        <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a>
+                        <a href="mailto:languages@esn.cvut.cz">languages@esn.cvut.cz</a>
                     </p>
                 </div>
             </div>

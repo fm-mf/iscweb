@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-7 col-lg-8">
-                    <p>The <strong>HISTORY</strong> of our student organization goes back to 1999 when two Czech students returned from their study exchange in the USA and in cooperation with International Office at CTU established the International Student Club and started our core activity &ndash; Buddy Program.</p>
+                    <p>The <strong>HISTORY</strong> of our student organization goes back to 1999 when two Czech students returned from their study exchange in the USA and in cooperation with International Office at CTU established the Erasmus Student Network and started our core activity &ndash; Buddy Program.</p>
 
                     <p>Since then <strong>OUR VISION</strong> has been to <strong>create an international community</strong> at the Czech Technical University in Prague. We want to <strong>integrate exchange students</strong> into life in the Czech Republic and into events at our university. We create surroundings where different cultures meet and foreign and Czech students get to know each other.</p>
                     <p>We support the active involvement of our members, their self-realization and personal development  in a creative environment where there is a friendly and open atmosphere.</p>

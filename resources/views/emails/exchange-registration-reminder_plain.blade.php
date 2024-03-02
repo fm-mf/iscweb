@@ -24,7 +24,7 @@ FB page: {{ $fbPageUrl }}
 {{--FB group: {{ Settings::get('fbGroupLink') }}--}}
 {{--WhatsApp Announcements group: {{ Settings::get('whatsAppAnnoucementsLink') }}--}}
 {{--WhatsApp General group: {{ Settings::get('whatsAppGeneralLink') }}--}}
-Discord: {{ $exchangeDiscordLink }}
+{{--Discord: {{ $exchangeDiscordLink }}--}}
 Instagram: {{ $igProfileUrl }}
 
 This Privacy notice is to let you know how we promise to look after your personal information:

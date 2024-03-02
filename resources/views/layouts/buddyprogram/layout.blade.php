@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta id="token" name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>Buddy Program | ISC CTU in Prague</title>
+    <title>Buddy Program | ESN CTU in Prague</title>
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
 
@@ -22,7 +22,7 @@
         <div class="d-flex flex-grow-1 align-items-center">
             <span class="w-100 d-lg-none d-block"></span>
             <a class="navbar-brand" href="{{ route('buddy-home') }}">
-                <img src="{{ asset('img/logos/isc-logo-white-color-horizontal.svg') }}"  alt="{{ $shortName }}" />
+                <img src="{{ asset('img/logos/esn-ctu-logo-white.svg') }}"  alt="{{ $shortName }}" />
             </a>
             <div class="w-100 text-right">
                 <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar">

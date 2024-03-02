@@ -58,7 +58,7 @@
     <dl>
         <dt>Masarykova dorm</dt>
             <dd><a href="http://www.mk.cvut.cz" target="_blank">www.mk.cvut.cz</a></dd>
-            <dd>Here you can arrange for Internet access during the pre-orientation week registration at ISC Point</dd>
+            <dd>Here you can arrange for Internet access during the pre-orientation week registration at ESN Point</dd>
         <dt>Strahov</dt>
             <dd><a href="http://www.siliconhill.cz" target="_blank">www.siliconhill.cz</a></dd>
             <dd>In Strahov you need to contact the administrator for your block.</dd>

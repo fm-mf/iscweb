@@ -33,7 +33,7 @@ class HRNewRegistration extends Mailable
     {
         return $this->view('emails.letHRknow')
                     ->with('buddy', $this->buddy)
-                    ->from('it.support@isc.cvut.cz')
+                    ->from('it.support@esn.cvut.cz')
                     ->subject('Zaregistroval se nový buddík');
     }
 }

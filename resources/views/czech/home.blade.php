@@ -22,7 +22,7 @@
                 {{-- ID video: --}}
                 {{--<a class="fancybox-media" href="https://player.vimeo.com/video/163983964"><span class="fas fa-play-circle fa-5x"></span></a>--}}
             </div>
-            <p class="scroll-down"><a href="#info" class="link link-more" id="scroll">Co je to ISC a jak se zapojit? <br> <span class="fas fa-chevron-down fa-lg"></span></a></p>
+            <p class="scroll-down"><a href="#info" class="link link-more" id="scroll">Co je to ESN a jak se zapojit? <br> <span class="fas fa-chevron-down fa-lg"></span></a></p>
             <div class="row justify-content-center align-items-stretch align-content-center logos">
                 <div class="col-auto">
                     <a href="https://www.esn.org" class="logo" target="_blank" rel="noopener">
@@ -44,7 +44,7 @@
                 <div class="col">
                     <h2>Kdo jsme?</h2>
                     <p>
-                        International Student Club je skupinou mladých a aktivních lidí, kteří ve svém
+                        Erasmus Student Network je skupinou mladých a aktivních lidí, kteří ve svém
                         volném čase chtějí dělat něco smysluplného a při tom se rádi baví.
                         Každý semestr integrujeme zahraniční studenty do života a dění na naší univerzitě i v celé ČR.
                         Zároveň se od nich sami učíme a zjišťujeme, jak to chodí v ostatních koutech světa.
@@ -77,18 +77,18 @@
                     <div class="row justify-content-center text-left">
                         <ul class="col-auto list-unstyled social-media-links">
                             <li>
-                                <a href="https://www.facebook.com/isc.ctu.prague" target="_blank" rel="noopener">
-                                    <span class="fab fa-facebook-square fa-2x"></span> ISC CTU in Prague
+                                <a href="https://www.facebook.com/esn.ctu.prague" target="_blank" rel="noopener">
+                                    <span class="fab fa-facebook-square fa-2x"></span> ESN CTU in Prague
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/isc.cvut/" target="_blank" rel="noopener">
-                                    <span class="fab fa-instagram fa-2x"></span> @isc.cvut
+                                <a href="https://www.instagram.com/esn.ctu/" target="_blank" rel="noopener">
+                                    <span class="fab fa-instagram fa-2x"></span> @esn.ctu
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:isc@isc.cvut.cz" target="_blank">
-                                    <span class="fas fa-envelope-open-text fa-2x"></span> isc@isc.cvut.cz
+                                <a href="mailto:isc@esn.cvut.cz" target="_blank">
+                                    <span class="fas fa-envelope-open-text fa-2x"></span> isc@esn.cvut.cz
                                 </a>
                             </li>
                         </ul>

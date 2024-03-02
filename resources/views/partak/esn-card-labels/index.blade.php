@@ -51,7 +51,7 @@
                             $isInvalid = $errors->has('section_name') ? ' is-invalid' : '';
                         @endphp
                         {{ Form::label('section_name', 'Section name', ['class' => 'required']) }}
-                        {{ Form::text('section_name', 'ISC CTU in Prague', ['required' => 'required', 'class' => 'form-control' . $isInvalid]) }}
+                        {{ Form::text('section_name', 'ESN CTU in Prague', ['required' => 'required', 'class' => 'form-control' . $isInvalid]) }}
                         @error('section_name')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

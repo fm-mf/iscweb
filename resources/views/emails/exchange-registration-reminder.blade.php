@@ -52,7 +52,7 @@
 {{--    <a href="{{ Settings::get('fbGroupLink') }}/">FB group</a>: {{ Settings::get('fbGroupLink') }}<br>--}}
 {{--    <a href="{{ Settings::get('whatsAppAnnoucementsLink') }}">WhatsApp Announcements group</a>: {{ Settings::get('whatsAppAnnoucementsLink') }}<br>--}}
 {{--    <a href="{{ Settings::get('whatsAppGeneralLink') }}">WhatsApp General group</a>: {{ Settings::get('whatsAppGeneralLink') }}<br>--}}
-    <a href="{{ $exchangeDiscordLink }}">Discord</a>: {{ $exchangeDiscordLink }}<br>
+{{--    <a href="{{ $exchangeDiscordLink }}">Discord</a>: {{ $exchangeDiscordLink }}<br>--}}
     <a href="{{ $igProfileUrl }}">Instagram</a>: {{ $igProfileUrl }}
 </p>
 

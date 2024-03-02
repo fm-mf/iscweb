@@ -45,7 +45,7 @@
         <li>Short-term visa is for 90 days only</li>
         <li>If you don't have a visa granted in your passport before you arrive, there is no way you can extend or change it. To do so, you would need to travel to another country to apply at a Czech Embassy. Save trouble in advance and make sure your visa is stamped in your passport.</li>
         <li>After your arrival, make sure that you have done everything and your visa is valid.</li>
-        <li>If you are in any doubt, or if anything is not clear to you, please contact our <a href="mailto:visa@isc.cvut.cz">Visa Coordinator (visa@isc.cvut.cz)</a>.</li>
+        <li>If you are in any doubt, or if anything is not clear to you, please contact our <a href="mailto:visa@esn.cvut.cz">Visa Coordinator (visa@esn.cvut.cz)</a>.</li>
     </ul>
 
     <h3 id="duration">Day duration</h3>
@@ -99,7 +99,7 @@
         <li>All foreign students arriving on a Visa for collection of residence permit or &quot;<strong>DV/R</strong>&quot; &ndash; entering visa; <a href="{{ url('guide/visa-example-pictures') }}" target="_blank">see visa example pictures</a></li>
         <li><strong>Within 3 working days!</strong> (after arrival in the Czech Republic)</li>
         <li>Come back to collect it within the specified limit (but not later than within 60 days!)</li>
-        <li>For every visit you have to <strong>book an appointment</strong>: <a href="tel:+420 974 820 680">+420 974 820 680</a>. Ask your Buddy to call there and make you an appointment, he will need your name, passport number and date of birth. If your Buddy is not available ask our <a href="mailto:visa@isc.cvut.cz">Visa Coordinator (visa@isc.cvut.cz)</a>.</li>
+        <li>For every visit you have to <strong>book an appointment</strong>: <a href="tel:+420 974 820 680">+420 974 820 680</a>. Ask your Buddy to call there and make you an appointment, he will need your name, passport number and date of birth. If your Buddy is not available ask our <a href="mailto:visa@esn.cvut.cz">Visa Coordinator (visa@esn.cvut.cz)</a>.</li>
         <li>Be sure to make the appointment at leas a week before you arrive, they tend to have only few free spots</li>
     </ul>
     <dl>
@@ -114,7 +114,7 @@
 
     <h4 id="extending">Extending your stay</h4>
     <ul>
-        <li>Contact our <a href="mailto:visa@isc.cvut.cz">Visa Coordinator (visa@isc.cvut.cz)</a></li>
+        <li>Contact our <a href="mailto:visa@esn.cvut.cz">Visa Coordinator (visa@esn.cvut.cz)</a></li>
         <li>90 &ndash; 14 days before expiration, Ministry of the Interior's office</li>
         <li>What you need: proof of medical travel insurance (covering the whole stay)</li>
         <li>After your visa expires you have to leave the country and it is not possible to extend it anymore,

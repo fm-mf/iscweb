@@ -47,7 +47,7 @@
 
             <div class="footer" id="footer">
                 <div class="container mb-0 text-center p-3">
-                    &copy; {{ $officialName }} | za stránku zodpovídá Quality & Knowledge Manager (<a href="mailto:knowledge@isc.cvut.cz">knowledge@isc.cvut.cz</a>)
+                    &copy; {{ $officialName }} | za stránku zodpovídá Quality & Knowledge Manager (<a href="mailto:knowledge@esn.cvut.cz">knowledge@esn.cvut.cz</a>)
                 </div>
             </div>
         </div>

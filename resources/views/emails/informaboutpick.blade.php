@@ -13,7 +13,7 @@
         Name: {{ $buddyName }}<br>
         Email: <a href="mailto:{{ $buddyEmail }}">{{ $buddyEmail }}</a></p>
     <p>Looking forward to seeing you in Prague!<br>
-        ISC Buddy Team
+        ESN Buddy Team
     </p>
 </body>
 </html>

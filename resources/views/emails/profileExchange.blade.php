@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>ISC CTU Buddy program</title>
+    <title>ESN CTU Buddy program</title>
 </head>
 <body>
 <p>Hi there!<br>It's less than a month to your arrivals and we're doing our best to set up the buddy program for you!
@@ -14,8 +14,8 @@
 
 <p>If, for any reason, you don't wish to have a Czech buddy, you can also take your name out of the program by checking the "I don't wish to have a buddy" option in the same form. Just remember that taking part in the buddy program is the best way to meet Czech people, learn something about us and our culture and, above all, it can make your first days in Prague significantly easier, since not all people in Prague speak English.</p>
 
-<p>You can find more information about International Student Club and our activities on our website <a href="https://www.isc.cvut.cz">www.isc.cvut.cz</a>. And if you have any questions, feel free to ask at <a href="mailto:buddy@isc.cvut.cz">buddy@isc.cvut.cz</a></p>
+<p>You can find more information about Erasmus Student Network and our activities on our website <a href="https://www.esn.cvut.cz">www.esn.cvut.cz</a>. And if you have any questions, feel free to ask at <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a></p>
 
-<p>We can't wait to meet you in Prague.<br>International Student Club CTU in Prague</p>
+<p>We can't wait to meet you in Prague.<br>Erasmus Student Network CTU in Prague</p>
 </body>
 </html>

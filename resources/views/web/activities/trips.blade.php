@@ -22,7 +22,7 @@
 
                     <h2>How to register</h2>
                     <p>For the trips, which take place in the Orientation Week, you can register at the second orientation meeting where all details about our trips will be presented. Please, bring cash with you. Due to limited places for each trip it won't be possible to pay later.</p>
-                    <p>We will announce new trips on our website and on Facebook during the semester. Shortly after the announcement, the registration in the ISC Point in the Masarykova dormitory will be opened, and you should enroll as soon as possible.</p>
+                    <p>We will announce new trips on our website and on Facebook during the semester. Shortly after the announcement, the registration in the ESN Point in the Masarykova dormitory will be opened, and you should enroll as soon as possible.</p>
                 </div>
                 <div class="col-sm-5">
                     <ul class="gallery list-unstyled">
@@ -39,7 +39,7 @@
                 <div class="col">
                     <h2>Trips for {{ $currentSemester }} coming soon…</h2>
                     <p class="mt-5">
-                        For fresh news about ISC events subscribe to <a href="https://www.facebook.com/isc.ctu.prague/events/">Facebook ISC CTU in Prague!</a>
+                        For fresh news about ESN events subscribe to <a href="https://www.facebook.com/esn.ctu.prague/events/">Facebook ESN CTU in Prague!</a>
                     </p>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                             <div class="col-sm-6 ow-detail col-sm-height col-top">
                                 <p>
                                     We are going to Budapest together with erasmus students from University of Economics! Join our trip, meet new friends and visit one of the most beautiful cities in Europe.<br>
-                                    You can register in the ISC Point.
+                                    You can register in the ESN Point.
                                 </p>
                                 <p>
                                     ► <strong>More info on</strong> <a href="https://www.facebook.com/events/1709595802586441/"><strong>Facebook event!</strong></a>
@@ -72,7 +72,7 @@
                                 A trip full of overwhelming, mysterious and frightening historical places is prepared! The old city of Polish kings, ancient salt mines, terrifyingly recent concentration camp and a lot more awaits you, so get on board!  </p>
                             <p>
 
-                                <b>Registration?</b> come to <a href="https://goo.gl/maps/OCtHW">ISC Point (R304)</a> and pay there
+                                <b>Registration?</b> come to <a href="https://goo.gl/maps/OCtHW">ESN Point (R304)</a> and pay there
                                 <br>
                                 <b>Price?</b> 3 100 CZK
                             </p>
@@ -107,7 +107,7 @@
                                     <b>Price:</b> 1200 CZK
                                 </p>
                                 <p>
-                                    Registrations are opened you can pay in the ISC Point.
+                                    Registrations are opened you can pay in the ESN Point.
                                 </p>
                                 <p>
                                 ► <a href="https://www.facebook.com/events/778149378942583">More info in Facebook event</a>
@@ -131,7 +131,7 @@
                                 <h2>Megatrip</h2>
                             </div>
                             <div class="col-sm-6 ow-detail col-sm-height col-top">
-                                <p>Are you serious about traveling? Do you want to join our partybus and see three countries in one weekend? Then read on: ISC is going to show you Brno, Bratislava and Vienna all in one adventurous trip! See the capitals of central Europe: their beautiful cultural heritage during the day and their drinking habits during the night!</p>
+                                <p>Are you serious about traveling? Do you want to join our partybus and see three countries in one weekend? Then read on: ESN is going to show you Brno, Bratislava and Vienna all in one adventurous trip! See the capitals of central Europe: their beautiful cultural heritage during the day and their drinking habits during the night!</p>
                             </div>
                         </div>
                         <span class="vspace"></span>
@@ -141,7 +141,7 @@
                                 <h2>Paintball</h2>
                             </div>
                             <div class="col-sm-6 ow-detail col-sm-height col-top">
-                                <p>Come and join us for a spectacular ISC battle where your adrenaline will rise, but your safety will not be threatened. Where nationalities and friendships do not matter. Where your enemies are your friends and friends are your enemies. No previous experience required.</p>
+                                <p>Come and join us for a spectacular ESN battle where your adrenaline will rise, but your safety will not be threatened. Where nationalities and friendships do not matter. Where your enemies are your friends and friends are your enemies. No previous experience required.</p>
                                 </p>
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                             </div>
                             <div class="col-sm-6 ow-detail col-sm-height col-top">
                                 <p>
-                                Imagine being fully equipped with a high-tech phaser and vest, entering a futuristic world somewhere in the galaxy. Whoever said laser tag is boring clearly never played it with a bunch on internationals! Laser tag is a great game that makes your experience anything but ordinary. Come with ISC to experience that for yourself!
+                                Imagine being fully equipped with a high-tech phaser and vest, entering a futuristic world somewhere in the galaxy. Whoever said laser tag is boring clearly never played it with a bunch on internationals! Laser tag is a great game that makes your experience anything but ordinary. Come with ESN to experience that for yourself!
                                 </p>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                             </div>
                             <div class="col-sm-6 ow-detail col-sm-height col-top">
                                 <p>
-                                Have you ever seen a salt mine? Have you ever been to a concentration camp? Have you been partying all weekend long with 50 other exchange students in Krakow? No? ISC (CTU) and Buddy System (VŠE) together organize a trip just for you!
+                                Have you ever seen a salt mine? Have you ever been to a concentration camp? Have you been partying all weekend long with 50 other exchange students in Krakow? No? ESN (CTU) and Buddy System (VŠE) together organize a trip just for you!
                                 </p>
                             </div>
                         </div>

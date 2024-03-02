@@ -32,15 +32,15 @@
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
                     </p>
                     <p>
-                        Languages courses for the Autumn semester 2023/2024 will start on <strong>Monday, 16 October 2023</strong>.
+                        Languages courses for the Spring semester 2023/2024 will start on <strong>Monday, 11 March 2024</strong>.
                     </p>
                     <p>
-                        Are you interested in teaching a language with the ISC? That's great, we would like to have you!
+                        Are you interested in teaching a language with the ESN? That's great, we would like to have you!
                         Contact the Languages Coordinator (see the contact information at the bottom of the webpage).
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Have a look at the <b>Autumn 2023 schedule</b>
+                            Have a look at the <b>Spring 2024 schedule</b>
                         </a>
                     </p>
                     <h3>Where are the classrooms?</h3>
@@ -49,13 +49,13 @@
                         <dd>
                             is located on the 3rd floor of the
                             <a href="https://goo.gl/maps/au5lF" target="_blank" rel="noopener">Masarykova dormitory</a>
-                            near ISC Point
+                            near ESN Point
                         </dd>
                         <dt>R404</dt>
                         <dd>
                             is located on the 4th floor of the
                             <a href="https://goo.gl/maps/au5lF" target="_blank" rel="noopener">Masarykova dormitory</a>
-                            same place as ISC Point, just one floor higher
+                            same place as ESN Point, just one floor higher
                         </dd>
                         <dt>Strahov room</dt>
                         <dd>
@@ -79,7 +79,7 @@
                     <p>Café Lingea is a conversational meeting where we informally chat in different languages
                         (English + some chosen). Café Lingea takes place in a different coffee shop or restaurant each time,
                         so it is also a good opportunity to discover some new places in Prague. Join the Facebook group
-                        <a href="https://www.facebook.com/groups/125659680939345" target="_blank" rel="noopener">ISC Café Lingea</a>!</p>
+                        <a href="https://www.facebook.com/groups/125659680939345" target="_blank" rel="noopener">ESN Café Lingea</a>!</p>
                     <p>Café Lingeas are here for you every 2 weeks!</p>
 
                     {{---------------- rozvrh languages eventů ----------------}}
@@ -113,7 +113,7 @@
                     <h2>See the schedule</h2>
                     <p>You can have a look at the
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            Autumn 2023 schedule
+                            Spring 2024 schedule
                         </a>
                     </p>{{--
                     <p>
@@ -126,7 +126,7 @@
                     {{--<p>
                         Our currently offered courses will end according to every teachers' wish or latest at the end of June.
                         Schedule for the Autumn courses shall be published in October 2018.
-                        Please note that during summer holidays there are no language classes provided by ISC.
+                        Please note that during summer holidays there are no language classes provided by ESN.
                     </p>--}}
                     <p>
                         <a href="{{ url('files/languages-schedule.php') }}">
@@ -211,7 +211,7 @@
                         <dd id="answer5" class="collapse">
                             YES. Everyone who has a desire to teach their native language can become
                             a teacher. If you are interested, sign in at
-                            <a href="mailto:languages@isc.cvut.cz">languages@isc.cvut.cz</a>
+                            <a href="mailto:languages@esn.cvut.cz">languages@esn.cvut.cz</a>
                         </dd>
 
                         <dt id="question6">
@@ -232,7 +232,7 @@
                             </a>
                         </dt>
                         <dd id="answer7" class="collapse">
-                            Register in the <a href="http://isc.cvut.cz/tandem">Tandem database</a>,
+                            Register in the <a href="{{ url('tandem') }}">Tandem database</a>,
                             find your tandem partner and contact him/her by email.
                         </dd>
 
@@ -259,7 +259,7 @@
                         <dd id="answer9" class="collapse">
                             Usually we speak English and one other language (Spanish, German,
                             French, Russian and also Finnish for instance.) What language we will
-                            speak next time can be found on our website or in the FB group (ISC Café Lingea).
+                            speak next time can be found on our website or in the FB group (ESN Café Lingea).
                         </dd>
 
                         <dt id="question10">

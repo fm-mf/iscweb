@@ -18,7 +18,7 @@
                         <div class="col-sm-8 col-md-6 col-lg-4 ml-auto">
                             <div class="row">
                                 <div class="col opening-hours">
-                                    <h2>See when we're in the ISC Point:</h2>
+                                    <h2>See when we're in the ESN Point:</h2>
                                     {{ $openingHours->html_text }}
                                     @component('web.components.opening-hours-table', ['openingHours' => $openingHours->hours_json['hours']])
                                     @endcomponent
@@ -26,7 +26,7 @@
                             </div>
                             <div class="row">
                                 <div class="col address">
-                                    <h2>Where can you find our ISC Point?</h2>
+                                    <h2>Where can you find our ESN Point?</h2>
                                     <ol class="list-unstyled">
                                         <li class="font-weight-bold">{{ $fullName }}</li>
                                         <li>Masarykova kolej, room 304 (red)</li>
@@ -54,19 +54,19 @@
             <dl class="row justify-content-center">
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fa-brands fa-instagram"></span> Instagram</dt>
-                    <dd><a href="{{ $igProfileUrl }}" target="_blank" rel="noopener">@isc.ctu</a></dd>
+                    <dd><a href="{{ $igProfileUrl }}" target="_blank" rel="noopener">@esn.ctu</a></dd>
                 </div>
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fa-brands fa-facebook"></span> Facebook</dt>
-                    <dd><a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">isc.ctu.prague</a></dd>
+                    <dd><a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">esn.ctu.prague</a></dd>
                 </div>
-                <div class="col-md-6 col-xl-4 d-flex">
-                    <dt><span class="fa-brands fa-discord"></span> Discord</dt>
-                    <dd><a href="{{ $exchangeDiscordLink }}" target="_blank" rel="noopener">ISC CTU in Prague</a></dd>
-                </div>
+{{--                <div class="col-md-6 col-xl-4 d-flex">--}}
+{{--                    <dt><span class="fa-brands fa-discord"></span> Discord</dt>--}}
+{{--                    <dd><a href="{{ $exchangeDiscordLink }}" target="_blank" rel="noopener">ESN CTU in Prague</a></dd>--}}
+{{--                </div>--}}
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fas fa-envelope"></span> @lang('web.Email')</dt>
-                    <dd><a href="mailto:isc@isc.cvut.cz">isc@isc.cvut.cz</a></dd>
+                    <dd><a href="mailto:isc@esn.cvut.cz">isc@esn.cvut.cz</a></dd>
                 </div>
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fas fa-phone-alt"></span> @lang('web.Phone')</dt>

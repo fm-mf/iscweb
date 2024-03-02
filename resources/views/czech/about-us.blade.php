@@ -17,7 +17,7 @@
                 <div class="col">
                     <h2>Jak to začalo?</h2>
                     <p>
-                        Historie International Student Clubu (ISC) sahá až do roku 1999,
+                        Historie Erasmus Student Network klubu (ESN) sahá až do roku 1999,
                         kdy se dva čeští studenti vrátili ze svého výměnného programu v USA
                         a ve spolupráci s Odborem zahraničních vztahů rektorátu ČVUT
                         rozjeli klíčovou aktivitu našeho klubu – Buddy program.
@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-7 col-lg-8">
-                    <h2>Struktura ISC</h2>
+                    <h2>Struktura ESN</h2>
                 </div>
             </div>
             <div class="row">
@@ -54,7 +54,7 @@
                         nebo je třeba vyzkoušet všechny.
                     </p>
                     <p>
-                        ISC je také členem <strong>Erasmus Student Network</strong> (ESN),
+                        ESN CTU je také členem <strong>Erasmus Student Network</strong> (ESN),
                         což je organizace sdružující zhruba 530 studentských kubů po celé Evropě,
                         do jejichž činnosti se zapojuje přes 40 000 dobrovolníků,
                         kteří každoročně pomáhají zhruba 350 000 zahraničních studentů.
@@ -71,7 +71,7 @@
                     <div class="row">
                         <div class="col-8 col-sm-10 col-xl-8 ml-auto mr-auto">
                             <a href="{{ url('/') }}">
-                                <img src="/img/logos/isc-logo-color-horizontal.svg" alt="Logo ISC CTU in Prague" />
+                                <img src="/img/logos/esn-ctu-logo-colour.svg" alt="Logo ESN CTU in Prague" />
                             </a>
                         </div>
                     </div>
@@ -99,11 +99,11 @@
                 <div class="col">
                     <h2>Naše vize</h2>
                     <p>
-                        ISC vize je myšlenka, která stojí za vším, co děláme. Vyjadřuje naše odhodlání
+                        Vize ESN CTU je myšlenka, která stojí za vším, co děláme. Vyjadřuje naše odhodlání
                         a proč děláme věci takovým způsobem, jakým je děláme. Zní následovně:
                     </p>
                     <blockquote>
-                        Vizí ISC je vytváření mezinárodní komunity na ČVUT v Praze.
+                        Vizí ESN je vytváření mezinárodní komunity na ČVUT v Praze.
                         Chceme integrovat zahraniční studenty do života v České republice
                         a dění na naší univerzitě. Vytváříme prostředí, kde se setkávají různé kultury
                         a poznávají čeští a zahraniční studenti. Podporujeme aktivní zapojení
@@ -121,15 +121,15 @@
                 <div class="col">
                     <h2>Kde nás najdeš?</h2>
                     <p>
-                        Sídlem našeho klubu tzv. <strong>ISC Point</strong> na Masarykově koleji
+                        Sídlem našeho klubu tzv. <strong>ESN Point</strong> na Masarykově koleji
                         v místnosti <strong>R304</strong>, ve třetím patře v červené části.
                         Masarykova kolej je trochu bludiště, a proto je nejlepší sledovat
-                        od schodů naproti vchodu směrovky s naším logem. ISC Point je místo,
+                        od schodů naproti vchodu směrovky s naším logem. ESN Point je místo,
                         kam se po příjezdu podívá téměř každý zahraňák a vyzvedne si svůj Welcome pack.
                         Navíc, pokud bude mít v budoucnu nějaké problémy, rádi mu tam poradíme a pomůžeme.
                     </p>
                     <p>
-                        Kromě ISC Pointu spravujeme ještě dvě učebny – B305 a R404,
+                        Kromě ESN Pointu spravujeme ještě dvě učebny – B305 a R404,
                         kde probíhají naše jazykové kurzy, schůzky našich teamků
                         a některé aktivity pro zahraniční a české studenty.
                     </p>
