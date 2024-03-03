@@ -77,10 +77,11 @@
 
                     <h2>Café Lingea</h2>
                     <p>Café Lingea is a conversational meeting where we informally chat in different languages
-                        (English + some chosen). Café Lingea takes place in a different coffee shop or restaurant each time,
-                        so it is also a good opportunity to discover some new places in Prague. Join the Facebook group
+                        (English + some chosen). Café Lingea usually takes place in different coffee shops or
+                        restaurants, so it is also a good opportunity to discover some new places in Prague.
+                    {{-- Join the Facebook group
                         <a href="https://www.facebook.com/groups/125659680939345" target="_blank" rel="noopener">ESN Café Lingea</a>!</p>
-                    <p>Café Lingeas are here for you every 2 weeks!</p>
+                    <p>Café Lingeas are here for you every 2 weeks!</p>--}}
 
                     {{---------------- rozvrh languages eventů ----------------}}
                     @if(isset($langEvents) && $langEvents->count() > 0)

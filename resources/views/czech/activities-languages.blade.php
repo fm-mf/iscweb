@@ -70,15 +70,15 @@
                         </a>
                     </p>
 
-{{--                  <h2>Café Lingea</h2>--}}{{-- TODO delete or update?--}}
-{{--                    <p>--}}
-{{--                        Café Lingea je akce, při které se sejdeme a povídáme si v různých jazycích (obvykle anglicky--}}
-{{--                        + v nějakém dalším zvoleném jazyce). Café Lingea probíhá nejčastěji v různých kavárnách,--}}
-{{--                        případně v restauracích, takže je to také skvělý způsob, jak v Praze poznat nová místa.--}}
-{{--                        Připoj se do Facebookové skupiny--}}
-{{--                        <a href="https://www.facebook.com/groups/125659680939345" target="_blank" rel="noopener">ESN Café Lingea</a>!--}}
-{{--                    </p>--}}
-{{--                    <p>Café Lingey se konají každé dva týdny!</p>--}}
+                  <h2>Café Lingea</h2>
+                    <p>
+                        Café Lingea je akce, při které se sejdeme a povídáme si v různých jazycích (obvykle anglicky
+                        + v nějakém dalším zvoleném jazyce). Café Lingea probíhá nejčastěji v různých kavárnách,
+                        případně v restauracích, takže je to také skvělý způsob, jak v Praze poznat nová místa.
+                    {{--                        Připoj se do Facebookové skupiny
+                                            <a href="https://www.facebook.com/groups/125659680939345" target="_blank" rel="noopener">ESN Café Lingea</a>!
+                                        </p>
+                                        <p>Café Lingey se konají každé dva týdny!</p>--}}
 
                     {{---------------- rozvrh languages eventů ----------------}}
                     @if(isset($langEvents) && $langEvents->count() > 0)
