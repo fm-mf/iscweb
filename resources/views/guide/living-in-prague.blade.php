@@ -13,7 +13,7 @@
         <li>St. Nicholas's Day (5th December)</li>
         <li>Christmas (December)</li>
     </ul>
-    <p>See <a href="https://www.facebook.com/pg/esn.ctu.prague/events/" target="_blank">ESN CTU Facebook page events</a> to get to know Czech traditions</p>
+    <p>See <a href="{{ $fbPageUrl }}events/" target="_blank">ESN CTU Facebook page events</a> to get to know Czech traditions</p>
 
     <h3>Local Cuisine</h3>
     <ul>
@@ -87,7 +87,7 @@
         <li>Generally: blue - longer main trails, yellow and green connect them</li>
         <li>Over 40 000 km, annually updated</li>
         <li>You can see them at <a href="https://mapy.cz/turisticka" target="_blank">Mapy.cz</a> (the best maps for the Czech Republic), download an app Mapy.cz <a href="https://play.google.com/store/apps/details?id=cz.seznam.mapy" target="_blank">for Android</a>, <a href="https://itunes.apple.com/cz/app/mapy-cz/id411411020" target="_blank">for iOS</a> or <a href="https://www.microsoft.com/cs-cz/store/p/mapycz/9wzdncrfhzdc" target="_blank">for Windows Phone</a> (the app allows you to save the map for offline usage) or buy paper maps in bookstores</li>
-        <li>See <a href="https://www.facebook.com/pg/esn.ctu.prague/events/" target="_blank">ESN CTU Facebook page events</a> to join organized hiking trips</li>
+        <li>See <a href="{{ $fbPageUrl }}events/" target="_blank">ESN CTU Facebook page events</a> to join organized hiking trips</li>
     </ul>
 
 @stop

@@ -39,7 +39,7 @@
                 <div class="col">
                     <h2>Trips for {{ $currentSemester }} coming soon…</h2>
                     <p class="mt-5">
-                        For fresh news about ESN events subscribe to <a href="https://www.facebook.com/esn.ctu.prague/events/">Facebook ESN CTU in Prague!</a>
+                        For fresh news about ESN events subscribe to <a href="{{ $fbPageUrl }}events/">Facebook ESN CTU in Prague!</a>
                     </p>
                 </div>
             </div>

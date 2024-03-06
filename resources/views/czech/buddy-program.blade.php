@@ -59,7 +59,7 @@
                         Většinou se koná zruba v polovině záři (ZS) a ledna (LS). Po tom,
                         co se do Buddy programu zaregistruješ, tě o ní budeme informovat
                         e‑mailem nebo na FB stránce
-                        <a href="https://www.facebook.com/esn.ctu.prague" target="_blank" rel="noopener">ESN CTU in Prague</a>.
+                        <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">ESN CTU in Prague</a>.
                         Pokud bys měl jakékoliv dotazy ještě před Buddy Session nebo jsi něco nenašel v Buddy příručce,
                         neváhej se zeptat našeho Buddy coordinátora na <a href="mailto:buddy@esn.cvut.cz">buddy@esn.cvut.cz</a>.
                     </p>

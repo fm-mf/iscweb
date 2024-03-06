@@ -143,7 +143,7 @@
                                 <a href="https://www.vodafone.cz/en/stores/store-detail/praha-6-dejvicka/" target="_blank" rel="noopener">Vítězné náměstí next to the KFC</a>)
                                 and they will help you. If your card is broken, come to the ESN Point or contact us through
                                 a <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">Facebook</a> message or e-mail
-                                address <a href="mailto:isc@esn.cvut.cz">isc@esn.cvut.cz</a> and we will see what we can do
+                                address <a href="mailto:{{ $contactEmail }}">{{ $contactEmail }}</a> and we will see what we can do
                                 about it.
                             </p>
                         </dd>
@@ -176,7 +176,7 @@
                                 and registration is needed, but you have an ESNcard from some of the other Prague
                                 universities (UCT, CU, VŠE or CULS) send us a message on
                                 <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">Facebook</a> or an e-mail to
-                                <a href="mailto:isc@esn.cvut.cz">isc@esn.cvut.cz</a> and we will help you.
+                                <a href="mailto:{{ $contactEmail }}">{{ $contactEmail }}</a> and we will help you.
                             </p>
                         </dd>
 

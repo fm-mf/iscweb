@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Zásady ochrany osobních údajů | ESN CTU in Prague</title>
+        <title>Zásady ochrany osobních údajů | {{ $shortName }}</title>
         <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64"/>
         <link href="{{ URL::asset('css/login.css') }}" rel="stylesheet" type="text/css">
     </head>

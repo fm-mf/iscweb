@@ -67,7 +67,7 @@
         <li>Trips in the Czech Republic and abroad during all the semester</li>
         <li>Hiking trips in the Czech countryside</li>
         <li>Bowling, laser tag, board games, paintball, dance courses</li>
-        <li><a href="https://www.facebook.com/pg/esn.ctu.prague/events/" target="_blank">ESN CTU events on Facebook</a></li>
+        <li><a href="{{ $fbPageUrl }}events/" target="_blank">ESN CTU events on Facebook</a></li>
     </ul>
 
     <h4 id="culture-evenings">inteGREAT parties &amp; presentations</h4>

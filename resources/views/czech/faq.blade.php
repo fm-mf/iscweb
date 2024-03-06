@@ -62,8 +62,8 @@
                         <dd>
                             Welcome packy je možné vyzvednout v <a href="{{ route('czech.contacts') }}">ESN Pointu</a>
                             většinou od středy týden před začátkem Orientation weeku. Pro přesné datum sleduj aktuality
-                            na naší <a href="https://www.facebook.com/esn.ctu.prague" target="_blank" rel="noopener">FB stránce</a>
-                            a v <a href="https://www.facebook.com/groups/esn.ctu.buddies" target="_blank" rel="noopener">Buddy skupině</a>.
+                            na naší <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">FB stránce</a>
+                            a v <a href="{{ $fbGroupCzechBuddies }}" target="_blank" rel="noopener">Buddy skupině</a>.
                             Welcome pack si můžeš vyzvednout pro svého zahraňáka i ty ještě před jeho příjezdem,
                             nebo pro něj můžete zajít společně cestou z letiště.
                         </dd>
@@ -79,8 +79,8 @@
                         <dt>Kde se dozvím aktuální informace o dění v ESN?</dt>
                         <dd>
                             Informace najdeš tady na webu v záložce kalendáře. Také nás můžeš sledovat na
-                            <a href="https://www.facebook.com/esn.ctu.prague" target="_blank" rel="noopener">Facebooku</a>
-                            a přidat se do naší <a href="https://www.facebook.com/groups/esn.ctu.buddies" target="_blank" rel="noopener">skupiny pro české Buddíky</a>.
+                            <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">Facebooku</a>
+                            a přidat se do naší <a href="{{ $fbGroupCzechBuddies }}" target="_blank" rel="noopener">skupiny pro české Buddíky</a>.
                         </dd>
 
                         <dt>Kde můžu získat ESN kartičku, pokud odjíždím na Erasmus a na mé univerzitě není sekce ESN?</dt>
@@ -88,7 +88,7 @@
                             Pokud tvoje přijímající univerzita nemá místní sekci, můžeš kontaktovat
                             některou další sekci ve stejném městě. ESN kartička tě většinou opravňuje k tomu,
                             aby ses účastnil aktivit sekcí pořádaných. Máš další otázky?
-                            Napiš nám e-mail na <a href="mailto:isc@esn.cvut.cz">isc@esn.cvut.cz</a>.
+                            Napiš nám e-mail na <a href="mailto:{{ $contactEmail }}">{{ $contactEmail }}</a>.
                         </dd>
                     </dl>
                 </div>

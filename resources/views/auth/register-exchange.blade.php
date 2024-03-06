@@ -15,7 +15,7 @@
     <p>
         If you are an exchange student, your exchange starts in less than two months,
         and you still have not received any e-mails from us, then contact us at
-        <a href="mailto:buddy@esn.cvut.cz?cc=isc@esn.cvut.cz">buddy@esn.cvut.cz</a>
-        (please, add <em class="user-select-all">isc@esn.cvut.cz</em> to the copy).
+        <a href="mailto:buddy@esn.cvut.cz?cc={{ $contactEmail }}">buddy@esn.cvut.cz</a>
+        (please, add <em class="user-select-all">{{ $contactEmail }}</em> to the copy).
     </p>
 @endsection

@@ -77,18 +77,18 @@
                     <div class="row justify-content-center text-left">
                         <ul class="col-auto list-unstyled social-media-links">
                             <li>
-                                <a href="https://www.facebook.com/esn.ctu.prague" target="_blank" rel="noopener">
+                                <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">
                                     <span class="fab fa-facebook-square fa-2x"></span> ESN CTU in Prague
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/esn.ctu/" target="_blank" rel="noopener">
+                                <a href="{{ $igProfileUrl }}" target="_blank" rel="noopener">
                                     <span class="fab fa-instagram fa-2x"></span> @esn.ctu
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:isc@esn.cvut.cz" target="_blank">
-                                    <span class="fas fa-envelope-open-text fa-2x"></span> isc@esn.cvut.cz
+                                <a href="mailto:{{ $contactEmail }}" target="_blank">
+                                    <span class="fas fa-envelope-open-text fa-2x"></span> {{ $contactEmail }}
                                 </a>
                             </li>
                         </ul>

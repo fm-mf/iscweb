@@ -1,11 +1,11 @@
 <ul class="list-unstyled social-media-links">
     <li>
-        <a href="https://www.facebook.com/esn.ctu.prague" target="_blank" rel="noopener">
+        <a href="{{ $fbPageUrl }}" target="_blank" rel="noopener">
             <span class="fab fa-facebook-square fa-fw"></span> Facebook
         </a>
     </li>
     <li>
-        <a href="https://www.instagram.com/esn.ctu/" target="_blank" rel="noopener">
+        <a href="{{ $igProfileUrl }}" target="_blank" rel="noopener">
             <span class="fab fa-instagram fa-fw"></span> Instagram
         </a>
     </li>

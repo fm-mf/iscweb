@@ -66,7 +66,7 @@
 {{--                </div>--}}
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fas fa-envelope"></span> @lang('web.Email')</dt>
-                    <dd><a href="mailto:isc@esn.cvut.cz">isc@esn.cvut.cz</a></dd>
+                    <dd><a href="mailto:{{ $contactEmail }}">{{ $contactEmail }}</a></dd>
                 </div>
                 <div class="col-md-6 col-xl-4 d-flex">
                     <dt><span class="fas fa-phone-alt"></span> @lang('web.Phone')</dt>

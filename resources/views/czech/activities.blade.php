@@ -27,7 +27,7 @@
                     <p>
                         Nechceš nám hned psát a radši by ses přišel podívat na nějakou naši akci?
                         Ty aktuální najdeš na naší
-                        <a href="https://www.facebook.com/esn.ctu.prague/events/" target="_blank" rel="noopener">FB stránce</a>
+                        <a href="{{ $fbPageUrl }}events/" target="_blank" rel="noopener">FB stránce</a>
                         nebo <a href="{{ route('czech.calendar') }}">tady v kalendáři</a>.
                     </p>
                 </div>
