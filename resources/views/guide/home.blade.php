@@ -24,7 +24,9 @@
 @section('page')
 
 <div class="container text-left guide-home-page">
-    <img src="{{ $president['avatar'] }}" class="president-img" alt="Photo of ESN CTU President" />
+    @if(!empty($president))
+        <img src="{{ $president['avatar'] }}" class="president-img" alt="Photo of ESN CTU President" />
+    @endif
     <p>
         Dear international students,<br />
         welcome to the Czech Republic and to the Czech Technical University in Prague!
@@ -52,7 +54,9 @@
         <q class="font-italic">Together we conquer the world!</q>
     </p>
     <p>
-        <strong>{{ $president['name'] }}</strong><br />
+        @if(!empty($president))
+            <strong>{{ $president['name'] }}</strong><br />
+        @endif
         <em>President of the {{ $fullName }}</em>
     </p>
 </div>

@@ -40,7 +40,7 @@
     <ul>
         <li>From airport:
             <ol>
-                <li>Take a bus line <strong>119</strong> from Terminál 1 or Terminál 2 stop</li>
+                <li>Take a trolleybus line <strong>59</strong> from Terminál 1 or Terminál 2 stop</li>
                 <li>Go <strong>to Nádraží Veleslavín</strong> stop</li>
                 <li>Go by <strong>metro</strong> line A (the green one) <strong>to Dejvická</strong> station</li>
                 <li>or go by tram line <strong>20 or 26 to Thákurova</strong> stop</li>
@@ -66,7 +66,7 @@
         </p>
         <p class="mb-0">
             For current prices and further information, visit
-            <a href="https://pid.cz/en/travelling-around-prague/" target="_blank">pid.cz/en</a>.
+            <a href="https://pid.cz/en/tickets-and-fare/#prague" target="_blank">pid.cz/en</a>.
         </p>
     </div>
 @stop

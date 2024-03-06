@@ -154,7 +154,7 @@
 
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/pid-pass-vs.jpg') }}" alt="PID pass" title="PID pass" /> + <img src="{{ asset('img/guide/season-paper-ticket-30-days.jpg') }}" alt="PID season ticket" title="PID season ticket" /></li>
-        <li><strong>Price: CZK 20</strong> (for a PID pass) + <strong><a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></strong></li>
+        <li><strong>Price: CZK 60</strong> (for a PID pass) + <strong><a href="https://pid.cz/en/tickets-and-fare/#prague-longterm" target="_blank">season ticket price</a></strong></li>
     </ul>
 
     <p>This is the easiest version, because you can do it right at the airport with the Confirmation of study which is part of your Welcome Pack. It costs CZK 20 (for the ID) and you'll need:</p>
@@ -166,29 +166,29 @@
             </ul>
         </li>
     </ul>
-    <p>Then you can just come to any <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a> and ask them for student seasonal ticket. </p>
+    <p>Then you can just come to any <a href="https://pid.cz/en/contacts/points-of-sale/?filter=prukazkypid">PID cash desk</a> and ask them for student seasonal ticket. </p>
 
     <h4 id="pid-electro">Electronic version</h4>
-    <p><strong>Price:</strong> only <a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></p>
+    <p><strong>Price:</strong> only <a href="https://pid.cz/en/tickets-and-fare/#prague-longterm" target="_blank">season ticket price</a></p>
 
     <p>You can also obtain electronic seasonal ticket on the web.</p>
     <ol>
-        <li>Create an account at <a href="https://www.pidlitacka.cz/en">www.pidlitacka.cz</a></li>
+        <li>Create an account at <a href="https://www.pidlitacka.cz/en">pidlitacka.cz</a></li>
         <li>Upload your photo
             <ul>
                 <li>If you don't do this, your account will be marked as "shared" and the ticket will be more expensive</li>
             </ul>
         </li>
-        <li>Add an identifier - it can be your phone, debit/credit card or <a href="#litacka">Lítačka</a></li>
+        <li>Add an identifier - it can be your phone, debit/credit card or <a href="#litacka">Lítačka card</a></li>
         <li>Add your ISIC card
             <ul>
-                <li>If you only have CTU card or confirmation of study, you can't use the online store to buy the ticket, you have to go to <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a></li>
-                <li>If you're 26 or older, you're no longer eglible for student discount, so this is not needed</li>
+                <li>If you only have CTU card or confirmation of study, you can't use the online store to buy the ticket, you have to go to <a href="https://pid.cz/en/contacts/points-of-sale/?filter=prukazkypid">PID cash desk</a></li>
+                <li>If you're 26 or older, you're no longer eligible for student discount, so this is not needed</li>
             </ul>
         </li>
         <li>Buy student season ticket
             <ul>
-                <li>If you can't find student seasonal ticket in the store, you may need to go to <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a> and buy it there (while presenting your ISIC card and identifier from previous step)</li>
+                <li>If you can't find student seasonal ticket in the store, you may need to go to <a href="https://pid.cz/en/contacts/points-of-sale/?filter=prukazkypid">PID cash desk</a> and buy it there (while presenting your ISIC card and identifier from previous step)</li>
             </ul>
         </li>
     </ol>
@@ -196,10 +196,10 @@
     <h4 id="litacka">Lítačka card</h4>
     <ul class="list-unstyled">
         <li><img src="{{ asset('img/guide/litacka.jpg') }}" alt="Lítačka" title="Lítačka" /></li>
-        <li><strong>Price: CZK 200</strong> (for &quot;Lítačka&quot;) + <strong><a href="https://pid.cz/en/travelling-around-prague/?tab=2" target="_blank">season ticket price</a></strong></li>
+        <li><strong>Price: CZK 100</strong> (for &quot;Lítačka card&quot;) + <strong><a href="https://pid.cz/en/tickets-and-fare/#prague-longterm" target="_blank">season ticket price</a></strong></li>
     </ul>
 
-    <p>You can also obtain Lítačka card, which takes around 2 weeks to be made and costs CZK 200. Once you have this card,  you can either buy the seasonal ticket online, or go to any <a href="https://pid.cz/en/contacts/points-of-sale/?type=2">PID cash desk</a> and but it there.</p>
+    <p>You can also obtain Lítačka card, which takes around 4 weeks to be made and costs CZK 100 (CZK 50 if ordered on-line). Once you have this card, you can either buy the seasonal ticket on-line, or go to any <a href="https://pid.cz/en/contacts/points-of-sale/?filter=prukazkypid">PID cash desk</a> and buy it there.</p>
 
     <h4 id="pid-student-discount">Student discount</h4>
     <p>To obtain a student discount you have to bring, and keep all the time with you, the Confirmation of your student status (the little orange-coloured confirmation document from your Welcome Pack), or your University ID card.</p>
