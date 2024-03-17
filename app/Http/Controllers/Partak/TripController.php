@@ -26,7 +26,7 @@ use App\Models\User;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade as JavaScript;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -111,7 +111,7 @@ class TripController extends Controller
             return strtolower($item->last_name);
         });
         $exBuddy = $trip->type == 'ex+buddy';
-        $pdf = PDF::loadView('partak.trips.pdf', [
+        $pdf = Pdf::loadView('partak.trips.pdf', [
             'particip' => $particip,
             'trip' => $trip,
             'exBuddy' => $exBuddy,

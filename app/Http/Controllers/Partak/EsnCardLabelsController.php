@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Partak;
 use App\Http\Controllers\Controller;
 use App\Imports\EsnCardLabelsImport;
 use App\Models\Semester;
-use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use GuzzleHttp\Client;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
@@ -55,7 +55,7 @@ class EsnCardLabelsController extends Controller
                 ->getBody()
         );
 
-        $pdf = PDF::loadView('partak.esn-card-labels.pdf', [
+        $pdf = Pdf::loadView('partak.esn-card-labels.pdf', [
             'students' => $studentData,
             'section' => $data['section_name'],
             'university' => $data['university_name'],

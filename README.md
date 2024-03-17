@@ -14,7 +14,7 @@ Requirements
 
 - [Apache HTTP server 2.4][apache] or [Nginx][nginx]
 - [MySQL 5.7.7][mysql] or higher (or [Maria DB 10.2.2][mariadb] or newer)
-- [PHP 7.4][php]
+- [PHP 8.1][php]
 - [Composer][composer]
 - [Node.js 16][nodejs] or higher (current LTS release is recommended)
 - [Yarn package manager v1 (Classic)][yarn]
@@ -111,11 +111,11 @@ Installation
 	1. Visual C++ Redistributable for Visual Studio 2012 [64-bit][vc2012x64] / [32-bit][vc2012x86]
 	2. Visual C++ Redistributable for Visual Studio 2015-2019 [64-bit][vc2015x64] / [32-bit][vc2015x86]
 	3. [WampServer][wamp]
-		- For PHP versions, make sure, PHP 7.4 is selected to install
+		- For PHP versions, make sure, PHP 8.1 is selected to install
 		- For MySQL version, select version 8.0
 	4. [Git][git]
 	5. [Composer][composer-download]
-		- When asked which PHP version to use, select version 7.4 (or any newer if 7.4 is not available)
+		- When asked which PHP version to use, select version 8.1 (or any newer if 8.1 is not available)
 	6. [Node.js][nodejs] – current LTS release is recommended
 	7. [Yarn package manager v1][yarn-install]
 
@@ -151,11 +151,11 @@ Installation
 
 7. Set up the Apache HTTP server
 	1. Start WAMP
-	2. Switch the PHP version to PHP 7.4
+	2. Switch the PHP version to PHP 8.1
 		1. Left-click on a WAMP icon in the system tray
-		2. PHP -> Version -> 7.4.x
+		2. PHP -> Version -> 8.1.x
 		3. Right-click on a WAMP icon in the system tray
-		4. Tools -> Change PHP CLI version -> 7.4.x
+		4. Tools -> Change PHP CLI version -> 8.1.x
 	3. Open your Internet browser
 	4. Into the address bar enter `localhost`
 	5. Click on `Add a Virtual Host`

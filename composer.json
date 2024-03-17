@@ -5,14 +5,14 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.4.3",
+        "php": "^8.1.2",
         "ext-gd": "*",
         "ext-gmp": "*",
-        "barryvdh/laravel-dompdf": "^0.9.0",
-        "fruitcake/laravel-cors": "^2.0",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "hashids/hashids": "^4.1",
-        "intervention/image": "^2.3",
+        "hashids/hashids": "^5.0",
+        "intervention/image": "^3.0",
         "laminas/laminas-permissions-acl": "^2.8",
         "laracasts/utilities": "~3.0",
         "laravel/framework": "^8.75",
@@ -23,8 +23,8 @@
         "laravelcollective/html": "^6.0",
         "maatwebsite/excel": "^3.1",
         "propaganistas/laravel-phone": "^4.1",
-        "rap2hpoutre/laravel-log-viewer": "^1.2",
-        "s-ichikawa/laravel-sendgrid-driver": "^2.0.2",
+        "rap2hpoutre/laravel-log-viewer": "^2.0",
+        "s-ichikawa/laravel-sendgrid-driver": "^3.0",
         "torann/laravel-asana": "^0.4.0"
     },
     "require-dev": {
@@ -74,7 +74,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "platform": {
-            "php": "7.4.3"
+            "php": "8.1.2"
         }
     },
     "minimum-stability": "dev",
