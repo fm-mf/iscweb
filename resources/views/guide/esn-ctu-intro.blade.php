@@ -28,11 +28,11 @@
         ]])
         @endcomponent
 
-{{--        TODO say something about ISC and renaming--}}
-        <p>The Erasmus Student Network (ESN) at CTU in Prague was established in 1999.
+        <p>The Erasmus Student Network (ESN) CTU in Prague was established in 1999 under the name of
+            International Student Club (ISC) CTU in Prague.
             Our close cooperation with the CTU International Office has enabled rapid improvement
             of the overall international relations at our university.
-            ESN at CTU promotes the highest standard of cultural awareness
+            ESN CTU promotes the highest standard of cultural awareness
             and international spirit in order to serve the needs of the modern community of students
             in the 21st century, thereby contributing to a better quality of education world-wide
             through creating a unique partnership among university students
@@ -92,11 +92,11 @@
 
     <h4 id="membership-benefits">What do you get?</h4>
     <ul>
-        <li>The possibility to join all ESN activities prepared for international students (for free or at a favourable price)</li>
-        <li>The possibility to join ESN trips (in Orientation Week and throughout the year)</li>
-        <li>access to the ESN Point and its facilities (e.g. computers, internet, etc.)</li>
+        <li>The possibility to join all ESN CTU activities prepared for international students (for free or at a favourable price)</li>
+        <li>The possibility to join ESN CTU trips (in Orientation Week and throughout the year)</li>
+        <li>access to the ESN CTU Point and its facilities (e.g. computers, internet, etc.)</li>
         <li>discount for printing and copying in the ESN Point</li>
-        <li>insurance for ESN activities</li>
+        <li>insurance for ESN CTU activities</li>
     </ul>
 
     <h4 id="membership-gifts">Free gifts for joining</h4>

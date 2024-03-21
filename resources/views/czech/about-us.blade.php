@@ -68,13 +68,13 @@
                     </p>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 d-flex flex-column justify-content-around">
-                    <div class="row">
-                        <div class="col-8 col-sm-10 col-xl-8 ml-auto mr-auto">
-                            <a href="{{ url('/') }}">
-                                <img src="/img/logos/esn-ctu-logo-colour.svg" alt="Logo ESN CTU in Prague" />
-                            </a>
-                        </div>
-                    </div>
+{{--                    <div class="row">--}}
+{{--                        <div class="col-8 col-sm-10 col-xl-8 ml-auto mr-auto">--}}
+{{--                            <a href="{{ url('/') }}">--}}
+{{--                                <img src="/img/logos/esn-ctu-logo-colour.svg" alt="Logo ESN CTU in Prague" />--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <div class="row">
                         <div class="col-8 col-sm-10 col-xl-8 ml-auto mr-auto">
                             <a href="https://www.esncz.org">
@@ -103,7 +103,7 @@
                         a proč děláme věci takovým způsobem, jakým je děláme. Zní následovně:
                     </p>
                     <blockquote>
-                        Vizí ESN je vytváření mezinárodní komunity na ČVUT v Praze.
+                        Vizí ESN CTU je vytváření mezinárodní komunity na ČVUT v Praze.
                         Chceme integrovat zahraniční studenty do života v České republice
                         a dění na naší univerzitě. Vytváříme prostředí, kde se setkávají různé kultury
                         a poznávají čeští a zahraniční studenti. Podporujeme aktivní zapojení
