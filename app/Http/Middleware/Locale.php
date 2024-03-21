@@ -23,6 +23,7 @@ class Locale
             !$request->is('muj-buddy', 'muj-buddy/*')
             && !$request->routeIs('tandem.*')
             && !$request->is('user', 'user/*')
+            && (!$request->routeIs('partak.*') || $request->user()->buddy->agreedPrivacyPartak())
         ) {
             setlocale(LC_ALL, __('web.locale-full'));
             return $next($request);

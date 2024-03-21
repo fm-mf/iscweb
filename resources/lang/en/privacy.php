@@ -31,4 +31,32 @@ return [
         ',
     ],
 
+    'partak' => [
+        'title' => 'Privacy policy',
+        'heading' => 'Privacy policy in the ParťákNET system',
+        'text' => '
+            <p>
+                In the ParťákNET under certain circumstances you can access some personal data
+                of the local students (‘Buddies’) as well as the incoming exchange students.
+                You have to protect this information and treat it in accordance with the law.
+                There are few rules that apply to accessing and processing the data:
+            </p>
+            <ul>
+                <li>it is necessary to prevent unauthorised persons from accessing personal data and the means for their processing, i.e. the ParťákNET system,</li>
+                <li>it is necessary to prevent unauthorised reading, creation, copying, transfer, modification or deletion of records containing personal data from the ParťákNET,</li>
+                <li>it is necessary to prevent the misuse of records containing personal data from the ParťákNET,</li>
+                <li>it is necessary to prevent the use of records containing personal data for purposes other than those used by the ParťákNET.</li>
+            </ul>
+            <p>
+                These rules also apply to all data obtained from the ParťákNET, such as exported spreadsheets,
+                lists, etc. Similar rules apply to other ESN systems.
+            </p>
+            <p>
+                By clicking on the ‘I understand and agree’ button, you agree to abide by these rules.
+                This is not revolutionary, but it is better to clarify it. If you do not agree and refuse,
+                your access to the Buddy programme will be restricted.
+            </p>
+        ',
+    ],
+
 ];

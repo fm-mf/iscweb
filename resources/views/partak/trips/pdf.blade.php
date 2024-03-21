@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/vendor.css') }}" />
     <link href="{{ asset('css/pdf.css') }}" rel="stylesheet" type="text/css">
 </head>
 
