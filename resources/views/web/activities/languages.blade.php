@@ -138,8 +138,7 @@
                         Sometimes the classes have to be cancelled for various reasons.
                         The following table shows the updated list of cancelled and rescheduled classes.
                     </p>
-                    <iframe width="360" height="240" frameborder="0" src="https://docs.google.com/spreadsheet/pub?key=0AoZEq64G2cV4dHZtcHdlVlpOV3F0WHNtVHlXS0tOTHc&single=true&gid=0&output=html&widget=true"></iframe>
-
+                    <iframe width="360" height="240" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQnXcpxkS4GkgX_LsRkiAO15gb8_Dd_YT0nipSPN0vogdWX-6PIoxCUwtYgC41dOdZm3Oz16RMLV0ma/pubhtml?single=true&gid=802538365&output=html&widget=true"></iframe>
                 </div>
             </div>
         </div>
