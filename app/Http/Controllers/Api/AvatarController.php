@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Intervention\Image\Exception\NotReadableException;
+use Intervention\Image\Exceptions\DecoderException;
 
 class AvatarController extends Controller
 {
@@ -37,7 +37,7 @@ class AvatarController extends Controller
                 $request->file('avatar_file'),
                 $request->get('avatar_data')
             );
-        } catch (NotReadableException $e) {
+        } catch (DecoderException $e) {
             return response()->json([
                 'state' => 400,
                 'message' => __('validation.custom.avatar_file.uploaded'),

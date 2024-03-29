@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Constraint;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Laravel\Facades\Image;
 use Ramsey\Uuid\Uuid;
 
 class Person extends Model
@@ -180,19 +179,15 @@ class Person extends Model
 
         $cropData = json_decode(stripslashes($cropData));
 
-        $img = Image::make($file)
+        $img = Image::read($file)
             ->crop(
                 intval($cropData->width),
                 intval($cropData->height),
                 intval($cropData->x),
                 intval($cropData->y)
-            )->resize(
+            )->scaleDown(
                 self::AVATAR_SIZE,
-                self::AVATAR_SIZE,
-                function (Constraint $constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                }
+                self::AVATAR_SIZE
             );
 
         $fileExtension = $file->extension();

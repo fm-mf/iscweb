@@ -6,7 +6,7 @@ use App\Facades\Settings;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Intervention\Image\Image;
+use Intervention\Image\Interfaces\EncodedImageInterface;
 use Propaganistas\LaravelPhone\PhoneNumber;
 
 class ContactObserver
@@ -32,7 +32,7 @@ class ContactObserver
 
     private function saveCustomPhoto(Contact $contact)
     {
-        if ($contact->custom_photo instanceof Image) {
+        if ($contact->custom_photo instanceof EncodedImageInterface) {
             $semester = Settings::get('currentSemester');
             $fileName = Str::slug("{$contact->position}-{$contact->name}") . '.jpg';
             $contactsDirPath = "contacts/{$semester}";

@@ -30,7 +30,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Laravel\Facades\Image;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class TripController extends Controller
@@ -533,7 +533,7 @@ class TripController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $image_name = \uniqid('q-') . '.' . $file->extension();
-            Image::make($file)->save(storage_path() . '/app/events/' . $image_name);
+            Image::read($file)->save(storage_path() . '/app/events/' . $image_name);
             return response()->json(['path' => $image_name], 200);
         } else {
             return response()->json(['error' => 'file parameter is missing'], 400);
