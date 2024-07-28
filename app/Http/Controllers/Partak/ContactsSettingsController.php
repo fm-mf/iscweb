@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Partak;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Http\Resources\ContactCollection;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 class ContactsSettingsController extends Controller
 {
@@ -139,7 +139,10 @@ class ContactsSettingsController extends Controller
         $this->authorize('acl', 'settings.edit');
 
         if ($contact->order !== $request->oldIndex) {
-            return response()->json('Bad request', Response::HTTP_BAD_REQUEST);
+            return response()->json([
+                'message' => "Failed to move the $contact->position contact due to the order inconsistency.<br />" .
+                    "Old index: $request->oldIndex != DB order: $contact->order",
+            ], Response::HTTP_BAD_REQUEST);
         }
         $contact->move($request->oldIndex, $request->newIndex);
 
@@ -162,7 +165,7 @@ class ContactsSettingsController extends Controller
 
         $deletedOrder = $contact->order;
         $contact->delete();
-        $subsequentContacts = Contact::getAllWithSubsequentOrder($deletedOrder);
+        $subsequentContacts = Contact::allWithSubsequentOrder($deletedOrder)->get();
         $subsequentContacts->each(function (Contact $contact) {
             $contact->order -= 1;
             $contact->save();

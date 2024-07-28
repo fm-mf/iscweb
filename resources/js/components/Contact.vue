@@ -51,12 +51,12 @@
 
 <script>
 import axios from 'axios';
-import Button from './Button';
 
 export default {
     name: 'Contact',
-    components: { Button },
-    props: ['contact'],
+    props: {
+        'contact': Object,
+    },
     data() {
         return {
             visible: this.contact.visible,
@@ -89,15 +89,7 @@ function deleteContact() {
     axios
         .delete(this.deleteUrl)
         .then(response => {
-            this.$emit('delete');
-            document.getElementById('alert-success-wrapper').innerHTML =
-                `<div class="alert alert-success alert-dismissable fade in">` +
-                `    <btn class="close" data-dismiss="alert" aria-label="close"><span class="fas fa-times"></span></btn>` +
-                `    <span class="fas fa-check"></span> ${response.data.message}` +
-                `</div>`;
-            setTimeout(() => {
-                $('#alert-success-wrapper > .alert').alert('close');
-            }, 3000);
+            this.$emit('delete', this.contact.id, response.data.message);
         })
         .catch(error => {
             console.log(error);

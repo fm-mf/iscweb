@@ -1,19 +1,27 @@
 <template>
-    <draggable
-        v-model="contacts"
-        tag="ul"
-        class="list-group contacts"
-        :animation="250"
-        @change="orderChanged"
-    >
-        <contact
-            v-for="contact in contacts"
-            :key="contact.id"
-            class="list-group-item"
-            :contact="contact"
-            @delete="deleteContact(contact.id)"
-        ></contact>
-    </draggable>
+    <div>
+        <div v-if="alertVisible" :class="alertClass" class="alert sticky-top text-left mt-3" role="alert">
+            <button type="button" class="close" aria-label="Close" @click="closeAlert">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <span v-html="alertMessage" />
+        </div>
+        <draggable
+            v-model="contacts"
+            tag="ul"
+            class="list-group contacts"
+            :animation="250"
+            @change="orderChanged"
+        >
+            <contact
+                v-for="contact in contacts"
+                :key="contact.id"
+                class="list-group-item"
+                :contact="contact"
+                @delete="deleteContact"
+            ></contact>
+        </draggable>
+    </div>
 </template>
 
 <script>
@@ -29,8 +37,18 @@ export default {
     },
     data() {
         return {
-            contacts: []
+            contacts: [],
+            alertVisible: false,
+            alertMessage: '',
+            alertType: '',
         };
+    },
+    computed: {
+        alertClass() {
+            return this.alertType === 'error'
+                ? 'alert-danger'
+                : 'alert-success';
+        },
     },
     mounted() {
         this.loadContacts();
@@ -38,8 +56,12 @@ export default {
     methods: {
         loadContacts: loadContacts,
         deleteContact: deleteContact,
-        orderChanged: orderChanged
-    }
+        orderChanged: orderChanged,
+        showSuccessAlert: showSuccessAlert,
+        showErrorAlert: showErrorAlert,
+        showAlert: showAlert,
+        closeAlert: closeAlert,
+    },
 };
 
 function loadContacts() {
@@ -49,14 +71,15 @@ function loadContacts() {
             this.contacts = response.data.data;
         })
         .catch(error => {
-            console.log(error);
+            this.showErrorAlert(error.response.data);
         });
 }
 
-function deleteContact(contactId) {
+function deleteContact(contactId, message) {
     this.contacts = this.contacts.filter(value => {
         return value.id !== contactId;
     });
+    this.showSuccessAlert(message);
 }
 
 function orderChanged(event) {
@@ -68,7 +91,28 @@ function orderChanged(event) {
         .post(`/partak/settings/contacts/${event.moved.element.id}/move`, data)
         .then(response => {})
         .catch(error => {
-            console.log(error);
+            this.showErrorAlert(error.response.data.message);
         });
+}
+
+function showAlert(message, timeout = 5000, type = 'success') {
+    this.alertVisible = true;
+    this.alertMessage = message;
+    this.alertType = type;
+    if (timeout != null) {
+        setTimeout(this.closeAlert, timeout);
+    }
+}
+
+function showErrorAlert(message, timeout = 5000) {
+    this.showAlert(`<i class="fas fa-times"></i> ${message}`, timeout, 'error');
+}
+
+function showSuccessAlert(message, timeout = 5000) {
+    this.showAlert(`<i class="fas fa-check"></i> ${message}`, timeout, 'success');
+}
+
+function closeAlert() {
+    this.alertVisible = false;
 }
 </script>
