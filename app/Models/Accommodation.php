@@ -17,13 +17,20 @@ class Accommodation extends Model
         return $this->hasMany('\App\Models\ExchangeStudent', 'id_accommodation', 'id_accommodation');
     }
 
+    public function degreeStudents()
+    {
+        return $this->hasMany(DegreeStudent::class, 'id_accommodation');
+    }
+
     public function scopeWithStudents($query, $semester = null)
     {
+        $relationshipName = auth()->user()->isDegreeBuddy() ? 'degreeStudents' : 'exchangeStudents';
+
         if (!$semester) {
-            return $query->whereHas('exchangeStudents');
+            return $query->whereHas($relationshipName);
         }
 
-        return $query->whereHas('exchangeStudents', function ($query) use ($semester) {
+        return $query->whereHas($relationshipName, function ($query) use ($semester) {
             $query->availableToPick($semester);
         });
     }

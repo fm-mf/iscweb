@@ -29,6 +29,11 @@ class Arrival extends Model
         return $this->belongsTo('\App\Models\ExchangeStudent', 'id_user', 'id_user');
     }
 
+    public function degreeStudent()
+    {
+        return $this->belongsTo(DegreeStudent::class, 'id_user');
+    }
+
     public function transportation()
     {
         return $this->hasOne('\App\Models\Transportation', 'id_transportation', 'id_transportation');
@@ -46,11 +51,13 @@ class Arrival extends Model
 
     public function scopeWithStudents($query, $semester = null)
     {
+        $relationshipName = auth()->user()->isDegreeBuddy() ? 'degreeStudent' : 'exchangeStudent';
+
         if (!$semester) {
-            return $query->whereHas('exchangeStudent');
+            return $query->whereHas($relationshipName);
         }
 
-        return $query->whereHas('exchangeStudent', function ($query) use ($semester) {
+        return $query->whereHas($relationshipName, function ($query) use ($semester) {
             $query->availableToPick($semester);
         })->orderBy('arrival');
     }

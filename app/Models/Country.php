@@ -37,11 +37,13 @@ class Country extends Model
 
     public function scopeWithStudents($query, $semester = null)
     {
+        $relationshipName = auth()->user()->isDegreeBuddy() ? 'degreeStudents' : 'exchangeStudents';
+
         if (!$semester) {
-            return $query->whereHas('exchangeStudents');
+            return $query->whereHas($relationshipName);
         }
 
-        return $query->whereHas('exchangeStudents', function ($query) use ($semester) {
+        return $query->whereHas($relationshipName, function ($query) use ($semester) {
             $query->availableToPick($semester);
         });
     }
