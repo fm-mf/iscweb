@@ -36,6 +36,7 @@ class ExchangeStudent extends Model
         'opt_out',
         'privacy_policy',
         'degree_student',
+        'want_buddy',
     ];
 
     protected static function boot()

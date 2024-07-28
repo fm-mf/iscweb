@@ -104,6 +104,7 @@ class OfficeRegistrationController extends Controller
         $exStudent = ExchangeStudent::with('person.user')->find($exStudent->id_user);
 
         $data['degree_student'] = array_key_exists('fullTime', $data) && $data['fullTime'] === 'y';
+        $data['want_buddy'] = 'n';
 
         $exStudent->update($data);
         $exStudent->person->updateWithIssuesAndDiet($data);
