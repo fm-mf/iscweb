@@ -37,7 +37,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
+        <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 48x48" />
         @yield('stylesheets')
     </head>
     <body>

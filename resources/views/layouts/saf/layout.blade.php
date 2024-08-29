@@ -6,7 +6,7 @@
 
         <title>@yield('title')S ČVUT do světa | {{ $shortName }}</title>
 
-        <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
+        <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 48x48" />
         @section('stylesheets')
             <link href="{{ URL::asset('css/saf.css') }}" rel="stylesheet" type="text/css" />
         @show

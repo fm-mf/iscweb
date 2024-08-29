@@ -7,7 +7,7 @@
 
     <title>Buddy Program | ESN CTU in Prague</title>
 
-    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 64x64" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('img/favicon.ico') }}" sizes="16x16 32x32 48x48" />
 
     @section('stylesheets')
         <link rel="stylesheet" type="text/css" href="{{ mix('css/vendor.css') }}" />
