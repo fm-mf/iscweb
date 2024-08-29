@@ -46,6 +46,12 @@
             <div class="col-md-4">
                 <h2>Důležité odkazy</h2>
                 <ul class="list-unstyled list-colored">
+                    <li>
+                        <a href="https://chat.whatsapp.com/I9EItujnwj1GSoYpKGWNpD" target="_blank" >
+                            WhatsApp komunita
+                        </a>
+                        <p>Hlavní komunikační platforma pro aktivní členy</p>
+                    </li>
                     <li><a href="https://esnctu.notion.site/68b32fcf9ad24350a81c354e076dc747?v=c0009ed9bdb04a08b7b9d0f881b2dfef&pvs=4">Wiki (Notion)</a>
                         <p>Studnice všech vědomostí o projektech a aktivitách.</p>
                     </li>
