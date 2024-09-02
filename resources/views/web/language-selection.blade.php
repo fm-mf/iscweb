@@ -50,7 +50,7 @@
                 </ul>
                 <div class="row">
                     <div class="col">
-                        <h5>Formally named International Student Club CTU in Prague</h5>
+                        <h5>Formerly named International Student Club CTU in Prague</h5>
                     </div>
                 </div>
             </div>
