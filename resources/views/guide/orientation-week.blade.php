@@ -38,7 +38,7 @@
             'items' => [
                 'day-1-registration' => 'Registration at faculties',
                 'initial-meeting' => 'Initial information meeting',
-                // 'tandem-evening' => 'Tandem evening',
+                 'tandem-evening' => 'Tandem evening',
             ]
         ],
         'day-2' => [
@@ -76,15 +76,15 @@
 
     <h3 id="day-1">DAY 1 – <strong>{{ $owDay1 }}</strong></h3>
 
-    <h4  id="day-1-registration">Registration at faculties</h4>
-    <ul class="list-unstyled">
-        <li>
-            <ul>
-                <li>For the <strong>Faculty of Architecture (FA)</strong> - For students of majors "Architecture and Urbanism" and "Landscape Architecture" at 12:30 (presentation of atelier works) in the auditorium T9:107. Students of the design major will be contacted by the faculty.</li>
-                <li>For the <strong>Faculty of Mechanical Engineering (FS / FME)</strong> at 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
-            </ul>
-        </li>
-    </ul>
+{{--    <h4  id="day-1-registration">Registration at faculties</h4>--}}
+{{--    <ul class="list-unstyled">--}}
+{{--        <li>--}}
+{{--            <ul>--}}
+{{--                <li>For the <strong>Faculty of Architecture (FA)</strong> - For students of majors "Architecture and Urbanism" and "Landscape Architecture" at 12:30 (presentation of atelier works) in the auditorium T9:107. Students of the design major will be contacted by the faculty.</li>--}}
+{{--                <li>For the <strong>Faculty of Mechanical Engineering (FS / FME)</strong> at 9:00, <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>--}}
+{{--            </ul>--}}
+{{--        </li>--}}
+{{--    </ul>--}}
 
     <h4 id="initial-meeting">Initial information meeting</h4>
     <ul class="list-unstyled">
@@ -119,22 +119,6 @@
         </li>
     </ul>
 
-    {{--
-    <h4 id="tandem-evening">Tandem Evening</h4>
-    <p>A unique program for improving your language learning and teaching skills organized by ESN Languages team</p>
-    <ul class="list-unstyled">
-        <li>When: <strong>TBA</strong></li>
-        <li>Where: <strong>TBA</strong></li>
-        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>
-        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>
-        <li>Meeting points:
-            <ul>
-                <li>20:00 in the lobby of the Masarykova dormitory</li>
-            </ul>
-        </li>
-        <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
-    </ul>
-    --}}
     @if($showSlidesAndRegistrations)
     <h4>Slides from the Initial information meeting</h4>
         <ul class="list-unstyled">
@@ -150,6 +134,23 @@
             </li>
         </ul>
     @endif
+
+
+    <h4 id="tandem-evening">Tandem Evening</h4>
+    <p>A unique program for improving your language learning and teaching skills organized by ESN Languages team</p>
+    <ul class="list-unstyled">
+        <li>When: <strong>16.9. 2024 from 19:00</strong></li>
+        {{--        <li>Where: <strong>TBA</strong></li>--}}
+        <li>Where: <a href="https://maps.app.goo.gl/m8uG7dU5pMzgLX2C9" target="_blank" rel="noopener"><strong>ISC HUB</strong> (basement of Masarykova Dormitory - Thákurova 550/1, 162 00 Praha 6 – Dejvice)</a></li>
+        {{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
+        {{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
+        {{--        <li>Meeting points:--}}
+        {{--            <ul>--}}
+        {{--                <li>20:00 in the lobby of the Masarykova dormitory</li>--}}
+        {{--            </ul>--}}
+        {{--        </li>--}}
+        <li>See <a href="{{ url('activities/language-programs') }}" target="_blank">Language programs</a></li>
+    </ul>
 
     <h3 id="day-2">DAY 2 – {{ $owDay2 }}</h3>
 
@@ -189,10 +190,11 @@
             <li>
                 <strong>In-person registration:</strong>
                 <ul>
-                    <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, Room T2:C3-132</li>
-                    <li>Faculty of Transportation (FD / FT) – 9:00, building Konviktská 20, Prague 1; room 205</li>
-                    <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 10:00, room 103 (at the ground floor)</li>
-                    <li>Faculty of Architecture (FA) – Possible consultations at room T9:147, Thákurova 9</li>
+                    <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, room T2:C3-340</li>
+                    <li>Faculty of Transportation (FD / FT) – 9:30, building Konviktská 20, Prague 1; room 205</li>
+                    <li>Faculty of Mechanical Engineering (FS / FME) – 9:00, room <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
+                    <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
+{{--                    <li>Faculty of Architecture (FA) – Possible consultations at room T9:147, Thákurova 9</li>--}}
 
                 </ul>
             </li>
@@ -202,6 +204,7 @@
                 <ul>
                     <li>Faculty of Civil Engineering (FSv / FCE)</li>
                     <li>Faculty of Information Technology (FIT)</li>
+                    <li>Faculty of Architecture (FA)</li>
                 </ul>
             </li>
             <li>
@@ -264,7 +267,7 @@
                 <strong>In-person registration:</strong>
                 <ul>
                     <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 9:30, meetup at 9:15 in the lobby, building Trojanova 339/13, Praha 2</li>
-                    <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
+                    <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 9:30, room 103 (at the ground floor)</li>
                 </ul>
             </li>
             <li class="alert alert-info">
