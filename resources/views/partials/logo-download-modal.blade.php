@@ -9,7 +9,7 @@
                 <img src="{{ asset('img/logos/isc-logo-watermark-color.svg') }}" alt="ESN CTU Logo" />
                 <h2>@lang('web.logo-download-modal.heading')</h2>
                 <p>@lang('web.logo-download-modal.description')</p>
-                <a class="btn btn-success" href="{{ asset('files/isc-logos-2019.zip') }}">@lang('web.logo-download-modal.link')</a>
+                <a class="btn btn-success" href="{{ asset('files/esn-ctu-logos-2024.zip') }}">@lang('web.logo-download-modal.link')</a>
             </div>
         </div>
     </div>
