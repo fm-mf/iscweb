@@ -65,8 +65,8 @@
                         <p><strong>Login: partak</strong></p><p><strong>Heslo: Quentinamakazdyrad</strong></p>
                     </li>
                     <li>
-                        <a href="https://drive.google.com/folderview?id=0B7kiw4knduMXOWxRcjhZZGR5Nm8&usp=sharing">Podklady a materiály ESN</a>
-                        <p>Loga, šablony, obrázky ESN</p>
+                        <a href="https://drive.google.com/folderview?id=0B7kiw4knduMXOWxRcjhZZGR5Nm8&usp=sharing">Podklady a materiály ESN CTU</a>
+                        <p>Loga, šablony, obrázky ESN CTU</p>
                     </li>
                     <li>
                         <a href="https://drive.google.com/folderview?id=0B2sebxB3kcgYfnNyd3J2U28xMWtXdHVDQVFhZGJyZGQyU1hWcmttNS1FWnNSZzJOUm5HZGc&usp=drive_web">Podklady a materiály ESN</a>
