@@ -9,16 +9,16 @@
 
 $lineHeight: 4.875mm;
 $fontSize: 8pt;
-$pageMarginX: 7mm;
+$pageMarginX: 15mm;
 $pageMarginY: 11mm;
-$rowSpacing: 2mm;
-$labelWidth: 46mm;
+$rowSpacing: 2.875mm;
+$labelWidth: 42mm;
 $labelBorderThickness: 0.125pt;
 $labelXPadding: 1.5mm - math.div($labelBorderThickness, 2);
 $labelYTPadding: 0;
 $labelYBPadding: 1.25mm;
 
-$dateLetterSpacing: 0.75mm;
+$dateLetterSpacing: 0.5mm;
 $longNameLetterSpacing: -1em * math.div(5, 256);
 $extraLongNameLetterSpacing: -1em * math.div(11, 256);
 
@@ -86,13 +86,13 @@ div.row,
 
 .nationality,
 .sectionName {
-    width: 29mm;
+    width: 25.5mm;
     float: left;
 }
 
 .dateOfBirth,
 .dateValidFrom {
-    width: 15mm + $dateLetterSpacing;
+    width: 13.5mm + $dateLetterSpacing;
     letter-spacing: $dateLetterSpacing;
     margin-right: math.div(-$dateLetterSpacing, 2);
     float: right;
