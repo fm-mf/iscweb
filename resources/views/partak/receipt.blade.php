@@ -25,7 +25,7 @@
     <text> * attend events exclusive for ESN members&#10;</text>
     <text>and you also get:&#10;</text>
     <text> * ESN T-shirt "I was there"&#10;</text>
-    <text> * SIM card with 15 GB data bundle and 100 CZK&#10;   prepaid credit&#10;</text>
+    <text> * SIM card with 15 GB data bundle and 50 CZK&#10;   prepaid credit&#10;</text>
     <text> * discount on print & copy in the ESN Point&#10;</text>
     <text>{{ str_repeat('-', 48) }}&#10;</text>
     <text align="center"/>

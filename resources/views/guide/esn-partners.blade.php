@@ -21,7 +21,7 @@
         <p>
             Stay in touch with your Erasmus friends and obtain a SIM card with a favorable
             Erasmus student tariff together with an ESN membership! The first month is for free
-            with 10 GB of data and free unlimited SMS within the Vodafone network and then for 399 CZK / month.
+            with 10 GB of data and free unlimited SMS within the Vodafone network and then for 200 CZK / month.
             This offer is the best offer for students at the market right now.
             So keep it simple, stay online and reach everyone you need.
         </p>
@@ -40,7 +40,7 @@
             </a>
         </p>
         <p>
-            In the following months you can choose the same prepaid value bundle as in the first month for 399 CZK / month
+            In the following months you can choose the same prepaid value bundle as in the first month for 200 CZK / month
             or different bundles proposed by Vodafone. Do not forget that you always have to top-up your card with credit to get a bundle.
         </p>
         <p class="mb-0">
