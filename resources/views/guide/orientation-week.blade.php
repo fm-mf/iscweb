@@ -123,13 +123,13 @@
     <h4>Slides from the Initial information meeting</h4>
         <ul class="list-unstyled">
             <li>
-                <a href="{{ asset('files/ow-2024_spring/ow-2024_Spring-registrations_at_faculties.pdf') }}" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Registrations at faculties (Spring 2024)
+                <a href="{{ asset('files/ow-2024_autumn/ow-2024_autumn-registrations_at_faculties.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Registrations at faculties (Autumn 2024)
                 </a>
             </li>
             <li>
-                <a href="{{ asset('files/ow-2024_spring/ow-2024_spring-handout.pdf') }}" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Slides from the presentation OW Spring 2024
+                <a href="{{ asset('files/ow-2024_autumn/ow-2024_autumn-handout.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Slides from the presentation OW Autumn 2024
                 </a>
             </li>
         </ul>
