@@ -494,6 +494,13 @@ class Trip extends Model
             ->orderBy('events.datetime_from', $direction);
     }
 
+    public function scopeOrderedByStartTime(Builder $query, string $direction = 'DESC'): Builder
+    {
+        return $query
+            ->join('events', 'trips.id_event', '=', 'events.id_event')
+            ->orderBy('events.datetime_from', $direction);
+    }
+
     public function scopeInCurrentSemester(Builder $query): Builder
     {
         return $query->whereHas(
@@ -517,6 +524,9 @@ class Trip extends Model
 
     public static function getCurrentOwTrips(): Collection
     {
-        return self::currentOwTrips()->with('event')->get();
+        return self::currentOwTrips()
+            ->with('event')
+            ->orderedByStartTime('ASC')
+            ->get();
     }
 }
