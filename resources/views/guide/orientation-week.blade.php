@@ -123,6 +123,11 @@
     <h4>Slides from the Initial information meeting</h4>
         <ul class="list-unstyled">
             <li>
+                <a href="https://www.youtube.com/watch?v=-fGPpMjjAOQ" target="_blank">
+                    <i class="fab fa-youtube"></i> Recording of the presentations OW Autumn 2024
+                </a>
+            </li>
+            <li>
                 <a href="{{ asset('files/ow-2024_autumn/ow-2024_autumn-registrations_at_faculties.pdf') }}" target="_blank">
                     <i class="fas fa-file-pdf"></i> Registrations at faculties (Autumn 2024)
                 </a>
@@ -144,7 +149,7 @@
         <li>Where: <a href="https://maps.app.goo.gl/m8uG7dU5pMzgLX2C9" target="_blank" rel="noopener"><strong>ISC HUB</strong> (basement of Masarykova Dormitory - Thákurova 550/1, 162 00 Praha 6 – Dejvice)</a></li>
         {{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
         {{--        <li>Where: <a href="https://goo.gl/maps/ckJhJfZxaJuqnjfE7" target="_blank" rel="noopener"><strong>P.M. Club</strong> (Trojická 1907, 128 00 Nové Město)</a></li>--}}
-        {{--        <li>Meeting points:--}}
+        {{--        <li>Meeting pointsresources/views/guide/orientation-week.blade.php:--}}
         {{--            <ul>--}}
         {{--                <li>20:00 in the lobby of the Masarykova dormitory</li>--}}
         {{--            </ul>--}}
