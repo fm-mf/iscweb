@@ -32,7 +32,8 @@
                         They are <strong>free of charge</strong>, fun, and no registration is needed.
                     </p>
                     <p>
-                        Languages courses for the Spring semester 2023/2024 will start on <strong>Monday, 11 March 2024</strong>.
+                        Languages courses in the Autumn semester 2024/2025 will start on <strong>Monday, 7 October 2024</strong>,
+                        and their schedule will be announced one week before that.
                     </p>
                     <p>
                         Are you interested in teaching a language with the ESN? That's great, we would like to have you!
