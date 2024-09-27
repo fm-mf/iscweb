@@ -41,7 +41,7 @@
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Have a look at the <b>Spring 2024 schedule</b>
+                            Have a look at the <b>Autumn 2024 schedule</b>
                         </a>
                     </p>
                     <h3>Where are the classrooms?</h3>
@@ -115,7 +115,7 @@
                     <h2>See the schedule</h2>
                     <p>You can have a look at the
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            Spring 2024 schedule
+                            Autumn 2024 schedule
                         </a>
                     </p>{{--
                     <p>

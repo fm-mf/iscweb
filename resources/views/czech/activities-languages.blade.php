@@ -19,11 +19,12 @@
                         zábavnou formou a není na ně potřeba žádné registrace.
                     </p>
                     <p>
-                        Jazykové kurzy pro jarní semestr 2023/2024 začínají v <strong>pondělí 11. března 2024</strong>.
+                        Jazykové kurzy pro zimní semestr 2024/2025 začínají v <strong>pondělí 7. října 2024</strong>.
+                        Rozvrh kurzů bude zveřejněn o týden dříve.
                     </p>
                     <p>
                         <a class="btn btn-primary" href="{{ url('files/languages-schedule.php') }}">
-                            Podívejte se na <strong>rozvrh pro jarní semestr 2023/2024</strong>
+                            Podívejte se na <strong>rozvrh pro zimní semestr 2024/2025</strong>
                         </a>
                     </p>
                     <h3>Kde najdu učebny?</h3>
@@ -112,7 +113,7 @@
                     <p>
                         Podívejte se na rozvrh ESN jazykových kurzů pro
                         <a href="{{ url('files/languages-schedule.php') }}" target="_blank">
-                            jarní semestr 2023/2024
+                            zimní semestr 2024/2025
                         </a>.
                     </p>{{--
                     <p>
