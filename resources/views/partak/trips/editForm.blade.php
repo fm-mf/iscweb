@@ -3,7 +3,7 @@
         {{ Form::bsText('name', 'Name', 'required') }}
     </div>
     <div class="col-sm-4">
-        {{ Form::bsSelect('id_semester', 'Semester', $semesters, $currentSemesterId, ['required' => 'required']) }}
+        {{ Form::bsSelect('id_semester', 'Semester', $semesters, !empty($create) ? $currentSemesterId : $event->id_semester, ['placeholder' => 'Choose semester…', 'required' => 'required']) }}
     </div>
 </div>
 

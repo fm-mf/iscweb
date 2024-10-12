@@ -288,6 +288,7 @@ class Event extends Model
             $event->datetime_from = $data['datetime_from'];
             $event->name = $data['name'];
 
+            $event->id_semester = $data['id_semester'];
             $event->location = $data['location'] ?? '';
             $event->location_url = $data['location_url'] ?? '';
             $event->ow = isset($data['ow']) && $data['ow'] === '1' ? 1 : 0;
