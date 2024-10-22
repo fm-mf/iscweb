@@ -84,8 +84,8 @@
                     </div>
                     <div class="row">
                         <div class="col-10 col-sm-12 col-xl-10 ml-auto mr-auto">
-                            <a href="https://su.cvut.cz">
-                                <img src="/img/logos/su/su-logo-side-col.svg" alt="Logo Studentské unie ČVUT" />
+                            <a href="https://su.cvut.cz"">
+                                <img src="/img/logos/su/SU_red_horizonal-CJ.svg" alt="Logo Studentské unie ČVUT" class="p-3" />
                             </a>
                         </div>
                     </div>

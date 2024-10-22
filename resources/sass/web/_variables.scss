@@ -10,9 +10,9 @@ $colorEsnDarkBlue: #2e3192;
   --color-light-gray: #e4e4e4;
   --color-blue-bg: #0079c1;
 
-  --color-esn-cyan: $colorEsnCyan;
-  --color-esn-magenta: $colorEsnMagenta;
-  --color-esn-green: $colorEsnGreen;
-  --color-esn-orange: $colorEsnOrange;
-  --color-esn-dark-blue: $colorEsnDarkBlue;
+  --color-esn-cyan: #{$colorEsnCyan};
+  --color-esn-magenta: #{$colorEsnMagenta};
+  --color-esn-green: #{$colorEsnGreen};
+  --color-esn-orange: #{$colorEsnOrange};
+  --color-esn-dark-blue: #{$colorEsnDarkBlue};
 }
