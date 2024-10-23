@@ -5,7 +5,7 @@
 ])
 
 <div class="form-group">
-    {{ Form::label("{$key}Date", $label, ['class' => 'control-label']) }}
+    {{ Form::label("{$key}Date", $label) }}
 
     @if ($errors->hasAny(["{$key}Date", "{$key}Time"]))
         <p class="error-block alert-danger">

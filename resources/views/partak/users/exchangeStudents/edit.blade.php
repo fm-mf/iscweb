@@ -10,10 +10,10 @@
 
         <div class="row container">
             <div class="col-sm-2">
-                <img class="img-circle pull-left buddy-detail-img"  width="125" src="{{ asset($exStudent->person->avatar()) }}">
+                <img class="rounded-circle float-left buddy-detail-img"  width="125" src="{{ asset($exStudent->person->avatar()) }}">
             </div>
             <div class="col-sm-10">
-                <h3>{{ $exStudent->person->getFullName() }} <a href="{{ route('partak.users.exchangeStudent', [$exStudent->id_user]) }}" role="button" class="btn btn-info btn-xs">Detail</a></h3>
+                <h3>{{ $exStudent->person->getFullName() }} <a href="{{ route('partak.users.exchangeStudent', [$exStudent->id_user]) }}" role="button" class="btn btn-info btn-sm">Detail</a></h3>
             </div>
         </div>
 
@@ -25,26 +25,26 @@
                     {{ Form::bsTel('whatsapp', 'WhatsApp', '', null, [], 'Full number including the country prefix') }}
                     {{ Form::bsUrl('facebook', 'Facebook', '', null, [], 'Full link to the Facebook profile') }}
                     {{ Form::bsText('instagram', 'Instagram', '', null, [], 'Instagram handle without @') }}
-                    {{ Form::label('esn_registered', 'ESN registered', ['class' => 'control-label']) }}
+                    {{ Form::label('esn_registered', 'ESN registered') }}
                     {{ Form::checkbox('esn_registered', 'y', $exStudent->esn_registered == 'y') }}
                     {{ Form::bsText('esn_card_number', 'ESNcard number') }}
                     {{ Form::bsSelect('id_faculty', 'Faculty', $faculties, $exStudent->id_faculty, ['placeholder' => 'Choose faculty...', 'required' =>'required']) }}
                     {{ Form::bsSelect('id_accommodation', 'Accommodation', $accommodations, $exStudent->id_accommodation, ['placeholder' => 'Choose accommodation...', 'required' =>'required']) }}
                     {{ Form::bsSelect('id_country', 'Country', $countries, $exStudent->id_country, ['placeholder' => 'Choose country...', 'required' =>'required']) }}
 
-                    {{ Form::label('fullTime', 'Full-time student', ['class' => 'control-label']) }}
+                    {{ Form::label('fullTime', 'Full-time student') }}
                     {{ Form::checkbox('fullTime', 'y', $exStudent->degree_student) }}
 
                     <div class="form-group row" style="overflow: hidden;">
                         <div class="col-sm-6 left">
-                            {{ Form::label('sex', 'Sex', ['class' => 'control-label required']) }}
+                            {{ Form::label('sex', 'Sex', ['class' => 'required']) }}
                             @if ($errors->has('sex'))
                                 <p class="error-block alert-danger">{{ $errors->first('sex') }}</p>
                             @endif
                             {{ Form::select('sex', ['M' => 'Male', 'F' => 'Female'], $exStudent->person->sex, ['placeholder' => 'Choose sex...', 'class' => 'form-control', 'required' =>'required']) }}
                         </div>
                         <div class="col-sm-6 right">
-                            {{ Form::label('age', 'Year of birth', ['class' => 'control-label']) }}
+                            {{ Form::label('age', 'Year of birth') }}
                             @if ($errors->has('age'))
                                 <p class="error-block alert-danger">{{ $errors->first('age') }}</p>
                             @endif

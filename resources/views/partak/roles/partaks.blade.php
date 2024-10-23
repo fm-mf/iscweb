@@ -29,7 +29,7 @@
                     <protectedbutton
                         url="{{ url('partak/users/roles/remove/' . $partak->id_user . '/partak') }}"
                         protection-text="Remove {{ $partak->person->first_name }} {{ $partak->person->last_name }} from Partaks?"
-                        button-style="btn-danger btn-xs align-right"
+                        button-style="btn-danger btn-sm align-right"
                     >
                         <span class="fas fa-times"></span> Remove
                     </protectedbutton>

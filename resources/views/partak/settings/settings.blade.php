@@ -15,7 +15,7 @@
             {{ Form::bsText('rector', 'Rector') }}
 
             <div class="form-group">
-            {{ Form::label('limitPerDay', 'Buddy database limit per day', ['class' => 'control-label']) }}
+            {{ Form::label('limitPerDay', 'Buddy database limit per day') }}
             @if ($errors->has('limitPerDay'))
                 <p class="error-block alert-danger">{{ $errors->first('limitPerDay') }}</p>
             @endif
@@ -36,37 +36,37 @@
                 label="Degree Buddy database open from"
             />
 
-            {{ Form::label('date', 'Welcome package from', ['class' => 'control-label']) }}
+            {{ Form::label('date', 'Welcome package from') }}
             @if ($errors->has('date'))
                 <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
             @endif
             {{ Form::text('wcFrom', $settings['wcFrom']->format('d M Y'), ['id' => 'wcFrom', 'class' => 'form-control arrival date', 'style' => 'margin-bottom: 15px']) }}
 
-            {{ Form::label('date', 'OW from', ['class' => 'control-label']) }}
+            {{ Form::label('date', 'OW from') }}
             @if ($errors->has('date'))
                 <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
             @endif
             {{ Form::text('owFrom', $settings['owFrom']->format('d M Y'), ['id' => 'owFrom', 'class' => 'form-control arrival date', 'style' => 'margin-bottom: 15px']) }}
 
-            {{ Form::label('date', 'OW to', ['class' => 'control-label']) }}
+            {{ Form::label('date', 'OW to') }}
             @if ($errors->has('date'))
                 <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
             @endif
             {{ Form::text('owTo', $settings['owTo']->format('d M Y'), ['id' => 'owTo', 'class' => 'form-control arrival date', 'style' => 'margin-bottom: 15px']) }}
 
-            {{ Form::label('electionStreamUrl', 'Link to the election stream', ['class' => 'control-label']) }}
+            {{ Form::label('electionStreamUrl', 'Link to the election stream') }}
             @if ($errors->has('electionStreamUrl'))
                 <p class="error-block alert-danger">{{ $errors->first('electionStreamUrl') }}</p>
             @endif
             {{ Form::url('electionStreamUrl', $settings['electionStreamUrl'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
-            {{ Form::label('fbGroupLink', 'Link to current semester\'s FB group', ['class' => 'control-label']) }}
+            {{ Form::label('fbGroupLink', 'Link to current semester\'s FB group') }}
             @if ($errors->has('fbGroupLink'))
                 <p class="error-block alert-danger">{{ $errors->first('fbGroupLink') }}</p>
             @endif
             {{ Form::url('fbGroupLink', $settings['fbGroupLink'], ['class' => 'form-control', 'style' => 'margin-bottom: 15px']) }}
 
-            {{ Form::label('owFbEventLink', 'Link to current OW FB event', ['class' => 'control-label']) }}
+            {{ Form::label('owFbEventLink', 'Link to current OW FB event') }}
             @if ($errors->has('owFbEventLink'))
             <p class="error-block alert-danger">{{ $errors->first('owFbEventLink') }}</p>
             @endif
@@ -96,7 +96,7 @@
 
             {{ Form::bsCheckbox('owTripsRestricted', 'Allow only one OW trip per person', '', '1', @$settings['owTripsRestricted']) }}
 
-            {{ Form::label('receiptPrinterUrl', 'Receipt printer url', ['class' => 'control-label']) }}
+            {{ Form::label('receiptPrinterUrl', 'Receipt printer url') }}
             @if ($errors->has('receiptPrinterUrl'))
             <p class="error-block alert-danger">{{ $errors->first('receiptPrinterUrl') }}</p>
             @endif

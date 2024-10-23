@@ -66,7 +66,7 @@
                 @mousemove="setActive(index)"
             >
                 <span v-if="item.image" class="img-wrapper">
-                    <img :src="item.image" class="img-circle" />
+                    <img :src="item.image" class="rounded-circle" />
                 </span>
                 <a :href="item.link">
                     {{ item.topline }}

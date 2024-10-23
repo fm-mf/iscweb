@@ -16,10 +16,10 @@
             <input type="hidden" name="hash" value="{{ $hash }}">
 
             {{ Form::bsSelect('best_show', 'Best Show', $countriesList, $bestShow, ['placeholder' => 'Select best show...', 'class' => 'best-show']) }}
-            <p class="help-block col-sm-12">Note: The country you come from <b>is not</b> in the list.</p>
+            <small class="form-text text-muted col-sm-12">Note: The country you come from <b>is not</b> in the list.</small>
 
             {{ Form::bsSelect('best_food', 'Best Food', $countriesList, $bestFood, ['placeholder' => 'Select best food...', 'class' => 'best-food']) }}
-            <p class="help-block col-sm-12">Note: The country you come from <b>is not</b> in the list.</p>
+            <small class="form-text text-muted col-sm-12">Note: The country you come from <b>is not</b> in the list.</small>
 
             @if ( !$alreadyVoted )
                 {{ Form::bsSubmit('Vote') }}

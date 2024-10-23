@@ -20,7 +20,7 @@
                 <div>
                     <label></label>
                 </div>
-                <a href="{{ $event->createdby ?  $event->createdby->getDetailLink() : '' }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                <a href="{{ $event->createdby ?  $event->createdby->getDetailLink() : '' }}" role="button" class="btn btn-info btn-sm">Detail</a>
             </div>
         </div>
         <div class="form-group row">
@@ -34,7 +34,7 @@
                 <div>
                     <label></label>
                 </div>
-                <a href="{{ $event->modifiedby ? $event->modifiedby->getDetailLink() : '' }}" role="button" class="btn btn-info btn-xs">Detail</a>
+                <a href="{{ $event->modifiedby ? $event->modifiedby->getDetailLink() : '' }}" role="button" class="btn btn-info btn-sm">Detail</a>
             </div>
         </div>
     @endcan
@@ -66,7 +66,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('visible_date', 'Visible from', ['class' => 'control-label required' ]) }}
+    {{ Form::label('visible_date', 'Visible from', ['class' => 'required' ]) }}
     @if ($errors->has('visible_date'))
         <p class="error-block alert-danger">{{ $errors->first('visible_date') }}</p>
     @endif
@@ -81,7 +81,7 @@
 
 <div class="row">
     <div class="form-group col-sm-6">
-        {{ Form::label('start_date', 'Event starts', ['class' => 'control-label required']) }}
+        {{ Form::label('start_date', 'Event starts', ['class' => 'required']) }}
         @if ($errors->has('start_date'))
             <p class="error-block alert-danger">{{ $errors->first('start_date') }}</p>
         @endif
@@ -95,7 +95,7 @@
     </div>
     @if ($trips)
     <div class="form-group col-sm-6">
-        {{ Form::label('date', 'Event ends', ['class' => 'control-label required']) }}
+        {{ Form::label('date', 'Event ends', ['class' => 'required']) }}
         @if ($errors->has('date'))
             <p class="error-block alert-danger">{{ $errors->first('date') }}</p>
         @endif

@@ -13,7 +13,7 @@
                         <slot name="content">
                             <img
                                 src="/img/partak/speedy.jpg"
-                                class="img-circle"
+                                class="rounded-circle"
                             />
                             <slot name="body">
                                 Do you wish to proceed?

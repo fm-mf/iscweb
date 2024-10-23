@@ -12,7 +12,7 @@
     <div class="div-cell capacity">{{ $trip->howIsFillSimple() }}</div>
     <div class="div-cell actions" class="text-right">
         @can('edit', $trip)
-            <a href="{{ route('partak.trips.edit', $trip->id_trip) }}" role="button" class="btn btn-success btn-xs btn-sm">
+            <a href="{{ route('partak.trips.edit', $trip->id_trip) }}" role="button" class="btn btn-success btn-sm">
                 <i class="fas fa-pen"></i> Edit
             </a>
         @endcan

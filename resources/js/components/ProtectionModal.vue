@@ -26,7 +26,7 @@
                     <slot name="modal-body">
                         <img
                             src="/img/partak/speedy.jpg"
-                            class="img-circle"
+                            class="rounded-circle"
                             alt="Warning image"
                         />
                         <p class="ml-3 mb-0">

@@ -27,7 +27,7 @@
     </div>
     <div class="container">
         <a data-toggle="collapse" href="#collapseT1"><h2>Old events</h2></a>
-        <div class="panel panel-collapse collapse" id="collapseT1">
+        <div class="collapse" id="collapseT1">
             @component('partak.components.events-table', ['events' => $oldEvents])
                 There are no past events :(
             @endcomponent

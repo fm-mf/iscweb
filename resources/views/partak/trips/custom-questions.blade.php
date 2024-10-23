@@ -21,15 +21,15 @@
                     )
                 }}
                 @break
-            
+
             @case('select')
                 <div class="form-group">
-                    {{ Form::label($name, $question->label, ['class' => 'control-label ' . $question->required ? 'required' : '']) }}
+                    {{ Form::label($name, $question->label, ['class' => $question->required ? 'required' : '']) }}
                     @if ($errors->has($name))
                         <p class="error-block alert-danger">{{ $errors->first($name) }}</p>
                     @endif
                     <p class="info-block">{{ $question->description }}</p>
-                    
+
                     @foreach ($question->getOptions() as $option)
                         <label class="custom-question {{ @$option->image ? 'with-image' : '' }}">
                             @if (@$option->image)

@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row container">
             <div class="col-sm-2">
-                <img class="img-circle pull-left buddy-detail-img"  width="100" src="{{ asset($buddy->person->avatar()) }}">
+                <img class="rounded-circle float-left buddy-detail-img"  width="100" src="{{ asset($buddy->person->avatar()) }}">
             </div>
             <div class="col-sm-10">
                 <div class="d-flex align-items-start">
@@ -42,7 +42,7 @@
                     {{ Form::bsText('phone', 'Phone') }}
                     {{ Form::bsSelect('id_country', 'Country', $countries, $buddy->id_country, ['placeholder' => 'Choose country...']) }}
                     <div class="form-group">
-                        {{ Form::label('degree_buddy', 'Full-time student', ['class' => 'control-label']) }}
+                        {{ Form::label('degree_buddy', 'Full-time student') }}
                         {{ Form::checkbox('degree_buddy', true, $buddy->degree_buddy) }}
                     </div>
                     @can('acl', 'roles.view')
@@ -57,14 +57,14 @@
 
                     <div class="form-group row" style="overflow: hidden;">
                         <div class="col-sm-6 left">
-                            {{ Form::label('sex', 'Sex', ['class' => 'control-label']) }}
+                            {{ Form::label('sex', 'Sex') }}
                             @if ($errors->has('sex'))
                                 <p class="error-block alert-danger">{{ $errors->first('sex') }}</p>
                             @endif
                             {{ Form::select('sex', ['M' => 'Male', 'F' => 'Female'], $buddy->person->sex, ['placeholder' => 'Choose sex...', 'class' => 'form-control']) }}
                         </div>
                         <div class="col-sm-6 right">
-                            {{ Form::label('age', 'Year of birth', ['class' => 'control-label']) }}
+                            {{ Form::label('age', 'Year of birth') }}
                             @if ($errors->has('age'))
                                 <p class="error-block alert-danger">{{ $errors->first('age') }}</p>
                             @endif

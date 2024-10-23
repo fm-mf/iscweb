@@ -24,7 +24,7 @@
                 <div class="flex-grow-1 w-100 d-flex">
                     <div class="dropdown userbox ml-auto">
                         <a href="#" class="dropdown-toggle btn" id="userMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ URL::asset( Auth::user()->person->avatar() ) }}" class="img-circle top-navigation-user" /> {{ Auth::user()->person->getFullname() }}
+                            <img src="{{ URL::asset( Auth::user()->person->avatar() ) }}" class="rounded-circle top-navigation-user" /> {{ Auth::user()->person->getFullname() }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenuLink">

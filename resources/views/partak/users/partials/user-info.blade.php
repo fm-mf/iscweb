@@ -66,7 +66,7 @@
 
 <div class="row container mb-0">
     <div class="col-2-sm">
-        <img class="img-circle" width="125" src="{{ asset($user->person->avatar()) }}">
+        <img class="rounded-circle" width="125" src="{{ asset($user->person->avatar()) }}">
     </div>
     <div class="col-10-sm pl-4">
         <?php
