@@ -45,6 +45,15 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <p class="mt-4">
+                        <a class="btn btn-primary btn-lg" href="{{ route('register') }}">
+                            <span class="fas fa-user-plus"></span> Staň se Buddym!
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
     @include('czech.partials.buddy-handbook-section')
