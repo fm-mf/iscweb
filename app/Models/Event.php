@@ -340,10 +340,12 @@ class Event extends Model
             'start_time' => $start->format('g:i A'),
         ]));
 
-        $newEvent->storeCover(UploadedFile::createFromBase(
-            new SymfonyUploadedFile(Storage::path($this->getCoverPathAttribute()),
-            $this->cover
-        )));
+        if ($this->hasCover()) {
+            $newEvent->storeCover(UploadedFile::createFromBase(new SymfonyUploadedFile(
+                Storage::path($this->getCoverPathAttribute()),
+                $this->cover
+            )));
+        }
 
         if ($this->event_type == self::TYPE_INTEGREAT) {
             $newEvent->Integreat_party()->create(

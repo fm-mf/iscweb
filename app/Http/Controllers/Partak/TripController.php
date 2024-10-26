@@ -539,4 +539,15 @@ class TripController extends Controller
             return response()->json(['error' => 'file parameter is missing'], 400);
         }
     }
+
+    public function duplicate(Trip $trip)
+    {
+        $this->authorize('acl', 'trips.add');
+
+        $newTrip = $trip->duplicate();
+
+        return redirect()->route('partak.trips.edit', $newTrip)->with([
+            'success' => 'Trip was successfully duplicated.',
+        ]);
+    }
 }

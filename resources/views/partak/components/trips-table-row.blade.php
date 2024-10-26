@@ -16,6 +16,21 @@
                 <i class="fas fa-pen"></i> Edit
             </a>
         @endcan
+        @can('acl', 'trips.add')
+            {{ Form::open(['route' => ['partak.trips.duplicate', $trip], 'method' => 'POST', 'class' => 'd-inline-block']) }}
+            <protected-submit-button
+                protection-title="Duplicate trip?"
+                protection-text="Do you really want to duplicate &quot;{{ $trip->event->name }}&quot; trip?"
+                proceed-text="Duplicate"
+                classes="btn-info btn-sm"
+                proceed-classes="btn-info"
+                modal-id="duplicate-event-{{ $trip->id_trip }}"
+                :form-group="false"
+            >
+                <span class="fas fa-copy"></span> Duplicate
+            </protected-submit-button>
+            {{ Form::close() }}
+        @endcan
         @can('acl', 'trips.remove')
             <protectedbutton url="{{ route('partak.trips.delete', $trip->id_trip) }}"
                 protection-text="Delete trip &quot;{{ $trip->event->name }}&quot;?" button-style="btn-danger btn-sm">

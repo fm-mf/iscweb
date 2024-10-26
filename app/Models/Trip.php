@@ -356,6 +356,27 @@ class Trip extends Model
         });
     }
 
+    public function duplicate(): self
+    {
+        $newEvent = $this->event->duplicate();
+
+        $newTrip = $this->replicate();
+        $newTrip->id_event = $newEvent->id_event;
+        $newTrip->save();
+
+        foreach ($this->organizers as $organizer) {
+            $newTrip->organizers()->attach($organizer, ['add_by' => auth()->id()]);
+        }
+
+        foreach ($this->questions as $oldQuestion) {
+            $newQuestion = $oldQuestion->replicate();
+            $newQuestion->id_event = $newEvent->id_event;
+            $newQuestion->save();
+        }
+
+        return $newTrip;
+    }
+
     protected static function updateDatetimes($data)
     {
         $time = $data['registration_time'] ?? "00:00 AM";

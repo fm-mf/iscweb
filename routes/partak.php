@@ -79,6 +79,8 @@ Route::prefix('/trips')
         Route::patch('/create', 'TripController@submitCreateForm')->name('doCreate');
         Route::get('/delete/{id_trip}', 'TripController@deleteTrip')->name('delete');
         Route::get('/{id_event}/payment/{id_payment}', 'TripController@showPaymentDetail')->name('pariticpant.detail');
+
+        Route::post('/{trip}/duplicate', 'TripController@duplicate')->name('duplicate');
     });
 
 
