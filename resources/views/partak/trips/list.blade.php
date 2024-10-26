@@ -1,5 +1,10 @@
 @extends('partak.trips.layout')
 @section('inner-content')
+    @if(session('tripDeleted'))
+        <div class="success top-message">
+            <i class="fas fa-check mr-1"></i> {{ session('tripDeleted') }}
+        </div>
+    @endif
     <div class="container">
         <div class="d-flex">
             <h3>Trips</h3>
