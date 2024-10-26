@@ -25,7 +25,9 @@
                 >
                     <i class="fas fa-pen"></i> Edit
                 </a>
+            @endcan
 
+            @can('acl', 'buddy.verify')
                 {{ Form::open(['url' => 'partak/users/exchange-students/promote/'. $exStudent->id_user, 'method' => 'post']) }}
                 <protected-submit-button
                     url="{{ url('partak/users/exchange-students/promote/' . $user->id_user) }}"

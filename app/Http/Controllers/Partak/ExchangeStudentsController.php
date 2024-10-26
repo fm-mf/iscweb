@@ -72,7 +72,7 @@ class ExchangeStudentsController extends Controller
 
     public function promoteExchangeStudent($id)
     {
-        $this->authorize('acl', 'buddy.edit');
+        $this->authorize('acl', 'buddy.verify');
 
         // Verify that id is correct
         $exStudent = ExchangeStudent::includingDegreeStudents()->with('person.user')->find($id);
@@ -102,7 +102,7 @@ class ExchangeStudentsController extends Controller
 
     public function showPromotedExchangeStudent($id)
     {
-        $this->authorize('acl', 'buddy.edit');
+        $this->authorize('acl', 'buddy.verify');
 
         // Load student info
         $exStudent = ExchangeStudent::includingDegreeStudents()->with('person.user')->find($id);
