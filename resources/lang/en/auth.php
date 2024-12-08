@@ -33,6 +33,7 @@ return [
     'e-mail' => 'E-mail address',
     'password' => 'Password',
     'password-confirmation' => 'Password confirmation',
+    'remember-login' => 'Remember login',
 
     'no-account-yet' => 'Don’t have and account yet?',
     'register-imp' => 'Register!',

@@ -35,6 +35,10 @@
             {{ Form::label('password', __('auth.password'), ['class' => 'required']) }}
             {{ Form::password('password', ['required' => 'required', 'class' => 'form-control', 'placeholder' => __('auth.placeholder.password'), 'autocomplete' => 'current-password']) }}
         </div>
+        <div class="form-group form-check">
+            {{ Form::checkbox('remember', 1, null, ['class' => 'form-check-input', 'id' => 'remember']) }}
+            {{ Form::label('remember', __('auth.remember-login'), ['class' => 'form-check-label']) }}
+        </div>
         <div class="form-group">
             {{ Form::button(__('auth.log-in'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
         </div>

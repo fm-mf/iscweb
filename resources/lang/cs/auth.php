@@ -33,6 +33,7 @@ return [
     'e-mail' => 'E-mailová adresa',
     'password' => 'Heslo',
     'password-confirmation' => 'Heslo znovu',
+    'remember-login' => 'Zapamatovat přihlášení',
 
     'no-account-yet' => 'Ještě nemáš účet?',
     'register-imp' => 'Zaregistruj se!',
