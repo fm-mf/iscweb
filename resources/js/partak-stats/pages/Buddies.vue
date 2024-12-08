@@ -27,28 +27,42 @@
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <h2 class="mt-3">By faculty</h2>
+                <stats-table
+                    :data="byFaculty"
+                    key-field="faculty"
+                />
+            </div>
+        </div>
     </loader>
 </template>
 
 <script>
 import { getBuddies, cached, emptyPromised, promised } from '../api';
+import StatsTable from '../components/StatsTable.vue';
+import { toStatsCollection } from "../utils/collections";
 
 export default {
+    components: { StatsTable },
     props: { semester: { type: String, required: true } },
     data: () => ({
-        buddies: emptyPromised()
+        buddies: emptyPromised(),
+        byFaculty: null
     }),
     computed: {
         splitBuddies() {
             return (
                 this.buddies.data &&
-                this.buddies.data.reduce(
+                this.buddies.data.list &&
+                this.buddies.data.list.reduce(
                     (cols, buddy) => {
                         const currentCol = cols[cols.length - 1];
 
                         currentCol.push(buddy);
 
-                        if (currentCol.length > this.buddies.data.length / 4) {
+                        if (currentCol.length > this.buddies.data.list.length / 4) {
                             cols.push([]);
                         }
                         return cols;
@@ -68,7 +82,10 @@ export default {
     },
     methods: {
         load() {
-            this.buddies = promised(cached(getBuddies(this.semester)));
+            this.buddies = promised(cached(getBuddies(this.semester)))
+                .then(data => {
+                    this.byFaculty = toStatsCollection(data.by_faculty);
+                });
         }
     }
 };

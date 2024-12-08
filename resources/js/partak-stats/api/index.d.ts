@@ -3,9 +3,21 @@ import { AxiosResponse } from "axios";
 type Request<T> = () => Promise<T> & { __key: string }
 
 type Buddy = {
+  id_user: number
   first_name: string
   last_name: string
+  partak: boolean
   exchange_students_count: number
+}
+
+type Faculty = {
+  faculty: string
+  count: number
+}
+
+type Buddies = {
+  list: Buddy[]
+  by_faculty: Faculty[]
 }
 
 type StudentCounts = {
@@ -14,10 +26,13 @@ type StudentCounts = {
   students_with_arrival: number
   students_with_buddy: number
   students_from_previous: number
+  students_with_esncard: number
+  total_buddies: number
+  active_buddies: number
 }
 
 type Students = {
-  by_faculty: { faculty: string; count: number }[]
+  by_faculty: Faculty[]
   by_gender: { sex: string; count: number }[]
   by_accommodation: { full_name: string; count: number}[]
   with_accommodation: number
@@ -69,6 +84,5 @@ declare function removeErrorListener(lisener: (error: any) => void): void;
 declare function getStudentCounts(semester: string): Request<StudentCounts>;
 declare function getArrivals(semester: string): Request<Arrivals>;
 declare function getStudents(semester: string, faculty?: string): Request<Students>;
-declare function getBuddies(semester: string): Request<Buddy[]>;
-declare function getActiveBuddies(): Request<Buddy[]>;
+declare function getBuddies(semester: string): Request<Buddies>;
 declare function getSemesters(): Request<Semester[]>;

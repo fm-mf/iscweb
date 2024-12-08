@@ -71,6 +71,11 @@ class Semester extends Model
         }
     }
 
+    public function hasPreviousSemester(): bool
+    {
+        return $this->optionalPreviousSemester() !== null;
+    }
+
     public function scopeCurrentSemester(Builder $query): Builder
     {
         return $query->where('semester', Settings::currentSemester());

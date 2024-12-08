@@ -139,8 +139,6 @@ Route::prefix('/stats')
             ->group(function () {
                 Route::get('/semesters', 'StatsController@getSemesters')
                     ->name('semesters');
-                Route::get('/active-buddies', 'StatsController@getActiveBuddies')
-                    ->name('active-buddies');
 
                 Route::prefix('/semester/{semester}')
                     ->group(function () {
@@ -165,6 +163,8 @@ Route::prefix('/stats')
                     ->group(function () {
                         Route::get('/culture-evening-candidates', 'StatsController@exportCultureEveningCandidates')
                             ->name('culture-evening-candidates');
+                        Route::get('/buddies', 'StatsController@exportBuddieWithStudents')
+                            ->name('buddies');
                     });
             });
     });

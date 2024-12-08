@@ -9,6 +9,11 @@ class Faculty extends Model
     protected $primaryKey = 'id_faculty';
     public $timestamps = false;
 
+    public function buddies()
+    {
+        return $this->hasMany(Buddy::class, 'id_faculty');
+    }
+
     public function exchangeStudents()
     {
         return $this->hasMany('\App\Models\ExchangeStudent', 'id_faculty', 'id_faculty');

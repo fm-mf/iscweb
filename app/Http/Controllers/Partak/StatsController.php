@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Partak;
 use App\Exports\ActiveBuddiesExport;
 use App\Exports\CECandidatesExport;
 use App\Facades\Settings;
+use App\Http\Resources\FacultyStatResource;
 use App\Models\Accommodation;
 use App\Models\Buddy;
 use App\Http\Controllers\Controller;
@@ -28,15 +29,6 @@ class StatsController extends Controller
         $semester = Settings::get('currentSemester');
 
         return view('partak.stats.index', ['semester' => $semester]);
-    }
-
-    public function getActiveBuddies()
-    {
-        $this->authorize('acl', 'stats.view');
-
-        return response()->json(
-            BuddyResource::collection(Buddy::recentlyActive()->get())
-        );
     }
 
     public function getBuddies(Semester $semester)
@@ -65,9 +57,19 @@ class StatsController extends Controller
             ->limit(15)
             ->get();
 
-        return response()->json(
-            BuddyResource::collection($buddies)
-        );
+        $byFaculty = Faculty::withCount([
+            'buddies as count' => function (Builder $query) use ($semester) {
+                return $query->withStudentsInSemester($semester);
+            }
+        ])
+            ->orderBy('count', 'desc')
+            ->having('count', '>', 0)
+            ->get();
+
+        return response()->json([
+            'list' => BuddyResource::collection($buddies),
+            'by_faculty' => FacultyStatResource::collection($byFaculty),
+        ]);
     }
 
     public function getStudentCounts(Semester $semester)
@@ -87,25 +89,13 @@ class StatsController extends Controller
             ->whereHas('buddy')
             ->count();
 
-        $buddies = Buddy::whereHas(
-            'exchangeStudents',
-            function (Builder $studentQuery) use ($semester) {
-                $previousSemester = $semester->optionalPreviousSemester();
-                $studentQuery = $studentQuery->whereHas('semesters', function (Builder $query) use ($semester) {
-                    $query->where('semester', $semester->semester);
-                });
-                if ($previousSemester) {
-                    $studentQuery = $studentQuery->whereDoesntHave(
-                        'semesters',
-                        function (Builder $query) use ($previousSemester) {
-                            $query->where('semester', $previousSemester->semester);
-                        }
-                    );
-                }
-                return $studentQuery;
-            }
-        )
-        ->count();
+        $studentsWithEsnCard = ExchangeStudent::byUniqueSemester($semester->semester)
+            ->esnRegistered()
+            ->count();
+
+        $buddiesCnt = Buddy::withStudentsInSemester($semester)->count();
+
+        $buddiesActiveByLoginCnt = Buddy::recentlyActive()->count();
 
         $previouSemester = $semester->optionalPreviousSemester();
         $studentsFromPreviousSemester = 0;
@@ -127,7 +117,9 @@ class StatsController extends Controller
             'students_with_arrival' => $studentsWithFilledArrival,
             'students_with_buddy' => $studentsWithBuddy,
             'students_from_previous' => $studentsFromPreviousSemester,
-            'buddies' => $buddies
+            'students_with_esncard' => $studentsWithEsnCard,
+            'total_buddies' => $buddiesCnt,
+            'active_buddies' => $buddiesActiveByLoginCnt,
         ]);
     }
 
@@ -292,6 +284,19 @@ class StatsController extends Controller
             ->subscribed()
             ->recentlyActive(Carbon::now()->subMonths($months))->get();
 
-        return new ActiveBuddiesExport($buddies);
+        return (new ActiveBuddiesExport($buddies))
+            ->withFileNameSuffix($months . ($months == 1 ? 'month' : 'months'));
+    }
+
+    public function exportBuddieWithStudents(Semester $semester)
+    {
+        $this->authorize('acl', 'stats.export_buddy');
+
+        $buddies = Buddy::withStudentsInSemester($semester)
+            ->subscribed()
+            ->get();
+
+        return (new ActiveBuddiesExport($buddies))
+            ->withFileNameSuffix($semester->semester);
     }
 }

@@ -100,6 +100,4 @@ export const getStudents = (semester, faculty) =>
 
 export const getBuddies = semester => get(semesterUrl(semester, 'buddies'));
 
-export const getActiveBuddies = () => get(`${BASE}/active-buddies`);
-
 export const getSemesters = () => get(`${BASE}/semesters`);

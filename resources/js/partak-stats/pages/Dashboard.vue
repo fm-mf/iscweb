@@ -1,7 +1,7 @@
 <template>
     <loader
         class="stats-dashboard"
-        :active="activeBuddies.loading || buddies.loading || counts.loading"
+        :active="buddies.loading || counts.loading"
         absolute
     >
         <div class="stats clearfix">
@@ -15,14 +15,16 @@
                 label="Most students per buddy"
                 :value="
                     buddies.data &&
-                        (buddies.data.length > 0
-                            ? buddies.data[0].exchange_students_count
+                    buddies.data.list &&
+                        (buddies.data.list.length > 0
+                            ? buddies.data.list[0].exchange_students_count
                             : '-')
                 "
                 :note="
                     buddies.data &&
-                        buddies.data.length > 0 &&
-                        `${buddies.data[0].last_name}, ${buddies.data[0].first_name}`
+                    buddies.data.list &&
+                        buddies.data.list.length > 0 &&
+                        `${buddies.data.list[0].last_name}, ${buddies.data.list[0].first_name}`
                 "
             />
 
@@ -33,11 +35,6 @@
         </div>
 
         <div class="stats clearfix">
-            <value-display
-                label="Arriving students"
-                :value="arrivingStudents"
-            />
-
             <value-display
                 label="Students with a buddy"
                 :value="studentsWithBuddy"
@@ -63,9 +60,29 @@
                         : null
                 "
             />
+
+
+
+            <value-display
+                label="Students with ESNcard"
+                :value="studentsWithEsnCard"
+                :note="
+                    arrivingStudents > 0
+                        ? `${percentage(
+                              studentsWithEsnCard,
+                              arrivingStudents
+                          )} of arriving students`
+                        : null
+                "
+            />
         </div>
 
         <div class="stats clearfix">
+            <value-display
+                label="Arriving students"
+                :value="arrivingStudents"
+            />
+
             <value-display
                 label="Students from previous semester"
                 :value="studentsFromPreviousSemester"
@@ -73,8 +90,8 @@
             />
 
             <value-display
-                label="Buddies active in last 6 months"
-                :value="activeBuddies.data && activeBuddies.data.length"
+                label="Buddies active in the last 4 months"
+                :value="activeBuddies"
                 note="by last login time"
             />
         </div>
@@ -84,7 +101,6 @@
 <script>
 import ValueDisplay from '../components/ValueDisplay';
 import {
-    getActiveBuddies,
     getBuddies,
     getStudentCounts,
     cached,
@@ -98,13 +114,14 @@ export default {
         semester: { type: String, required: true }
     },
     data: () => ({
-        activeBuddies: emptyPromised(),
+        activeBuddies: null,
         buddies: emptyPromised(),
         counts: emptyPromised(),
         arrivingStudents: null,
         studentsWithFilledProfile: null,
         studentsWithBuddy: null,
         studentsFromPreviousSemester: null,
+        studentsWithEsnCard: null,
         totalBuddies: null
     }),
     computed: {
@@ -129,7 +146,9 @@ export default {
                 this.studentsWithFilledProfile = this.countsData.students_with_profile;
                 this.studentsWithBuddy = this.countsData.students_with_buddy;
                 this.studentsFromPreviousSemester = this.countsData.students_from_previous;
-                this.totalBuddies = this.countsData.buddies;
+                this.studentsWithEsnCard = this.countsData.students_with_esncard;
+                this.totalBuddies = this.countsData.total_buddies;
+                this.activeBuddies = this.countsData.active_buddies;
             }
         }
     },
@@ -138,7 +157,6 @@ export default {
     },
     methods: {
         load() {
-            this.activeBuddies = promised(cached(getActiveBuddies()));
             this.buddies = promised(cached(getBuddies(this.semester)));
             this.counts = promised(cached(getStudentCounts(this.semester)));
         },

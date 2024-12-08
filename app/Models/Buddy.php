@@ -263,6 +263,27 @@ class Buddy extends Model
         return $query->where('last_login', '>=', $activeAfter);
     }
 
+    /**
+     * @param Builder $query
+     * @param Semester|null $semester if null, current semester is used
+     * @return Builder
+     */
+    public function scopeWithStudentsInSemester(Builder $query, Semester $semester = null): Builder
+    {
+        $semester ??= Semester::getCurrentSemester();
+
+        return $query->whereHas('exchangeStudents', function (Builder $query) use ($semester) {
+            return $query->whereHas('semesters', function (Builder $query) use ($semester) {
+                $query->where('semester', $semester->semester);
+            })->when($semester->hasPreviousSemester(), function (Builder $query) use ($semester) {
+                $query->whereDoesntHave('semesters', function(Builder $query) use ($semester) {
+                    $query->where('semester', $semester->previousSemester()->semester);
+                });
+            });
+        });
+
+    }
+
     public function agreedPrivacyPartak()
     {
         return $this->privacy_partak;

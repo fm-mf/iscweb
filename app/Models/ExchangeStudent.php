@@ -321,6 +321,13 @@ class ExchangeStudent extends Model
             ->withoutBuddy();
     }
 
+    public function scopeEsnRegistered(Builder $query): Builder
+    {
+        return $query
+            ->whereNotNull('esn_card_number')
+            ->where('esn_registered', 'y');
+    }
+
     public function scopeToPreregister($query, $lastName, $firstName, $id)
     {
         $query

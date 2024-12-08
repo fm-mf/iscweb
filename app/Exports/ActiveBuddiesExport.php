@@ -3,7 +3,6 @@
 namespace App\Exports;
 
 use App\Exports\Concerns\WithStyles;
-use Carbon\Carbon;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
@@ -27,6 +26,8 @@ class ActiveBuddiesExport implements
     use Exportable;
 
     const SHEET_TITLE = 'Active Buddies';
+    const FILE_NAME_BASE = 'active_buddies';
+    const FILE_EXTENSION = 'xlsx';
 
     protected $buddies;
     protected $fileName;
@@ -35,8 +36,22 @@ class ActiveBuddiesExport implements
     {
         $this->buddies = $buddies;
 
-        $now = Carbon::now();
-        $this->fileName = "active-buddies_{$now->toDateString()}.xlsx";
+        $this->fileName = self::FILE_NAME_BASE
+            . "_" . now()->toDateString()
+            . "." . self::FILE_EXTENSION;
+    }
+
+    /**
+     * @param string $fileName desired file name without a file format extension
+     */
+    public function withFileNameSuffix(string $suffix): self
+    {
+        $this->fileName = self::FILE_NAME_BASE
+            . "_" . $suffix
+            . "_" . now()->toDateString()
+            . "." . self::FILE_EXTENSION;
+
+        return $this;
     }
 
     public function view(): View
