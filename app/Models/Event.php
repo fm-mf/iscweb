@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -59,22 +60,15 @@ class Event extends Model
         return $this->hasOne('\App\Models\Languages_event','id_event', 'id_event');
     }
 
-    public function Trip()
+    public function trip(): HasOne
     {
-        return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
+        return $this->hasOne(Trip::class, 'id_event');
     }
 
     public function semester()
     {
         return $this->hasOne('\App\Models\Semester', 'id_semester', 'id_semester');
     }
-
-    /*
-    public function trip()
-    {
-        return $this->belongsTo('\App\Models\Trip', 'id_event', 'id_event');
-    }
-    */
 
     public function hasTrip()
     {

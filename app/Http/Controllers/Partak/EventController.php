@@ -151,4 +151,28 @@ class EventController extends Controller
             'successUpdate' => 'Event was successfully duplicated.',
         ]);
     }
+
+    public function toTrip(Event $event)
+    {
+        $this->authorize('acl', 'trips.add');
+
+        if ($event->trip()->exists()) {
+            return redirect()->route('partak.trips.edit', $event->trip)->with([
+                'success' => "Event \"$event->name\" is already a trip.",
+            ]);
+        }
+
+        $event->Languages_event()->delete();
+        $event->Integreat_party()->delete();
+
+        $trip = $event->trip()->create([
+            'trip_date_to' => $event->datetime_from,
+            'registration_from' => $event->visible_from,
+            'registration_to' => $event->datetime_from,
+        ]);
+
+        return redirect()->route('partak.trips.edit', $trip)->with([
+            'success' => "Event \"$event->name\" was successfully converted to a trip.",
+        ]);
+    }
 }

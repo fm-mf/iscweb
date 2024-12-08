@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -71,9 +72,9 @@ class Trip extends Model
             ->wherePivot('deleted_at', '!=', null);
     }
 
-    public function event()
+    public function event(): BelongsTo
     {
-        return $this->hasOne('\App\Models\Event', 'id_event', 'id_event');
+        return $this->belongsTo(Event::class, 'id_event');
     }
 
     public function howIsFill()

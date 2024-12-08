@@ -28,7 +28,8 @@
                 <slot name="modal-body"></slot>
             </template>
             <template v-else>
-                {{ protectionText }}
+                <span v-if="protectionTextHtml" v-html="protectionText"></span>
+                <template v-else>{{ protectionText }}</template>
             </template>
         </protection-modal>
     </div>
@@ -50,6 +51,10 @@ export default {
         protectionText: {
             type: String,
             required: true
+        },
+        protectionTextHtml: {
+            type: Boolean,
+            default: false
         },
         cancelText: {
             type: String,

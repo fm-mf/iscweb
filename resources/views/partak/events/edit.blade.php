@@ -10,7 +10,25 @@
 
     <div class="container" id="form">
         <div class="col-xl-8">
-            <h2>Edit event</h2>
+            <div class="d-flex">
+                <h2>Edit event</h2>
+                @can('acl', 'trips.add')
+                    {{ Form::open(['route' => ['partak.events.to-trip', $event], 'method' => 'post']) }}
+                        <protected-submit-button
+                            protection-title="Convert this event to a trip?"
+                            protection-text="The event <em>{{ $event->name }}</em> will be converted to a trip. This action is irreversible."
+                            :protection-text-html="true"
+                            proceed-text="Convert to trip"
+                            classes="btn btn-outline-secondary btn-sm ml-4"
+                            proceed-classes="btn-warning"
+                            modal-id="protection-modal-event-to-trip"
+                            :form-group="false"
+                        >
+                            <i class="fas fa-level-up-alt"></i><i class="fas fa-hiking"></i> Convert to trip
+                        </protected-submit-button>
+                    {{ Form::close() }}
+                @endcan
+            </div>
             {{ Form::model($event, ['route' => ['partak.events.update', $event], 'method' => 'patch', 'id' => 'form', 'files' => true]) }}
 
             @include('partak.trips.editForm',['trips' => false])
