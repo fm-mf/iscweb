@@ -78,6 +78,21 @@ class BuildingsTableSeeder extends Seeder
                 'description' => 'National Library of Technology (NTK)',
                 'address' => 'Technická 2710/6, Praha 6',
             ],
+            [
+                'code' => 'KO',
+                'description' => 'Faculty of Transportation Sciences (FD / FTS) – building Konvikt',
+                'address' => 'Konviktská 292/20, Praha 1',
+            ],
+            [
+                'code' => 'HO',
+                'description' => 'Faculty of Transportation Sciences (FD / FTS) – building Horská',
+                'address' => 'Horská 2040/3, Praha 2',
+            ],
+            [
+                'code' => 'FL',
+                'description' => 'Faculty of Transportation Sciences (FD / FTS) – building Florenc',
+                'address' => 'Na Florenci 1324/25, Praha 1',
+            ],
         ]);
     }
 }

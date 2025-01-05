@@ -50,12 +50,7 @@
     <p>
         <strong>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE)</strong>
         has rooms in several buildings around Prague. For information about its rooms location see the
-        <a href="https://www.fjfi.cvut.cz/en/education/timetable" target="_blank" rel="noopener">faculty website</a>.
-    </p>
-    <p>
-        <strong>Faculty of Transportation Sciences (FD / FTS)</strong>
-        does not use the common room naming scheme. For information about location of its rooms see the
-        <a href="http://www.its.fd.cvut.cz/ms-en/for-students/timetable" target="_blank" rel="noopener">faculty website</a>.
+        <a href="https://rozvrh.fjfi.cvut.cz/buildingsEN" target="_blank" rel="noopener">faculty website</a>.
     </p>
 
 @endsection

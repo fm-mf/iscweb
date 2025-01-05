@@ -22,7 +22,7 @@
             Our mission is to foster student mobility in Higher Education under the principle of Students Helping Students.
             All together sections of ESN CZ (18 sections in total) help roughly 10 000 international students every academic year.
             ESN CZ represents international students, thus provide opportunities for cultural understanding and self-development.</p>
-        <p><strong>Since 2003, {{ $fullName }} is a proud member of ESN Czech Republic.</strong></p>
+        <p><strong>Since March 2002, we are a proud member of the Erasmus Student Network.</strong></p>
         <img src="{{ asset('img/logos/esn-cz/esn-cz-logo-colour.svg') }}" alt="Logo ESN" title="Logo ESN" />
     </section>
 @stop

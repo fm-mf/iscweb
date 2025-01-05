@@ -10,7 +10,7 @@
             You can ask your Buddy or you can get it in the <strong>ESN point</strong>,
             which is located in room R304 in Masarykova dormitory
             (Address: <a href="https://goo.gl/maps/tuJqTxMwnWy" target="_blank">Thákurova 550/1, Prague 6, 160 00</a>,
-            Phone: <a href="tel:+420 233 051 111">+420 233 051 111</a>).
+            Phone: <a href="tel:+420 234 678 600">+420 234 678 600</a>).
         </li>
     </ul>
 

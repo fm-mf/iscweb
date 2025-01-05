@@ -28,7 +28,7 @@
         ]])
         @endcomponent
 
-        <p>The Erasmus Student Network (ESN) CTU in Prague was established in 1999 under the name of
+        <p>The Erasmus Student Network (ESN) CTU in Prague was established in September 1999 under the name of
             International Student Club (ISC) CTU in Prague.
             Our close cooperation with the CTU International Office has enabled rapid improvement
             of the overall international relations at our university.
@@ -38,7 +38,7 @@
             through creating a unique partnership among university students
             and sustaining the mutual understanding of our cultural differences.</p>
 
-        <p><strong>Since 2003, {{ $fullName }} is a proud member of ESN Czech Republic.</strong></p>
+        <p><strong>Since March 2002, we are a proud member of the Erasmus Student Network.</strong></p>
         <img src="{{ asset('img/logos/esn-ctu-logo-colour.svg') }}" alt="Logo ESN CTU in Prague" title="Logo ESN CTU in Prague" />
     </section>
 
@@ -47,18 +47,18 @@
     <h4 id="languages">Languages</h4>
     <dl>
         <dt>Language courses</dt>
-            <dd><a href="https://www.esn.cvut.cz/activities/language-programs" target="_blank">https://www.esn.cvut.cz/activities/language-programs</a></dd>
+            <dd><a href="{{ route('web.activities.languages') }}" target="_blank">{{ route('web.activities.languages') }}</a></dd>
             <dd>Do you wanna teach your native language? Contact our <a href="mailto:languages@esn.cvut.cz">Languages coordinator</a></dd>
         <dt>Café Lingea</dt>
             <dd>chill evenings when you speak English and one another language with the native speakers</dd>
         <dt>Tandem program</dt>
-            <dd>you can sign up for the Tandem language programme by signing up at <a href="https://esn.cvut.cz/tandem/" target="_blank">https://esn.cvut.cz/tandem/</a></dd>
+            <dd>you can sign up for the Tandem language programme by signing up at <a href="{{ route('tandem.index') }}" target="_blank">{{ route('tandem.index') }}</a></dd>
     </dl>
 
     <h4 id="sports">Sports</h4>
     <ul>
         <li>We organise regular sports activities for you - football, floorball, tennis, basketball, volleyball and much more</li>
-        <li>For more information visit <a href="https://www.esn.cvut.cz/activities/sports" target="_blank">https://www.esn.cvut.cz/activities/sports</a></li>
+        <li>For more information visit <a href="{{ route('web.activities.sports') }}" target="_blank">{{ route('web.activities.sports') }}</a></li>
     </ul>
 
 
