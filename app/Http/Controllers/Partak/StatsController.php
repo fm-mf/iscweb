@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\BuddyResource;
 use App\Http\Resources\TransportationResource;
 use App\Models\Arrival;
+use App\Models\Country;
 use App\Models\ExchangeStudent;
 use App\Models\Faculty;
 use App\Models\Semester;
@@ -232,6 +233,28 @@ class StatsController extends Controller
             'with_photo' => $withPhoto,
             'with_about' => $withAbout
         ]);
+    }
+
+    public function getCountries(Semester $semester, Request $request)
+    {
+        $this->authorize('acl', 'stats.view');
+
+        $countriesStats = Country::withCount([
+            'exchangeStudent' => function ($query) use ($semester) {
+                $query->byUniqueSemester($semester->semester);
+            }
+        ])->having('exchange_student_count', '>', 0)
+            ->orderBy('exchange_student_count', 'desc')
+            ->get()
+            ->map(function (Country $country) {
+                return [
+                    'id' => $country->id_country,
+                    'name' => $country->full_name,
+                    'count' => $country->exchange_student_count,
+                ];
+            });
+
+        return response()->json($countriesStats);
     }
 
     public function getSemesters()

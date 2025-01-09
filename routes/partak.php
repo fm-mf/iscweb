@@ -131,6 +131,7 @@ Route::prefix('/stats')
         Route::get('/arrivals', 'StatsController@showIndex')->name('arrivals');
         Route::get('/buddies', 'StatsController@showIndex')->name('buddies');
         Route::get('/students', 'StatsController@showIndex')->name('students');
+        Route::get('/countries', 'StatsController@showIndex')->name('countries');
         Route::get('/exports', 'StatsController@showIndex')->name('exports');
         Route::get('/history', 'StatsController@showIndex')->name('history');
 
@@ -150,6 +151,8 @@ Route::prefix('/stats')
                             ->name('arrivals');
                         Route::get('/students', 'StatsController@getStudents')
                             ->name('students');
+                        Route::get('/countries', 'StatsController@getCountries')
+                            ->name('countries');
                     });
             });
 

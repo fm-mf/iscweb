@@ -98,6 +98,8 @@ export const getArrivals = semester => get(semesterUrl(semester, 'arrivals'));
 export const getStudents = (semester, faculty) =>
     get(semesterUrl(semester, 'students'), { faculty });
 
+export const getCountries = semester => get(semesterUrl(semester, 'countries'));
+
 export const getBuddies = semester => get(semesterUrl(semester, 'buddies'));
 
 export const getSemesters = () => get(`${BASE}/semesters`);

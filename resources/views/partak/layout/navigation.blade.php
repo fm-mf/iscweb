@@ -40,6 +40,7 @@
                 ['title' => 'Arrivals', 'route' => 'partak.stats.arrivals', 'id' => 'stats-arrivals'],
                 ['title' => 'Buddies', 'route' => 'partak.stats.buddies', 'id' => 'stats-buddies'],
                 ['title' => 'Students', 'route' => 'partak.stats.students', 'id' => 'stats-students'],
+                ['title' => 'Countries', 'route' => 'partak.stats.countries', 'id' => 'stats-countries'],
                 ['title' => 'History', 'route' => 'partak.stats.history', 'id' => 'stats-history'],
                 ['title' => 'Exports', 'route' => 'partak.stats.exports', 'id' => 'stats-exports', 'acl' => ['stats.export_buddy', 'stats.export_ce']],
             ]],

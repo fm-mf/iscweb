@@ -67,6 +67,7 @@ export default {
             'stats-arrivals': '/arrivals',
             'stats-buddies': '/buddies',
             'stats-students': '/students',
+            'stats-countries': '/countries',
             'stats-history': '/history',
             'stats-exports': '/exports'
         };

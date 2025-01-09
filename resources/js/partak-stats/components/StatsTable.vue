@@ -1,93 +1,95 @@
 <template>
     <table class="stats-table">
-        <tr v-if="!data">
-            <td colspan="99">
-                <loader />
-            </td>
-        </tr>
-        <tr v-if="data && data.items && data.items.length === 0">
-            <td colspan="99" class="no-data">
-                No data
-            </td>
-        </tr>
-        <template v-for="item in (data && data.items) || []">
-            <tr
-                :key="item[keyField]"
-                :class="{
-                    expandable: item.children,
-                    expaned: expanded[item[keyField]]
-                }"
-                @click="item.children && toggle(item)"
-            >
-                <td class="s-label">
-                    {{ item[keyField] }}
-                </td>
-                <td v-if="showCount" class="count">
-                    {{ item.count }}
-                </td>
-                <td v-if="showPercents" class="percents">
-                    {{
-                        data.total > 0
-                            ? Math.round((item.count * 100) / data.total)
-                            : '-'
-                    }}
-                    %
-                </td>
-                <td v-if="showHistogram" class="histogram">
-                    <div
-                        class="stats-bar"
-                        :style="`width: ${(item.count / data.max) * 100}px`"
-                    />
+        <tbody>
+            <tr v-if="!data">
+                <td colspan="99">
+                    <loader />
                 </td>
             </tr>
-            <transition :key="`${item[keyField]}-children`" name="expand">
+            <tr v-if="data && data.items && data.items.length === 0">
+                <td colspan="99" class="no-data">
+                    No data
+                </td>
+            </tr>
+            <template v-for="item in (data && data.items) || []">
                 <tr
-                    v-if="expanded[item[keyField]]"
-                    :key="`${item[keyField]}-children`"
-                    class="expanded-children"
+                    :key="item[keyField]"
+                    :class="{
+                        expandable: item.children,
+                        expaned: expanded[item[keyField]]
+                    }"
+                    @click="item.children && toggle(item)"
                 >
-                    <td colspan="999">
-                        <table
-                            v-if="typeof item.children !== 'function'"
-                            class="sub-table"
-                        >
-                            <tr
-                                v-for="child in item.children.items"
-                                :key="child.arrival"
-                            >
-                                <td class="s-label">
-                                    {{ child[keyField] }}
-                                </td>
-                                <td class="count">
-                                    {{ child.count }}
-                                </td>
-                                <td v-if="showPercents" class="percents">
-                                    {{
-                                        item.children.total > 0
-                                            ? Math.round(
-                                                  (child.count * 100) /
-                                                      item.children.total
-                                              )
-                                            : '-'
-                                    }}
-                                    %
-                                </td>
-                                <td class="histogram">
-                                    <div
-                                        class="stats-bar"
-                                        :style="
-                                            `width: ${(child.count /
-                                                item.children.max) *
-                                                100}%`
-                                        "
-                                    />
-                                </td>
-                            </tr>
-                        </table>
+                    <td class="s-label">
+                        {{ labelField ? item[labelField] : item[keyField] }}
+                    </td>
+                    <td v-if="showCount" class="count">
+                        {{ item.count }}
+                    </td>
+                    <td v-if="showPercents" class="percents">
+                        {{
+                            data.total > 0
+                                ? Math.round((item.count * 100) / data.total)
+                                : '-'
+                        }}
+                        %
+                    </td>
+                    <td v-if="showHistogram" class="histogram">
+                        <div
+                            class="stats-bar"
+                            :style="`width: ${(item.count / data.max) * 100}px`"
+                        />
                     </td>
                 </tr>
-            </transition>
-        </template>
+                <transition :key="`${item[keyField]}-children`" name="expand">
+                    <tr
+                        v-if="expanded[item[keyField]]"
+                        :key="`${item[keyField]}-children`"
+                        class="expanded-children"
+                    >
+                        <td colspan="999">
+                            <table
+                                v-if="typeof item.children !== 'function'"
+                                class="sub-table"
+                            >
+                                <tr
+                                    v-for="child in item.children.items"
+                                    :key="child.arrival"
+                                >
+                                    <td class="s-label">
+                                        {{ child[keyField] }}
+                                    </td>
+                                    <td class="count">
+                                        {{ child.count }}
+                                    </td>
+                                    <td v-if="showPercents" class="percents">
+                                        {{
+                                            item.children.total > 0
+                                                ? Math.round(
+                                                      (child.count * 100) /
+                                                          item.children.total
+                                                  )
+                                                : '-'
+                                        }}
+                                        %
+                                    </td>
+                                    <td class="histogram">
+                                        <div
+                                            class="stats-bar"
+                                            :style="
+                                                `width: ${(child.count /
+                                                    item.children.max) *
+                                                    100}%`
+                                            "
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </transition>
+            </template>
+        </tbody>
     </table>
 </template>
 
@@ -104,6 +106,11 @@ export default {
         keyField: {
             type: String,
             required: true
+        },
+        labelField: {
+            type: String,
+            required: false,
+            default: null
         },
         showHistogram: { type: Boolean, required: false, default: true },
         showCount: { type: Boolean, required: false, default: true },
