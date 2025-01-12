@@ -63,7 +63,10 @@
                                         <span class="last-name">@{{ student.last_name }}</span>
                                     </a>
                                 </div>
-                                <div class="div-cell country">@{{ student.country }}</div>
+                                <div class="div-cell country">
+                                    <span class="country-flag">@{{ getFlagEmoji(student.country) }}</span>
+                                    @{{ student.country }}
+                                </div>
                                 <div class="div-cell school">@{{ student.school }}</div>
                                 <div class="div-cell faculty">@{{ student.faculty }}</div>
                                 <div class="div-cell arrival">

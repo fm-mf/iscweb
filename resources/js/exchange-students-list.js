@@ -204,6 +204,16 @@ new Vue({
             } finally {
                 this.loading = false;
             }
+        },
+
+        getFlagEmoji(countryName) {
+            const countryCode = this.countries.find(country => country.full_name === countryName).two_letters.toUpperCase();
+            const flagA = 0x1f1e6;
+            const A = 'A'.codePointAt(0);
+            const first = flagA + countryCode.codePointAt(0) - A;
+            const second = flagA + countryCode.codePointAt(1) - A;
+
+            return String.fromCodePoint(first, second);
         }
     }
 });
