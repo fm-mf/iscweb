@@ -25,7 +25,10 @@
                                     <span class="last-name">{{ $exchangeStudent->person->last_name }}</span>
                                 </a>
                             </td>
-                            <td>{{ $exchangeStudent->country->full_name }}</td>
+                            <td>
+                                <span class="country-flag">@flag($exchangeStudent->country->two_letters)</span>
+                                {{ $exchangeStudent->country->full_name }}
+                            </td>
                             <td>{{ $exchangeStudent->faculty->faculty }}</td>
                             <td>{{ $exchangeStudent->accommodation->full_name }}</td>
                             <td>
