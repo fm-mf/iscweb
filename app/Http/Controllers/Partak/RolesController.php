@@ -13,6 +13,8 @@ class RolesController extends Controller
 {
     public function showDashboard()
     {
+        $this->authorize('acl', 'roles.view');
+
         $roles = Role::with('users.person')
             ->where('title', '<>', 'partak')
             ->where('title', '<>', 'exchange_student')
@@ -67,6 +69,8 @@ class RolesController extends Controller
 
     public function showPartaks()
     {
+        $this->authorize('acl', 'roles.view');
+
         $partaks = User::with('person', 'person.exchangeStudent', 'person.buddy')
             ->whereHas('roles', function ($query) {
                 $query->where('title', 'partak');

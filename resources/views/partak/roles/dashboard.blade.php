@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    @foreach ($roles as $role)
+    @foreach ($roles as $key => $role)
         <div class="container">
             <h4>{{ $role['title'] }} <span class="badge badge-primary">{{ $role['users']->count() }}</span></h4>
             <div class="roles-users">
@@ -22,12 +22,14 @@
                 <div class="col-md-5 d-flex py-1 align-items-center">
                     {{ $user->person->getFullName(false) }}
                     <div class="ml-auto">
-                        <protectedbutton url="{{ url('partak/users/roles/remove/' . $user->id_user . '/' . $role['id_role']) }}"
-                            protection-text="Remove role {{ $role['title'] }} from {{ $user->person->first_name }} {{ $user->person->last_name }}?"
-                            button-style="btn-danger btn-sm"
-                        >
-                            <i class="fas fa-times"></i> Remove
-                        </protectedbutton>
+                        @if(auth()->user()->can('acl', "roles.$key") || auth()->user()->can('acl', 'roles.all'))
+                            <protectedbutton url="{{ url('partak/users/roles/remove/' . $user->id_user . '/' . $role['id_role']) }}"
+                                protection-text="Remove role {{ $role['title'] }} from {{ $user->person->first_name }} {{ $user->person->last_name }}?"
+                                button-style="btn-danger btn-sm"
+                            >
+                                <i class="fas fa-times"></i> Remove
+                            </protectedbutton>
+                        @endif
                     </div>
                 </div>
             @endforeach

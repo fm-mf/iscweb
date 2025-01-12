@@ -26,13 +26,15 @@
                 <td>@include("partak.components.user-link", ['user' => $partak->person])</td>
                 <td>{{ $partak->email }}</td>
                 <td align="right">
-                    <protectedbutton
-                        url="{{ url('partak/users/roles/remove/' . $partak->id_user . '/partak') }}"
-                        protection-text="Remove {{ $partak->person->first_name }} {{ $partak->person->last_name }} from Partaks?"
-                        button-style="btn-danger btn-sm align-right"
-                    >
-                        <span class="fas fa-times"></span> Remove
-                    </protectedbutton>
+                    @if(auth()->user()->can('acl', 'roles.partak') || auth()->user()->can('acl', 'roles.all'))
+                        <protectedbutton
+                            url="{{ url('partak/users/roles/remove/' . $partak->id_user . '/partak') }}"
+                            protection-text="Remove {{ $partak->person->first_name }} {{ $partak->person->last_name }} from Partaks?"
+                            button-style="btn-danger btn-sm align-right"
+                        >
+                            <span class="fas fa-times"></span> Remove
+                        </protectedbutton>
+                    @endif
                 </td>
             </tr>
             @endforeach
