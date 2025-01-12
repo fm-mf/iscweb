@@ -15,6 +15,7 @@ use App\Observers\DegreeBuddyObserver;
 use App\Observers\DegreeStudentObserver;
 use App\Observers\UserObserver;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Facades\Excel;
@@ -45,5 +46,11 @@ class AppServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         DegreeStudent::observe(DegreeStudentObserver::class);
         DegreeBuddy::observe(DegreeBuddyObserver::class);
+
+        Blade::directive('flag', function (string $countryCode) {
+            $flagA = 0x1F1E6;
+            $A = ord('A');
+            return "<?php echo mb_chr($flagA + (ord(strtoupper($countryCode)[0]) - $A), 'UTF-8') . mb_chr($flagA + (ord(strtoupper($countryCode)[1]) - $A), 'UTF-8') ?>";
+        });
     }
 }

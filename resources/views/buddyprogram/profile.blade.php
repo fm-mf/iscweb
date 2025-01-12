@@ -19,6 +19,7 @@
                             @endif
                             @if($exchangeStudent->country)
                                 <strong>@lang('buddy-program.country')</strong>:
+                                <span class="country-flag">@flag($exchangeStudent->country->two_letters)</span>
                                 {{ $exchangeStudent->country->full_name }}
                                 <br>
                             @endif
