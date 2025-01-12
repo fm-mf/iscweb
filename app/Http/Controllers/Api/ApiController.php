@@ -30,6 +30,11 @@ class ApiController extends Controller
         'accommodation' => 'accommodation.full_name'
     ];
 
+    const NULLABLE_ORDER_FIELDS = [
+        'arrival',
+        'school',
+    ];
+
     const FILTER_ALIAS = [
         'countries' => 'exchange_students.id_country',
         'accommodation' => 'exchange_students.id_accommodation',
@@ -72,6 +77,10 @@ class ApiController extends Controller
             }
 
             if (isset(self::ORDER_ALIAS[$field])) {
+                if (in_array($field, self::NULLABLE_ORDER_FIELDS)) {
+                    $students->orderByRaw('ISNULL(' . DB::getQueryGrammar()->wrap(self::ORDER_ALIAS[$field]) . ') ASC');
+                }
+
                 $students->orderBy(self::ORDER_ALIAS[$field], $order);
             }
         }
