@@ -77,7 +77,7 @@
     </nav>
 </header>
 
-<main class="container-fluid">
+<main>
     @yield('content')
 </main>
 
