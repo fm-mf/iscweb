@@ -11,7 +11,7 @@
         @endif
         <div id="app" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
                 <div v-cloak>
-                    <div class="filter row">
+                    <div class="filter form-row">
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <multiselect :options="countries" :show-labels="false" label="full_name" track-by="id_country" placeholder="@lang('buddy-program.country')"
                                 v-model="filters.countries" :multiple="true" v-on:input="filterChanged"></multiselect>
