@@ -74,14 +74,14 @@ export default {
 
         Object.entries(navs).forEach(([id, url]) => {
             const element = document.getElementById(id);
-            element.addEventListener('click', e => {
+            element?.addEventListener('click', e => {
                 e.preventDefault();
                 e.stopPropagation();
 
                 Object.keys(navs).forEach(n => {
                     document
                         .getElementById(n)
-                        .parentElement.classList.remove('active');
+                        ?.parentElement.classList.remove('active');
                 });
 
                 element.parentElement.classList.add('active');
