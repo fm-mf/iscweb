@@ -291,7 +291,7 @@
     </p>
     --}}
     <ul class="list-unstyled">
-        <li>When: <strong>13:30</strong> (room opens at 13:15)</li>
+        <li>When: <strong>12:15</strong> (room opens at 12:00)</li>
         <li>
             Where: <strong>
                 <a href="https://goo.gl/maps/Lbp6SLLrovP2" target="_blank">Faculty of Mechanical Engineering</a>,
