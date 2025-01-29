@@ -148,7 +148,7 @@ class ProfileController extends Controller
         if ($request->arrival_skipped) {
             $student->arrival()->delete();
         } elseif (!$request->opt_out) {
-            $student->arrival()->updateOrCreate([], Arr::only($validated, ['arrival_skipped', 'arrival_date', 'arrival_time', 'transportation']));
+            $student->arrival()->updateOrCreate([], Arr::only($validated, ['arrival_skipped', 'arrival_date', 'arrival_time', 'transportation', 'arrival_place']));
         }
 
         return redirect()->route('auth.profile.edit')->with([
@@ -279,6 +279,7 @@ class ProfileController extends Controller
             'arrival_date' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_DATE_FORMAT],
             'arrival_time' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_TIME_FORMAT],
             'transportation' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'exists:transportation,id_transportation'],
+            'arrival_place' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'string', 'max:255'],
             'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
             'whatsapp' => ['nullable', 'max:255', 'phone:AUTO'],
             'facebook' => ['nullable', 'max:255', "regex:$fbProfileUrlRegex"],

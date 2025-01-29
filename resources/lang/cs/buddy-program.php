@@ -25,6 +25,7 @@ return [
     'full-time-student' => 'Samoplátce',
     'not-filled-yet' => 'Zatím nevyplněno',
     'arrival-transport' => 'Způsob příjezdu',
+    'arrival-place' => 'Místo příjezdu',
     'semester' => 'Semestr|Semestry',
     'autumn-semester' => 'ZS :y1/:y2',
     'spring-semester' => 'LS :y1/:y2',

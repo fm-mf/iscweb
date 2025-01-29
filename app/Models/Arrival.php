@@ -22,6 +22,7 @@ class Arrival extends Model
         'arrival_date',
         'arrival_time',
         'transportation',
+        'arrival_place',
     ];
 
     public function exchangeStudent()

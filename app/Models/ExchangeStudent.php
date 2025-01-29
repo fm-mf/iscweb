@@ -570,6 +570,11 @@ class ExchangeStudent extends Model
         return $this->id_accommodation;
     }
 
+    public function formArrivalPlaceAttribute(): ?string
+    {
+        return $this->arrival->arrival_place ?? null;
+    }
+
     public function getAboutHtmlAttribute(): HtmlString
     {
         $aboutText = htmlspecialchars($this->about);

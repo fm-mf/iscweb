@@ -64,6 +64,14 @@
                             @endif
                             <br>
 
+                            <strong>@lang('buddy-program.arrival-place')</strong>:
+                            @if($exchangeStudent->arrival)
+                                {{ $exchangeStudent->arrival->arrival_place }}
+                            @else
+                                @lang('buddy-program.not-filled-yet')
+                            @endif
+                            <br>
+
                             <strong>@lang('buddy-program.accommodation')</strong>:
                             {{ $exchangeStudent->accommodation->full_name }}
                             <br>

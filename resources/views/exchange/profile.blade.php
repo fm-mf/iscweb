@@ -95,6 +95,21 @@
                     ]
                 ) }}
             </div>
+
+            <div class="form-group col-12">
+                {{ Form::label('arrival_place', 'Place of arrival') }}
+                @error('arrival_place')
+                    <p class="error-block alert-danger">{{ $message }}</p>
+                @enderror
+                {{ Form::text(
+                    'arrival_place',
+                    null,
+                    [
+                        'class' => 'form-control arrival',
+                        'placeholder' => 'e.g. Václav Havel airport / Main train station / Central bus station Florenc',
+                    ]
+                ) }}
+            </div>
         </fieldset>
 
         <fieldset>

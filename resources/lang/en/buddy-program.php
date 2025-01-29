@@ -25,6 +25,7 @@ return [
     'full-time-student' => 'Full-time student',
     'not-filled-yet' => 'Not filled yet',
     'arrival-transport' => 'Transport',
+    'arrival-place' => 'Place of arrival',
     'semester' => 'Semester|Semesters',
     'autumn-semester' => 'Autumn :y1',
     'spring-semester' => 'Spring :y2',

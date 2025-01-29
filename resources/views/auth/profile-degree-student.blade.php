@@ -142,6 +142,23 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="form-group col-12">
+                @php
+                    $isInvalid = $errors->has('arrival_place') ? ' is-invalid' : '';
+                @endphp
+                {{ Form::label('arrival_place', 'Place of arrival') }}
+                {{ Form::text(
+                    'arrival_place',
+                    null,
+                    [
+                        'class' => "form-control arrival$isInvalid",
+                        'placeholder' => 'e.g. Václav Havel airport / Main train station / Central bus station Florenc',
+                    ]
+                ) }}
+                @error('arrival_place')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
         </fieldset>
 
         <fieldset>

@@ -22,6 +22,7 @@ class ExchangeProfileUpdateRequest extends FormRequest
             'arrival_date' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_DATE_FORMAT],
             'arrival_time' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_TIME_FORMAT],
             'transportation' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'exists:transportation,id_transportation'],
+            'arrival_place' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'string', 'max:255'],
             'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
             'about' => ['nullable', 'string', 'max:16383'],
             'whatsapp' => ['nullable', 'max:255', 'phone:AUTO'],
