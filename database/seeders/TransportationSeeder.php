@@ -35,6 +35,11 @@ class TransportationSeeder extends Seeder
                 'transportation' => 'Letadlo',
                 'eng' => 'Plane',
             ],
+            [
+                'id_transportation' => 5,
+                'transportation' => 'Autobus',
+                'eng' => 'Bus',
+            ],
         ]);
     }
 }
