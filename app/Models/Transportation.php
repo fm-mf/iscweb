@@ -15,6 +15,13 @@ class Transportation extends Model
         return $this->belongsTo('\App\Models\Arrival', 'id_transportation', 'id_transportation');
     }
 
+    public function getTransportationTranslatedAttribute(): string
+    {
+        return app()->getLocale() == 'cs'
+            ? $this->transportation
+            : $this->eng;
+    }
+
     public static function getSelectOptionsArray(): array
     {
         return self::all()->mapWithKeys(function (self $transportation) {

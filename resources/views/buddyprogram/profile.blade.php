@@ -58,7 +58,7 @@
 
                             <strong>@lang('buddy-program.arrival-transport')</strong>:
                             @if($exchangeStudent->arrival)
-                                {{ $exchangeStudent->arrival->transportation->transportation }}
+                                {{ $exchangeStudent->arrival->transportation->transportation_translated }}
                             @else
                                 @lang('buddy-program.not-filled-yet')
                             @endif
