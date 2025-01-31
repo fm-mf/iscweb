@@ -25,7 +25,7 @@ class ProfileController extends Controller
     public function updateProfile(Request $request)
     {
         $data = $request->validate([
-            'phone' => ['nullable', 'phone:AUTO,CZ,SK'],
+            'phone' => ['nullable', 'phone:INTERNATIONAL,CZ,SK'],
             'age' => ['integer', 'min:1901', 'max:2155', 'nullable'],
             'subscribed' => ['boolean', 'nullable'],
             'sex' => ['required', 'string', 'in:M,F'],

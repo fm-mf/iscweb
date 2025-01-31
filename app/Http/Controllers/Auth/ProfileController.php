@@ -260,7 +260,7 @@ class ProfileController extends Controller
             'age' => ['nullable', 'integer', 'min:1901', 'max:2155'],
             'id_country' => ['nullable', 'integer', 'exists:countries'],
             'id_faculty' => ['nullable', 'integer', 'exists:faculties'],
-            'phone' => ['nullable', 'phone:AUTO,CZ,SK', 'max:255'],
+            'phone' => ['nullable', 'phone:INTERNATIONAL,CZ,SK', 'max:255'],
             'about' => ['nullable', 'string', 'max:16383'],
             'subscribed' => ['nullable', 'boolean'],
         ]);
@@ -280,7 +280,7 @@ class ProfileController extends Controller
             'arrival_time' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'date_format:' . Arrival::FORM_TIME_FORMAT],
             'transportation' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'exists:transportation,id_transportation'],
             'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
-            'whatsapp' => ['nullable', 'max:255', 'phone:AUTO'],
+            'whatsapp' => ['nullable', 'max:255', 'phone:INTERNATIONAL'],
             'facebook' => ['nullable', 'max:255', "regex:$fbProfileUrlRegex"],
             'instagram' => ['nullable', 'max:255', "regex:$instagramRegex"],
             'privacy_policy' => ['accepted'],

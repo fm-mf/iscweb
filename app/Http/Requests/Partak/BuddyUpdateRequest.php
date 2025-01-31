@@ -19,7 +19,7 @@ class BuddyUpdateRequest extends FormRequest
 
         return [
             'email' => ['required', 'email', 'max:255', "unique:users,email,$exceptId,id_user"],
-            'phone' => ['nullable', 'phone:AUTO,CZ,SK', 'max:255'],
+            'phone' => ['nullable', 'phone:INTERNATIONAL,CZ,SK', 'max:255'],
             'id_country' => ['nullable', 'integer', 'exists:countries'],
             'id_faculty' => ['nullable', 'integer', 'exists:faculties'],
             'sex' => ['nullable', 'string', 'in:M,F'],

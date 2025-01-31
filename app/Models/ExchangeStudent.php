@@ -465,7 +465,7 @@ class ExchangeStudent extends Model
             return null;
         }
 
-        return PhoneNumber::make($this->phone, ['CZ', 'AUTO'])->formatInternational();
+        return (new PhoneNumber($this->phone, ['CZ', 'AUTO']))->formatInternational();
     }
 
     public function getWhatsAppFormattedInternationalAttribute()
@@ -474,7 +474,7 @@ class ExchangeStudent extends Model
             return null;
         }
 
-        return PhoneNumber::make($this->whatsapp)->formatInternational();
+        return (new PhoneNumber($this->whatsapp))->formatInternational();
     }
 
     public function getWhatsAppFormattedE164Attribute()
@@ -483,7 +483,7 @@ class ExchangeStudent extends Model
             return null;
         }
 
-        return PhoneNumber::make($this->whatsapp)->formatE164();
+        return (new PhoneNumber($this->whatsapp))->formatE164();
     }
 
     public function getAgeRangeAttribute()

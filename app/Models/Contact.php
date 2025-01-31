@@ -69,7 +69,7 @@ class Contact extends Model
         if ($this->phone === null) {
             return null;
         }
-        return PhoneNumber::make($this->phone, 'CZ')->formatInternational();
+        return (new PhoneNumber($this->phone, 'CZ'))->formatInternational();
     }
 
     /**

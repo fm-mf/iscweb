@@ -26,7 +26,7 @@ class ContactObserver
     private function formatPhone(Contact $contact)
     {
         if ($contact->phone !== null) {
-            $contact->phone = PhoneNumber::make($contact->phone, 'CZ')->formatE164();
+            $contact->phone = (new PhoneNumber($contact->phone, 'CZ'))->formatE164();
         }
     }
 

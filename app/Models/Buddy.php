@@ -336,6 +336,6 @@ class Buddy extends Model
             return null;
         }
 
-        return PhoneNumber::make($this->phone, ['CZ', 'AUTO'])->formatInternational();
+        return (new PhoneNumber($this->phone, ['CZ', 'AUTO']))->formatInternational();
     }
 }

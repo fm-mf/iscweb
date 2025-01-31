@@ -34,7 +34,7 @@ class ExchangeStudentsController extends Controller
             ],
             'esn_card_number' => 'max:12',
             'medical_issues' => 'max:255',
-            'whatsapp' => ['phone:AUTO', 'nullable'],
+            'whatsapp' => ['phone:INTERNATIONAL', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
             'instagram' => ["regex:$instagramRegex", 'nullable'],
             'quarantined_until' => ['date_format:d M Y', 'nullable'],

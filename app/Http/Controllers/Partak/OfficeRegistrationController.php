@@ -132,7 +132,7 @@ class OfficeRegistrationController extends Controller
             'email' => 'required|max:255|email|unique:users,email',
             'esn_card_number' => 'max:12',
             'medical_issues' => 'max:255',
-            'whatsapp' => ['phone:AUTO', 'nullable'],
+            'whatsapp' => ['phone:INTERNATIONAL', 'nullable'],
             'facebook' => ["regex:$fbProfileUrlRegex", 'nullable'],
             'instagram' => ["regex:$instagramRegex", 'nullable'],
         ]);

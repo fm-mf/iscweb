@@ -24,7 +24,7 @@ class ExchangeProfileUpdateRequest extends FormRequest
             'transportation' => ['required_unless:arrival_skipped,1,opt_out,1', 'nullable', 'exists:transportation,id_transportation'],
             'accommodation' => ['required', 'exists:accommodation,id_accommodation'],
             'about' => ['nullable', 'string', 'max:16383'],
-            'whatsapp' => ['nullable', 'max:255', 'phone:AUTO'],
+            'whatsapp' => ['nullable', 'max:255', 'phone:INTERNATIONAL'],
             'facebook' => ['nullable', 'max:255', "regex:$fbProfileUrlRegex"],
             'instagram' => ['nullable', 'max:255', "regex:$instagramRegex"],
             'willing_to_present' => ['nullable', 'boolean'],
