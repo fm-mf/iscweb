@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Receipt extends Model
 {
     protected $primaryKey = 'id_receipt';
-    protected $dates = ['refunded_at'];
+
+    protected $casts = [
+        'refunded_at' => 'datetime',
+    ];
 
     protected $fillable = [
         'created_by', 'refunded_at', 'refunded_by',

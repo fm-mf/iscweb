@@ -19,10 +19,11 @@ class ExchangeStudent extends Model
 
     public $timestamps = false;
     protected $primaryKey = 'id_user';
-    protected $dates = ['buddy_timestamp', 'quarantined_until'];
     public $incrementing = false;
 
     protected $casts = [
+        'buddy_timestamp' => 'datetime',
+        'quarantined_until' => 'datetime',
         'privacy_policy' => 'boolean',
         'degree_student' => 'boolean',
     ];

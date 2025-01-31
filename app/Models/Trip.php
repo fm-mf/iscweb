@@ -33,7 +33,11 @@ class Trip extends Model
     protected $primaryKey = 'id_trip';
     //public $incrementing = false;
 
-    protected $dates = ['registration_from', 'trip_date_to', 'registration_to'];
+    protected $casts = [
+        'registration_from' => 'datetime',
+        'trip_date_to' => 'datetime',
+        'registration_to' => 'datetime',
+    ];
 
     protected $fillable = [
         'registration_from', 'trip_date_to', 'registration_to',

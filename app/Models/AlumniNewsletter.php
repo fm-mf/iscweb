@@ -14,7 +14,9 @@ class AlumniNewsletter extends Model
 
     protected $guarded = [];
 
-    protected $dates = ['date_sent', 'deleted_at'];
+    protected $casts = [
+        'date_sent' => 'datetime',
+    ];
 
     public function createdBy()
     {

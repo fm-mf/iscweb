@@ -30,7 +30,9 @@ class EventReservation extends Model
     public $incrementing = false;
     protected $primaryKey = 'id_event_reservation';
 
-    protected $dates = ['expires_at'];
+    protected $casts = [
+        'expires_at' => 'datetime',
+    ];
 
     protected $fillable = [
         'id_event', 'id_user', 'diet', 'medical_issues', 'notes', 'hash', 'deleted_by', 'expires_at', 'is_confirmed'

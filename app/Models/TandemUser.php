@@ -25,9 +25,9 @@ class TandemUser extends Authenticatable
 
     protected $rememberTokenName = false;
 
-    protected $dates = [
-        'last_login',
-        'registered_at',
+    protected $casts = [
+        'last_login' => 'datetime',
+        'registered_at' => 'datetime',
     ];
 
     private static $hashIdsSalt = 'jk58OFzP9l76qV4dloZ6TktKdQrzSJvYAZwAx8voPXc=';

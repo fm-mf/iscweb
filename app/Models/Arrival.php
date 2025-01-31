@@ -14,7 +14,9 @@ class Arrival extends Model
     public $timestamps = false;
     protected $primaryKey = 'id_user';
 
-    protected $dates = ['arrival'];
+    protected $casts = [
+        'arrival' => 'datetime',
+    ];
 
     protected $appends = ['arrivalFormatted'];
 

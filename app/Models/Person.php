@@ -23,8 +23,6 @@ class Person extends Model
     protected $primaryKey = 'id_user';
     public $incrementing = false;
 
-    //protected $dates = ['age'];
-
     protected $fillable = [
         'first_name', 'last_name', 'age', 'sex', 'diet', 'medical_issues', 'avatar'
     ];

@@ -26,7 +26,10 @@ class Event extends Model
     protected $primaryKey = 'id_event';
     //public $incrementing = false;
 
-    protected $dates = ['datetime_from', 'updated_at', 'created_at', 'visible_from'];
+    protected $casts = [
+        'datetime_from' => 'datetime',
+        'visible_from' => 'datetime',
+    ];
 
     protected $fillable = [ 'name', 'datetime_from', 'visible_from', 'facebook_url', 'description', 'created_at',
         'visible_from', 'cover', 'created_by', 'modified_by', 'event_type', 'location', 'location_url',
