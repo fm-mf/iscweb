@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * The path to the "home" route for your application.
+     * The path to your application's "home" route.
      *
-     * This is used by Laravel authentication to redirect users after login.
+     * Typically, users are redirected here after authentication.
      *
      * @var string
      */
@@ -35,13 +35,13 @@ class RouteServiceProvider extends ServiceProvider
      protected $namespace = 'App\\Http\\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
+     * Define your route model bindings, pattern filters, and other route configuration.
      */
-    public function boot()
+    public function boot(): void
     {
-        $this->configureRateLimiting();
+        RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
 
         Route::bind('exchangeStudent', function ($value) {
             $value = User::decodeHashId($value);
@@ -66,23 +66,9 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /**
-     * Configure the rate limiters for the application.
-     *
-     * @return void
-     */
-    protected function configureRateLimiting()
-    {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
-        });
-    }
-
-    /**
      * Define the routes for the application.
-     *
-     * @return void
      */
-    public function map()
+    public function map(): void
     {
         $this->mapApiRoutes();
 
@@ -103,10 +89,8 @@ class RouteServiceProvider extends ServiceProvider
      * Define the "web" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
      */
-    protected function mapWebRoutes()
+    protected function mapWebRoutes(): void
     {
         Route::middleware('web')
             ->namespace($this->namespace)
@@ -117,10 +101,8 @@ class RouteServiceProvider extends ServiceProvider
      * Define the "api" routes for the application.
      *
      * These routes are typically stateless.
-     *
-     * @return void
      */
-    protected function mapApiRoutes()
+    protected function mapApiRoutes(): void
     {
         Route::prefix('api')
             ->middleware('api')
@@ -131,7 +113,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      *
      */
-    protected function mapPartakRoutes()
+    protected function mapPartakRoutes(): void
     {
         Route::prefix('partak')
             ->middleware(['web','checkpartak', 'auth', 'printer'])
@@ -140,7 +122,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/partak.php'));
     }
 
-    protected function mapBuddyprogramRoutes()
+    protected function mapBuddyprogramRoutes(): void
     {
         Route::group([
             'middleware' => 'web',
@@ -150,7 +132,7 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    protected  function mapAuthRoutes()
+    protected  function mapAuthRoutes(): void
     {
         Route::group([
             'middleware' => 'web',
@@ -161,7 +143,7 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    protected function mapPrivacyRoutes()
+    protected function mapPrivacyRoutes(): void
     {
         Route::group([
                 'namespace' => $this->namespace . '\Privacy',
@@ -172,7 +154,7 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    protected function mapTandemRoutes()
+    protected function mapTandemRoutes(): void
     {
         Route::middleware('web')
             ->name('tandem.')

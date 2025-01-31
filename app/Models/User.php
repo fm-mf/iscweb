@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Notifications\PasswordReset;
 use Carbon\Carbon;
 use Hashids\Hashids;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -52,6 +52,7 @@ class User extends Authenticatable implements HasLocalePreference
      */
     protected $casts = [
 //        'email_verified_at' => 'datetime',
+//        'password' => 'hashed',
     ];
 
     private static $hashIdsSalt = 'eXQ3A9RejnCT7Ul/X3mQ3Writ+CpAVrQEc2hskzCU9E=';

@@ -9,11 +9,9 @@ use Collective\Html;
 class FormServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
-     *
-     * @return void
+     * Bootstrap services.
      */
-    public function boot()
+    public function boot(): void
     {
         Form::component('bsText', 'components.bsform.text', ['name', 'label', 'required' => '', 'value' => null, 'attributes' => [], 'info' => null]);
         Form::component('bsTextarea', 'components.bsform.textarea', ['name', 'label', 'required' => '', 'value' => null, 'attributes' => [], 'info' => null]);
@@ -26,15 +24,5 @@ class FormServiceProvider extends ServiceProvider
         Form::component('bsEmail', 'components.bsform.email', ['name', 'label', 'required' => '', 'value' => null, 'attributes' => [], 'info' => null]);
         Form::component('bsTel', 'components.bsform.tel', ['name', 'label', 'required' => '', 'value' => null, 'attributes' => [], 'info' => null]);
         Form::component('bsCheckbox', 'components.bsform.checkbox', ['name', 'label', 'required' => '', 'value', 'checked', 'attributes' => [], 'info' => null]);
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }

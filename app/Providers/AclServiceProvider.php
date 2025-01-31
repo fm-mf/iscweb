@@ -8,27 +8,23 @@ use Laminas\Permissions\Acl\Acl;
 class AclServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
-     *
-     * @return void
+     * Register services.
      */
-    public function boot(Acl $acl)
-    {
-        $this->mergeConfigFrom(config_path('acl.php'), 'acl');
-
-        $this->setupAcl($acl);
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
         $this->app->singleton(Acl::class, function ($app) {
             return new Acl();
         });
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot(Acl $acl): void
+    {
+        $this->mergeConfigFrom(config_path('acl.php'), 'acl');
+
+        $this->setupAcl($acl);
     }
 
     protected function setupAcl(Acl $acl)
