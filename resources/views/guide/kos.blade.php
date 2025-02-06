@@ -38,7 +38,6 @@
         <li>First you have to get your <strong>login information</strong> in the VIC centre (<a href="https://maps.app.goo.gl/3QTfRvGRHrUBWXte9" target="_blank">Jugoslávských partyzánů 3, entrance B3, Praha 6</a>, the same place where you get your University ID card)
             <ul>
                 <li>You will get it together with the <a href="{{ route('guide-page', ['page' => 'cards#university-id']) }}">University ID card</a>.</li>
-                <li>You can get it from Friday, 10 September 2021</li>
             </ul>
         </li>
         <li>Then visit <a href="https://kos.cvut.cz">KOS page</a>, switch to English (first) and log in</li>

@@ -133,7 +133,7 @@
             </ul>
         </li>
     </ul>
-    <p>More information at the <a href="http://www.mvcr.cz/mvcren/file/quicknsimple-presentation-en.aspx" target="_blank">Ministry of the interrior website</a>.</p>
+    <p>More information at the <a href="https://mv.gov.cz/mvcren/" target="_blank">Ministry of the interrior website</a>.</p>
 
     <h3 id="other-obligations">Other obligations</h3>
     <p>To report a change of address or a change of travel document, visit the <a href="http://www.mvcr.cz/mvcren/article/contacts-alien-police-alien-police.aspx" target="_blank">Foreign Police</a>.</p>

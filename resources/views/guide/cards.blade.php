@@ -61,7 +61,7 @@
         <li><a href="#ctu-isic-id">CTU student card with ISIC licence</a>
         <ul>
             <li>Works the same as the regular <em>CTU student card<em></li>
-            <li>Costs CZK 480, but is more widely accepted</li>
+            <li>Costs CZK 500, but is more widely accepted</li>
             <li>Easier to identify as <a href="{{ url('guide/transportation#student-discount') }}">student in trains</a>
         </ul>
         </li>
@@ -70,7 +70,7 @@
     <h4 id="ctu-id">CTU student card</h4>
     <ul class="list-unstyled">
         <li class="col-lg-6"><img class="d-block" src="{{ asset('img/guide/card-ctu_student.jpg') }}" alt="CTU student card" title="CTU student card" /></li>
-        <li><strong>Price: for free</strong>, in  the case of loss, a fee of CZK 230 is charged for a duplicate</li>
+        <li><strong>Price: for free</strong>, in  the case of loss, a fee of CZK 250 is charged for a duplicate</li>
         <li><strong>Serves for:</strong>
             <ul>
                 <li>Admission to CTU premises</li>
@@ -85,7 +85,7 @@
     <h4 id="ctu-isic-id">CTU student card with ISIC licence</h4>
     <ul class="list-unstyled">
         <li class="col-lg-6"><img class="d-block" src="{{ asset('img/guide/card-ctu_isic.png') }}" alt="CTU student card with ISIC licence" title="CTU student card with ISIC licence" /></li>
-        <li><strong>Price: CZK 480</strong>, in  the case of loss, a fee of CZK 230 is charged for a duplicate</li>
+        <li><strong>Price: CZK 500</strong>, in  the case of loss, a fee of CZK 250 is charged for a duplicate</li>
         <li>Covers all services stated above</li>
         <li>Confirmation of your student status for any public transport ticket in the Czech Republic (i.e. trains and busses around the country)</li>
         <li>In addition, serves as the only accepted international student identity card in 116 countries and offers many discounts (for further information visit <a href="https://www.isic.org" target="_blank">www.isic.org</a>)</li>

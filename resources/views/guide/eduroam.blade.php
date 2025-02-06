@@ -53,6 +53,5 @@
     <p>Most operating systems allow you to log in just by typing the eduroam username
         and the eduroam password, however there can be ones that need additional settings
         such as certificates.</p>
-    <p>You can find more info about certificates and eduroam on different faculties on this website
-        (unfortunately only in Czech language): <a href="https://portal.cvut.cz/informace-pro-studenty/site-a-sprava-pocitacu/bezdratove-site-na-cvut/" target="_blank">ČVUT portál</a> </p>
+    <p>You can find more details on how to connect at <a href="https://ist.cvut.cz/en/our-services/wireless-network/" target="_blank">IST Services CTU</a> </p>
 @stop
