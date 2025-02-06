@@ -139,7 +139,7 @@ class SettingsController extends Controller
 
     public function getOpeningHoursData()
     {
-        $this->authorize("acl", "settings.edit");
+        $this->authorize('acl', 'settings.openingHours');
 
         $mode = OpeningHoursMode::findOrFail(request()->query('mode'));
 
