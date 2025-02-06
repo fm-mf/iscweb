@@ -17,13 +17,13 @@ class CreateTripsParticipantsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_trip');
             $table->unsignedInteger('id_user');
-            $table->smallInteger('paid')->nullable()->default('0');
+            $table->unsignedInteger('paid')->nullable()->default('0');
             $table->text('comment')->nullable();
-            $table->enum('stand_in', ['y', 'n'])->default('n');
             $table->unsignedInteger('registered_by');
-            $table->unsignedInteger('deleted_by');
             $table->timestamps();
+            $table->enum('stand_in', ['y', 'n'])->default('n');
             $table->softDeletes();
+            $table->unsignedInteger('deleted_by')->nullable();
 
             $table->foreign('id_trip')->references('id_trip')->on('trips')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_user')->references('id_user')->on('people')->onUpdate('cascade')->onDelete('restrict');

@@ -1,3 +1,7 @@
+@php
+    $lineLength = 48;
+@endphp
+
 <text align="center"/>
 <feed line="1"/>
 {{--
@@ -19,7 +23,7 @@
 <feed line="1"/>
 @if($esn_card)
     <text align="left"/>
-    <text>{{ str_repeat('-', 48) }}&#10;</text>
+    <text>{{ str_repeat('-', $lineLength) }}&#10;</text>
     <text>As a member of ESN you can:&#10;</text>
     <text> * join us for trips organised by ESN&#10;</text>
     <text> * attend events exclusive for ESN members&#10;</text>
@@ -27,10 +31,21 @@
     <text> * ESN T-shirt "I was there"&#10;</text>
     <text> * SIM card with 15 GB data bundle and 50 CZK&#10;   prepaid credit&#10;</text>
     <text> * discount on print & copy in the ESN Point&#10;</text>
-    <text>{{ str_repeat('-', 48) }}&#10;</text>
+    <text>{{ str_repeat('-', $lineLength) }}&#10;</text>
     <text align="center"/>
     <feed line="1"/>
 @endif
+
+@isset($receipt->payment_method)
+    @unless($esn_card)
+        <text>{{ str_repeat('-', $lineLength) }}&#10;</text>
+    @endunless
+    <text>{{ $receipt->payment_method->name }}:{{ str_repeat(' ', $lineLength - strlen("{$receipt->payment_method->name}:") - strlen("$receipt->amount CZK")) }}{{ $receipt->amount }} CZK&#10;</text>
+    <text>{{ str_repeat('-', $lineLength) }}&#10;</text>
+    <text align="center"/>
+    <feed line="1"/>
+@endisset
+
 <barcode type="code128" hri="below" font="font_a" width="2" height="32">{A{{ $receipt->hash_id }}</barcode>
 <feed/>
 <text>Printed by {{ $receipt->createdBy->person->getFullName() }}&#10;</text>

@@ -46,6 +46,9 @@
                                 <small class="form-text text-muted">Scan the ESNcard number using the barcode scanner – keyboard layout must be set to English</small>
                             </div>
                         @endif
+
+                        <x-input-payment-methods />
+
                         <protected-submit-button
                             protection-title="Register to ESN?"
                             protection-text="Do you really want to register {{ $exStudent->person->first_name }} to ESN?"

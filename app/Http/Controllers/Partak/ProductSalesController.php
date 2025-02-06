@@ -42,7 +42,8 @@ class ProductSalesController extends Controller
         $receipt = Receipt::create([
             'subject' => $product->name,
             'amount' => $data['paid'],
-            'created_by' => Auth::id()
+            'created_by' => Auth::id(),
+            'payment_method' => $data['payment_method'],
         ]);
 
         $sale = new ProductSale($data);

@@ -50,7 +50,8 @@
                         <tr>
                             <th>Buyer name</th>
                             <th>Buyer e-mail</th>
-                            <th>Amount paid</th>
+                            <th class="text-right">Amount paid</th>
+                            <th></th>
                             <th>Sale date</th>
                         </tr>
                     </thead>
@@ -64,7 +65,8 @@
                             <td>{{ $sale->customer_name }}</td>
                             <td>{{ $sale->customer_email }}</td>
                             @endif
-                            <td>{{ $sale->receipt->amount }} CZK</td>
+                            <td class="text-right pr-1">{{ $sale->receipt->amount }} CZK</td>
+                            <td class="pl-1">@isset($sale->receipt->payment_method)<i class="{{ $sale->receipt->payment_method->icon() }} fa-fw" title="{{ $sale->receipt->payment_method->name }}"></i>@endisset</td>
                             <td>{{ $sale->created_at }}</td>
                         </tr>
                         @endforeach

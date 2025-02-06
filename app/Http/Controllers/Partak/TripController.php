@@ -13,6 +13,7 @@ use App\Exports\TripParticipantsExport;
 use App\Models\Buddy;
 use App\Models\Event;
 use App\Models\Person;
+use App\Models\Receipt;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -157,6 +158,10 @@ class TripController extends Controller
 
         $this->authorize('addParticipant', $trip);
 
+        $request->validate([
+            'payment_method' => ['required', 'payment_method'],
+        ]);
+
         $response = (object) [
             'error' => null,
             'successUpdate' => null,
@@ -167,6 +172,7 @@ class TripController extends Controller
             $responseData = [
                 'paid' => $request->input('paid', 0),
                 'comment' => $request->input('comment'),
+                'payment_method' => $request->input('payment_method'),
             ];
 
             $personData = [];
@@ -506,10 +512,13 @@ class TripController extends Controller
             $part = $trip->buddyParticipants()->where('id', $id_payment)->first();
         }
         $registerby = Buddy::with('person')->find($part->pivot->registered_by);
+        $receipt = Receipt::find($part->pivot->id_receipt);
+
         return view('partak.trips.paymentDetail')->with([
             'trip' => $trip,
             'part' => $part,
             'registerby' => $registerby,
+            'receipt' => $receipt,
         ]);
     }
 

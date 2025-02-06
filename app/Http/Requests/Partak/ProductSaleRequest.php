@@ -23,6 +23,7 @@ class ProductSaleRequest extends FormRequest
             'customer_name' => ['string', 'max:255'],
             'customer_email' => ['email', 'max:255'],
             'paid' => ['required', 'integer'],
+            'payment_method' => ['required', 'payment_method'],
         ];
     }
 }

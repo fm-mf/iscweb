@@ -58,6 +58,7 @@ class OfficeRegistrationController extends Controller
         $data = request()->validate([
             'phone' => ['sometimes', 'required', 'phone:CZ', 'unique:exchange_students'],
             'esn_card_number' => ['sometimes', 'required', 'string', 'unique:exchange_students'],
+            'payment_method' => ['required', 'payment_method'],
         ]);
         $data['esn_registered'] = 'y';
 
@@ -65,12 +66,13 @@ class OfficeRegistrationController extends Controller
             'created_by' => auth()->id(),
             'subject' => 'ESN Membership',
             'amount' => Settings::membershipFee(),
+            'payment_method' => $data['payment_method'],
         ]);
         $data['esn_receipt_id'] = $receipt->id_receipt;
 
         $exchangeStudent->update($data);
 
-        return back()->with([
+        return redirect()->route('partak.users.registration.user', [$exchangeStudent])->with([
             'receipt' => $receipt->id_receipt,
             'receiptType' => 'esn_card',
             'successRegister' => true,

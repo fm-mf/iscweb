@@ -19,6 +19,8 @@
 
             {{ Form::bsNumber('paid', 'Paid', 'required', $product->price, ['min' => 0]) }}
 
+            <x-input-payment-methods />
+
             {{ Form::bsSubmit('Sell') }}
             {{ Form::close() }}
         </div>

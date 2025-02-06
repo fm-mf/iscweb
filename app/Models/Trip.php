@@ -54,7 +54,7 @@ class Trip extends Model
     public function participants()
     {
         return $this->belongsToMany('\App\Models\Person', 'trips_participants', 'id_trip', 'id_user')
-            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id')
+            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id', 'id_receipt')
             ->wherePivot('deleted_at', null);
     }
 
@@ -68,7 +68,7 @@ class Trip extends Model
     public function deletedParticipants()
     {
         return $this->belongsToMany('\App\Models\Person', 'trips_participants', 'id_trip', 'id_user')
-            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id')
+            ->withTimestamps()->withPivot('stand_in', 'paid', 'comment', 'registered_by', 'created_at', 'id', 'id_receipt')
             ->wherePivot('deleted_at', '!=', null);
     }
 
@@ -213,7 +213,8 @@ class Trip extends Model
         $receipt = new Receipt([
             'created_by' => $registeredBy,
             'subject' => $this->event->name,
-            'amount' => $data['paid'] ?? 0
+            'amount' => $data['paid'] ?? 0,
+            'payment_method' => $data['payment_method'],
         ]);
         $receipt->save();
 

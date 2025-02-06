@@ -27,6 +27,8 @@
 
             {{ Form::bsTextarea('comment', 'Comment', '', $part->pivot->comment, ['readonly' => '']) }}
 
+            {{ Form::bsText('payment_method', 'Payment method', null, $receipt->payment_method->name ?? 'N/A', ['readonly' => '']) }}
+
             {{ Form::close() }}
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\PaymentMethod;
 use Hashids\Hashids;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +13,12 @@ class Receipt extends Model
 
     protected $fillable = [
         'created_by', 'refunded_at', 'refunded_by',
-        'subject', 'amount', 'refunded'
+        'subject', 'amount', 'refunded',
+        'payment_method',
+    ];
+
+    protected $casts = [
+        'payment_method' => PaymentMethod::class
     ];
 
     public function createdBy()

@@ -26,8 +26,12 @@
 
             @include('partak.trips.custom-questions', ['id_user' => $part->id_user, 'readonly' => $reservation])
 
-            {{ Form::label('paid', 'Paid', ['class' => 'required']) }}
-            {{ Form::number('paid', $trip->price, ['class' => 'form-control']) }}
+            <div class="form-group">
+                {{ Form::label('paid', 'Paid', ['class' => 'required']) }}
+                {{ Form::number('paid', $trip->price, ['class' => 'form-control', 'required' => 'required']) }}
+            </div>
+
+            <x-input-payment-methods />
 
             {{ Form::bsTextarea('comment', 'Comment') }}
 

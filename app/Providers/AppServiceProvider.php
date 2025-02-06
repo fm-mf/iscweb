@@ -14,7 +14,9 @@ use App\Observers\ContactObserver;
 use App\Observers\DegreeBuddyObserver;
 use App\Observers\DegreeStudentObserver;
 use App\Observers\UserObserver;
+use App\Rules\PaymentMethodRule;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Facades\Excel;
@@ -45,5 +47,7 @@ class AppServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         DegreeStudent::observe(DegreeStudentObserver::class);
         DegreeBuddy::observe(DegreeBuddyObserver::class);
+
+        Validator::extend(PaymentMethodRule::HANDLE, [new PaymentMethodRule(), 'passes']);
     }
 }
