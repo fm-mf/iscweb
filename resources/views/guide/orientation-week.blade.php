@@ -144,7 +144,7 @@
     <h4 id="tandem-evening">Tandem Evening</h4>
     <p>A unique program for improving your language learning and teaching skills organized by ESN Languages team</p>
     <ul class="list-unstyled">
-        <li>When: <strong>16.9. 2024 from 19:00</strong></li>
+        <li>When: <strong>10.2. 2025 from 19:00</strong></li>
         {{--        <li>Where: <strong>TBA</strong></li>--}}
         <li>Where: <a href="https://maps.app.goo.gl/m8uG7dU5pMzgLX2C9" target="_blank" rel="noopener"><strong>ISC HUB</strong> (basement of Masarykova Dormitory - Thákurova 550/1, 162 00 Praha 6 – Dejvice)</a></li>
         {{--        <li>Where: <a href="https://goo.gl/maps/YcQuZdgYB7d6yTnd6" target="_blank" rel="noopener"><strong>Storm Club</strong> (Tachovské náměstí 290/5, 130 00 Praha 3 – Žižkov)</a></li>--}}
