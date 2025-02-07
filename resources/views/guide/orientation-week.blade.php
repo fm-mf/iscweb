@@ -199,6 +199,7 @@
                     <li>Faculty of Transportation (FD / FT) – 9:30, building Konviktská 20, Prague 1; room 205</li>
                     <li>Faculty of Mechanical Engineering (FS / FME) – 9:00, room <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
                     <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
+                    <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 10:00, room 103 (at the ground floor)</li>
 {{--                    <li>Faculty of Architecture (FA) – Possible consultations at room T9:147, Thákurova 9</li>--}}
 
                 </ul>
@@ -271,8 +272,7 @@
             <li>
                 <strong>In-person registration:</strong>
                 <ul>
-                    <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 9:30, meetup at 9:15 in the lobby, building Trojanova 339/13, Praha 2</li>
-                    <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 9:30, room 103 (at the ground floor)</li>
+                    <li>Faculty of Nuclear Sciences and Physical Engineering (FJFI / FNSPE) – 9:30, meetup at 9:15 in the lobby, building Trojanova 339/13, Praha 2, room T-209</li>
                 </ul>
             </li>
             <li class="alert alert-info">
