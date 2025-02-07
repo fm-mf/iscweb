@@ -540,6 +540,14 @@ class Trip extends Model
         );
     }
 
+    public function scopeVisible(Builder $query): Builder
+    {
+        return $query->whereHas(
+            'event',
+            fn (Builder $query): Builder => $query->visible()
+        );
+    }
+
     public function scopeCurrentOwTrips(Builder $query): Builder
     {
         return $query->inCurrentSemester()->owTrips();
@@ -548,6 +556,7 @@ class Trip extends Model
     public static function getCurrentOwTrips(): Collection
     {
         return self::currentOwTrips()
+            ->visible()
             ->with('event')
             ->orderedByStartTime('ASC')
             ->get();

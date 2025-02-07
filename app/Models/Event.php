@@ -98,6 +98,13 @@ class Event extends Model
         return $query->where('ow', 1);
     }
 
+    public function scopeVisible(Builder $query): Builder
+    {
+        return $query
+            ->whereDate('datetime_from', '>=', Carbon::today())
+            ->where('visible_from','<=', Carbon::now());
+    }
+
     /**
      * @param array $attributes
      * @param array $options
@@ -229,8 +236,7 @@ class Event extends Model
     public static function findAllVisible()
     {
         return Event::with('modifiedBy')
-            ->whereDate('datetime_from', '>=', Carbon::today())
-            ->where('visible_from','<=', Carbon::now())
+            ->visible()
             ->orderBy('datetime_from')
             ->get();
     }
