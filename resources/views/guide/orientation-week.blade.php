@@ -123,18 +123,18 @@
     <h4>Slides from the Initial information meeting</h4>
         <ul class="list-unstyled">
             <li>
-                <a href="https://www.youtube.com/watch?v=-fGPpMjjAOQ" target="_blank">
-                    <i class="fab fa-youtube"></i> Recording of the presentations OW Autumn 2024
+                <a href="https://www.youtube.com/watch?v=jKv-Ye6a_xI" target="_blank">
+                    <i class="fab fa-youtube"></i> Recording of the presentations OW Spring 2025
                 </a>
             </li>
             <li>
-                <a href="{{ asset('files/ow-2024_autumn/ow-2024_autumn-registrations_at_faculties.pdf') }}" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Registrations at faculties (Autumn 2024)
+                <a href="{{ asset('files/ow-2025_spring/ow-2025_spring-registrations_at_faculties.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Registrations at faculties (Spring 2025)
                 </a>
             </li>
             <li>
-                <a href="{{ asset('files/ow-2024_autumn/ow-2024_autumn-handout.pdf') }}" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Slides from the presentation OW Autumn 2024
+                <a href="{{ asset('files/ow-2025_spring/ow-2025_spring-handout.pdf') }}" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Slides from the presentation OW Spring 2025
                 </a>
             </li>
         </ul>
@@ -196,7 +196,7 @@
                 <strong>In-person registration:</strong>
                 <ul>
                     <li>Faculty of Electrical Engineering (FEL / FEE) – 9:00, room T2:C3-340</li>
-                    <li>Faculty of Transportation (FD / FT) – 9:30, building Konviktská 20, Prague 1; room 205</li>
+                    <li>Faculty of Transportation (FD / FT) – 9:00, building Konviktská 20, Prague 1; room 205</li>
                     <li>Faculty of Mechanical Engineering (FS / FME) – 9:00, room <a href="https://fs.cvut.cz/en/studies/bachelor-and-master-studies/location-of-lecture-halls-and-classes/" target="_blank">T4:C2-136</a></li>
                     <li>Faculty of Biomedical Engineering (FBMI / FBME) – 9:00 in Kladno building (náměstí Sítná 3105, Kladno), room KL:B-435</li>
                     <li>Masaryk Institute of Advanced Studies (MÚVS / MIAS) – 10:00, room 103 (at the ground floor)</li>
